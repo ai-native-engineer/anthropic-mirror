@@ -16,6 +16,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
+
+Aug 6, 2026
+
+Millennium and Anthropic are building a digital risk analyst with Claude
+
+Enterprise AI
+
+Millennium and Anthropic are building a digital risk analyst with Claude
+
+August 6, 2026
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
 Jul 24, 2026
@@ -240,22 +256,6 @@ April 2, 2026
 
 [Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence](#)Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
-
-Mar 5, 2026
-
-Common workflow patterns for AI agents—and when to use them
-
-Agents
-
-Common workflow patterns for AI agents—and when to use them
-
-March 5, 2026
-
-[Common workflow patterns for AI agents—and when to use them](https://claude.com/blog/common-workflow-patterns-for-ai-agents-and-when-to-use-them)Common workflow patterns for AI agents—and when to use them
-
-[Common workflow patterns for AI agents—and when to use them](#)Common workflow patterns for AI agents—and when to use them
-
 [View more](https://claude.com/blog-category/agents?1e959936_page=2)
 
 Category
@@ -263,6 +263,22 @@ Category
 Product
 
 Usecase
+
+### Millennium and Anthropic are building a digital risk analyst with Claude
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 6, 2026
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
 ### The new rules of context engineering for Claude 5 generation models
 
@@ -488,25 +504,9 @@ April 2, 2026
 
 [Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence](#)Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
-### Common workflow patterns for AI agents—and when to use them
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-March 5, 2026
-
-[Common workflow patterns for AI agents—and when to use them](https://claude.com/blog/common-workflow-patterns-for-ai-agents-and-when-to-use-them)Common workflow patterns for AI agents—and when to use them
-
-[Common workflow patterns for AI agents—and when to use them](#)Common workflow patterns for AI agents—and when to use them
-
 [View more](https://claude.com/blog-category/agents?2f226f2c_page=2)
 
-1 / 2
+1 / 3
 
 No posts for those filters
 

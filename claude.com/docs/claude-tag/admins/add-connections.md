@@ -29,7 +29,7 @@ If you’re in [setup](https://claude.com/docs/claude-tag/admins/setup-overview)
 
 Open the admin page
 
-Go to [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag). Under **Claude Tag’s access**, the **Slack** tab shows your scopes (Default Slack access, then each workspace).
+Go to [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag). Under **Claude Tag’s access**, the **Slack** tab shows your scopes (the organization-wide **Slack** row, then each workspace). The **Slack** row opens as **Default Slack access**.
 
 2
 
@@ -101,7 +101,7 @@ For a shared or external channel, put the narrowed connection in its own bundle 
 
 ##  Connect a service that isn’t in the list
 
-The services with **Connect** buttons on the Credentials tab are presets, not the full set Claude can connect to. Any app with an API can be connected: use **Connect another tool**. See the [Custom connection guide](https://claude.com/docs/claude-tag/admins/connections/custom) for the form fields, credential types, and how to add a custom MCP server.
+The services with **Connect** buttons on the Credentials tab are presets, not the full set Claude can connect to. Any app with an API can be connected: click **Connect** next to **Custom tool** at the bottom of the tab. See the [Custom connection guide](https://claude.com/docs/claude-tag/admins/connections/custom) for the form fields, credential types, and how to add a custom MCP server.
 
 ##  Allow a host without a credential
 
@@ -109,7 +109,7 @@ Claude does channel work in an isolated [sandbox](https://claude.com/docs/claude
 
 * **A domain entry**: a hostname listed on this bundle’s **Domains** tab. Requests to it pass with no credential attached; see [Add a domain](#add-a-domain).
 * **A [connection](#add-a-connection)**: a credential on this bundle’s **Credentials** tab. Requests matching its [allowed websites](#set-allowed-websites) pass with that credential attached.
-* **The scope’s [environment](https://claude.com/docs/claude-tag/concepts/glossary#environment)**: the compute configuration the scope’s sessions run in, which carries its own network access setting, starting at the Trusted level that covers common package registries. Requests to hosts it allows pass with no credential; see [Broad web access through the environment](#broad-web-access-through-the-environment).
+* **The scope’s [environment](https://claude.com/docs/claude-tag/concepts/glossary#environment)**: the compute configuration the scope’s sessions run in, which carries its own network access setting, starting at the Trusted access level that covers common package registries. Requests to hosts it allows pass with no credential; see [Broad web access through the environment](#broad-web-access-through-the-environment).
 
 A host that none of these allows stays unreachable, and when more than one bundle is attached to a scope, the entries of all of them apply. Web search is governed by none of them, because searching happens on Anthropic’s servers rather than in the sandbox; see [Web search vs. network requests](#web-search-vs-network-requests).
 
@@ -122,7 +122,7 @@ To get there, open the bundle from the scope that covers the channel, under **Cl
 * **Ports**: needed only when the service listens on something other than 443
 
 You don’t have to predict the full list up front. When a request is blocked, Claude says so in the thread and names the host; add that host here and retry; if it’s still blocked, start a fresh thread.
-Typical entries are hosts the work calls without a key, such as a docs site or a public API. Common package registries are usually already reachable through the [environment’s Trusted default](#broad-web-access-through-the-environment), and a host that needs a credential belongs in a [connection](#add-a-connection) instead. Entries appear below the form and can be removed individually.
+Typical entries are hosts the work calls without a key, such as a docs site or a public API. Common package registries are usually already reachable through the [environment’s Trusted access default](#broad-web-access-through-the-environment), and a host that needs a credential belongs in a [connection](#add-a-connection) instead. Entries appear below the form and can be removed individually.
 An Admin can edit the Domains tab on an existing bundle; creating the bundle itself needs an Owner.
 
 [Agent Proxy](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy) carries only HTTP and HTTPS. A protocol that isn’t HTTP, such as SSH, can’t cross the proxy, so listing a host here doesn’t make it reachable over SSH.
@@ -130,14 +130,14 @@ An Admin can edit the Domains tab on an existing bundle; creating the bundle its
 ###  Broad web access through the environment
 
 Domain entries allow hosts one at a time. For a scope whose work needs more of the web, the environment setting grants broader access. An [environment](https://claude.com/docs/claude-tag/concepts/glossary#environment) is the sandboxed compute configuration the scope’s sessions run in, and it carries its own network access setting.
-A new environment’s network access level is Trusted, which allows a [documented set of package registries and developer hosts](https://code.claude.com/docs/en/cloud-environments#default-allowed-domains). A channel can already reach hosts like `pypi.org` and `registry.npmjs.org` with no domain entry.
+A new environment’s network access level is Trusted access, which allows a [documented set of package registries and developer hosts](https://code.claude.com/docs/en/cloud-environments#default-allowed-domains). A channel can already reach hosts like `pypi.org` and `registry.npmjs.org` with no domain entry.
 To give a scope broader access, create an environment with a more permissive level and pin it on the scope.
 
 1
 
 Create the environment
 
-From the **Cloud environments** page in [admin settings](https://claude.ai/admin-settings), add an [organization-shared environment](https://code.claude.com/docs/en/cloud-environments#organization-shared-environments) and set its network access level. **Full** allows any domain; see [Network access in the Claude Code docs](https://code.claude.com/docs/en/cloud-environments#network-access) for the other levels. This step takes an Owner or admin.Don’t create the environment at [`claude.ai/code`](https://claude.ai/code): environments you create there belong to your individual account, so they never appear in the picker.
+From the **Cloud environments** page in [admin settings](https://claude.ai/admin-settings), add an [organization-shared environment](https://code.claude.com/docs/en/cloud-environments#organization-shared-environments) and set its network access level. **Full access** allows any domain; see [Network access in the Claude Code docs](https://code.claude.com/docs/en/cloud-environments#network-access) for the other levels. This step takes an Owner or admin.Don’t create the environment at [`claude.ai/code`](https://claude.ai/code): environments you create there belong to your individual account, so they never appear in the picker.
 
 2
 
@@ -156,7 +156,7 @@ With `*` active:
 * A `*` entry never carries a credential, and a connection’s credential still travels only to its [allowed websites](#set-allowed-websites).
 * Private and internal network addresses and cloud metadata endpoints remain blocked.
 
-Without allow-all egress enabled, saving `*` fails with an error saying allow-all hosts is not enabled for this organization. If the capability is later disabled, you can disable an existing `*` entry or narrow it to specific hosts, but you can’t keep it active.
+Without allow-all egress enabled, saving `*` fails with a generic “Couldn’t add domain.” error that doesn’t name the cause. If the capability is later disabled, you can disable an existing `*` entry or narrow it to specific hosts, but you can’t keep it active.
 
 ###  Web search vs. network requests
 
@@ -166,18 +166,21 @@ If the work needs Claude to open and read pages rather than answer from search r
 
 ##  Add a connection
 
-On the bundle’s **Credentials** tab, click **Connect** next to a listed service, or **Connect another tool** for a service not in the list.
+On the bundle’s **Credentials** tab, click **Connect** next to a listed service, or next to **Custom tool** for a service not in the list.
 For a custom connection, choose the credential type:
 
 | Credential type | Use for |
 | --- | --- |
 | Bearer | API keys and OAuth bearer tokens. Most SaaS REST APIs. |
 | Basic | HTTP Basic authentication. |
+| Body parameter | A token the API expects in the request body or query string instead of a header. |
 | AWS SigV4 | Signed requests to AWS APIs with an access key pair. |
-| GCP service account key | Google Cloud APIs via a service-account JSON key. Google Workspace services like Drive and Calendar also use this; see [the Google guide](https://claude.com/docs/claude-tag/admins/connections/google). |
-| OAuth 2.0 client credentials | Server-to-server OAuth. Salesforce uses this. |
+| GCP access token (with Service Account Key) | Google Cloud APIs via a service-account JSON key. Google Workspace services like Drive and Calendar also use this; see [the Google guide](https://claude.com/docs/claude-tag/admins/connections/google). |
+| GCP IAP (with Service Account Key) | Google Cloud services behind Identity-Aware Proxy. |
 | OAuth 2.0 JWT bearer | Server-to-server OAuth. |
-| OAuth 2.0 authorization code | Sign in once as an admin; the agent acts as that account. |
+| OAuth 2.0 client credentials | Server-to-server OAuth. Salesforce uses this. |
+| OAuth 2.0 authorization code (3-legged) | Sign in once as an admin; the agent acts as that account. |
+| GitHub App | GitHub repositories; covered separately at [Configure GitHub access](https://claude.com/docs/claude-tag/admins/configure-github). |
 
 Credentials are injected at the network boundary by Agent Proxy; the model and the sandbox are not given the key. A request to a host you haven’t allowed is blocked, not sent. See [how Agent Proxy works](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy).
 

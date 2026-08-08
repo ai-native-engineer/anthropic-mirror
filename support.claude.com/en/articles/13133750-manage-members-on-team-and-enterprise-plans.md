@@ -1,14 +1,12 @@
 <!-- source: https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans -->
 
-# Manage members on Team and Enterprise plans
-
-Updated over 3 weeks ago
-
 This guide covers how to add, remove, and manage the people on your Team or Enterprise plan.
 
-**Permissions note:** Organization Admins can manage members in **[Organization settings > Members](http://claude.ai/admin-settings/members)**, but only Owners and Primary Owners can access **[Organization](https://claude.ai/admin-settings/organization) [settings > Billing](https://claude.ai/admin-settings/billing)**. For more information, see our article about **[roles and permissions](https://support.claude.com/en/articles/9267276-roles-and-permissions)**.
+**Permissions note:** Organization Admins can manage members in **[Organization settings > Members](https://claude.ai/admin-settings/members)**, but only Owners and Primary Owners can access **[Organization](https://claude.ai/admin-settings/organization) [settings > Billing](https://claude.ai/admin-settings/billing)**. For more information, see our article about **[roles and permissions](https://support.claude.com/en/articles/9267276-roles-and-permissions)**.
 
 For information on purchasing seats or adjusting your plan's seat allocation, see our guides for **[Team plans](https://support.claude.com/en/articles/12004354-purchasing-and-managing-seats)** and **[Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans)**.
+
+---
 
 ## Add members
 
@@ -18,7 +16,7 @@ For information on purchasing seats or adjusting your plan's seat allocation, se
 
 Admins and above can add members by following these steps:
 
-1. Navigate to **[Organization settings > Members](http://claude.ai/admin-settings/members)** and click “Add member.”
+1. Navigate to **[Organization settings > Members](https://claude.ai/admin-settings/members)** and click “Add member.”
 2. Enter the person's email address (it must use one of your organization's **[allowed email domains](https://support.claude.com/en/articles/13325567-account-management-faqs#h_b54c41c86c)**).
 3. Select the appropriate seat type.
 4. Set the role and permissions for the member.
@@ -61,6 +59,8 @@ Organizations with single sign-on (SSO) configured can automate member provision
 
 **Important:** An Owner or Primary Owner must ensure seats are available before new users can be provisioned. We recommend monitoring your seat usage and adding seats proactively to ensure uninterrupted access for your team. You can **[enable group mappings with JIT or SCIM](https://support.claude.com/en/articles/13133195-setting-up-jit-or-scim-provisioning#h_adee31eeba) to provision users directly to a specific role and seat tier**.
 
+---
+
 ## Member-to-member invites
 
 Organization members can invite teammates by email, even if they aren't admins. This makes it easier for your team to grow organically without requiring admin involvement for every new member.
@@ -83,9 +83,11 @@ Invites sent by members follow the same domain restrictions as other join method
 
 Admins can enable or disable member-to-member invites from the admin settings. When disabled, only admins can send invitations. Invitees added through member invites are assigned the default member role and placed in the lowest available seat tier.
 
+---
+
 ## Remove members
 
-You can remove a member by navigating to **[Organization settings > Members](http://claude.ai/admin-settings/members)**, clicking the menu button to the right of the member, then selecting "Remove from team."
+You can remove a member by navigating to **[Organization settings > Members](https://claude.ai/admin-settings/members)**, clicking the menu button to the right of the member, then selecting "Remove from team."
 
 For Enterprise organizations using SCIM provisioning, members are automatically removed from Claude when they are removed from your Identity Provider.
 
@@ -99,6 +101,8 @@ Removing a member frees up their seat for reassignment, but does not automatical
 
 **Note:** You cannot remove yourself as a Primary Owner or Owner. Another Primary Owner or Owner must remove you from the team.
 
+---
+
 ## Export member data
 
 Admins and above can export a CSV of your organization's current member list from your organization settings.
@@ -107,19 +111,23 @@ The export includes member details such as name, email address, role, and seat t
 
 To export:
 
-1. Navigate to **[Organization settings > Members](http://claude.ai/admin-settings/members)**.
+1. Navigate to **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 2. Click the "Export CSV" button at the top of the **Members** section.
 3. A CSV file will download to your device.
+
+---
 
 ## Manage invitations
 
 ### Resend an expired invitation
 
-You can resend an invite from **[Organization settings > Members](http://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select to resend the invite.
+You can resend an invite from **[Organization settings > Members](https://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select to resend the invite.
 
 ### Revoke a pending invitation
 
-You can revoke a pending invite from **[Organization settings > Members](http://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select "Remove from team."
+You can revoke a pending invite from **[Organization settings > Members](https://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select "Remove from team."
+
+---
 
 ## Frequently asked questions
 
@@ -135,7 +143,7 @@ To add a member that you previously removed, follow the same steps as adding a n
 
 The current Primary Owner can transfer ownership by:
 
-1. Navigate to **[Organization settings > Members](http://claude.ai/admin-settings/members)**.
+1. Navigate to **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 2. Click the Role dropdown next to the new user and select "Primary Owner."
 3. Type the new Primary Owner's email address in the modal to confirm and transfer ownership.
 

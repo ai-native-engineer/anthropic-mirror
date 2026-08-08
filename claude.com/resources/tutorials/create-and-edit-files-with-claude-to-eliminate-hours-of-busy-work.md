@@ -90,6 +90,14 @@ Simple file manipulation is just the beginning — the real power of file creati
 
 ## Related tutorials
 
+[How to choose between voice mode and dictation](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)How to choose between voice mode and dictation
+
+How to choose between voice mode and dictation
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)Tutorial
+
 [Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
 
 Delegating and scheduling tasks in Claude Cowork
@@ -113,11 +121,3 @@ Best practices for using @Claude
 Tutorial
 
 [Tutorial](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Tutorial
-
-[Using Claude Cowork for legal: answer fast questions on past decisions](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
-
-Using Claude Cowork for legal: answer fast questions on past decisions
-
-Tutorial
-
-[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial

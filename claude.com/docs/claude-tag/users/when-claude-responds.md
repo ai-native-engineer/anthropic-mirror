@@ -20,8 +20,21 @@ Where you send the message decides whether you need the mention.
 | A thread Claude is already in | Yes, unless you’ve [quieted the thread](#quiet-one-conversation). Once Claude has joined, every reply there reaches it without another mention |
 | A channel, top-level | Sometimes, when it can answer a question or pick up a task. Include `@Claude` to guarantee a reply, or [turn unprompted replies off](#quiet-the-whole-channel) |
 
-All of this is adjustable. You can [quiet a single thread](#quiet-one-conversation), [quiet unprompted replies across a channel](#quiet-the-whole-channel), or tell Claude which kinds of messages to respond to.
+All of this is adjustable. You can [quiet a single thread](#quiet-one-conversation), [turn automatic replies off across a channel](#turn-automatic-replies-on-or-off), or tell Claude which kinds of messages to respond to.
 For work that should happen without anyone typing a message, use a [routine](https://claude.com/docs/claude-tag/users/proactivity): scheduled posts, channel watches, and pull-request subscriptions run on their own trigger and post into the channel.
+
+##  Turn automatic replies on or off
+
+The **Respond automatically** setting controls whether Claude replies to a channel’s messages without an @-mention. Each channel has its own. When it’s on, Claude may reply to a message it judges warrants one, as [What triggers a response](#what-triggers-a-response) describes. When it’s off, Claude replies in that channel only when someone @-mentions it.
+All three places below change the same setting, so a change you make in one appears in the others.
+
+| Where | How |
+| --- | --- |
+| In Slack | Ask Claude in the channel, for example “@Claude only respond in this channel when someone @-mentions you” or “@Claude respond to messages here even when nobody mentions you.” Claude confirms the change. |
+| The channel’s Configure page | Open the **Configure** link in the footer of any Claude reply and switch the **Respond automatically** toggle. See [Configure Claude for a channel](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel). |
+| The Claude Tag admin page (admins only) | At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), on the **Slack** tab under **Claude Tag’s access**, open the channel’s scope and switch **Respond automatically** in its **Advanced** settings. |
+
+The setting covers the channel’s messages, not DMs. To quiet a single thread instead of the whole channel, [ask Claude in that thread](#quiet-one-conversation). Work that runs on a schedule or an event rather than in response to a message is a [routine](https://claude.com/docs/claude-tag/users/proactivity), which has its own controls.
 
 ##  The name on a reply
 
@@ -46,14 +59,14 @@ Claude stops following that thread, and the rest of the channel is unaffected. T
 
 ###  Quiet the whole channel
 
-Save a mention-only instruction to channel memory.
+Turn the channel’s [**Respond automatically**](#turn-automatic-replies-on-or-off) setting off, so Claude replies there only when @-mentioned. From Slack, ask Claude directly.
 
 ```
-@Claude remember for this channel: only respond when someone @-mentions you directly.
+@Claude only respond in this channel when someone @-mentions you directly.
 ```
 
-Claude confirms what it saved, and the instruction applies to everyone’s threads in the channel, not only yours.
-Threads it already joined keep forwarding replies; quiet those individually with the in-thread line above. The saved instruction is the channel-wide control; the [`!mute` command](https://claude.com/docs/claude-tag/users/commands#mute-or-unmute-a-thread) quiets one thread at a time and does nothing at a channel’s top level.
+Claude confirms the change, which is channel-wide, not just for you. You can make the same change with the toggle on the channel’s Configure page, and an admin can make it from the Claude Tag admin page.
+Threads Claude already joined keep forwarding replies, so quiet those individually with the in-thread line above. The [`!mute` command](https://claude.com/docs/claude-tag/users/commands#mute-or-unmute-a-thread) quiets one thread at a time and does nothing at a channel’s top level.
 
 ###  Remove Claude Tag from the channel
 
@@ -68,7 +81,7 @@ Claude can no longer read or post in that channel. Any member can run this unles
 ##  When Claude quiets itself
 
 When a channel’s messages stop giving Claude anything to respond to, with no questions it can answer and no tasks it can pick up, Claude turns unprompted replies off there on its own. Mentioning `@Claude` turns unprompted replies back on.
-A [mention-only instruction saved to channel memory](#quiet-the-whole-channel) stays in effect until someone changes it.
+A channel whose [**Respond automatically**](#turn-automatic-replies-on-or-off) setting is off stays that way until someone changes the setting.
 
 ##  Messages that never get a reply
 
@@ -80,7 +93,7 @@ A few cases produce silence even when the message includes a mention:
 * **Slack Connect channels.** Channels shared with another company are always off.
 
 When the workspaces sharing a channel all belong to one Claude organization, Claude replies there, but with only your organization’s default access and settings. The repositories, instructions, and memory set up for that channel or its workspaces don’t apply, and Claude posts a notice in the thread explaining this from time to time. The guest check above still applies first where guest access is restricted.
-To confirm a quieting instruction saved, ask `@Claude what do you remember about responding in this channel?`; [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory) covers where instructions like these are stored and how to change them.
+To confirm a channel’s setting, check the **Respond automatically** toggle on its [Configure page](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel). To confirm an instruction Claude saved, ask `@Claude what do you remember about responding in this channel?`, and see [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory) for where instructions are stored and how to change them.
 
 ##  Related resources
 

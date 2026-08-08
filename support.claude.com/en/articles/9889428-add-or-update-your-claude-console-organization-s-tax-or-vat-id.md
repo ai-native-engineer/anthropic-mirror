@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9889428-add-or-update-your-claude-console-organization-s-tax-or-vat-id -->
 
-# Add or update your Claude Console organization's tax or VAT ID
-
-March 16, 2026
-
 ## Add your tax or VAT ID during sign-up
 
 When create a Claude Console organization, you may have the option to enter your tax or VAT ID depending on your location:

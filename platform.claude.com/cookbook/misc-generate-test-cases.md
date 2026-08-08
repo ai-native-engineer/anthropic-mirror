@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/misc-generate-test-cases -->
 
-# Generate Synthetic Test Data for Your Prompt Template
+#  Generate Synthetic Test Data for Your Prompt Template
 
 Imagine you have a prompt roughly along these lines:
 
@@ -21,92 +21,137 @@ How can you test this prompt template? Maybe you have some real-life values you 
 2. Prompt Improvement with Multishot Examples
    Giving Claude examples is perhaps the best way to improve its performance. This notebook can help you generate realistic inputs which is half the battle in getting ideal input/output pairs.
 
-python
+
 
-```
 % pip install anthropic IPython
-```
 
-python
+
 
-```
 import re
 
 import anthropic
 
 # Enter your API key here
-api_key = ""
-CLIENT = anthropic.Anthropic(api_key=api_key)
-MODEL_NAME = "claude-sonnet-4-6"
-```
+
+api\_key = ""
+
+CLIENT = anthropic.Anthropic(api\_key=api\_key)
+
+MODEL\_NAME = "claude-sonnet-4-6"
 
 Let's start by defining some helper functions that we'll use throughout this notebook.
 
-python
+
 
-```
-# First, we have the `extract_variables` function,
+# First, we have the `extract\_variables` function,
+
 # It takes in a prompt template and extracts the double-mustache-bracketed "variables" contained.
-def extract_variables(prompt_template):
-    """Extract variables from a prompt template."""
-    pattern = r"{{([^}]+)}}"
-    variables = re.findall(pattern, prompt_template)
-    return set(variables)
 
-# Next, we have `construct_variables_names`, which just joins them together connected by newlines.
-def construct_variables_names(prompt_template):
-    """Construct a string of variable names from a prompt template."""
-    variables = extract_variables(prompt_template)
-    return "\n".join(variables)
+def extract\_variables(prompt\_template):
 
-# The `construct_variables_block` function takes in the list of variables, and constructs a "variables block"
+"""Extract variables from a prompt template."""
+
+pattern = r"{{([^}]+)}}"
+
+variables = re.findall(pattern, prompt\_template)
+
+return set(variables)
+
+# Next, we have `construct\_variables\_names`, which just joins them together connected by newlines.
+
+def construct\_variables\_names(prompt\_template):
+
+"""Construct a string of variable names from a prompt template."""
+
+variables = extract\_variables(prompt\_template)
+
+return "\n".join(variables)
+
+# The `construct\_variables\_block` function takes in the list of variables, and constructs a "variables block"
+
 # The variables block might look like this, if the variables were 'animal' and 'topic':
+
 """
+
 <animal>
+
 [a full, complete, value for the variable "animal"]
+
 </animal>
+
 <topic>
+
 [a full, complete, value for the variable "topic"]
+
 </topic>
+
 """
 
-def construct_variables_block(prompt_template):
-    """Construct a variables block for the synthetic test data prompt."""
-    variables = extract_variables(prompt_template)
-    output = ""
-    for v in variables:
-        output += f"<{v}>\n"
-        output += f'[a full, complete, value for the variable "{v}". (You do not need to repeat the variable name inside the tags.)]\n'
-        output += f"</{v}>\n"
-    return output.strip()
+def construct\_variables\_block(prompt\_template):
 
-# `construct_examples` takes a dictionary of {variable: value} and constructs an XML-formatted example.
+"""Construct a variables block for the synthetic test data prompt."""
+
+variables = extract\_variables(prompt\_template)
+
+output = ""
+
+for v in variables:
+
+output += f"<{v}>\n"
+
+output += f'[a full, complete, value for the variable "{v}". (You do not need to repeat the variable name inside the tags.)]\n'
+
+output += f"</{v}>\n"
+
+return output.strip()
+
+# `construct\_examples` takes a dictionary of {variable: value} and constructs an XML-formatted example.
+
 # E.g. if the dict is
+
 # {'animal': 'cat', 'topic': 'movement patterns'}, then the example would be
+
 """
+
 <example>
+
 <variables>
+
 <animal>
+
 cat
+
 </animal>
+
 <topic>
+
 movement patterns
+
 </topic>
+
 </variables>
+
 </example>
+
 """
 
-def construct_example_block(variable_dict):
-    """Construct an example block from a dictionary of variables."""
-    output = "<example>\n<variables>\n"
-    for k, v in variable_dict.items():
-        output += f"<{k}>\n{v}\n</{k}>\n"
-    output = output.strip()
-    output += "\n</variables>\n</example>"
-    return output
-```
+def construct\_example\_block(variable\_dict):
 
-## Prompt Template for Generating the Data
+"""Construct an example block from a dictionary of variables."""
+
+output = "<example>\n<variables>\n"
+
+for k, v in variable\_dict.items():
+
+output += f"<{k}>\n{v}\n</{k}>\n"
+
+output = output.strip()
+
+output += "\n</variables>\n</example>"
+
+return output
+
+##  Prompt Template for Generating the Data
 
 The general idea of these prompt templates is to take a user-submitted prompt template with variables, and construct some values for the variables to fill the template.
 
@@ -114,175 +159,259 @@ There are actually two prompt templates below; one is formatted assuming that th
 
 What they have in common is that both templates start by giving Claude context about the situation, and directing Claude to carefully think through the specs of each variable individually as well as the user-provided prompt template as a whole before outputting the test cases.
 
-python
+
 
-```
 # Formatting Prompt Templates for Synthetic Evaluations
 
 # This function prepares the prompt template for generating synthetic test data.
 
-def format_prompt_template_for_synth_evals(prompt_template, examples=None):
-    """Format a prompt template for synthetic evaluations."""
-    synth_test_data_prompt_template_with_example = """<Prompt Template>
-{{PROMPT_TEMPLATE}}
+def format\_prompt\_template\_for\_synth\_evals(prompt\_template, examples=None):
+
+"""Format a prompt template for synthetic evaluations."""
+
+synth\_test\_data\_prompt\_template\_with\_example = """<Prompt Template>
+
+{{PROMPT\_TEMPLATE}}
+
 </Prompt Template>
 
 Your job is to construct a test case for the prompt template above. This template contains "variables", which are placeholders to be filled in later. In this case, the variables are:
 
 <variables>
-{{CONSTRUCT_VARIABLES_NAMES}}
+
+{{CONSTRUCT\_VARIABLES\_NAMES}}
+
 </variables>
 
 Here are the example test cases provided by the user.
+
 <examples>
+
 {{EXAMPLES}}
+
 </examples>
 
 First, in <planning> tags, do the following:
 
 1. Summarize the prompt template. What is the goal of the user who created it?
+
 2. For each variable in <variables>, carefully consider what a paradigmatic, realistic example of that variable would look like. You'll want to note who will be responsible "in prod" for supplying values. Written by a human "end user"? Downloaded from a website? Extracted from a database? Think about things like length, format, and tone in addition to semantic content. Use the examples provided by the user to guide this exercise. The goal is to acquire a sense of the statistical distribution the examples are being drawn from. The example you write should be drawn from that same distribution, but sufficiently different from the examples that it provides additional signal. A tricky balancing act, but I have faith in you.
 
 Once you're done, output a test case for this prompt template with a full, complete, value for each variable. The output format should consist of a tagged block for each variable, with the value inside the block, like the below:
 
 <variables>
-{{CONSTRUCT_VARIABLES_BLOCK}}
+
+{{CONSTRUCT\_VARIABLES\_BLOCK}}
+
 </variables>"""
 
-    synth_test_data_prompt_template_without_example = """<Prompt Template>
-{{PROMPT_TEMPLATE}}
+synth\_test\_data\_prompt\_template\_without\_example = """<Prompt Template>
+
+{{PROMPT\_TEMPLATE}}
+
 </Prompt Template>
 
 Your job is to construct a test case for the prompt template above. This template contains "variables", which are placeholders to be filled in later. In this case, the variables are:
 
 <variables>
-{{CONSTRUCT_VARIABLES_NAMES}}
+
+{{CONSTRUCT\_VARIABLES\_NAMES}}
+
 </variables>
 
 First, in <planning> tags, do the following:
 
 1. Summarize the prompt template. What is the goal of the user who created it?
+
 2. For each variable in <variables>, carefully consider what a paradigmatic, realistic example of that variable would look like. You'll want to note who will be responsible "in prod" for supplying values. Written by a human "end user"? Downloaded from a website? Extracted from a database? Think about things like length, format, and tone in addition to semantic content.
 
 Then, output a test case for this prompt template with a full, complete, value for each variable. The output format should consist of a tagged block for each variable, with the value inside the block, like the below:
+
 <variables>
-{{CONSTRUCT_VARIABLES_BLOCK}}
+
+{{CONSTRUCT\_VARIABLES\_BLOCK}}
+
 </variables>"""
 
-    if examples:
-        examples_block = "\n".join([construct_example_block(example) for example in examples])
-        return (
-            synth_test_data_prompt_template_with_example.replace(
-                "{{PROMPT_TEMPLATE}}", prompt_template
-            )
-            .replace("{{CONSTRUCT_VARIABLES_NAMES}}", construct_variables_names(prompt_template))
-            .replace("{{CONSTRUCT_VARIABLES_BLOCK}}", construct_variables_block(prompt_template))
-            .replace("{{EXAMPLES}}", examples_block)
-        )
-    else:
-        return (
-            synth_test_data_prompt_template_without_example.replace(
-                "{{PROMPT_TEMPLATE}}", prompt_template
-            )
-            .replace("{{CONSTRUCT_VARIABLES_NAMES}}", construct_variables_names(prompt_template))
-            .replace("{{CONSTRUCT_VARIABLES_BLOCK}}", construct_variables_block(prompt_template))
-        )
-```
+if examples:
+
+examples\_block = "\n".join([construct\_example\_block(example) for example in examples])
+
+return (
+
+synth\_test\_data\_prompt\_template\_with\_example.replace(
+
+"{{PROMPT\_TEMPLATE}}", prompt\_template
+
+)
+
+.replace("{{CONSTRUCT\_VARIABLES\_NAMES}}", construct\_variables\_names(prompt\_template))
+
+.replace("{{CONSTRUCT\_VARIABLES\_BLOCK}}", construct\_variables\_block(prompt\_template))
+
+.replace("{{EXAMPLES}}", examples\_block)
+
+)
+
+else:
+
+return (
+
+synth\_test\_data\_prompt\_template\_without\_example.replace(
+
+"{{PROMPT\_TEMPLATE}}", prompt\_template
+
+)
+
+.replace("{{CONSTRUCT\_VARIABLES\_NAMES}}", construct\_variables\_names(prompt\_template))
+
+.replace("{{CONSTRUCT\_VARIABLES\_BLOCK}}", construct\_variables\_block(prompt\_template))
+
+)
 
 Next, another quick helper function for filling in the appropriate prompt template and calling Claude.
 
-python
+
 
-```
-def get_test_data(prompt_template, examples, custom_planning=None):
-    """Generate test data using the Claude API."""
-    synth_eval_prompt_ready = format_prompt_template_for_synth_evals(prompt_template, examples)
+def get\_test\_data(prompt\_template, examples, custom\_planning=None):
 
-    messages = [
-        {
-            "role": "user",
-            "content": synth_eval_prompt_ready,
-        }
-    ]
-    if custom_planning:
-        messages.append(
-            {
-                "role": "assistant",
-                "content": custom_planning,
-            }
-        )
+"""Generate test data using the Claude API."""
 
-    message = (
-        CLIENT.messages.create(
-            max_tokens=4000,
-            messages=messages,
-            model=MODEL_NAME,
-            temperature=1,
-        )
-        .content[0]
-        .text
-    )
+synth\_eval\_prompt\_ready = format\_prompt\_template\_for\_synth\_evals(prompt\_template, examples)
 
-    return message
-```
+messages = [
 
-python
+{
 
-```
+"role": "user",
+
+"content": synth\_eval\_prompt\_ready,
+
+}
+
+]
+
+if custom\_planning:
+
+messages.append(
+
+{
+
+"role": "assistant",
+
+"content": custom\_planning,
+
+}
+
+)
+
+message = (
+
+CLIENT.messages.create(
+
+max\_tokens=4000,
+
+messages=messages,
+
+model=MODEL\_NAME,
+
+temperature=1,
+
+)
+
+.content[0]
+
+.text
+
+)
+
+return message
+
+
+
 # We'll use this function to sample Claude's response to the filled-in template,
+
 # once we have our example values/test case.
 
-def call_claude_with_template(prompt_template, variables):
-    """Call Claude with a filled prompt template."""
-    filled_template = prompt_template
-    for var, value in variables.items():
-        filled_template = filled_template.replace(f"{{{{{var}}}}}", value)
+def call\_claude\_with\_template(prompt\_template, variables):
 
-    message = (
-        CLIENT.messages.create(
-            max_tokens=4000,
-            messages=[
-                {
-                    "role": "user",
-                    "content": filled_template,
-                }
-            ],
-            model=MODEL_NAME,
-            temperature=0.7,
-        )
-        .content[0]
-        .text
-    )
+"""Call Claude with a filled prompt template."""
 
-    return message
-```
+filled\_template = prompt\_template
+
+for var, value in variables.items():
+
+filled\_template = filled\_template.replace(f"{{{{{var}}}}}", value)
+
+message = (
+
+CLIENT.messages.create(
+
+max\_tokens=4000,
+
+messages=[
+
+{
+
+"role": "user",
+
+"content": filled\_template,
+
+}
+
+],
+
+model=MODEL\_NAME,
+
+temperature=0.7,
+
+)
+
+.content[0]
+
+.text
+
+)
+
+return message
 
 Now we can start to put the pieces together. To start, enter your prompt template here.
 
-python
+
 
-```
 # Replace this with your prompt template!
+
 # Use double-brackets to indicate variables
+
 # Here's an example:
-prompt_template = """You are a customer support bot for Acme Corporation.
+
+prompt\_template = """You are a customer support bot for Acme Corporation.
+
 Here is an FAQ with Acme's relevant policies:
 
 <documents>
+
 {{DOCUMENTS}}
+
 </documents>
 
 Please respond to this customer support question using details from the policies:
 
 <question>
+
 {{QUESTION}}
+
 </question>"""
 
-variables = extract_variables(prompt_template)
+variables = extract\_variables(prompt\_template)
+
 print("\nIdentified variables:")
+
 for var in variables:
-    print(f"- {var}")
-```
+
+print(f"- {var}")
+
+
 
 ```
 Identified variables:
@@ -292,51 +421,61 @@ Identified variables:
 
 Next, if you have any "golden examples" of inputs and ideal outputs, you can enter those. The code is commented out for now.
 
-python
+
 
-```
-planning_text = None
-USER_EXAMPLES = []
+planning\_text = None
+
+USER\_EXAMPLES = []
 
 # if input("\nDo you want to provide an example value for your variables? (y/n): ").lower() == 'y':
-#     example = {}
-#     for var in variables:
-#         example[var] = input(f"Enter an example value for {var}: ")
-#     USER_EXAMPLES.append(example)
-```
+
+# example = {}
+
+# for var in variables:
+
+# example[var] = input(f"Enter an example value for {var}: ")
+
+# USER\_EXAMPLES.append(example)
 
 Next, we can get the test case generation prompt template filled out with this information, and get a test case!
 
-python
+
 
-```
-result = get_test_data(prompt_template, USER_EXAMPLES, planning_text)
-```
+result = get\_test\_data(prompt\_template, USER\_EXAMPLES, planning\_text)
 
 Now, let's take a look at both the test case and the planning that Claude used to generate it.
 
-python
+
 
-```
-planning_match = re.search(r"<planning>(.*?)</planning>", result, re.DOTALL)
-if planning_match and not planning_text:
-    planning_text = "<planning>\n" + planning_match.group(1).strip() + "\n</planning>"
+planning\_match = re.search(r"<planning>(.\*?)</planning>", result, re.DOTALL)
 
-extracted_variables = {}
+if planning\_match and not planning\_text:
+
+planning\_text = "<planning>\n" + planning\_match.group(1).strip() + "\n</planning>"
+
+extracted\_variables = {}
+
 for var in variables:
-    var_match = re.search(f"<{var}>(.*?)</{var}>", result[result.index("<variables>") :], re.DOTALL)
-    if var_match:
-        extracted_variables[var] = var_match.group(1).strip()
 
-USER_EXAMPLES.append(extracted_variables)
+var\_match = re.search(f"<{var}>(.\*?)</{var}>", result[result.index("<variables>") :], re.DOTALL)
+
+if var\_match:
+
+extracted\_variables[var] = var\_match.group(1).strip()
+
+USER\_EXAMPLES.append(extracted\_variables)
 
 print("~~~~~~~~~~~\nGenerated test case:\n~~~~~~~~~~~")
-for var, value in extracted_variables.items():
-    print(f"{var}:\n{value}\n")
+
+for var, value in extracted\_variables.items():
+
+print(f"{var}:\n{value}\n")
 
 print("~~~~~~~~~~~\nPlanning:\n~~~~~~~~~~~")
-print(planning_text)
-```
+
+print(planning\_text)
+
+
 
 ```
 ~~~~~~~~~~~
@@ -397,50 +536,61 @@ From here, there are a few ways we can go. We could generate more test cases, or
 * Have Claude tell itself to make the documents longer and more detailed.
 * Have Claude tell itself to make the customer support query more or less formal.
 
-python
+
 
-```
-planning_text = planning_text.replace(
-    "each with a question and answer format",
-    "each with a question and answer format and associated number.",
+planning\_text = planning\_text.replace(
+
+"each with a question and answer format",
+
+"each with a question and answer format and associated number.",
+
 )
+
 # You might have slightly different planning text and therefore need to rewrite the replace.
-```
 
 Let's reset our examples, but use this planning text as a prefill. (This saves a little bit of sampling time.)
 
-python
+
 
-```
-USER_EXAMPLES = []
-result = get_test_data(prompt_template, USER_EXAMPLES, planning_text)
-```
+USER\_EXAMPLES = []
+
+result = get\_test\_data(prompt\_template, USER\_EXAMPLES, planning\_text)
 
 Now let's see the new results.
 
-python
+
 
-```
 # Copied and pasted from a cell above.
-planning_match = re.search(r"<planning>(.*?)</planning>", result, re.DOTALL)
-if planning_match and not planning_text:
-    planning_text = "<planning>\n" + planning_match.group(1).strip() + "\n</planning>"
 
-extracted_variables = {}
+planning\_match = re.search(r"<planning>(.\*?)</planning>", result, re.DOTALL)
+
+if planning\_match and not planning\_text:
+
+planning\_text = "<planning>\n" + planning\_match.group(1).strip() + "\n</planning>"
+
+extracted\_variables = {}
+
 for var in variables:
-    var_match = re.search(f"<{var}>(.*?)</{var}>", result[result.index("<variables>") :], re.DOTALL)
-    if var_match:
-        extracted_variables[var] = var_match.group(1).strip()
 
-USER_EXAMPLES.append(extracted_variables)
+var\_match = re.search(f"<{var}>(.\*?)</{var}>", result[result.index("<variables>") :], re.DOTALL)
+
+if var\_match:
+
+extracted\_variables[var] = var\_match.group(1).strip()
+
+USER\_EXAMPLES.append(extracted\_variables)
 
 print("~~~~~~~~~~~\nGenerated test case:\n~~~~~~~~~~~")
-for var, value in extracted_variables.items():
-    print(f"{var}:\n{value}\n")
+
+for var, value in extracted\_variables.items():
+
+print(f"{var}:\n{value}\n")
 
 print("~~~~~~~~~~~\nPlanning:\n~~~~~~~~~~~")
-print(planning_text)
-```
+
+print(planning\_text)
+
+
 
 ```
 ~~~~~~~~~~~
@@ -501,35 +651,43 @@ Great, it did the numbered Q and A!
 
 Let's make another example. This one will use the example we already have, so hopefully it will be interestingly different.
 
-python
+
 
-```
-result = get_test_data(prompt_template, USER_EXAMPLES, planning_text)
-```
+result = get\_test\_data(prompt\_template, USER\_EXAMPLES, planning\_text)
 
-python
+
 
-```
 # Copied and pasted from a cell above.
-planning_match = re.search(r"<planning>(.*?)</planning>", result, re.DOTALL)
-if planning_match and not planning_text:
-    planning_text = "<planning>\n" + planning_match.group(1).strip() + "\n</planning>"
 
-extracted_variables = {}
+planning\_match = re.search(r"<planning>(.\*?)</planning>", result, re.DOTALL)
+
+if planning\_match and not planning\_text:
+
+planning\_text = "<planning>\n" + planning\_match.group(1).strip() + "\n</planning>"
+
+extracted\_variables = {}
+
 for var in variables:
-    var_match = re.search(f"<{var}>(.*?)</{var}>", result[result.index("<variables>") :], re.DOTALL)
-    if var_match:
-        extracted_variables[var] = var_match.group(1).strip()
 
-USER_EXAMPLES.append(extracted_variables)
+var\_match = re.search(f"<{var}>(.\*?)</{var}>", result[result.index("<variables>") :], re.DOTALL)
+
+if var\_match:
+
+extracted\_variables[var] = var\_match.group(1).strip()
+
+USER\_EXAMPLES.append(extracted\_variables)
 
 print("~~~~~~~~~~~\nGenerated test case:\n~~~~~~~~~~~")
-for var, value in extracted_variables.items():
-    print(f"{var}:\n{value}\n")
+
+for var, value in extracted\_variables.items():
+
+print(f"{var}:\n{value}\n")
 
 print("~~~~~~~~~~~\nPlanning:\n~~~~~~~~~~~")
-print(planning_text)
-```
+
+print(planning\_text)
+
+
 
 ```
 ~~~~~~~~~~~

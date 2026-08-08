@@ -10,7 +10,7 @@ Delete a Message Batch.
 
 Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -40,22 +40,22 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  deletedMessageBatch, err := client.Messages.Batches.Delete(context.TODO(), "message_batch_id")
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", deletedMessageBatch.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	deletedMessageBatch, err := client.Messages.Batches.Delete(context.TODO(), "message_batch_id")
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", deletedMessageBatch.ID)
 }
 ```
 

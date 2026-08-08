@@ -68,7 +68,7 @@ You’ll lose document preview access but your conversation history remains.
 
 For reconnection errors:
 
-1. Navigate to **Settings > Integrations**
+1. Navigate to **Customize > Connectors**
 2. Find Google Drive
 3. Click the menu button (…)
 4. Select “Disconnect”

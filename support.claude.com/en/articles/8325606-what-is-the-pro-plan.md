@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8325606-what-is-the-pro-plan -->
 
-# What is the Pro plan?
-
-Updated over 2 weeks ago
-
 This article is about paid Pro plans for individual consumers. If you're part of an organization looking to use Claude with your team, refer to **[Team and Enterprise Plans](https://support.claude.com/en/collections/9387370-team-and-enterprise-plans)**.
 
 The Pro plan is a paid plan for our Claude chat experience. It is currently available in certain **[supported locations](https://support.claude.com/en/articles/8461763-where-can-i-access-claude)**.
@@ -22,6 +18,8 @@ Learn how to **[sign up for the Pro plan](https://support.claude.com/en/articles
 
 **Note:**The Pro plan does not include API usage through the Claude Console. If you're interested in both enhanced Claude features and the Claude API, you'll need to **[set up Console access](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api)** to pay for API usage separately.
 
+---
+
 ## How much does the Pro plan cost?
 
 The Pro plan is available for $20 per month (US), with pricing in your local currency where supported. Monthly pricing varies by region, and some regions include applicable taxes in the displayed price while others add tax at checkout.
@@ -37,6 +35,8 @@ Price and plans are subject to change at Anthropic's discretion.
 We do not offer standard discounted pricing any of our paid plans, including Pro plans. With that said, anyone in a supported location can access the free version of Claude by navigating to claude.ai and signing up using an email address.
 
 We occasionally run limited-time promotions, but we don't have any standing discounts available upon request. These promotional offers are typically announced through our official channels when available. If you're interested in potential future promotions, we recommend following our official social media accounts or signing up for our newsletter to be notified of any special offers. Our Support team cannot issue one-off discounts or coupons.
+
+---
 
 ## Does the Pro plan have any usage limits?
 
@@ -54,4 +54,8 @@ Our Max plans offer more usage for individuals than Pro plans. For additional in
 
 Pro subscribers can also enable usage credits to continue working with Claude beyond the plan’s included usage limits. For more information and instructions for enabling this feature, see **[Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-)**.
 
-[What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)[What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)[Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)[View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)[Holiday 2025 Usage Promotion](https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion)
+* [What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)
+* [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+* [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
+* [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+* [Claude Fable 5 on your plan](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan)

@@ -1,12 +1,10 @@
 <!-- source: https://support.claude.com/en/articles/9547008-publish-and-share-artifacts -->
 
-# Publish and share artifacts
-
-Updated over a week ago
-
 Artifacts are a powerful way to create content within Claude. You can take your creations further by sharing them so others can view and interact with them. If you see a published artifact you like, you can copy the code into a chat of your own and build on it from there. This article covers how to publish artifacts publicly and share them within your organization.
 
 **Important:** We no longer support artifacts without **Code execution and file creation** enabled in **[Settings > Capabilities](https://claude.ai/settings/capabilities)** (Free, Pro, Max) or **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)** (Team, Enterprise).
+
+---
 
 ## Publishing vs. sharing
 
@@ -16,6 +14,8 @@ Claude uses different terms depending on your plan:
 * **Sharing** (Team, Enterprise): Makes your artifact available within your organization only. Viewers must be logged into your Team or Enterprise account to access it.
 
 **Note:** Live artifacts created in Claude Cowork follow different rules. They can be shared on Team and Enterprise plans only, within your organization, and can't be published publicly on any plan. Learn more about **[using live artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork)**.
+
+---
 
 ## Publish artifacts
 
@@ -48,11 +48,11 @@ Publishing also adds the artifact to the **[Artifacts](https://claude.ai/artifac
 
 After publishing, you'll see a “Get embed code” button.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951684960/0cd917c4455b31e86b70a97f8234/image.png?expires=1785803400&signature=9665aba7334d9f7bcba7edca8260348612133022c8105cbf69988a4bc0c60220&req=dSkiF892mYhZWfMW1HO4zdcpD1Na5QCFR8xgMH3ra8hdODpysQv8TeVfmLJ3%0A0ZalMIYRimzWkT6WcSw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951684960/0cd917c4455b31e86b70a97f8234/image.png?expires=1785803400&signature=9665aba7334d9f7bcba7edca8260348612133022c8105cbf69988a4bc0c60220&req=dSkiF892mYhZWfMW1HO4zdcpD1Na5QCFR8xgMH3ra8hdODpysQv8TeVfmLJ3%0A0ZalMIYRimzWkT6WcSw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951684960/0cd917c4455b31e86b70a97f8234/image.png?expires=1786167000&signature=318c9baad3900723c353314a86bc1c68330721657ae20022a224fc8e41e092a5&req=dSkiF892mYhZWfMW1HO4zdcpD1BT4wSBR8xgMH3ra8jZGnNRgk2LamlohVEX%0Alu4T4jnOYbTYibE5qCE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951684960/0cd917c4455b31e86b70a97f8234/image.png?expires=1786167000&signature=318c9baad3900723c353314a86bc1c68330721657ae20022a224fc8e41e092a5&req=dSkiF892mYhZWfMW1HO4zdcpD1BT4wSBR8xgMH3ra8jZGnNRgk2LamlohVEX%0Alu4T4jnOYbTYibE5qCE%3D%0A)
 
 Click it to open a modal with automatically generated code you can copy and paste to embed your artifact on another website.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951685860/6bf1aa2c57d6ff95804797779e9c/image.png?expires=1785803400&signature=b81c08fbd920ca703b3756b81fd92a938e775449d5049d83a6617376686f6fe1&req=dSkiF892mIlZWfMW1HO4zcqH79yLyYdpf3CUbx4Ru6US9Jld%2B%2FZqY2tPz%2F2j%0A5D29iEcLJ4JupZCfBGA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951685860/6bf1aa2c57d6ff95804797779e9c/image.png?expires=1785803400&signature=b81c08fbd920ca703b3756b81fd92a938e775449d5049d83a6617376686f6fe1&req=dSkiF892mIlZWfMW1HO4zcqH79yLyYdpf3CUbx4Ru6US9Jld%2B%2FZqY2tPz%2F2j%0A5D29iEcLJ4JupZCfBGA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951685860/6bf1aa2c57d6ff95804797779e9c/image.png?expires=1786167000&signature=c6411cabe27e01f6c53cccfaf59f1fe3711e2f3f1539bbe863b7b92ef269fa04&req=dSkiF892mIlZWfMW1HO4zcqH79%2BCz4Ntf3CUbx4Ru6WeaPQkZknUOPZpK4G9%0AJV%2FvB4LWDrNoShsTYVk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951685860/6bf1aa2c57d6ff95804797779e9c/image.png?expires=1786167000&signature=c6411cabe27e01f6c53cccfaf59f1fe3711e2f3f1539bbe863b7b92ef269fa04&req=dSkiF892mIlZWfMW1HO4zcqH79%2BCz4Ntf3CUbx4Ru6WeaPQkZknUOPZpK4G9%0AJV%2FvB4LWDrNoShsTYVk%3D%0A)
 
 You must specify which websites can embed your artifact by entering URLs in the **Allowed domains** field, separated by commas.
 
@@ -61,6 +61,8 @@ You must specify which websites can embed your artifact by entering URLs in the 
 After publishing an artifact, an “Unpublish” button appears, giving you the option to revoke access.
 
 **Important:** Once you unpublish an artifact, you cannot publish that same artifact again. You'll need to create a new artifact if you want to publish it later. Unpublishing also permanently deletes all associated storage data (both personal and shared) if the artifact used persistent storage.
+
+---
 
 ## Build on a published artifact
 
@@ -84,6 +86,8 @@ If someone publishes an artifact you like, you can use it as a starting point fo
 * You can modify it, expand on it, or use it as inspiration.
 * Your changes don't affect the original. You're working on your own copy.
 
+---
+
 ## Share artifacts within your organization
 
 Internal sharing is available on Team and Enterprise plans.
@@ -97,7 +101,7 @@ Artifacts created on Team or Enterprise accounts can only be shared within your 
 3. Click the “Share” button.
 4. Click “Share & copy link” to make this version shareable.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951680160/d5a38784df4c6d0cc55eda339279/Screenshot%2B2025-10-28%2Bat%2B2_00_15-E2-80-AFPM.png?expires=1785803400&signature=9fe467438373cc3980dbfd998e44647b688fe4d8ba45a1f012a004d16458abfc&req=dSkiF892nYBZWfMW1HO4zbvYOlTtLXqXK6hAzMpXfmPcPN5BhIOvC%2BXQ0TfL%0ANFVCPBgj44zAZL8uhFM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951680160/d5a38784df4c6d0cc55eda339279/Screenshot%2B2025-10-28%2Bat%2B2_00_15-E2-80-AFPM.png?expires=1785803400&signature=9fe467438373cc3980dbfd998e44647b688fe4d8ba45a1f012a004d16458abfc&req=dSkiF892nYBZWfMW1HO4zbvYOlTtLXqXK6hAzMpXfmPcPN5BhIOvC%2BXQ0TfL%0ANFVCPBgj44zAZL8uhFM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951680160/d5a38784df4c6d0cc55eda339279/Screenshot%2B2025-10-28%2Bat%2B2_00_15-E2-80-AFPM.png?expires=1786167000&signature=f121045786f9afa2ddc9d6c628a3867abd9f972ebabc29c77a69247435a0f4db&req=dSkiF892nYBZWfMW1HO4zbvYOlfkK36TK6hAzMpXfmMYNjRs2ojqf4hSBKxd%0AZEhsGC91u%2Bs8zLVcFXQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951680160/d5a38784df4c6d0cc55eda339279/Screenshot%2B2025-10-28%2Bat%2B2_00_15-E2-80-AFPM.png?expires=1786167000&signature=f121045786f9afa2ddc9d6c628a3867abd9f972ebabc29c77a69247435a0f4db&req=dSkiF892nYBZWfMW1HO4zbvYOlfkK36TK6hAzMpXfmMYNjRs2ojqf4hSBKxd%0AZEhsGC91u%2Bs8zLVcFXQ%3D%0A)
 
 ### Who can access shared artifacts
 
@@ -116,7 +120,9 @@ When you share an artifact, viewers also gain access to any attachments and file
 1. Click the “Share” button in the upper right corner of the artifact.
 2. In the **Artifact shared** modal, click “Unshare.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951676927/c66153a2c075c6a64404306aefd0/Screenshot%2B2025-10-28%2Bat%2B1_58_24-E2-80-AFPM.png?expires=1785803400&signature=873cc5d745291e1c64620679b31d6e2f85562518adb4981bd12d85054ac10676&req=dSkiF895m4hdXvMW1HO4zW9Ewgy1%2BXe3gj8mTHivCKYmHtKNQP2pATCR9hw7%0A8I1mgBi8jqf9NBEuCiM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951676927/c66153a2c075c6a64404306aefd0/Screenshot%2B2025-10-28%2Bat%2B1_58_24-E2-80-AFPM.png?expires=1785803400&signature=873cc5d745291e1c64620679b31d6e2f85562518adb4981bd12d85054ac10676&req=dSkiF895m4hdXvMW1HO4zW9Ewgy1%2BXe3gj8mTHivCKYmHtKNQP2pATCR9hw7%0A8I1mgBi8jqf9NBEuCiM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951676927/c66153a2c075c6a64404306aefd0/Screenshot%2B2025-10-28%2Bat%2B1_58_24-E2-80-AFPM.png?expires=1786167000&signature=b9e4c2659568ac05c841d31a05a394c90ca1fb963419831840e29f6dbcc8dc53&req=dSkiF895m4hdXvMW1HO4zW9Ewg%2B8%2F3Ozgj8mTHivCKa5rJeBW2gt2sF8Q1ZH%0AJErmCCfEKP%2Bote8UfiI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1951676927/c66153a2c075c6a64404306aefd0/Screenshot%2B2025-10-28%2Bat%2B1_58_24-E2-80-AFPM.png?expires=1786167000&signature=b9e4c2659568ac05c841d31a05a394c90ca1fb963419831840e29f6dbcc8dc53&req=dSkiF895m4hdXvMW1HO4zW9Ewg%2B8%2F3Ozgj8mTHivCKa5rJeBW2gt2sF8Q1ZH%0AJErmCCfEKP%2Bote8UfiI%3D%0A)
+
+---
 
 ## Learn more
 

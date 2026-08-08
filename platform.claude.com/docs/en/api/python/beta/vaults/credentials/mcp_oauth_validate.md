@@ -20,7 +20,7 @@ Validate Credential
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -72,11 +72,19 @@ Validate Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -169,11 +177,15 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
-beta_managed_agents_credential_validation = client.beta.vaults.credentials.mcp_oauth_validate(
-    credential_id="vcrd_011CZkZEMt8gZan2iYOQfSkw",
-    vault_id="vlt_011CZkZDLs7fYzm1hXNPeRjv",
+beta_managed_agents_credential_validation = (
+    client.beta.vaults.credentials.mcp_oauth_validate(
+        credential_id="vcrd_011CZkZEMt8gZan2iYOQfSkw",
+        vault_id="vlt_011CZkZDLs7fYzm1hXNPeRjv",
+    )
 )
 print(beta_managed_agents_credential_validation.credential_id)
 ```

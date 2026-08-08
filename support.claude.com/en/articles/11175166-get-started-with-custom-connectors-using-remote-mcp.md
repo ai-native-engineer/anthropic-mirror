@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp -->
 
-# Get started with custom connectors using remote MCP
-
-Updated over a week ago
-
 Custom connectors using remote MCP are available on Claude, Cowork, and Claude Desktop for users on Free, Pro, Max, Team, and Enterprise plans. Free users are limited to one custom connector.
 
 ## What are custom connectors?
@@ -27,6 +23,8 @@ Previously, **[MCP servers only ran locally](https://support.claude.com/en/artic
 
 Remote MCP servers give models access to internet-hosted tools and data, transforming Claude into an informed teammate that can independently handle complex, multi-step projects tailored to your needs.
 
+---
+
 ## Network requirements
 
 When you add a custom connector, Claude connects to your remote MCP server from Anthropic's cloud infrastructure, rather than from your local device. This is true across every Claude client, including claude.ai, Claude Desktop, Cowork, and the mobile apps.
@@ -40,6 +38,8 @@ You’ll need to allowlist Anthropic's IP addresses in your firewall so inbound 
 ### Why this applies to Cowork and Claude Desktop
 
 Even though Cowork and Claude Desktop run on your computer, remote connectors are configured and brokered through your Claude account. The connection to your MCP server originates from Anthropic's servers, not from your machine's network interface. Local MCP servers configured in Claude Desktop via `claude_desktop_config.json` are a separate mechanism and do use your local network, but those aren't available in Cowork or claude.ai.
+
+---
 
 ## Add a custom connector
 
@@ -78,6 +78,8 @@ If you are using an individual Pro or Max plan, follow these steps to add a cust
 
 You can enable connectors for individual conversations via the “+” button on the lower left of your chat interface, then "Connectors." You'll see your configured connectors with toggles allowing you to enable/disable them per conversation.
 
+---
+
 ## Remove custom connectors
 
 You can remove a custom connector by following these steps:
@@ -91,9 +93,13 @@ You can remove a custom connector by following these steps:
 
 If you're hoping to edit a custom connector, you'll need to remove it first, then re-add it using the updated details.
 
+---
+
 ## Build custom connectors
 
 To learn about building connectors to use with Claude, see **[Building custom connectors via remote MCP servers](https://support.claude.com/en/articles/11503834-building-custom-connectors-via-remote-mcp-servers)**.
+
+---
 
 ## Security and privacy considerations
 

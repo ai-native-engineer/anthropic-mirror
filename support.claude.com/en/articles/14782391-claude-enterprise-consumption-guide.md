@@ -1,18 +1,18 @@
 <!-- source: https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide -->
 
-# Claude Enterprise consumption guide
-
-Updated over a week ago
-
 Claude Enterprise gives your organization access to powerful AI across chat, Claude Code, and Claude Cowork. With that access comes the responsibility of managing consumption effectively—ensuring your team gets maximum value while keeping usage predictable and within budget.
 
 This guide walks Enterprise admins through the key levers available to control and optimize token consumption: setting spend caps, configuring role-based access controls, educating users, and choosing the right model and effort level for the right task.
+
+---
 
 ## Why consumption management matters
 
 Claude Enterprise is priced on a per-seat, usage-based model. Your org's consumption pool is shared across all users, and some surfaces—particularly Claude Code and Cowork—consume tokens at a significantly higher rate than standard chat.
 
 Admins who proactively configure spend limits and educate users can reduce waste and ensure that high-value use cases get the capacity they need.
+
+---
 
 ## Understanding token intensity across surfaces
 
@@ -26,6 +26,8 @@ Admins who proactively configure spend limits and educate users can reduce waste
 **Admin tip: Set expectations with your team**
 
 Users running Claude Code or Cowork workflows may not realize how token-intensive their sessions are. A single Cowork task or Claude Code debug session can consume many more tokens than chat. Include this context in any user onboarding you send.
+
+---
 
 ## Role-based access controls
 
@@ -51,6 +53,8 @@ Once groups are configured:
 **Governance tip: Surface access as a first gate**
 
 Before worrying about token-level limits, make sure the right people have access to the right surfaces. Giving everyone Claude Code and Cowork access on day one is the fastest way to generate unexpected consumption. Roll out higher-intensity surfaces in waves, starting with the teams most likely to use them productively.
+
+---
 
 ## Set spend limits
 
@@ -94,6 +98,8 @@ User-level caps let you set consumption limits for individual accounts. These ar
 | Light (Median) | $40 | $10 | $5 |
 
 \**These figures are rough planning estimates. Actual consumption will vary based on your team's size, workflows, and usage patterns.*
+
+---
 
 ## Model selection guidance
 
@@ -149,7 +155,7 @@ If model guidance (the "Sonnet is your default" messaging) isn't landing and you
 
 **Where this applies**
 
-Model access and effort restrictions are enforced in chat (web, desktop, mobile), Claude Cowork, Office Agents, and Claude Code (CLI 2.1.199+—earlier versions still show restricted options but requests using them are rejected). Claude in Chrome, Claude Design, and Claude Security don't support this yet.
+Model access and effort restrictions are enforced in chat (web, desktop, mobile), Claude Cowork, Office Agents, Claude Design, Claude Tag, and Claude Code (CLI 2.1.199+—earlier versions still show restricted options but requests using them are rejected). Claude in Chrome and Claude Security don't support this yet.
 
 **How to configure:** Organization settings → Roles → select a role → Models tab. Set model access, an optional effort cap per model, and an optional role-level default model. To manage configuration across the org, go to **Organization settings → Models**.More details in **[Manage model access for your organization](https://support.claude.com/en/articles/15694740)**.
 
@@ -166,6 +172,8 @@ Model access and effort restrictions are enforced in chat (web, desktop, mobile)
 
 **When in doubt, start with Sonnet.** You can always switch the model mid conversation to Opus if you need more depth.
 
+---
+
 ## Using org preferences to shape user behavior
 
 Org Preferences let admins inject standing guidance into every Claude conversation across your organization—effectively giving Claude a system prompt that reflects your team's norms, best practices, and guardrails. This is a high-leverage tool for shifting user behavior without adding friction, because the guidance shows up in-product at the moment of use rather than in documentation users have to go find.
@@ -175,6 +183,8 @@ A few ways you can use Org Preferences to manage consumption and usage patterns:
 * **Nudge-against token-intensive output formats**. If you've noticed proliferation of a particular artifact type (e.g., HTML dashboards being shared in cross-functional threads where a simpler format would do), you can instruct Claude to confirm with the user before generating one. This adds a lightweight check without removing the capability entirely.
 * **Point users to internal resources.** Reference your team's wiki, best-practices docs, or usage guidelines directly in the preference. Claude will surface them when relevant—steering users toward the right internal context instead of reinventing it each time.
 * **Reinforce model selection norms.** Remind Claude (and by extension, users) that Sonnet is the default and Opus is reserved for specific workflows. This complements user education without requiring everyone to internalize it up front.
+
+---
 
 ## Tracking usage and spend
 
@@ -210,6 +220,8 @@ For programmatic access, use the Claude Enterprise Analytics API. Pull a ranked 
 
 Your Primary Owner can generate an admin API key. Data refreshes every four hours; for invoicing-grade totals, query dates 30+ days in the past so late events have time to reconcile. **[Learn more](https://platform.claude.com/docs/en/manage-claude/analytics-api)** and review the **[API reference guide](https://platform.claude.com/docs/en/api/admin/analytics)**.
 
+---
+
 ## End user education
 
 Technology controls will get you most of the way, but user behavior drives the rest. A team that understands how consumption works will make better choices independently—and surface fewer edge cases for you to troubleshoot.
@@ -237,8 +249,8 @@ When you onboard users, share the following:
 * If a user hits their individual cap, they can contact their group owner or the IT/admin team to request an increase.
 * They won't lose work in progress—Claude will complete the current turn before limiting further usage.
 
-* [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)

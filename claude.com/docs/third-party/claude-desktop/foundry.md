@@ -68,13 +68,13 @@ No per-device preparation is required. Place the resource’s API key in the man
 
 Distribute `inferenceFoundryTenantId` and `inferenceFoundryClientId` in the managed configuration. To use the browser or broker flow instead of the default device-code flow, also set `inferenceFoundryAuthFlow` to `browser` or `broker`.
 The device-code and browser flows need no per-device preparation. The broker flow signs in through the operating system’s native Microsoft identity broker, so each device must meet the platform requirements on the [OS identity broker](https://claude.com/docs/third-party/claude-desktop/entra-broker#prepare-devices) page.
-When the tenant and client IDs are set and `inferenceCredentialKind` is `interactive`, the app shows a **Sign in with Microsoft** page the first time a user opens the Cowork tab. Clicking the button starts a sign-in against `login.microsoftonline.com`; what the user sees depends on `inferenceFoundryAuthFlow`:
+When the tenant and client IDs are set and `inferenceCredentialKind` is `interactive`, the app shows a **Sign in with Microsoft** page at first launch. Clicking the button starts a sign-in against `login.microsoftonline.com`; what the user sees depends on `inferenceFoundryAuthFlow`:
 
 * **Device code** (the key is unset or `device-code`): the app displays a short verification code and opens the Microsoft sign-in page in the default browser, where the user enters the code and approves access.
 * **Browser** (the key is `browser`): the app opens the Microsoft sign-in page in the default browser, where the user signs in and approves access. The browser shows a confirmation page and the user switches back to the app; there is no code to enter.
 * **Broker** (the key is `broker`): the app opens the operating system’s native Microsoft account picker, where the user selects or signs in to a work account. The dialog closes and the app returns to Cowork; nothing opens in the browser. Because the broker issues the token, sign-in satisfies Conditional Access policies that require a compliant or managed device or token protection, which the other two flows cannot satisfy on their own. See [Sign in through the OS identity broker](https://claude.com/docs/third-party/claude-desktop/entra-broker) for what the broker is and when to choose it.
 
-On success, the app returns to the Cowork tab. For the device-code and browser flows the app stores the refresh token encrypted with the operating system’s secure storage (Keychain on macOS, DPAPI on Windows), and both flows store the same token against the same app registration, so switching between them later does not itself prompt users to sign in again. For the broker flow the operating system’s broker holds the credential, and the app stores only a reference to the signed-in account.
+On success, the app returns to Cowork. For the device-code and browser flows the app stores the refresh token encrypted with the operating system’s secure storage (Keychain on macOS, DPAPI on Windows), and both flows store the same token against the same app registration, so switching between them later does not itself prompt users to sign in again. For the broker flow the operating system’s broker holds the credential, and the app stores only a reference to the signed-in account.
 If the app can no longer renew the credential silently, it shows a **Sign in again** prompt; clicking it reopens the configured sign-in flow. For the device-code and browser flows this happens when the stored refresh token expires or is revoked. For the broker flow it happens when the broker can no longer renew the token silently.
 `inferenceFoundryTenantId` and `inferenceFoundryClientId` can be set only via an MDM profile, not via a bootstrap server. `inferenceFoundryAuthFlow` can be set via either.
 
@@ -107,8 +107,8 @@ The full set of `inferenceFoundry*` keys is below. Set `inferenceProvider` to `f
 | --- | --- | --- | --- | --- |
 | Azure AI Foundry resource name `inferenceFoundryResource` | `string` | MDM + Bootstrap | — | Azure AI Foundry resource name used to construct the endpoint URL. |
 | Azure AI Foundry API key `inferenceFoundryApiKey` | `string` | MDM + Bootstrap | — | API key for Azure AI Foundry inference. |
-| Entra ID tenant ID `inferenceFoundryTenantId` | `string` | MDM only | — | Directory (tenant) ID of the Entra ID app registration that has the Cognitive Services scope. |
-| Entra ID client ID `inferenceFoundryClientId` | `string` | MDM only | — | Application (client) ID of the Entra ID app registration. Device-code sign-in requires the app to allow public client flows. |
+| Entra ID tenant ID `inferenceFoundryTenantId` | `string` | MDM + Bootstrap | — | Directory (tenant) ID of the Entra ID app registration that has the Cognitive Services scope. |
+| Entra ID client ID `inferenceFoundryClientId` | `string` | MDM + Bootstrap | — | Application (client) ID of the Entra ID app registration. Device-code sign-in requires the app to allow public client flows. |
 | Entra ID sign-in flow `inferenceFoundryAuthFlow` | `enum` | MDM + Bootstrap | — | How Entra sign-in runs: device code (default), system browser, or the OS identity broker. One of: `device-code`, `browser`, `broker`. |
 
 inferenceFoundryAuthFlow details

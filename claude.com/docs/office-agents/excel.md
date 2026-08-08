@@ -1,13 +1,5 @@
 <!-- source: https://claude.com/docs/office-agents/excel -->
 
-> ## Documentation Index
->
-> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
->
-> Use this file to discover all available pages before exploring further.
-
-[Skip to main content](#content-area)
-
 Claude for Excel is an add-in that brings Claude into Excel. Ask questions
 about open workbooks, adjust assumptions while preserving formula
 relationships, debug errors, and build or populate models, all without
@@ -42,19 +34,13 @@ Claude for Excel runs on the following Excel builds.
 
 ###  Install for yourself
 
-1
-
 Open the marketplace listing
 
 Go to the [Claude for Microsoft 365 listing on Microsoft AppSource](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview).
 
-2
-
 Install the add-in
 
 Select “Get it now” to install.
-
-3
 
 Sign in
 
@@ -65,21 +51,15 @@ Open Excel, activate the add-in, and sign in with your Claude account.
 Organization admins can deploy Claude for Excel through the Microsoft 365
 Admin Center.
 
-1
-
 Allow Office Store access
 
 In the [Microsoft 365 Admin Center](https://admin.microsoft.com), go
 to Settings, Org Settings, User owned apps and services, and turn on
 [“Let users access the Office Store”](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-addins-in-the-admin-center).
 
-2
-
 Open Integrated apps
 
 Go to Settings, Integrated apps, Add-ins.
-
-3
 
 Find the add-in
 
@@ -208,12 +188,11 @@ account and is subject to the same usage limits.
 
 ##  Models available
 
-You can switch between Claude Opus 4.7, Claude Opus 4.6, and Claude
-Sonnet 4.6 when using the add-in.
 Claude for M365 offers a curated subset of the Claude models: the ones
-that work best for Office tasks, so the list here can be shorter than
-what you see in Claude.ai. Your organization’s model access settings
-also apply, and a model appears here only if your role permits it. See
+that work best for Office tasks, so the list you see in the add-in can
+be shorter than what you see in Claude.ai. Your organization’s model
+access settings also apply, and a model appears here only if your role
+permits it. See
 [Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)
 for how those settings interact with each product. If you connect
 through Amazon Bedrock, Google Cloud Vertex AI, Azure AI Foundry, or an

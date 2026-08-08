@@ -9,7 +9,7 @@ Learn how organizations are using Claude Cowork to transform their day-to-day wo
   No items found.
 * Product
 
-  Claude Cowork
+  [Claude Cowork](https://claude.com/product/cowork)
 * Date
 
   April 29, 2026

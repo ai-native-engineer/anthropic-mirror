@@ -1,14 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/misc-session-memory-compaction -->
 
-# Session Memory Compaction
+#  Session Memory Compaction
 
 Long-running conversations with Claude can exceed context limits, causing loss of important information. Whether you're building a coding assistant, creative writing tool, or customer service agent, managing session memory is critical for maintaining continuity and quality.
 
 This cookbook teaches you how to **proactively manage session memory** to avoid jarring context limit interruptions. Unlike reactive approaches that wait until the context is full, you'll learn to build session memory in the background so compaction is instant when needed.
 
-**Related:** For automatic SDK-based compaction in agentic workflows, see [Automatic Context Compaction](https://github.com/anthropics/claude-cookbooks/blob/main/misc/../tool_use/automatic-context-compaction.ipynb). This cookbook focuses on manual control patterns for conversational applications.
+**Related:** For automatic SDK-based compaction in agentic workflows, see [Automatic Context Compaction(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/misc/../tool_use/automatic-context-compaction.ipynb). This cookbook focuses on manual control patterns for conversational applications.
 
-## Learning Objectives
+##  Learning Objectives
 
 By the end of this cookbook, you will be able to:
 
@@ -17,7 +17,7 @@ By the end of this cookbook, you will be able to:
 * Apply prompt caching to reduce the cost of background memory updates by ~80%
 * Choose appropriate compaction strategies (traditional vs. instant) based on your use case
 
-## Prerequisites and Setup
+##  Prerequisites and Setup
 
 Before following this guide, ensure you have:
 
@@ -32,80 +32,105 @@ Before following this guide, ensure you have:
 * Anthropic API key
 * Anthropic SDK
 
-### Installation
+###  Installation
 
 First, install the required dependencies:
 
-python
+
 
-```
 %%capture
+
 %pip install -U anthropic python-dotenv
-```
 
-python
+
 
-```
 import anthropic
-from anthropic.types import MessageParam, TextBlockParam
-from dotenv import load_dotenv
 
-load_dotenv()
+from anthropic.types import MessageParam, TextBlockParam
+
+from dotenv import load\_dotenv
+
+load\_dotenv()
 
 client = anthropic.Anthropic()
+
 MODEL = "claude-sonnet-4-6"
-```
 
-python
+
 
-```
 # Helper functions
-def truncate_response(text: str, max_lines: int = 15) -> str:
-    """Truncate long responses for cleaner output display."""
-    lines = text.strip().split("\n")
-    if len(lines) <= max_lines:
-        return text
-    return "\n".join(lines[:max_lines]) + f"\n... ({len(lines) - max_lines} more lines)"
 
-def remove_thinking_blocks(text: str) -> tuple[str, str]:
-    """Remove <think>...</think> blocks from the text."""
-    import re
+def truncate\_response(text: str, max\_lines: int = 15) -> str:
 
-    matches = re.findall(r"<think>.*?</think>", text, flags=re.DOTALL)
-    cleaned = re.sub(r"<think>.*?</think>\s*", "", text, flags=re.DOTALL).strip()
-    return cleaned, "".join(matches)
+"""Truncate long responses for cleaner output display."""
 
-def add_cache_control(messages: list[dict]) -> list[MessageParam]:
-    """Add cache_control to the last user message for prompt caching.
+lines = text.strip().split("\n")
 
-    For prompt caching to work, the message prefix structure must be identical between requests.
-    All messages are converted to list format for consistency, and cache_control is placed on
-    the last user message to match the standard API call pattern.
-    """
-    cached_messages: list[MessageParam] = []
-    last_user_idx = None
+if len(lines) <= max\_lines:
 
-    # Find last user message index
-    for i, msg in enumerate(messages):
-        if msg["role"] == "user":
-            last_user_idx = i
+return text
 
-    for i, msg in enumerate(messages):
-        content = msg["content"]
-        text = content if isinstance(content, str) else content[0]["text"]
+return "\n".join(lines[:max\_lines]) + f"\n... ({len(lines) - max\_lines} more lines)"
 
-        content_block: TextBlockParam = {"type": "text", "text": text}
-        if i == last_user_idx:
-            content_block["cache_control"] = {"type": "ephemeral"}
+def remove\_thinking\_blocks(text: str) -> tuple[str, str]:
 
-        cached_messages.append({"role": msg["role"], "content": [content_block]})
+"""Remove <think>...</think> blocks from the text."""
 
-    return cached_messages
+import re
 
-def estimate_tokens(text: str) -> int:
-    """Rudimentary token estimation: 1 token per 4 characters."""
-    return len(text) // 4
-```
+matches = re.findall(r"<think>.\*?</think>", text, flags=re.DOTALL)
+
+cleaned = re.sub(r"<think>.\*?</think>\s\*", "", text, flags=re.DOTALL).strip()
+
+return cleaned, "".join(matches)
+
+def add\_cache\_control(messages: list[dict]) -> list[MessageParam]:
+
+"""Add cache\_control to the last user message for prompt caching.
+
+For prompt caching to work, the message prefix structure must be identical between requests.
+
+All messages are converted to list format for consistency, and cache\_control is placed on
+
+the last user message to match the standard API call pattern.
+
+"""
+
+cached\_messages: list[MessageParam] = []
+
+last\_user\_idx = None
+
+# Find last user message index
+
+for i, msg in enumerate(messages):
+
+if msg["role"] == "user":
+
+last\_user\_idx = i
+
+for i, msg in enumerate(messages):
+
+content = msg["content"]
+
+text = content if isinstance(content, str) else content[0]["text"]
+
+content\_block: TextBlockParam = {"type": "text", "text": text}
+
+if i == last\_user\_idx:
+
+content\_block["cache\_control"] = {"type": "ephemeral"}
+
+cached\_messages.append({"role": msg["role"], "content": [content\_block]})
+
+return cached\_messages
+
+def estimate\_tokens(text: str) -> int:
+
+"""Rudimentary token estimation: 1 token per 4 characters."""
+
+return len(text) // 4
+
+
 
 ```
 /root/.pyenv/versions/3.13.11/lib/python3.13/site-packages/coconut/compiler/util.py:676: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in staticmethod() if you want to preserve the old behavior
@@ -114,192 +139,308 @@ def estimate_tokens(text: str) -> int:
   result = add_action(grammar, unpack).parseWithTabs().transformString(text)
 ```
 
-python
+
 
-```
-SESSION_MEMORY_PROMPT = """
+SESSION\_MEMORY\_PROMPT = """
+
 Compress the conversation into a structured summary
+
 that preserves all information needed to continue work seamlessly. Optimize for the assistant's
+
 ability to continue working, not human readability.
 
 <analysis-instructions>
+
 Before generating your summary, analyze the transcript in <think>...</think> tags:
+
 1. What did the user originally request? (Exact phrasing)
+
 2. What actions succeeded? What failed and why?
+
 3. Did the user correct or redirect the assistant at any point?
+
 4. What was actively being worked on at the end?
+
 5. What tasks remain incomplete or pending?
+
 6. What specific details (IDs, paths, values, names) must survive compression?
+
 </analysis-instructions>
 
 <summary-format>
+
 ## User Intent
+
 The user's original request and any refinements. Use direct quotes for key requirements.
+
 If the user's goal evolved during the conversation, capture that progression.
 
 ## Completed Work
+
 Actions successfully performed. Be specific:
+
 - What was created, modified, or deleted
+
 - Exact identifiers (file paths, record IDs, URLs, names)
+
 - Specific values, configurations, or settings applied
 
 ## Errors & Corrections
+
 - Problems encountered and how they were resolved
+
 - Approaches that failed (so they aren't retried)
+
 - User corrections: "don't do X", "actually I meant Y", "that's wrong because..."
+
 Capture corrections verbatim—these represent learned preferences.
 
 ## Active Work
+
 What was in progress when the session ended. Include:
+
 - The specific task being performed
+
 - Direct quotes showing exactly where work left off
+
 - Any partial results or intermediate state
 
 ## Pending Tasks
+
 Remaining items the user requested that haven't been started.
+
 Distinguish between "explicitly requested" and "implied/assumed."
 
 ## Key References
+
 Important details needed to continue:
+
 - Identifiers: IDs, paths, URLs, names, keys
+
 - Values: numbers, dates, configurations, credentials (redacted)
+
 - Context: relevant background information, constraints, preferences
+
 - Citations: sources referenced during the conversation
+
 </summary-format>
 
 <preserve-rules>
+
 Always preserve when present:
+
 - Exact identifiers (IDs, paths, URLs, keys, names)
+
 - Error messages verbatim
+
 - User corrections and negative feedback
+
 - Specific values, formulas, or configurations
+
 - Technical constraints or requirements discovered
+
 - The precise state of any in-progress work
+
 </preserve-rules>
 
 <compression-rules>
-- Weight recent messages more heavily—the end of the transcript is the active context
-- Omit pleasantries, acknowledgments, and filler ("Sure!", "Great question")
-- Omit system context that will be re-injected separately
-- Keep each section under 500 words; condense older content to make room for recent
-- If you must cut details, preserve: user corrections > errors > active work > completed work
-</compression-rules>
-"""
-```
 
-### Code example using traditional compacting
+- Weight recent messages more heavily—the end of the transcript is the active context
+
+- Omit pleasantries, acknowledgments, and filler ("Sure!", "Great question")
+
+- Omit system context that will be re-injected separately
+
+- Keep each section under 500 words; condense older content to make room for recent
+
+- If you must cut details, preserve: user corrections > errors > active work > completed work
+
+</compression-rules>
+
+"""
+
+###  Code example using traditional compacting
 
 In traditional compaction, you generate one summary once the token threshold is reached.
 Traditional compaction is slow: when you hit the context limit, you wait for a summary.
 
-```
+
+
 TRADITIONAL COMPACTION (slow)
+
 ─────────────────────────────
+
 Turn 1 → Turn 2 → Turn 3 → ... → Turn N → CONTEXT FULL!
-                                              │
-                                              ▼
-                                    ┌─────────────────┐
-                                    │ Generate summary│
-                                    │ ( USER WAITS !) │
-                                    └─────────────────┘
-                                              │
-                                              ▼
-                                         Continue
-```
 
-python
+│
 
-```
+▼
+
+┌─────────────────┐
+
+│ Generate summary│
+
+│ ( USER WAITS !) │
+
+└─────────────────┘
+
+│
+
+▼
+
+Continue
+
+
+
 import time
 
 class TraditionalCompactingChatSession:
-    """Traditional chat session with compaction after the fact."""
 
-    def __init__(self, system_message="You are a helpful assistant", context_limit: int = 10000):
-        self.system_message = system_message
-        self.context_limit = context_limit  # the point at which the conversation is compacted so it does not exceed model limits.
-        self.messages = []
-        self.current_context_window_tokens = 0
-        self.summary = None
+"""Traditional chat session with compaction after the fact."""
 
-    def chat(self, user_message: str) -> tuple[str, anthropic.types.Usage]:
-        # In traditional compaction, we check if we need to compact when the user sends a message. NOT IDEAL!
-        if self.current_context_window_tokens >= self.context_limit:
-            print(
-                f"\n🧹 Context window at {self.current_context_window_tokens} tokens. Limit exceeded, compacting session memory..."
-            )
-            self.compact()  # compacts everything before the new user message
+def \_\_init\_\_(self, system\_message="You are a helpful assistant", context\_limit: int = 10000):
 
-        self.messages.append({"role": "user", "content": user_message})
-        print(f"\nUser: {user_message}")
+self.system\_message = system\_message
 
-        response = client.messages.create(
-            model=MODEL,
-            max_tokens=3500,
-            system=self.system_message,
-            messages=add_cache_control(self.messages),
-        )
-        assistant_message = response.content[0].text
-        self.messages.append({"role": "assistant", "content": assistant_message})
+self.context\_limit = context\_limit # the point at which the conversation is compacted so it does not exceed model limits.
 
-        print(f"\nAssistant: \n{truncate_response(assistant_message, max_lines=15)}")
+self.messages = []
 
-        # approximate current token count in the conversation before the next user message
-        cache_read = getattr(response.usage, "cache_read_input_tokens", 0) or 0
-        total_input = response.usage.input_tokens + cache_read
-        self.current_context_window_tokens = total_input + response.usage.output_tokens
+self.current\_context\_window\_tokens = 0
 
-        print(
-            f"Input={total_input:,}, Prompt cached used= {cache_read > 0} | "
-            f"Output={response.usage.output_tokens:,} | "
-            f"Messages={len(self.messages)}"
-        )
-        return assistant_message, response.usage
+self.summary = None
 
-    def compact(self) -> None:
-        start_time = time.perf_counter()
+def chat(self, user\_message: str) -> tuple[str, anthropic.types.Usage]:
 
-        response = client.messages.create(
-            model=MODEL,
-            max_tokens=5000,
-            system=self.system_message,  # Same as main chat for cache sharing
-            messages=add_cache_control(self.messages)
-            + [{"role": "user", "content": SESSION_MEMORY_PROMPT}],
-        )
-        elapsed = time.perf_counter() - start_time
+# In traditional compaction, we check if we need to compact when the user sends a message. NOT IDEAL!
 
-        # Generate new summary message
-        self.summary, removed_text = remove_thinking_blocks(
-            response.content[0].text
-        )  # clean up any <think> blocks because they are not needed in the session memory
-        approximate_summary_tokens = response.usage.output_tokens - round(
-            len(removed_text) / 4
-        )  # rough estimate of tokens removed from summary
+if self.current\_context\_window\_tokens >= self.context\_limit:
 
-        # Replace prior messages with new summary message
-        self.messages = [
-            {
-                "role": "user",
-                "content": f"""This session is being continued from a previous conversation. Here is the session memory: {self.summary}.Continue from where we left off.""",
-            }
-        ]
+print(
 
-        # Show token reduction if we just compacted
-        reduction = self.current_context_window_tokens - approximate_summary_tokens
-        pct = (reduction / self.current_context_window_tokens) * 100
+f"\n🧹 Context window at {self.current\_context\_window\_tokens} tokens. Limit exceeded, compacting session memory..."
 
-        print(f"\n{'-' * 60}")
-        print("📝 New session memory created.")
-        print(
-            f"✅ Tokens reduced: {self.current_context_window_tokens:,} → {approximate_summary_tokens:.0f} ({reduction:,} tokens saved, {pct:.0f}% reduction)"
-        )
-        print(f"⏱️ Compaction time: {elapsed:.2f}s (user waiting...)")
-        print(f" Cache used: {getattr(response.usage, 'cache_read_input_tokens', 0) > 0}")
-        print(f"{'-' * 60}")
+)
 
-        # Update token count to reflect compacted state
-        self.current_context_window_tokens = approximate_summary_tokens
-```
+self.compact() # compacts everything before the new user message
+
+self.messages.append({"role": "user", "content": user\_message})
+
+print(f"\nUser: {user\_message}")
+
+response = client.messages.create(
+
+model=MODEL,
+
+max\_tokens=3500,
+
+system=self.system\_message,
+
+messages=add\_cache\_control(self.messages),
+
+)
+
+assistant\_message = response.content[0].text
+
+self.messages.append({"role": "assistant", "content": assistant\_message})
+
+print(f"\nAssistant: \n{truncate\_response(assistant\_message, max\_lines=15)}")
+
+# approximate current token count in the conversation before the next user message
+
+cache\_read = getattr(response.usage, "cache\_read\_input\_tokens", 0) or 0
+
+total\_input = response.usage.input\_tokens + cache\_read
+
+self.current\_context\_window\_tokens = total\_input + response.usage.output\_tokens
+
+print(
+
+f"Input={total\_input:,}, Prompt cached used= {cache\_read > 0} | "
+
+f"Output={response.usage.output\_tokens:,} | "
+
+f"Messages={len(self.messages)}"
+
+)
+
+return assistant\_message, response.usage
+
+def compact(self) -> None:
+
+start\_time = time.perf\_counter()
+
+response = client.messages.create(
+
+model=MODEL,
+
+max\_tokens=5000,
+
+system=self.system\_message, # Same as main chat for cache sharing
+
+messages=add\_cache\_control(self.messages)
+
++ [{"role": "user", "content": SESSION\_MEMORY\_PROMPT}],
+
+)
+
+elapsed = time.perf\_counter() - start\_time
+
+# Generate new summary message
+
+self.summary, removed\_text = remove\_thinking\_blocks(
+
+response.content[0].text
+
+) # clean up any <think> blocks because they are not needed in the session memory
+
+approximate\_summary\_tokens = response.usage.output\_tokens - round(
+
+len(removed\_text) / 4
+
+) # rough estimate of tokens removed from summary
+
+# Replace prior messages with new summary message
+
+self.messages = [
+
+{
+
+"role": "user",
+
+"content": f"""This session is being continued from a previous conversation. Here is the session memory: {self.summary}.Continue from where we left off.""",
+
+}
+
+]
+
+# Show token reduction if we just compacted
+
+reduction = self.current\_context\_window\_tokens - approximate\_summary\_tokens
+
+pct = (reduction / self.current\_context\_window\_tokens) \* 100
+
+print(f"\n{'-' \* 60}")
+
+print("📝 New session memory created.")
+
+print(
+
+f"✅ Tokens reduced: {self.current\_context\_window\_tokens:,} → {approximate\_summary\_tokens:.0f} ({reduction:,} tokens saved, {pct:.0f}% reduction)"
+
+)
+
+print(f"⏱️ Compaction time: {elapsed:.2f}s (user waiting...)")
+
+print(f" Cache used: {getattr(response.usage, 'cache\_read\_input\_tokens', 0) > 0}")
+
+print(f"{'-' \* 60}")
+
+# Update token count to reflect compacted state
+
+self.current\_context\_window\_tokens = approximate\_summary\_tokens
+
+
 
 ```
 /root/.pyenv/versions/3.13.11/lib/python3.13/site-packages/coconut/compiler/util.py:403: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in staticmethod() if you want to preserve the old behavior
@@ -310,62 +451,87 @@ class TraditionalCompactingChatSession:
 
 Below we simulate a conversation between an author and an LLM that helps write stories.
 
-python
+
 
-```
-SYSTEM_PROMPT = """
+SYSTEM\_PROMPT = """
+
 You are a short story writer who helps authors develop their ideas into compelling narratives.
 
 ## What You Do
 
-**Plot Development**
+\*\*Plot Development\*\*
+
 - Help authors work through story structure, pacing, and narrative arc
+
 - Identify plot holes, inconsistencies, or missed opportunities
+
 - Suggest ways to raise stakes, add tension, or deepen conflict
+
 - Brainstorm twists, resolutions, and scene transitions
 
-**Character Development**
+\*\*Character Development\*\*
+
 - Develop backstories, motivations, and internal conflicts
+
 - Ensure characters have distinct voices and consistent behavior
+
 - Explore character relationships and how they drive the plot
+
 - Help authors understand what their characters want vs. what they need
 
-**Drafting**
+\*\*Drafting\*\*
+
 - Write short stories or scenes based on the author's ideas and direction
+
 - Match tone, genre conventions, and stylistic preferences
+
 - Show rather than tell when bringing scenes to life
+
 - Craft dialogue that reveals character and advances plot
 
 ## How You Work
+
 - You are the lead writer. When you disagree with a creative choice, say so respectfully, but ultimately defer to what the author wants.
+
 - DO NOT ask the user to provide more context or clarify their request. Assume you have enough information to proceed.
+
 """
-```
 
-python
+
 
-```
-session = TraditionalCompactingChatSession(system_message=SYSTEM_PROMPT)
+session = TraditionalCompactingChatSession(system\_message=SYSTEM\_PROMPT)
 
 # Simulated conversation
+
 messages = [
-    "I want to create a story about a young detective solving a mysterious case in a small town. Generate 3 well thought out plot ideas for me to consider.",
-    "I don't like those ideas, can you think of one plot something more unique and unexpected?",
-    "Ok I like it. Can you help me develop the main character's backstory and motivations?",
-    "Can you draft a detailed outline for the story, breaking it down into chapters and key events?",
-    "Can you draft me a first chapter based on the plot and character ideas we've discussed so far? Make it around 2,000 words.",
-    "Can you draft a second chapter that builds on the first one, introducing a new twist in the mystery?",
+
+"I want to create a story about a young detective solving a mysterious case in a small town. Generate 3 well thought out plot ideas for me to consider.",
+
+"I don't like those ideas, can you think of one plot something more unique and unexpected?",
+
+"Ok I like it. Can you help me develop the main character's backstory and motivations?",
+
+"Can you draft a detailed outline for the story, breaking it down into chapters and key events?",
+
+"Can you draft me a first chapter based on the plot and character ideas we've discussed so far? Make it around 2,000 words.",
+
+"Can you draft a second chapter that builds on the first one, introducing a new twist in the mystery?",
+
 ]
 
 print("Starting conversation...\n")
 
-turn_count = 0
+turn\_count = 0
 
-for _i, message in enumerate(messages, 1):
-    turn_count += 1
-    print(f"==============================================\nTurn {turn_count}:\n")
-    response, usage = session.chat(message)
-```
+for \_i, message in enumerate(messages, 1):
+
+turn\_count += 1
+
+print(f"==============================================\nTurn {turn\_count}:\n")
+
+response, usage = session.chat(message)
+
+
 
 ```
 Starting conversation...
@@ -511,11 +677,11 @@ Prompt caching: You'll notice here that the input tokens eventually grew to a po
 
 On the next turn, we are going to hit our 10K context window limit, which triggers compaction:
 
-python
+
 
-```
 response, usage = session.chat("Propose a title for the book")
-```
+
+
 
 ```
 🧹 Context window at 12847 tokens. Limit exceeded, compacting session memory...
@@ -553,11 +719,11 @@ You'll notice here that it took **over 40 seconds** for the agent to compact the
 
 Below you can see the result of the compaction. It captures the key elements of conversation in less than 2K tokens.
 
-python
+
 
-```
 print(session.summary)
-```
+
+
 
 ```
 ## User Intent
@@ -631,7 +797,7 @@ Draft chapters 3-16 and epilogue per approved outline.
 **Pequawket contract terms**: Mineral rights in perpetuity + 15% of all property values/business revenues from specified parcel
 ```
 
-## Instant Compaction
+##  Instant Compaction
 
 With **Instant compaction** the session memory is PROACTIVELY generated once a soft token threshold is reached.
 
@@ -641,24 +807,39 @@ Result: Instant compaction, no waiting.
 
 SESSION MEMORY COMPACTION (instant)
 
-```
+
+
 ────────────────────────────────────
-Turn 1 → Turn 2 → ... → Turn K → Turn K+1 → ... → Turn N → ..  → CONTEXT FULL!
-                            │                         │            │
-                (soft token threshold met:        (update          │
-               initialize session memory)          trigger)        │
-                            │                                      │
-                            │                         │            │
-                            ▼                         ▼            │
-                       ┌────────┐                ┌────────┐        │
-                       │ Create │                │ Update │        │
-                       │ memory │ (background)   │ memory │        │
-                       └────────┘                └────────┘        │
-                            │                         │            │
-                            ▼                         ▼            ▼
-                     📝 session-memory.md ──────────────────► INSTANT SWAP!
-                       (continuously updated)
-```
+
+Turn 1 → Turn 2 → ... → Turn K → Turn K+1 → ... → Turn N → .. → CONTEXT FULL!
+
+│ │ │
+
+(soft token threshold met: (update │
+
+initialize session memory) trigger) │
+
+│ │
+
+│ │ │
+
+▼ ▼ │
+
+┌────────┐ ┌────────┐ │
+
+│ Create │ │ Update │ │
+
+│ memory │ (background) │ memory │ │
+
+└────────┘ └────────┘ │
+
+│ │ │
+
+▼ ▼ ▼
+
+📝 session-memory.md ──────────────────► INSTANT SWAP!
+
+(continuously updated)
 
 **Update triggers:** The first summary is generated after the initial soft token limit. Updates can be triggered after every subsequent turn, or at periodically at natural breakpoints intervals (e.g. every ~10k tokens or 3+ tool calls).
 
@@ -669,220 +850,367 @@ This `InstantCompactingChatSession` class uses **threading** for background exec
 3. **Daemon threads** - background work doesn't prevent program exit
 4. **Instant compaction** - when context is full, just swap in the pre-built memory
 
-python
+
 
-```
 import threading
+
 import time
 
 class InstantCompactingChatSession:
-    """
-    Maintains session memory via incremental background updates.
 
-    Key insight: By updating memory in the background after each turn,
-    the summary is already ready when compaction is needed - instant swap!
-    """
+"""
 
-    def __init__(
-        self,
-        system_message="You are a helpful assistant",
-        context_limit: int = 12000,
-        min_tokens_to_init: int = 7500,
-        min_tokens_between_updates: int = 2000,
-    ):
-        # Thresholds
-        self.context_limit = context_limit  # the point at which the conversation is compacted so it does not exceed model limits
-        self.min_tokens_to_init = min_tokens_to_init  # tokens needed to trigger initial memory creation; note this happens PROACTIVELY in background unlike traditional compaction
-        self.min_tokens_between_updates = min_tokens_between_updates  # tokens needed to trigger memory update. only comes into play after initial memory is created and additional compaction (memory update) is needed after that
+Maintains session memory via incremental background updates.
 
-        # Conversation state
-        self.system_message = system_message
-        self.messages = []
-        self.current_context_window_tokens = 0
+Key insight: By updating memory in the background after each turn,
 
-        # Session memory state
-        self.session_memory = None  # this is the compacted conversation in session memory; for the demo we are storing this in memory, but in production you would write to session_memory.md file
-        self.last_summarized_index = (
-            0  # The index of the last message included in the session memory
-        )
-        self.tokens_at_last_update = 0  # To track tokens at last memory update and see if enough new tokens have been added to trigger another update
+the summary is already ready when compaction is needed - instant swap!
 
-        # Background update tracking
-        self._update_thread: threading.Thread | None = None
-        self.last_update_time = None
-        self._lock = threading.Lock()
+"""
 
-    def chat(self, user_message: str) -> tuple[str, anthropic.types.Usage, str | None]:
-        """Process a chat turn with background session memory updates."""
+def \_\_init\_\_(
 
-        if self.current_context_window_tokens + estimate_tokens(user_message) >= self.context_limit:
-            self.compact()  # note that when this is triggered, the compaction has already been created and is just swapped in instantly
+self,
 
-        self.messages.append({"role": "user", "content": user_message})
+system\_message="You are a helpful assistant",
 
-        response = client.messages.create(
-            model=MODEL,
-            max_tokens=3500,
-            system=self.system_message,
-            messages=add_cache_control(self.messages),
-        )
+context\_limit: int = 12000,
 
-        assistant_message = response.content[0].text
-        self.messages.append({"role": "assistant", "content": assistant_message})
+min\_tokens\_to\_init: int = 7500,
 
-        # Calculate token usage including cache
-        cache_read = getattr(response.usage, "cache_read_input_tokens", 0) or 0
-        total_input = response.usage.input_tokens + cache_read
+min\_tokens\_between\_updates: int = 2000,
 
-        # Update context window tokens (includes cached tokens since they still count toward context)
-        self.current_context_window_tokens = total_input + response.usage.output_tokens
+):
 
-        # KEY DIFFERENCE: Trigger background memory update if needed proactively, before compaction is needed
-        background_status = None
-        if self._should_init_memory() or self._should_update_memory():
-            self._trigger_background_update()
-            background_status = "initializing" if self.session_memory is None else "updating"
+# Thresholds
 
-        # Return usage info with cache stats
-        return assistant_message, response.usage, background_status
+self.context\_limit = context\_limit # the point at which the conversation is compacted so it does not exceed model limits
 
-    # Helper methods to determine when to init session memory
-    def _should_init_memory(self) -> bool:
-        return (
-            self.session_memory is None
-            and self.current_context_window_tokens >= self.min_tokens_to_init
-        )
+self.min\_tokens\_to\_init = min\_tokens\_to\_init # tokens needed to trigger initial memory creation; note this happens PROACTIVELY in background unlike traditional compaction
 
-    # Helper method to determine if memory should be updated
-    def _should_update_memory(self) -> bool:
-        if self.session_memory is None:
-            return False
-        tokens_since = self.current_context_window_tokens - self.tokens_at_last_update
-        return tokens_since >= self.min_tokens_between_updates
+self.min\_tokens\_between\_updates = min\_tokens\_between\_updates # tokens needed to trigger memory update. only comes into play after initial memory is created and additional compaction (memory update) is needed after that
 
-    # Methods to create initial session memory
-    def _create_session_memory(self, messages: list[dict]) -> str:
-        """Generate initial session memory from messages."""
-        # Put compaction instructions in user message to share cache with main chat
-        compaction_messages = [{"role": "user", "content": SESSION_MEMORY_PROMPT}]
-        response = client.messages.create(
-            model=MODEL,
-            max_tokens=5000,
-            system=self.system_message,  # Same as main chat for cache sharing
-            messages=add_cache_control(messages) + compaction_messages,
-        )
-        summary, _ = remove_thinking_blocks(
-            response.content[0].text
-        )  # clean up any <think> blocks because they are not needed in the session memory
-        print(
-            f"   [Background] Initial session memory created. Cache hit={getattr(response.usage, 'cache_read_input_tokens', 0) > 0}"
-        )
-        return summary
+# Conversation state
 
-    def _update_session_memory(self, new_messages: list[dict]) -> str:
-        """Update existing session memory with new messages. In practice, you may want to do this via file edit rather than full re-generation. But for demo purposes we do full regeneration here."""
-        # Put compaction instructions in user message to share cache with main chat
-        compaction_update_messages = [
-            {
-                "role": "user",
-                "content": SESSION_MEMORY_PROMPT
-                + f"""There is an existing session memory: {self.session_memory}. Return the entire session memory with updates to reflect new messages.""",
-            }
-        ]
-        response = client.messages.create(
-            model=MODEL,
-            max_tokens=5000,
-            system=self.system_message,
-            messages=new_messages
-            + compaction_update_messages,  # you may want to use prompt caching instead, in which case you'd use add_cache_control(self.messages) here
-        )
-        updated_summary, _ = remove_thinking_blocks(
-            response.content[0].text
-        )  # clean up any <think> blocks because they are not needed in the session memory
-        print("   [Background] Session memory updated.")
-        return updated_summary
+self.system\_message = system\_message
 
-    # Background memory update methods
-    def _background_memory_update(
-        self, messages_snapshot: list[dict], snapshot_index: int, current_tokens: int
-    ) -> None:
-        """Run session memory update in a background thread."""
-        try:
-            with self._lock:
-                current_session_memory = self.session_memory
-                last_index = self.last_summarized_index
+self.messages = []
 
-            if current_session_memory is None:
-                new_memory = self._create_session_memory(messages_snapshot)
-            else:
-                # Get new messages since last summary
-                new_messages = messages_snapshot[last_index:]
-                if not new_messages:
-                    return
-                new_memory = self._update_session_memory(new_messages)
+self.current\_context\_window\_tokens = 0
 
-            # Update state (thread-safe)
-            with self._lock:
-                self.session_memory = new_memory
-                self.last_summarized_index = snapshot_index
-                self.tokens_at_last_update = current_tokens
-                self.last_update_time = time.time()
+# Session memory state
 
-        except Exception as e:
-            print(f"   [Background] Error updating memory: {e}")
+self.session\_memory = None # this is the compacted conversation in session memory; for the demo we are storing this in memory, but in production you would write to session\_memory.md file
 
-    # This makes sure only one background update runs at a time. If one is already running, we skip starting another. If not, we start a new thread to do the update.
-    def _trigger_background_update(self):
-        """Trigger a background session memory update."""
-        if self._update_thread is not None and self._update_thread.is_alive():
-            return
+self.last\_summarized\_index = (
 
-        messages_snapshot = self.messages.copy()
-        snapshot_index = len(messages_snapshot)
-        current_tokens = self.current_context_window_tokens
+0 # The index of the last message included in the session memory
 
-        self._update_thread = threading.Thread(
-            target=self._background_memory_update,
-            args=(messages_snapshot, snapshot_index, current_tokens),
-            daemon=True,
-        )
-        self._update_thread.start()
+)
 
-    # Function to compact
-    def compact(self) -> None:
-        """INSTANT compaction using pre-built session memory."""
-        prev_msg_count = len(self.messages)
+self.tokens\_at\_last\_update = 0 # To track tokens at last memory update and see if enough new tokens have been added to trigger another update
 
-        # Ensure session memory is ready. Shouldn't be an issue normally, but here for safety.
-        if self.session_memory is None:
-            if self._update_thread is not None and self._update_thread.is_alive():
-                print("   ⏳ Waiting for background memory update...")
-                self._update_thread.join(timeout=30.0)
+# Background update tracking
 
-            if self.session_memory is None:
-                print("   ⚠️  No pre-built memory, creating synchronously...")
-                start = time.perf_counter()
-                self.session_memory = self._create_session_memory(self.messages)
-                elapsed = time.perf_counter() - start
-                print(f"   ⏱️  Took {elapsed:.2f}s (but should be instant normally!)")
-                self.last_summarized_index = len(self.messages)
+self.\_update\_thread: threading.Thread | None = None
 
-        with self._lock:
-            unsummarized = self.messages[self.last_summarized_index :]
-            summary_message = [
-                {
-                    "role": "user",
-                    "content": f"""This session is being continued from a previous conversation. Here is the session memory: {self.session_memory}.Continue from where we left off.""",
-                }
-            ]
-            self.messages = summary_message + unsummarized
-            self.last_summarized_index = 1
+self.last\_update\_time = None
 
-            print(f"\n{'=' * 60}")
-            print(f"⚡ INSTANT COMPACTION! Messages: {prev_msg_count} → {len(self.messages)}")
-            print("   Session memory was pre-built (no wait time!)")
-            print(f"{'=' * 60}")
-```
+self.\_lock = threading.Lock()
+
+def chat(self, user\_message: str) -> tuple[str, anthropic.types.Usage, str | None]:
+
+"""Process a chat turn with background session memory updates."""
+
+if self.current\_context\_window\_tokens + estimate\_tokens(user\_message) >= self.context\_limit:
+
+self.compact() # note that when this is triggered, the compaction has already been created and is just swapped in instantly
+
+self.messages.append({"role": "user", "content": user\_message})
+
+response = client.messages.create(
+
+model=MODEL,
+
+max\_tokens=3500,
+
+system=self.system\_message,
+
+messages=add\_cache\_control(self.messages),
+
+)
+
+assistant\_message = response.content[0].text
+
+self.messages.append({"role": "assistant", "content": assistant\_message})
+
+# Calculate token usage including cache
+
+cache\_read = getattr(response.usage, "cache\_read\_input\_tokens", 0) or 0
+
+total\_input = response.usage.input\_tokens + cache\_read
+
+# Update context window tokens (includes cached tokens since they still count toward context)
+
+self.current\_context\_window\_tokens = total\_input + response.usage.output\_tokens
+
+# KEY DIFFERENCE: Trigger background memory update if needed proactively, before compaction is needed
+
+background\_status = None
+
+if self.\_should\_init\_memory() or self.\_should\_update\_memory():
+
+self.\_trigger\_background\_update()
+
+background\_status = "initializing" if self.session\_memory is None else "updating"
+
+# Return usage info with cache stats
+
+return assistant\_message, response.usage, background\_status
+
+# Helper methods to determine when to init session memory
+
+def \_should\_init\_memory(self) -> bool:
+
+return (
+
+self.session\_memory is None
+
+and self.current\_context\_window\_tokens >= self.min\_tokens\_to\_init
+
+)
+
+# Helper method to determine if memory should be updated
+
+def \_should\_update\_memory(self) -> bool:
+
+if self.session\_memory is None:
+
+return False
+
+tokens\_since = self.current\_context\_window\_tokens - self.tokens\_at\_last\_update
+
+return tokens\_since >= self.min\_tokens\_between\_updates
+
+# Methods to create initial session memory
+
+def \_create\_session\_memory(self, messages: list[dict]) -> str:
+
+"""Generate initial session memory from messages."""
+
+# Put compaction instructions in user message to share cache with main chat
+
+compaction\_messages = [{"role": "user", "content": SESSION\_MEMORY\_PROMPT}]
+
+response = client.messages.create(
+
+model=MODEL,
+
+max\_tokens=5000,
+
+system=self.system\_message, # Same as main chat for cache sharing
+
+messages=add\_cache\_control(messages) + compaction\_messages,
+
+)
+
+summary, \_ = remove\_thinking\_blocks(
+
+response.content[0].text
+
+) # clean up any <think> blocks because they are not needed in the session memory
+
+print(
+
+f" [Background] Initial session memory created. Cache hit={getattr(response.usage, 'cache\_read\_input\_tokens', 0) > 0}"
+
+)
+
+return summary
+
+def \_update\_session\_memory(self, new\_messages: list[dict]) -> str:
+
+"""Update existing session memory with new messages. In practice, you may want to do this via file edit rather than full re-generation. But for demo purposes we do full regeneration here."""
+
+# Put compaction instructions in user message to share cache with main chat
+
+compaction\_update\_messages = [
+
+{
+
+"role": "user",
+
+"content": SESSION\_MEMORY\_PROMPT
+
++ f"""There is an existing session memory: {self.session\_memory}. Return the entire session memory with updates to reflect new messages.""",
+
+}
+
+]
+
+response = client.messages.create(
+
+model=MODEL,
+
+max\_tokens=5000,
+
+system=self.system\_message,
+
+messages=new\_messages
+
++ compaction\_update\_messages, # you may want to use prompt caching instead, in which case you'd use add\_cache\_control(self.messages) here
+
+)
+
+updated\_summary, \_ = remove\_thinking\_blocks(
+
+response.content[0].text
+
+) # clean up any <think> blocks because they are not needed in the session memory
+
+print(" [Background] Session memory updated.")
+
+return updated\_summary
+
+# Background memory update methods
+
+def \_background\_memory\_update(
+
+self, messages\_snapshot: list[dict], snapshot\_index: int, current\_tokens: int
+
+) -> None:
+
+"""Run session memory update in a background thread."""
+
+try:
+
+with self.\_lock:
+
+current\_session\_memory = self.session\_memory
+
+last\_index = self.last\_summarized\_index
+
+if current\_session\_memory is None:
+
+new\_memory = self.\_create\_session\_memory(messages\_snapshot)
+
+else:
+
+# Get new messages since last summary
+
+new\_messages = messages\_snapshot[last\_index:]
+
+if not new\_messages:
+
+return
+
+new\_memory = self.\_update\_session\_memory(new\_messages)
+
+# Update state (thread-safe)
+
+with self.\_lock:
+
+self.session\_memory = new\_memory
+
+self.last\_summarized\_index = snapshot\_index
+
+self.tokens\_at\_last\_update = current\_tokens
+
+self.last\_update\_time = time.time()
+
+except Exception as e:
+
+print(f" [Background] Error updating memory: {e}")
+
+# This makes sure only one background update runs at a time. If one is already running, we skip starting another. If not, we start a new thread to do the update.
+
+def \_trigger\_background\_update(self):
+
+"""Trigger a background session memory update."""
+
+if self.\_update\_thread is not None and self.\_update\_thread.is\_alive():
+
+return
+
+messages\_snapshot = self.messages.copy()
+
+snapshot\_index = len(messages\_snapshot)
+
+current\_tokens = self.current\_context\_window\_tokens
+
+self.\_update\_thread = threading.Thread(
+
+target=self.\_background\_memory\_update,
+
+args=(messages\_snapshot, snapshot\_index, current\_tokens),
+
+daemon=True,
+
+)
+
+self.\_update\_thread.start()
+
+# Function to compact
+
+def compact(self) -> None:
+
+"""INSTANT compaction using pre-built session memory."""
+
+prev\_msg\_count = len(self.messages)
+
+# Ensure session memory is ready. Shouldn't be an issue normally, but here for safety.
+
+if self.session\_memory is None:
+
+if self.\_update\_thread is not None and self.\_update\_thread.is\_alive():
+
+print(" ⏳ Waiting for background memory update...")
+
+self.\_update\_thread.join(timeout=30.0)
+
+if self.session\_memory is None:
+
+print(" ⚠️ No pre-built memory, creating synchronously...")
+
+start = time.perf\_counter()
+
+self.session\_memory = self.\_create\_session\_memory(self.messages)
+
+elapsed = time.perf\_counter() - start
+
+print(f" ⏱️ Took {elapsed:.2f}s (but should be instant normally!)")
+
+self.last\_summarized\_index = len(self.messages)
+
+with self.\_lock:
+
+unsummarized = self.messages[self.last\_summarized\_index :]
+
+summary\_message = [
+
+{
+
+"role": "user",
+
+"content": f"""This session is being continued from a previous conversation. Here is the session memory: {self.session\_memory}.Continue from where we left off.""",
+
+}
+
+]
+
+self.messages = summary\_message + unsummarized
+
+self.last\_summarized\_index = 1
+
+print(f"\n{'=' \* 60}")
+
+print(f"⚡ INSTANT COMPACTION! Messages: {prev\_msg\_count} → {len(self.messages)}")
+
+print(" Session memory was pre-built (no wait time!)")
+
+print(f"{'=' \* 60}")
+
+
 
 ```
 /root/.pyenv/versions/3.13.11/lib/python3.13/site-packages/coconut/compiler/util.py:403: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in staticmethod() if you want to preserve the old behavior
@@ -891,57 +1219,87 @@ class InstantCompactingChatSession:
   result = add_action(grammar, unpack).parseWithTabs().transformString(text)
 ```
 
-### Example use of Instant Compaction
+###  Example use of Instant Compaction
 
-python
+
 
-```
 # Low thresholds for demo - in production you'd use higher values
+
 session = InstantCompactingChatSession(
-    system_message=SYSTEM_PROMPT,
+
+system\_message=SYSTEM\_PROMPT,
+
 )
 
 messages = [
-    "I want to create a story about a young detective solving a mysterious case in a small town. Generate 3 well thought out plot ideas for me to consider.",
-    "I don't like those ideas, can you think of one plot something more unique and unexpected?",
-    "Ok I like it. Can you help me develop the main character's backstory and motivations?",
-    "Can you draft a detailed outline for the story, breaking it down into chapters and key events?",
-    "Can you draft me a first chapter based on the plot and character ideas we've discussed so far? Make it around 2,000 words.",
-    "Can you draft a second chapter that builds on the first one?",
+
+"I want to create a story about a young detective solving a mysterious case in a small town. Generate 3 well thought out plot ideas for me to consider.",
+
+"I don't like those ideas, can you think of one plot something more unique and unexpected?",
+
+"Ok I like it. Can you help me develop the main character's backstory and motivations?",
+
+"Can you draft a detailed outline for the story, breaking it down into chapters and key events?",
+
+"Can you draft me a first chapter based on the plot and character ideas we've discussed so far? Make it around 2,000 words.",
+
+"Can you draft a second chapter that builds on the first one?",
+
 ]
+
 print("Starting conversation with instant compacting chat session...\n")
 
-turn_count = 0
+turn\_count = 0
+
 for message in messages:
-    response, usage, background_status = session.chat(message)
-    turn_count += 1
 
-    # Calculate cache stats
-    cache_read = getattr(usage, "cache_read_input_tokens", 0) or 0
-    cache_created = getattr(usage, "cache_creation_input_tokens", 0) or 0
-    total_input = usage.input_tokens + cache_read
+response, usage, background\_status = session.chat(message)
 
-    print(f"{'=' * 60}")
-    print(f"Turn {turn_count}:")
-    print(f"\nUser: {message}")
-    print(f"\nAssistant: \n{truncate_response(response, max_lines=3)}")
-    print("\nToken Usage:")
-    print(f"  Input: {total_input:,} (new: {usage.input_tokens:,}, cached: {cache_read:,})")
-    print(f"  Output: {usage.output_tokens:,}")
-    print(
-        f"  Messages: {len(session.messages)} | Memory: {'ready' if session.session_memory else 'not yet'}"
-    )
+turn\_count += 1
 
-    if cache_read > 0:
-        cache_pct = (cache_read / total_input) * 100
-        print(f"  ✓ Cache hit! {cache_pct:.0f}% of input from cache")
+# Calculate cache stats
 
-    if background_status:
-        print(f"\n  [Background] Proactively {background_status} session memory...")
-        print(f"  Context window: {session.current_context_window_tokens:,} tokens")
+cache\_read = getattr(usage, "cache\_read\_input\_tokens", 0) or 0
 
-    print()
-```
+cache\_created = getattr(usage, "cache\_creation\_input\_tokens", 0) or 0
+
+total\_input = usage.input\_tokens + cache\_read
+
+print(f"{'=' \* 60}")
+
+print(f"Turn {turn\_count}:")
+
+print(f"\nUser: {message}")
+
+print(f"\nAssistant: \n{truncate\_response(response, max\_lines=3)}")
+
+print("\nToken Usage:")
+
+print(f" Input: {total\_input:,} (new: {usage.input\_tokens:,}, cached: {cache\_read:,})")
+
+print(f" Output: {usage.output\_tokens:,}")
+
+print(
+
+f" Messages: {len(session.messages)} | Memory: {'ready' if session.session\_memory else 'not yet'}"
+
+)
+
+if cache\_read > 0:
+
+cache\_pct = (cache\_read / total\_input) \* 100
+
+print(f" ✓ Cache hit! {cache\_pct:.0f}% of input from cache")
+
+if background\_status:
+
+print(f"\n [Background] Proactively {background\_status} session memory...")
+
+print(f" Context window: {session.current\_context\_window\_tokens:,} tokens")
+
+print()
+
+
 
 ```
 Starting conversation with instant compacting chat session...
@@ -1051,29 +1409,41 @@ Token Usage:
   Context window: 13,414 tokens
 ```
 
-python
+
 
-```
 message = "What did we just talk about? Give me one sentence"
-response, usage, background_status = session.chat(message)
+
+response, usage, background\_status = session.chat(message)
 
 # Calculate cache stats
-cache_read = getattr(usage, "cache_read_input_tokens", 0) or 0
-total_input = usage.input_tokens + cache_read
+
+cache\_read = getattr(usage, "cache\_read\_input\_tokens", 0) or 0
+
+total\_input = usage.input\_tokens + cache\_read
 
 print(f"\nUser: {message}")
-print(f"\nAssistant: \n{truncate_response(response, max_lines=3)}")
+
+print(f"\nAssistant: \n{truncate\_response(response, max\_lines=3)}")
+
 print("\nToken Usage:")
-print(f"  Input: {total_input:,} (new: {usage.input_tokens:,}, cached: {cache_read:,})")
-print(f"  Output: {usage.output_tokens:,}")
+
+print(f" Input: {total\_input:,} (new: {usage.input\_tokens:,}, cached: {cache\_read:,})")
+
+print(f" Output: {usage.output\_tokens:,}")
+
 print(
-    f"  Messages: {len(session.messages)} | Memory: {'ready' if session.session_memory else 'not yet'}"
+
+f" Messages: {len(session.messages)} | Memory: {'ready' if session.session\_memory else 'not yet'}"
+
 )
 
-if cache_read > 0:
-    cache_pct = (cache_read / total_input) * 100
-    print(f"  ✓ Cache hit! {cache_pct:.0f}% of input from cache")
-```
+if cache\_read > 0:
+
+cache\_pct = (cache\_read / total\_input) \* 100
+
+print(f" ✓ Cache hit! {cache\_pct:.0f}% of input from cache")
+
+
 
 ```
 ============================================================
@@ -1094,7 +1464,7 @@ Token Usage:
 
 You'll notice here that once we hit the context limit, the session memory was instantaly swapped in, meaning the user had zero waiting time for a response!
 
-## Advanced: Understanding Prompt Caching
+##  Advanced: Understanding Prompt Caching
 
 The background updates can be made **~10x cheaper** by using prompt caching. The trick:
 
@@ -1102,71 +1472,129 @@ The background updates can be made **~10x cheaper** by using prompt caching. The
 2. Add `cache_control` markers so subsequent requests hit the cache
 3. Only the new "summarize this" instruction is billed at full price
 
-```
+
+
 ┌─────────────────────────────────────────────────────────────────────────────────┐
-│                    PROMPT CACHING FOR LONG CONVERSATIONS                        │
+
+│ PROMPT CACHING FOR LONG CONVERSATIONS │
+
 ├─────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                 │
-│  WITHOUT CACHING: Pay full price for entire context every turn                 │
-│  ════════════════════════════════════════════════════════════                   │
-│                                                                                 │
-│  Turn 1:  [System][User1][Asst1]                         →  500 tokens  @ $3/M │
-│  Turn 2:  [System][User1][Asst1][User2][Asst2]           → 1500 tokens  @ $3/M │
-│  Turn 3:  [System][User1][Asst1][User2][Asst2][User3]... → 3000 tokens  @ $3/M │
-│  Turn 4:  [System][User1][Asst1][User2][Asst2][User3]... → 5000 tokens  @ $3/M │
-│           ─────────────────────────────────────────────                         │
-│                                              Total: 10,000 tokens = $0.030      │
-│                                                                                 │
-│                                                                                 │
-│  WITH CACHING: Pay full price once, then 90% discount on prefix                │
-│  ═══════════════════════════════════════════════════════════════                │
-│                                                                                 │
-│  Turn 1:  [System][User1][Asst1]◆                        →  500 tokens  @ $3/M │
-│                                ▲                            (cache created)    │
-│                          cache breakpoint                                       │
-│                                                                                 │
-│  Turn 2:  [System][User1][Asst1][User2][Asst2]◆                                │
-│           ╰─────── cached ──────╯                                              │
-│                500 @ $0.30/M + 1000 new @ $3/M  =  $0.0032                     │
-│                                                                                 │
-│  Turn 3:  [System][User1][Asst1][User2][Asst2][User3][Asst3]◆                  │
-│           ╰──────────── cached ─────────────╯                                  │
-│               1500 @ $0.30/M + 1500 new @ $3/M  =  $0.0050                     │
-│                                                                                 │
-│  Turn 4:  [System][User1][Asst1][User2][Asst2][User3][Asst3][User4][Asst4]◆    │
-│           ╰───────────────────── cached ─────────────────────╯                 │
-│                     3000 @ $0.30/M + 2000 new @ $3/M  =  $0.0069               │
-│           ─────────────────────────────────────────────                         │
-│                                              Total: $0.0166  (45% savings)     │
-│                                                                                 │
+
+│ │
+
+│ WITHOUT CACHING: Pay full price for entire context every turn │
+
+│ ════════════════════════════════════════════════════════════ │
+
+│ │
+
+│ Turn 1: [System][User1][Asst1] → 500 tokens @ $3/M │
+
+│ Turn 2: [System][User1][Asst1][User2][Asst2] → 1500 tokens @ $3/M │
+
+│ Turn 3: [System][User1][Asst1][User2][Asst2][User3]... → 3000 tokens @ $3/M │
+
+│ Turn 4: [System][User1][Asst1][User2][Asst2][User3]... → 5000 tokens @ $3/M │
+
+│ ───────────────────────────────────────────── │
+
+│ Total: 10,000 tokens = $0.030 │
+
+│ │
+
+│ │
+
+│ WITH CACHING: Pay full price once, then 90% discount on prefix │
+
+│ ═══════════════════════════════════════════════════════════════ │
+
+│ │
+
+│ Turn 1: [System][User1][Asst1]◆ → 500 tokens @ $3/M │
+
+│ ▲ (cache created) │
+
+│ cache breakpoint │
+
+│ │
+
+│ Turn 2: [System][User1][Asst1][User2][Asst2]◆ │
+
+│ ╰─────── cached ──────╯ │
+
+│ 500 @ $0.30/M + 1000 new @ $3/M = $0.0032 │
+
+│ │
+
+│ Turn 3: [System][User1][Asst1][User2][Asst2][User3][Asst3]◆ │
+
+│ ╰──────────── cached ─────────────╯ │
+
+│ 1500 @ $0.30/M + 1500 new @ $3/M = $0.0050 │
+
+│ │
+
+│ Turn 4: [System][User1][Asst1][User2][Asst2][User3][Asst3][User4][Asst4]◆ │
+
+│ ╰───────────────────── cached ─────────────────────╯ │
+
+│ 3000 @ $0.30/M + 2000 new @ $3/M = $0.0069 │
+
+│ ───────────────────────────────────────────── │
+
+│ Total: $0.0166 (45% savings) │
+
+│ │
+
 ├─────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                 │
-│  COMPACTION + CACHING: Double benefit                                           │
-│  ════════════════════════════════════                                           │
-│                                                                                 │
-│    Main Chat                      Background Summarizer                         │
-│    ─────────                      ─────────────────────                         │
-│                                                                                 │
-│  [Conversation grows...]          [Same conversation prefix]◆ + [Summarize!]   │
-│         │                                    │                                  │
-│         │                         Cache hit! Only pays for                      │
-│         │                         the summarization prompt                      │
-│         │                                    │                                  │
-│         ▼                                    ▼                                  │
-│  Context limit reached  ──────►  Session memory ready instantly                │
-│                                  (built cheaply in background)                  │
-│                                                                                 │
-│  ┌──────────────────────────────────────────────────────────────────────────┐  │
-│  │  Key insight: The background summarizer reuses the same conversation     │  │
-│  │  prefix that was just sent to the main chat - automatic cache hit!       │  │
-│  └──────────────────────────────────────────────────────────────────────────┘  │
-│                                                                                 │
+
+│ │
+
+│ COMPACTION + CACHING: Double benefit │
+
+│ ════════════════════════════════════ │
+
+│ │
+
+│ Main Chat Background Summarizer │
+
+│ ───────── ───────────────────── │
+
+│ │
+
+│ [Conversation grows...] [Same conversation prefix]◆ + [Summarize!] │
+
+│ │ │ │
+
+│ │ Cache hit! Only pays for │
+
+│ │ the summarization prompt │
+
+│ │ │ │
+
+│ ▼ ▼ │
+
+│ Context limit reached ──────► Session memory ready instantly │
+
+│ (built cheaply in background) │
+
+│ │
+
+│ ┌──────────────────────────────────────────────────────────────────────────┐ │
+
+│ │ Key insight: The background summarizer reuses the same conversation │ │
+
+│ │ prefix that was just sent to the main chat - automatic cache hit! │ │
+
+│ └──────────────────────────────────────────────────────────────────────────┘ │
+
+│ │
+
 └─────────────────────────────────────────────────────────────────────────────────┘
 
-◆ = cache_control breakpoint (cache everything before this point)
-```
+◆ = cache\_control breakpoint (cache everything before this point)
 
-### Why this matters for compaction
+###  Why this matters for compaction
 
 | Scenario | Cost per background update | Notes |
 | --- | --- | --- |
@@ -1176,28 +1604,41 @@ The background updates can be made **~10x cheaper** by using prompt caching. The
 
 The longer the conversation, the bigger the savings—exactly when you need compaction most!
 
-### How the Caching Works
+###  How the Caching Works
 
 The key is in `_add_cache_control()` and `_create_session_memory_cached()`:
 
-```
-# 1. Mark the last conversation message with cache_control
+
+
+# 1. Mark the last conversation message with cache\_control
+
 {
-    "role": "user",
-    "content": [{
-        "type": "text",
-        "text": msg["content"],
-        "cache_control": {"type": "ephemeral"}  # <-- This creates a cache breakpoint
-    }]
+
+"role": "user",
+
+"content": [{
+
+"type": "text",
+
+"text": msg["content"],
+
+"cache\_control": {"type": "ephemeral"} # <-- This creates a cache breakpoint
+
+}]
+
 }
 
 # 2. Also mark the system prompt
+
 system=[{
-    "type": "text",
-    "text": "You are a session memory agent...",
-    "cache_control": {"type": "ephemeral"}
+
+"type": "text",
+
+"text": "You are a session memory agent...",
+
+"cache\_control": {"type": "ephemeral"}
+
 }]
-```
 
 **Why this works:**
 
@@ -1212,11 +1653,11 @@ system=[{
 * With caching: 500 new tokens × 3.00/1M+4,500cached×3.00/1M + 4,500 cached × 3.00/1M+4,500cached×0.30/1M = $0.00285
 * **Savings: ~80%** on background summarization costs
 
-## Conclusion
+##  Conclusion
 
 In this cookbook, you learned how to manage long-running Claude conversations through session memory compaction.
 
-### What We Covered
+###  What We Covered
 
 ✅ **Effective compaction prompts** - Structure your session memory to preserve user intent, completed work, errors, active work, and key references while discarding filler
 
@@ -1226,15 +1667,15 @@ In this cookbook, you learned how to manage long-running Claude conversations th
 
 ✅ **Traditional vs. instant patterns** - Understand when to use each approach based on your application needs
 
-### Key Takeaways
+###  Key Takeaways
 
 1. **Weight recency heavily** - The end of a conversation is the active working context
 2. **Preserve user corrections verbatim** - Prevents the model from reverting to old behaviors
 3. **Build memory proactively** - Don't wait for context limits; start background updates early
 4. **Leverage prompt caching** - Background summarization can share cache with the main conversation
 
-### Next Steps
+###  Next Steps
 
-* **For agentic workflows**: See [Automatic Context Compaction](https://github.com/anthropics/claude-cookbooks/blob/main/misc/../tool_use/automatic-context-compaction.ipynb) for SDK-based automatic compaction with tool use
+* **For agentic workflows**: See [Automatic Context Compaction(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/misc/../tool_use/automatic-context-compaction.ipynb) for SDK-based automatic compaction with tool use
 * **For production**: Consider persisting session memory to disk rather than keeping it in memory
 * **For optimization**: Experiment with update frequency thresholds to balance cost vs. freshness

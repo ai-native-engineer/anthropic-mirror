@@ -1,12 +1,8 @@
 <!-- source: https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account -->
 
-# Log in to your Claude account
-
-May 19, 2026
-
 When you open Claude on a web browser ([claude.ai](http://claude.ai)), the desktop app, or a mobile app, you will see two different options for logging in to your Claude account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1785803400&signature=6af949dbd98a178ad64f0ced2beca8d7a2985225450d87a0e7d1663b144068ab&req=dSguFct%2Fm4lfXfMW1HO4zXg5BoeE4xGwzWhrqpWiTMkxwjdIXXDZIv%2BBydCU%0AfSWL1ggSL0YVQqpeXHs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1785803400&signature=6af949dbd98a178ad64f0ced2beca8d7a2985225450d87a0e7d1663b144068ab&req=dSguFct%2Fm4lfXfMW1HO4zXg5BoeE4xGwzWhrqpWiTMkxwjdIXXDZIv%2BBydCU%0AfSWL1ggSL0YVQqpeXHs%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1786167000&signature=56fda1737fbe04f066c2bd5077cbe60036ddede06a04c42b7782107144b197f6&req=dSguFct%2Fm4lfXfMW1HO4zXg5BoSN5RW0zWhrqpWiTMkKtpBBQl5EkwboTHhr%0ABPQwS%2BYhSD1Fj7XfAQI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1786167000&signature=56fda1737fbe04f066c2bd5077cbe60036ddede06a04c42b7782107144b197f6&req=dSguFct%2Fm4lfXfMW1HO4zXg5BoSN5RW0zWhrqpWiTMkKtpBBQl5EkwboTHhr%0ABPQwS%2BYhSD1Fj7XfAQI%3D%0A)
 
 ## Continue with Google
 
@@ -34,6 +30,8 @@ The preferred way to access Anthropic services using third-party software, tools
 
 If you’re building a product, application, or tool for others, use API key authentication through Claude Console or a supported cloud provider. Applications that misrepresent their identity to Anthropic’s servers, attempt to route third-party traffic against subscription limits, or otherwise violate applicable terms or policies are prohibited and may be enforced against.
 
+---
+
 ## Troubleshooting
 
 ### I entered my email address but I haven’t received my login email.
@@ -52,6 +50,8 @@ If you requested a login email but you haven’t received it yet, do the followi
 If you received the login email but can’t log in with the link or code, take note of the error message you’re seeing. If you’re creating an account or logging in for the first time and seeing a message about your phone number, please refer to **[Verifying your phone number](https://support.claude.com/en/articles/8287232-verifying-your-phone-number)**.
 
 Otherwise, visit the **[Claude status page](https://status.claude.com/)** to check if there are any known service disruptions or maintenance activities. If the status page shows an ongoing system-wide incident, it's best to wait for service restoration before attempting further troubleshooting.
+
+---
 
 ## Frequently asked questions
 
@@ -100,5 +100,5 @@ If you are already logged in to Claude for iOS, you can see the email address yo
 * [How do I log out of all active sessions?](https://support.claude.com/en/articles/10310342-how-do-i-log-out-of-all-active-sessions)
 * [Get started with Claude for Education at your university (for Owners/Admins)](https://support.claude.com/en/articles/11139094-get-started-with-claude-for-education-at-your-university-for-owners-admins)
 * [Claude 4 Invite Sweepstakes Official Rules](https://support.claude.com/en/articles/11140763-claude-4-invite-sweepstakes-official-rules)
-* [Logging in to your Console account](https://support.claude.com/en/articles/13371040-logging-in-to-your-console-account)
+* [Log in to your Console account](https://support.claude.com/en/articles/13371040-log-in-to-your-console-account)
 * [Open the Claude mobile app with a link](https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link)

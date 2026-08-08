@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9970975-access-audit-logs -->
 
-# Access audit logs
-
-Updated over a week ago
-
 Audit logs are available for Enterprise organizations only.
 
 Organization Owners and Primary Owners can export data within **[Organization settings > Data and Privacy](https://claude.ai/admin-settings/data-privacy-controls)** and clicking the "Export logs" button. Upon triggering this export, all audit logs for the organization within the past 180 days will be aggregated. The Owner who requested the export will receive an email containing a download link, which is active for 24 hours. Note that there may be a delay between triggering the export and receiving the email as logs are aggregated.
@@ -93,4 +89,8 @@ The entities that can be affected by events. Entity info follows this structure:
 | conversation\_deleted | A conversation has been deleted. |  | chat\_conversation | 2024-09-04 |
 | conversation\_created | A conversation has been created. |  | chat\_conversation | 2024-09-04 |
 
-[Roles and permissions](https://support.claude.com/en/articles/9267276-roles-and-permissions)[Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)[What happens to a user's data when they are removed from a Team or Enterprise organization?](https://support.claude.com/en/articles/12053672-what-happens-to-a-user-s-data-when-they-are-removed-from-a-team-or-enterprise-organization)[Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)[Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
+* [Roles and permissions](https://support.claude.com/en/articles/9267276-roles-and-permissions)
+* [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
+* [What happens to a user's data when they are removed from a Team or Enterprise organization?](https://support.claude.com/en/articles/12053672-what-happens-to-a-user-s-data-when-they-are-removed-from-a-team-or-enterprise-organization)
+* [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
+* [Join an organization via invite link](https://support.claude.com/en/articles/13776697-join-an-organization-via-invite-link)

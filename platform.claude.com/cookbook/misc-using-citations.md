@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/misc-using-citations -->
 
-# Citations
+#  Citations
 
 The Claude API features citation support that enables Claude to provide detailed citations when answering questions about documents. Citations are a valuable affordance in many LLM powered applications to help users track and verify the sources of information in responses.
 
@@ -15,33 +15,31 @@ The citations feature is an alternative to prompt-based citation techniques. Usi
 * The citation feature will not return citations pointing to documents or locations that were not provided as valid sources.
 * While testing we found the citation feature to generate citations with higher recall and percision than prompt based techniques.
 
-The documentation for citations can be found [here](https://docs.claude.com/en/docs/build-with-claude/citations).
+The documentation for citations can be found [here(opens in new tab)](https://docs.claude.com/en/docs/build-with-claude/citations).
 
-## Setup
+##  Setup
 
 First, let's install the required libraries and initalize our Anthropic client.
 
-python
+
 
-```
-!pip install anthropic  --quiet
-```
+!pip install anthropic --quiet
 
-python
+
 
-```
 import json
+
 import os
 
 import anthropic
 
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
-# ANTHROPIC_API_KEY = "" # Put your API key here!
+ANTHROPIC\_API\_KEY = os.environ.get("ANTHROPIC\_API\_KEY")
 
-client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-```
+# ANTHROPIC\_API\_KEY = "" # Put your API key here!
 
-## Document Types
+client = anthropic.Anthropic(api\_key=ANTHROPIC\_API\_KEY)
+
+##  Document Types
 
 Citations support three different document types. The type of citation outputted depends on the type of document being cited from:
 
@@ -51,7 +49,7 @@ Citations support three different document types. The type of citation outputted
 
 We will explore working with each of these in the examples below.
 
-### Plain Text Documents
+###  Plain Text Documents
 
 With plain text document citations you provide your document as raw text to the model. You can provide one or multiple documents. This text will get automatically chunked into sentences. The model will cite these sentences as appropriate. The model is able to cite multiple sentences together at once in a single citation but will not cite text smaller than a sentence.
 
@@ -59,78 +57,127 @@ Along with the outputted text the API response will include structured data for 
 
 Let's see a complete example using a help center customer chatbot for a made up company PetWorld.
 
-python
+
 
-```
 # Read all help center articles and create a list of documents
-articles_dir = "./data/help_center_articles"
+
+articles\_dir = "./data/help\_center\_articles"
+
 documents = []
 
-for filename in sorted(os.listdir(articles_dir)):
-    if filename.endswith(".txt"):
-        with open(os.path.join(articles_dir, filename)) as f:
-            content = f.read()
-            # Split into title and body
-            title_line, body = content.split("\n", 1)
-            title = title_line.replace("title: ", "")
-            documents.append(
-                {
-                    "type": "document",
-                    "source": {"type": "text", "media_type": "text/plain", "data": body},
-                    "title": title,
-                    "citations": {"enabled": True},
-                }
-            )
+for filename in sorted(os.listdir(articles\_dir)):
+
+if filename.endswith(".txt"):
+
+with open(os.path.join(articles\_dir, filename)) as f:
+
+content = f.read()
+
+# Split into title and body
+
+title\_line, body = content.split("\n", 1)
+
+title = title\_line.replace("title: ", "")
+
+documents.append(
+
+{
+
+"type": "document",
+
+"source": {"type": "text", "media\_type": "text/plain", "data": body},
+
+"title": title,
+
+"citations": {"enabled": True},
+
+}
+
+)
 
 QUESTION = "I just checked out, where is my order tracking number? Track package is not available on the website yet for my order."
 
 # Add the question to the content
+
 content = documents
 
 response = client.messages.create(
-    model="claude-sonnet-4-6",
-    temperature=0.0,
-    max_tokens=1024,
-    system="You are a customer support bot working for PetWorld. Your task is to provide short, helpful answers to user questions. Since you are in a chat interface avoid providing extra details. You will be given access to PetWorld's help center articles to help you answer questions.",
-    messages=[
-        {"role": "user", "content": documents},
-        {
-            "role": "user",
-            "content": [{"type": "text", "text": f"Here is the user's question: {QUESTION}"}],
-        },
-    ],
+
+model="claude-sonnet-4-6",
+
+temperature=0.0,
+
+max\_tokens=1024,
+
+system="You are a customer support bot working for PetWorld. Your task is to provide short, helpful answers to user questions. Since you are in a chat interface avoid providing extra details. You will be given access to PetWorld's help center articles to help you answer questions.",
+
+messages=[
+
+{"role": "user", "content": documents},
+
+{
+
+"role": "user",
+
+"content": [{"type": "text", "text": f"Here is the user's question: {QUESTION}"}],
+
+},
+
+],
+
 )
 
-def visualize_raw_response(response):
-    raw_response = {"content": []}
+def visualize\_raw\_response(response):
 
-    print("\n" + "=" * 80 + "\nRaw response:\n" + "=" * 80)
+raw\_response = {"content": []}
 
-    for content in response.content:
-        if content.type == "text":
-            block = {"type": "text", "text": content.text}
-            if hasattr(content, "citations") and content.citations:
-                block["citations"] = []
-                for citation in content.citations:
-                    citation_dict = {
-                        "type": citation.type,
-                        "cited_text": citation.cited_text,
-                        "document_title": citation.document_title,
-                    }
-                    if citation.type == "page_location":
-                        citation_dict.update(
-                            {
-                                "start_page_number": citation.start_page_number,
-                                "end_page_number": citation.end_page_number,
-                            }
-                        )
-                    block["citations"].append(citation_dict)
-            raw_response["content"].append(block)
+print("\n" + "=" \* 80 + "\nRaw response:\n" + "=" \* 80)
 
-    return json.dumps(raw_response, indent=2)
+for content in response.content:
 
-print(visualize_raw_response(response))
-```
+if content.type == "text":
+
+block = {"type": "text", "text": content.text}
+
+if hasattr(content, "citations") and content.citations:
+
+block["citations"] = []
+
+for citation in content.citations:
+
+citation\_dict = {
+
+"type": citation.type,
+
+"cited\_text": citation.cited\_text,
+
+"document\_title": citation.document\_title,
+
+}
+
+if citation.type == "page\_location":
+
+citation\_dict.update(
+
+{
+
+"start\_page\_number": citation.start\_page\_number,
+
+"end\_page\_number": citation.end\_page\_number,
+
+}
+
+)
+
+block["citations"].append(citation\_dict)
+
+raw\_response["content"].append(block)
+
+return json.dumps(raw\_response, indent=2)
+
+print(visualize\_raw\_response(response))
+
+
 
 ```
 ================================================================================
@@ -166,7 +213,7 @@ Raw response:
 }
 ```
 
-#### Visualizing Citations
+####  Visualizing Citations
 
 By leveraging the citation data, we can create UIs that:
 
@@ -182,72 +229,111 @@ The function takes Claude's response object and outputs:
 * Text with numbered citation markers (e.g., "The answer [1] includes this fact [2]")
 * A numbered reference list showing each cited text and its source document
 
-python
+
 
-```
-def visualize_citations(response):
-    """
-    Takes a response object and returns a string with numbered citations.
-    Example output: "here is the plain text answer [1][2] here is some more text [3]"
-    with a list of citations below.
-    """
-    # Dictionary to store unique citations
-    citations_dict = {}
-    citation_counter = 1
+def visualize\_citations(response):
 
-    # Final formatted text
-    formatted_text = ""
-    citations_list = []
+"""
 
-    print("\n" + "=" * 80 + "\nFormatted response:\n" + "=" * 80)
+Takes a response object and returns a string with numbered citations.
 
-    for content in response.content:
-        if content.type == "text":
-            text = content.text
-            if hasattr(content, "citations") and content.citations:
-                # Sort citations by their appearance in the text
-                def get_sort_key(citation):
-                    if hasattr(citation, "start_char_index"):
-                        return citation.start_char_index
-                    elif hasattr(citation, "start_page_number"):
-                        return citation.start_page_number
-                    elif hasattr(citation, "start_block_index"):
-                        return citation.start_block_index
-                    return 0  # fallback
+Example output: "here is the plain text answer [1][2] here is some more text [3]"
 
-                sorted_citations = sorted(content.citations, key=get_sort_key)
+with a list of citations below.
 
-                # Process each citation
-                for citation in sorted_citations:
-                    doc_title = citation.document_title
-                    cited_text = citation.cited_text.replace("\n", " ").replace("\r", " ")
-                    # Remove any multiple spaces that might have been created
-                    cited_text = " ".join(cited_text.split())
+"""
 
-                    # Create a unique key for this citation
-                    citation_key = f"{doc_title}:{cited_text}"
+# Dictionary to store unique citations
 
-                    # If this is a new citation, add it to our dictionary
-                    if citation_key not in citations_dict:
-                        citations_dict[citation_key] = citation_counter
-                        citations_list.append(
-                            f'[{citation_counter}] "{cited_text}" found in "{doc_title}"'
-                        )
-                        citation_counter += 1
+citations\_dict = {}
 
-                    # Add the citation number to the text
-                    citation_num = citations_dict[citation_key]
-                    text += f" [{citation_num}]"
+citation\_counter = 1
 
-            formatted_text += text
+# Final formatted text
 
-    # Combine the formatted text with the citations list
-    final_output = formatted_text + "\n\n" + "\n".join(citations_list)
-    return final_output
+formatted\_text = ""
 
-formatted_response = visualize_citations(response)
-print(formatted_response)
-```
+citations\_list = []
+
+print("\n" + "=" \* 80 + "\nFormatted response:\n" + "=" \* 80)
+
+for content in response.content:
+
+if content.type == "text":
+
+text = content.text
+
+if hasattr(content, "citations") and content.citations:
+
+# Sort citations by their appearance in the text
+
+def get\_sort\_key(citation):
+
+if hasattr(citation, "start\_char\_index"):
+
+return citation.start\_char\_index
+
+elif hasattr(citation, "start\_page\_number"):
+
+return citation.start\_page\_number
+
+elif hasattr(citation, "start\_block\_index"):
+
+return citation.start\_block\_index
+
+return 0 # fallback
+
+sorted\_citations = sorted(content.citations, key=get\_sort\_key)
+
+# Process each citation
+
+for citation in sorted\_citations:
+
+doc\_title = citation.document\_title
+
+cited\_text = citation.cited\_text.replace("\n", " ").replace("\r", " ")
+
+# Remove any multiple spaces that might have been created
+
+cited\_text = " ".join(cited\_text.split())
+
+# Create a unique key for this citation
+
+citation\_key = f"{doc\_title}:{cited\_text}"
+
+# If this is a new citation, add it to our dictionary
+
+if citation\_key not in citations\_dict:
+
+citations\_dict[citation\_key] = citation\_counter
+
+citations\_list.append(
+
+f'[{citation\_counter}] "{cited\_text}" found in "{doc\_title}"'
+
+)
+
+citation\_counter += 1
+
+# Add the citation number to the text
+
+citation\_num = citations\_dict[citation\_key]
+
+text += f" [{citation\_num}]"
+
+formatted\_text += text
+
+# Combine the formatted text with the citations list
+
+final\_output = formatted\_text + "\n\n" + "\n".join(citations\_list)
+
+return final\_output
+
+formatted\_response = visualize\_citations(response)
+
+print(formatted\_response)
+
+
 
 ```
 ================================================================================
@@ -261,7 +347,7 @@ Since you just checked out, your order likely hasn't shipped yet. Once it ships,
 [2] "If you haven't received a tracking number within 48 hours of your order confirmation, please contact our customer support team." found in "Order Tracking Information"
 ```
 
-### PDF Documents
+###  PDF Documents
 
 When working with PDFs, Claude can provide citations that reference specific page numbers, making it easy to track information sources. Here's how PDF citations work:
 
@@ -273,40 +359,63 @@ When working with PDFs, Claude can provide citations that reference specific pag
 
 Below is an example using the Constitutional AI paper to demonstrate PDF citations:
 
-python
+
 
-```
 import base64
+
 import json
 
 # Read and encode the PDF
-pdf_path = "data/Constitutional AI.pdf"
-with open(pdf_path, "rb") as f:
-    pdf_data = base64.b64encode(f.read()).decode()
 
-pdf_response = client.messages.create(
-    model="claude-sonnet-4-6",
-    temperature=0.0,
-    max_tokens=1024,
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "document",
-                    "source": {"type": "base64", "media_type": "application/pdf", "data": pdf_data},
-                    "title": "Constitutional AI Paper",
-                    "citations": {"enabled": True},
-                },
-                {"type": "text", "text": "What is the main idea of Constitutional AI?"},
-            ],
-        }
-    ],
+pdf\_path = "data/Constitutional AI.pdf"
+
+with open(pdf\_path, "rb") as f:
+
+pdf\_data = base64.b64encode(f.read()).decode()
+
+pdf\_response = client.messages.create(
+
+model="claude-sonnet-4-6",
+
+temperature=0.0,
+
+max\_tokens=1024,
+
+messages=[
+
+{
+
+"role": "user",
+
+"content": [
+
+{
+
+"type": "document",
+
+"source": {"type": "base64", "media\_type": "application/pdf", "data": pdf\_data},
+
+"title": "Constitutional AI Paper",
+
+"citations": {"enabled": True},
+
+},
+
+{"type": "text", "text": "What is the main idea of Constitutional AI?"},
+
+],
+
+}
+
+],
+
 )
 
-print(visualize_raw_response(pdf_response))
-print(visualize_citations(pdf_response))
-```
+print(visualize\_raw\_response(pdf\_response))
+
+print(visualize\_citations(pdf\_response))
+
+
 
 ```
 ================================================================================
@@ -436,7 +545,7 @@ The ultimate goal is not to completely remove human supervision, but rather to m
 [5] "By removing human feedback labels for harmlessness, we have moved further away from reliance on human supervision, and closer to the possibility of a self-supervised approach to alignment. However, in this work we still relied on human supervision in the form of helpfulness labels. We expect it is possible to achieve helpfulness and instruction-following without human feedback, starting from only a pretrained LM and extensive prompting, but we leave this for future work. Our ultimate goal is not to remove human supervision entirely, but to make it more efficient, transparent, and targeted." found in "Constitutional AI Paper"
 ```
 
-### Custom Content Documents
+###  Custom Content Documents
 
 While plain text documents are automatically chunked into sentences, custom content documents give you complete control over citation granularity. This API shape allows you to:
 
@@ -446,49 +555,77 @@ While plain text documents are automatically chunked into sentences, custom cont
 
 In the example below, we use the same help center articles as the plain text example above, but instead of allowing sentence-level citations, we'll treat each article as a single chunk. This demonstrates how the choice of document type affects citation behavior and granularity. You will notice that the `cited_text` is the entire article in contrast to a sentence from the source article.
 
-python
+
 
-```
 # Read all help center articles and create a list of custom content documents
-articles_dir = "./data/help_center_articles"
+
+articles\_dir = "./data/help\_center\_articles"
+
 documents = []
 
-for filename in sorted(os.listdir(articles_dir)):
-    if filename.endswith(".txt"):
-        with open(os.path.join(articles_dir, filename)) as f:
-            content = f.read()
-            # Split into title and body
-            title_line, body = content.split("\n", 1)
-            title = title_line.replace("title: ", "")
+for filename in sorted(os.listdir(articles\_dir)):
 
-            documents.append(
-                {
-                    "type": "document",
-                    "source": {"type": "content", "content": [{"type": "text", "text": body}]},
-                    "title": title,
-                    "citations": {"enabled": True},
-                }
-            )
+if filename.endswith(".txt"):
+
+with open(os.path.join(articles\_dir, filename)) as f:
+
+content = f.read()
+
+# Split into title and body
+
+title\_line, body = content.split("\n", 1)
+
+title = title\_line.replace("title: ", "")
+
+documents.append(
+
+{
+
+"type": "document",
+
+"source": {"type": "content", "content": [{"type": "text", "text": body}]},
+
+"title": title,
+
+"citations": {"enabled": True},
+
+}
+
+)
 
 QUESTION = "I just checked out, where is my order tracking number? Track package is not available on the website yet for my order."
 
-custom_content_response = client.messages.create(
-    model="claude-sonnet-4-6",
-    temperature=0.0,
-    max_tokens=1024,
-    system="You are a customer support bot working for PetWorld. Your task is to provide short, helpful answers to user questions. Since you are in a chat interface avoid providing extra details. You will be given access to PetWorld's help center articles to help you answer questions.",
-    messages=[
-        {"role": "user", "content": documents},
-        {
-            "role": "user",
-            "content": [{"type": "text", "text": f"Here is the user's question: {QUESTION}"}],
-        },
-    ],
+custom\_content\_response = client.messages.create(
+
+model="claude-sonnet-4-6",
+
+temperature=0.0,
+
+max\_tokens=1024,
+
+system="You are a customer support bot working for PetWorld. Your task is to provide short, helpful answers to user questions. Since you are in a chat interface avoid providing extra details. You will be given access to PetWorld's help center articles to help you answer questions.",
+
+messages=[
+
+{"role": "user", "content": documents},
+
+{
+
+"role": "user",
+
+"content": [{"type": "text", "text": f"Here is the user's question: {QUESTION}"}],
+
+},
+
+],
+
 )
 
-print(visualize_raw_response(custom_content_response))
-print(visualize_citations(custom_content_response))
-```
+print(visualize\_raw\_response(custom\_content\_response))
+
+print(visualize\_citations(custom\_content\_response))
+
+
 
 ```
 ================================================================================
@@ -518,46 +655,63 @@ You should receive an email with your tracking number once your order ships. If 
 [1] "Once your order ships, you'll receive an email with a tracking number. To track your package, log in to your PetWorld account and go to "Order History." Click on the order you want to track and select "Track Package." This will show you the current status and estimated delivery date. You can also enter the tracking number directly on our shipping partner's website for more detailed information. If you haven't received a tracking number within 48 hours of your order confirmation, please contact our customer support team." found in "Order Tracking Information"
 ```
 
-### Using the Context Field
+###  Using the Context Field
 
 The `context` field allows you to provide additional information about a document that Claude can use when generating responses, but that won't be cited. This is useful for:
 
 * Providing metadata about the document (e.g., publication date, author)
-* [Contextual retrieval](https://www.anthropic.com/news/contextual-retrieval)
+* [Contextual retrieval(opens in new tab)](https://www.anthropic.com/news/contextual-retrieval)
 * Including usage instructions or context that shouldn't be directly cited
 
 In the example below, we provide a loyalty program article with a warning in the context field. Notice how Claude can use the information in the context to inform its response but the context field content is not available for citation.
 
-python
+
 
-```
 import json
 
 # Create a document with context field
+
 document = {
-    "type": "document",
-    "source": {
-        "type": "text",
-        "media_type": "text/plain",
-        "data": "PetWorld offers a loyalty program where customers earn 1 point for every dollar spent. Once you accumulate 100 points, you'll receive a $5 reward that can be used on your next purchase. Points expire 12 months after they are earned. You can check your point balance in your account dashboard or by asking customer service.",
-    },
-    "title": "Loyalty Program Details",
-    "context": "WARNING: This article has not been updated in 12 months. Content may be out of date. Be sure to inform the user this content may be incorrect after providing guidance.",
-    "citations": {"enabled": True},
+
+"type": "document",
+
+"source": {
+
+"type": "text",
+
+"media\_type": "text/plain",
+
+"data": "PetWorld offers a loyalty program where customers earn 1 point for every dollar spent. Once you accumulate 100 points, you'll receive a $5 reward that can be used on your next purchase. Points expire 12 months after they are earned. You can check your point balance in your account dashboard or by asking customer service.",
+
+},
+
+"title": "Loyalty Program Details",
+
+"context": "WARNING: This article has not been updated in 12 months. Content may be out of date. Be sure to inform the user this content may be incorrect after providing guidance.",
+
+"citations": {"enabled": True},
+
 }
 
 QUESTION = "How does PetWorld's loyalty program work? When do points expire?"
 
-context_response = client.messages.create(
-    model="claude-sonnet-4-6",
-    temperature=0.0,
-    max_tokens=1024,
-    messages=[{"role": "user", "content": [document, {"type": "text", "text": QUESTION}]}],
+context\_response = client.messages.create(
+
+model="claude-sonnet-4-6",
+
+temperature=0.0,
+
+max\_tokens=1024,
+
+messages=[{"role": "user", "content": [document, {"type": "text", "text": QUESTION}]}],
+
 )
 
-print(visualize_raw_response(context_response))
-print(visualize_citations(context_response))
-```
+print(visualize\_raw\_response(context\_response))
+
+print(visualize\_citations(context\_response))
+
+
 
 ```
 ================================================================================
@@ -635,86 +789,133 @@ Please note that since this information is from an article that hasn't been upda
 [3] "You can check your point balance in your account dashboard or by asking customer service." found in "Loyalty Program Details"
 ```
 
-### PDF Highlighting
+###  PDF Highlighting
 
 One limitation with PDF citations is only the page numbers are returned. You can use third party libraries to match the returned cited text with page contents to draw attention to the cited content. This cell demonstrates PDF citation highlighting using Claude and PyMuPDF, creating a new annotated PDF:
 
-python
+
 
-```
-import fitz  # PyMuPDF
+import fitz # PyMuPDF
 
 # Setup paths and read PDF
-pdf_path = "data/Amazon-com-Inc-2023-Shareholder-Letter.pdf"
-output_pdf_path = "data/Amazon-com-Inc-2023-Shareholder-Letter-highlighted.pdf"
+
+pdf\_path = "data/Amazon-com-Inc-2023-Shareholder-Letter.pdf"
+
+output\_pdf\_path = "data/Amazon-com-Inc-2023-Shareholder-Letter-highlighted.pdf"
 
 # Read and encode the PDF
-with open(pdf_path, "rb") as f:
-    pdf_data = base64.b64encode(f.read()).decode()
+
+with open(pdf\_path, "rb") as f:
+
+pdf\_data = base64.b64encode(f.read()).decode()
 
 response = client.messages.create(
-    model="claude-sonnet-4-6",
-    max_tokens=1024,
-    temperature=0,
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "document",
-                    "source": {"type": "base64", "media_type": "application/pdf", "data": pdf_data},
-                    "title": "Amazon 2023 Shareholder Letter",
-                    "citations": {"enabled": True},
-                },
-                {
-                    "type": "text",
-                    "text": "What was Amazon's total revenue in 2023 and how much did it grow year-over-year?",
-                },
-            ],
-        }
-    ],
+
+model="claude-sonnet-4-6",
+
+max\_tokens=1024,
+
+temperature=0,
+
+messages=[
+
+{
+
+"role": "user",
+
+"content": [
+
+{
+
+"type": "document",
+
+"source": {"type": "base64", "media\_type": "application/pdf", "data": pdf\_data},
+
+"title": "Amazon 2023 Shareholder Letter",
+
+"citations": {"enabled": True},
+
+},
+
+{
+
+"type": "text",
+
+"text": "What was Amazon's total revenue in 2023 and how much did it grow year-over-year?",
+
+},
+
+],
+
+}
+
+],
+
 )
 
-print(visualize_raw_response(response))
+print(visualize\_raw\_response(response))
 
 # Collect PDF citations
-pdf_citations = []
-for content in response.content:
-    if hasattr(content, "citations") and content.citations:
-        for citation in content.citations:
-            if citation.type == "page_location":
-                pdf_citations.append(citation)
 
-doc = fitz.open(pdf_path)
+pdf\_citations = []
+
+for content in response.content:
+
+if hasattr(content, "citations") and content.citations:
+
+for citation in content.citations:
+
+if citation.type == "page\_location":
+
+pdf\_citations.append(citation)
+
+doc = fitz.open(pdf\_path)
 
 # Process each citation
-for citation in pdf_citations:
-    if citation.type == "page_location":
-        text_to_find = citation.cited_text.replace("\u0002", "")
-        start_page = citation.start_page_number - 1  # Convert to 0-based index
-        end_page = citation.end_page_number - 2
 
-        # Process each page in the citation range
-        for page_num in range(start_page, end_page + 1):
-            page = doc[page_num]
+for citation in pdf\_citations:
 
-            text_instances = page.search_for(text_to_find.strip())
+if citation.type == "page\_location":
 
-            if text_instances:
-                print(f"Found cited text on page {page_num + 1}")
-                for inst in text_instances:
-                    highlight = page.add_highlight_annot(inst)
-                    highlight.set_colors({"stroke": (1, 1, 0)})  # Yellow highlight
-                    highlight.update()
-            else:
-                print(f"{text_to_find} not found on page {page_num + 1}")
+text\_to\_find = citation.cited\_text.replace("\u0002", "")
+
+start\_page = citation.start\_page\_number - 1 # Convert to 0-based index
+
+end\_page = citation.end\_page\_number - 2
+
+# Process each page in the citation range
+
+for page\_num in range(start\_page, end\_page + 1):
+
+page = doc[page\_num]
+
+text\_instances = page.search\_for(text\_to\_find.strip())
+
+if text\_instances:
+
+print(f"Found cited text on page {page\_num + 1}")
+
+for inst in text\_instances:
+
+highlight = page.add\_highlight\_annot(inst)
+
+highlight.set\_colors({"stroke": (1, 1, 0)}) # Yellow highlight
+
+highlight.update()
+
+else:
+
+print(f"{text\_to\_find} not found on page {page\_num + 1}")
 
 # Save the new PDF
-doc.save(output_pdf_path)
+
+doc.save(output\_pdf\_path)
+
 doc.close()
 
-print(f"\nCreated highlighted PDF at: {output_pdf_path}")
-```
+print(f"\nCreated highlighted PDF at: {output\_pdf\_path}")
+
+
 
 ```
 ================================================================================

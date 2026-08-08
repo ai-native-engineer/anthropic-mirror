@@ -16,6 +16,38 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22651dd05046d0fdb0b_39c40393e610cc0a5e65f50ad12ff5ada273f792-1000x1000.svg)
+
+Aug 6, 2026
+
+Run Claude Code sessions on your own compute
+
+Product announcements
+
+Run Claude Code sessions on your own compute
+
+August 6, 2026
+
+[Run Claude Code sessions on your own compute](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)Run Claude Code sessions on your own compute
+
+[Run Claude Code sessions on your own compute](#)Run Claude Code sessions on your own compute
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
+
+Aug 5, 2026
+
+Inference hooks: inline data loss prevention for Claude Enterprise
+
+Enterprise AI
+
+Inference hooks: inline data loss prevention for Claude Enterprise
+
+August 5, 2026
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
 
 Jul 28, 2026
@@ -224,38 +256,6 @@ June 8, 2026
 
 [Building intelligent apps for Apple platforms with Claude in the Foundation Models framework](#)Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
-
-Jun 8, 2026
-
-Observability for developers building connectors
-
-Product announcements
-
-Observability for developers building connectors
-
-June 8, 2026
-
-[Observability for developers building connectors](https://claude.com/blog/observability-for-developers-building-connectors)Observability for developers building connectors
-
-[Observability for developers building connectors](#)Observability for developers building connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
-
-May 28, 2026
-
-Introducing dynamic workflows in Claude Code
-
-Product announcements
-
-Introducing dynamic workflows in Claude Code
-
-May 28, 2026
-
-[Introducing dynamic workflows in Claude Code](https://claude.com/blog/introducing-dynamic-workflows-in-claude-code)Introducing dynamic workflows in Claude Code
-
-[Introducing dynamic workflows in Claude Code](#)Introducing dynamic workflows in Claude Code
-
 [View more](https://claude.com/blog-category/announcements?1e959936_page=2)
 
 Category
@@ -263,6 +263,38 @@ Category
 Product
 
 Usecase
+
+### Run Claude Code sessions on your own compute
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 6, 2026
+
+[Run Claude Code sessions on your own compute](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)Run Claude Code sessions on your own compute
+
+[Run Claude Code sessions on your own compute](#)Run Claude Code sessions on your own compute
+
+### Inference hooks: inline data loss prevention for Claude Enterprise
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 5, 2026
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
 
 ### Bringing MCP 2026-07-28 to Claude
 
@@ -472,41 +504,9 @@ June 8, 2026
 
 [Building intelligent apps for Apple platforms with Claude in the Foundation Models framework](#)Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
 
-### Observability for developers building connectors
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-June 8, 2026
-
-[Observability for developers building connectors](https://claude.com/blog/observability-for-developers-building-connectors)Observability for developers building connectors
-
-[Observability for developers building connectors](#)Observability for developers building connectors
-
-### Introducing dynamic workflows in Claude Code
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-May 28, 2026
-
-[Introducing dynamic workflows in Claude Code](https://claude.com/blog/introducing-dynamic-workflows-in-claude-code)Introducing dynamic workflows in Claude Code
-
-[Introducing dynamic workflows in Claude Code](#)Introducing dynamic workflows in Claude Code
-
 [View more](https://claude.com/blog-category/announcements?2f226f2c_page=2)
 
-1 / 6
+1 / 7
 
 No posts for those filters
 

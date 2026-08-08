@@ -1,12 +1,12 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-memory-cookbook -->
 
-# Context Editing & Memory for Long-Running Agents
+#  Context Editing & Memory for Long-Running Agents
 
 AI agents that run across multiple sessions or handle long-running tasks face two key challenges: they lose learned patterns between conversations, and context windows fill up during extended interactions.
 
 This cookbook demonstrates how to address these challenges using Claude's memory tool and context editing capabilities.
 
-## Table of Contents
+##  Table of Contents
 
 1. [Introduction: Why Memory Matters](#introduction)
 2. [Use Cases](#use-cases)
@@ -16,7 +16,7 @@ This cookbook demonstrates how to address these challenges using Claude's memory
 6. [Real-World Applications](#real-world)
 7. [Best Practices](#best-practices)
 
-## Prerequisites
+##  Prerequisites
 
 **Required Knowledge:**
 
@@ -26,45 +26,50 @@ This cookbook demonstrates how to address these challenges using Claude's memory
 **Required Tools:**
 
 * Python 3.10 or higher
-* Anthropic API key ([get one here](https://console.anthropic.com/))
+* Anthropic API key ([get one here(opens in new tab)](https://console.anthropic.com/))
 
 **Recommended:**
 
 * Familiarity with concurrent programming concepts (threads, async)
 * Basic understanding of context windows in LLMs
 
-## Setup
+##  Setup
 
-### For VSCode Users
+###  For VSCode Users
 
-```
+
+
 # 1. Create virtual environment
+
 python -m venv .venv
 
 # 2. Activate it
-source .venv/bin/activate  # macOS/Linux
-# or: .venv\Scripts\activate  # Windows
+
+source .venv/bin/activate # macOS/Linux
+
+# or: .venv\Scripts\activate # Windows
 
 # 3. Install dependencies
+
 pip install -r requirements.txt
 
 # 4. In VSCode: Select .venv as kernel (top right)
-```
 
-### API Key
+###  API Key
 
-```
+
+
 cp .env.example .env
-# Edit .env and add your ANTHROPIC_API_KEY
-```
 
-Get your API key from: <https://console.anthropic.com/>
+# Edit .env and add your ANTHROPIC\_API\_KEY
 
-## 1. Introduction: Why Memory Matters
+Get your API key from: [https://console.anthropic.com/(opens in new tab)](https://console.anthropic.com/)
 
-This cookbook demonstrates practical implementations of the context engineering patterns described in [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). That post covers why context is a finite resource, how attention budgets work, and strategies for building effective agents—the techniques you'll see in action here.
+##  1. Introduction: Why Memory Matters
 
-### The Problem
+This cookbook demonstrates practical implementations of the context engineering patterns described in [Effective context engineering for AI agents(opens in new tab)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). That post covers why context is a finite resource, how attention budgets work, and strategies for building effective agents—the techniques you'll see in action here.
+
+###  The Problem
 
 Large language models have finite context windows (200k tokens for the Claude 4 family of models). While this seems large, several challenges emerge:
 
@@ -73,7 +78,7 @@ Large language models have finite context windows (200k tokens for the Claude 4 
 * **Repeated patterns**: Similar tasks across conversations require re-explaining context every time
 * **Information loss**: When context fills up, earlier important information gets lost
 
-### The Solution
+###  The Solution
 
 Claude 4 models introduce powerful context management capabilities:
 
@@ -88,7 +93,7 @@ Claude 4 models introduce powerful context management capabilities:
    * **Thinking management** (`clear_thinking_20251015`): Manages extended thinking blocks (requires thinking enabled)
    * Configurable triggers and retention policies
 
-### The Benefit
+###  The Benefit
 
 Build AI agents that **get better at your specific tasks over time**:
 
@@ -98,7 +103,7 @@ Build AI agents that **get better at your specific tasks over time**:
 
 Think of it as giving Claude a notebook to take notes and refer back to - just like humans do.
 
-### What You'll Learn
+###  What You'll Learn
 
 By the end of this cookbook, you will be able to:
 
@@ -106,11 +111,11 @@ By the end of this cookbook, you will be able to:
 * **Configure** context editing to manage long-running sessions
 * **Apply** best practices for memory security and organization
 
-## 1. Introduction: Why Memory Matters
+##  1. Introduction: Why Memory Matters
 
-This cookbook demonstrates practical implementations of the context engineering patterns described in [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). That post covers why context is a finite resource, how attention budgets work, and strategies for building effective agents—the techniques you'll see in action here.
+This cookbook demonstrates practical implementations of the context engineering patterns described in [Effective context engineering for AI agents(opens in new tab)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). That post covers why context is a finite resource, how attention budgets work, and strategies for building effective agents—the techniques you'll see in action here.
 
-### The Problem
+###  The Problem
 
 Large language models have finite context windows (200k tokens for Claude 4). While this seems large, several challenges emerge:
 
@@ -119,7 +124,7 @@ Large language models have finite context windows (200k tokens for Claude 4). Wh
 * **Repeated patterns**: Similar tasks across conversations require re-explaining context every time
 * **Information loss**: When context fills up, earlier important information gets lost
 
-### The Solution
+###  The Solution
 
 Claude Sonnet 4.6 introduces two powerful capabilities:
 
@@ -130,7 +135,7 @@ Claude Sonnet 4.6 introduces two powerful capabilities:
 
 **Supported Models**: Claude Opus 4.1 (`claude-opus-4-1`), Claude Opus 4 (`claude-opus-4`), Claude Sonnet 4.6 (`claude-sonnet-4-6`), Claude Sonnet 4 (`claude-sonnet-4`), and Claude Haiku 4.5 (`claude-haiku-4-5`)
 
-### The Benefit
+###  The Benefit
 
 Build AI agents that **get better at your specific tasks over time**:
 
@@ -140,30 +145,30 @@ Build AI agents that **get better at your specific tasks over time**:
 
 Think of it as giving Claude a notebook to take notes and refer back to - just like humans do.
 
-## 2. Use Cases
+##  2. Use Cases
 
 Memory and context management enable powerful new workflows:
 
-### 🔍 Code Review Assistant
+###  🔍 Code Review Assistant
 
 * Learns debugging patterns from past reviews
 * Recognizes similar bugs instantly in future sessions
 * Builds team-specific code quality knowledge
-* **Production ready**: Integrate with [claude-code-action](https://github.com/anthropics/claude-code-action) for GitHub PR reviews
+* **Production ready**: Integrate with [claude-code-action(opens in new tab)](https://github.com/anthropics/claude-code-action) for GitHub PR reviews
 
-### 📚 Research Assistant
+###  📚 Research Assistant
 
 * Accumulates knowledge on topics over multiple sessions
 * Connects insights across different research threads
 * Maintains bibliography and source tracking
 
-### 💬 Customer Support Bot
+###  💬 Customer Support Bot
 
 * Learns user preferences and communication style
 * Remembers common issues and solutions
 * Builds product knowledge base from interactions
 
-### 📊 Data Analysis Helper
+###  📊 Data Analysis Helper
 
 * Remembers dataset patterns and anomalies
 * Stores analysis techniques that work well
@@ -173,72 +178,84 @@ Memory and context management enable powerful new workflows:
 
 **This cookbook focuses on the Code Review Assistant** as it clearly demonstrates both memory (learning patterns) and context editing (handling long reviews).
 
-## 3. Quick Start Examples
+##  3. Quick Start Examples
 
 Let's see memory and context management in action with simple examples.
 
-### Setup
+###  Setup
 
 First, install dependencies and configure your environment:
 
-python
+
 
-```
 %%capture
+
 # Install required packages
+
 # Option 1: From requirements.txt
+
 # %pip install -q -r requirements.txt
 
 # Option 2: Direct install
+
 %pip install -q anthropic python-dotenv ipykernel
-```
 
 **⚠️ Important**: Create a `.env` file in this directory:
 
-```
+
+
 # Copy .env.example to .env and add your API key
+
 cp .env.example .env
-```
 
-Then edit `.env` to add your Anthropic API key from <https://console.anthropic.com/>
+Then edit `.env` to add your Anthropic API key from [https://console.anthropic.com/(opens in new tab)](https://console.anthropic.com/)
 
-python
+
 
-```
 import os
+
 from typing import cast
 
 from anthropic import Anthropic
-from dotenv import load_dotenv
+
+from dotenv import load\_dotenv
 
 # Load environment variables
-load_dotenv()
+
+load\_dotenv()
 
 # Model configuration - use alias for automatic updates
-MODEL = "claude-sonnet-4-6"  # Can override via ANTHROPIC_MODEL env var
-if os.getenv("ANTHROPIC_MODEL"):
-    MODEL = os.getenv("ANTHROPIC_MODEL")
 
-if not API_KEY:
-    raise ValueError("ANTHROPIC_API_KEY not found. Copy .env.example to .env and add your API key.")
+MODEL = "claude-sonnet-4-6" # Can override via ANTHROPIC\_MODEL env var
+
+if os.getenv("ANTHROPIC\_MODEL"):
+
+MODEL = os.getenv("ANTHROPIC\_MODEL")
+
+if not API\_KEY:
+
+raise ValueError("ANTHROPIC\_API\_KEY not found. Copy .env.example to .env and add your API key.")
 
 if not MODEL:
-    raise ValueError("ANTHROPIC_MODEL not found. Copy .env.example to .env and set the model.")
+
+raise ValueError("ANTHROPIC\_MODEL not found. Copy .env.example to .env and set the model.")
 
 MODEL = cast(str, MODEL)
 
-client = Anthropic(api_key=API_KEY)
+client = Anthropic(api\_key=API\_KEY)
 
 print("✓ API key loaded")
+
 print(f"✓ Using model: {MODEL}")
-```
+
+
 
 ```
 ✓ API key loaded
 ✓ Using model: claude-sonnet-4-6
 ```
 
-### Example 1: Basic Memory Usage
+###  Example 1: Basic Memory Usage
 
 Let's see Claude use memory to store information for future reference.
 
@@ -267,57 +284,89 @@ The following cell clears all memory files to provide a clean slate for this dem
 
 **In production applications**, you should carefully consider whether to clear all memory, as it permanently removes learned patterns. Consider using selective deletion or organizing memory into project-specific directories instead.
 
-python
+
 
-```
 # Import helper functions
-from memory_demo.demo_helpers import (
-    run_conversation_loop,
-    run_conversation_turn,
-    print_context_management_info,
+
+from memory\_demo.demo\_helpers import (
+
+run\_conversation\_loop,
+
+run\_conversation\_turn,
+
+print\_context\_management\_info,
+
 )
-from memory_tool import MemoryToolHandler
+
+from memory\_tool import MemoryToolHandler
 
 # Initialize
+
 client = Anthropic()
-memory = MemoryToolHandler(base_path="./demo_memory")
+
+memory = MemoryToolHandler(base\_path="./demo\_memory")
 
 # Clear any existing memories to start fresh
+
 print("🧹 Clearing previous memories...")
-memory.clear_all_memory()
+
+memory.clear\_all\_memory()
+
 print("✓ Memory cleared\n")
 
 # Load example code with a race condition bug
-with open("memory_demo/sample_code/web_scraper_v1.py", "r") as f:
-    code_to_review = f.read()
+
+with open("memory\_demo/sample\_code/web\_scraper\_v1.py", "r") as f:
+
+code\_to\_review = f.read()
 
 messages = [
-    {
-        "role": "user",
-        "content": f"I'm reviewing a multi-threaded web scraper that sometimes returns fewer results than expected. The count is inconsistent across runs. Can you find the issue?\n\n```python\n{code_to_review}\n```",
-    }
+
+{
+
+"role": "user",
+
+"content": f"I'm reviewing a multi-threaded web scraper that sometimes returns fewer results than expected. The count is inconsistent across runs. Can you find the issue?\n\n```python\n{code\_to\_review}\n```",
+
+}
+
 ]
 
-print("=" * 60)
+print("=" \* 60)
+
 print("📝 SESSION 1: Learning from a bug")
-print("=" * 60)
+
+print("=" \* 60)
 
 # Run conversation loop
-response = run_conversation_loop(
-    client=client,
-    model=MODEL,
-    messages=messages,
-    memory_handler=memory,
-    system="You are a code reviewer.",
-    max_tokens=2048,
-    max_turns=5,
-    verbose=True,
+
+response = run\_conversation\_loop(
+
+client=client,
+
+model=MODEL,
+
+messages=messages,
+
+memory\_handler=memory,
+
+system="You are a code reviewer.",
+
+max\_tokens=2048,
+
+max\_turns=5,
+
+verbose=True,
+
 )
 
-print("\n" + "=" * 60)
+print("\n" + "=" \* 60)
+
 print("✅ Session 1 complete!")
-print("=" * 60)
-```
+
+print("=" \* 60)
+
+
 
 ```
 🧹 Clearing previous memories...
@@ -592,42 +641,61 @@ The key insight: **Avoid shared mutable state in concurrent code**. Let worker t
 
 Now let's see the magic - Claude applying this learned pattern in a **new conversation**:
 
-### Example 2: Cross-Conversation Learning
+###  Example 2: Cross-Conversation Learning
 
 Start a completely new conversation - memory persists!
 
-python
+
 
-```
 # NEW conversation (empty messages)
+
 # Load API client code with similar concurrency issue
-with open("memory_demo/sample_code/api_client_v1.py", "r") as f:
-    code_to_review = f.read()
+
+with open("memory\_demo/sample\_code/api\_client\_v1.py", "r") as f:
+
+code\_to\_review = f.read()
 
 messages = [
-    {"role": "user", "content": f"Review this API client code:\n\n```python\n{code_to_review}\n```"}
+
+{"role": "user", "content": f"Review this API client code:\n\n```python\n{code\_to\_review}\n```"}
+
 ]
 
-print("=" * 60)
+print("=" \* 60)
+
 print("🚀 SESSION 2: Applying learned pattern")
-print("=" * 60)
+
+print("=" \* 60)
 
 # Run conversation loop
-response = run_conversation_loop(
-    client=client,
-    model=MODEL,
-    messages=messages,
-    memory_handler=memory,
-    system="You are a code reviewer.",
-    max_tokens=2048,
-    max_turns=5,
-    verbose=True,
+
+response = run\_conversation\_loop(
+
+client=client,
+
+model=MODEL,
+
+messages=messages,
+
+memory\_handler=memory,
+
+system="You are a code reviewer.",
+
+max\_tokens=2048,
+
+max\_turns=5,
+
+verbose=True,
+
 )
 
-print("\n" + "=" * 60)
+print("\n" + "=" \* 60)
+
 print("✅ Session 2 complete!")
-print("=" * 60)
-```
+
+print("=" \* 60)
+
+
 
 ```
 ============================================================
@@ -924,7 +992,7 @@ async def test_all_results_captured():
 
 This is **cross-conversation learning** in action!
 
-### Example 3: Context Clearing While Preserving Memory
+###  Example 3: Context Clearing While Preserving Memory
 
 What happens during a **long review session** with many code files?
 
@@ -935,148 +1003,245 @@ Let's trigger **context editing** to see how Claude manages this automatically.
 
 **Note on configuration:** We use `clear_at_least: 50` tokens because memory tool operations have small results (~50-150 tokens each). In production with larger tool results (like web search or code execution), you'd use higher values like 3000-5000 tokens.
 
-python
+
 
-```
 # Configure context management with BOTH clearing strategies
+
 # Low thresholds for demo - in production use 30-40k tokens
-CONTEXT_MANAGEMENT = {
-    "edits": [
-        # Thinking management MUST come first when combining strategies
-        {
-            "type": "clear_thinking_20251015",
-            "keep": {"type": "thinking_turns", "value": 1}  # Keep only last turn's thinking
-        },
-        {
-            "type": "clear_tool_uses_20250919",
-            "trigger": {"type": "input_tokens", "value": 5000},  # Low threshold for demo
-            "keep": {"type": "tool_uses", "value": 2},  # Keep last 2 tool uses
-            "clear_at_least": {"type": "input_tokens", "value": 2000}
-        }
-    ]
+
+CONTEXT\_MANAGEMENT = {
+
+"edits": [
+
+# Thinking management MUST come first when combining strategies
+
+{
+
+"type": "clear\_thinking\_20251015",
+
+"keep": {"type": "thinking\_turns", "value": 1} # Keep only last turn's thinking
+
+},
+
+{
+
+"type": "clear\_tool\_uses\_20250919",
+
+"trigger": {"type": "input\_tokens", "value": 5000}, # Low threshold for demo
+
+"keep": {"type": "tool\_uses", "value": 2}, # Keep last 2 tool uses
+
+"clear\_at\_least": {"type": "input\_tokens", "value": 2000}
+
 }
 
-# Extended thinking config (required for clear_thinking strategy)
+]
+
+}
+
+# Extended thinking config (required for clear\_thinking strategy)
+
 THINKING = {
-    "type": "enabled",
-    "budget_tokens": 1024  # Budget for thinking per turn
+
+"type": "enabled",
+
+"budget\_tokens": 1024 # Budget for thinking per turn
+
 }
 
 # Continue from previous session - memory persists!
-print("=" * 60)
+
+print("=" \* 60)
+
 print("📚 SESSION 3: Long review session with context clearing")
-print("=" * 60)
+
+print("=" \* 60)
+
 print()
 
 # Clean up messages - remove any empty content from previous session
-# This ensures we have a valid message state to continue from
-cleaned_messages = []
-for msg in messages:
-    if isinstance(msg.get("content"), list):
-        # Filter out empty content blocks
-        content = [c for c in msg["content"] if c]
-        if content:
-            cleaned_messages.append({"role": msg["role"], "content": content})
-    elif msg.get("content"):
-        cleaned_messages.append(msg)
 
-messages = cleaned_messages
+# This ensures we have a valid message state to continue from
+
+cleaned\_messages = []
+
+for msg in messages:
+
+if isinstance(msg.get("content"), list):
+
+# Filter out empty content blocks
+
+content = [c for c in msg["content"] if c]
+
+if content:
+
+cleaned\_messages.append({"role": msg["role"], "content": content})
+
+elif msg.get("content"):
+
+cleaned\_messages.append(msg)
+
+messages = cleaned\_messages
 
 # Review 1: Data processor (larger file)
-with open("memory_demo/sample_code/data_processor_v1.py", "r") as f:
-    data_processor_code = f.read()
+
+with open("memory\_demo/sample\_code/data\_processor\_v1.py", "r") as f:
+
+data\_processor\_code = f.read()
 
 messages.append({
-    "role": "user",
-    "content": f"Review this data processor:\n\n```python\n{data_processor_code}\n```"
+
+"role": "user",
+
+"content": f"Review this data processor:\n\n```python\n{data\_processor\_code}\n```"
+
 })
 
 print("📝 Review 1: Data processor")
-response = run_conversation_turn(
-    client=client,
-    model=MODEL,
-    messages=messages,
-    memory_handler=memory,
-    system="You are a code reviewer.",
-    context_management=CONTEXT_MANAGEMENT,
-    thinking=THINKING,
-    max_tokens=4096,
-    verbose=True
+
+response = run\_conversation\_turn(
+
+client=client,
+
+model=MODEL,
+
+messages=messages,
+
+memory\_handler=memory,
+
+system="You are a code reviewer.",
+
+context\_management=CONTEXT\_MANAGEMENT,
+
+thinking=THINKING,
+
+max\_tokens=4096,
+
+verbose=True
+
 )
 
 # Add response to messages
-messages.append({"role": "assistant", "content": response[1]})
-if response[2]:
-    messages.append({"role": "user", "content": response[2]})
 
-print(f"  📊 Input tokens: {response[0].usage.input_tokens:,}")
-context_cleared, saved = print_context_management_info(response[0])
+messages.append({"role": "assistant", "content": response[1]})
+
+if response[2]:
+
+messages.append({"role": "user", "content": response[2]})
+
+print(f" 📊 Input tokens: {response[0].usage.input\_tokens:,}")
+
+context\_cleared, saved = print\_context\_management\_info(response[0])
+
 print()
 
 # Review 2: SQL code
-with open("memory_demo/sample_code/sql_query_builder.py", "r") as f:
-    sql_code = f.read()
+
+with open("memory\_demo/sample\_code/sql\_query\_builder.py", "r") as f:
+
+sql\_code = f.read()
 
 messages.append({
-    "role": "user",
-    "content": f"Review this SQL query builder:\n\n```python\n{sql_code}\n```"
+
+"role": "user",
+
+"content": f"Review this SQL query builder:\n\n```python\n{sql\_code}\n```"
+
 })
 
 print("📝 Review 2: SQL query builder")
-response = run_conversation_turn(
-    client=client,
-    model=MODEL,
-    messages=messages,
-    memory_handler=memory,
-    system="You are a code reviewer.",
-    context_management=CONTEXT_MANAGEMENT,
-    thinking=THINKING,
-    max_tokens=4096,
-    verbose=True
+
+response = run\_conversation\_turn(
+
+client=client,
+
+model=MODEL,
+
+messages=messages,
+
+memory\_handler=memory,
+
+system="You are a code reviewer.",
+
+context\_management=CONTEXT\_MANAGEMENT,
+
+thinking=THINKING,
+
+max\_tokens=4096,
+
+verbose=True
+
 )
 
 messages.append({"role": "assistant", "content": response[1]})
-if response[2]:
-    messages.append({"role": "user", "content": response[2]})
 
-print(f"  📊 Input tokens: {response[0].usage.input_tokens:,}")
-context_cleared, saved = print_context_management_info(response[0])
+if response[2]:
+
+messages.append({"role": "user", "content": response[2]})
+
+print(f" 📊 Input tokens: {response[0].usage.input\_tokens:,}")
+
+context\_cleared, saved = print\_context\_management\_info(response[0])
+
 print()
 
 # Review 3: Add one more review to ensure we trigger clearing
-with open("memory_demo/sample_code/web_scraper_v1.py", "r") as f:
-    scraper_code = f.read()
+
+with open("memory\_demo/sample\_code/web\_scraper\_v1.py", "r") as f:
+
+scraper\_code = f.read()
 
 messages.append({
-    "role": "user",
-    "content": f"Quick check - any issues here?\n\n```python\n{scraper_code}\n```"
+
+"role": "user",
+
+"content": f"Quick check - any issues here?\n\n```python\n{scraper\_code}\n```"
+
 })
 
 print("📝 Review 3: Web scraper (should trigger clearing)")
-response = run_conversation_turn(
-    client=client,
-    model=MODEL,
-    messages=messages,
-    memory_handler=memory,
-    system="You are a code reviewer.",
-    context_management=CONTEXT_MANAGEMENT,
-    thinking=THINKING,
-    max_tokens=4096,
-    verbose=True
+
+response = run\_conversation\_turn(
+
+client=client,
+
+model=MODEL,
+
+messages=messages,
+
+memory\_handler=memory,
+
+system="You are a code reviewer.",
+
+context\_management=CONTEXT\_MANAGEMENT,
+
+thinking=THINKING,
+
+max\_tokens=4096,
+
+verbose=True
+
 )
 
 messages.append({"role": "assistant", "content": response[1]})
-if response[2]:
-    messages.append({"role": "user", "content": response[2]})
 
-print(f"  📊 Input tokens: {response[0].usage.input_tokens:,}")
-context_cleared, saved = print_context_management_info(response[0])
+if response[2]:
+
+messages.append({"role": "user", "content": response[2]})
+
+print(f" 📊 Input tokens: {response[0].usage.input\_tokens:,}")
+
+context\_cleared, saved = print\_context\_management\_info(response[0])
 
 print()
-print("=" * 60)
+
+print("=" \* 60)
+
 print("✅ Session 3 complete!")
-print("=" * 60)
-```
+
+print("=" \* 60)
+
+
 
 ```
 ============================================================
@@ -1129,31 +1294,43 @@ This demonstrates the key benefit:
 
 Let's verify memory survived the clearing:
 
-python
+
 
-```
 # Verify memory persists after context clearing
+
 import os
 
-print("📂 Memory files in demo_memory/:")
-print()
-
-for root, dirs, files in os.walk("./demo_memory"):
-    # Calculate relative path for display
-    level = root.replace("./demo_memory", "").count(os.sep)
-    indent = "  " * level
-    folder_name = os.path.basename(root) or "demo_memory"
-    print(f"{indent}{folder_name}/")
-
-    sub_indent = "  " * (level + 1)
-    for file in files:
-        file_path = os.path.join(root, file)
-        size = os.path.getsize(file_path)
-        print(f"{sub_indent}├── {file} ({size} bytes)")
+print("📂 Memory files in demo\_memory/:")
 
 print()
+
+for root, dirs, files in os.walk("./demo\_memory"):
+
+# Calculate relative path for display
+
+level = root.replace("./demo\_memory", "").count(os.sep)
+
+indent = " " \* level
+
+folder\_name = os.path.basename(root) or "demo\_memory"
+
+print(f"{indent}{folder\_name}/")
+
+sub\_indent = " " \* (level + 1)
+
+for file in files:
+
+file\_path = os.path.join(root, file)
+
+size = os.path.getsize(file\_path)
+
+print(f"{sub\_indent}├── {file} ({size} bytes)")
+
+print()
+
 print("✅ All learned patterns preserved despite context clearing!")
-```
+
+
 
 ```
 📂 Memory files in demo_memory/:
@@ -1165,13 +1342,13 @@ demo_memory/
 ✅ All learned patterns preserved despite context clearing!
 ```
 
-## 4. How It Works
+##  4. How It Works
 
-### Memory Tool Architecture
+###  Memory Tool Architecture
 
 The memory tool is **client-side** - you control the storage. Claude makes tool calls, your application executes them.
 
-#### Memory Tool Commands
+####  Memory Tool Commands
 
 | Command | Description | Example |
 | --- | --- | --- |
@@ -1184,7 +1361,7 @@ The memory tool is **client-side** - you control the storage. Claude makes tool 
 
 See `memory_tool.py` for the complete implementation with path validation and security measures.
 
-### Thinking Management (`clear_thinking_20251015`)
+###  Thinking Management (`clear_thinking_20251015`)
 
 When using extended thinking, thinking blocks accumulate and consume tokens. The `clear_thinking` strategy manages these automatically.
 
@@ -1192,29 +1369,49 @@ When using extended thinking, thinking blocks accumulate and consume tokens. The
 
 **API Call Pattern** (with extended thinking enabled):
 
-```
+
+
 response = client.beta.messages.create(
-    betas=["context-management-2025-06-27"],  # Required beta flag
-    model="claude-sonnet-4-6",
-    messages=messages,
-    tools=[{"type": "memory_20250818", "name": "memory"}],
-    thinking={"type": "enabled", "budget_tokens": 10000},  # Enable thinking
-    context_management={  # Context editing config
-        "edits": [
-            {
-                "type": "clear_thinking_20251015",
-                "keep": {"type": "thinking_turns", "value": 1}  # Keep last turn only
-            },
-            {
-                "type": "clear_tool_uses_20250919",
-                "trigger": {"type": "input_tokens", "value": 35000},
-                "keep": {"type": "tool_uses", "value": 5}
-            }
-        ]
-    },
-    max_tokens=2048
+
+betas=["context-management-2025-06-27"], # Required beta flag
+
+model="claude-sonnet-4-6",
+
+messages=messages,
+
+tools=[{"type": "memory\_20250818", "name": "memory"}],
+
+thinking={"type": "enabled", "budget\_tokens": 10000}, # Enable thinking
+
+context\_management={ # Context editing config
+
+"edits": [
+
+{
+
+"type": "clear\_thinking\_20251015",
+
+"keep": {"type": "thinking\_turns", "value": 1} # Keep last turn only
+
+},
+
+{
+
+"type": "clear\_tool\_uses\_20250919",
+
+"trigger": {"type": "input\_tokens", "value": 35000},
+
+"keep": {"type": "tool\_uses", "value": 5}
+
+}
+
+]
+
+},
+
+max\_tokens=2048
+
 )
-```
 
 **Key points:**
 
@@ -1223,65 +1420,95 @@ response = client.beta.messages.create(
 * Use `"keep": "all"` to preserve all thinking blocks for maximum cache hits
 * Trigger is optional for thinking (clears based on `keep` value)
 
-### Understanding the Demo Code
+###  Understanding the Demo Code
 
 Key implementation details from `code_review_demo.py`:
 
-```
+
+
 class CodeReviewAssistant:
-    def __init__(self, memory_storage_path="./memory_storage"):
-        self.client = Anthropic()
-        self.memory_handler = MemoryToolHandler(base_path=memory_storage_path)
-        self.messages = []
 
-    def review_code(self, code, filename, description=""):
-        # 1. Add user message
-        self.messages.append({...})
+def \_\_init\_\_(self, memory\_storage\_path="./memory\_storage"):
 
-        # 2. Conversation loop with tool execution
-        while True:
-            response = self.client.beta.messages.create(
-                model=MODEL,
-                system=self._create_system_prompt(),
-                messages=self.messages,
-                tools=[{"type": "memory_20250818", "name": "memory"}],
-                betas=["context-management-2025-06-27"],
-                context_management=CONTEXT_MANAGEMENT
-            )
+self.client = Anthropic()
 
-            # 3. Execute tool uses
-            tool_results = []
-            for content in response.content:
-                if content.type == "tool_use":
-                    result = self._execute_tool_use(content)
-                    tool_results.append({...})
+self.memory\_handler = MemoryToolHandler(base\_path=memory\_storage\_path)
 
-            # 4. Continue if there are tool uses, otherwise done
-            if tool_results:
-                self.messages.append({"role": "user", "content": tool_results})
-            else:
-                break
-```
+self.messages = []
+
+def review\_code(self, code, filename, description=""):
+
+# 1. Add user message
+
+self.messages.append({...})
+
+# 2. Conversation loop with tool execution
+
+while True:
+
+response = self.client.beta.messages.create(
+
+model=MODEL,
+
+system=self.\_create\_system\_prompt(),
+
+messages=self.messages,
+
+tools=[{"type": "memory\_20250818", "name": "memory"}],
+
+betas=["context-management-2025-06-27"],
+
+context\_management=CONTEXT\_MANAGEMENT
+
+)
+
+# 3. Execute tool uses
+
+tool\_results = []
+
+for content in response.content:
+
+if content.type == "tool\_use":
+
+result = self.\_execute\_tool\_use(content)
+
+tool\_results.append({...})
+
+# 4. Continue if there are tool uses, otherwise done
+
+if tool\_results:
+
+self.messages.append({"role": "user", "content": tool\_results})
+
+else:
+
+break
 
 **The key pattern**: Keep calling the API while there are tool uses, executing them and feeding results back.
 
-### What Claude Actually Learns
+###  What Claude Actually Learns
 
 This is what makes memory powerful - **semantic pattern recognition**, not just syntax:
 
 **Session 1: Thread-Based Web Scraper**
 
-```
-# Bug: Race condition
-class WebScraper:
-    def __init__(self):
-        self.results = []  # Shared state!
+
 
-    def scrape_urls(self, urls):
-        with ThreadPoolExecutor() as executor:
-            for future in as_completed(futures):
-                self.results.append(future.result())  # RACE!
-```
+# Bug: Race condition
+
+class WebScraper:
+
+def \_\_init\_\_(self):
+
+self.results = [] # Shared state!
+
+def scrape\_urls(self, urls):
+
+with ThreadPoolExecutor() as executor:
+
+for future in as\_completed(futures):
+
+self.results.append(future.result()) # RACE!
 
 **What Claude Stores in Memory** (example file: `/memories/concurrency_patterns/thread_safety.md`):
 
@@ -1302,12 +1529,15 @@ Claude checks memory FIRST, finds the thread-safety pattern, then:
 2. **Applies** the solution immediately (no re-learning needed)
 3. **Explains** with reference to stored knowledge
 
-```
+
+
 # Claude spots this immediately:
-async def fetch_all(self, endpoints):
-    for coro in asyncio.as_completed(tasks):
-        self.responses.append(await coro)  # Same pattern!
-```
+
+async def fetch\_all(self, endpoints):
+
+for coro in asyncio.as\_completed(tasks):
+
+self.responses.append(await coro) # Same pattern!
 
 ---
 
@@ -1318,7 +1548,7 @@ async def fetch_all(self, endpoints):
 * ✅ **Cross-language**: Pattern applies to Go, Java, Rust concurrency too
 * ✅ **Gets better**: Each review adds to the knowledge base
 
-### Sample Code Files
+###  Sample Code Files
 
 The demo uses these sample files (all have concurrency/thread-safety bugs):
 
@@ -1330,60 +1560,91 @@ Let's look at one:
 
 **`memory_demo/sample_code/web_scraper_v1.py`**
 
-```
+
+
 """
+
 Concurrent web scraper with a race condition bug.
+
 Multiple threads modify shared state without synchronization.
+
 """
 
 import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
+
+from concurrent.futures import ThreadPoolExecutor, as\_completed
+
 from typing import List, Dict
 
 import requests
 
 class WebScraper:
-    """Web scraper that fetches multiple URLs concurrently."""
 
-    def __init__(self, max_workers: int = 10):
-        self.max_workers = max_workers
-        self.results = []  # BUG: Shared mutable state accessed by multiple threads!
-        self.failed_urls = []  # BUG: Another race condition!
+"""Web scraper that fetches multiple URLs concurrently."""
 
-    def fetch_url(self, url: str) -> Dict[str, any]:
-        """Fetch a single URL and return the result."""
-        try:
-            response = requests.get(url, timeout=5)
-            response.raise_for_status()
-            return {
-                "url": url,
-                "status": response.status_code,
-                "content_length": len(response.content),
-            }
-        except requests.exceptions.RequestException as e:
-            return {"url": url, "error": str(e)}
+def \_\_init\_\_(self, max\_workers: int = 10):
 
-    def scrape_urls(self, urls: List[str]) -> List[Dict[str, any]]:
-        """
-        Scrape multiple URLs concurrently.
+self.max\_workers = max\_workers
 
-        BUG: self.results is accessed from multiple threads without locking!
-        This causes race conditions where results can be lost or corrupted.
-        """
-        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            futures = [executor.submit(self.fetch_url, url) for url in urls]
+self.results = [] # BUG: Shared mutable state accessed by multiple threads!
 
-            for future in as_completed(futures):
-                result = future.result()
+self.failed\_urls = [] # BUG: Another race condition!
 
-                # RACE CONDITION: Multiple threads append to self.results simultaneously
-                if "error" in result:
-                    self.failed_urls.append(result["url"])  # RACE CONDITION
-                else:
-                    self.results.append(result)  # RACE CONDITION
+def fetch\_url(self, url: str) -> Dict[str, any]:
 
-        return self.results
-```
+"""Fetch a single URL and return the result."""
+
+try:
+
+response = requests.get(url, timeout=5)
+
+response.raise\_for\_status()
+
+return {
+
+"url": url,
+
+"status": response.status\_code,
+
+"content\_length": len(response.content),
+
+}
+
+except requests.exceptions.RequestException as e:
+
+return {"url": url, "error": str(e)}
+
+def scrape\_urls(self, urls: List[str]) -> List[Dict[str, any]]:
+
+"""
+
+Scrape multiple URLs concurrently.
+
+BUG: self.results is accessed from multiple threads without locking!
+
+This causes race conditions where results can be lost or corrupted.
+
+"""
+
+with ThreadPoolExecutor(max\_workers=self.max\_workers) as executor:
+
+futures = [executor.submit(self.fetch\_url, url) for url in urls]
+
+for future in as\_completed(futures):
+
+result = future.result()
+
+# RACE CONDITION: Multiple threads append to self.results simultaneously
+
+if "error" in result:
+
+self.failed\_urls.append(result["url"]) # RACE CONDITION
+
+else:
+
+self.results.append(result) # RACE CONDITION
+
+return self.results
 
 **Bug**: Multiple threads modify `self.results` and `self.failed_urls` without locking!
 
@@ -1393,15 +1654,15 @@ Claude will:
 2. Store the pattern in `/memories/concurrency_patterns/thread_safety.md`
 3. Apply this concurrency pattern to async code in Session 2
 
-### Demo Overview
+###  Demo Overview
 
 We've built a complete Code Review Assistant. The implementation is in `memory_demo/code_review_demo.py`.
 
 **To run the interactive demo:**
 
-```
-python memory_demo/code_review_demo.py
-```
+
+
+python memory\_demo/code\_review\_demo.py
 
 The demo demonstrates:
 
@@ -1409,9 +1670,9 @@ The demo demonstrates:
 2. **Session 2**: Review similar code (new conversation) → Claude applies the pattern
 3. **Session 3**: Long review session → Context editing keeps it manageable
 
-## 7. Best Practices & Security
+##  7. Best Practices & Security
 
-### Memory Management
+###  Memory Management
 
 **Do:**
 
@@ -1426,11 +1687,11 @@ The demo demonstrates:
 * ❌ Let memory grow unbounded
 * ❌ Store everything indiscriminately
 
-### Security: Path Traversal Protection
+###  Security: Path Traversal Protection
 
 **Critical**: Always validate paths to prevent directory traversal attacks. See `memory_tool.py` for implementation.
 
-### Security: Memory Poisoning
+###  Security: Memory Poisoning
 
 **⚠️ Critical Risk**: Memory files are read back into Claude's context, making them a potential vector for prompt injection.
 
@@ -1443,9 +1704,9 @@ The demo demonstrates:
 
 See `memory_tool.py` for complete security implementation and tests in `tests/`.
 
-## Conclusion
+##  Conclusion
 
-### What You Accomplished
+###  What You Accomplished
 
 In this cookbook, you learned to:
 
@@ -1453,7 +1714,7 @@ In this cookbook, you learned to:
 * ✅ **Configure context editing** with token triggers and retention policies (Session 3 demonstrated automatic clearing)
 * ✅ **Apply security best practices** including path validation and memory poisoning prevention
 
-### Applying These Patterns
+###  Applying These Patterns
 
 **For your projects:**
 
@@ -1467,16 +1728,16 @@ In this cookbook, you learned to:
 * **Research assistants**: Accumulate domain knowledge across sessions
 * **Data analysis**: Remember dataset characteristics and successful techniques
 
-### Next Steps
+###  Next Steps
 
-* **Production deployment**: Use [claude-code-action](https://github.com/anthropics/claude-code-action) for GitHub PR reviews
+* **Production deployment**: Use [claude-code-action(opens in new tab)](https://github.com/anthropics/claude-code-action) for GitHub PR reviews
 * **Security hardening**: Review the memory poisoning mitigations in `memory_tool.py`
 * **Extended thinking**: Explore thinking management for compute-intensive tasks
 
-### Resources
+###  Resources
 
-* [Memory tool documentation](https://docs.claude.com/en/docs/agents-and-tools/tool-use/memory-tool)
-* [Claude API reference](https://docs.claude.com/en/api/messages)
-* [Support](https://support.claude.com)
+* [Memory tool documentation(opens in new tab)](https://docs.claude.com/en/docs/agents-and-tools/tool-use/memory-tool)
+* [Claude API reference(opens in new tab)](https://docs.claude.com/en/api/messages)
+* [Support(opens in new tab)](https://support.claude.com)
 
 Memory and context management are in **beta**. Share your feedback to help us improve!

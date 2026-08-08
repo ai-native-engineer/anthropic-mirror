@@ -1,16 +1,14 @@
 <!-- source: https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector -->
 
-# Set up the Microsoft 365 connector
-
-Updated over a month ago
-
 This article walks admins through enabling the Microsoft 365 connector for their organization in Claude—including granting Microsoft Entra consent, restricting access, and managing permissions. Once setup is complete, people in your tenant can connect Microsoft 365 to their own Claude accounts to search across SharePoint, OneDrive, Outlook, and Teams from Claude. You can also enable write tools, which let Claude send email, manage calendar events, and create and update files on a member's behalf.
 
 The Microsoft 365 connector is available on all Claude plans: Free, Pro, Max, Team, and Enterprise.
 
-For end-user instructions on connecting and using Microsoft 365 once setup is complete, see **[Connect Claude to Microsoft 365](https://support.claude.com/en/articles/15183774-)**.
+For end-user instructions on connecting and using Microsoft 365 once setup is complete, see **[Connect Claude to Microsoft 365](https://support.claude.com/en/articles/15183774)**.
 
 **Important:** The Microsoft 365 connector requires a Microsoft Entra tenant tied to a Microsoft Business plan. Personal Microsoft accounts (such as @outlook.com or @hotmail.com addresses) can't be used to connect.
+
+---
 
 ## Setup overview
 
@@ -20,7 +18,7 @@ Two things need to happen before anyone in your organization can connect Microso
 2. **In every tenant:** A Microsoft Entra Global Administrator grants a one-time consent that authorizes the integration for your tenant.
 3. **To enable write tools:** A Microsoft Entra administrator consents to the updated permission set, and you enable write tools for your organization. See **[Enable write tools](#h_a51d877afd)** below.
 
-After completing these steps, members can connect Microsoft 365 to their own Claude accounts following the steps in **[Connect Claude to Microsoft 365](https://support.claude.com/en/articles/15183774-)**.
+After completing these steps, members can connect Microsoft 365 to their own Claude accounts following the steps in **[Connect Claude to Microsoft 365](https://support.claude.com/en/articles/15183774)**.
 
 ## Enable the connector for your organization
 
@@ -39,7 +37,7 @@ A Microsoft Entra Global Administrator in your tenant needs to authorize the int
 
 If your Microsoft Entra Global Administrator has a Claude account, they can grant consent during the standard connection flow:
 
-1. Navigate to **[Customize > Connectors](http://claude.ai/customize/connectors)**.
+1. Navigate to **[Customize > Connectors](https://claude.ai/customize/connectors)**.
 2. Find **Microsoft 365** and click “Connect.”
 3. Authenticate with Microsoft 365 credentials.
 4. Review and accept the requested permissions, checking the box to grant access on behalf of the whole organization.
@@ -91,7 +89,7 @@ When you visit each URL, you'll be prompted to consent to the delegated permissi
 **3. Finish setup**
 
 * **Team and Enterprise plans:** A Claude organization Owner needs to enable the connector in **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**. Then members can connect individually.
-* **Free, Pro, and Max plans:** Members can connect by navigating to **[Customize > Connectors](http://claude.ai/customize/connectors)**, finding **Microsoft 365**, and clicking “Connect.”
+* **Free, Pro, and Max plans:** Members can connect by navigating to **[Customize > Connectors](https://claude.ai/customize/connectors)**, finding **Microsoft 365**, and clicking “Connect.”
 
 ### Restrict who can use the connector
 
@@ -123,6 +121,8 @@ Members can also individually turn off specific tools in their own Microsoft 365
 
 To restore a revoked permission, follow the steps to grant admin consent described in **Option 2: Manual setup in Microsoft Entra ID**. This will revert the permissions to the default state.
 
+---
+
 ## Enable write tools
 
 Write tools let Claude send email, manage drafts and calendar events, update mailbox settings, and create and update files in OneDrive and SharePoint. Read and search tools work the same whether or not write tools are enabled.
@@ -140,6 +140,8 @@ If your organization was using the connector before write tools launched, they w
 Once enabled, ask Claude to perform a low-risk write action, such as "Draft an email to myself, but don't send it," to confirm write tools are active.
 
 **Note:** Emails Claude sends include an attribution header identifying them as agent-initiated. File and calendar writes aren't currently tagged. Attachments aren’t supported in write tools, so sending, forwarding, and drafting all reject messages with attachments. Write tools are also subject to per-user limits on writes, sends, and recipients.
+
+---
 
 ## Permissions reference
 
@@ -217,9 +219,11 @@ The Microsoft 365 connector searches SharePoint across the entire tenant using t
 
 * **Permission inheritance:** Claude mirrors each user's existing Microsoft 365 permissions. Members can't access anything through Claude that they couldn't already see directly in Microsoft 365.
 * **On-demand access:** Claude only accesses data when a user explicitly asks a question that requires it.
-* **Revocable access:** Members can disconnect their own integration through **[Customize > Connectors](http://claude.ai/customize/connectors)**. Team and Enterprise plan Owners can also remove the connector for the entire organization in **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**.
+* **Revocable access:** Members can disconnect their own integration through **[Customize > Connectors](https://claude.ai/customize/connectors)**. Team and Enterprise plan Owners can also remove the connector for the entire organization in **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**.
 
 For more detail, see the **[Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-)**.
+
+---
 
 ## Troubleshooting
 
@@ -238,7 +242,9 @@ A permission may have been selectively revoked in Microsoft Entra. Members can t
 
 1. Confirm a Microsoft Entra administrator has consented to the updated permission set that includes write scopes.
 2. Confirm write tools are enabled in the Microsoft 365 connector configuration, or that the member is covered by a role-based access policy that grants them.
-3. Have the member disconnect and reconnect Microsoft 365 in **[Customize > Connectors](http://claude.ai/customize/connectors)**.
+3. Have the member disconnect and reconnect Microsoft 365 in **[Customize > Connectors](https://claude.ai/customize/connectors)**.
+
+---
 
 ## Frequently asked questions
 
@@ -255,7 +261,7 @@ Yes. When enterprise search is enabled, it can query Microsoft 365 alongside oth
 Only after an Entra admin grants write scopes. With write tools on, Claude can send email, manage drafts and calendar events, update mailbox settings, and create and update files in OneDrive and SharePoint, always within each member's existing Microsoft 365 permissions. Without them, the integration is read-only. Claude can't post Teams messages or change Teams settings or permissions in either case, since there are no tools allowing this.
 
 * [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
-* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)

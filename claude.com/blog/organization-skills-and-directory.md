@@ -13,7 +13,7 @@
 
   Claude apps
 
-  Claude Enterprise
+  [Claude Enterprise](https://claude.com/solutions/enterprise)
 * Date
 
   December 18, 2025
@@ -122,53 +122,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
 
-Jul 28, 2026
+Aug 5, 2026
 
-### Bringing MCP 2026-07-28 to Claude
-
-Product announcements
-
-[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
-
-[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224f466b800c4a5a016_a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
-
-Jul 24, 2026
-
-### How the product designer who built Claude Design uses it to explore ideas before building them
+### Inference hooks: inline data loss prevention for Claude Enterprise
 
 Enterprise AI
 
-[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
+[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
 
-[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
+[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22651dd05046d0fdb0b_39c40393e610cc0a5e65f50ad12ff5ada273f792-1000x1000.svg)
 
-Jul 24, 2026
+Aug 6, 2026
 
-### Claude models explained: choosing the best model for your use case
-
-Enterprise AI
-
-[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
-
-[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
-
-Jul 2, 2026
-
-### Giving admins more visibility and control over Claude spend
+### Run Claude Code sessions on your own compute
 
 Product announcements
 
-[Giving admins more visibility and control over Claude spend](#)Giving admins more visibility and control over Claude spend
+[Run Claude Code sessions on your own compute](#)Run Claude Code sessions on your own compute
 
-[Giving admins more visibility and control over Claude spend](https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend)Giving admins more visibility and control over Claude spend
+[Run Claude Code sessions on your own compute](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)Run Claude Code sessions on your own compute
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
+
+Aug 6, 2026
+
+### Millennium and Anthropic are building a digital risk analyst with Claude
+
+Enterprise AI
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+Aug 4, 2026
+
+### A guide to cost visibility and control in Claude
+
+Enterprise AI
+
+[A guide to cost visibility and control in Claude](#)A guide to cost visibility and control in Claude
+
+[A guide to cost visibility and control in Claude](https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude)A guide to cost visibility and control in Claude
 
 ## Transform how your organization operates with Claude
 

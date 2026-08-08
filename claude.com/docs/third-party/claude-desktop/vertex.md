@@ -106,7 +106,7 @@ No per-device preparation is required. The sign-in experience uses a Google OAut
 
 ####  How it works
 
-When `inferenceVertexOAuthClientId` and `inferenceVertexOAuthClientSecret` are both set, the app shows a **Sign in with Google** page the first time a user opens the Cowork tab. Clicking the button opens the system browser for a standard Google consent flow, and the app listens on a loopback address for the redirect. On success, the app stores the user’s Google refresh token encrypted with the operating system’s secure storage (Keychain on macOS, DPAPI on Windows) and returns to the Cowork tab.
+When `inferenceVertexOAuthClientId` and `inferenceVertexOAuthClientSecret` are both set, the app shows a **Sign in with Google** page at first launch. Clicking the button opens the system browser for a standard Google consent flow, and the app listens on a loopback address for the redirect. On success, the app stores the user’s Google refresh token encrypted with the operating system’s secure storage (Keychain on macOS, DPAPI on Windows) and returns to Cowork.
 At the start of each Cowork session, the app writes an `authorized_user` Application Default Credentials file (the same format produced by `gcloud auth application-default login`) into the session sandbox and points `GOOGLE_APPLICATION_CREDENTIALS` at it. The Google Cloud client library inside the sandbox handles access-token minting and refresh automatically.
 If the stored refresh token is revoked or expires, the app shows a **Sign in again** prompt; clicking it reopens the Google consent flow in the browser. If you deploy a new OAuth client ID, the app clears the stored token and shows the sign-in page on next launch.
 
@@ -191,8 +191,16 @@ The region can be a single region such as `us-east5`, the `eu` or `us` multi-reg
 | Vertex OAuth login hint `inferenceVertexOAuthLoginHint` | `string` | MDM + Bootstrap | — | Pre-fill Google’s account chooser and forward to your federated IdP. {username} expands to the OS login name. |
 | Workforce Identity audience `inferenceVertexWorkforceAudience` | `string` | MDM + Bootstrap | — | Workforce-pool provider audience. When set, sign-in uses your own IdP plus a GCP STS exchange instead of a Google identity. |
 | Workforce Identity billing project `inferenceVertexWorkforceUserProject` | `string` | MDM + Bootstrap | — | GCP project for STS billing and quota. Defaults to the Vertex project ID above. |
+| Workforce Identity sign-in flow `inferenceVertexWorkforceAuthFlow` | `enum` | MDM + Bootstrap | — | How the IdP sign-in runs: system browser (default) or the OS Microsoft Entra broker. One of: `browser`, `broker`. |
 | Workforce Identity IdP (OIDC) `inferenceVertexWorkforceOidc` | `object` | MDM + Bootstrap | — | Your organization’s OIDC IdP. The app runs an authorization-code-with-PKCE flow against this issuer and exchanges the returned ID token at GCP STS. |
-| GCP credentials file path `inferenceVertexCredentialsFile` | `string` | MDM only | — | Absolute path to service-account JSON. Leave blank to fall back to ADC. |
+| GCP credentials file path `inferenceVertexCredentialsFile` | `string` | MDM + Bootstrap | — | Absolute path to service-account JSON. Leave blank to fall back to ADC. |
+
+inferenceVertexWorkforceAuthFlow details
+
+* **`browser`** (default) — opens the system browser for an authorization-code (PKCE) sign-in on a loopback redirect URI. See the **IdP setup** notes on `inferenceGatewayOidc` for redirect-URI registration; the same rules apply here.
+* **`broker`** — signs in through the OS identity broker (Web Account Manager on Windows, Company Portal on macOS). Requires the workforce-pool IdP to be **Microsoft Entra ID** — the `issuer` on `inferenceVertexWorkforceOidc` must be `https://login.microsoftonline.com/{tenant-id}/v2.0`. The broker satisfies Conditional Access policies that require a compliant/managed device or token protection, and needs no `127.0.0.1/callback` loopback redirect. The Entra app registration must include the broker redirect URIs `ms-appx-web://Microsoft.AAD.BrokerPlugin/{client-id}` (Windows) and `msauth.com.anthropic.claudefordesktop://auth` (macOS) under the **Mobile and desktop applications** platform. Not supported on Linux.
+
+The GCP STS token-exchange step is unchanged in either flow; only how the Entra id\_token is acquired differs.
 
 inferenceVertexWorkforceOidc details
 
@@ -217,7 +225,7 @@ The first-launch and re-authentication behavior depends on the authentication ap
 | Approach | First launch | Re-authentication |
 | --- | --- | --- |
 | Credentials file (service-account key) | The app opens directly; no user action. | Never, until you rotate the key file. |
-| In-app Google sign-in | The Cowork tab shows a **Sign in with Google** page. Clicking it opens Google’s consent flow in the default browser. After approval, the app returns to Cowork. | When the refresh token is revoked, when you deploy a new OAuth client ID, or when your Google Cloud session-control policy expires it. |
+| In-app Google sign-in | The app shows a **Sign in with Google** page. Clicking it opens Google’s consent flow in the default browser. After approval, the app returns to Cowork. | When the refresh token is revoked, when you deploy a new OAuth client ID, or when your Google Cloud session-control policy expires it. |
 
 For in-app Google sign-in, the browser flow runs on the host (outside the Cowork sandbox), so it can use the user’s existing Google session and any security keys or passkeys configured on the device. Users can sign out by revoking the app from their Google Account’s [third-party connections page](https://myaccount.google.com/connections); the app detects the revoked token and shows a **Sign in again** prompt.
 

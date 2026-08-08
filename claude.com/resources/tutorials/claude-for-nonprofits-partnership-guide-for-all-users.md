@@ -75,3 +75,27 @@ Welcome to the Claude for nonprofits community. This guide is a pathway to help 
 *Note: There's no single "right" way to integrate Claude into your work. Whether you're adopting quickly or taking a measured approach, Claude helps you focus more energy on the people and programs that matter most.*
 
 For support, visit the [Claude help center](https://support.claude.com/en/), reach out to your internal Claude champions, or use your organization's support channels.
+
+[Using the Candid connector in Claude](https://claude.com/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
+
+Using the Candid connector in Claude
+
+[Tutorial](https://claude.com/resources/tutorials/using-the-candid-connector-in-claude)Tutorial
+
+[Using the Blackbaud connector in Claude](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
+
+Using the Blackbaud connector in Claude
+
+[Tutorial](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Tutorial
+
+[Using the Benevity connector in Claude](https://claude.com/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
+
+Using the Benevity connector in Claude
+
+[Tutorial](https://claude.com/resources/tutorials/using-the-benevity-connector-in-claude)Tutorial
+
+[Claude for nonprofits partnership success guide for admins](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Claude for nonprofits partnership success guide for admins
+
+Claude for nonprofits partnership success guide for admins
+
+[Tutorial](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Tutorial

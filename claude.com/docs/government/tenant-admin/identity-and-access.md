@@ -29,7 +29,7 @@ Until at least one domain is verified, the Single sign-on section’s Connect bu
 
 ##  Single sign-on
 
-Every user signs in through your agency’s identity provider (for example, Microsoft Entra, Okta, or ADFS). You register Claude for Government as an application in your identity provider, then enter your provider’s connection details here. Once connected, every sign-in is redirected to your provider, and the temporary bootstrap password issued during onboarding is no longer used.
+Every user signs in through your agency’s identity provider (for example, Microsoft Entra, Okta, or ADFS). You register Claude for Government as an application in your identity provider, then enter your provider’s connection details here. Once connected, every sign-in is redirected to your provider.
 
 You need at least one verified domain before you can connect single sign-on. Until then, the Connect button is unavailable and a banner prompts you to verify a domain first. If single sign-on was already connected before your last domain was removed, the existing connection stays editable.
 
@@ -168,6 +168,9 @@ Once a person is successfully placed (by signing in through a matching rule or b
 
 ##  Things to know
 
+* Keep the DNS TXT record in place while you are using Claude for Government.
+* There is no local break-glass account or stored password. When single sign-on is unavailable, Primary Owners and tenant administrators can request an emailed single-use sign-in link from the sign-in page.
+* SCIM provisioning is configured entirely from this page, with no action needed from Anthropic. Use **Generate token** under [SCIM provisioning](#scim-provisioning) on this page to create a bearer token, then enter it along with the SCIM base URL shown there into your identity provider’s provisioning settings.
 * If two administrators reorder the same rule list at the same time, the second save is rejected with a message that the rules changed in another session. The list refreshes so you can review the current order and try again.
 * A user who was previously deactivated cannot regain access by matching a rule; they are refused with a deactivated-user reason instead.
 * For users managed by your directory, the email address shown in Claude for Government is kept in step with your directory. The sign-in token’s email is ignored for those users so that a provider that sends different values in different fields (a common quirk in Microsoft Entra) does not bounce the address back and forth.

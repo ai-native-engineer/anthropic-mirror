@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13979539-custom-visuals-in-chat-and-cowork -->
 
-# Custom visuals in chat and Cowork
-
-April 22, 2026
-
 Claude can generate custom diagrams, charts, and interactive visuals directly in your conversation. When a visual would explain something better than text, Claude builds one from scratch—shaped to your specific question, rendered inline as part of the response.
 
 **Note:** Custom visuals are currently in beta and available to all Claude users on web and desktop, in both chat and Cowork.
@@ -44,12 +40,16 @@ This is the main practical difference from artifacts: artifacts are persistent a
 
 Custom visuals aren’t photos or illustrations. Claude builds them using HTML—the same building blocks as web pages—so they’re interactive and specific to your question rather than static images.
 
+---
+
 ## Limitations
 
 * Custom visuals are available in chats on Claude web and desktop apps only. They don’t render on Claude for iOS or Claude for Android.
 * If you share a chat, the visual renders for the recipient on web and desktop only and they must be logged in to view.
 * Visuals aren't saved automatically. To keep one, use one of the options described above.
 * This feature is in beta. Visual quality and complexity will vary, and Claude may not always choose to generate a visual when you expect one.
+
+---
 
 ## Tips
 

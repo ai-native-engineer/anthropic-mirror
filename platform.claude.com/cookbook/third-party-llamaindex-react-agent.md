@@ -1,109 +1,107 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-llamaindex-react-agent -->
 
-# ReAct Agent
+#  ReAct Agent
 
 In this notebook we will look into creating ReAct Agent over tools.
 
 1. ReAct Agent over simple calculator tools.
 2. ReAct Agent over QueryEngine (RAG) tools.
 
-### Installation
+###  Installation
 
-python
+
 
-```
 !pip install llama-index
+
 !pip install llama-index-llms-anthropic
+
 !pip install llama-index-embeddings-huggingface
-```
 
-### Setup API Keys
+###  Setup API Keys
 
-python
+
 
-```
-# llama-parse is async-first, running the async code in a notebook requires the use of nest_asyncio
-import nest_asyncio
+# llama-parse is async-first, running the async code in a notebook requires the use of nest\_asyncio
 
-nest_asyncio.apply()
+import nest\_asyncio
+
+nest\_asyncio.apply()
 
 import os
 
 # Using Anthropic LLM API for LLM
-os.environ["ANTHROPIC_API_KEY"] = "YOUR Claude API KEY"
+
+os.environ["ANTHROPIC\_API\_KEY"] = "YOUR Claude API KEY"
 
 from IPython.display import HTML, display
-```
 
-### Set LLM and Embedding model
+###  Set LLM and Embedding model
 
 We will use anthropic latest released `Claude-3 Opus` LLM.
 
-python
+
 
-```
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from llama_index.llms.anthropic import Anthropic
-```
+from llama\_index.embeddings.huggingface import HuggingFaceEmbedding
 
-python
+from llama\_index.llms.anthropic import Anthropic
 
-```
+
+
 llm = Anthropic(temperature=0.0, model="claude-opus-4-1")
-embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-base-en-v1.5")
-```
 
-python
+embed\_model = HuggingFaceEmbedding(model\_name="BAAI/bge-base-en-v1.5")
 
-```
-from llama_index.core import Settings
+
+
+from llama\_index.core import Settings
 
 Settings.llm = llm
-Settings.embed_model = embed_model
-Settings.chunk_size = 512
-```
 
-## ReAct Agent over Tools
+Settings.embed\_model = embed\_model
 
-### Define Tools
+Settings.chunk\_size = 512
 
-python
+##  ReAct Agent over Tools
 
-```
-from llama_index.core.agent import ReActAgent
-from llama_index.core.tools import FunctionTool
-```
+###  Define Tools
 
-python
+
 
-```
+from llama\_index.core.agent import ReActAgent
+
+from llama\_index.core.tools import FunctionTool
+
+
+
 def multiply(a: int, b: int) -> int:
-    """Multiply two integers and returns the result integer"""
-    return a * b
+
+"""Multiply two integers and returns the result integer"""
+
+return a \* b
 
 def add(a: int, b: int) -> int:
-    """Add two integers and returns the result integer"""
-    return a + b
 
-add_tool = FunctionTool.from_defaults(fn=add)
-multiply_tool = FunctionTool.from_defaults(fn=multiply)
-```
+"""Add two integers and returns the result integer"""
 
-### Create ReAct Agent
+return a + b
+
+add\_tool = FunctionTool.from\_defaults(fn=add)
+
+multiply\_tool = FunctionTool.from\_defaults(fn=multiply)
+
+###  Create ReAct Agent
 
 Create agent over tools and test out queries
 
-python
+
 
-```
-agent = ReActAgent.from_tools([multiply_tool, add_tool], llm=llm, verbose=True)
-```
+agent = ReActAgent.from\_tools([multiply\_tool, add\_tool], llm=llm, verbose=True)
 
-python
+
 
-```
-response = agent.chat("What is 20+(2*4)? Calculate step by step ")
-```
+response = agent.chat("What is 20+(2\*4)? Calculate step by step ")
+
+
 
 ```
 Thought: I need to use the multiply tool to calculate 2*4 first, then use the add tool to add that result to 20.
@@ -125,11 +123,11 @@ To calculate it step-by-step:
 Therefore, 20+(2*4) = 28.
 ```
 
-python
+
 
-```
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-```
+
+
 
 ```
 20+(2*4) equals 28.
@@ -142,17 +140,19 @@ To calculate it step-by-step:
 Therefore, 20+(2*4) = 28.
 ```
 
-### Visit Prompts
+###  Visit Prompts
 
 You can check prompts that the agent used to select the tools.
 
-python
+
 
-```
-prompt_dict = agent.get_prompts()
-for k, v in prompt_dict.items():
-    print(f"Prompt: {k}\n\nValue: {v.template}")
-```
+prompt\_dict = agent.get\_prompts()
+
+for k, v in prompt\_dict.items():
+
+print(f"Prompt: {k}\n\nValue: {v.template}")
+
+
 
 ```
 Prompt: agent_worker:system_prompt
@@ -206,25 +206,25 @@ Answer: Sorry, I cannot answer your query.
 Below is the current conversation consisting of interleaving human and assistant messages.
 ```
 
-## ReAct Agent over `QueryEngine` Tools
+##  ReAct Agent over `QueryEngine` Tools
 
-python
+
 
-```
-from llama_index.core.tools import QueryEngineTool, ToolMetadata
-```
+from llama\_index.core.tools import QueryEngineTool, ToolMetadata
 
-### Download data
+###  Download data
 
 We will define ReAct agent over tools created on QueryEngines with Uber and Lyft 10K SEC Filings.
 
-python
+
 
-```
 !mkdir -p 'data/10k/'
-!wget 'https://raw.githubusercontent.com/run-llama/llama_index/main/docs/examples/data/10k/uber_2021.pdf' -O 'data/10k/uber_2021.pdf'
-!wget 'https://raw.githubusercontent.com/run-llama/llama_index/main/docs/examples/data/10k/lyft_2021.pdf' -O 'data/10k/lyft_2021.pdf'
-```
+
+!wget 'https://raw.githubusercontent.com/run-llama/llama\_index/main/docs/examples/data/10k/uber\_2021.pdf' -O 'data/10k/uber\_2021.pdf'
+
+!wget 'https://raw.githubusercontent.com/run-llama/llama\_index/main/docs/examples/data/10k/lyft\_2021.pdf' -O 'data/10k/lyft\_2021.pdf'
+
+
 
 ```
 --2024-03-08 06:58:18--  https://raw.githubusercontent.com/run-llama/llama_index/main/docs/examples/data/10k/uber_2021.pdf
@@ -250,83 +250,101 @@ data/10k/lyft_2021. 100%[===================>]   1.37M  --.-KB/s    in 0.02s
 2024-03-08 06:58:19 (60.1 MB/s) - ‘data/10k/lyft_2021.pdf’ saved [1440303/1440303]
 ```
 
-### Load Data
+###  Load Data
 
-python
+
 
-```
-from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
+from llama\_index.core import SimpleDirectoryReader, VectorStoreIndex
 
-lyft_docs = SimpleDirectoryReader(input_files=["./data/10k/lyft_2021.pdf"]).load_data()
-uber_docs = SimpleDirectoryReader(input_files=["./data/10k/uber_2021.pdf"]).load_data()
-```
+lyft\_docs = SimpleDirectoryReader(input\_files=["./data/10k/lyft\_2021.pdf"]).load\_data()
 
-### Build Index
+uber\_docs = SimpleDirectoryReader(input\_files=["./data/10k/uber\_2021.pdf"]).load\_data()
 
-python
+###  Build Index
 
-```
-lyft_index = VectorStoreIndex.from_documents(lyft_docs)
-uber_index = VectorStoreIndex.from_documents(uber_docs)
-```
+
 
-### Create QueryEngines
+lyft\_index = VectorStoreIndex.from\_documents(lyft\_docs)
 
-python
+uber\_index = VectorStoreIndex.from\_documents(uber\_docs)
 
-```
-lyft_engine = lyft_index.as_query_engine(similarity_top_k=3)
-uber_engine = uber_index.as_query_engine(similarity_top_k=3)
-```
+###  Create QueryEngines
 
-#### Create QueryEngine Tools
+
 
-python
+lyft\_engine = lyft\_index.as\_query\_engine(similarity\_top\_k=3)
 
-```
-query_engine_tools = [
-    QueryEngineTool(
-        query_engine=lyft_engine,
-        metadata=ToolMetadata(
-            name="lyft_10k",
-            description=(
-                "Provides information about Lyft financials for year 2021. "
-                "Use a detailed plain text question as input to the tool."
-            ),
-        ),
-    ),
-    QueryEngineTool(
-        query_engine=uber_engine,
-        metadata=ToolMetadata(
-            name="uber_10k",
-            description=(
-                "Provides information about Uber financials for year 2021. "
-                "Use a detailed plain text question as input to the tool."
-            ),
-        ),
-    ),
+uber\_engine = uber\_index.as\_query\_engine(similarity\_top\_k=3)
+
+####  Create QueryEngine Tools
+
+
+
+query\_engine\_tools = [
+
+QueryEngineTool(
+
+query\_engine=lyft\_engine,
+
+metadata=ToolMetadata(
+
+name="lyft\_10k",
+
+description=(
+
+"Provides information about Lyft financials for year 2021. "
+
+"Use a detailed plain text question as input to the tool."
+
+),
+
+),
+
+),
+
+QueryEngineTool(
+
+query\_engine=uber\_engine,
+
+metadata=ToolMetadata(
+
+name="uber\_10k",
+
+description=(
+
+"Provides information about Uber financials for year 2021. "
+
+"Use a detailed plain text question as input to the tool."
+
+),
+
+),
+
+),
+
 ]
-```
 
-### ReAct Agent
+###  ReAct Agent
 
-python
+
 
-```
-agent = ReActAgent.from_tools(
-    query_engine_tools,
-    llm=llm,
-    verbose=True,
+agent = ReActAgent.from\_tools(
+
+query\_engine\_tools,
+
+llm=llm,
+
+verbose=True,
+
 )
-```
 
-### Querying with ReAct Agent
+###  Querying with ReAct Agent
 
-python
+
 
-```
 response = agent.chat("What was Lyft's revenue growth in 2021?")
-```
+
+
 
 ```
 Thought: I need to use a tool to help me answer the question.
@@ -337,23 +355,25 @@ Thought: The provided observation directly answers the question about Lyft's rev
 Answer: Lyft's revenue grew by $843.6 million, or 36%, in 2021 compared to 2020. The growth was mainly driven by a significant increase in Active Riders as COVID-19 vaccines became more widely available and communities reopened. However, the revenue growth was partially offset by higher driver incentives which were recorded as a reduction to revenue.
 ```
 
-python
+
 
-```
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-```
+
+
 
 ```
 Lyft's revenue grew by $843.6 million, or 36%, in 2021 compared to 2020. The growth was mainly driven by a significant increase in Active Riders as COVID-19 vaccines became more widely available and communities reopened. However, the revenue growth was partially offset by higher driver incentives which were recorded as a reduction to revenue.
 ```
 
-python
+
 
-```
 response = agent.chat(
-    "Compare and contrast the revenue growth of Uber and Lyft in 2021, then give an analysis"
+
+"Compare and contrast the revenue growth of Uber and Lyft in 2021, then give an analysis"
+
 )
-```
+
+
 
 ```
 Thought: I need to use the lyft_10k and uber_10k tools to find information about Lyft and Uber's revenue growth in 2021 to compare and contrast them.
@@ -388,11 +408,11 @@ A few key factors likely contributed to Uber's higher growth rate:
 3) Uber's overall scale is much larger than Lyft's, so similar percentage growth translates
 ```
 
-python
+
 
-```
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-```
+
+
 
 ```
 In comparing Lyft and Uber's revenue growth in 2021:

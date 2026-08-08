@@ -1,154 +1,212 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-calculator-tool -->
 
-# Using a Calculator Tool with Claude
+#  Using a Calculator Tool with Claude
 
 In this recipe, we'll demonstrate how to provide Claude with a simple calculator tool that it can use to perform arithmetic operations based on user input. We'll define the calculator tool and show how Claude can interact with it to solve mathematical problems.
 
-## Step 1: Set up the environment
+##  Step 1: Set up the environment
 
 First, let's install the required libraries and set up the Claude API client.
 
-python
+
 
-```
 %pip install anthropic
-```
 
-python
+
 
-```
 from anthropic import Anthropic
 
 client = Anthropic()
-MODEL_NAME = "claude-opus-4-1"
-```
 
-## Step 2: Define the calculator tool
+MODEL\_NAME = "claude-opus-4-1"
+
+##  Step 2: Define the calculator tool
 
 We'll define a simple calculator tool that can perform basic arithmetic operations. The tool will take a mathematical expression as input and return the result.
 
 Note that we are calling `eval` on the outputted expression. This is bad practice and should not be used generally but we are doing it for the purpose of demonstration.
 
-python
+
 
-```
 import re
 
 def calculate(expression):
-    # Remove any non-digit or non-operator characters from the expression
-    expression = re.sub(r"[^0-9+\-*/().]", "", expression)
 
-    try:
-        # Evaluate the expression using the built-in eval() function
-        # Note: eval is used here for demonstration purposes only.
-        # In production, use a safer alternative like ast.literal_eval or a math parser.
-        result = eval(expression)  # noqa: S307
-        return str(result)
-    except (SyntaxError, ZeroDivisionError, NameError, TypeError, OverflowError):
-        return "Error: Invalid expression"
+# Remove any non-digit or non-operator characters from the expression
+
+expression = re.sub(r"[^0-9+\-\*/().]", "", expression)
+
+try:
+
+# Evaluate the expression using the built-in eval() function
+
+# Note: eval is used here for demonstration purposes only.
+
+# In production, use a safer alternative like ast.literal\_eval or a math parser.
+
+result = eval(expression) # noqa: S307
+
+return str(result)
+
+except (SyntaxError, ZeroDivisionError, NameError, TypeError, OverflowError):
+
+return "Error: Invalid expression"
 
 tools = [
-    {
-        "name": "calculator",
-        "description": "A simple calculator that performs basic arithmetic operations.",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "expression": {
-                    "type": "string",
-                    "description": "The mathematical expression to evaluate (e.g., '2 + 3 * 4').",
-                }
-            },
-            "required": ["expression"],
-        },
-    }
+
+{
+
+"name": "calculator",
+
+"description": "A simple calculator that performs basic arithmetic operations.",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"expression": {
+
+"type": "string",
+
+"description": "The mathematical expression to evaluate (e.g., '2 + 3 \* 4').",
+
+}
+
+},
+
+"required": ["expression"],
+
+},
+
+}
+
 ]
-```
 
 In this example, we define a calculate function that takes a mathematical expression as input, removes any non-digit or non-operator characters using a regular expression, and then evaluates the expression using the built-in eval() function. If the evaluation is successful, the result is returned as a string. If an error occurs during evaluation, an error message is returned.
 
 We then define the calculator tool with an input schema that expects a single expression property of type string.
 
-## Step 3: Interact with Claude
+##  Step 3: Interact with Claude
 
 Now, let's see how Claude can interact with the calculator tool to solve mathematical problems.
 
-python
+
 
-```
-def process_tool_call(tool_name, tool_input):
-    if tool_name == "calculator":
-        return calculate(tool_input["expression"])
+def process\_tool\_call(tool\_name, tool\_input):
 
-def chat_with_claude(user_message):
-    print(f"\n{'=' * 50}\nUser Message: {user_message}\n{'=' * 50}")
+if tool\_name == "calculator":
 
-    message = client.messages.create(
-        model=MODEL_NAME,
-        max_tokens=4096,
-        messages=[{"role": "user", "content": user_message}],
-        tools=tools,
-    )
+return calculate(tool\_input["expression"])
 
-    print("\nInitial Response:")
-    print(f"Stop Reason: {message.stop_reason}")
-    print(f"Content: {message.content}")
+def chat\_with\_claude(user\_message):
 
-    if message.stop_reason == "tool_use":
-        tool_use = next(block for block in message.content if block.type == "tool_use")
-        tool_name = tool_use.name
-        tool_input = tool_use.input
+print(f"\n{'=' \* 50}\nUser Message: {user\_message}\n{'=' \* 50}")
 
-        print(f"\nTool Used: {tool_name}")
-        print(f"Tool Input: {tool_input}")
+message = client.messages.create(
 
-        tool_result = process_tool_call(tool_name, tool_input)
+model=MODEL\_NAME,
 
-        print(f"Tool Result: {tool_result}")
+max\_tokens=4096,
 
-        response = client.messages.create(
-            model=MODEL_NAME,
-            max_tokens=4096,
-            messages=[
-                {"role": "user", "content": user_message},
-                {"role": "assistant", "content": message.content},
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "tool_result",
-                            "tool_use_id": tool_use.id,
-                            "content": tool_result,
-                        }
-                    ],
-                },
-            ],
-            tools=tools,
-        )
-    else:
-        response = message
+messages=[{"role": "user", "content": user\_message}],
 
-    final_response = next(
-        (block.text for block in response.content if hasattr(block, "text")),
-        None,
-    )
-    print(response.content)
-    print(f"\nFinal Response: {final_response}")
+tools=tools,
 
-    return final_response
-```
+)
 
-## Step 4: Try it out!
+print("\nInitial Response:")
+
+print(f"Stop Reason: {message.stop\_reason}")
+
+print(f"Content: {message.content}")
+
+if message.stop\_reason == "tool\_use":
+
+tool\_use = next(block for block in message.content if block.type == "tool\_use")
+
+tool\_name = tool\_use.name
+
+tool\_input = tool\_use.input
+
+print(f"\nTool Used: {tool\_name}")
+
+print(f"Tool Input: {tool\_input}")
+
+tool\_result = process\_tool\_call(tool\_name, tool\_input)
+
+print(f"Tool Result: {tool\_result}")
+
+response = client.messages.create(
+
+model=MODEL\_NAME,
+
+max\_tokens=4096,
+
+messages=[
+
+{"role": "user", "content": user\_message},
+
+{"role": "assistant", "content": message.content},
+
+{
+
+"role": "user",
+
+"content": [
+
+{
+
+"type": "tool\_result",
+
+"tool\_use\_id": tool\_use.id,
+
+"content": tool\_result,
+
+}
+
+],
+
+},
+
+],
+
+tools=tools,
+
+)
+
+else:
+
+response = message
+
+final\_response = next(
+
+(block.text for block in response.content if hasattr(block, "text")),
+
+None,
+
+)
+
+print(response.content)
+
+print(f"\nFinal Response: {final\_response}")
+
+return final\_response
+
+##  Step 4: Try it out!
 
 Let's try giving Claude a few example math questions now that it has access to a calculator.
 
-python
+
 
-```
-chat_with_claude("What is the result of 1,984,135 * 9,343,116?")
-chat_with_claude("Calculate (12851 - 593) * 301 + 76")
-chat_with_claude("What is 15910385 divided by 193053?")
-```
+chat\_with\_claude("What is the result of 1,984,135 \* 9,343,116?")
+
+chat\_with\_claude("Calculate (12851 - 593) \* 301 + 76")
+
+chat\_with\_claude("What is 15910385 divided by 193053?")
+
+
 
 ```
 ==================================================

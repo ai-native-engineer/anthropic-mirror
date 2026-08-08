@@ -18,7 +18,7 @@ Plugin updates are pushed via your GitHub repo. CI mirrors changes to the public
 
 ##  Update your listing
 
-Edit your description, categories, icon, and other listing metadata from the submissions dashboard at [Admin settings > Directory](https://claude.ai/admin-settings/directory/submissions) in Claude.ai. See [Managing your listing](https://claude.com/docs/connectors/building/managing-your-listing) for what you can edit directly and which changes require review.
+Edit your description, categories, icon, and other listing metadata from the submissions dashboard at [Organization settings > Directory](https://claude.ai/admin-settings/directory/submissions) in Claude.ai. See [Managing your listing](https://claude.com/docs/connectors/building/managing-your-listing) for what you can edit directly and which changes require review.
 
 ##  Slugs are permanent
 

@@ -6,13 +6,13 @@
 
 If you maintain a CLI or SDK and have a plugin in the official Anthropic marketplace, your tool can prompt Claude Code users to install that plugin. Your CLI writes a one-line marker to stderr when it detects it is running inside Claude Code. Claude Code reads the marker, strips it from the output, and shows the user a one-time install prompt.
 
-Claude Code strips the hint line from the command output before sending it to the model, so the marker never appears in the conversation and is not counted toward token usage. The protocol requires no extra commands and does not change what your CLI prints for users outside Claude Code.
+The protocol requires no extra commands and does not change what your CLI prints for users outside Claude Code.
 
 This page is for CLI and SDK maintainers. If you are looking to install plugins, see [Discover and install plugins](/docs/en/discover-plugins).
 
 ## How it works
 
-Claude Code sets the [`CLAUDECODE`](/docs/en/env-vars) environment variable to `1` for every command it runs through the Bash and PowerShell tools, and for [hook](/docs/en/hooks) commands. {/* min-version: 2.1.172 */}From v2.1.172 it also sets [`CLAUDE_CODE_CHILD_SESSION`](/docs/en/env-vars) to `1` in those same subprocesses. When your CLI sees one of these variables, it writes a self-closing `<claude-code-hint />` tag to stderr. In hook commands the hint tag is stripped and ignored. Only Bash and PowerShell tool output triggers the install prompt.
+Claude Code sets the [`CLAUDECODE`](/docs/en/env-vars) environment variable to `1` for every command it runs through the Bash and PowerShell tools, and for [hook](/docs/en/hooks) commands. From v2.1.172 it also sets [`CLAUDE_CODE_CHILD_SESSION`](/docs/en/env-vars) to `1` in those same subprocesses. When your CLI sees one of these variables, it writes a self-closing `<claude-code-hint />` tag to stderr. In hook commands the hint tag is stripped and ignored. Only Bash and PowerShell tool output triggers the install prompt.
 
 When Claude Code receives the command output, it:
 
@@ -30,7 +30,7 @@ Hint prompts only fire for plugins listed in the official Anthropic marketplace.
 Gate emission on an environment variable so the marker is unlikely to appear when a human runs your CLI directly, then write the tag to stderr on its own line. Choose which variable to check:
 
 * `CLAUDECODE`: set on every Claude Code version, so it reaches the most sessions. It is also set in tmux sessions and stdio MCP server subprocesses that Claude Code starts. IDE extensions also set it in their integrated terminals, where a human may be running your CLI directly.
-* {/* min-version: 2.1.172 */}`CLAUDE_CODE_CHILD_SESSION`: set only in subprocesses Claude Code itself spawns, such as tool calls, hook commands, and [status line](/docs/en/statusline) commands, so the tag does not normally reach a human terminal. A long-lived process that was started inside a session, such as a tmux server, captures the variable, so shells later launched from that process still show the raw tag. Requires Claude Code v2.1.172 or later, so sessions on older versions miss the hint.
+* `CLAUDE_CODE_CHILD_SESSION`: set only in subprocesses Claude Code itself spawns, such as tool calls, hook commands, and [status line](/docs/en/statusline) commands, so the tag does not normally reach a human terminal. A long-lived process that was started inside a session, such as a tmux server, captures the variable, so shells later launched from that process still show the raw tag. Requires Claude Code v2.1.172 or later, so sessions on older versions miss the hint.
 
 The following examples gate on `CLAUDECODE` for maximum reach and emit a hint for a plugin named `example-cli` in the official marketplace:
 

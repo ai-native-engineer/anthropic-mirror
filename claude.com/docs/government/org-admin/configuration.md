@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-> **Who this is for:** Organization owners who set product behavior, such as the session timeout, desktop banner, and enabled tabs, for everyone in their organization.
+> **Who this is for:** Organization owners who set product behavior, such as the session timeout, desktop banner, and product availability, for everyone in their organization.
 
 Use this page to view and change the product settings that apply to everyone in your organization, and to see where each effective value comes from.
 The Config page works the same way at the tenant and organization levels, with the same list of settings. See [How Config works](https://claude.com/docs/government/config/overview) for the levels model, locks, groups, comparing across levels, and looking up one person’s settings, and [Available settings](https://claude.com/docs/government/config/settings) for what each setting does. This page covers only what is specific to the organization level.

@@ -1,12 +1,10 @@
 <!-- source: https://support.claude.com/en/articles/13641943-visual-and-interactive-content -->
 
-# Visual and interactive content
-
-March 16, 2026
-
 Claude can respond with visual content when it’s clearer than plain text. Some visuals display real-world data—like weather and recipes. Others are custom-built by Claude for your specific question, like a diagram or an interactive chart. Claude can also ask you structured questions using interactive inputs instead of asking you to type.
 
 Visual responses and interactive content are available to all Claude users. Data display widgets (weather and recipes) require web search to be enabled. For setup instructions, see **[Enabling and using web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)**.
+
+---
 
 ## Visual content
 
@@ -20,7 +18,7 @@ Claude can show current weather conditions and forecasts when you ask about the 
 
 Claude automatically displays temperatures in Fahrenheit for US locations and Celsius for everywhere else.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1785803400&signature=a8ebafe63d4dbe3da5ee4b87e9bef8b0293991dd3cf63b4d3c83f3aa6671189e&req=diAjFsx6mYhdXvMW1HO4zXlB7Tuy1RuMdgndksVD5R2IcRqE6M%2FeRZOapcTC%0AkDgOzV9A%2B06DbSPcpwE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1785803400&signature=a8ebafe63d4dbe3da5ee4b87e9bef8b0293991dd3cf63b4d3c83f3aa6671189e&req=diAjFsx6mYhdXvMW1HO4zXlB7Tuy1RuMdgndksVD5R2IcRqE6M%2FeRZOapcTC%0AkDgOzV9A%2B06DbSPcpwE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1786167000&signature=ad289b0fa891a7bcb4d7ea6b3accbe45f35853df9af32698c08e1088f3468b62&req=diAjFsx6mYhdXvMW1HO4zXlB7Ti70x%2BIdgndksVD5R0VcRDqMqC3f1fgWpz%2F%0AQU8mMaKikfVW%2FikdLcI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1786167000&signature=ad289b0fa891a7bcb4d7ea6b3accbe45f35853df9af32698c08e1088f3468b62&req=diAjFsx6mYhdXvMW1HO4zXlB7Ti70x%2BIdgndksVD5R0VcRDqMqC3f1fgWpz%2F%0AQU8mMaKikfVW%2FikdLcI%3D%0A)
 
 Weather is powered by Google Maps (<https://policies.google.com/privacy>).
 
@@ -30,7 +28,7 @@ When you ask about recipes, Claude can display formatted recipe cards that are e
 
 **Note:** Visual recipe cards are available on web and desktop only. On mobile, Claude provides recipe information as text in the conversation.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1785803400&signature=49594f0f3de37b922b98433ccec70cfae3b75b26d8bd8440301d12564a80a58b&req=diAjFsx6mYhdUPMW1HO4zUQpe7Ud0leTrIPm%2FImZVg0up6blDFYefi6Nwkv1%0AW9n8bFdknNOOm1ylJ%2B4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1785803400&signature=49594f0f3de37b922b98433ccec70cfae3b75b26d8bd8440301d12564a80a58b&req=diAjFsx6mYhdUPMW1HO4zUQpe7Ud0leTrIPm%2FImZVg0up6blDFYefi6Nwkv1%0AW9n8bFdknNOOm1ylJ%2B4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1786167000&signature=a76b1e38d6f28d095f1ff9a3dc5bfb31d5d0469e52b5ab2a99110a7207149188&req=diAjFsx6mYhdUPMW1HO4zUQpe7YU1FOXrIPm%2FImZVg0tPDzMwJtn1sMvLBqt%0AUKmjMroWzQfZ%2BYydOKI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1786167000&signature=a76b1e38d6f28d095f1ff9a3dc5bfb31d5d0469e52b5ab2a99110a7207149188&req=diAjFsx6mYhdUPMW1HO4zUQpe7YU1FOXrIPm%2FImZVg0tPDzMwJtn1sMvLBqt%0AUKmjMroWzQfZ%2BYydOKI%3D%0A)
 
 ### Custom visuals
 
@@ -41,6 +39,8 @@ When a diagram, chart, or interactive element would explain something better tha
 Unlike weather and recipes, custom visuals don’t pull from a fixed data source. Claude generates the layout, logic, and interactivity specific to your question.
 
 For details and tips, see **[Custom visuals in chat](https://support.claude.com/en/articles/13979539-custom-visuals-in-chat)**.
+
+---
 
 ## Sports scores
 
@@ -57,6 +57,8 @@ Depending on what you ask, Claude can provide recent results and live scores, up
 
 **Note:** Detailed game stats are not available for golf or NASCAR. Sports data is currently displayed as text on all platforms, not as a visual widget.
 
+---
+
 ## Interactive inputs
 
 Claude will sometimes request more information from you before it responds. Instead of asking you to type out a response, Claude may present interactive options you can click or tap — like multiple choice questions, multi-select options, or a ranking interface.
@@ -69,7 +71,9 @@ For example, if you ask Claude to help you plan a trip, it might ask you to:
 
 This content appears at the bottom of the chat. You can still type a response if you prefer.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1785803400&signature=33919efcac54e53943ee0b76a40e6183ff59fdeb938e40f4e5805f0b0793d1b4&req=diAjFsx6mYhcWfMW1HO4zWmF5%2FC2aR2mx4wz0C7CTAJg6p9xi7C6obIfW0%2B4%0AiKL2M8PnfIOGW0QCI9M%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1785803400&signature=33919efcac54e53943ee0b76a40e6183ff59fdeb938e40f4e5805f0b0793d1b4&req=diAjFsx6mYhcWfMW1HO4zWmF5%2FC2aR2mx4wz0C7CTAJg6p9xi7C6obIfW0%2B4%0AiKL2M8PnfIOGW0QCI9M%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1786167000&signature=f9457050cb8153c9be14068b2f11d50c97bc0f706f797df10ce802e7ce876c73&req=diAjFsx6mYhcWfMW1HO4zWmF5%2FO%2Fbxmix4wz0C7CTALyYn48%2BS%2BM%2FKfbyZEe%0ALFN2IddAcqY9z4Zj3yI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1786167000&signature=f9457050cb8153c9be14068b2f11d50c97bc0f706f797df10ce802e7ce876c73&req=diAjFsx6mYhcWfMW1HO4zWmF5%2FO%2Fbxmix4wz0C7CTALyYn48%2BS%2BM%2FKfbyZEe%0ALFN2IddAcqY9z4Zj3yI%3D%0A)
+
+---
 
 ## Limitations
 
@@ -78,11 +82,15 @@ This content appears at the bottom of the chat. You can still type a response if
 * Interactive content availability may vary based on the type of question and the information available.
 * Data display content requires an active internet connection and may be affected by connectivity issues.
 
+---
+
 ## Privacy
 
 * Weather content is powered by Google Maps ([Google's privacy policy](https://policies.google.com/privacy)).
 * Recipe images are powered by Bing Image Search ([Microsoft's privacy policy](https://privacy.microsoft.com/en-us/privacystatement)).
 * Interactive inputs don't involve third-party services.
+
+---
 
 ## Tips
 

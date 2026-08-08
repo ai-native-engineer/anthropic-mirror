@@ -1,166 +1,234 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-wolframalpha-using-llm-api -->
 
-# Using the Wolfram Alpha LLM API as a Tool with Claude
+#  Using the Wolfram Alpha LLM API as a Tool with Claude
 
 In this recipe, we'll show you how to integrate the Wolfram Alpha LLM API as a tool for Claude to use. Claude will be able to send queries to the Wolfram Alpha API and receive computed responses, which it can then use to provide answers to user questions.
 
-## Step 1: Set up the environment
+##  Step 1: Set up the environment
 
-First, let's install the required libraries and set up the Claude API client. We also will need to set our APP ID for using WolframAlpha. You can sign up and create a new App ID for this project for free [here](https://developer.wolframalpha.com/access).
+First, let's install the required libraries and set up the Claude API client. We also will need to set our APP ID for using WolframAlpha. You can sign up and create a new App ID for this project for free [here(opens in new tab)](https://developer.wolframalpha.com/access).
 
-python
+
 
-```
 import json
+
 import urllib.parse
 
 import requests
+
 from anthropic import Anthropic
 
 client = Anthropic()
 
-# Replace 'YOUR_APP_ID' with your actual Wolfram Alpha AppID
-WOLFRAM_APP_ID = "YOUR_APP_ID"
-MODEL_NAME = "claude-haiku-4-5"
-```
+# Replace 'YOUR\_APP\_ID' with your actual Wolfram Alpha AppID
 
-## Step 2: Define the Wolfram Alpha LLM API tool
+WOLFRAM\_APP\_ID = "YOUR\_APP\_ID"
+
+MODEL\_NAME = "claude-haiku-4-5"
+
+##  Step 2: Define the Wolfram Alpha LLM API tool
 
 We'll define a tool that allows Claude to send queries to the Wolfram Alpha LLM API and receive the computed response.
 
-python
+
 
-```
 import urllib.parse
 
 import requests
 
-def wolfram_alpha_query(query):
-    # URL-encode the query
-    encoded_query = urllib.parse.quote(query)
+def wolfram\_alpha\_query(query):
 
-    # Make a request to the Wolfram Alpha LLM API
-    url = (
-        f"https://www.wolframalpha.com/api/v1/llm-api?input={encoded_query}&appid={WOLFRAM_APP_ID}"
-    )
-    response = requests.get(url, timeout=30)
+# URL-encode the query
 
-    if response.status_code == 200:
-        return response.text
-    else:
-        return f"Error: {response.status_code}: {response.text}"
+encoded\_query = urllib.parse.quote(query)
+
+# Make a request to the Wolfram Alpha LLM API
+
+url = (
+
+f"https://www.wolframalpha.com/api/v1/llm-api?input={encoded\_query}&appid={WOLFRAM\_APP\_ID}"
+
+)
+
+response = requests.get(url, timeout=30)
+
+if response.status\_code == 200:
+
+return response.text
+
+else:
+
+return f"Error: {response.status\_code}: {response.text}"
 
 tools = [
-    {
-        "name": "wolfram_alpha",
-        "description": "A tool that allows querying the Wolfram Alpha knowledge base. Useful for mathematical calculations, scientific data, and general knowledge questions.",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "search_query": {
-                    "type": "string",
-                    "description": "The query to send to the Wolfram Alpha API.",
-                }
-            },
-            "required": ["query"],
-        },
-    }
+
+{
+
+"name": "wolfram\_alpha",
+
+"description": "A tool that allows querying the Wolfram Alpha knowledge base. Useful for mathematical calculations, scientific data, and general knowledge questions.",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"search\_query": {
+
+"type": "string",
+
+"description": "The query to send to the Wolfram Alpha API.",
+
+}
+
+},
+
+"required": ["query"],
+
+},
+
+}
+
 ]
-```
 
 In this code, we define a wolfram\_alpha\_query function that takes a query as input, URL-encodes it, and sends a request to the Wolfram Alpha LLM API using the provided AppID. The function returns the computed response from the API if the request is successful, or an error message if there's an issue.
 
 We then define the wolfram\_alpha tool with an input schema that expects a single query property of type string.
 
-## Step 3: Interact with Claude
+##  Step 3: Interact with Claude
 
 Now, let's see how Claude can interact with the Wolfram Alpha tool to answer user questions.
 
-python
+
 
-```
-def process_tool_call(tool_name, tool_input):
-    if tool_name == "wolfram_alpha":
-        return wolfram_alpha_query(tool_input["search_query"])
+def process\_tool\_call(tool\_name, tool\_input):
 
-def chat_with_claude(user_message):
-    print(f"\n{'=' * 50}\nUser Message: {user_message}\n{'=' * 50}")
-    prompt = f"""Here is a question: {user_message}. Please use the Wolfram Alpha tool to answer it. Do not reflect on the quality of the returned search results in your response."""
+if tool\_name == "wolfram\_alpha":
 
-    message = client.beta.tools.messages.create(
-        model=MODEL_NAME,
-        max_tokens=4096,
-        tools=tools,
-        messages=[{"role": "user", "content": prompt}],
-    )
+return wolfram\_alpha\_query(tool\_input["search\_query"])
 
-    print("\nInitial Response:")
-    print(f"Stop Reason: {message.stop_reason}")
-    print(f"Content: {message.content}")
+def chat\_with\_claude(user\_message):
 
-    if message.stop_reason == "tool_use":
-        tool_use = next(block for block in message.content if block.type == "tool_use")
-        tool_name = tool_use.name
-        tool_input = tool_use.input
+print(f"\n{'=' \* 50}\nUser Message: {user\_message}\n{'=' \* 50}")
 
-        print(f"\nTool Used: {tool_name}")
-        print("Tool Input:")
-        print(json.dumps(tool_input, indent=2))
+prompt = f"""Here is a question: {user\_message}. Please use the Wolfram Alpha tool to answer it. Do not reflect on the quality of the returned search results in your response."""
 
-        tool_result = process_tool_call(tool_name, tool_input)
+message = client.beta.tools.messages.create(
 
-        print("\nTool Result:")
-        print(str(json.dumps(tool_result, indent=2)))
+model=MODEL\_NAME,
 
-        response = client.beta.tools.messages.create(
-            model=MODEL_NAME,
-            max_tokens=2000,
-            tools=tools,
-            messages=[
-                {"role": "user", "content": prompt},
-                {"role": "assistant", "content": message.content},
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "tool_result",
-                            "tool_use_id": tool_use.id,
-                            "content": str(tool_result),
-                        }
-                    ],
-                },
-            ],
-        )
+max\_tokens=4096,
 
-        print("\nResponse:")
-        print(f"Stop Reason: {response.stop_reason}")
-        print(f"Content: {response.content}")
-    else:
-        response = message
+tools=tools,
 
-    final_response = None
-    for block in response.content:
-        if hasattr(block, "text"):
-            final_response = block.text
-            break
+messages=[{"role": "user", "content": prompt}],
 
-    print(f"\nFinal Response: {final_response}")
+)
 
-    return final_response
-```
+print("\nInitial Response:")
 
-## Step 4: Try it out!
+print(f"Stop Reason: {message.stop\_reason}")
+
+print(f"Content: {message.content}")
+
+if message.stop\_reason == "tool\_use":
+
+tool\_use = next(block for block in message.content if block.type == "tool\_use")
+
+tool\_name = tool\_use.name
+
+tool\_input = tool\_use.input
+
+print(f"\nTool Used: {tool\_name}")
+
+print("Tool Input:")
+
+print(json.dumps(tool\_input, indent=2))
+
+tool\_result = process\_tool\_call(tool\_name, tool\_input)
+
+print("\nTool Result:")
+
+print(str(json.dumps(tool\_result, indent=2)))
+
+response = client.beta.tools.messages.create(
+
+model=MODEL\_NAME,
+
+max\_tokens=2000,
+
+tools=tools,
+
+messages=[
+
+{"role": "user", "content": prompt},
+
+{"role": "assistant", "content": message.content},
+
+{
+
+"role": "user",
+
+"content": [
+
+{
+
+"type": "tool\_result",
+
+"tool\_use\_id": tool\_use.id,
+
+"content": str(tool\_result),
+
+}
+
+],
+
+},
+
+],
+
+)
+
+print("\nResponse:")
+
+print(f"Stop Reason: {response.stop\_reason}")
+
+print(f"Content: {response.content}")
+
+else:
+
+response = message
+
+final\_response = None
+
+for block in response.content:
+
+if hasattr(block, "text"):
+
+final\_response = block.text
+
+break
+
+print(f"\nFinal Response: {final\_response}")
+
+return final\_response
+
+##  Step 4: Try it out!
 
 Let's try giving Claude a few example questions now that it has access to Wolfram Alpha.
 
-python
+
 
-```
 # Example usage
-print(chat_with_claude("What are the 5 largest countries in the world by population?"))
-print(chat_with_claude("Calculate the square root of 1764."))
-print(chat_with_claude("What is the distance between Earth and Mars?"))
-```
+
+print(chat\_with\_claude("What are the 5 largest countries in the world by population?"))
+
+print(chat\_with\_claude("Calculate the square root of 1764."))
+
+print(chat\_with\_claude("What is the distance between Earth and Mars?"))
+
+
 
 ```
 ==================================================

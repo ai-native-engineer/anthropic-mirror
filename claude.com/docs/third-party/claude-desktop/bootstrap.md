@@ -292,17 +292,33 @@ Organization plugins and skills can be delivered over the network by returning `
 
 A small set of keys are **structurally excluded** and ignored if returned:
 
-* `bootstrapUrl`, `bootstrapOidc`, `bootstrapEnabled`: the trust anchor cannot redirect itself.
-* `inferenceCredentialHelper` and its related settings: every key whose Availability column reads **MDM only** in the [configuration reference](https://claude.com/docs/third-party/claude-desktop/configuration) is ignored in a bootstrap response.
+* `bootstrapUrl`, `bootstrapOidc`, `bootstrapEnabled`, and `trustBootstrapDelivery`: the trust anchor cannot redirect itself or grant trust in itself. These are the keys whose Availability column reads **MDM only** in the [configuration reference](https://claude.com/docs/third-party/claude-desktop/configuration).
 * Loopback hosts (`127.0.0.1`, `localhost`, `[::1]`) in any URL-valued key, regardless of scheme.
 
 `managedMcpServers` entries are not restricted by transport in version 1.19367.0 and later: remote (`http`/`sse`) servers, local `stdio` commands, and the built-in `microsoft365` and `websearch` connectors can all be delivered in the bootstrap response. Earlier versions accept only remote entries and drop the rest. Because a `stdio` entry names a command that runs on the device, a bootstrap response can start local processes — part of why the warning at the top of this page says to treat this endpoint as fully trusted. Entries whose server URL or OAuth authorization-server URL is loopback or non-HTTPS are still dropped, and the desktop log (see [Troubleshooting](#troubleshooting)) records which keys were dropped and why.
+
+###  Keys that require user consent
+
+Some bootstrap-deliverable values point at local commands and credential files, or change where a user signs in. Examples are `inferenceCredentialHelper` and its related keys, `inferenceVertexCredentialsFile`, the AWS profile keys, and connector or marketplace entries that name a local command or helper. The app applies these values only after the user approves them.
+When a response delivers such a value for the first time, the app applies the rest of the response and then shows a dialog listing each pending value. Choosing **Allow** applies the pending values and records the approval. Until then, the pending keys are held back, and the desktop log (see [Troubleshooting](#troubleshooting)) records them as stripped pending consent. Approval is per delivered value. If the server later changes an approved value, the dialog appears again. For a `managedMcpServers` or `allowedPluginMarketplaces` entry, one approval covers the entry’s executable-related fields as a unit.
+Whether the dialog appears depends on how `bootstrapUrl` reached the device:
+
+* Deployed through machine-scoped device management (`HKLM` policy on Windows, a configuration profile on macOS, `/etc/claude-desktop` on Linux): delivered values are trusted without prompting, because the admin already made a device-level decision.
+* Read from a local configuration file, or from user-scope registry policy: the dialog is shown by default.
+
+The `trustBootstrapDelivery` key overrides the default in either direction, and the previous name `trustBootstrapLocalExec` is still accepted. The key is accepted from device management or the local configuration file only, never from the bootstrap response itself. When the rest of your configuration is a local file, set the key in that same file next to `bootstrapUrl`. Delivering only this key through device management makes the whole installation managed, and the app then ignores the local file entirely, including its `bootstrapUrl`.
+Consent gates only bootstrap-delivered values. The same keys delivered through device management apply without prompting. Versions that predate a key’s availability ignore that key in a bootstrap response (the [configuration changelog](https://claude.com/docs/third-party/claude-desktop/configuration-changelog) records when each key became available), so a response can safely carry keys ahead of a fleet upgrade.
 
 ###  Caching and `expiresAt`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `$schemaVersion` | `integer` | Marks the nested v2 wire format. Optional — a response carrying any cluster key is sniffed as v2 regardless — but setting it explicitly is the documented version marker and is what the app’s own JSON export writes. |
 | `expiresAt` | `number` | Unix epoch (seconds or milliseconds) after which the client should re-fetch this document. Optional; when absent the client uses its default refresh interval. |
+
+$schemaVersion details
+
+Omitted → the client infers the version from the document shape (any cluster key present → v2).
 
 expiresAt details
 
@@ -320,6 +336,7 @@ When you supply `bootstrapOidc`, your configuration server and gateway are indep
 | Use bootstrap config `bootstrapEnabled` | `boolean` | MDM only | `true` | Fetch and apply the URL above at launch. Turn off to keep the URL saved but skip the fetch. Defaults to `true`. |
 | Bootstrap config URL `bootstrapUrl` | `string` | MDM only | — | HTTPS endpoint that returns a per-user JSON config overlay. Values from the response override local settings and become read-only. |
 | Bootstrap OIDC parameters `bootstrapOidc` | `object` | MDM only | — | When set, the bootstrap request sends a Bearer token from a browser sign-in (authorization-code-with-PKCE). |
+| Trust bootstrap-delivered settings `trustBootstrapDelivery` | `boolean` | MDM only | `false` | Skip the per-user consent prompt for sign-in targets, helper scripts, and connectors the bootstrap server delivers. Defaults to `false`. Previously named `trustBootstrapLocalExec`. |
 
 bootstrapOidc details
 
@@ -346,5 +363,5 @@ No `inferenceProvider` is needed in the MDM profile when using bootstrap; the re
 | Sign-in succeeds in the browser but the app immediately re-prompts | Your server returned `401` or `403`. For `401`, check the `aud` match: the requested scope must produce a token whose audience your server validates. For `403`, the user authenticated but is not in the entitled group or role. |
 | Entra returns `AADSTS500011` (“resource principal not found”) | The app registration has no Application ID URI. Set one under **Expose an API**. |
 | Silent refresh fails after ~1 hour with `AADSTS90009` | `scopes` uses the `api://CLIENT_ID/.default` form. Use the bare-GUID `CLIENT_ID/.default` form. |
-| Some keys you returned are not applied | They failed schema validation, are structurally excluded, or were dropped by origin pinning. The desktop log (`~/Library/Logs/Claude-3p/main.log` on macOS, `%LOCALAPPDATA%\Claude-3p\logs\main.log` on Windows) records which keys were dropped and why. |
+| Some keys you returned are not applied | They failed schema validation, are structurally excluded, were dropped by origin pinning, or are held for [user consent](#keys-that-require-user-consent). The desktop log (`~/Library/Logs/Claude-3p/main.log` on macOS, `%LOCALAPPDATA%\Claude-3p\logs\main.log` on Windows) records which keys were dropped and why. |
 | Browser opens to your identity provider’s device page instead of yours | In device-code mode, `verification_uri` must share the `bootstrapUrl` origin. Federate behind your own page. |

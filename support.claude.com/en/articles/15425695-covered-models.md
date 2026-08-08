@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/15425695-covered-models -->
 
-# Covered Models
-
-July 1, 2026
-
 Anthropic may designate certain models as “Covered Models” when they cross capability thresholds that warrant additional safeguards or other treatment. This page lists the models currently designated as Covered Models and describes the data handling, privacy, and access policies that apply to them.
 
 **Note:** These policies apply only to the models listed on this page. All other Claude models continue to operate under your existing agreement and configured retention settings.

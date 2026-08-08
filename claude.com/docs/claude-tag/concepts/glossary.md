@@ -44,7 +44,7 @@ A connection is not a connector. A connector belongs to your personal claude.ai 
 
 ##  Connector
 
-A tool you add to your own claude.ai account, like Gmail, Google Drive, or a custom MCP server, listed on your [Connectors settings page](https://claude.ai/settings/connectors). Connectors are personal; in Slack they apply only in DMs. For the agent-side equivalent that works in channels, see [Connection](#connection).
+A tool you add to your own claude.ai account, like Gmail, Google Drive, or a custom MCP server, listed under [Customize > Connectors](https://claude.ai/customize/connectors). Connectors are personal; in Slack they apply only in DMs. For the agent-side equivalent that works in channels, see [Connection](#connection).
 
 ##  Environment
 

@@ -2,7 +2,7 @@
 
 # Newsroom
 
-* Press inquires[press@anthropic.com](mailto:press@anthropic.com)
+* Press inquiries[press@anthropic.com](mailto:press@anthropic.com)
 * Non-media inquiries[How to get support](https://support.claude.com/en/articles/9015913-how-to-get-support)
 * Media assets[Download press kit](https://anthropic.com/press-kit)
 
@@ -38,6 +38,12 @@ Search
 
 DateCategoryTitle
 
+* [Aug 7, 2026Product
+
+  Improving Fable 5's biology safeguards](https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards)
+* [Aug 4, 2026Announcements
+
+  Mariano-Florentino (Tino) Cuéllar to join Anthropic as Chief Global Affairs Officer](https://www.anthropic.com/news/tino-cuellar)
 * [Jul 30, 2026
 
   Investigating three real-world incidents in our cybersecurity evaluations](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals)
@@ -62,13 +68,7 @@ DateCategoryTitle
 * [Jul 20, 2026Announcements
 
   Apply for Anthropic’s AI for Science rare disease research grants](https://www.anthropic.com/news/rare-disease-research-grants)
-* [Jul 14, 2026Product
-
-  Introducing Claude for Teachers](https://www.anthropic.com/news/claude-for-teachers)
-* [Jul 14, 2026Announcements
-
-  Anthropic commits $10 million to Canadian AI research](https://www.anthropic.com/news/canadian-ai-research)
 
 [See more](#)
 
-![Investigating three real-world incidents in our cybersecurity evaluations](https://www-cdn.anthropic.com/images/4zrzovbb/website/d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
+![Improving Fable 5's biology safeguards](https://www-cdn.anthropic.com/images/4zrzovbb/website/e253e6c4926deb09baf67f41e4e24e8028ea5f36-1000x1000.svg)

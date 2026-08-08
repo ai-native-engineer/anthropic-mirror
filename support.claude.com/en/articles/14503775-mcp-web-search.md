@@ -1,14 +1,10 @@
 <!-- source: https://support.claude.com/en/articles/14503775-mcp-web-search -->
 
-# MCP: Web Search
-
-April 9, 2026
-
 The Web Search connector gives Claude the ability to search the public internet for real-time information, including verifying facts, pulling recent news, and researching topics outside its training data.
 
 For questions about web search in commercial Claude, see **[Enabling and using web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1785803400&signature=f0381836fd0cb199c87340d2978cc6b38752d788d707bae037f33be79ee1a2db&req=diIiEMh8nYZZWvMW1HO4zQvFLLdbjcf8M%2Fw5SJgC29H80MvzJXZs6n7aus1c%0Albxg4mbIK6pn3SQXXc0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1785803400&signature=f0381836fd0cb199c87340d2978cc6b38752d788d707bae037f33be79ee1a2db&req=diIiEMh8nYZZWvMW1HO4zQvFLLdbjcf8M%2Fw5SJgC29H80MvzJXZs6n7aus1c%0Albxg4mbIK6pn3SQXXc0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1786167000&signature=ae32b5bfb4734c11545422646a26f1c4d9c1cf3b7173483354669abeba053bfe&req=diIiEMh8nYZZWvMW1HO4zQvFLLRSi8P4M%2Fw5SJgC29E5sBzFGVXXJHaqhRpm%0A7VSJ9hGYMSp0oNVVPyA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1786167000&signature=ae32b5bfb4734c11545422646a26f1c4d9c1cf3b7173483354669abeba053bfe&req=diIiEMh8nYZZWvMW1HO4zQvFLLRSi8P4M%2Fw5SJgC29E5sBzFGVXXJHaqhRpm%0A7VSJ9hGYMSp0oNVVPyA%3D%0A)
 
 ## How Web Search differs for Claude for Government
 
@@ -49,6 +45,8 @@ No authentication step is required. Once added, Web Search is available in every
 
 Once your org admin enables it, Web Search is available in your chats immediately. There's no per-user connection step. You'll be asked to approve individual queries as they come up.
 
+---
+
 ## Example use cases
 
 *"What were the key provisions in the infrastructure bill passed last month?"*
@@ -58,6 +56,8 @@ Claude proposes a search query like infrastructure bill key provisions [month ye
 *"Is there a published CVE for [software] version [X]? When was it disclosed?"*
 
 Claude proposes a search targeting CVE databases and vendor advisories, you approve, and Claude returns the CVE details with source links.
+
+---
 
 ## Frequently asked questions
 

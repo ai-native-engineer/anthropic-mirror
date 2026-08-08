@@ -10,7 +10,7 @@
 
 Ultrareview is a deep code review that runs on Claude Code on the web infrastructure. When you run `/code-review ultra`, Claude Code launches a fleet of reviewer agents in a remote sandbox to find bugs in your branch or pull request.
 
-Compared to a local `/code-review` or `/review`, ultrareview offers:
+Compared to a local `/code-review`, ultrareview offers:
 
 * **Higher signal**: every reported finding is independently reproduced and verified, so the results focus on real bugs rather than style suggestions
 * **Broader coverage**: a larger fleet of reviewer agents explores the change in parallel, which surfaces issues that a local review can miss
@@ -76,7 +76,7 @@ Ultrareview checks the diff before any review work runs and tells you when it ca
 
 * **Diff too large**: a branch review can include up to 500 changed files and 8,000 changed lines by default. The exact values can change, and the [refusal](/docs/en/errors#diff-is-too-large-for-ultrareview) names the ones in effect, the size of your diff, and the files with the most changed lines. Claude Code refuses a too-large pull request the same way, naming its file and line counts but not the per-file breakdown
 * **Nothing to review**: when the diff against the base is empty, Claude Code says so and suggests staging or committing local edits, or passing a different base
-* **No merge base**: when your branch shares no history with the base branch, Claude Code offers to review every tracked file in the repository instead; the fallback requires a full clone and applies the same size limits
+* **No merge base**: when your branch shares no history with the base branch, Claude Code falls back to reviewing every tracked file in the repository instead; the fallback requires a full clone and applies the same size limits. On a checkout with no branches or other refs, such as a detached HEAD created by checking out `FETCH_HEAD` after fetching a URL, Claude Code [refuses the review](/docs/en/errors#your-checkout-has-no-branches) and suggests creating a branch first
 
 ## Pricing and free runs
 
@@ -121,7 +121,7 @@ Without arguments, the subcommand reviews the diff between your current branch a
 
 You consent to the whole-repository fallback and to the billing and terms prompt when you run the subcommand, so the run starts without waiting for input.
 
-{/* min-version: 2.1.218 */}On Claude Code v2.1.218 or later, you can also start the cloud review by running `/code-review ultra` in a non-interactive session, for example `claude -p '/code-review ultra'`. Claude Code launches the review and prints a tracking link without waiting for the findings, unlike `claude ultrareview`, which blocks until they arrive. When the review would bill usage credits, Claude Code stops before launching and points you to `claude ultrareview`, because the billing confirmation needs an interactive session. Before v2.1.218, `/code-review ultra` in a non-interactive session ran a local review.
+On Claude Code v2.1.218 or later, you can also start the cloud review by running `/code-review ultra` in a non-interactive session, for example `claude -p '/code-review ultra'`. Claude Code launches the review and prints a tracking link without waiting for the findings, unlike `claude ultrareview`, which blocks until they arrive. When the review would bill usage credits, Claude Code stops before launching and points you to `claude ultrareview`, because the billing confirmation needs an interactive session. Before v2.1.218, `/code-review ultra` in a non-interactive session ran a local review.
 
 Progress messages and the live session URL go to stderr so stdout stays parseable. Use these flags to control the output and timeout:
 
@@ -134,23 +134,22 @@ Running `claude ultrareview` requires the same authentication and usage credit c
 
 For automatic reviews on GitHub pull requests, [Code Review](/docs/en/code-review) integrates with your repository directly and posts findings as inline PR comments without a CLI step.
 
-## How ultrareview compares to /code-review and /review
+## How ultrareview compares to /code-review
 
-All three commands review code, but they target different stages of your workflow.
+Both reviews examine code, but you use them at different stages of your workflow.
 
-|          | `/code-review`                  | `/review <pr>`                               | `/code-review ultra`                                            |
-| -------- | ------------------------------- | -------------------------------------------- | --------------------------------------------------------------- |
-| Target   | your working diff               | a GitHub pull request                        | your working diff or a pull request                             |
-| Runs     | locally in your session         | locally in your session                      | remotely in a cloud sandbox                                     |
-| Depth    | scales with the effort argument | a single-pass review at the session's effort | multi-agent fleet with independent verification                 |
-| Duration | seconds to a few minutes        | seconds to a few minutes                     | roughly 5 to 10 minutes                                         |
-| Cost     | counts toward normal usage      | counts toward normal usage                   | free runs, then roughly \$5 to \$25 per review as usage credits |
-| Best for | quick feedback while iterating  | reviewing a teammate's PR before approving   | pre-merge confidence on substantial changes                     |
+|          | `/code-review`                                         | `/code-review ultra`                                            |
+| -------- | ------------------------------------------------------ | --------------------------------------------------------------- |
+| Target   | your working diff, a pull request, a branch, or a path | your working diff or a pull request                             |
+| Runs     | locally in your session                                | remotely in a cloud sandbox                                     |
+| Depth    | scales with the effort argument                        | multi-agent fleet with independent verification                 |
+| Duration | seconds to a few minutes                               | roughly 5 to 10 minutes                                         |
+| Cost     | counts toward normal usage                             | free runs, then roughly \$5 to \$25 per review as usage credits |
+| Best for | quick feedback while iterating                         | pre-merge confidence on substantial changes                     |
 
-Use `/code-review` for fast feedback as you work. Use `/review <pr>` to look over a pull request the same way you would before approving it. Use `/code-review ultra` before merging a substantial change when you want a deeper pass that catches issues a local review might miss.
+Use `/code-review` for fast feedback as you work, or pass a PR number to review a teammate's pull request before approving it. Use `/code-review ultra` before merging a substantial change when you want a deeper pass that catches issues a local review might miss.
 
 ## Related resources
 
 * [Claude Code on the web](/docs/en/claude-code-on-the-web): learn how cloud sessions and cloud sandboxes work
-* [Plan complex changes with ultraplan](/docs/en/ultraplan): the planning counterpart to ultrareview for upfront design work
 * [Manage costs effectively](/docs/en/costs): track usage and set spending limits

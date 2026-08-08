@@ -24,6 +24,8 @@ The easiest way to author a configuration is the in-app configuration window (**
 The local location is a directory: `_meta.json` records which saved configuration is applied, and each configuration is a `<id>.json` file alongside it. The in-app configuration window writes here.
 When a managed source is present, it wins and locally written values are ignored. The exception is a managed source that sets only the update keys (`disableAutoUpdates` and `autoUpdaterEnforcementHours`): those two keys are enforced from the managed source, but the rest of the configuration stays local and user-editable. Configuration is read **once at launch**, so fully quit and reopen the app after any change. On Windows, the two policy hives are not merged: when machine policy is present under `HKLM\SOFTWARE\Policies\Claude`, the app ignores `HKCU\SOFTWARE\Policies\Claude` entirely; [Deploy the configuration](https://claude.com/docs/third-party/claude-desktop/mdm#4-deploy-the-configuration) has the exact rule. See [Deploy with MDM](https://claude.com/docs/third-party/claude-desktop/mdm#update-keys-and-managed-precedence) for the full precedence rules.
 
+Claude Desktop on 3P reads the same managed-configuration sources as standard Claude Desktop but ignores keys scoped to standard deployments. Keys such as `forceLoginOrgUUID` have no effect in a 3P deployment.
+
 ###  Value types
 
 Write every value as a **string** in the OS preference store, even booleans and arrays.
@@ -73,11 +75,11 @@ The reference below is generated from the configuration schema and grouped to ma
 | --- | --- | --- | --- | --- |
 | Custom inference headers `inferenceCustomHeaders` | `object` | MDM + Bootstrap | — | Extra HTTP headers sent on every inference request to the configured provider. For tenant routing, org IDs, Bedrock Guardrails, etc. Previously named `inferenceGatewayHeaders`. |
 | Sign-in session lifetime `inferenceSessionLifetimeSec` | `integer` | MDM + Bootstrap | — | How long a sign-in stays valid under your IdP’s session policy. Shows a re-authenticate banner before it expires. |
-| Helper script `inferenceCredentialHelper` | `string` | MDM only | — | Absolute path to an executable that prints the credential, optionally with per-request headers. |
-| Helper script TTL `inferenceCredentialHelperTtlSec` | `integer` | MDM only | `3600` | Helper output is cached for this many seconds. Re-runs at the next session start after expiry. Defaults to `3600`. |
-| Credential helper timeout `inferenceCredentialHelperTimeoutSec` | `integer` | MDM only | `60` | Maximum wait for the helper executable to finish. Raise this if the helper opens a browser for interactive sign-in. Defaults to `60`. Range: 1–600. |
-| Re-run helper for silent refresh `inferenceCredentialHelperSilentRefreshEnabled` | `boolean` | MDM only | `true` | On credential expiry, re-run the helper (CLAUDE\_HELPER\_CONTEXT=mid-session-refresh) to recover silently. Turn off if the helper can’t run non-interactively. Defaults to `true`. |
-| Artifact preview iframe origin `userContentRendererUrl` | `string` | MDM only | — | HTTPS origin of the user-content-renderer deployment used for artifact and file previews. Defaults to the commercial host when unset. |
+| Helper script `inferenceCredentialHelper` | `string` | MDM + Bootstrap | — | Absolute path to an executable that prints the credential, optionally with per-request headers. |
+| Helper script TTL `inferenceCredentialHelperTtlSec` | `integer` | MDM + Bootstrap | `3600` | Helper output is cached for this many seconds. Re-runs at the next session start after expiry. Defaults to `3600`. |
+| Credential helper timeout `inferenceCredentialHelperTimeoutSec` | `integer` | MDM + Bootstrap | `60` | Maximum wait for the helper executable to finish. Raise this if the helper opens a browser for interactive sign-in. Defaults to `60`. Range: 1–600. |
+| Re-run helper for silent refresh `inferenceCredentialHelperSilentRefreshEnabled` | `boolean` | MDM + Bootstrap | `true` | On credential expiry, re-run the helper (CLAUDE\_HELPER\_CONTEXT=mid-session-refresh) to recover silently. Turn off if the helper can’t run non-interactively. Defaults to `true`. |
+| Artifact preview iframe origin `userContentRendererUrl` | `string` | MDM + Bootstrap | — | HTTPS origin of the user-content-renderer deployment used for artifact and file previews. Defaults to the commercial host when unset. |
 | Inference provider `inferenceProvider` | `enum` | MDM + Bootstrap | — | Selects the inference backend. Setting this key activates third-party mode. One of: `gateway`, `anthropic`, `bedrock`, `mantle`, `vertex`, `foundry`. |
 | Credential kind `inferenceCredentialKind` | `enum` | MDM + Bootstrap | — | Selects the credential source. When set, only that source is used (no fallback). One of: `static`, `helper-script`, `interactive`, `vendor-profile`, `oauth`, `workforce`. |
 
@@ -116,9 +118,9 @@ The app activates 3P mode only when this is set and the required credential keys
 | AWS SSO region `inferenceBedrockSsoRegion` | `string` | MDM + Bootstrap | — | IAM Identity Center home region. |
 | AWS SSO account ID `inferenceBedrockSsoAccountId` | `string` | MDM + Bootstrap | — | 12-digit AWS account ID assigned to users in IAM Identity Center. |
 | AWS SSO role name `inferenceBedrockSsoRoleName` | `string` | MDM + Bootstrap | — | IAM Identity Center permission-set name granting bedrock:InvokeModel\* on the account above. |
-| AWS profile name `inferenceBedrockProfile` | `string` | MDM only | — | AWS named profile to use for Bedrock inference credentials. |
-| AWS config directory `inferenceBedrockAwsDir` | `string` | MDM only | — | Folder with AWS config/credentials. Defaults to ~/.aws when no bearer token is set. |
-| AWS CLI path `inferenceBedrockAwsCliPath` | `string` | MDM only | — | Absolute path to the aws executable. Leave unset to find it on PATH. |
+| AWS profile name `inferenceBedrockProfile` | `string` | MDM + Bootstrap | — | AWS named profile to use for Bedrock inference credentials. |
+| AWS config directory `inferenceBedrockAwsDir` | `string` | MDM + Bootstrap | — | Folder with AWS config/credentials. Defaults to ~/.aws when no bearer token is set. |
+| AWS CLI path `inferenceBedrockAwsCliPath` | `string` | MDM + Bootstrap | — | Absolute path to the aws executable. Leave unset to find it on PATH. |
 
 inferenceBedrockServiceTier details
 
@@ -130,8 +132,8 @@ Tier availability varies by model and region. Reserved capacity uses a provision
 | --- | --- | --- | --- | --- |
 | Azure AI Foundry resource name `inferenceFoundryResource` | `string` | MDM + Bootstrap | — | Azure AI Foundry resource name used to construct the endpoint URL. |
 | Azure AI Foundry API key `inferenceFoundryApiKey` | `string` | MDM + Bootstrap | — | API key for Azure AI Foundry inference. |
-| Entra ID tenant ID `inferenceFoundryTenantId` | `string` | MDM only | — | Directory (tenant) ID of the Entra ID app registration that has the Cognitive Services scope. |
-| Entra ID client ID `inferenceFoundryClientId` | `string` | MDM only | — | Application (client) ID of the Entra ID app registration. Device-code sign-in requires the app to allow public client flows. |
+| Entra ID tenant ID `inferenceFoundryTenantId` | `string` | MDM + Bootstrap | — | Directory (tenant) ID of the Entra ID app registration that has the Cognitive Services scope. |
+| Entra ID client ID `inferenceFoundryClientId` | `string` | MDM + Bootstrap | — | Application (client) ID of the Entra ID app registration. Device-code sign-in requires the app to allow public client flows. |
 | Entra ID sign-in flow `inferenceFoundryAuthFlow` | `enum` | MDM + Bootstrap | — | How Entra sign-in runs: device code (default), system browser, or the OS identity broker. One of: `device-code`, `browser`, `broker`. |
 
 inferenceFoundryAuthFlow details
@@ -149,7 +151,15 @@ App versions that predate this key always use device code; versions that predate
 | Gateway base URL `inferenceGatewayBaseUrl` | `string` | MDM + Bootstrap | — | Full URL of the inference gateway endpoint. |
 | Gateway API key `inferenceGatewayApiKey` | `string` | MDM + Bootstrap | — | API key for the configured inference gateway. |
 | Gateway auth scheme `inferenceGatewayAuthScheme` | `enum` | MDM + Bootstrap | `bearer` | How the gateway credential is sent on the wire (Authorization: Bearer vs x-api-key header). One of: `bearer`, `x-api-key`. Defaults to `bearer`. |
+| Gateway sign-in flow `inferenceGatewayOidcAuthFlow` | `enum` | MDM + Bootstrap | — | How the IdP sign-in runs: system browser (default) or the OS Microsoft Entra broker. One of: `browser`, `broker`. |
 | Gateway SSO IdP (OIDC) `inferenceGatewayOidc` | `object` | MDM + Bootstrap | — | External IdP for gateway sign-in. The user’s token from this issuer is sent to the gateway as the Bearer credential. |
+
+inferenceGatewayOidcAuthFlow details
+
+* **`browser`** (default) — opens the system browser for an authorization-code (PKCE) sign-in on a loopback redirect URI. See the **IdP setup** notes on `inferenceGatewayOidc` for redirect-URI registration.
+* **`broker`** — signs in through the OS identity broker (Web Account Manager on Windows, Company Portal on macOS). Requires the IdP to be **Microsoft Entra ID** — the `issuer` on `inferenceGatewayOidc` must be `https://login.microsoftonline.com/{tenant-id}/v2.0`. The broker satisfies Conditional Access policies that require a compliant/managed device or token protection, and needs no `127.0.0.1/callback` loopback redirect. The Entra app registration must include the broker redirect URIs `ms-appx-web://Microsoft.AAD.BrokerPlugin/{client-id}` (Windows) and `msauth.com.anthropic.claudefordesktop://auth` (macOS) under the **Mobile and desktop applications** platform. Not supported on Linux.
+
+Broker mode mints a token in the customer’s own Entra tenant with the customer-configured `scopes`, and forwards it to the customer’s own gateway; both endpoints of that trust relationship are inside the customer’s control.
 
 inferenceGatewayOidc details
 
@@ -236,8 +246,16 @@ Use the **provider’s exact model ID**: Vertex publisher IDs (`claude-sonnet-5`
 | Vertex OAuth login hint `inferenceVertexOAuthLoginHint` | `string` | MDM + Bootstrap | — | Pre-fill Google’s account chooser and forward to your federated IdP. {username} expands to the OS login name. |
 | Workforce Identity audience `inferenceVertexWorkforceAudience` | `string` | MDM + Bootstrap | — | Workforce-pool provider audience. When set, sign-in uses your own IdP plus a GCP STS exchange instead of a Google identity. |
 | Workforce Identity billing project `inferenceVertexWorkforceUserProject` | `string` | MDM + Bootstrap | — | GCP project for STS billing and quota. Defaults to the Vertex project ID above. |
+| Workforce Identity sign-in flow `inferenceVertexWorkforceAuthFlow` | `enum` | MDM + Bootstrap | — | How the IdP sign-in runs: system browser (default) or the OS Microsoft Entra broker. One of: `browser`, `broker`. |
 | Workforce Identity IdP (OIDC) `inferenceVertexWorkforceOidc` | `object` | MDM + Bootstrap | — | Your organization’s OIDC IdP. The app runs an authorization-code-with-PKCE flow against this issuer and exchanges the returned ID token at GCP STS. |
-| GCP credentials file path `inferenceVertexCredentialsFile` | `string` | MDM only | — | Absolute path to service-account JSON. Leave blank to fall back to ADC. |
+| GCP credentials file path `inferenceVertexCredentialsFile` | `string` | MDM + Bootstrap | — | Absolute path to service-account JSON. Leave blank to fall back to ADC. |
+
+inferenceVertexWorkforceAuthFlow details
+
+* **`browser`** (default) — opens the system browser for an authorization-code (PKCE) sign-in on a loopback redirect URI. See the **IdP setup** notes on `inferenceGatewayOidc` for redirect-URI registration; the same rules apply here.
+* **`broker`** — signs in through the OS identity broker (Web Account Manager on Windows, Company Portal on macOS). Requires the workforce-pool IdP to be **Microsoft Entra ID** — the `issuer` on `inferenceVertexWorkforceOidc` must be `https://login.microsoftonline.com/{tenant-id}/v2.0`. The broker satisfies Conditional Access policies that require a compliant/managed device or token protection, and needs no `127.0.0.1/callback` loopback redirect. The Entra app registration must include the broker redirect URIs `ms-appx-web://Microsoft.AAD.BrokerPlugin/{client-id}` (Windows) and `msauth.com.anthropic.claudefordesktop://auth` (macOS) under the **Mobile and desktop applications** platform. Not supported on Linux.
+
+The GCP STS token-exchange step is unchanged in either flow; only how the Entra id\_token is acquired differs.
 
 inferenceVertexWorkforceOidc details
 
@@ -259,7 +277,7 @@ inferenceVertexWorkforceOidc details
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
 | Disable Claude.ai sign-in `disableDeploymentModeChooser` | `boolean` | MDM + Bootstrap | `false` | Users see only this provider at the login screen. The option to sign in to Claude.ai is hidden. Defaults to `false`. |
-| Disable claude:// deep-link handling `disableDeepLinkRegistration` | `boolean` | MDM only | `false` | Stop external apps and websites from opening Cowork via claude:// links. Defaults to `false`. |
+| Disable claude:// deep-link handling `disableDeepLinkRegistration` | `boolean` | MDM + Bootstrap | `false` | Stop external apps and websites from opening Cowork via claude:// links. Defaults to `false`. |
 
 ###  Chat surface
 
@@ -290,6 +308,7 @@ Also enables inline data analysis. The sandbox can only read files attached to t
 | --- | --- | --- | --- | --- |
 | Disabled built-in tools `disabledBuiltinTools` | `string[]` | MDM + Bootstrap | — | Built-in tools removed from Cowork. |
 | Disable bundled skills and workflows `disableBundledSkills` | `boolean` | MDM + Bootstrap | — | Disables Claude Code’s bundled skills and workflows (deep-research and similar). Use where WebFetch/WebSearch aren’t available. |
+| Allow user-created skills `skillCreationEnabled` | `boolean` | MDM + Bootstrap | — | Allow users to create and upload their own skills. When off, the creation and upload surfaces are hidden and the agent’s skill-creation tools are disabled. |
 | Built-in tool policy `builtinToolPolicy` | `object` | MDM + Bootstrap | — | Per-tool approval policy for built-in tools. “ask” requires user approval before each call; “allow” is the default. |
 | Allow Auto mode `autoModeEnabled` | `boolean` | MDM + Bootstrap | `false` | Offer Auto mode in the Cowork and Code permission selectors. Claude decides which actions need approval. Defaults to `false`. |
 | Enable tool search `toolSearchEnabled` | `boolean` | MDM + Bootstrap | `false` | Load MCP tool schemas on demand (tool search) instead of inlining every schema into context. Defaults to `false`. |
@@ -297,13 +316,17 @@ Also enables inline data analysis. The sandbox can only read files attached to t
 | Allowed egress hosts `coworkEgressAllowedHosts` | `string[]` | MDM + Bootstrap | — | Hostnames the agent’s tools may reach from the Cowork and Code tabs. Also surfaced under Egress Requirements. |
 | Require full VM sandbox `requireCoworkFullVmSandbox` | `boolean` | MDM + Bootstrap · Deprecated | `false` | Runs tools inside an isolated VM instead of the host. Stronger isolation; slower file access and no host-process tools. Defaults to `false`. |
 
+skillCreationEnabled details
+
+When on (default), users can create new skills and upload skill files in the app. Set to `false` to block user skill creation: the skill-creation and upload surfaces are hidden (the `skill_creation` feature is served as blocked by the organization), and the agent’s skill-creation tools (saving skills from a conversation, skill proposals) are not offered in sessions — the same effect as turning off the **User-created skills** organization setting available to claude.ai enterprise admins.This is a feature-availability control enforced in the app’s UI, not a data boundary: skills are files on the user’s machine, and files already present there (or placed there outside the app) are not removed or blocked by this key. Skills themselves remain usable; organization-distributed plugins and bundled skills are unaffected (to disable bundled skills, use `disableBundledSkills`).
+
 builtinToolPolicy details
 
 `ask-session` applies to connector tool policies only — written here it is treated as `ask`. To remove a tool entirely, use **Disabled built-in tools** instead.
 
 autoModeEnabled details
 
-When enabled, users can select **Auto mode** (Code tab) / **Act without asking** (Cowork tab). Claude runs a safety classifier on each action and only prompts for approval on actions it judges risky, instead of following the static per-tool policy.Requires a model that supports the safety classifier — which models qualify depends on the deployment’s provider and the app version. Models without support show the option greyed out. `builtinToolPolicy` and this key may both be set; Auto mode is a user-selectable option alongside the default policy, not a replacement for it.In the Code tab, a separately deployed Claude Code [managed-settings](https://claude.com/docs/third-party/claude-desktop/code#interaction-with-claude-code%E2%80%99s-own-managed-settings) file that sets `disableAutoMode` to `"disable"` overrides this key and keeps Auto mode hidden.
+When enabled, users can select **Auto mode** (Code tab) / **Automatically approve** (Cowork tab). Claude runs a safety classifier on each action and only prompts for approval on actions it judges risky, instead of following the static per-tool policy.Requires a model that supports the safety classifier — which models qualify depends on the deployment’s provider and the app version. Models without support show the option greyed out. `builtinToolPolicy` and this key may both be set; Auto mode is a user-selectable option alongside the default policy, not a replacement for it.In the Code tab, a separately deployed Claude Code [managed-settings](https://claude.com/docs/third-party/claude-desktop/code#interaction-with-claude-code%E2%80%99s-own-managed-settings) file that sets `disableAutoMode` to `"disable"` overrides this key and keeps Auto mode hidden.
 
 toolSearchEnabled details
 
@@ -317,18 +340,31 @@ Paths can reference `~` and these environment variables, expanded per user: `%On
 | --- | --- | --- | --- |
 | `path` | `string` | — |  |
 | `isDefaultSelected` | `boolean` | — | Shows as a folder chip on the new-task page and skips the trust prompt. Users can remove it. |
+| `mode` | `enum` | — | Read-only folders can be viewed and searched but not modified in Cowork. In Code, applies to file tools only; Bash and SSH do not yet enforce read-only. One of: `rw`, `ro`. |
 
 coworkEgressAllowedHosts details
 
-Applies to **both** the Cowork and Code tabs. In the Cowork tab it governs the sandbox’s web fetch, shell commands, and package installs. In the Code tab it is [translated into Claude Code’s network sandbox allowlist](https://claude.com/docs/third-party/claude-desktop/code#applied-as-managed-policy); a separately deployed Claude Code managed-settings file on the endpoint takes precedence by default.Does **not** apply to Web Search, which runs server-side at your inference provider rather than from the sandbox.Only affects **tool calls**. Inference and MCP traffic are covered by their own allowlists elsewhere. When unset, only the inference endpoint is reachable from the sandbox; the agent’s package installs (pip/npm) and web fetches will fail with a 403.Accepts exact hostnames (`api.github.com`), wildcards (`*.corp.com` matches one subdomain level), and `*` to allow all. `*.corp.com` matches `docs.corp.com` but not `corp.com` itself; add both if you need the apex. IP literals and localhost always resolve regardless of this list; this is a public-egress filter, not a sandbox.Hosts you add here also need to be open on your network firewall. See **Egress Requirements** for the full allowlist.
+Applies to **both** the Cowork and Code tabs. In the Cowork tab it governs the sandbox’s web fetch, shell commands, and package installs. In the Code tab it is [translated into Claude Code’s network sandbox allowlist](https://claude.com/docs/third-party/claude-desktop/code#applied-as-managed-policy); a separately deployed Claude Code managed-settings file on the endpoint takes precedence by default.Does **not** apply to Web Search, which runs server-side at your inference provider rather than from the sandbox.Only affects **tool calls**. Inference and MCP traffic are covered by their own allowlists elsewhere. When unset, only the inference endpoint is reachable from the sandbox; the agent’s package installs (pip/npm) and web fetches will fail with a 403.Accepts exact hostnames (`api.github.com`), wildcards (`*.corp.com` matches one subdomain level), and `*` to allow all. `*.corp.com` matches `docs.corp.com` but not `corp.com` itself; add both if you need the apex. IP literals and localhost always resolve regardless of this list; this is a public-egress filter, not a sandbox.Any entry except bare `*` may carry a `:port` suffix (`internal.corp.com:8443`, `*.corp.com:8443`) restricting that entry to the named port; an entry with no port allows any port. A port on a wildcard applies to every matched subdomain. IPv6 literals are not supported. Entries outside this grammar are dropped individually, with a warning naming the entry in the app log; the remaining valid entries keep working. Port restrictions are enforced for the Cowork sandbox’s web fetch today. The sandbox’s shell and package-install egress enforces them once the app ships a VM image whose sandbox runtime supports ports; until then a port-scoped host is unreachable from shell (fails closed). Plugin CLIs additionally keep their own stricter in-VM filter and treat port-scoped entries as absent for now. The Code tab’s Claude Code translation treats a port-restricted entry as its bare host (any port). The `:port` syntax requires the Claude Desktop release it first shipped in or newer — hold off deploying port-scoped entries until your whole fleet is on that build (note `disableAutoUpdates` pins builds); on older builds a port-scoped entry invalidates the sandbox’s whole shell and package-install allowlist for the session (the older sandbox runtime rejects the entire list), and web fetch simply never matches it.Hosts you add here also need to be open on your network firewall, on the listed ports. See **Egress Requirements** for the full allowlist.
 
 ##  Connectors & extensions
+
+| Setting | Type | Availability | Default | Description |
+| --- | --- | --- | --- | --- |
+| Claude.ai data import `claudeAiImport` | `object` | MDM + Bootstrap | — | Export endpoint and OAuth client for importing a user’s Claude.ai conversation history into this deployment. |
+
+claudeAiImport details
+
+| Field | Type | Default | Description |
+| --- | --- | --- | --- |
+| `url` | `string` | — |  |
+| `oauthIssuer` | `string` | — |  |
+| `oauthClientId` | `string` | — |  |
 
 ###  Authentication
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
-| Microsoft 365 native sign-in broker `microsoftAuthBroker` | `enum` | MDM only | `auto` | Set to “disabled” to force browser-based Microsoft 365 sign-in instead of the native Company Portal / Windows account broker. One of: `auto`, `disabled`. Defaults to `auto`. |
+| Microsoft 365 native sign-in broker `microsoftAuthBroker` | `enum` | MDM + Bootstrap | `auto` | Set to “disabled” to force browser-based Microsoft 365 sign-in instead of the native Company Portal / Windows account broker. One of: `auto`, `disabled`. Defaults to `auto`. |
 
 ###  Extensions
 
@@ -356,9 +392,9 @@ For OAuth-authenticated entries, the app builds the redirect URI as `http://<cal
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
 | `name` | `string` | — |  |
-| `server` | `string` | — | One of: `microsoft365`, `websearch`. |
+| `server` | `string` | — | One of: `microsoft365`, `websearch`, `github`. |
 | `tenantId` | `string` | — | Your organization’s Microsoft Entra directory (tenant) ID. |
-| `clientId` | `string` | — | Entra public-client (PKCE) app registration ID. |
+| `clientId` | `string` | — | OAuth app client ID for this built-in server. |
 | `azureCloud` | `enum` | — | Microsoft cloud for sign-in and Graph. Leave as global for commercial Microsoft 365; US Government clouds require your own app registration (Client ID). One of: `global`, `us-gov-high`, `us-gov-dod`. |
 | `scope` | `string` | — | What the server may request at sign-in. If blank, Desktop’s default read set is used. |
 | `toolPolicy` | `object` | — | Lock the approval state for specific tools. Unlisted tools stay user-controlled. |
@@ -368,6 +404,9 @@ For OAuth-authenticated entries, the app builds the redirect URI as `http://<cal
 | `headersHelperRefreshBufferSec` | `integer` | — |  |
 | `provider` | `enum` | — | Runs search from the desktop, for inference providers without native web search. Set the provider’s auth header below. One of: `brave`, `tavily`, `exa`, `custom`. |
 | `customUrl` | `string` | — | POST endpoint accepting {q} JSON and returning a results[] array. Only used when provider is Custom. |
+| `host` | `string` | — | Leave blank for github.com. For GitHub Enterprise Server, your instance’s base URL. |
+| `toolsets` | `string` | — | Comma-separated github-mcp-server toolsets to enable. If blank, the bundled server’s default toolsets are used. |
+| `readOnly` | `boolean` | — | Offer only read tools — the server registers no write tools at all. |
 | `transport` | `enum` | — | One of: `http`, `sse`, `stdio`. |
 | `url` | `string` | — |  |
 | `oauth` | `object` | — |  |
@@ -378,6 +417,7 @@ For OAuth-authenticated entries, the app builds the redirect URI as `http://<cal
 | `oauth.authorizationUrl` | `string` | — | Only for IdPs that don’t serve a .well-known discovery document. Set together with Token URL; requires Client ID. |
 | `oauth.tokenUrl` | `string` | — | Only for IdPs that don’t serve a .well-known discovery document. Set together with Authorization URL; requires Client ID. |
 | `oauth.tenantId` | `string` | — | Required for single-tenant Entra apps. Leave blank for multi-tenant or non-Microsoft IdPs. |
+| `oauth.authFlow` | `enum` | — | How Entra sign-in runs for this server: the system browser (default) or the OS identity broker. One of: `browser`, `broker`. |
 | `oauth.scope` | `string` | — |  |
 | `oauth.appendOfflineAccess` | `boolean` | — | Adds offline\_access to the authorize request so the IdP returns a refresh token for silent renewal. |
 | `oauth.callbackHost` | `enum` | — | Use localhost only if your IdP’s registered redirect URI specifies it. One of: `127.0.0.1`, `localhost`. |
@@ -401,7 +441,7 @@ When enabled (the default), approval prompts for tools without a `toolPolicy` en
 | Organization UUID `deploymentOrganizationUuid` | `string` | MDM + Bootstrap | — | A UUID you generate. Tags telemetry so Anthropic support can locate your fleet’s events, and namespaces each user’s local data. Not used for auth. |
 | Block essential telemetry `disableEssentialTelemetry` | `boolean` | MDM + Bootstrap | `false` | Crash and performance reports to Anthropic. Defaults to `false`. |
 | Block nonessential telemetry `disableNonessentialTelemetry` | `boolean` | MDM + Bootstrap | `false` | Product-usage analytics and diagnostic-report uploads. No message content. Defaults to `false`. |
-| Block nonessential services `disableNonessentialServices` | `boolean` | MDM + Bootstrap | `false` | Favicon fetch and the artifact-preview iframe origin. Artifacts will not render. Defaults to `false`. |
+| Block nonessential services `disableNonessentialServices` | `boolean` | MDM + Bootstrap | `false` | Connector favicons, the connector directory (MCP registry) lookup, and the artifact-preview and MCP Apps widget iframe origins. Artifacts will not render. Defaults to `false`. |
 
 deploymentOrganizationUuid details
 
@@ -415,12 +455,21 @@ disableNonessentialTelemetry details
 
 “Nonessential” covers two things: **product-usage analytics** (which features get used, navigation patterns; no prompts or completions) and the **Send** action in Help → Generate Diagnostic Report. Turning this on stops both.Destination for both: `claude.ai`. Already listed under Egress Requirements → Nonessential telemetry.
 
+disableNonessentialServices details
+
+“Nonessential services” covers four outbound fetches the app runs without: **connector favicons** (the icon proxy), the **connector directory** lookup (the Anthropic MCP registry), the **artifact-preview** iframe origin, and the **MCP Apps widget** iframe origin (`*.claudemcpcontent.com`). Turning this on blocks all four.**What you lose when this is on:** connectors show without icons, the connector directory can’t be fetched, artifacts do not render in conversations, and connectors that return MCP Apps show the text tool result instead of the widget.Destinations are listed under Egress Requirements → Nonessential services.
+
 ###  Auto update
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
 | Block auto-updates `disableAutoUpdates` | `boolean` | MDM + Bootstrap | `false` | Stop Cowork from fetching updates. You’ll need to push new versions yourself. Defaults to `false`. |
 | Auto-update enforcement window `autoUpdaterEnforcementHours` | `integer` | MDM + Bootstrap | — | Hours before a downloaded update force-installs. Blank = 72-hour default. Range: 1–72. |
+| Check for updates on releases.claude.com `updateViaUpdatesHost` | `boolean` | MDM + Bootstrap | `false` | Read the update feed from releases.claude.com so api.anthropic.com can stay blocked. Defaults to `false`. |
+
+updateViaUpdatesHost details
+
+By default the app asks `api.anthropic.com` which version to install. That host also serves the model APIs, so organizations that block un-approved LLM endpoints at the network edge end up blocking updates too.Turn this on to read the same feed from `releases.claude.com`, a hostname that serves only the desktop update-check route and carries no model API. `api.anthropic.com` can then stay blocked without breaking auto-update. Rollout behavior is unchanged; the installer download still comes from `downloads.claude.ai` as before.
 
 ###  OTLP
 
@@ -475,10 +524,22 @@ Required when `inferenceMaxTokensPerWindow` is set — the cap only takes effect
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
+| End-user attribution `endUserAttribution` | `boolean` | MDM + Bootstrap | — | Show the signed-in user’s identity-provider identity in the sidebar and account menu, and emit it as the OpenTelemetry enduser.id resource attribute. Previously named `enduserAttribution`. |
+| Deployment display name `deploymentDisplayName` | `string` | MDM + Bootstrap | — | Overrides the provider label shown in the sidebar footer, user-menu header, and connection-error banner. |
+| Deployment display subtitle `deploymentDisplaySubtitle` | `string` | MDM + Bootstrap | — | Optional detail shown after the deployment display name in the account-menu header. |
 | Organization banner `banner` | `object` | MDM + Bootstrap | — | A persistent banner across the top of the app window after sign-in. |
-| Deployment display name `deploymentDisplayName` | `string` | Bootstrap only | — | Overrides the provider label shown in the sidebar footer, user-menu header, and connection-error banner. |
-| Deployment display subtitle `deploymentDisplaySubtitle` | `string` | Bootstrap only | — | Optional detail shown after the deployment display name in the account-menu header. |
-| End-user attribution `enduserAttribution` | `boolean` | MDM + Bootstrap | — | Show the signed-in user’s identity-provider identity in the sidebar and account menu, and emit it as the OpenTelemetry enduser.id resource attribute. |
+
+endUserAttribution details
+
+When on (default), the app resolves the signed-in user’s identity from the configured credential source (the identity provider claim, or the OS login name when no claim is available) and shows it in the sidebar footer, the account menu, and the Code-tab greeting. If an OpenTelemetry collector is configured, the same identity is also emitted as the `enduser.id` resource attribute on every span, metric, and log sent to your collector — unless you have set a static `enduser.id` under OpenTelemetry resource attributes, in which case your static value is kept and the runtime identity is not emitted. When off, no identity is shown in the app and no runtime `enduser.id` is emitted; a static `enduser.id` under OpenTelemetry resource attributes still passes through unchanged. This setting does not gate the `process.owner` resource attribute (the OS login name), which is standard OpenTelemetry process metadata and is always emitted — set a static `process.owner` under OpenTelemetry resource attributes to override it. Applies to both Cowork tasks and Code sessions.
+
+deploymentDisplayName details
+
+Set this to the name users should see for this deployment (for example, “Claude for Government”). When unset, the desktop shows the default provider label. Maximum 60 characters.
+
+deploymentDisplaySubtitle details
+
+Optional detail shown after the deployment display name in the account-menu header (for example, “Claude for Veterans Affairs · Claude for Government”). Shown only when the display name is also set. Maximum 60 characters.
 
 banner details
 
@@ -491,18 +552,6 @@ Use this for compliance notices, an internal-support link, or to identify the de
 | `backgroundColor` | `string` | `#F5F5F5` | Six-digit hex (#RRGGBB). Applied exactly as configured; not theme-adapted. |
 | `textColor` | `string` | `#000000` | Six-digit hex (#RRGGBB). Applied exactly as configured; not theme-adapted. |
 | `linkUrl` | `string` | — | Optional HTTPS URL. The banner text becomes a link when set. |
-
-deploymentDisplayName details
-
-Set this to the name users should see for this deployment (for example, “Claude for Government”). When unset, the desktop shows the default provider label. Bootstrap-delivered only; maximum 60 characters.
-
-deploymentDisplaySubtitle details
-
-Optional detail shown after the deployment display name in the account-menu header (for example, “Claude for Veterans Affairs · Claude for Government”). Shown only when the display name is also set. Bootstrap-delivered only; maximum 60 characters.
-
-enduserAttribution details
-
-When on (default), the app resolves the signed-in user’s identity from the configured credential source (the identity provider claim, or the OS login name when no claim is available) and shows it in the sidebar footer, the account menu, and the Code-tab greeting. If an OpenTelemetry collector is configured, the same identity is also emitted as the `enduser.id` resource attribute on every span, metric, and log sent to your collector — unless you have set a static `enduser.id` under OpenTelemetry resource attributes, in which case your static value is kept and the runtime identity is not emitted. When off, no identity is shown in the app and no runtime `enduser.id` is emitted; a static `enduser.id` under OpenTelemetry resource attributes still passes through unchanged. This setting does not gate the `process.owner` resource attribute (the OS login name), which is standard OpenTelemetry process metadata and is always emitted — set a static `process.owner` under OpenTelemetry resource attributes to override it. Applies to both Cowork tasks and Code sessions.
 
 ###  Feature discovery
 
@@ -518,7 +567,6 @@ Covers the version-shipped announcement UI baked into each release: the **What�
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
-| Organization plugins endpoint `organizationPluginsUrl` | `string` | MDM + Bootstrap | — | Typically supplied by your bootstrap server. Ignored when bootstrap is disabled. |
 | Organization plugin settings `orgPluginSettings` | `object[]` | MDM + Bootstrap | — | Admin policy applied to plugin-delivered MCP servers. |
 | Plugin marketplaces `allowedPluginMarketplaces` | `object[]` | MDM + Bootstrap · Beta | — | Git repositories to surface as plugin marketplaces in the Directory’s Organization tab. The app re-clones each periodically. |
 
@@ -555,18 +603,6 @@ allowedPluginMarketplaces details
 
 ##  Source
 
-| Setting | Type | Availability | Default | Description |
-| --- | --- | --- | --- | --- |
-| Claude.ai data import `claudeAiImport` | `object` | Bootstrap only | — | Export endpoint and OAuth client for importing a user’s Claude.ai conversation history into this deployment. Delivered by the bootstrap server only. |
-
-claudeAiImport details
-
-| Field | Type | Default | Description |
-| --- | --- | --- | --- |
-| `url` | `string` | — |  |
-| `oauthIssuer` | `string` | — |  |
-| `oauthClientId` | `string` | — |  |
-
 ###  Bootstrap
 
 | Setting | Type | Availability | Default | Description |
@@ -574,6 +610,7 @@ claudeAiImport details
 | Use bootstrap config `bootstrapEnabled` | `boolean` | MDM only | `true` | Fetch and apply the URL above at launch. Turn off to keep the URL saved but skip the fetch. Defaults to `true`. |
 | Bootstrap config URL `bootstrapUrl` | `string` | MDM only | — | HTTPS endpoint that returns a per-user JSON config overlay. Values from the response override local settings and become read-only. |
 | Bootstrap OIDC parameters `bootstrapOidc` | `object` | MDM only | — | When set, the bootstrap request sends a Bearer token from a browser sign-in (authorization-code-with-PKCE). |
+| Trust bootstrap-delivered settings `trustBootstrapDelivery` | `boolean` | MDM only | `false` | Skip the per-user consent prompt for sign-in targets, helper scripts, and connectors the bootstrap server delivers. Defaults to `false`. Previously named `trustBootstrapLocalExec`. |
 
 bootstrapOidc details
 
@@ -631,6 +668,7 @@ For air-gapped or maximally restricted environments. **The only traffic leaving 
 | [`disableAutoUpdates`](#disableautoupdates) | `true` |
 | [`isLocalDevMcpEnabled`](#islocaldevmcpenabled) | `false` |
 | [`isDesktopExtensionEnabled`](#isdesktopextensionenabled) | `false` |
+| [`skillCreationEnabled`](#skillcreationenabled) | `false` |
 | [`disabledBuiltinTools`](#disabledbuiltintools) | `["WebSearch","WebFetch"]` |
 | [`coworkEgressAllowedHosts`](#coworkegressallowedhosts) | `[]` |
 | [`allowedWorkspaceFolders`](#allowedworkspacefolders) | `[{"path":"~/Documents/Claude"}]` |
@@ -644,4 +682,4 @@ Each [`managedMcpServers`](#managedmcpservers) entry can carry a `toolPolicy` th
 * `"ask"` — the user approves every call; no standing grants are offered.
 * `"blocked"` — the tool is removed from Claude’s session; connector settings show it as blocked by your organization.
 
-Tools with no policy entry stay user-controlled (built-in connectors apply default policies to some tools — see the reference above): the user is prompted and can approve once or grant a standing approval, depending on the tool and your organization’s settings. Full prompt options require version 1.22209.0 or later; earlier third-party builds offered only per-call approval. The reference above also documents an `"ask-session"` value; its once-per-session behavior is not yet functional in shipped builds, so don’t rely on it yet. Managed policies take precedence over user grants, and enforcement happens in the desktop host process, not only in the prompt UI. A deny-by-default posture — `"*": "blocked"` plus exact `"allow"` entries for approved tools — works from an upcoming release, which also supersedes the Code-tab wildcard-precedence note in the reference above. See the [`managedMcpServers` reference](#managedmcpservers) for wildcard matching, precedence rules, and built-in connector defaults.
+Tools with no policy entry stay user-controlled (built-in connectors apply default policies to some tools — see the reference above): the user is prompted and can approve once or grant a standing approval, depending on the tool and your organization’s settings. Full prompt options require version 1.22209.0 or later; earlier third-party builds offered only per-call approval. The reference above also documents an `"ask-session"` value; its once-per-session behavior is not yet functional in shipped builds, so don’t rely on it yet. Managed policies take precedence over user grants, and enforcement happens in the desktop host process, not only in the prompt UI. A deny-by-default posture — `"*": "blocked"` plus exact `"allow"` entries for approved tools — works from an upcoming release, which also supersedes the Code-session wildcard-precedence note in the reference above. See the [`managedMcpServers` reference](#managedmcpservers) for wildcard matching, precedence rules, and built-in connector defaults.

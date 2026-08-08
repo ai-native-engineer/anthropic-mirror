@@ -1,14 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-automatic-context-compaction -->
 
-# Automatic Context Compaction
+#  Automatic Context Compaction
 
-Long-running agentic tasks can often exceed context limits. Tool heavy workflows or long conversations quickly consume the token context window. In [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), we discussed how managing context can help avoid performance degradation and context rot.
+Long-running agentic tasks can often exceed context limits. Tool heavy workflows or long conversations quickly consume the token context window. In [Effective Context Engineering for AI Agents(opens in new tab)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), we discussed how managing context can help avoid performance degradation and context rot.
 
 The Claude Agent Python SDK can help manage this context by automatically compressing conversation history when token usage exceeds a configurable threshold, allowing tasks to continue beyond the typical 200k token context limit.
 
 In this cookbook, we'll demonstrate context compaction through an **agentic customer service workflow**. Imagine you've built an AI customer service agent tasked with processing a queue of support tickets. For each ticket, you must classify the issue, search the knowledge base, set priority, route to the appropriate team, draft a response, and mark it complete. As you process ticket after ticket, the conversation history fills with classifications, knowledge base searches, and drafted responses—quickly consuming thousands of tokens.
 
-## What is Context Compaction?
+##  What is Context Compaction?
 
 When building agentic workflows with tool use, conversations can grow very large as the agent iterates on complex tasks. The `compaction_control` parameter provides automatic context management by:
 
@@ -18,13 +18,13 @@ When building agentic workflows with tool use, conversations can grow very large
 4. Clearing the conversation history and resuming with only the summary
 5. Continuing the task with the compressed context
 
-## By the end of this cookbook, you'll be able to:
+##  By the end of this cookbook, you'll be able to:
 
 * Understand how to effectively manage context limits in iterative workflows
 * Write agents that leverage automatic context compaction
 * Design workflows that maintain focus across multiple iterations
 
-## Prerequisites
+##  Prerequisites
 
 Before following this guide, ensure you have:
 
@@ -38,19 +38,17 @@ Before following this guide, ensure you have:
 * Anthropic API key
 * Anthropic SDK >= 0.74.1
 
-> **Using Opus 4.6?** We recommend using [server-side compaction](https://docs.anthropic.com/en/docs/build-with-claude/compaction), which handles context management automatically without any SDK-level configuration.
+> **Using Opus 4.6?** We recommend using [server-side compaction(opens in new tab)](https://docs.anthropic.com/en/docs/build-with-claude/compaction), which handles context management automatically without any SDK-level configuration.
 >
 > This cookbook covers **SDK-based compaction**, which is useful if you're using an older model or want to use a different (cheaper) model for summarization.
 
-## Setup
+##  Setup
 
 First, install the required dependencies:
 
-python
+
 
-```
 # %pip install -qU anthropic python-dotenv
-```
 
 Note: Ensure your .env file contains:
 
@@ -58,19 +56,17 @@ Note: Ensure your .env file contains:
 
 Load your environment variables and configure the client. We also load a helper utility to visualize Claude message responses.
 
-python
+
 
-```
-from dotenv import load_dotenv
+from dotenv import load\_dotenv
 
-load_dotenv()
+load\_dotenv()
 
 MODEL = "claude-sonnet-4-6"
-```
 
-## Setting the Stage
+##  Setting the Stage
 
-In [utils/customer\_service\_tools.py](https://github.com/anthropics/claude-cookbooks/blob/main/tool_use/utils/customer_service_tools.py), we've defined several functions for processing customer support tickets:
+In [utils/customer\_service\_tools.py(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/tool_use/utils/customer_service_tools.py), we've defined several functions for processing customer support tickets:
 
 * `get_next_ticket()` - Retrieves the next unprocessed ticket from the queue
 * `classify_ticket(ticket_id, category)` - Categorizes issues as billing, technical, account, product, or shipping
@@ -84,45 +80,65 @@ For a customer service agent, these tools enable processing tickets systematical
 
 The `beta_tool` decorator is used on the tools to make them accessible to the Claude agent. The decorator extracts the function arguments and docstring and provides these to Claude as tool metadata.
 
-```
+
+
 import anthropic
-from anthropic import beta_tool
 
-@beta_tool
-def get_next_ticket() -> dict:
-    """Retrieve the next unprocessed support ticket from the queue."""
-    ...
-```
+from anthropic import beta\_tool
 
-python
+@beta\_tool
 
-```
+def get\_next\_ticket() -> dict:
+
+"""Retrieve the next unprocessed support ticket from the queue."""
+
+...
+
+
+
 import anthropic
-from utils.customer_service_tools import (
-    classify_ticket,
-    draft_response,
-    get_next_ticket,
-    initialize_ticket_queue,
-    mark_complete,
-    route_to_team,
-    search_knowledge_base,
-    set_priority,
+
+from utils.customer\_service\_tools import (
+
+classify\_ticket,
+
+draft\_response,
+
+get\_next\_ticket,
+
+initialize\_ticket\_queue,
+
+mark\_complete,
+
+route\_to\_team,
+
+search\_knowledge\_base,
+
+set\_priority,
+
 )
 
 client = anthropic.Anthropic()
 
 tools = [
-    get_next_ticket,
-    classify_ticket,
-    search_knowledge_base,
-    set_priority,
-    route_to_team,
-    draft_response,
-    mark_complete,
-]
-```
 
-## Baseline: Running Without Compaction
+get\_next\_ticket,
+
+classify\_ticket,
+
+search\_knowledge\_base,
+
+set\_priority,
+
+route\_to\_team,
+
+draft\_response,
+
+mark\_complete,
+
+]
+
+##  Baseline: Running Without Compaction
 
 Let's start with a realistic customer service scenario: Processing a queue of support tickets.
 
@@ -143,73 +159,115 @@ The workflow looks like this:
 
 Let's run this workflow **without compaction** first and observe what happens:
 
-python
+
 
-```
 from anthropic.types.beta import BetaMessageParam
 
-num_tickets = 5
-initialize_ticket_queue(num_tickets)
+num\_tickets = 5
+
+initialize\_ticket\_queue(num\_tickets)
 
 messages: list[BetaMessageParam] = [
-    {
-        "role": "user",
-        "content": f"""You are an AI customer service agent. Your task is to process support tickets from a queue.
+
+{
+
+"role": "user",
+
+"content": f"""You are an AI customer service agent. Your task is to process support tickets from a queue.
 
 For EACH ticket, you must complete ALL these steps:
 
-1. **Fetch ticket**: Call get_next_ticket() to retrieve the next unprocessed ticket
-2. **Classify**: Call classify_ticket() to categorize the issue (billing/technical/account/product/shipping)
-3. **Research**: Call search_knowledge_base() to find relevant information for this ticket type
-4. **Prioritize**: Call set_priority() to assign priority (low/medium/high/urgent) based on severity
-5. **Route**: Call route_to_team() to assign to the appropriate team
-6. **Draft**: Call draft_response() to create a helpful customer response using KB information
-7. **Complete**: Call mark_complete() to finalize this ticket
-8. **Continue**: Immediately fetch the next ticket and repeat
+1. \*\*Fetch ticket\*\*: Call get\_next\_ticket() to retrieve the next unprocessed ticket
+
+2. \*\*Classify\*\*: Call classify\_ticket() to categorize the issue (billing/technical/account/product/shipping)
+
+3. \*\*Research\*\*: Call search\_knowledge\_base() to find relevant information for this ticket type
+
+4. \*\*Prioritize\*\*: Call set\_priority() to assign priority (low/medium/high/urgent) based on severity
+
+5. \*\*Route\*\*: Call route\_to\_team() to assign to the appropriate team
+
+6. \*\*Draft\*\*: Call draft\_response() to create a helpful customer response using KB information
+
+7. \*\*Complete\*\*: Call mark\_complete() to finalize this ticket
+
+8. \*\*Continue\*\*: Immediately fetch the next ticket and repeat
 
 IMPORTANT RULES:
+
 - Process tickets ONE AT A TIME in sequence
+
 - Complete ALL 7 steps for each ticket before moving to the next
+
 - Keep fetching and processing tickets until you get an error that the queue is empty
-- There are {num_tickets} tickets total - process all of them
+
+- There are {num\_tickets} tickets total - process all of them
+
 - Be thorough but efficient
 
 Begin by fetching the first ticket.""",
-    }
+
+}
+
 ]
 
-total_input = 0
-total_output = 0
-turn_count = 0
+total\_input = 0
 
-runner = client.beta.messages.tool_runner(
-    model=MODEL,
-    max_tokens=4096,
-    tools=tools,
-    messages=messages,
+total\_output = 0
+
+turn\_count = 0
+
+runner = client.beta.messages.tool\_runner(
+
+model=MODEL,
+
+max\_tokens=4096,
+
+tools=tools,
+
+messages=messages,
+
 )
 
 for message in runner:
-    messages_list = list(runner._params["messages"])
-    turn_count += 1
-    total_input += message.usage.input_tokens
-    total_output += message.usage.output_tokens
-    print(
-        f"Turn {turn_count:2d}: Input={message.usage.input_tokens:7,} tokens | "
-        f"Output={message.usage.output_tokens:5,} tokens | "
-        f"Messages={len(messages_list):2d} | "
-        f"Cumulative In={total_input:8,}"
-    )
 
-print(f"\n{'=' * 60}")
+messages\_list = list(runner.\_params["messages"])
+
+turn\_count += 1
+
+total\_input += message.usage.input\_tokens
+
+total\_output += message.usage.output\_tokens
+
+print(
+
+f"Turn {turn\_count:2d}: Input={message.usage.input\_tokens:7,} tokens | "
+
+f"Output={message.usage.output\_tokens:5,} tokens | "
+
+f"Messages={len(messages\_list):2d} | "
+
+f"Cumulative In={total\_input:8,}"
+
+)
+
+print(f"\n{'=' \* 60}")
+
 print("BASELINE RESULTS (NO COMPACTION)")
-print(f"{'=' * 60}")
-print(f"Total turns:   {turn_count}")
-print(f"Input tokens:  {total_input:,}")
-print(f"Output tokens: {total_output:,}")
-print(f"Total tokens:  {total_input + total_output:,}")
-print(f"{'=' * 60}")
-```
+
+print(f"{'=' \* 60}")
+
+print(f"Total turns: {turn\_count}")
+
+print(f"Input tokens: {total\_input:,}")
+
+print(f"Output tokens: {total\_output:,}")
+
+print(f"Total tokens: {total\_input + total\_output:,}")
+
+print(f"{'=' \* 60}")
+
+
 
 ```
 Turn  1: Input=  1,537 tokens | Output=   57 tokens | Messages= 1 | Cumulative In=   1,537
@@ -266,11 +324,11 @@ This leads to high token consumption and potential context limits being reached 
 
 Let's review Claude's final response after processing all 5 tickets without compaction:
 
-python
+
 
-```
 print(message.content[-1].text)
-```
+
+
 
 ```
 ---
@@ -307,7 +365,7 @@ Each ticket was:
 The queue is now empty and all tickets have been processed!
 ```
 
-### Understanding the Problem
+###  Understanding the Problem
 
 In the baseline workflow above, Claude had to:
 
@@ -328,7 +386,7 @@ In the baseline workflow above, Claude had to:
 
 Let's see how automatic context compaction solves this problem.
 
-## Enabling Automatic Context Compaction
+##  Enabling Automatic Context Compaction
 
 Let's run the exact same customer service workflow, but with automatic context compaction enabled. We simply add the `compaction_control` parameter to our tool runner.
 
@@ -347,64 +405,103 @@ For this customer service workflow, we'll use a **5,000 token threshold**. This 
 
 This mimics how a real support agent works: resolve the ticket, document it briefly, move to the next case.
 
-python
+
 
-```
 # Re-initialize queue and run with compaction
-initialize_ticket_queue(num_tickets)
 
-total_input_compact = 0
-total_output_compact = 0
-turn_count_compact = 0
-compaction_count = 0
-prev_msg_count = 0
+initialize\_ticket\_queue(num\_tickets)
 
-runner = client.beta.messages.tool_runner(
-    model=MODEL,
-    max_tokens=4096,
-    tools=tools,
-    messages=messages,
-    compaction_control={
-        "enabled": True,
-        "context_token_threshold": 5000,
-    },
+total\_input\_compact = 0
+
+total\_output\_compact = 0
+
+turn\_count\_compact = 0
+
+compaction\_count = 0
+
+prev\_msg\_count = 0
+
+runner = client.beta.messages.tool\_runner(
+
+model=MODEL,
+
+max\_tokens=4096,
+
+tools=tools,
+
+messages=messages,
+
+compaction\_control={
+
+"enabled": True,
+
+"context\_token\_threshold": 5000,
+
+},
+
 )
 
 for message in runner:
-    turn_count_compact += 1
-    total_input_compact += message.usage.input_tokens
-    total_output_compact += message.usage.output_tokens
-    messages_list = list(runner._params["messages"])
-    curr_msg_count = len(messages_list)
 
-    if curr_msg_count < prev_msg_count:
-        # We can identify compaction when the message count decreases
-        compaction_count += 1
+turn\_count\_compact += 1
 
-        print(f"\n{'=' * 60}")
-        print(f"🔄 Compaction occurred! Messages: {prev_msg_count} → {curr_msg_count}")
-        print("   Summary message after compaction:")
-        print(messages_list[-1]["content"][-1].text)  # type: ignore
-        print(f"\n{'=' * 60}")
+total\_input\_compact += message.usage.input\_tokens
 
-    prev_msg_count = curr_msg_count
-    print(
-        f"Turn {turn_count_compact:2d}: Input={message.usage.input_tokens:7,} tokens | "
-        f"Output={message.usage.output_tokens:5,} tokens | "
-        f"Messages={len(messages_list):2d} | "
-        f"Cumulative In={total_input_compact:8,}"
-    )
+total\_output\_compact += message.usage.output\_tokens
 
-print(f"\n{'=' * 60}")
+messages\_list = list(runner.\_params["messages"])
+
+curr\_msg\_count = len(messages\_list)
+
+if curr\_msg\_count < prev\_msg\_count:
+
+# We can identify compaction when the message count decreases
+
+compaction\_count += 1
+
+print(f"\n{'=' \* 60}")
+
+print(f"🔄 Compaction occurred! Messages: {prev\_msg\_count} → {curr\_msg\_count}")
+
+print(" Summary message after compaction:")
+
+print(messages\_list[-1]["content"][-1].text) # type: ignore
+
+print(f"\n{'=' \* 60}")
+
+prev\_msg\_count = curr\_msg\_count
+
+print(
+
+f"Turn {turn\_count\_compact:2d}: Input={message.usage.input\_tokens:7,} tokens | "
+
+f"Output={message.usage.output\_tokens:5,} tokens | "
+
+f"Messages={len(messages\_list):2d} | "
+
+f"Cumulative In={total\_input\_compact:8,}"
+
+)
+
+print(f"\n{'=' \* 60}")
+
 print("OPTIMIZED RESULTS (WITH COMPACTION)")
-print(f"{'=' * 60}")
-print(f"Total turns:   {turn_count_compact}")
-print(f"Compactions:   {compaction_count}")
-print(f"Input tokens:  {total_input_compact:,}")
-print(f"Output tokens: {total_output_compact:,}")
-print(f"Total tokens:  {total_input_compact + total_output_compact:,}")
-print(f"{'=' * 60}")
-```
+
+print(f"{'=' \* 60}")
+
+print(f"Total turns: {turn\_count\_compact}")
+
+print(f"Compactions: {compaction\_count}")
+
+print(f"Input tokens: {total\_input\_compact:,}")
+
+print(f"Output tokens: {total\_output\_compact:,}")
+
+print(f"Total tokens: {total\_input\_compact + total\_output\_compact:,}")
+
+print(f"{'=' \* 60}")
+
+
 
 ```
 Turn  1: Input=  1,537 tokens | Output=   57 tokens | Messages= 1 | Cumulative In=   1,537
@@ -583,11 +680,11 @@ Compared to the baseline version, we only used 79,000 tokens. We've also printed
 
 Let's look at the final response after processing all 5 tickets with compaction enabled.
 
-python
+
 
-```
 print(message.content[-1].text)
-```
+
+
 
 ```
 Perfect! **ALL 5 TICKETS HAVE BEEN SUCCESSFULLY COMPLETED!** 🎉
@@ -623,7 +720,7 @@ Perfect! **ALL 5 TICKETS HAVE BEEN SUCCESSFULLY COMPLETED!** 🎉
 All tickets have been properly classified, prioritized, routed to the appropriate teams, and have draft responses ready for team review! 🎊
 ```
 
-### Comparing Results
+###  Comparing Results
 
 With compaction enabled, we can see a clear differece between the two runs in token savings, while preserving the quality of the workflow and final summary.
 
@@ -649,31 +746,47 @@ Here's what changed with automatic context compaction:
 
 Let's visualize the token savings:
 
-python
+
 
-```
 # Compare baseline vs compaction
-print("=" * 70)
+
+print("=" \* 70)
+
 print("TOKEN USAGE COMPARISON")
-print("=" * 70)
+
+print("=" \* 70)
+
 print(f"{'Metric':<30} {'Baseline':<20} {'With Compaction':<20}")
-print("-" * 70)
-print(f"{'Input tokens:':<30} {total_input:>19,} {total_input_compact:>19,}")
-print(f"{'Output tokens:':<30} {total_output:>19,} {total_output_compact:>19,}")
+
+print("-" \* 70)
+
+print(f"{'Input tokens:':<30} {total\_input:>19,} {total\_input\_compact:>19,}")
+
+print(f"{'Output tokens:':<30} {total\_output:>19,} {total\_output\_compact:>19,}")
+
 print(
-    f"{'Total tokens:':<30} {total_input + total_output:>19,} {total_input_compact + total_output_compact:>19,}"
+
+f"{'Total tokens:':<30} {total\_input + total\_output:>19,} {total\_input\_compact + total\_output\_compact:>19,}"
+
 )
-print(f"{'Compactions:':<30} {'N/A':>19} {compaction_count:>19}")
-print("=" * 70)
+
+print(f"{'Compactions:':<30} {'N/A':>19} {compaction\_count:>19}")
+
+print("=" \* 70)
 
 # Calculate savings
-token_savings = (total_input + total_output) - (total_input_compact + total_output_compact)
-savings_percent = (
-    (token_savings / (total_input + total_output)) * 100 if (total_input + total_output) > 0 else 0
+
+token\_savings = (total\_input + total\_output) - (total\_input\_compact + total\_output\_compact)
+
+savings\_percent = (
+
+(token\_savings / (total\_input + total\_output)) \* 100 if (total\_input + total\_output) > 0 else 0
+
 )
 
-print(f"\n💰 Token Savings: {token_savings:,} tokens ({savings_percent:.1f}% reduction)")
-```
+print(f"\n💰 Token Savings: {token\_savings:,} tokens ({savings\_percent:.1f}% reduction)")
+
+
 
 ```
 ======================================================================
@@ -690,7 +803,7 @@ Compactions:                                   N/A                   2
 💰 Token Savings: 122,392 tokens (58.6% reduction)
 ```
 
-## How Compaction Works Under the Hood
+##  How Compaction Works Under the Hood
 
 When the `tool_runner` detects that token usage has exceeded the threshold, it automatically:
 
@@ -704,20 +817,23 @@ When the `tool_runner` detects that token usage has exceeded the threshold, it a
 4. **Clears history** - The entire conversation history (including all tool results) is replaced with just the summary
 5. **Resumes processing** - Claude continues working with the compressed context, processing the next batch of tickets
 
-## Customizing Compaction Configuration
+##  Customizing Compaction Configuration
 
 You can customize how compaction works to fit your specific use case. Here are the key configuration options:
 
-### Adjusting the Threshold
+###  Adjusting the Threshold
 
 The `context_token_threshold` determines when compaction triggers:
 
-```
-compaction_control={
-    "enabled": True,
-    "context_token_threshold": 5000,  # Compact after processing 5-7 tickets
+
+
+compaction\_control={
+
+"enabled": True,
+
+"context\_token\_threshold": 5000, # Compact after processing 5-7 tickets
+
 }
-```
 
 The threshold should not be set too low, otherwise the summary itself could trigger a compaction. We set a threshold of 5,000 tokens for demonstration purposes, but in practice, experiment with different settings to find what works best for your workflow.
 
@@ -739,18 +855,21 @@ Here some general guidelines:
 
 **For ticket processing**: The 5k threshold works well because each ticket's workflow generates substantial tool results, but tickets are independent. After resolving Ticket A, you don't need its detailed KB searches when processing Ticket B.
 
-### Using a Different Model for Summarization
+###  Using a Different Model for Summarization
 
 You can also use a faster/cheaper model for generating summaries:
 
-```
-compaction_control={
-    "enabled": True,
-    "model": "claude-haiku-4-5",  # Use Haiku for cost-effective summaries
-}
-```
+
 
-### Custom Summary Prompts
+compaction\_control={
+
+"enabled": True,
+
+"model": "claude-haiku-4-5", # Use Haiku for cost-effective summaries
+
+}
+
+###  Custom Summary Prompts
 
 You can provide a custom prompt to guide how summaries are generated. This is especially useful for customer service workflows where you need to preserve specific types of information.
 
@@ -762,30 +881,39 @@ For example, we could define a custom prompt based on our requirements:
 * **Progress status** (tickets completed, tickets remaining)
 * **Next steps** in the workflow
 
-```
-compaction_control={
-    "enabled": True,
-    "summary_prompt": """You are processing customer support tickets from a queue.
+
+
+compaction\_control={
+
+"enabled": True,
+
+"summary\_prompt": """You are processing customer support tickets from a queue.
 
 Create a focused summary that preserves:
 
-1. **COMPLETED TICKETS**: For each ticket you've fully processed:
-   - Ticket ID and customer name
-   - Issue category and priority assigned
-   - Team routed to
-   - Brief outcome
+1. \*\*COMPLETED TICKETS\*\*: For each ticket you've fully processed:
 
-2. **PROGRESS STATUS**:
-   - How many tickets you've completed
-   - Approximately how many remain in the queue
+- Ticket ID and customer name
 
-3. **NEXT STEPS**: Continue processing the next ticket
+- Issue category and priority assigned
+
+- Team routed to
+
+- Brief outcome
+
+2. \*\*PROGRESS STATUS\*\*:
+
+- How many tickets you've completed
+
+- Approximately how many remain in the queue
+
+3. \*\*NEXT STEPS\*\*: Continue processing the next ticket
 
 Format with clear sections and wrap in <summary></summary> tags."""
-}
-```
 
-## Compaction Without Tools: Simple Chat Loop
+}
+
+##  Compaction Without Tools: Simple Chat Loop
 
 While the examples above focus on tool-heavy agentic workflows, context compaction is also valuable for **simple conversational applications** where users drive the conversation.
 
@@ -812,136 +940,203 @@ Without compaction, by turn 50 you're sending the entire conversation history (a
 
 Let's see how to implement this:
 
-python
+
 
-```
 #!/usr/bin/env python3
+
 """
+
 Simple Compaction Example - User-Driven Chat Loop
 
 This shows the basic pattern for a chat application with compaction.
+
 No tools required - just a simple loop where the user drives continuation.
+
 """
 
 # Configuration
-COMPACTION_THRESHOLD = 3000  # Compact when tokens exceed this (low for demo purposes)
+
+COMPACTION\_THRESHOLD = 3000 # Compact when tokens exceed this (low for demo purposes)
 
 # Structured summarization prompt for compaction
-SUMMARY_PROMPT = """You have been working on the task described above but have not yet completed it. Write a continuation summary that will allow you (or another instance of yourself) to resume work efficiently in a future context window where the conversation history will be replaced with this summary. Your summary should be structured, concise, and actionable. Include:
 
-1. **Task Overview**
-   - The user's core request and success criteria
-   - Any clarifications or constraints they specified
+SUMMARY\_PROMPT = """You have been working on the task described above but have not yet completed it. Write a continuation summary that will allow you (or another instance of yourself) to resume work efficiently in a future context window where the conversation history will be replaced with this summary. Your summary should be structured, concise, and actionable. Include:
 
-2. **Current State**
-   - What has been completed so far
-   - Files created, modified, or analyzed (with paths if relevant)
-   - Key outputs or artifacts produced
+1. \*\*Task Overview\*\*
 
-3. **Important Discoveries**
-   - Technical constraints or requirements uncovered
-   - Decisions made and their rationale
-   - Errors encountered and how they were resolved
-   - What approaches were tried that didn't work (and why)
+- The user's core request and success criteria
 
-4. **Next Steps**
-   - Specific actions needed to complete the task
-   - Any blockers or open questions to resolve
-   - Priority order if multiple steps remain
+- Any clarifications or constraints they specified
 
-5. **Context to Preserve**
-   - User preferences or style requirements
-   - Domain-specific details that aren't obvious
-   - Any promises made to the user
+2. \*\*Current State\*\*
+
+- What has been completed so far
+
+- Files created, modified, or analyzed (with paths if relevant)
+
+- Key outputs or artifacts produced
+
+3. \*\*Important Discoveries\*\*
+
+- Technical constraints or requirements uncovered
+
+- Decisions made and their rationale
+
+- Errors encountered and how they were resolved
+
+- What approaches were tried that didn't work (and why)
+
+4. \*\*Next Steps\*\*
+
+- Specific actions needed to complete the task
+
+- Any blockers or open questions to resolve
+
+- Priority order if multiple steps remain
+
+5. \*\*Context to Preserve\*\*
+
+- User preferences or style requirements
+
+- Domain-specific details that aren't obvious
+
+- Any promises made to the user
 
 Be concise but complete—err on the side of including information that would prevent duplicate work or repeated mistakes.
- Write in a way that enables immediate resumption of the task.
+
+Write in a way that enables immediate resumption of the task.
 
 Wrap your summary in <summary></summary> tags."""
 
 # Message history
+
 messages = []
 
 print("Chat with Claude (type 'quit' to exit, or just hit Enter to continue)")
+
 print("This is a demonstration - try having a conversation and watch compaction trigger")
-print("=" * 60)
+
+print("=" \* 60)
 
 # Simulate a conversation for demo purposes
-demo_messages = [
-    "Help me understand how Python decorators work",
-    "Can you show me an example with a timing decorator?",
-    "How would I make a decorator that takes arguments?",
+
+demo\_messages = [
+
+"Help me understand how Python decorators work",
+
+"Can you show me an example with a timing decorator?",
+
+"How would I make a decorator that takes arguments?",
+
 ]
 
-for user_input in demo_messages:
-    print(f"\nYou: {user_input}")
+for user\_input in demo\_messages:
 
-    # Add user message
-    messages.append({"role": "user", "content": user_input})
+print(f"\nYou: {user\_input}")
 
-    # Get Claude's response
-    response = client.messages.create(
-        model=MODEL,
-        max_tokens=2048,
-        messages=messages,
-    )
+# Add user message
 
-    messages.append(
-        {
-            "role": "assistant",
-            "content": response.content,
-        }
-    )
+messages.append({"role": "user", "content": user\_input})
 
-    print("\nClaude: ", end="")
-    for block in response.content:
-        if block.type == "text":
-            print(f"{block.text[:300]} ...")
+# Get Claude's response
 
-    # Check if we should compact
-    usage = response.usage
+response = client.messages.create(
 
-    # Calculate total tokens (includes cache tokens)
-    total_input_tokens = (
-        usage.input_tokens
-        + (usage.cache_creation_input_tokens or 0)
-        + (usage.cache_read_input_tokens or 0)
-    )
-    total_tokens = total_input_tokens + usage.output_tokens
+model=MODEL,
 
-    cache_info = ""
-    if usage.cache_creation_input_tokens or usage.cache_read_input_tokens:
-        cache_info = f" (cache: {usage.cache_creation_input_tokens or 0} write + {usage.cache_read_input_tokens or 0} read)"
+max\_tokens=2048,
 
-    print(
-        f"\n[Tokens: {total_input_tokens} in{cache_info} + {usage.output_tokens} out = {total_tokens} total]"
-    )
+messages=messages,
 
-    if total_tokens > COMPACTION_THRESHOLD:
-        print(f"\n{'=' * 60}")
-        print(f"🔄 Compacting conversation... {len(messages)} messages → ", end="", flush=True)
+)
 
-        # Get summary using structured prompt
-        summary_response = client.messages.create(
-            model=MODEL,
-            max_tokens=4096,
-            messages=messages + [{"role": "user", "content": SUMMARY_PROMPT}],
-        )
+messages.append(
 
-        summary_text = "".join(
-            block.text for block in summary_response.content if block.type == "text"
-        )
+{
 
-        # Replace history with summary
-        messages = [{"role": "user", "content": summary_text}]
+"role": "assistant",
 
-        print("1 message")
-        print(f"{'=' * 60}\n")
+"content": response.content,
+
+}
+
+)
+
+print("\nClaude: ", end="")
+
+for block in response.content:
+
+if block.type == "text":
+
+print(f"{block.text[:300]} ...")
+
+# Check if we should compact
+
+usage = response.usage
+
+# Calculate total tokens (includes cache tokens)
+
+total\_input\_tokens = (
+
+usage.input\_tokens
+
++ (usage.cache\_creation\_input\_tokens or 0)
+
++ (usage.cache\_read\_input\_tokens or 0)
+
+)
+
+total\_tokens = total\_input\_tokens + usage.output\_tokens
+
+cache\_info = ""
+
+if usage.cache\_creation\_input\_tokens or usage.cache\_read\_input\_tokens:
+
+cache\_info = f" (cache: {usage.cache\_creation\_input\_tokens or 0} write + {usage.cache\_read\_input\_tokens or 0} read)"
+
+print(
+
+f"\n[Tokens: {total\_input\_tokens} in{cache\_info} + {usage.output\_tokens} out = {total\_tokens} total]"
+
+)
+
+if total\_tokens > COMPACTION\_THRESHOLD:
+
+print(f"\n{'=' \* 60}")
+
+print(f"🔄 Compacting conversation... {len(messages)} messages → ", end="", flush=True)
+
+# Get summary using structured prompt
+
+summary\_response = client.messages.create(
+
+model=MODEL,
+
+max\_tokens=4096,
+
+messages=messages + [{"role": "user", "content": SUMMARY\_PROMPT}],
+
+)
+
+summary\_text = "".join(
+
+block.text for block in summary\_response.content if block.type == "text"
+
+)
+
+# Replace history with summary
+
+messages = [{"role": "user", "content": summary\_text}]
+
+print("1 message")
+
+print(f"{'=' \* 60}\n")
 
 print(f"Final conversation messages: {messages[-1].get('content')}")
 
 print("\nDemo complete! In a real application, this loop would continue with user input.")
-```
+
+
 
 ```
 Chat with Claude (type 'quit' to exit, or just hit Enter to continue)
@@ -951,7 +1146,7 @@ This is a demonstration - try having a conversation and watch compaction trigger
 You: Help me understand how Python decorators work
 ```
 
-### Understanding the Chat Loop Pattern
+###  Understanding the Chat Loop Pattern
 
 The example above demonstrates manual compaction in a conversational context. Here's how it works:
 
@@ -988,11 +1183,11 @@ The example above demonstrates manual compaction in a conversational context. He
 
 This pattern gives you full control over when and how compaction happens, making it ideal for conversational applications where the SDK's automatic tool-runner compaction isn't available.
 
-## Limitations and Considerations
+##  Limitations and Considerations
 
 While automatic context compaction is powerful, there are important limitations to understand:
 
-### Server-Side Sampling Loops
+###  Server-Side Sampling Loops
 
 **Current Limitation**: Compaction does not work optimally with server-side sampling loops, such as server-side web search tools.
 
@@ -1006,7 +1201,7 @@ This feature works best with:
 * ❌ Server-side Extended Thinking
 * ❌ Server-side web search tools
 
-### Information Loss
+###  Information Loss
 
 **Trade-off**: Summaries inherently lose some information. While Claude is good at identifying key points, some details will be compressed or omitted.
 
@@ -1023,7 +1218,7 @@ This is usually acceptable, you don't need every KB article and full response te
 * Set higher thresholds for tasks requiring extensive historical context
 * Structure your tasks to be modular (each phase builds on summaries, not raw details)
 
-### When NOT to Use Compaction
+###  When NOT to Use Compaction
 
 Avoid compaction for:
 
@@ -1032,7 +1227,7 @@ Avoid compaction for:
 3. **Server-side sampling workflows**: As mentioned above, wait for this limitation to be addressed
 4. **Highly iterative refinement**: Tasks where each step critically depends on exact details from all previous steps
 
-### When TO Use Compaction
+###  When TO Use Compaction
 
 Compaction is ideal for:
 
@@ -1049,11 +1244,11 @@ Compaction is ideal for:
 * Natural compaction points exist (after completing several tickets)
 * The workflow is iterative and sequential
 
-## Summary
+##  Summary
 
 Automatic context compaction is a powerful feature that enables long-running agentic workflows to exceed typical context limits. In this cookbook, we've explored compaction through a customer service ticket processing workflow.
 
-### Next Steps
+###  Next Steps
 
 Try implementing compaction in your own workflows:
 
@@ -1063,4 +1258,4 @@ Try implementing compaction in your own workflows:
 4. Monitor when compaction triggers and verify quality is maintained
 5. Adjust threshold based on your specific needs
 
-For more on effective context management, see [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents).
+For more on effective context management, see [Effective Context Engineering for AI Agents(opens in new tab)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents).

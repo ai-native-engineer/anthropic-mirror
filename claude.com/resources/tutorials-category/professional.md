@@ -28,6 +28,62 @@ Product
 
 Features
 
+![How to choose between voice mode and dictation](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a72171367d5fac36c73e896_Screenshot%202026-08-04%20at%209.44.51%E2%80%AFAM.png)
+
+How to choose between voice mode and dictation
+
+Professional
+
+Author
+
+Professional
+
+Author
+
+Claude.ai
+
+Author
+
+No items found.
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)Read use case
+
+[How to choose between voice mode and dictation](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)How to choose between voice mode and dictation
+
+[Text Link](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)
+
+Professional
+
+![Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b07c298f5447ab02125e60_Screenshot%202026-03-10%20at%201.16.31%E2%80%AFPM.png)
+
+Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable
+
+Professional
+
+Author
+
+Professional
+
+Author
+
+Claude.ai
+
+Author
+
+No items found.
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/choosing-the-right-claude-model)Read use case
+
+[Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable](https://claude.com/resources/tutorials/choosing-the-right-claude-model)Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable
+
+[Text Link](https://claude.com/resources/tutorials/choosing-the-right-claude-model)
+
+Professional
+
 ![Working with Claude Opus 4.7](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a038f7a9aecb959a25c7496_Screenshot%202026-05-12%20at%201.37.11%E2%80%AFPM.png)
 
 Working with Claude Opus 4.7
@@ -175,34 +231,6 @@ Read use case
 [Navigating the Claude desktop app: Chat, Claude Cowork, Claude Code](https://claude.com/resources/tutorials/navigating-the-claude-desktop-app)Navigating the Claude desktop app: Chat, Claude Cowork, Claude Code
 
 [Text Link](https://claude.com/resources/tutorials/navigating-the-claude-desktop-app)
-
-Professional
-
-![Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b07c298f5447ab02125e60_Screenshot%202026-03-10%20at%201.16.31%E2%80%AFPM.png)
-
-Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable
-
-Professional
-
-Author
-
-Professional
-
-Author
-
-Claude.ai
-
-Author
-
-No items found.
-
-Read use case
-
-[Read use case](https://claude.com/resources/tutorials/choosing-the-right-claude-model)Read use case
-
-[Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable](https://claude.com/resources/tutorials/choosing-the-right-claude-model)Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable
-
-[Text Link](https://claude.com/resources/tutorials/choosing-the-right-claude-model)
 
 Professional
 
@@ -451,34 +479,6 @@ Marketing
 Professional
 
 Sales
-
-![Get the most from Claude Opus 4.6](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984d9b695bb3caaa22b43bc_Screenshot%202026-02-05%20at%209.55.57%E2%80%AFAM.png)
-
-Get the most from Claude Opus 4.6
-
-Professional
-
-Author
-
-Professional
-
-Author
-
-Claude.ai
-
-Author
-
-Extended Thinking
-
-Read use case
-
-[Read use case](https://claude.com/resources/tutorials/get-the-most-from-claude-opus-4-6)Read use case
-
-[Get the most from Claude Opus 4.6](https://claude.com/resources/tutorials/get-the-most-from-claude-opus-4-6)Get the most from Claude Opus 4.6
-
-[Text Link](https://claude.com/resources/tutorials/get-the-most-from-claude-opus-4-6)
-
-Professional
 
 [View more](https://claude.com/resources/tutorials-category/professional?5a5b91bc_page=2)
 

@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12997503-team-plan-billing-faqs -->
 
-# Team plan billing FAQs
-
-March 16, 2026
-
 ## What payment methods can I use to pay for the Team plan?
 
 Accepted payment methods are credit, debit, or prepaid cards. Other forms of payment, including ACH bank transfers, are not accepted at this time.
@@ -22,7 +18,7 @@ Your organization's billing address determines where your invoices are sent. You
 
 If you want to use a name other than the one tied to your payment method, an organization Owner should check the "Use a different name on invoices" box when adding or updating your payment method in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1785803400&signature=7df7115d69813dd7c64c3eba95c1aa48cf8cad242b6f74c4102d4cf7136da6b2&req=dSklFMh6mINaWvMW1HO4zRZTxF%2FJu8jXKAqLF4ERnlXtX0O3d6p3sHs7e3y0%0AqtLeYKOxPQzP24Bnbto%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1785803400&signature=7df7115d69813dd7c64c3eba95c1aa48cf8cad242b6f74c4102d4cf7136da6b2&req=dSklFMh6mINaWvMW1HO4zRZTxF%2FJu8jXKAqLF4ERnlXtX0O3d6p3sHs7e3y0%0AqtLeYKOxPQzP24Bnbto%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1786167000&signature=1ff5942e34fa8731a20449b2695a347ee49ce78c58196b4189935273e5549cfc&req=dSklFMh6mINaWvMW1HO4zRZTxFzAvczTKAqLF4ERnlVplZ5ah18ugxmQ%2FljX%0AdXlkoGmhlLx90Q70Xek%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1786167000&signature=1ff5942e34fa8731a20449b2695a347ee49ce78c58196b4189935273e5549cfc&req=dSklFMh6mINaWvMW1HO4zRZTxFzAvczTKAqLF4ERnlVplZ5ah18ugxmQ%2FljX%0AdXlkoGmhlLx90Q70Xek%3D%0A)
 
 ## When will I be billed?
 

@@ -23,7 +23,7 @@ A new GitHub repository in your organization, with one folder per plugin. Each p
 
 Register the repository as a plugin marketplace
 
-In claude.ai admin settings, add the repository as an organization plugin source and leave **Sync automatically** on (the default).
+On the **Plugins** page at [`claude.ai/admin-settings/plugins`](https://claude.ai/admin-settings/plugins), click **Add plugins** and choose **Sync from GitHub**. Select the repository, leave **Sync automatically** on (the default), and click **Create**.
 
 3
 
@@ -35,9 +35,9 @@ Open an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connection
 
 Attach the plugins to a scope
 
-In the same bundle’s **Plugins** section, select **+** and add your new marketplace. See [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins).
+In the same bundle’s **Plugins** tab, toggle on the plugins from your new marketplace; each is off until you enable it. See [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins).
 
-**You’ll see:** the repository appears in the bundle’s Repositories list, and the marketplace appears in the bundle’s Plugins section.
+**You’ll see:** the repository appears in the bundle’s Repositories list, and the marketplace’s plugins appear in the bundle’s Plugins tab, each labeled with the marketplace name.
 
 ##  How updates propagate
 

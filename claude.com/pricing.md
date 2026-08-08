@@ -386,6 +386,7 @@ Contact sales
 | Custom data retention controls |  |  |  |
 | Set org instructions |  |  |  |
 | HIPAA-ready offering |  |  |  |
+| Inference hooks |  |  |  |
 
 ### Payment options
 

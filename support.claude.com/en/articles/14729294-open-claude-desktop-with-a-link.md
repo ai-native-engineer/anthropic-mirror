@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link -->
 
-# Open Claude Desktop with a link
-
-June 30, 2026
-
 Claude for macOS, Windows, and Linux respond to the `claude://` URL scheme, much like a browser responds to the `https://` scheme. You can use these links from a website, a script, or another app to open Claude Desktop and jump straight to a chat, a Cowork session, or a Code session.
 
 This article lists the link formats Claude Desktop supports and the parameters each one accepts.
@@ -13,6 +9,8 @@ This article lists the link formats Claude Desktop supports and the parameters e
 When your operating system opens a `claude://` URL, it hands the URL to Claude. If the app isn't running, macOS, Windows, and Linux will launch it first. Claude then reads the path and query parameters and navigates to the right place inside the app.
 
 All parameter values must be URL-encoded. Prompt text passed in `q` is truncated to roughly 14,000 characters.
+
+---
 
 ## Start a new chat
 
@@ -28,6 +26,8 @@ Opens a new chat in Claude Desktop. If you include `q`, the prompt field is pref
 | **Parameter** | **Required** | **Description** |
 | `q` | No | Text to prefill in the prompt field. |
 
+---
+
 ## Open an existing chat or project
 
 ```
@@ -36,6 +36,8 @@ claude://claude.ai/project/{project-id}
 ```
 
 Opens a specific chat or project by its ID. The ID is the UUID you see at the end of the chat or project URL in Claude. If the ID is missing or invalid, Claude opens your recent chats or your projects list instead.
+
+---
 
 ## Start a Claude Code session
 
@@ -55,6 +57,8 @@ Opens Claude Code in Claude Desktop with the composer prefilled. Use this for "O
 
 **Note:** Any folder supplied through a link is treated as untrusted. Claude Desktop always shows a confirmation dialog before adopting it as the working directory, even if you've trusted that folder before.
 
+---
+
 ## Start a Claude Cowork session
 
 ```
@@ -73,6 +77,8 @@ Opens a new Cowork session with the composer prefilled. Use this for "Open in Cl
 | `file` | No | Absolute path to a file to attach. Repeat the parameter to attach more than one. |
 
 **Note:** Any folder supplied through a link is treated as untrusted. Claude Desktop always shows a confirmation dialog before adopting it as the working directory, even if you've trusted that folder before.
+
+---
 
 ## Test a deep link
 
@@ -102,6 +108,6 @@ xdg-open "claude://claude.ai/new?q=Hello"
 
 * [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
 * [Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)
-* [Enterprise configuration for Claude Desktop](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Open the Claude mobile app with a link](https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

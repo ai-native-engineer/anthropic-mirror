@@ -23,7 +23,7 @@ Developers can submit:
 Remote MCP server submissions happen inside Claude.ai, in the [submission portal](https://claude.ai/admin-settings/directory/submissions/new). The portal is part of your organization’s admin settings, so you need:
 
 * **A Team or Enterprise organization.** Admin settings aren’t available on individual plans.
-* **Directory management access.** By default, only organization Owners and Primary owners can submit and manage directory listings. On Enterprise, an Owner can delegate this to other members by creating a custom role in **Admin settings > Roles** with either the **Directory management** permission (directory submissions only) or the **Libraries** permission (broader: it also covers managing the organization’s plugins, connectors, and skills), and assigning that role. Team plans don’t have custom roles, so on Team this stays with Owners.
+* **Directory management access.** By default, only organization Owners and Primary owners can submit and manage directory listings. On Enterprise, an Owner can delegate this to other members by creating a custom role in **Organization settings > Roles** with either the **Directory** permission (directory submissions only) or the **Libraries** permission (broader: it also covers managing the organization’s plugins, connectors, and skills), and assigning that role. Team plans don’t have custom roles, so on Team this stays with Owners.
 
 Desktop extensions (MCPB) use a separate [submission form](https://clau.de/desktop-extention-submission) and don’t require the portal.
 

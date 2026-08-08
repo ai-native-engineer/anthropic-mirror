@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan -->
 
-# Claude Fable 5 on your plan
-
-Updated over 2 weeks ago
-
 We previously ran a promotion that allowed you to use up to 50% of your weekly subscription limit on Claude Fable 5 at no extra cost. After that promotion ends on July 19, 2026 at 11:59:59 PM PT, Fable 5 will still be available to you, and how you access it will depend on your plan.
 
 On Max plans, premium seats on Team plans, and premium seats on legacy seat-based Enterprise plans, Fable 5 will be a standard part of your plan. On Pro plans, standard seats on Team plans, and standard seats on legacy seat-based Enterprise plans, Fable 5 will run on pay-as-you-go usage credits. This article explains how Fable 5 will work on each plan, how to access it, and what happens when you reach your usage limits.

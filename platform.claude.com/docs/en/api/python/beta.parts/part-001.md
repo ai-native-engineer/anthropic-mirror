@@ -572,7 +572,9 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 page = client.beta.models.list()
 page = page.data[0]
@@ -894,7 +896,9 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 beta_model_info = client.beta.models.retrieve(
     model_id="model_id",
@@ -6113,17 +6117,21 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 for message in client.beta.messages.create(
     max_tokens=1024,
-    messages=[{
-        "content": "Hello, world",
-        "role": "user",
-    }],
+    messages=[
+        {
+            "content": "Hello, world",
+            "role": "user",
+        }
+    ],
     model="claude-opus-4-6",
 ):
-  print(message)
+    print(message)
 ```
 
 #### Response
@@ -9269,13 +9277,17 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 beta_message_tokens_count = client.beta.messages.count_tokens(
-    messages=[{
-        "content": "Hello, world",
-        "role": "user",
-    }],
+    messages=[
+        {
+            "content": "Hello, world",
+            "role": "user",
+        }
+    ],
     model="claude-opus-4-6",
 )
 print(beta_message_tokens_count.context_management)
@@ -36327,20 +36339,26 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 beta_message_batch = client.beta.messages.batches.create(
-    requests=[{
-        "custom_id": "my-custom-id-1",
-        "params": {
-            "max_tokens": 1024,
-            "messages": [{
-                "content": "Hello, world",
-                "role": "user",
-            }],
-            "model": "claude-opus-4-6",
-        },
-    }],
+    requests=[
+        {
+            "custom_id": "my-custom-id-1",
+            "params": {
+                "max_tokens": 1024,
+                "messages": [
+                    {
+                        "content": "Hello, world",
+                        "role": "user",
+                    }
+                ],
+                "model": "claude-opus-4-6",
+            },
+        }
+    ],
 )
 print(beta_message_batch.id)
 ```
@@ -36553,7 +36571,9 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 beta_message_batch = client.beta.messages.batches.retrieve(
     message_batch_id="message_batch_id",
@@ -36779,7 +36799,9 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 page = client.beta.messages.batches.list()
 page = page.data[0]
@@ -37003,7 +37025,9 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 beta_message_batch = client.beta.messages.batches.cancel(
     message_batch_id="message_batch_id",
@@ -37063,19 +37087,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`

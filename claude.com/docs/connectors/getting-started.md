@@ -27,8 +27,8 @@ This tutorial walks you through setting up and using Claude’s connector integr
 ###  Step 1: Access connector settings
 
 1. Go to [claude.ai](https://claude.ai)
-2. Click your initials in the lower left
-3. Select **Settings > Connectors**
+2. Select **Customize** in the sidebar
+3. Select **Connectors**
 
 ###  Step 2: Choose a connector
 
@@ -117,7 +117,7 @@ Data not showing up
 
 Connection expired
 
-* Go to Settings > Connectors
+* Go to Customize > Connectors
 * Click “Reconnect” or “Refresh”
 * Re-authenticate with the service
 

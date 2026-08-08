@@ -32,7 +32,7 @@ Always connect a dedicated account for Claude (for example, `claude@yourcompany.
 | Vercel | Deployments | [Connect Vercel](https://claude.com/docs/claude-tag/admins/connections/vercel) |
 
 GitHub is managed through the Claude GitHub App rather than a connection in this list; see [Configure GitHub access](https://claude.com/docs/claude-tag/admins/configure-github).
-Services marked (custom) have no preset button. Add them with **Connect another tool** following their guide.
+Services marked (custom) have no preset button. Add them with **Custom tool** following their guide.
 The presets and guides cover common services, not the full set Claude can connect to. Any app with an API can be added as a custom connection or a custom MCP server. See [Connect a custom service](https://claude.com/docs/claude-tag/admins/connections/custom) for the credential types and form fields.
 
 ##  When a connection fails after setup

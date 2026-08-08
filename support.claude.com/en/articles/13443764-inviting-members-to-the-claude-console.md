@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13443764-inviting-members-to-the-claude-console -->
 
-# Inviting members to the Claude Console
-
 The instructions in this article apply to your overall Console organization. If you are working within a specific Console Workspace, see this article: [Creating and managing Workspaces in the Claude Console](https://support.claude.com/en/articles/9796807-creating-and-managing-workspaces-in-the-claude-console).
 
 **Note:** Only organization Admins can manage Console members and invitations. See [Claude Console Roles and Permissions](https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions).
@@ -26,4 +24,8 @@ Yes, newly-invited members have three weeks to accept the invitation via email.
 2. Click the trash can icon to the right of the listed user to revoke their invitation.
 3. Confirm the action by clicking "Revoke" in the **Revoke invitation?** modal.
 
-[Creating and managing Workspaces in the Claude Console](https://support.claude.com/en/articles/9796807-creating-and-managing-workspaces-in-the-claude-console)[Claude Console roles and permissions](https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions)[Sharing Prompts in the Claude Console](https://support.claude.com/en/articles/10722177-sharing-prompts-in-the-claude-console)[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
+* [Creating and managing Workspaces in the Claude Console](https://support.claude.com/en/articles/9796807-creating-and-managing-workspaces-in-the-claude-console)
+* [Claude Console roles and permissions](https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)

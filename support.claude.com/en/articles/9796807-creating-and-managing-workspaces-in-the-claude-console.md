@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9796807-creating-and-managing-workspaces-in-the-claude-console -->
 
-# Creating and managing Workspaces in the Claude Console
-
-June 30, 2026
-
 This guide will walk you through the process of creating, editing, and managing Workspaces in your Claude Console organization.
 
 ## What are Workspaces?
@@ -122,6 +118,8 @@ Every organization has a default Workspace that cannot be renamed, archived, or 
 2. Click on "Default" in the list.
 
 **Note:** You can view your default Workspace’s limits from the [Limits settings](https://platform.claude.com/settings/limits).
+
+---
 
 ## Creating a separate Console organization
 

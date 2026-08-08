@@ -57,7 +57,7 @@ Host organizations are nonprofits of all sizes, geographies, and focus areas. Fo
 ### What is the application and selection process?
 
 * **One application.** [Apply here](https://job-boards.greenhouse.io/claudecorps/jobs/4250200009)—applications are rolling.
-* **Deadlines.** July 17, 2026 for the first cohort (starts October 19, 2026). Applications stay open on arolling basis for the January 2027 and August 2027 cohorts.
+* **Deadlines.** Applications are now closed for cohort 1 and cohort 2. We will reopen applications for cohort 3, starting August 2027, in September 2026
 * **What the application includes.** A short form about you, two Anthropic courses on AI fluency and Claude, and two short-answer questions.
 * **If you move forward.** You’ll have a take-home assessment, a 25-minute conversation with our team, and a final round of two interviews. Anthropic and CodePath employees will conduct the conversations and interviews. At each stage in the process, we will let you know where you stand as soon as we can.
 * **If you’re selected.** You will interview with two to three host organizations to find the best fit for you and the host organization based on their projects, your skill set, and your interests.
@@ -134,7 +134,7 @@ Applications can be submitted [here](https://job-boards.greenhouse.io/claudecorp
 
 ### When is the application deadline?
 
-The application deadline for Cohort 1 (starting in October 2026) is July 17. Applicants who apply after the Cohort 1 deadline will be considered for upcoming cohorts, which will take place in January and August 2027.
+Applications are now closed for cohort 1 and cohort 2. We will reopen applications for cohort 3, starting August 2027, in September 2026.
 
 ## Selection and matching
 
@@ -162,7 +162,7 @@ We do our best to place fellows locally when both the fellow and the host prefer
 
 ### When does the fellowship start?
 
-Cohort 1 begins October 19, 2026. During the first week, all fellows and host org representatives will attend base camp in San Francisco. After that, fellows will work from their host org location.
+Cohort 1 begins October 19, 2026 with virtual training. During the week of November 2nd, all fellows and host org representatives will attend base camp in San Francisco. After that, fellows will work from their host org location. Cohort 2 will begin in January 2027 and cohort 3 will begin in August 2027.
 
 ### What is base camp?
 

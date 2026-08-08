@@ -2,7 +2,7 @@
 
 # Use Claude for Word
 
-Updated today
+Updated this week
 
 Claude for Word is an add-in that integrates Claude into your Word workflow. It’s designed for professionals who work extensively with documents, particularly in legal review, financial memo drafting, and iterative editing.
 

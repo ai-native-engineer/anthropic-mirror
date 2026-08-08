@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9797557-usage-limit-best-practices -->
 
-# Usage limit best practices
-
-Updated over 3 weeks ago
-
 The number of messages you can send will vary based on your Claude plan. For more information on your plan’s usage, refer to the following resources.
 
 * **[Free Claude](https://support.claude.com/en/articles/8114491-getting-started-with-claude#h_57262af5ae)**
@@ -27,6 +23,8 @@ Our system also includes caching that helps you optimize your limits:
 * Content in projects is cached and doesn't count against your limits when reused.
 * Similar prompts you use frequently are partially cached.
 * Claude remembers context from earlier in the conversation.
+
+---
 
 ## 1. Start by planning your conversations
 
@@ -96,6 +94,8 @@ Projects offer significant caching benefits:
 * Upload your core working documents to the project knowledge section when starting a project.
 * The more you use the same content, the more benefit you get from caching.
 
+---
+
 ## Best practices for specific use cases
 
 ### For coding tasks
@@ -115,4 +115,8 @@ Projects offer significant caching benefits:
 
 By following these best practices, you can make the most efficient use of your Claude plan's message allocation.
 
-[How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)[How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)[Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)[Holiday 2025 Usage Promotion](https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion)[Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
+* [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
+* [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Holiday 2025 Usage Promotion](https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion)
+* [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)

@@ -166,7 +166,7 @@ my-skill.zip
 
 ###  After uploading
 
-1. Enable the skill in **Settings > Capabilities**
+1. Enable the skill in **Customize > Skills**
 2. Try prompts that should trigger it
 3. Review Claude’s thinking to confirm it’s loading the skill
 4. Iterate on the description if Claude isn’t using it when expected

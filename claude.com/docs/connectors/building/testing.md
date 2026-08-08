@@ -12,7 +12,7 @@ Test your server against the real Claude client before submitting. There is no s
 
 ##  Test as a custom connector
 
-Any Claude account (Free, Pro, Max, Team, or Enterprise) can add a custom connector. Go to **Settings > Connectors > Add custom connector** and enter your server’s URL. Custom connectors use the exact same runtime as directory connectors, so what works here will work after publication.
+Any Claude account (Free, Pro, Max, Team, or Enterprise) can add a custom connector. Go to **Customize > Connectors**, select **Add custom connector**, and enter your server’s URL. Custom connectors use the exact same runtime as directory connectors, so what works here will work after publication.
 
 ##  Test a local server
 

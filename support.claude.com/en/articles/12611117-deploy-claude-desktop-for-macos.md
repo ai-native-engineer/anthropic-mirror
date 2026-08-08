@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos -->
 
-# Deploy Claude Desktop for macOS
-
 Administrators on Team or Enterprise plans can deploy Claude Desktop automatically to manage installations and updates centrally. Claude Desktop installs to `/Applications` and updates automatically when new versions are released, unless disabled via enterprise policies.
 
 ## Available installation formats
@@ -38,4 +36,8 @@ Claude Desktop can be installed to either the user's Applications folder or the 
 
 For shared machines, disable auto-updates via enterprise policies and manage updates centrally through your MDM solution.
 
-[Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)[Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)[Enterprise configuration for Claude Desktop](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)[Deploy Claude Desktop for Windows](https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows)[Claude Cowork desktop architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-desktop-architecture-overview)
+* [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
+* [Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)
+* [Enterprise configuration for Claude Desktop](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)
+* [Deploy Claude Desktop for Windows](https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows)
+* [Deploying enterprise-grade MCP servers with desktop extensions](https://support.claude.com/en/articles/12702546-deploying-enterprise-grade-mcp-servers-with-desktop-extensions)

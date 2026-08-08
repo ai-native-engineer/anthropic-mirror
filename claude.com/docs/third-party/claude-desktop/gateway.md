@@ -141,6 +141,7 @@ Silent token refresh requires a refresh token from your identity provider, which
 
 Per [OpenID Connect Core 1.0 §11](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess), requesting `offline_access` signals that the client may use the refresh token while the user is not present, and the provider must obtain consent for it. Claude Desktop therefore does not add this scope to an administrator-supplied `scopes` value in the default mode, so that requesting offline access remains an explicit choice.
 **Authorization servers that reject `offline_access`.** Standard OIDC providers (Entra ID, Okta, Auth0) accept `offline_access` and require it to issue a refresh token, so the automatic append is what you want. If your authorization server instead rejects unrecognized scopes with an `invalid_scope` error — for example, servers that issue refresh tokens via a provider-specific scope rather than `offline_access` — set `appendOfflineAccess` to `false` and include your provider’s own refresh-token scope in `scopes` directly.
+Refresh tokens govern whether users are re-prompted to sign in, not how long a sign-in may stay valid. To cap the sign-in lifetime under your identity provider’s session policy, set [`inferenceSessionLifetimeSec`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencesessionlifetimesec); Claude Desktop shows a re-authenticate banner before the session expires.
 
 ##  Configure the app
 
@@ -162,7 +163,15 @@ Then click **Export** to produce a `.mobileconfig` (macOS) or `.reg` (Windows) f
 | Gateway base URL `inferenceGatewayBaseUrl` | `string` | MDM + Bootstrap | — | Full URL of the inference gateway endpoint. |
 | Gateway API key `inferenceGatewayApiKey` | `string` | MDM + Bootstrap | — | API key for the configured inference gateway. |
 | Gateway auth scheme `inferenceGatewayAuthScheme` | `enum` | MDM + Bootstrap | `bearer` | How the gateway credential is sent on the wire (Authorization: Bearer vs x-api-key header). One of: `bearer`, `x-api-key`. Defaults to `bearer`. |
+| Gateway sign-in flow `inferenceGatewayOidcAuthFlow` | `enum` | MDM + Bootstrap | — | How the IdP sign-in runs: system browser (default) or the OS Microsoft Entra broker. One of: `browser`, `broker`. |
 | Gateway SSO IdP (OIDC) `inferenceGatewayOidc` | `object` | MDM + Bootstrap | — | External IdP for gateway sign-in. The user’s token from this issuer is sent to the gateway as the Bearer credential. |
+
+inferenceGatewayOidcAuthFlow details
+
+* **`browser`** (default) — opens the system browser for an authorization-code (PKCE) sign-in on a loopback redirect URI. See the **IdP setup** notes on `inferenceGatewayOidc` for redirect-URI registration.
+* **`broker`** — signs in through the OS identity broker (Web Account Manager on Windows, Company Portal on macOS). Requires the IdP to be **Microsoft Entra ID** — the `issuer` on `inferenceGatewayOidc` must be `https://login.microsoftonline.com/{tenant-id}/v2.0`. The broker satisfies Conditional Access policies that require a compliant/managed device or token protection, and needs no `127.0.0.1/callback` loopback redirect. The Entra app registration must include the broker redirect URIs `ms-appx-web://Microsoft.AAD.BrokerPlugin/{client-id}` (Windows) and `msauth.com.anthropic.claudefordesktop://auth` (macOS) under the **Mobile and desktop applications** platform. Not supported on Linux.
+
+Broker mode mints a token in the customer’s own Entra tenant with the customer-configured `scopes`, and forwards it to the customer’s own gateway; both endpoints of that trust relationship are inside the customer’s control.
 
 inferenceGatewayOidc details
 

@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8243635-our-approach-to-rate-limits-for-the-claude-api -->
 
-# Our approach to rate limits for the Claude API
-
-June 26, 2026
-
 Your rate limit depends on your usage tier, and is currently measured in three key metrics:
 
 1. Requests per minute (RPM)

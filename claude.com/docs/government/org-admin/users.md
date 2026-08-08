@@ -72,3 +72,7 @@ The reset button is disabled for users on Anthropic-managed tiers because those 
 
 Accounts are deactivated through your directory’s SCIM provisioning rather than from this page. A deactivated user cannot sign in and does not occupy a seat. Deactivating a user releases their seat immediately, and reactivating them later will attempt to place them back on a seat using the same automatic assignment logic described on the [Seats](https://claude.com/docs/government/org-admin/seats) page.
 Deactivated users keep their role, but a deactivated Primary Owner does not count toward the “at least one” rule or the limit of three. You must always have at least one *active* Primary Owner.
+
+##  Things to know
+
+* Claude for Government has exactly three organization roles: **User**, **Owner**, and **Primary Owner**. There are no additional roles such as Billing or Developer. Tenant administrator access is a separate tenant-level membership managed on the [Admins](https://claude.com/docs/government/tenant-admin/admins) page, not an organization role.

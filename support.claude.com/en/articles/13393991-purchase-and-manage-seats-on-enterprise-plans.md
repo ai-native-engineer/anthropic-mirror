@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans -->
 
-# Purchase and manage seats on Enterprise plans
-
-Updated over 3 weeks ago
-
 This article covers how to add seats, manage your seat allocation, and handle member access on Enterprise plans. For pricing and billing details, see **[How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-usage-based-enterprise-plans)**
 
 **Permissions note:** Only Owners and Primary Owners can purchase seats and access **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**. Admins and above can reassign seat types for members in **[Organization settings > Members](https://claude.ai/admin-settings/members)**. To check your role, click your name or initials in the lower left corner—your role is listed next to your organization's plan type.
@@ -18,11 +14,15 @@ For information on adding and removing members from your organization, see **[Ma
 * If you see **Standard** and **Premium** seat types, refer to **[Information for seat-based Enterprise plans](#h_6a78e30e26)**.
 * Chat-only seats and Standard/Premium seats are no longer available for new contracts—both legacy plan types are transitioning to the single Enterprise seat at their next renewal.
 
+---
+
 ## Your seat type
 
 Usage-based Enterprise plans use a single seat type: the **Enterprise seat**, priced per user per month (billed annually). This seat includes access to Claude on web, desktop, and mobile, as well as Claude Code.
 
 Enterprise plans require a minimum of 20 seats.
+
+---
 
 ## Purchase new seats
 
@@ -40,6 +40,8 @@ You can add seats to your Enterprise plan at any time during your annual term. N
 
 For details on how seat additions are billed, see **[How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)**
 
+---
+
 ## Remove seats
 
 **Self-serve Enterprise plans:** Seats cannot be removed during your annual term. You can add seats at any time, but reductions to your seat count only take effect at renewal. If you need to make an exception, contact **[our Sales team](https://claude.com/contact-sales)** to discuss converting to a sales-assisted plan.
@@ -47,6 +49,8 @@ For details on how seat additions are billed, see **[How am I billed for my Ente
 **Sales-assisted Enterprise plans:** Contact your account manager to discuss changes to your seat allocation.
 
 Removing a member from your organization is different from reducing your seat count. When you remove a member, their seat becomes available to assign to someone else, so your total seat allocation and bill don't change. To reduce your bill, you'll need to reduce your total seat allocation. See **[Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-managing-members-on-team-and-enterprise-plans)** for instructions on removing members.
+
+---
 
 ## Temporarily remove a member's access
 
@@ -63,17 +67,23 @@ To restore their access, repeat the process and select “Enterprise seat.”
 
 **Note:** Members with no seat assigned remain part of your organization but can't use Claude until you reassign them a seat.
 
+---
+
 ## Seat assignment with JIT or SCIM provisioning
 
 **[Users provisioned via JIT or SCIM](https://support.claude.com/en/articles/13133195-setting-up-jit-or-scim-provisioning-to-manage-user-assignments-on-team-or-enterprise-plans)** are automatically assigned an Enterprise seat when they're added, provided one is available in your allocation. If no seat is available, provisioning will not complete until an owner purchases an additional seat.
 
 Admins and above can manually adjust a member's status (e.g., remove their seat assignment) afterward in **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 
+---
+
 ## Cancel your Enterprise plan
 
 **Self-serve Enterprise plans:** An Owner or Primary Owner can cancel your plan from **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**. Cancellation takes effect at the end of your current annual billing cycle—your organization will continue to have access until then.
 
 **Sales-assisted Enterprise plans:** Reach out to your Anthropic Contact or **[our Sales team](https://claude.com/contact-sales)** to discuss cancellation.
+
+---
 
 ## Information for Chat and Chat + Claude Code plans
 
@@ -128,6 +138,8 @@ You can also use Advanced Group Mappings with JIT or SCIM to provision users dir
 At your next renewal, you will switch to the single Enterprise seat model upon signing a new contract. This seat includes Claude Code, Cowork, Chat and more.
 
 Reach out to your Anthropic Contact or **[our Sales team](https://claude.com/contact-sales)** with questions about your upcoming renewal.
+
+---
 
 ## Information for seat-based Enterprise plans
 

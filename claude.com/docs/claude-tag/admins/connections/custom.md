@@ -10,7 +10,7 @@
 
 Connections are added inside an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle). At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open **Access bundles** in the left navigation, click into a bundle (or **Create** one), and go to its **Credentials** tab.
 
-For a service that doesn’t have a preset Connect button, use **Connect another tool** on the bundle’s Credentials tab. This works for any service with an HTTP API. The [BigQuery](https://claude.com/docs/claude-tag/admins/connections/bigquery) guide is a worked example.
+For a service that doesn’t have a preset Connect button, use **Custom tool** on the bundle’s Credentials tab. This works for any service with an HTTP API. The [BigQuery](https://claude.com/docs/claude-tag/admins/connections/bigquery) guide is a worked example.
 
 ##  Add a custom HTTP API
 
@@ -22,7 +22,7 @@ For a service that doesn’t have a preset Connect button, use **Connect another
 
 See [Create a dedicated account per service](https://claude.com/docs/claude-tag/admins/add-connections#create-a-dedicated-account-per-service) for the service-account patterns.
 
-###  Fill out the Connect another tool form
+###  Fill out the Custom tool form
 
 | Field | What to enter |
 | --- | --- |
@@ -98,7 +98,7 @@ In the bundle’s **Plugins** tab (or via your [skills repository](https://claud
 
 Add a credential for the server's host
 
-On the **Credentials** tab, click **Connect another tool** and add a credential for the MCP server’s host (for example, a Bearer token with **Allowed websites** set to `your-mcp-host.example.com`). This lets the call leave the sandbox with auth attached.
+On the **Credentials** tab, click **Connect** next to **Custom tool** and add a credential for the MCP server’s host (for example, a Bearer token with **Allowed websites** set to `your-mcp-host.example.com`). This lets the call leave the sandbox with auth attached.
 
 The plugin’s `.mcp.json` is loaded because it’s part of an attached plugin; an `.mcp.json` checked into a repository Claude clones is not loaded.
 

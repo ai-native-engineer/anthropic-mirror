@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans -->
 
-# Manage custom roles on Enterprise plans
-
-Updated today
-
 Custom roles are available for Enterprise plan organizations. Owners, Primary Owners, and custom roles with the **Identity & Access** permission set to "Can manage" can go to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)** to manage custom roles.
 
 ## What are custom roles?
@@ -13,6 +9,8 @@ Custom roles let you define which features your members can access. Each custom 
 Custom roles work alongside groups. The typical workflow is: create custom roles, assign them to groups, and then set members' roles to “Custom” so their access is governed entirely by the custom roles assigned to their groups.
 
 **Note:** Custom roles only affect members whose role is set to “Custom.” Members with the User, Admin, or Owner roles get their permissions from those roles directly, not from custom roles.
+
+---
 
 ## How feature access works
 
@@ -26,6 +24,8 @@ Feature access is determined by a four-level precedence chain, where the most re
 The key takeaway: the organization-level toggle is a main switch. Custom roles are the per-member switches underneath it. A feature must be enabled at the organization level before custom roles can control who gets access.
 
 **Note:** This precedence chain applies to capabilities. Admin permissions aren't gated by an organization-level toggle or a member's own settings. If a member's custom role grants an admin permission, they have that access.
+
+---
 
 ## Available capabilities
 
@@ -42,6 +42,7 @@ Each custom role can grant or restrict access to the following capabilities:
 | Create skills | Ability to create or upload custom skills. |
 | Share skills with org members | Ability to share skills with specific people in your organization. |
 | Share skills with the full organization | Ability to share skills with everyone in your organization at once. |
+| Skill and plugin security scanning (beta) | Ability to run a scan on skills and plugins when they’re uploaded to catch possible security concerns. |
 | Claude Code | Access to Claude Code. |
 | Fast mode | Access to faster model options for Claude Code. |
 | Claude Code dynamic workflows\* | Access to dynamic workflows in Claude Code, which let Claude run large engineering tasks—migrations, audits, codebase-wide bug hunts—from start to finish in a single session. These runs can last for hours and use more tokens than a typical session. |
@@ -71,6 +72,8 @@ Instead of toggling capabilities individually, you can grant a role every capabi
 
 Roles set to either option pick up new capabilities automatically as they launch. Roles set to “Only selected” only include the capabilities you select.
 
+---
+
 ## Create a custom role
 
 1. Navigate to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)**.
@@ -96,6 +99,8 @@ Role changes may take up to 15 minutes to take effect, and members may need to r
 
 Click the menu button on any custom role and select “Delete role.” Deleting a role removes its permissions from all groups it was assigned to. Members in those groups lose the permissions the role granted, unless another role in their chain also grants them.
 
+---
+
 ## Assign groups to custom roles
 
 Custom roles are assigned to groups, not directly to individual members. To assign a group to a role:
@@ -105,7 +110,9 @@ Custom roles are assigned to groups, not directly to individual members. To assi
 3. In the groups selector, select one or more groups.
 4. Click "Save role."
 
-You can also assign custom roles when creating or editing a group in **[Organization settings > Groups](http://claude.ai/admin-settings/groups)**. See **[Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)**.
+You can also assign custom roles when creating or editing a group in **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**. See **[Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)**.
+
+---
 
 ## How permissions combine across multiple roles
 
@@ -114,6 +121,8 @@ If a member belongs to multiple groups with different custom roles, their permis
 This means you can't use one role to remove a permission granted by another role. This is by design — it enables a layered approach where a base role covers common features and additional roles layer on specific capabilities and admin permissions.
 
 **Example:** A member is in two groups. The "All Users" group is assigned a "Standard Access" role with web search and memory. The "Engineering" group is assigned a "Developer" role with Cowork and Claude Code. The member gets all four: web search, memory, Cowork, and Claude Code.
+
+---
 
 ## See a member or group's effective role
 
@@ -132,6 +141,8 @@ The modal lists the member's assigned roles and three tabs:
 This view is read-only. To change what a member can do, edit the roles assigned to their groups.
 
 **Note:** "View effective role" appears only for members whose role is set to "Custom" and who have at least one custom role assigned through a group. Members with a built-in role (User, Admin, Owner, or Primary Owner) get their permissions from that role directly, so there's nothing to compute.
+
+---
 
 ## Admin permissions
 
@@ -197,6 +208,8 @@ The following remain available only to Owners and Primary Owners, even for membe
 ### What members see when admin permissions are restricted
 
 If a member doesn’t have access to a specific admin permission, the section doesn't appear in their organization settings. Only sections their permissions cover are shown.
+
+---
 
 ## Connector permissions
 
@@ -270,6 +283,8 @@ Connector permissions govern connectors your organization has added under **[Org
 
 Members can’t tell which layer restricted a tool. The message is the same whether the limit comes from the organization-wide tool policy, a role grant, or both. To find the source, compare the organization-wide policy with the member’s role grants.
 
+---
+
 ## Model access
 
 Custom roles also control which Claude models a role can use and the maximum effort level members can select on each one. You set these on the **Models** tab of the role editor, alongside the role's default model.
@@ -277,6 +292,8 @@ Custom roles also control which Claude models a role can use and the maximum eff
 The organization-level model setting is the ceiling. A role can't grant a model that's disabled at the organization level. Across a member's roles, model access is additive and effort limits take the highest cap any role allows. Haiku models are always available and can't be disabled.
 
 For setup steps and what members see, see **[Manage model access for your organization](https://support.claude.com/en/articles/15694740)**. For default model behavior, see **[Set a default model for your organization](https://support.claude.com/en/articles/15330088)**.
+
+---
 
 ## What members see when capability access is restricted
 

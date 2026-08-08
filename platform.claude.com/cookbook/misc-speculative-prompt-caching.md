@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/misc-speculative-prompt-caching -->
 
-# Speculative Prompt Caching
+#  Speculative Prompt Caching
 
 This cookbook demonstrates "Speculative Prompt Caching" - a pattern that reduces time-to-first-token (TTFT) by warming up the cache while users are still formulating their queries.
 
@@ -17,182 +17,263 @@ This cookbook demonstrates "Speculative Prompt Caching" - a pattern that reduces
 3. User submits question
 4. API uses warm cache to generate response
 
-## Setup
+##  Setup
 
 First, let's install the required packages:
 
-python
+
 
-```
 %pip install anthropic httpx --quiet
-```
+
+
 
 ```
 Note: you may need to restart the kernel to use updated packages.
 ```
 
-python
+
 
-```
 import asyncio
+
 import copy
+
 import datetime
+
 import time
 
 import httpx
+
 from anthropic import AsyncAnthropic
 
 # Configuration constants
-MODEL = "claude-sonnet-4-6"
-SQLITE_SOURCES = {
-    "btree.h": "https://sqlite.org/src/raw/18e5e7b2124c23426a283523e5f31a4bff029131b795bb82391f9d2f3136fc50?at=btree.h",
-    "btree.c": "https://sqlite.org/src/raw/63ca6b647342e8cef643863cd0962a542f133e1069460725ba4461dcda92b03c?at=btree.c",
-}
-DEFAULT_CLIENT_ARGS = {
-    "system": "You are an expert systems programmer helping analyze database internals.",
-    "max_tokens": 4096,
-    "temperature": 0,
-}
-```
 
-## Helper Functions
+MODEL = "claude-sonnet-4-6"
+
+SQLITE\_SOURCES = {
+
+"btree.h": "https://sqlite.org/src/raw/18e5e7b2124c23426a283523e5f31a4bff029131b795bb82391f9d2f3136fc50?at=btree.h",
+
+"btree.c": "https://sqlite.org/src/raw/63ca6b647342e8cef643863cd0962a542f133e1069460725ba4461dcda92b03c?at=btree.c",
+
+}
+
+DEFAULT\_CLIENT\_ARGS = {
+
+"system": "You are an expert systems programmer helping analyze database internals.",
+
+"max\_tokens": 4096,
+
+"temperature": 0,
+
+}
+
+##  Helper Functions
 
 Let's set up the functions to download our large context and prepare messages:
 
-python
+
 
-```
-async def get_sqlite_sources() -> dict[str, str]:
-    print("Downloading SQLite source files...")
+async def get\_sqlite\_sources() -> dict[str, str]:
 
-    source_files = {}
-    start_time = time.time()
+print("Downloading SQLite source files...")
 
-    async with httpx.AsyncClient(timeout=30.0) as client:
-        tasks = []
+source\_files = {}
 
-        async def download_file(filename: str, url: str) -> tuple[str, str]:
-            response = await client.get(url, follow_redirects=True)
-            response.raise_for_status()
-            print(f"Successfully downloaded {filename}")
-            return filename, response.text
+start\_time = time.time()
 
-        for filename, url in SQLITE_SOURCES.items():
-            tasks.append(download_file(filename, url))
+async with httpx.AsyncClient(timeout=30.0) as client:
 
-        results = await asyncio.gather(*tasks)
-        source_files = dict(results)
+tasks = []
 
-    duration = time.time() - start_time
-    print(f"Downloaded {len(source_files)} files in {duration:.2f} seconds")
-    return source_files
+async def download\_file(filename: str, url: str) -> tuple[str, str]:
 
-async def create_initial_message():
-    sources = await get_sqlite_sources()
-    # Prepare the initial message with the source code as context.
-    # A Timestamp is included to prevent cache sharing across different runs.
-    initial_message = {
-        "role": "user",
-        "content": [
-            {
-                "type": "text",
-                "text": f"""
+response = await client.get(url, follow\_redirects=True)
+
+response.raise\_for\_status()
+
+print(f"Successfully downloaded {filename}")
+
+return filename, response.text
+
+for filename, url in SQLITE\_SOURCES.items():
+
+tasks.append(download\_file(filename, url))
+
+results = await asyncio.gather(\*tasks)
+
+source\_files = dict(results)
+
+duration = time.time() - start\_time
+
+print(f"Downloaded {len(source\_files)} files in {duration:.2f} seconds")
+
+return source\_files
+
+async def create\_initial\_message():
+
+sources = await get\_sqlite\_sources()
+
+# Prepare the initial message with the source code as context.
+
+# A Timestamp is included to prevent cache sharing across different runs.
+
+initial\_message = {
+
+"role": "user",
+
+"content": [
+
+{
+
+"type": "text",
+
+"text": f"""
+
 Current time: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
 
 Source to Analyze:
 
 btree.h:
+
 ```c
+
 {sources["btree.h"]}
+
 ```
 
 btree.c:
+
 ```c
+
 {sources["btree.c"]}
+
 ```""",
-                "cache_control": {"type": "ephemeral"},
-            }
-        ],
-    }
-    return initial_message
 
-async def sample_one_token(client: AsyncAnthropic, messages: list):
-    """Send a single-token request to warm up the cache"""
-    args = copy.deepcopy(DEFAULT_CLIENT_ARGS)
-    args["max_tokens"] = 1
-    await client.messages.create(
-        messages=messages,
-        model=MODEL,
-        **args,
-    )
+"cache\_control": {"type": "ephemeral"},
 
-def print_query_statistics(response, query_type: str) -> None:
-    print(f"\n{query_type} query statistics:")
-    print(f"\tInput tokens: {response.usage.input_tokens}")
-    print(f"\tOutput tokens: {response.usage.output_tokens}")
-    print(f"\tCache read input tokens: {getattr(response.usage, 'cache_read_input_tokens', '---')}")
-    print(
-        f"\tCache creation input tokens: {getattr(response.usage, 'cache_creation_input_tokens', '---')}"
-    )
-```
+}
 
-## Example 1: Standard Prompt Caching (Without Speculative Caching)
+],
+
+}
+
+return initial\_message
+
+async def sample\_one\_token(client: AsyncAnthropic, messages: list):
+
+"""Send a single-token request to warm up the cache"""
+
+args = copy.deepcopy(DEFAULT\_CLIENT\_ARGS)
+
+args["max\_tokens"] = 1
+
+await client.messages.create(
+
+messages=messages,
+
+model=MODEL,
+
+\*\*args,
+
+)
+
+def print\_query\_statistics(response, query\_type: str) -> None:
+
+print(f"\n{query\_type} query statistics:")
+
+print(f"\tInput tokens: {response.usage.input\_tokens}")
+
+print(f"\tOutput tokens: {response.usage.output\_tokens}")
+
+print(f"\tCache read input tokens: {getattr(response.usage, 'cache\_read\_input\_tokens', '---')}")
+
+print(
+
+f"\tCache creation input tokens: {getattr(response.usage, 'cache\_creation\_input\_tokens', '---')}"
+
+)
+
+##  Example 1: Standard Prompt Caching (Without Speculative Caching)
 
 First, let's see how standard prompt caching works. The user types their question, then we send the entire context + question to the API:
 
-python
+
 
-```
-async def standard_prompt_caching_demo():
-    client = AsyncAnthropic()
+async def standard\_prompt\_caching\_demo():
 
-    # Prepare the large context
-    initial_message = await create_initial_message()
+client = AsyncAnthropic()
 
-    # Simulate user typing time (in real app, this would be actual user input)
-    print("User is typing their question...")
-    await asyncio.sleep(3)  # Simulate 3 seconds of typing
-    user_question = "What is the purpose of the BtShared structure?"
-    print(f"User submitted: {user_question}")
+# Prepare the large context
 
-    # Now send the full request (context + question)
-    full_message = copy.deepcopy(initial_message)
-    full_message["content"].append(
-        {"type": "text", "text": f"Answer the user's question: {user_question}"}
-    )
+initial\_message = await create\_initial\_message()
 
-    print("\nSending request to API...")
-    start_time = time.time()
+# Simulate user typing time (in real app, this would be actual user input)
 
-    # Measure time to first token
-    first_token_time = None
-    async with client.messages.stream(
-        messages=[full_message],
-        model=MODEL,
-        **DEFAULT_CLIENT_ARGS,
-    ) as stream:
-        async for text in stream.text_stream:
-            if first_token_time is None and text.strip():
-                first_token_time = time.time() - start_time
-                print(f"\n🕐 Time to first token: {first_token_time:.2f} seconds")
-                break
+print("User is typing their question...")
 
-        # Get the full response
-        response = await stream.get_final_message()
+await asyncio.sleep(3) # Simulate 3 seconds of typing
 
-    total_time = time.time() - start_time
-    print(f"Total response time: {total_time:.2f} seconds")
-    print_query_statistics(response, "Standard Caching")
+user\_question = "What is the purpose of the BtShared structure?"
 
-    return first_token_time, total_time
-```
+print(f"User submitted: {user\_question}")
 
-python
+# Now send the full request (context + question)
 
-```
+full\_message = copy.deepcopy(initial\_message)
+
+full\_message["content"].append(
+
+{"type": "text", "text": f"Answer the user's question: {user\_question}"}
+
+)
+
+print("\nSending request to API...")
+
+start\_time = time.time()
+
+# Measure time to first token
+
+first\_token\_time = None
+
+async with client.messages.stream(
+
+messages=[full\_message],
+
+model=MODEL,
+
+\*\*DEFAULT\_CLIENT\_ARGS,
+
+) as stream:
+
+async for text in stream.text\_stream:
+
+if first\_token\_time is None and text.strip():
+
+first\_token\_time = time.time() - start\_time
+
+print(f"\n🕐 Time to first token: {first\_token\_time:.2f} seconds")
+
+break
+
+# Get the full response
+
+response = await stream.get\_final\_message()
+
+total\_time = time.time() - start\_time
+
+print(f"Total response time: {total\_time:.2f} seconds")
+
+print\_query\_statistics(response, "Standard Caching")
+
+return first\_token\_time, total\_time
+
+
+
 # Run the standard demo
-standard_ttft, standard_total = await standard_prompt_caching_demo()
-```
+
+standard\_ttft, standard\_total = await standard\_prompt\_caching\_demo()
+
+
 
 ```
 Downloading SQLite source files...
@@ -214,77 +295,109 @@ Standard Caching query statistics:
 	Cache creation input tokens: 151629
 ```
 
-## Example 2: Speculative Prompt Caching
+##  Example 2: Speculative Prompt Caching
 
 Now let's see how speculative prompt caching improves TTFT by warming the cache while the user is typing:
 
-python
+
 
-```
-async def speculative_prompt_caching_demo():
-    client = AsyncAnthropic()
+async def speculative\_prompt\_caching\_demo():
 
-    # The user has a large amount of context they want to interact with,
-    # in this case it's the sqlite b-tree implementation (~150k tokens).
-    initial_message = await create_initial_message()
+client = AsyncAnthropic()
 
-    # Start speculative caching while user is typing
-    print("User is typing their question...")
-    print("🔥 Starting cache warming in background...")
+# The user has a large amount of context they want to interact with,
 
-    # While the user is typing out their question, we sample a single token
-    # from the context the user is going to be interacting with with explicit
-    # prompt caching turned on to warm up the cache.
-    cache_task = asyncio.create_task(sample_one_token(client, [initial_message]))
+# in this case it's the sqlite b-tree implementation (~150k tokens).
 
-    # Simulate user typing time
-    await asyncio.sleep(3)  # Simulate 3 seconds of typing
-    user_question = "What is the purpose of the BtShared structure?"
-    print(f"User submitted: {user_question}")
+initial\_message = await create\_initial\_message()
 
-    # Ensure cache warming is complete
-    await cache_task
-    print("✅ Cache warming completed!")
+# Start speculative caching while user is typing
 
-    # Prepare messages for cached query. We make sure we
-    # reuse the same initial message as was cached to ensure we have a cache hit.
-    cached_message = copy.deepcopy(initial_message)
-    cached_message["content"].append(
-        {"type": "text", "text": f"Answer the user's question: {user_question}"}
-    )
+print("User is typing their question...")
 
-    print("\nSending request to API (with warm cache)...")
-    start_time = time.time()
+print("🔥 Starting cache warming in background...")
 
-    # Measure time to first token
-    first_token_time = None
-    async with client.messages.stream(
-        messages=[cached_message],
-        model=MODEL,
-        **DEFAULT_CLIENT_ARGS,
-    ) as stream:
-        async for text in stream.text_stream:
-            if first_token_time is None and text.strip():
-                first_token_time = time.time() - start_time
-                print(f"\n🚀 Time to first token: {first_token_time:.2f} seconds")
-                break
+# While the user is typing out their question, we sample a single token
 
-        # Get the full response
-        response = await stream.get_final_message()
+# from the context the user is going to be interacting with with explicit
 
-    total_time = time.time() - start_time
-    print(f"Total response time: {total_time:.2f} seconds")
-    print_query_statistics(response, "Speculative Caching")
+# prompt caching turned on to warm up the cache.
 
-    return first_token_time, total_time
-```
+cache\_task = asyncio.create\_task(sample\_one\_token(client, [initial\_message]))
 
-python
+# Simulate user typing time
 
-```
+await asyncio.sleep(3) # Simulate 3 seconds of typing
+
+user\_question = "What is the purpose of the BtShared structure?"
+
+print(f"User submitted: {user\_question}")
+
+# Ensure cache warming is complete
+
+await cache\_task
+
+print("✅ Cache warming completed!")
+
+# Prepare messages for cached query. We make sure we
+
+# reuse the same initial message as was cached to ensure we have a cache hit.
+
+cached\_message = copy.deepcopy(initial\_message)
+
+cached\_message["content"].append(
+
+{"type": "text", "text": f"Answer the user's question: {user\_question}"}
+
+)
+
+print("\nSending request to API (with warm cache)...")
+
+start\_time = time.time()
+
+# Measure time to first token
+
+first\_token\_time = None
+
+async with client.messages.stream(
+
+messages=[cached\_message],
+
+model=MODEL,
+
+\*\*DEFAULT\_CLIENT\_ARGS,
+
+) as stream:
+
+async for text in stream.text\_stream:
+
+if first\_token\_time is None and text.strip():
+
+first\_token\_time = time.time() - start\_time
+
+print(f"\n🚀 Time to first token: {first\_token\_time:.2f} seconds")
+
+break
+
+# Get the full response
+
+response = await stream.get\_final\_message()
+
+total\_time = time.time() - start\_time
+
+print(f"Total response time: {total\_time:.2f} seconds")
+
+print\_query\_statistics(response, "Speculative Caching")
+
+return first\_token\_time, total\_time
+
+
+
 # Run the speculative caching demo
-speculative_ttft, speculative_total = await speculative_prompt_caching_demo()
-```
+
+speculative\_ttft, speculative\_total = await speculative\_prompt\_caching\_demo()
+
+
 
 ```
 Downloading SQLite source files...
@@ -308,36 +421,49 @@ Speculative Caching query statistics:
 	Cache creation input tokens: 0
 ```
 
-## Performance Comparison
+##  Performance Comparison
 
 Let's compare the results to see the benefit of speculative caching:
 
-python
+
 
-```
-print("=" * 60)
+print("=" \* 60)
+
 print("PERFORMANCE COMPARISON")
-print("=" * 60)
+
+print("=" \* 60)
 
 print("\nStandard Prompt Caching:")
-print(f"  Time to First Token: {standard_ttft:.2f} seconds")
-print(f"  Total Response Time: {standard_total:.2f} seconds")
+
+print(f" Time to First Token: {standard\_ttft:.2f} seconds")
+
+print(f" Total Response Time: {standard\_total:.2f} seconds")
 
 print("\nSpeculative Prompt Caching:")
-print(f"  Time to First Token: {speculative_ttft:.2f} seconds")
-print(f"  Total Response Time: {speculative_total:.2f} seconds")
 
-ttft_improvement = (standard_ttft - speculative_ttft) / standard_ttft * 100
-total_improvement = (standard_total - speculative_total) / standard_total * 100
+print(f" Time to First Token: {speculative\_ttft:.2f} seconds")
+
+print(f" Total Response Time: {speculative\_total:.2f} seconds")
+
+ttft\_improvement = (standard\_ttft - speculative\_ttft) / standard\_ttft \* 100
+
+total\_improvement = (standard\_total - speculative\_total) / standard\_total \* 100
 
 print("\n🎯 IMPROVEMENTS:")
+
 print(
-    f"  TTFT Improvement: {ttft_improvement:.1f}% ({standard_ttft - speculative_ttft:.2f}s faster)"
+
+f" TTFT Improvement: {ttft\_improvement:.1f}% ({standard\_ttft - speculative\_ttft:.2f}s faster)"
+
 )
+
 print(
-    f"  Total Time Improvement: {total_improvement:.1f}% ({standard_total - speculative_total:.2f}s faster)"
+
+f" Total Time Improvement: {total\_improvement:.1f}% ({standard\_total - speculative\_total:.2f}s faster)"
+
 )
-```
+
+
 
 ```
 ============================================================
@@ -357,14 +483,14 @@ Speculative Prompt Caching:
   Total Time Improvement: 70.4% (19.92s faster)
 ```
 
-## Key Takeaways
+##  Key Takeaways
 
 1. **Speculative caching dramatically reduces TTFT** by warming the cache while users are typing
 2. **The pattern is most effective** with large contexts (>1000 tokens) that are reused across queries
 3. **Implementation is simple** - just send a 1-token request while the user is typing
 4. **Cache warming happens in parallel** with user input, effectively "hiding" the cache creation time
 
-## Best Practices
+##  Best Practices
 
 * Start cache warming as early as possible (e.g., when a user focuses an input field)
 * Use exactly the same context for warming and actual requests to ensure cache hits

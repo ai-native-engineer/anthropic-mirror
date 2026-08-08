@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/15171100-age-assurance-on-claude -->
 
-# Age assurance on Claude
-
-May 18, 2026
-
 Claude, our consumer product, is only available to people over 18 years. You’ll need to confirm you’re 18 or over while setting up an account. When we detect signals that you may be under 18, we'll ask you to verify your age before you can continue using Claude.
 
 ## How this works
@@ -27,5 +23,5 @@ Yoti is an independently audited age verification provider for SOC2 compliance. 
 * [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
 * [Minimum age requirement access restriction](https://support.claude.com/en/articles/13117299-minimum-age-requirement-access-restriction)
 * [Identity verification on Claude](https://support.claude.com/en/articles/14328960-identity-verification-on-claude)
-* [Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)
 * [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
+* [Claude for Teachers: your data and our terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms)

@@ -192,6 +192,18 @@ Coding tools
 
 [See solution](https://ellipsis.dev)
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692482151d80f9362c5b90c9_emergent-black.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692482163de140b3aa9e1ebb_emergent-white.svg)
+
+Emergent is an AI app builder that turns ideas into monetizable software. Emergent builds autonomous coding agents that replace traditional software development by generating, testing, and deploying production applications directly from plain-language intent. The platform solves the hard part of AI-driven software creation: correctness, reliability, security, and scale in real production systems. 6M+ users across 190+ countries have built 6M+ applications on Emergent.
+
+‍
+
+Coding tools
+
+Data and analytics
+
+[See solution](https://emergent.ai)
+
 ![Factory logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa863c8a450480170023_Factory_light.svg)![Factory logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa8cfc7e786bb0781067_Factory_dark.svg)
 
 Factory is building AI-powered software development agents that automate coding tasks and help engineering teams ship products faster.

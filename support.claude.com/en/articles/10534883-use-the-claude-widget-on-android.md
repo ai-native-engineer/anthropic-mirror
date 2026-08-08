@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/10534883-use-the-claude-widget-on-android -->
 
-# Use the Claude widget on Android
-
-Updated over 3 weeks ago
-
 The Claude Android widget is available on Android 8.0 Oreo and above.
 
 The Claude Android widget provides quick and convenient access to core features directly from your home screen, allowing you to start new chats, capture images, and use voice dictation with a single tap.

@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8241253-safeguards-warnings-and-appeals -->
 
-# Safeguards warnings and appeals
-
-Updated over 3 weeks ago
-
 **Note:** Our response times are currently longer than normal due to our recent launch and an increase in email volume. We will reply to your appeal/email as soon as we can and we ask for your patience in the meantime.
 
 ## Appeals
@@ -38,7 +34,7 @@ Click "Request a review" on the affected organization to ask our Safeguards team
 
 As part of our safety process, we warn users if we believe their prompts are violating our **[Usage Policy](https://www.anthropic.com/legal/aup)**. For API customers, these warnings are linked to ongoing thresholds of violative behavior across their entire API account.
 
-If you believe we’ve made a mistake in issuing you a warning, please email **[[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#d2a7a1b7a0a1b3b4b7a6ab92b3bca6baa0bda2bbb1fcb1bdbf)** with the details of your situation and your account information.
+If you believe we’ve made a mistake in issuing you a warning, please email **[[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#84f1f7e1f6f7e5e2e1f0fdc4e5eaf0ecf6ebf4ede7aae7ebe9)** with the details of your situation and your account information.
 
 * [API Safeguards Tools](https://support.claude.com/en/articles/9199617-api-safeguards-tools)
 * [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)

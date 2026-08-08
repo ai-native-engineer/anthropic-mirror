@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research -->
 
-# When should I use web search, extended thinking, and research?
-
-Updated over 3 weeks ago
-
 Claude offers several powerful capabilities to help you find information and solve problems. Understanding when to use each option—web search, extended thinking, and research—can help you get the best results for your specific needs. This guide explains the ideal use cases for each feature and how they can work together to enhance your experience.
 
 For more information on availability, enabling, and using each feature, explore the resources below:
@@ -32,4 +28,8 @@ Research is optimal for comprehensive information gathering requiring five or mo
 
 Combining extended thinking with research allows Claude to both plan its approach thoughtfully and execute comprehensive information gathering, as when researching emerging technologies for a business proposal or analyzing multiple scientific papers for a research project. The research feature can synthesize information across multiple sources with proper citations and produces a longer final report.
 
-[Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)[Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)[FAQs on Using Claude for Education at Your University](https://support.claude.com/en/articles/11139144-faqs-on-using-claude-for-education-at-your-university)[Use Claude in Slack](https://support.claude.com/en/articles/12461605-use-claude-in-slack)[Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
+* [Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)
+* [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
+* [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
+* [Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
+* [MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)

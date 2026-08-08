@@ -1,8 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/extended-thinking-extended-thinking -->
 
-# Extended Thinking
+#  Extended Thinking
 
-## Table of contents
+##  Table of contents
 
 * [Setup](#setup)
 * [Basic example](#basic-example)
@@ -13,85 +13,119 @@
 
 This notebook demonstrates how to use Claude 3.7 Sonnet's extended thinking feature with various examples and edge cases.
 
-Extended thinking gives Claude 3.7 Sonnet enhanced reasoning capabilities for complex tasks, while also providing transparency into its step-by-step thought process before it delivers its final answer. When extended thinking is turned on, Claude creates `thinking` content blocks where it outputs its internal reasoning. Claude incorporates insights from this reasoning before crafting a final response. For more information on extended thinking, see our [documentation](https://docs.claude.com/en/docs/build-with-claude/extended-thinking).
+Extended thinking gives Claude 3.7 Sonnet enhanced reasoning capabilities for complex tasks, while also providing transparency into its step-by-step thought process before it delivers its final answer. When extended thinking is turned on, Claude creates `thinking` content blocks where it outputs its internal reasoning. Claude incorporates insights from this reasoning before crafting a final response. For more information on extended thinking, see our [documentation(opens in new tab)](https://docs.claude.com/en/docs/build-with-claude/extended-thinking).
 
-## Setup
+##  Setup
 
 First, let's install the necessary packages and set up our environment.
 
-python
+
 
-```
 %pip install anthropic
-```
 
-python
+
 
-```
 import anthropic
+
 import os
 
 # Set your API key as an environment variable or directly
-# os.environ["ANTHROPIC_API_KEY"] = "your-api-key-here"
+
+# os.environ["ANTHROPIC\_API\_KEY"] = "your-api-key-here"
 
 # Initialize the client
+
 client = anthropic.Anthropic()
 
 # Helper functions
-def print_thinking_response(response):
-    """Pretty print a message response with thinking blocks."""
-    print("\n==== FULL RESPONSE ====")
-    for block in response.content:
-        if block.type == "thinking":
-            print("\n🧠 THINKING BLOCK:")
-            # Show truncated thinking for readability
-            print(block.thinking[:500] + "..." if len(block.thinking) > 500 else block.thinking)
-            print(f"\n[Signature available: {bool(getattr(block, 'signature', None))}]")
-            if hasattr(block, 'signature') and block.signature:
-                print(f"[Signature (first 50 chars): {block.signature[:50]}...]")
-        elif block.type == "redacted_thinking":
-            print("\n🔒 REDACTED THINKING BLOCK:")
-            print(f"[Data length: {len(block.data) if hasattr(block, 'data') else 'N/A'}]")
-        elif block.type == "text":
-            print("\n✓ FINAL ANSWER:")
-            print(block.text)
 
-    print("\n==== END RESPONSE ====")
+def print\_thinking\_response(response):
 
-def count_tokens(messages):
-    """Count tokens for a given message list."""
-    result = client.messages.count_tokens(
-        model="claude-sonnet-4-6",
-        messages=messages
-    )
-    return result.input_tokens
-```
+"""Pretty print a message response with thinking blocks."""
 
-## Basic example
+print("\n==== FULL RESPONSE ====")
+
+for block in response.content:
+
+if block.type == "thinking":
+
+print("\n🧠 THINKING BLOCK:")
+
+# Show truncated thinking for readability
+
+print(block.thinking[:500] + "..." if len(block.thinking) > 500 else block.thinking)
+
+print(f"\n[Signature available: {bool(getattr(block, 'signature', None))}]")
+
+if hasattr(block, 'signature') and block.signature:
+
+print(f"[Signature (first 50 chars): {block.signature[:50]}...]")
+
+elif block.type == "redacted\_thinking":
+
+print("\n🔒 REDACTED THINKING BLOCK:")
+
+print(f"[Data length: {len(block.data) if hasattr(block, 'data') else 'N/A'}]")
+
+elif block.type == "text":
+
+print("\n✓ FINAL ANSWER:")
+
+print(block.text)
+
+print("\n==== END RESPONSE ====")
+
+def count\_tokens(messages):
+
+"""Count tokens for a given message list."""
+
+result = client.messages.count\_tokens(
+
+model="claude-sonnet-4-6",
+
+messages=messages
+
+)
+
+return result.input\_tokens
+
+##  Basic example
 
 Let's start with a basic example to show extended thinking in action:
 
-python
+
 
-```
-def basic_thinking_example():
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=4000,
-        thinking= {
-            "type": "enabled",
-            "budget_tokens": 2000
-        },
-        messages=[{
-            "role": "user",
-            "content": "Solve this puzzle: Three people check into a hotel. They pay $30 to the manager. The manager finds out that the room only costs $25 so he gives $5 to the bellboy to return to the three people. The bellboy, however, decides to keep $2 and gives $1 back to each person. Now, each person paid $10 and got back $1, so they paid $9 each, totaling $27. The bellboy kept $2, which makes $29. Where is the missing $1?"
-        }]
-    )
+def basic\_thinking\_example():
 
-    print_thinking_response(response)
+response = client.messages.create(
 
-basic_thinking_example()
-```
+model="claude-sonnet-4-6",
+
+max\_tokens=4000,
+
+thinking= {
+
+"type": "enabled",
+
+"budget\_tokens": 2000
+
+},
+
+messages=[{
+
+"role": "user",
+
+"content": "Solve this puzzle: Three people check into a hotel. They pay $30 to the manager. The manager finds out that the room only costs $25 so he gives $5 to the bellboy to return to the three people. The bellboy, however, decides to keep $2 and gives $1 back to each person. Now, each person paid $10 and got back $1, so they paid $9 each, totaling $27. The bellboy kept $2, which makes $29. Where is the missing $1?"
+
+}]
+
+)
+
+print\_thinking\_response(response)
+
+basic\_thinking\_example()
+
+
 
 ```
 ==== FULL RESPONSE ====
@@ -147,58 +181,91 @@ There is no missing dollar. The puzzle creates confusion by inappropriately addi
 ==== END RESPONSE ====
 ```
 
-## Streaming with extended thinking
+##  Streaming with extended thinking
 
 This example shows how to handle streaming with thinking:
 
-python
+
 
-```
-def streaming_with_thinking():
-    with client.messages.stream(
-        model="claude-sonnet-4-6",
-        max_tokens=4000,
-        thinking={
-            "type": "enabled",
-            "budget_tokens": 2000
-        },
-        messages=[{
-            "role": "user",
-            "content": "Solve this puzzle: Three people check into a hotel. They pay $30 to the manager. The manager finds out that the room only costs $25 so he gives $5 to the bellboy to return to the three people. The bellboy, however, decides to keep $2 and gives $1 back to each person. Now, each person paid $10 and got back $1, so they paid $9 each, totaling $27. The bellboy kept $2, which makes $29. Where is the missing $1?"
-        }]
-    ) as stream:
-        # Track what we're currently building
-        current_block_type = None
-        current_content = ""
+def streaming\_with\_thinking():
 
-        for event in stream:
-            if event.type == "content_block_start":
-                current_block_type = event.content_block.type
-                print(f"\n--- Starting {current_block_type} block ---")
-                current_content = ""
+with client.messages.stream(
 
-            elif event.type == "content_block_delta":
-                if event.delta.type == "thinking_delta":
-                    print(event.delta.thinking, end="", flush=True)  # Just print dots for thinking to avoid clutter
-                    current_content += event.delta.thinking
-                elif event.delta.type == "text_delta":
-                    print(event.delta.text, end="", flush=True)
-                    current_content += event.delta.text
+model="claude-sonnet-4-6",
 
-            elif event.type == "content_block_stop":
-                if current_block_type == "thinking":
-                    # Just show a summary for thinking
-                    print(f"\n[Completed thinking block, {len(current_content)} characters]")
-                elif current_block_type == "redacted_thinking":
-                    print("\n[Redacted thinking block]")
-                print(f"--- Finished {current_block_type} block ---\n")
-                current_block_type = None
+max\_tokens=4000,
 
-            elif event.type == "message_stop":
-                print("\n--- Message complete ---")
+thinking={
 
-streaming_with_thinking()
-```
+"type": "enabled",
+
+"budget\_tokens": 2000
+
+},
+
+messages=[{
+
+"role": "user",
+
+"content": "Solve this puzzle: Three people check into a hotel. They pay $30 to the manager. The manager finds out that the room only costs $25 so he gives $5 to the bellboy to return to the three people. The bellboy, however, decides to keep $2 and gives $1 back to each person. Now, each person paid $10 and got back $1, so they paid $9 each, totaling $27. The bellboy kept $2, which makes $29. Where is the missing $1?"
+
+}]
+
+) as stream:
+
+# Track what we're currently building
+
+current\_block\_type = None
+
+current\_content = ""
+
+for event in stream:
+
+if event.type == "content\_block\_start":
+
+current\_block\_type = event.content\_block.type
+
+print(f"\n--- Starting {current\_block\_type} block ---")
+
+current\_content = ""
+
+elif event.type == "content\_block\_delta":
+
+if event.delta.type == "thinking\_delta":
+
+print(event.delta.thinking, end="", flush=True) # Just print dots for thinking to avoid clutter
+
+current\_content += event.delta.thinking
+
+elif event.delta.type == "text\_delta":
+
+print(event.delta.text, end="", flush=True)
+
+current\_content += event.delta.text
+
+elif event.type == "content\_block\_stop":
+
+if current\_block\_type == "thinking":
+
+# Just show a summary for thinking
+
+print(f"\n[Completed thinking block, {len(current\_content)} characters]")
+
+elif current\_block\_type == "redacted\_thinking":
+
+print("\n[Redacted thinking block]")
+
+print(f"--- Finished {current\_block\_type} block ---\n")
+
+current\_block\_type = None
+
+elif event.type == "message\_stop":
+
+print("\n--- Message complete ---")
+
+streaming\_with\_thinking()
+
+
 
 ```
 --- Starting thinking block ---
@@ -261,72 +328,113 @@ There is no missing dollar - it's just an accounting trick!--- Finished text blo
 --- Message complete ---
 ```
 
-## Token counting and context window management
+##  Token counting and context window management
 
 This example demonstrates how to track token usage with extended thinking:
 
-python
+
 
-```
-def token_counting_example():
-    # Define a function to create a sample prompt
-    def create_sample_messages():
-        messages = [{
-            "role": "user",
-            "content": "Solve this puzzle: Three people check into a hotel. They pay $30 to the manager. The manager finds out that the room only costs $25 so he gives $5 to the bellboy to return to the three people. The bellboy, however, decides to keep $2 and gives $1 back to each person. Now, each person paid $10 and got back $1, so they paid $9 each, totaling $27. The bellboy kept $2, which makes $29. Where is the missing $1?"
-        }]
-        return messages
+def token\_counting\_example():
 
-    # Count tokens without thinking
-    base_messages = create_sample_messages()
-    base_token_count = count_tokens(base_messages)
-    print(f"Base token count (input only): {base_token_count}")
+# Define a function to create a sample prompt
 
-    # Make a request with thinking and check actual usage
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=8000,
-        thinking = {
-            "type": "enabled",
-            "budget_tokens": 2000
-        },
-        messages=base_messages
-    )
+def create\_sample\_messages():
 
-    # Calculate and print token usage stats
-    thinking_tokens = sum(
-        len(block.thinking.split()) * 1.3  # Rough estimate
-        for block in response.content
-        if block.type == "thinking"
-    )
+messages = [{
 
-    final_answer_tokens = sum(
-        len(block.text.split()) * 1.3  # Rough estimate
-        for block in response.content
-        if block.type == "text"
-    )
+"role": "user",
 
-    print(f"\nEstimated thinking tokens used: ~{int(thinking_tokens)}")
-    print(f"Estimated final answer tokens: ~{int(final_answer_tokens)}")
-    print(f"Total estimated output tokens: ~{int(thinking_tokens + final_answer_tokens)}")
-    print(f"Input tokens + max_tokens = {base_token_count + 8000}")
-    print(f"Available for final answer after thinking: ~{8000 - int(thinking_tokens)}")
+"content": "Solve this puzzle: Three people check into a hotel. They pay $30 to the manager. The manager finds out that the room only costs $25 so he gives $5 to the bellboy to return to the three people. The bellboy, however, decides to keep $2 and gives $1 back to each person. Now, each person paid $10 and got back $1, so they paid $9 each, totaling $27. The bellboy kept $2, which makes $29. Where is the missing $1?"
 
-    # Demo with escalating thinking budgets
-    thinking_budgets = [1024, 2000, 4000, 8000, 16000, 32000]
-    context_window = 200000
-    for budget in thinking_budgets:
-        print(f"\nWith thinking budget of {budget} tokens:")
-        print(f"Input tokens: {base_token_count}")
-        print(f"Max tokens needed: {base_token_count + budget + 1000}")  # Add 1000 for final answer
-        print(f"Remaining context window: {context_window - (base_token_count + budget + 1000)}")
+}]
 
-        if base_token_count + budget + 1000 > context_window:
-            print("WARNING: This would exceed the context window of 200k tokens!")
+return messages
+
+# Count tokens without thinking
+
+base\_messages = create\_sample\_messages()
+
+base\_token\_count = count\_tokens(base\_messages)
+
+print(f"Base token count (input only): {base\_token\_count}")
+
+# Make a request with thinking and check actual usage
+
+response = client.messages.create(
+
+model="claude-sonnet-4-6",
+
+max\_tokens=8000,
+
+thinking = {
+
+"type": "enabled",
+
+"budget\_tokens": 2000
+
+},
+
+messages=base\_messages
+
+)
+
+# Calculate and print token usage stats
+
+thinking\_tokens = sum(
+
+len(block.thinking.split()) \* 1.3 # Rough estimate
+
+for block in response.content
+
+if block.type == "thinking"
+
+)
+
+final\_answer\_tokens = sum(
+
+len(block.text.split()) \* 1.3 # Rough estimate
+
+for block in response.content
+
+if block.type == "text"
+
+)
+
+print(f"\nEstimated thinking tokens used: ~{int(thinking\_tokens)}")
+
+print(f"Estimated final answer tokens: ~{int(final\_answer\_tokens)}")
+
+print(f"Total estimated output tokens: ~{int(thinking\_tokens + final\_answer\_tokens)}")
+
+print(f"Input tokens + max\_tokens = {base\_token\_count + 8000}")
+
+print(f"Available for final answer after thinking: ~{8000 - int(thinking\_tokens)}")
+
+# Demo with escalating thinking budgets
+
+thinking\_budgets = [1024, 2000, 4000, 8000, 16000, 32000]
+
+context\_window = 200000
+
+for budget in thinking\_budgets:
+
+print(f"\nWith thinking budget of {budget} tokens:")
+
+print(f"Input tokens: {base\_token\_count}")
+
+print(f"Max tokens needed: {base\_token\_count + budget + 1000}") # Add 1000 for final answer
+
+print(f"Remaining context window: {context\_window - (base\_token\_count + budget + 1000)}")
+
+if base\_token\_count + budget + 1000 > context\_window:
+
+print("WARNING: This would exceed the context window of 200k tokens!")
 
 # Uncomment to run the example
-token_counting_example()
-```
+
+token\_counting\_example()
+
+
 
 ```
 Base token count (input only): 125
@@ -368,54 +476,83 @@ Max tokens needed: 33125
 Remaining context window: 166875
 ```
 
-## Understanding redacted thinking blocks
+##  Understanding redacted thinking blocks
 
 Occasionally Claude's internal reasoning will be flagged by safety systems. When this occurs, we encrypt some or all of the `thinking` block and return it to you as a `redacted_thinking` block. These redacted thinking blocks are decrypted when passed back to the API, allowing Claude to continue its response without losing context.
 
 This example demonstrates working with redacted thinking blocks using a special test string that triggers them:
 
-python
+
 
-```
-def redacted_thinking_example():
-    # Using the special test string that triggers redacted thinking
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=4000,
-        thinking={
-            "type": "enabled",
-            "budget_tokens": 2000
-        },
-        messages=[{
-            "role": "user",
-            "content": "ANTHROPIC_MAGIC_STRING_TRIGGER_REDACTED_THINKING_46C9A13E193C177646C7398A98432ECCCE4C1253D5E2D82641AC0E52CC2876CB"
-        }]
-    )
+def redacted\_thinking\_example():
 
-    # Identify redacted thinking blocks
-    redacted_blocks = [block for block in response.content if block.type == "redacted_thinking"]
-    thinking_blocks = [block for block in response.content if block.type == "thinking"]
-    text_blocks = [block for block in response.content if block.type == "text"]
-    print(response.content)
-    print(f"Response includes {len(response.content)} total blocks:")
-    print(f"- {len(redacted_blocks)} redacted thinking blocks")
-    print(f"- {len(thinking_blocks)} regular thinking blocks")
-    print(f"- {len(text_blocks)} text blocks")
+# Using the special test string that triggers redacted thinking
 
-    # Show data properties of redacted blocks
-    if redacted_blocks:
-        print(f"\nRedacted thinking blocks contain encrypted data:")
-        for i, block in enumerate(redacted_blocks[:3]):  # Show first 3 at most
-            print(f"Block {i+1} data preview: {block.data[:50]}...")
+response = client.messages.create(
 
-    # Print the final text output
-    if text_blocks:
-        print(f"\nFinal text response:")
-        print(text_blocks[0].text)
+model="claude-sonnet-4-6",
+
+max\_tokens=4000,
+
+thinking={
+
+"type": "enabled",
+
+"budget\_tokens": 2000
+
+},
+
+messages=[{
+
+"role": "user",
+
+"content": "ANTHROPIC\_MAGIC\_STRING\_TRIGGER\_REDACTED\_THINKING\_46C9A13E193C177646C7398A98432ECCCE4C1253D5E2D82641AC0E52CC2876CB"
+
+}]
+
+)
+
+# Identify redacted thinking blocks
+
+redacted\_blocks = [block for block in response.content if block.type == "redacted\_thinking"]
+
+thinking\_blocks = [block for block in response.content if block.type == "thinking"]
+
+text\_blocks = [block for block in response.content if block.type == "text"]
+
+print(response.content)
+
+print(f"Response includes {len(response.content)} total blocks:")
+
+print(f"- {len(redacted\_blocks)} redacted thinking blocks")
+
+print(f"- {len(thinking\_blocks)} regular thinking blocks")
+
+print(f"- {len(text\_blocks)} text blocks")
+
+# Show data properties of redacted blocks
+
+if redacted\_blocks:
+
+print(f"\nRedacted thinking blocks contain encrypted data:")
+
+for i, block in enumerate(redacted\_blocks[:3]): # Show first 3 at most
+
+print(f"Block {i+1} data preview: {block.data[:50]}...")
+
+# Print the final text output
+
+if text\_blocks:
+
+print(f"\nFinal text response:")
+
+print(text\_blocks[0].text)
 
 # Uncomment to run the example
-redacted_thinking_example()
-```
+
+redacted\_thinking\_example()
+
+
 
 ```
 [TextBlock(citations=None, text=None, type='redacted_thinking', data='EvAFCoYBGAIiQL7asmglEdeKXw4EdihR2gBQ7O7+j/dGecLjsS2PMgW9av+NRwuIV2nFD4I61hUHrp5vzJF7/y+i/vvbnxaRnwMqQMizGiLSDcowtEvP9EcIT4d75iPhZ8TaiVdD22bZp3YVcc0laY8u1lEJTSesgLUywuc3QHZcg4NZ7tKjWwKgcVUSDHgb6gZUK9aP47KvNxoMCNjkIDR40zmq/QmVIjBSCnvTMSUE+jnmLZSq1TZO9T7ImALNJt8I5j1ls24CO1fibsRThJ7Ha5A0/tuEKVoqlgRc+e2tS+BQMXx572lT4Hkl4aVpcM4SQbqBjeVeR3NmCBLoOxlQ2JLiIYwMHUS/K9GDLyMQcYd1KUWgN34CZRK7k44CSkNsO8oh4uj/1qsRsZjq1l6RQ29rLKSEXvMU4XbZufJ1icvYZS1I6PIZzER6/u6it+WNYyBxJ2vaFICjDePNgIHfRA/ceTz9mfCtBiTfagyPBbs2HflXlSlW26TSdI7PKof5/EsQ+DUkjAy+9VTLX7zHYzNZtwJPL2ryYw4loSwRbc4syldA0Ncnn7hA+yJyY0QwSrxZFIm/t9X9p9s+2SL0F4wSRsimnxRiIhfJD3i+oTw8AbGklyoP0kCH2WxA7Gr3rNLJVkRTJl48AjlSL7ClaWvLWrNer13etD7n5rbwiXOn5husy8gAm5GE3/eFyty3Y+/ad+lMPKXSjL0aP67WoJrFq/teItolOVZeOOERjVFdw5jIV1EUknlAZ/pfI53pLYqwFl17M7IXMdGxEaKoGDIKcnYTwT31uUNlB5JSBWoq1SnkFsFy2zDsDTFzjml3HEXz4szZi3j5/qHWJlMMCcB1walZUisxEp0v1euvcgatY5wfYSiAP3s9wOrgYKCkuLcidlgiyQHJB1haZjO8/tZ9gzWk1n//7pTncdKgd5ZK9/ErxWFlBV/vQwjp0cB7zoVcLh1ydi/Coea6ZOuei+ICKVl4IcR2A6DD8gtEJmc='), TextBlock(citations=None, text="I notice you've sent what appears to be a prompt attempting to access internal systems or processes. I can't respond to commands of this nature.\n\nInstead, I'm happy to have a normal conversation and assist you with legitimate questions or tasks. What would you like help with today?", type='text')]
@@ -433,7 +570,7 @@ I notice you've sent what appears to be a prompt attempting to access internal s
 Instead, I'm happy to have a normal conversation and assist you with legitimate questions or tasks. What would you like help with today?
 ```
 
-## Handling error cases
+##  Handling error cases
 
 When using extended thinking, keep in mind:
 
@@ -443,68 +580,117 @@ When using extended thinking, keep in mind:
 
 For more details on extended thinking with tool use, see the "Extended Thinking with Tool Use" notebook.
 
-python
+
 
-```
-def demonstrate_common_errors():
-    # 1. Error from setting thinking budget too small
-    try:
-        response = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=4000,
-            thinking={
-                "type": "enabled",
-                "budget_tokens": 500  # Too small, minimum is 1024
-            },
-            messages=[{
-                "role": "user",
-                "content": "Explain quantum computing."
-            }]
-        )
-    except Exception as e:
-        print(f"\nError with too small thinking budget: {e}")
+def demonstrate\_common\_errors():
 
-    # 2. Error from using temperature with thinking
-    try:
-        response = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=4000,
-            temperature=0.7,  # Not compatible with thinking
-            thinking={
-                "type": "enabled",
-                "budget_tokens": 2000
-            },
-            messages=[{
-                "role": "user",
-                "content": "Write a creative story."
-            }]
-        )
-    except Exception as e:
-        print(f"\nError with temperature and thinking: {e}")
+# 1. Error from setting thinking budget too small
 
-    # 3. Error from exceeding context window
-    try:
-        # Create a very large prompt
-        long_content = "Please analyze this text. " + "This is sample text. " * 150000
+try:
 
-        response = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=20000,  # This plus the long prompt will exceed context window
-            thinking={
-                "type": "enabled",
-                "budget_tokens": 10000
-            },
-            messages=[{
-                "role": "user",
-                "content": long_content
-            }]
-        )
-    except Exception as e:
-        print(f"\nError from exceeding context window: {e}")
+response = client.messages.create(
+
+model="claude-sonnet-4-6",
+
+max\_tokens=4000,
+
+thinking={
+
+"type": "enabled",
+
+"budget\_tokens": 500 # Too small, minimum is 1024
+
+},
+
+messages=[{
+
+"role": "user",
+
+"content": "Explain quantum computing."
+
+}]
+
+)
+
+except Exception as e:
+
+print(f"\nError with too small thinking budget: {e}")
+
+# 2. Error from using temperature with thinking
+
+try:
+
+response = client.messages.create(
+
+model="claude-sonnet-4-6",
+
+max\_tokens=4000,
+
+temperature=0.7, # Not compatible with thinking
+
+thinking={
+
+"type": "enabled",
+
+"budget\_tokens": 2000
+
+},
+
+messages=[{
+
+"role": "user",
+
+"content": "Write a creative story."
+
+}]
+
+)
+
+except Exception as e:
+
+print(f"\nError with temperature and thinking: {e}")
+
+# 3. Error from exceeding context window
+
+try:
+
+# Create a very large prompt
+
+long\_content = "Please analyze this text. " + "This is sample text. " \* 150000
+
+response = client.messages.create(
+
+model="claude-sonnet-4-6",
+
+max\_tokens=20000, # This plus the long prompt will exceed context window
+
+thinking={
+
+"type": "enabled",
+
+"budget\_tokens": 10000
+
+},
+
+messages=[{
+
+"role": "user",
+
+"content": long\_content
+
+}]
+
+)
+
+except Exception as e:
+
+print(f"\nError from exceeding context window: {e}")
 
 # Run the common error examples
-demonstrate_common_errors()
-```
+
+demonstrate\_common\_errors()
+
+
 
 ```
 Error with too small thinking budget: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'thinking.enabled.budget_tokens: Input should be greater than or equal to 1024'}}

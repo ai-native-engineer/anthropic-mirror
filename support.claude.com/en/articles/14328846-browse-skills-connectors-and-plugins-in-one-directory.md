@@ -1,10 +1,8 @@
 <!-- source: https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory -->
 
-# Browse skills, connectors, and plugins in one directory
-
-Updated over a month ago
-
 Our unified directory brings skills, connectors, and plugins together in one place so you can find and install everything that customizes Claude without switching between separate menus. On Team and Enterprise plans, the directory is also where skills shared across your organization appear.
+
+---
 
 ## Access the directory
 
@@ -37,4 +35,8 @@ Skill sharing to the directory is off by default. To let people in your organiza
 
 For full details on configuring sharing and provisioning skills centrally, see **[Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)**.
 
-[What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)[Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)[Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)[Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)[Install financial services plugins](https://support.claude.com/en/articles/13851150-install-financial-services-plugins)
+* [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
+* [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+* [Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)
+* [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
+* [Get started with skill and plugin scanning](https://support.claude.com/en/articles/15927065-get-started-with-skill-and-plugin-scanning)

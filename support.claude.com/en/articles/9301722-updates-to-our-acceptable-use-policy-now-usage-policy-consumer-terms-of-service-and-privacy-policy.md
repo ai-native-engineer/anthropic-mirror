@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy -->
 
-# Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy
-
 At Anthropic, we periodically review our policies and terms to ensure we’re providing the highest level of protection and clarity for our users. As our products evolve, we also want to keep you informed about our latest updates:
 
 * Claude is now available as an iOS app via the [Apple App Store](https://apps.apple.com/app/claude/id6473753684) so you can access Claude from anywhere, any time.
@@ -32,4 +30,8 @@ You can review our full **[Usage Policy](https://www.anthropic.com/legal/aup)**,
 
 Thanks for using Claude! We appreciate you taking the time to stay informed on these updates as we work to responsibly deploy our products more broadly.
 
-[Terms of Service Updates](https://support.claude.com/en/articles/9190861-terms-of-service-updates)[Consumer Terms of Service Updates](https://support.claude.com/en/articles/9264813-consumer-terms-of-service-updates)[Who owns and manages the data of my team?](https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)[Does Anthropic Act as a Data Processor or Controller?](https://support.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)[Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
+* [Terms of Service Updates](https://support.claude.com/en/articles/9190861-terms-of-service-updates)
+* [Consumer Terms of Service Updates](https://support.claude.com/en/articles/9264813-consumer-terms-of-service-updates)
+* [Who owns and manages the data of my team?](https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
+* [Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
+* [Claude for Teachers: your data and our terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms)

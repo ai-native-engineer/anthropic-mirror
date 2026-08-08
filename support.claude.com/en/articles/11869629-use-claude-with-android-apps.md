@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/11869629-use-claude-with-android-apps -->
 
-# Use Claude with Android apps
-
-Updated over a week ago
-
 Claude can now connect with your Android device's system apps to help you take action directly from your conversations. When you chat with Claude, it can draft messages, emails, calendar events, set alarms and timers, find locations, and more—all through your everyday apps without copy-paste.
 
 This feature is supported on all Claude plans and works with your device's native and third-party apps, including messaging, email, calendar, alarms, timers, location services, maps, and Health Connect (in beta on Pro and Max plans only).
@@ -28,6 +24,8 @@ Claude can help you:
 * **Reminders:** These are exclusively available on Claude for iOS, so Claude can’t create and manage reminders on Android.
 * **Contacts:** Claude does not have direct access to your contacts.
 * **Health:** Available on Pro and Max plans only. Requires Android 14 or later and Health Connect. Currently limited to users in the US. Claude can read health data but cannot write or modify entries in Health Connect.
+
+---
 
 ## How Claude helps you take action
 
@@ -87,6 +85,8 @@ When Claude determines that using one of these features would be helpful, it wil
 * "Set an alarm for 7 AM tomorrow."
 * "Start a 20-minute timer for my workout."
 
+---
+
 ## Access and analyze your health data
 
 **Note:** Health features are available in beta on Pro and Max plans only, require Android 14 or later, and are limited to users in the US.
@@ -143,6 +143,8 @@ Tap on chart elements to see more details about specific data points.
 
 Be specific about what type of action you want Claude to take and include all relevant details like recipients, dates, times, and durations in your request. For alarms, specify AM/PM and any recurring days you need. For timers, mention what the timer is for to help with labeling. Always review content in the destination app before sending or saving.
 
+---
+
 ## What data can Claude access?
 
 Claude only accesses the data necessary for each specific request:
@@ -167,11 +169,13 @@ Permission requirements vary by feature:
 
 For features requiring permissions (like location or calendar access), Claude will request permission contextually with clear explanations of why the access is needed. You’ll be prompted to approve the action with three options: Allow once, Always allow, or Don't allow.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1785803400&signature=cdd1c4a551ba1c2305eefdedec95554814c3b8ac40e41c76e75a7c2069b278d6&req=dScnEcp7nIdeXfMW1HO4zQe5GlqH2ybwS5x65TIld%2FDI%2BOwKeXIqCN8NtqX4%0AENMM8u6e4TwxAtXTvdA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1785803400&signature=cdd1c4a551ba1c2305eefdedec95554814c3b8ac40e41c76e75a7c2069b278d6&req=dScnEcp7nIdeXfMW1HO4zQe5GlqH2ybwS5x65TIld%2FDI%2BOwKeXIqCN8NtqX4%0AENMM8u6e4TwxAtXTvdA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1786167000&signature=5ee5ef8ad31ddf7405dc516aba4919e01a59342113f1fb352a1f24701dd2d38a&req=dScnEcp7nIdeXfMW1HO4zQe5GlmO3SL0S5x65TIld%2FAiDTdX6iEKa5kYJP%2Fj%0A5R03L%2BKw1lalZvqOTeg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1786167000&signature=5ee5ef8ad31ddf7405dc516aba4919e01a59342113f1fb352a1f24701dd2d38a&req=dScnEcp7nIdeXfMW1HO4zQe5GlmO3SL0S5x65TIld%2FAiDTdX6iEKa5kYJP%2Fj%0A5R03L%2BKw1lalZvqOTeg%3D%0A)
 
 These permissions can be managed at any time in your device settings by going to Settings > Apps > Claude > Permissions. Click into each permission listed under **Allowed** and **Not allowed** to make changes. You can toggle between “Allow only while using the app” or “Ask every time” to change Claude’s access, or remove permissions by choosing “Don’t allow.” Claude will only request permissions if needed for specific features, and you can always choose to decline while still using other capabilities.
 
 Health Connect permissions are managed separately from other app permissions. When Claude requests health access, you'll see the Health Connect permissions screen where you can choose exactly which data types to share. You can modify these permissions at any time by going to Settings > Apps > Health Connect > App permissions > Claude.
+
+---
 
 ## Troubleshooting
 
@@ -229,4 +233,4 @@ Health Connect permissions are managed separately from other app permissions. Wh
 * [Use the Claude widget on Android](https://support.claude.com/en/articles/10534883-use-the-claude-widget-on-android)
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
-* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)
+* [Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)

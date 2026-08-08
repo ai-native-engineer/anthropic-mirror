@@ -1,8 +1,8 @@
 <!-- source: https://claude.com/solutions/education -->
 
-# Navigating AI in higher**education together**
+# Navigating AI in higher **education together**
 
-# Navigating AI in higher**education together**
+# Navigating AI in higher **education together**
 
 Claude helps universities and colleges advance research, support teaching and learning, and run operations and student support systems more effectively.
 

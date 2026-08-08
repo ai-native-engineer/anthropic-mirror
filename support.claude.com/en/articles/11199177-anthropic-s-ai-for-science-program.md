@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/11199177-anthropic-s-ai-for-science-program -->
 
-# Anthropic's AI for Science Program
-
-March 16, 2026
-
 Our AI for Science Program is specifically designed to support researchers working on high-impact scientific projects, with a particular focus on biology and life sciences applications, by providing free API credits.
 
 If you are a researcher working on applying Generative AI to scientific research and are interested in receiving free API credits, you might qualify for our AI for Science Program. Please complete the following application form with details about your team and research project: [Application Form - Anthropic's AI for Science Program](https://docs.google.com/forms/d/e/1FAIpQLSfwDGfVg2lHJ0cc0oF_ilEnjvr_r4_paYi7VLlr5cLNXASdvA/viewform?usp=header).

@@ -8,7 +8,7 @@
 
 This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -112,22 +112,22 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  messageBatch, err := client.Messages.Batches.Get(context.TODO(), "message_batch_id")
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", messageBatch.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	messageBatch, err := client.Messages.Batches.Get(context.TODO(), "message_batch_id")
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", messageBatch.ID)
 }
 ```
 

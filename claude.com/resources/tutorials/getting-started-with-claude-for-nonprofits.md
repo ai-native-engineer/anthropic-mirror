@@ -89,3 +89,27 @@ Visit the [use case library](https://claude.com/resources/use-cases/category/non
 * **Team plan option greyed out:** Make sure you're signed in to the correct account and have admin permissions
 * **Email domain questions:** All team members don't need the same domain. Learn about [allowed email domains](https://support.claude.com/en/articles/13325567-account-management-faqs#h_b54c41c86c).
 * **Connecting tools:** Learn how to [browse and connect tools from the directory](https://support.claude.com/en/articles/11724452-using-the-connectors-directory-to-extend-claude-s-capabilities).
+
+[Using the Candid connector in Claude](https://claude.com/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
+
+Using the Candid connector in Claude
+
+[Tutorial](https://claude.com/resources/tutorials/using-the-candid-connector-in-claude)Tutorial
+
+[Using the Blackbaud connector in Claude](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
+
+Using the Blackbaud connector in Claude
+
+[Tutorial](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Tutorial
+
+[Using the Benevity connector in Claude](https://claude.com/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
+
+Using the Benevity connector in Claude
+
+[Tutorial](https://claude.com/resources/tutorials/using-the-benevity-connector-in-claude)Tutorial
+
+[Claude for nonprofits partnership guide for all users](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
+
+Claude for nonprofits partnership guide for all users
+
+[Tutorial](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Tutorial

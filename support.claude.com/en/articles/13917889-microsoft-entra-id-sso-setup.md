@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup -->
 
-# Microsoft Entra ID SSO setup
-
-Updated today
-
 This guide walks you through configuring single sign-on (SSO) for Claude using Microsoft Entra ID (formerly Azure Active Directory) as your identity provider. It applies to Team plans, Enterprise plans, and Console organizations.
 
 ## Prerequisites
@@ -22,6 +18,8 @@ The Entity ID, Reply URL (ACS URL), and SCIM credentials referenced below are pr
 * **Console organizations:** go to **[platform.claude.com/settings/identity](https://platform.claude.com/settings/identity)**
 
 Start the SSO setup flow there and keep it open alongside the Entra Admin Center as you work through the steps below.
+
+---
 
 ## Step 1 — Add Claude as an enterprise application in Entra
 
@@ -60,6 +58,8 @@ Start the SSO setup flow there and keep it open alongside the Entra Admin Center
 
 1. If you enabled SCIM, trigger a provisioning cycle and confirm people appear in Claude's admin settings.
 2. Have a test user complete SSO login and verify they land in your organization's workspace.
+
+---
 
 ## Need help?
 

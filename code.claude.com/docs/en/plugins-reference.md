@@ -8,8 +8,6 @@
   Looking to install plugins? See [Discover and install plugins](/docs/en/discover-plugins). For creating plugins, see [Plugins](/docs/en/plugins). For distributing plugins, see [Plugin marketplaces](/docs/en/plugin-marketplaces).
 </Tip>
 
-This reference provides complete technical specifications for the Claude Code plugin system, including component schemas, CLI commands, and development tools.
-
 A **plugin** is a self-contained directory of components that extends Claude Code with custom functionality. Plugin components include skills, agents, hooks, MCP servers, LSP servers, and monitors.
 
 ## Plugin components reference
@@ -34,11 +32,7 @@ skills/
     └── SKILL.md
 ```
 
-**Integration behavior**:
-
-* Skills and commands are automatically discovered when the plugin is installed
-* Claude can invoke them automatically based on task context
-* Skills can include supporting files alongside SKILL.md
+Skills and commands are automatically discovered when the plugin is installed.
 
 If a plugin has no `skills/` directory and no `skills` manifest field, a `SKILL.md` at the plugin root is loaded as a single skill. Set the frontmatter `name` field to control the skill's invocation name. Without it, Claude Code falls back to the install directory name, which for marketplace-installed plugins is a version string that changes on every update. For plugins that ship more than one skill, use the `skills/` directory layout shown above.
 
@@ -71,12 +65,7 @@ Detailed system prompt for the agent describing its role, expertise, and behavio
 
 Plugin agents support `name`, `description`, `model`, `effort`, `maxTurns`, `tools`, `disallowedTools`, `skills`, `memory`, `background`, and `isolation` frontmatter fields. The only valid `isolation` value is `"worktree"`. For security reasons, `hooks`, `mcpServers`, and `permissionMode` are not supported for plugin-shipped agents.
 
-**Integration points**:
-
-* Agents appear in the [@-mention typeahead](/docs/en/sub-agents#invoke-subagents-explicitly) under their scoped name, such as `my-plugin:code-reviewer`, once the plugin is enabled
-* Claude can invoke agents automatically based on task context
-* Agents can be invoked manually by users
-* Plugin agents work alongside built-in Claude agents
+Agents appear in the [@-mention typeahead](/docs/en/sub-agents#invoke-subagents-explicitly) under their scoped name, such as `my-plugin:code-reviewer`, once the plugin is enabled.
 
 For complete details, see [Subagents](/docs/en/sub-agents).
 
@@ -186,7 +175,6 @@ Plugins can bundle Model Context Protocol (MCP) servers to connect Claude Code w
 
 * Plugin MCP servers start automatically when the plugin is enabled
 * Servers appear as standard MCP tools in Claude's toolkit
-* Server capabilities integrate seamlessly with Claude's existing tools
 * Plugin servers can be configured independently of user MCP servers
 * If you run [`/reload-plugins`](/docs/en/discover-plugins#apply-plugin-changes-without-restarting) mid-session, Claude Code keeps the live connections of servers whose configuration is unchanged
 
@@ -268,7 +256,7 @@ LSP integration provides:
 
 **Servers that fail to initialize**: Claude Code skips a server whose configuration is invalid, for example one missing `command` or `extensionToLanguage`, and the other configured servers still start. Run `claude --debug` to see why a server was skipped.
 
-A skipped server doesn't claim its file extensions, so another valid server that declares the same extension, from the same or a different plugin, still handles those files. Before v2.1.205, a server that failed to initialize still claimed its extensions and blocked another valid server for the same extension.
+A skipped server doesn't claim its file extensions, so another valid server that declares the same extension, from the same or a different plugin, still handles those files.
 
 <Warning>
   **You must install the language server binary separately.** LSP plugins configure how Claude Code connects to a language server, but they don't include the server itself. If you see `Executable not found in $PATH` in the `/plugin` Errors tab, install the required binary for your language.
@@ -435,6 +423,7 @@ The manifest is optional. If omitted, Claude Code auto-discovers components in [
   "repository": "https://github.com/author/plugin",
   "license": "MIT",
   "keywords": ["keyword1", "keyword2"],
+  "metadata": { "catalogId": "cat-123", "tier": "pro" },
   "skills": "./custom/skills/",
   "commands": ["./custom/commands/special.md"],
   "agents": ["./custom/agents/reviewer.md"],
@@ -478,9 +467,10 @@ If a field is one or two characters off from a recognized one, the warning
 suggests the likely intended name. A plugin with only unrecognized-field
 warnings still passes validation and loads at runtime.
 
-Fields with the wrong type still fail. For example, a `keywords` value that is
-a string instead of an array is a load error, and `claude plugin validate`
-reports it as one.
+How Claude Code handles a recognized field whose value has the wrong type depends on the field:
+
+* **Most fields**: the plugin fails to load. For example, a `keywords` value that is a string instead of an array is a load error, and `claude plugin validate` reports it as one.
+* **`experimental` and `metadata`**: Claude Code ignores a non-object value, and `claude plugin validate` reports a warning.
 
 Pass `--strict` to treat warnings as errors. Use it in CI to catch a misspelled
 field name or a field left over from another tool's manifest before publishing,
@@ -495,15 +485,16 @@ claude plugin validate ./my-plugin --strict
 | Field            | Type    | Description                                                                                                                                                                                                                                                                                                                                      | Example                                                           |
 | :--------------- | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------- |
 | `$schema`        | string  | JSON Schema URL for editor autocomplete and validation. Claude Code ignores this field at load time.                                                                                                                                                                                                                                             | `"https://json.schemastore.org/claude-code-plugin-manifest.json"` |
-| `displayName`    | string  | {/* min-version: 2.1.143 */}Human-readable name shown in the `/plugin` picker and other UI surfaces. Falls back to `name` when omitted. Unlike `name`, may contain spaces and any casing. Not used for namespacing or lookup. Requires Claude Code v2.1.143 or later.                                                                            | `"Deployment Tools"`                                              |
-| `version`        | string  | Optional. Semantic version. Setting this pins the plugin to that version string, so users only receive updates when you bump it. If omitted, Claude Code falls back to the git commit SHA, so every commit is treated as a new version. If also set in the marketplace entry, `plugin.json` wins. See [Version management](#version-management). | `"2.1.0"`                                                         |
+| `displayName`    | string  | Human-readable name shown in the `/plugin` picker and other UI surfaces. Falls back to `name` when omitted. Unlike `name`, may contain spaces and any casing. Not used for namespacing or lookup. Requires Claude Code v2.1.143 or later.                                                                                                        | `"Deployment Tools"`                                              |
+| `version`        | string  | Optional. Semantic version. Setting this pins the plugin to that version string, so users only receive updates when you bump it. If also set in the marketplace entry, `plugin.json` wins. If omitted, the version comes from the next source in [Version management](#version-management).                                                      | `"2.1.0"`                                                         |
 | `description`    | string  | Brief explanation of plugin purpose                                                                                                                                                                                                                                                                                                              | `"Deployment automation tools"`                                   |
 | `author`         | object  | Author information                                                                                                                                                                                                                                                                                                                               | `{"name": "Dev Team", "email": "dev@company.com"}`                |
 | `homepage`       | string  | Documentation URL                                                                                                                                                                                                                                                                                                                                | `"https://docs.example.com"`                                      |
 | `repository`     | string  | Source code URL                                                                                                                                                                                                                                                                                                                                  | `"https://github.com/user/plugin"`                                |
 | `license`        | string  | License identifier                                                                                                                                                                                                                                                                                                                               | `"MIT"`, `"Apache-2.0"`                                           |
 | `keywords`       | array   | Discovery tags                                                                                                                                                                                                                                                                                                                                   | `["deployment", "ci-cd"]`                                         |
-| `defaultEnabled` | boolean | {/* min-version: 2.1.154 */}Whether the plugin starts in an enabled state when the user has not set one. Defaults to `true`. See [Default enablement](#default-enablement). Requires Claude Code v2.1.154 or later.                                                                                                                              | `false`                                                           |
+| `metadata`       | object  | Free-form object for your own data, such as entitlement or catalog fields. Claude Code doesn't read it, so the values never affect plugin behavior. Claude Code ignores a non-object value, and `claude plugin validate` reports it as a warning. Before v2.1.222, Claude Code treated the key as an [unrecognized field](#unrecognized-fields). | `{"catalogId": "cat-123"}`                                        |
+| `defaultEnabled` | boolean | Whether the plugin starts in an enabled state when the user has not set one. Defaults to `true`. See [Default enablement](#default-enablement). Requires Claude Code v2.1.154 or later.                                                                                                                                                          | `false`                                                           |
 
 ### Default enablement
 
@@ -640,12 +631,16 @@ When a plugin has both a default folder and the matching manifest key, Claude Co
 
 For all path fields:
 
-* All paths must be relative to the plugin root and start with `./`
+* All paths must be relative to the plugin root and start with `./`, except that the `skills` field also accepts `"."`
+  * Both `"."` and `"./"` denote the plugin root itself
+  * Before v2.1.221, `"."` failed manifest validation and the plugin didn't load, so use `"./"` to support earlier versions
 * Components from custom paths use the same naming and namespacing rules
 * Multiple paths can be specified as arrays
-* When a skill path points to a directory that contains a `SKILL.md` directly, for example `"skills": ["./"]` pointing to the plugin root, the frontmatter `name` field in `SKILL.md` determines the skill's invocation name. This gives a stable name regardless of the install directory. If `name` is not set in the frontmatter, the directory basename is used as a fallback.
+* A skill path can point to a directory that contains a `SKILL.md` directly, for example `"skills": ["."]` for the plugin root
+  * Claude Code takes the skill's invocation name from the frontmatter `name` field in `SKILL.md`, so the name stays stable whatever the install directory is named
+  * If `name` isn't set in the frontmatter, Claude Code falls back to the directory basename
 
-A plugin that has a `SKILL.md` at its root, no `skills/` subdirectory, and no `skills` manifest field is automatically loaded as a single-skill plugin in Claude Code v2.1.142 and later. You do not need to set `"skills": ["./"]` in `plugin.json` for this layout. The skill's invocation name follows the same rule as above: the frontmatter `name` field, or the directory basename as a fallback.
+A plugin that has a `SKILL.md` at its root, no `skills/` subdirectory, and no `skills` manifest field is automatically loaded as a single-skill plugin in Claude Code v2.1.142 and later. You do not need to set `"skills": ["./"]` in `plugin.json` for this layout.
 
 **Path examples**:
 
@@ -761,7 +756,7 @@ Plugins are specified in one of two ways:
 * Through `claude --plugin-dir` or `claude --plugin-url`, for the duration of a session.
 * Through a marketplace, installed for future sessions.
 
-For security and verification purposes, Claude Code copies *marketplace* plugins to the user's local **plugin cache** (`~/.claude/plugins/cache`) rather than using them in-place. Understanding this behavior is important when developing plugins that reference external files.
+For security and verification purposes, Claude Code copies *marketplace* plugins to the user's local **plugin cache** (`~/.claude/plugins/cache`) rather than using them in-place.
 
 Each installed version is a separate directory in the cache. When you update or uninstall a plugin, the previous version directory is marked as orphaned and removed automatically 14 days later. The grace period lets concurrent Claude Code sessions that already loaded the old version keep running without errors.
 
@@ -786,8 +781,6 @@ The following command creates a link from inside a marketplace plugin to a share
 ```bash theme={null}
 ln -s ../../shared-plugin/skills/foo ./skills/foo
 ```
-
-This provides flexibility while maintaining the security benefits of the caching system.
 
 ***
 
@@ -1008,10 +1001,6 @@ claude plugin prune [options]
 
 The command lists orphaned dependencies and asks for confirmation before removing them. To remove a plugin and clean up its dependencies in one step, run `claude plugin uninstall <plugin> --prune`.
 
-<Note>
-  `claude plugin prune` requires Claude Code v2.1.121 or later.
-</Note>
-
 ### plugin enable
 
 Enable a disabled plugin. If the plugin declares [dependencies](/docs/en/plugin-dependencies), Claude Code enables them transitively at the same scope, and the command fails when a dependency is not installed.
@@ -1192,7 +1181,7 @@ This shows:
 | Skills not appearing                | Wrong directory structure       | Ensure `skills/` or `commands/` is at the plugin root, not inside `.claude-plugin/`                                                                                                                                                    |
 | Hooks not firing                    | Script not executable           | Run `chmod +x script.sh`                                                                                                                                                                                                               |
 | MCP server fails                    | Missing `${CLAUDE_PLUGIN_ROOT}` | Use variable for all plugin paths                                                                                                                                                                                                      |
-| Path errors                         | Absolute paths used             | All paths must be relative and start with `./`                                                                                                                                                                                         |
+| Path errors                         | Absolute paths used             | Make paths relative, starting with `./`; see [Path behavior rules](#path-behavior-rules), which cover the `skills` field's `"."` exception                                                                                             |
 | LSP `Executable not found in $PATH` | Language server not installed   | Install the binary (e.g., `npm install -g typescript-language-server typescript`)                                                                                                                                                      |
 
 ### Example error messages
@@ -1245,17 +1234,6 @@ This shows:
 
 **Correct structure**: Components must be at the plugin root, not inside `.claude-plugin/`. Only `plugin.json` belongs in `.claude-plugin/`.
 
-```text theme={null}
-my-plugin/
-├── .claude-plugin/
-│   └── plugin.json      ← Only manifest here
-├── commands/            ← At root level
-├── agents/              ← At root level
-└── hooks/               ← At root level
-```
-
-If your components are inside `.claude-plugin/`, move them to the plugin root.
-
 **Debug checklist**:
 
 1. Run `claude --debug` and look for "loading plugin" messages
@@ -1275,18 +1253,16 @@ The version is resolved from the first of these that is set:
 1. The `version` field in the plugin's `plugin.json`
 2. The `version` field in the plugin's marketplace entry in `marketplace.json`
 3. The git commit SHA of the plugin's source, for `github`, `url`, `git-subdir`, and relative-path sources in a git-hosted marketplace
-4. `unknown`, for `npm` sources or local directories not inside a git repository
+4. The SHA-256 digest, for [`archive` sources](/docs/en/plugin-marketplaces#zip-archives): the `sha256` pin in the marketplace entry, or the digest of the downloaded file when you set no pin. Claude Code shortens it to the first 12 characters
+5. `unknown`, for `npm` sources or local directories not inside a git repository
 
-This gives you two ways to version a plugin:
+This gives you three ways to version a plugin:
 
-| Approach               | How                                                              | Update behavior                                                                                                                                                      | Best for                                          |
-| :--------------------- | :--------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------ |
-| **Explicit version**   | Set `"version": "2.1.0"` in `plugin.json`                        | Users get updates only when you bump this field. Pushing new commits without bumping it has no effect, and `/plugin update` reports "already at the latest version". | Published plugins with stable release cycles      |
-| **Commit-SHA version** | Omit `version` from both `plugin.json` and the marketplace entry | Users get updates on every new commit to the plugin's git source                                                                                                     | Internal or team plugins under active development |
-
-<Warning>
-  If you set `version` in `plugin.json`, you must bump it every time you want users to receive changes. Pushing new commits alone is not enough, because Claude Code sees the same version string and keeps the cached copy. If you're iterating quickly, leave `version` unset so the git commit SHA is used instead.
-</Warning>
+| Approach               | How                                                                                                                                  | Update behavior                                                                                                                                                      | Best for                                                                 |
+| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------- |
+| **Explicit version**   | Set `"version": "2.1.0"` in `plugin.json`                                                                                            | Users get updates only when you bump this field. Pushing new commits without bumping it has no effect, and `/plugin update` reports "already at the latest version". | Published plugins with stable release cycles                             |
+| **Commit-SHA version** | Omit `version` from both `plugin.json` and the marketplace entry                                                                     | Users get updates whenever the source's resolved commit changes                                                                                                      | Internal or team plugins under active development                        |
+| **Digest version**     | Use an [`archive` source](/docs/en/plugin-marketplaces#zip-archives) and omit `version` from both `plugin.json` and the marketplace entry | With a `sha256` pin, users get updates when you change the pin. Without one, users get updates whenever the hosted zip file's bytes change                           | Plugins published as zip files to a static server or artifact repository |
 
 If you use explicit versions, follow [semantic versioning](https://semver.org) (`MAJOR.MINOR.PATCH`): bump MAJOR for breaking changes, MINOR for new features, PATCH for bug fixes. Document changes in a `CHANGELOG.md`.
 

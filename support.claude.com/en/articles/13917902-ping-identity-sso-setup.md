@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13917902-ping-identity-sso-setup -->
 
-# Ping Identity SSO setup
-
-March 24, 2026
-
 This guide covers configuring Claude with PingOne or PingFederate as your identity provider. It applies to Team plans, Enterprise plans, and Console organizations.
 
 ## Prerequisites
@@ -11,16 +7,18 @@ This guide covers configuring Claude with PingOne or PingFederate as your identi
 * A Claude Team plan, Enterprise plan, or Console organization with a parent organization (see **[Important considerations before enabling SSO](https://support.claude.com/en/articles/10276682)** for Console parent org requirements)
 * Owner or Primary Owner role (Team and Enterprise) or Admin role (Console)
 * PingOne Environment Admin or PingFederate Admin access
-* Your domain verified in Claude's Identity and access settings — see **[Set up single sign-on](https://support.claude.com/en/articles/13132885)** for the full setup path including domain verification
+* Your domain verified in Claude's Identity and access settings—see **[Set up single sign-on](https://support.claude.com/en/articles/13132885)** for the full setup path including domain verification
 
 ## Where to find your configuration values
 
-The ACS URL, Entity ID, and SCIM credentials referenced below are provided in the WorkOS setup flow within your Identity and access settings — not by contacting Support.
+The ACS URL, Entity ID, and SCIM credentials referenced below are provided in the WorkOS setup flow within your Identity and access settings—not by contacting Support.
 
 * **Team and Enterprise plans:** go to **[claude.ai/admin-settings/identity](https://claude.ai/admin-settings/identity)**
 * **Console organizations:** go to **[platform.claude.com/settings/identity](https://platform.claude.com/settings/identity)**
 
 Start the SSO setup flow there and keep it open alongside your Ping admin console as you work through the steps below.
+
+---
 
 ## PingOne setup
 
@@ -38,7 +36,7 @@ Start the SSO setup flow there and keep it open alongside your Ping admin consol
 
 ### Step 3 — Enable SCIM provisioning
 
-**Note:** SCIM provisioning is available on Enterprise plans and eligible Console organizations only. If you're on a Team plan, skip this step — you can use JIT provisioning instead. See **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195)**.
+**Note:** SCIM provisioning is available on Enterprise plans and eligible Console organizations only. If you're on a Team plan, skip this step—you can use JIT provisioning instead. See **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195)**.
 
 1. In the application settings, go to the **Provisioning** tab.
 2. Enable **Outbound Provisioning** and enter the SCIM endpoint URL and access token from the WorkOS setup flow.
@@ -51,6 +49,8 @@ Start the SSO setup flow there and keep it open alongside your Ping admin consol
 1. Under **Populations**, assign the user population that should access Claude.
 2. Enable the application and click "Save."
 
+---
+
 ## PingFederate setup
 
 PingFederate configurations vary significantly by version and deployment. The general approach is:
@@ -62,8 +62,14 @@ PingFederate configurations vary significantly by version and deployment. The ge
 
 Contact **[our Support team](https://support.claude.com/en/articles/9015913)** for PingFederate-specific guidance.
 
+---
+
 ## Need help?
 
 See **[Set up single sign-on](https://support.claude.com/en/articles/13132885)** for the full end-to-end flow including domain verification and choosing a provisioning approach. If you run into issues, contact **[our Support team](https://support.claude.com/en/articles/9015913)** with your Ping environment details.
 
-[Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)[Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)[Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)[Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)[OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)
+* [Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)
+* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
+* [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
+* [OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)

@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14503804-classification-banner-in-claude-for-government -->
 
-# Classification banner in Claude for Government
-
-April 30, 2026
-
 The classification banner displays a persistent marking at the top of every page for every user in your organization. Use it to communicate the classification level of data approved for your Claude for Government environment or any custom handling instruction your agency requires.
 
 ## When to use a classification banner

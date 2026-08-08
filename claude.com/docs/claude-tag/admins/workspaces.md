@@ -28,7 +28,7 @@ At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/clau
 
 Get a pairing code from Slack
 
-In any channel of the new workspace, send `@Claude connect` with no other text, as a new top-level message or in a thread where Claude isn’t already working, then paste the code Claude sends you into the dialog.
+In any channel of the new workspace, send `@Claude connect` with no other text, as a new top-level message or in a thread where Claude isn’t already working, then paste the code Claude sends you into the dialog.Pick a channel that belongs to just the new workspace. Claude can decline to reply in [guest and shared channels](https://claude.com/docs/claude-tag/admins/troubleshooting#guest-and-shared-channels).
 
 If your organization used the earlier Claude in Slack app, the dialog header reads **Switch to Claude Tag** instead of **Set up Claude Tag for your workspace**. The steps are the same, and the new workspace is added alongside your existing one, not in place of it.
 

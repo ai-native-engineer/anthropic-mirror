@@ -29,7 +29,7 @@ Legend: Supported / Partial / Not available / Not applicable
 
 | Admin setting | Status in Claude Science beta | Note |
 | --- | --- | --- |
-| Org enable toggle | Supported | Off by default for Team and Enterprise; turn it on under Organization settings > Capabilities. |
+| Org enable toggle | Supported | Off by default for Team and Enterprise; turn it on under Organization settings > Claude Science. |
 | Completion feedback (thumbs) | Supported | The org toggle hides the feedback buttons, same as Chat. |
 | Organization custom instructions | Supported | The org’s custom instructions are applied to the app’s model calls, the same as Chat. |
 | Skills allowlist | Partial | Org-published skills appear, but members can also install local skills without restriction. Adding admin control is on the roadmap. |

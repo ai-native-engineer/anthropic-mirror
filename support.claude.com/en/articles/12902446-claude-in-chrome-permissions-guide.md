@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide -->
 
-# Claude in Chrome permissions guide
-
-Updated over 2 weeks ago
-
 Claude in Chrome is available for all paid plans (Pro, Max, Team, and Enterprise). It's generally available in Claude Cowork and Claude Code, and in beta in the Chrome browser.
 
 This guide explains how to control what Claude can access and do when using Claude in Chrome. Understanding permissions helps you balance productivity with security.
@@ -18,15 +14,19 @@ Claude in Chrome uses a multi-layered permission system to give you control over
 * **Automatically approve (Auto)**. Claude keeps working and reviews each action for safety, automatically blocking anything it determines to be unsafe and pausing to ask you when needed.
 * **Skip all approvals (Skip)**, formerly "Act without asking**.”**  Claude doesn't pause to ask and nothing checks its actions automatically. Only use this when you completely trust every action, connector, file, app, etc. involved in the task.
 
+---
+
 ## Manually approve
 
 Choose "Manually approve" to have Claude create a plan from your prompt, which you can approve and allow Claude to execute. The plan will specify which websites you’re allowing Claude to access, as well as the approach it will follow:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1785803400&signature=55ae41a78b85ca5694d62795a1fa77c6ea6539d8646da753ec237e106457f098&req=dSgjFcp8nYZdXvMW1HO4zYqyZcdF%2FIGzgN0ADj5oqFBLpCeBjISicXaIh%2FtY%0ABch6si%2FVoeb6E4eHjYE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1785803400&signature=55ae41a78b85ca5694d62795a1fa77c6ea6539d8646da753ec237e106457f098&req=dSgjFcp8nYZdXvMW1HO4zYqyZcdF%2FIGzgN0ADj5oqFBLpCeBjISicXaIh%2FtY%0ABch6si%2FVoeb6E4eHjYE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1786166100&signature=b205feab90a81936467694831de75f6948c3505a04ff1e9a87ab1650565fd8da&req=dSgjFcp8nYZdXvMW1HO4zYqyZcRM%2BoS2gN0ADj5oqFDGlkSkrNvwIQ6kyjlG%0AJUvpjlxmiQXJ9yjUJZY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1786166100&signature=b205feab90a81936467694831de75f6948c3505a04ff1e9a87ab1650565fd8da&req=dSgjFcp8nYZdXvMW1HO4zYqyZcRM%2BoS2gN0ADj5oqFDGlkSkrNvwIQ6kyjlG%0AJUvpjlxmiQXJ9yjUJZY%3D%0A)
 
 Note that Claude will only use the websites listed in the plan, so you’ll need to manually approve any additional access requests.
 
 Claude clarifies which sites it’s planning to access and the actions it will take upfront, allowing you to review the proposed plan and ensure it’s correct before starting. You can also click "Make changes" to reject the current proposal, then prompt Claude again to make any necessary changes. Once you click "Approve plan," Claude will be able to act independently within the outlined parameters, but will still check with you before other sensitive actions, like downloading a file or entering sensitive information into a page. Claude will not deviate from the stated plan without requesting your permission first. There are certain actions that Claude cannot take for your security, such as making purchases, creating accounts, bypassing bot authorizations, executing trades, permanently deleting files, or taking certain actions that may indicate a prompt injection risk (see **[Prohibited actions](#h_e199f8f523)**).
+
+---
 
 ## Automatically approve
 
@@ -36,15 +36,19 @@ We tested Claude's safety check extensively before releasing it, including worki
 
 You'll see fewer prompts than in "Manually approve," but the safety checks still run in the background. Because Claude does this extra checking for you, **auto mode consumes more of your usage limit than the other modes**.
 
+---
+
 ## Skip all approvals
 
 When you choose "Skip all approvals," Claude doesn't pause to ask, and nothing checks its actions automatically. Only use this when you completely trust every action, connector, file, app, etc. involved in the task.
+
+---
 
 ## When does Claude need to request additional permissions?
 
 There are some websites on which Claude requires approval for every action. If you navigate to one of these sites, a **Permission required** prompt will appear in the extension side panel, Claude Cowork, or Claude Code where Claude will ask for permission before accessing the page or taking any action.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1785803400&signature=86435241006960729212832805fb9b724976990dc1f0dfc973f0ba60c0baf7ab&req=dSgjEct8n4lYXPMW1HO4zeoCY8Mjo3d7JCxYSFHKWIh18JURAOIpXRYMCmk0%0ADIZFnFE9mZZJXjNQzUc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1785803400&signature=86435241006960729212832805fb9b724976990dc1f0dfc973f0ba60c0baf7ab&req=dSgjEct8n4lYXPMW1HO4zeoCY8Mjo3d7JCxYSFHKWIh18JURAOIpXRYMCmk0%0ADIZFnFE9mZZJXjNQzUc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1786166100&signature=6f07dad80b308b0b20ed9b3b505c29cadd04cce0a1831a3f5b03ba4d216b9470&req=dSgjEct8n4lYXPMW1HO4zeoCY8AqpXJ%2BJCxYSFHKWIgh2N3kjJaku%2Fq55dZq%0AgEBsaZAZKDk7kE65zCY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1786166100&signature=6f07dad80b308b0b20ed9b3b505c29cadd04cce0a1831a3f5b03ba4d216b9470&req=dSgjEct8n4lYXPMW1HO4zeoCY8AqpXJ%2BJCxYSFHKWIgh2N3kjJaku%2Fq55dZq%0AgEBsaZAZKDk7kE65zCY%3D%0A)
 
 ### Permission options
 
@@ -70,6 +74,8 @@ You can manage Claude's access to specific sites in the extension settings. Clic
 * Revoke permissions for specific websites
 * See your permission history
 
+---
+
 ## Organization-level controls (Team and Enterprise plans)
 
 Team and Enterprise admins can configure additional controls that affect permissions:
@@ -79,6 +85,8 @@ Team and Enterprise admins can configure additional controls that affect permiss
 
 If you're unable to access a site with Claude, your organization may have restricted access. Contact your admin for more information, or see **[Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-for-chrome-admin-controls)**.
 
+---
+
 ## Actions requiring explicit permission
 
 Regardless of your permission mode, Claude requires explicit user permission to perform any of the following actions:
@@ -86,6 +94,8 @@ Regardless of your permission mode, Claude requires explicit user permission to 
 * Modifying permissions settings
 * Granting authorizations
 * Inputting potentially sensitive information into websites
+
+---
 
 ## Prohibited actions
 

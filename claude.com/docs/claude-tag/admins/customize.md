@@ -26,6 +26,7 @@ Access and organization-wide behavior are set at [`claude.ai/admin-settings/clau
 | Setting | What it does | More |
 | --- | --- | --- |
 | Custom instructions | Standing guidance read in every session on a scope, like team conventions. Outranks channel memory. | [Add custom instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions) |
+| Respond automatically | Whether Claude replies to a channel’s messages without an @-mention. Channel members can change it too, from Slack or the channel’s Configure page. | [Turn automatic replies on or off](https://claude.com/docs/claude-tag/users/when-claude-responds#turn-automatic-replies-on-or-off) |
 | Plugins | Bundles of skills that teach Claude how to use a specific tool | [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins) |
 | Connections | Which systems it can reach from each channel | [Add connections](https://claude.com/docs/claude-tag/admins/add-connections) |
 | Default model | Which Claude model handles sessions in a scope | [Choose the model for a scope](#choose-the-model-for-a-scope) |
@@ -74,7 +75,7 @@ A change to the allowed list applies to new sessions, like a change to the **Def
 Sessions run in [auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode), where Claude’s permission checker reviews each action Claude is about to take and can flag or stop it. When you add an auto mode allow rule to a scope, you pre-approve one action in that scope’s sessions, so Claude runs it there without the checker stopping it. The checker keeps reviewing every other action.
 A rule is a plain sentence that describes work you approve in the scope, such as “Deploying to our staging cluster from a session in this channel is a normal, approved workflow.” To add one:
 
-1. On [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open the **Slack** tab under **Claude Tag’s access** and find the scope you want to change (**Default Slack access**, a workspace, or a channel).
+1. On [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open the **Slack** tab under **Claude Tag’s access** and find the scope you want to change (the organization-wide **Slack** row, a workspace, or a channel). The **Slack** row opens as **Default Slack access**.
 2. Open the scope’s **Advanced** section and find **Auto mode allow rules**, below the [**Default model**](#choose-the-model-for-a-scope) setting.
 3. Select **Add rule** and write the rule as one plain sentence.
 

@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects -->
 
-# Retrieval augmented generation (RAG) for projects
-
 RAG for projects is available for all Claude plans (free, Pro, Max, Team, and Enterprise).
 
 Projects can now handle much more content without running into limits, giving Claude better context to help you. As you add more files and information to your projects, Claude automatically switches to a faster mode (powered by RAG) that keeps response times quick while maintaining quality responses.
@@ -60,6 +58,8 @@ Group related documents in the same project to enable Claude to draw connections
 
 When asking questions, you can reference specific documents by name to help Claude focus its search.
 
+---
+
 ## Frequently asked questions
 
 ### Will having RAG enabled on my project affect response quality?
@@ -82,4 +82,8 @@ Yes. All existing projects will automatically benefit from RAG when the project 
 
 Yes. RAG works with all Claude features, including web search, extended thinking, and Research.
 
-[How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)[What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)[How can I create and manage projects?](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)[Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)[Use the GitHub integration](https://support.claude.com/en/articles/10167454-use-the-github-integration)
+* [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
+* [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
+* [How can I create and manage projects?](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)
+* [Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)
+* [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)

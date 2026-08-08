@@ -45,7 +45,7 @@ The connection’s reach is whatever the signed-in Google account can see. Share
 
 ##  Add the connection with a service account
 
-In the bundle, click **Connect another tool** and choose **GCP access token (with Service Account Key)**.
+In the bundle, click **Connect** next to **Custom tool** and choose **GCP access token (with Service Account Key)**.
 
 | Field | Value |
 | --- | --- |

@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14661296-use-claude-security -->
 
-# Use Claude Security
-
-Updated over 3 weeks ago
-
 ## Overview
 
 Claude Security is a capability built into Claude that scans codebases for security vulnerabilities and suggests targeted patches for human review. It helps teams find and fix issues that traditional methods often miss. Learn more **[about Claude security](https://claude.com/product/claude-security)**.
@@ -18,9 +14,13 @@ Claude Security allows you to:
 
 Learn how to get started and how leading enterprises use the tool here: **[Getting started with Claude Security](https://claude.com/resources/tutorials/getting-started-with-claude-security)**.
 
+---
+
 ## Enable Claude Security
 
 An organization owner can enable Claude Security by going to **[Organization settings > Claude Security](https://claude.ai/admin-settings/claude-security)** and switching the **Turn on for your organization** toggle on.
+
+---
 
 ## Finding types
 
@@ -42,6 +42,8 @@ Finding falls into these example categories below.
 
 **Protocol & Encoding (Cache safety, encoding confusion, length-prefix trust):** Layers disagree or trust declared sizes. E.g., cache poisoning via Host header.
 
+---
+
 ## Severities
 
 Severity is assigned per finding based on exploitability in your codebase, not the category itself—so the same category can land at different severities in different repos.
@@ -52,6 +54,8 @@ Severity is assigned per finding based on exploitability in your codebase, not t
 | High | Exploitable by an unauthenticated remote attacker against a default deployment, with no meaningful preconditions | Unauthenticated command injection in a public API endpoint |
 | Medium | Exploitable behind authentication, or needs 1–2 realistic preconditions (specific role, known identifier, user interaction) | SQL injection behind auth requiring knowledge of table schema |
 | Low | Needs 3+ preconditions, local-only access, or lacks a concrete demonstrated attack path | Timing side-channel requiring network proximity and thousands of requests |
+
+---
 
 ## Finding structure
 
@@ -74,6 +78,8 @@ Each finding contains the following fields:
   + Dismissal reason
   + Dismissal note — optional
 
+---
+
 ## Troubleshooting
 
 ### The security page keeps redirecting to "Install GitHub App"
@@ -84,6 +90,8 @@ The claude.ai/security page runs a per-user check against your own connected Git
 * **The connected GitHub account isn’t a member of the GitHub organization** where the app is installed. Connect the account that belongs to that organization.
 * **SSO isn't authorized for that organization.** If your GitHub organization requires SSO, you must authorize the Claude app for it separately. Follow the steps in **[Use the GitHub integration](https://support.claude.com/en/articles/10167454-use-the-github-integration#h_e169a34a57)**.
 * **Your GitHub organization's IP allow list is blocking the check.** GitHub's "Enable IP allow list configuration for installed GitHub Apps" setting covers traffic from the App itself, such as Code Review, but it doesn't cover this per-user check. To allow it, manually add 160.79.104.0/21 as an organization-level allow list entry. For the full list of ranges, see **[IP addresses](https://platform.claude.com/docs/en/api/ip-addresses)**.
+
+---
 
 ## Frequently asked questions
 
@@ -101,6 +109,6 @@ The claude.ai/security page runs a per-user check against your own connected Git
 
 * [API Key Best Practices: Keeping Your Keys Safe and Secure](https://support.claude.com/en/articles/9767949-api-key-best-practices-keeping-your-keys-safe-and-secure)
 * [Automated Security Reviews in Claude Code](https://support.claude.com/en/articles/11932705-automated-security-reviews-in-claude-code)
-* [Claude Code on the web](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)
+* [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
 * [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
 * [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)

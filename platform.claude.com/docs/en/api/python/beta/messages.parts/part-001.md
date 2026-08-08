@@ -4783,17 +4783,21 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 for message in client.beta.messages.create(
     max_tokens=1024,
-    messages=[{
-        "content": "Hello, world",
-        "role": "user",
-    }],
+    messages=[
+        {
+            "content": "Hello, world",
+            "role": "user",
+        }
+    ],
     model="claude-opus-4-6",
 ):
-  print(message)
+    print(message)
 ```
 
 #### Response
@@ -7939,13 +7943,17 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 beta_message_tokens_count = client.beta.messages.count_tokens(
-    messages=[{
-        "content": "Hello, world",
-        "role": "user",
-    }],
+    messages=[
+        {
+            "content": "Hello, world",
+            "role": "user",
+        }
+    ],
     model="claude-opus-4-6",
 )
 print(beta_message_tokens_count.context_management)
@@ -34997,20 +35005,26 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 beta_message_batch = client.beta.messages.batches.create(
-    requests=[{
-        "custom_id": "my-custom-id-1",
-        "params": {
-            "max_tokens": 1024,
-            "messages": [{
-                "content": "Hello, world",
-                "role": "user",
-            }],
-            "model": "claude-opus-4-6",
-        },
-    }],
+    requests=[
+        {
+            "custom_id": "my-custom-id-1",
+            "params": {
+                "max_tokens": 1024,
+                "messages": [
+                    {
+                        "content": "Hello, world",
+                        "role": "user",
+                    }
+                ],
+                "model": "claude-opus-4-6",
+            },
+        }
+    ],
 )
 print(beta_message_batch.id)
 ```
@@ -35223,7 +35237,9 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 beta_message_batch = client.beta.messages.batches.retrieve(
     message_batch_id="message_batch_id",
@@ -35449,7 +35465,9 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 page = client.beta.messages.batches.list()
 page = page.data[0]
@@ -35673,7 +35691,9 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 beta_message_batch = client.beta.messages.batches.cancel(
     message_batch_id="message_batch_id",
@@ -35817,7 +35837,9 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 beta_deleted_message_batch = client.beta.messages.batches.delete(
     message_batch_id="message_batch_id",
@@ -36786,9 +36808,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `from_: BetaFallbackInfo`
 
               The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
-
-              - `model: Model`
-
-                The model that will complete your prompt.
-
-                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.

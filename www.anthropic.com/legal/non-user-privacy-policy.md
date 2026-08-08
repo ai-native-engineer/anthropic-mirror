@@ -131,5 +131,3 @@ If you have any questions about this Policy, or have any questions, complaints o
 You can email us at privacy@anthropic.com and contact our Data Protection Officer at dpo@anthropic.com.
 
 Please note that under many countries' laws, you have the right to lodge a complaint with the supervisory authority in the place in which you live or work. A full list of EU supervisory authorities’ contact details is available [here](https://edpb.europa.eu/about-edpb/about-edpb/members_en). If you live or work in the UK, you have the right to lodge a complaint with the [UK Information Commissioner’s Office](https://ico.org.uk/make-a-complaint/). If you live in Brazil, you have the right to lodge a complaint with the [Brazilian Data Protection Authority (ANPD)](https://www.gov.br/anpd/pt-br/canais_atendimento/cidadao-titular-de-dados/denuncia-peticao-de-titular). If you live in Australia, you have the right to lodge a complaint with the [Office of the Australian Information Commissioner](https://www.oaic.gov.au/privacy/privacy-complaints/lodge-a-privacy-complaint-with-us).
-
-Non-User Privacy Policy \ Anthropic

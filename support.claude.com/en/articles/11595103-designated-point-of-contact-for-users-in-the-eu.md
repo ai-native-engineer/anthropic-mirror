@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/11595103-designated-point-of-contact-for-users-in-the-eu -->
 
-# Designated point of contact for users in the EU
-
-May 26, 2026
-
 Users in the EU can open a support inquiry from this page via the chat tool, which serves as our single point of contact for EU users under the DSA.
 
 Follow these **[instructions](https://support.claude.com/en/articles/9015913-how-to-get-support)** to get support.

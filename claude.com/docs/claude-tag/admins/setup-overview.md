@@ -55,7 +55,7 @@ Click **Add the Claude app** to open the Slack Marketplace listing, then click *
 
 Send `@Claude connect` as a new channel message
 
-Copy the message shown and send it in any channel of the workspace you just installed in, with no other text, as a new top-level message or in a thread where Claude isn’t already working. Claude replies with a pairing code valid for 15 minutes.Only a Slack workspace admin can run `@Claude connect`; anyone else gets a message naming who to ask. If that’s not you, [send them the install request](https://claude.com/docs/claude-tag/admins/pair-workspace#send-the-install-request-to-your-slack-admin) and have them return the code.
+Copy the message shown and send it in any channel of the workspace you just installed in, with no other text, as a new top-level message or in a thread where Claude isn’t already working. Claude replies with a pairing code valid for 15 minutes.Pick a channel that belongs to just that workspace. Claude can decline to reply in [guest and shared channels](https://claude.com/docs/claude-tag/admins/troubleshooting#guest-and-shared-channels).Only a Slack workspace admin can run `@Claude connect`; anyone else gets a message naming who to ask. If that’s not you, [send them the install request](https://claude.com/docs/claude-tag/admins/pair-workspace#send-the-install-request-to-your-slack-admin) and have them return the code.
 
 3
 
@@ -75,7 +75,7 @@ See [Pair your Slack workspace](https://claude.com/docs/claude-tag/admins/pair-w
 ###  Choose which tools to connect
 
 Claude works in your tools with its own accounts, so everything it does is recorded under its own name. On this step you pick those tools; connecting them happens in a [later step](#create-accounts-for-the-tools-you-chose).
-GitHub is preselected and counts as one of your picks. The list suggests widely used tools; check the ones your team works in, or use **Search all tools** for a service that isn’t shown. Pick two more (three total, counting GitHub) to unlock **Next**; you can add more at any time.
+GitHub is preselected and counts as one of your picks. The list suggests widely used tools; check the ones your team works in, or use **Search all tools** for a service that isn’t shown. Pick two more (three total, counting GitHub) to unlock **Next: Connect GitHub**; you can add more at any time.
 You can skip connecting the tools you pick and finish that after setup. Without any connected tools, Claude still works in Slack conversations and can use web search and a [default set of network hosts](https://claude.com/docs/claude-tag/admins/add-connections#allow-a-host-without-a-credential); it can’t act in a tool until that tool is connected.
 See [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections) for which services to connect first, and the [per-service connection guides](https://claude.com/docs/claude-tag/admins/connections/overview) for credential fields per tool.
 
@@ -131,7 +131,7 @@ Choose whether Claude sends a DM to everyone in your Slack workspace after launc
 
 3
 
-Click Launch Claude
+Click Launch Claude Tag
 
 Claude Tag turns on, and a confirmation screen summarizes what’s connected. Claude is now reachable in the workspace you paired.
 
@@ -145,7 +145,7 @@ Everything you set during setup can be changed afterward on the [Claude Tag admi
 
 | To change | Go to |
 | --- | --- |
-| Pair another workspace, or disconnect one | The Slack row’s **⋮** menu under **Where Claude Tag works**; see [Manage workspaces](https://claude.com/docs/claude-tag/admins/workspaces) |
+| Pair another workspace, or disconnect one | The Slack row’s **⋮** menu under **Where Claude Tag works** (**Disconnect** is under **Manage**); see [Manage workspaces](https://claude.com/docs/claude-tag/admins/workspaces) |
 | The Access bundle’s name, connections, domains, repos, plugins, or instructions | **Access bundles** in the left navigation, or any scope’s panel on the **Slack** tab; see [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections) |
 | The spending limit | [`claude.ai/admin-settings/usage/claude-tag`](https://claude.ai/admin-settings/usage/claude-tag); see [Set a spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit) |
 | Whether Claude Tag is enabled at all | The **Enable Claude Tag for your organization** toggle at the top of the admin page |
@@ -184,6 +184,7 @@ There are two common ways to roll out from here:
 | A pairing code from `@Claude connect` | “Only Slack workspace admins (or Enterprise Grid org admins) can link this workspace to a Claude organization…” | The person who sent `@Claude connect` isn’t a Slack workspace admin (or Grid org admin). [Send the request](https://claude.com/docs/claude-tag/admins/pair-workspace#send-the-install-request-to-your-slack-admin) to someone who is. |
 | A pairing code | “…installation is out of date” | The app was updated with permissions your workspace hasn’t approved yet. A Slack admin approves the update or reinstalls the app, then sends `@Claude connect` again. See [both remedies](https://claude.com/docs/claude-tag/admins/pair-workspace#if-@claude-connect-says-the-installation-is-out-of-date). |
 | The Slack row under **Where Claude Tag works** to show your workspace as connected | It still shows **Not connected** | The code may have expired (codes last 15 minutes) or come from a different workspace. Send `@Claude connect` again for a fresh code. |
+| A pairing code | A message about guests, or about the channel being shared across workspaces | Send `@Claude connect` again in a channel with no guests that belongs to a single workspace. Match the exact message in [Guest and shared channels](https://claude.com/docs/claude-tag/admins/troubleshooting#guest-and-shared-channels) for the fix that fits it. |
 | A connected tool to work in your test | “I can’t reach…” | Claude isn’t told about a connection added after the thread started. Ask it to use the service by name, or start a fresh thread. |
 | The **Where Claude Tag works** section with a **+ Connect** button | Only the legacy Claude in Slack toggles | Your organization isn’t enabled for Claude Tag. Contact your account team. |
 | Claude to respond in Slack | ”Claude Tag has been turned off for your Claude organization…” | The **Enable Claude Tag for your organization** toggle is off. An Owner turns it on at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag). See [the troubleshooting entry](https://claude.com/docs/claude-tag/admins/troubleshooting#claude-tag-is-turned-off-for-your-organization). |

@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13325567-account-management-faqs -->
 
-# Account management FAQs
-
-March 16, 2026
-
 ## How do I change my team name?
 
 Owners can update the team name on their plan by navigating to **[Organization settings > Organization](https://claude.ai/admin-settings/organization)** and clicking "Update" under the current team name. Type in a new name and click "Save."
@@ -13,7 +9,7 @@ Owners can update the team name on their plan by navigating to **[Organization s
 It's not possible to change another user's name on their behalf, but a user can edit their own name by following these steps:
 
 1. Log in to your Claude account.
-2. Navigate to **[Settings > General](http://claude.ai/settings/general)**.
+2. Navigate to **[Settings > General](https://claude.ai/settings/general)**.
 3. Make edits to the "Full name" field and click "Save changes."
 
 ## Can I create multiple teams?
@@ -34,7 +30,7 @@ Admins and Owners can view a list of all members on a team by navigating to **[O
 
 The email domain that was used to create your Team or Enterprise plan organization is the allowed email domain for your team members. After the account is created, Owners of organizations that are not using domain capture can add additional domains by following these steps:
 
-1. Navigate to **[Organization](https://claude.ai/admin-settings/organization)** **[settings > Identity and access](https://claude.ai/admin-settings/identity).**
+1. Navigate to **[Organization](https://claude.ai/admin-settings/organization) [settings > Identity and access](https://claude.ai/admin-settings/identity).**
 2. Click "Add or edit domains" under **Domains**.
 3. In the **Update organization email domains** modal that appears, enter the new domain.
 4. Click the "+" button to add the domain.
@@ -42,7 +38,7 @@ The email domain that was used to create your Team or Enterprise plan organizati
 
 Owners can remove domains by opening up the same modal and clicking the trash can icon to the right of the domain:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1785803400&signature=b67ec56200d0d4a3877706d96346af08a574bab496e947184286904b0e443abf&req=diAiFcF5nolaW%2FMW1HO4zUrhFu6QaQsekeFUnrkrQZh4sewyaFyf8WQB8Dl3%0AiHpinBC5D7zj3MDXr9g%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1785803400&signature=b67ec56200d0d4a3877706d96346af08a574bab496e947184286904b0e443abf&req=diAiFcF5nolaW%2FMW1HO4zUrhFu6QaQsekeFUnrkrQZh4sewyaFyf8WQB8Dl3%0AiHpinBC5D7zj3MDXr9g%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1786212000&signature=f184539999f559aa51651fd97297c6cda7ce08f021edba6c166468ffd9e1a059&req=diAiFcF5nolaW%2FMW3nq%2Bgd3h0RvsKNgT2snXLIOewIxQdTi5XuifCWeXBC37%0AbWhXr%2BnoiKdd0k1q%2FCTWywohNOk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1786212000&signature=f184539999f559aa51651fd97297c6cda7ce08f021edba6c166468ffd9e1a059&req=diAiFcF5nolaW%2FMW3nq%2Bgd3h0RvsKNgT2snXLIOewIxQdTi5XuifCWeXBC37%0AbWhXr%2BnoiKdd0k1q%2FCTWywohNOk%3D%0A)
 
 While the account creator must use a business email address, you can add public domains like @gmail.com, @yahoo.com, and @hotmail.com as allowed domains for other members of your organization.
 

@@ -2,7 +2,7 @@
 
 # Use Claude for PowerPoint
 
-Updated today
+Updated this week
 
 Claude for PowerPoint is available to Pro, Max, Team, and Enterprise plans.
 

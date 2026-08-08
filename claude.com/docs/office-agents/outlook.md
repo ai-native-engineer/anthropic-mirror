@@ -1,13 +1,5 @@
 <!-- source: https://claude.com/docs/office-agents/outlook -->
 
-> ## Documentation Index
->
-> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
->
-> Use this file to discover all available pages before exploring further.
-
-[Skip to main content](#content-area)
-
 Claude for Outlook is an add-in that brings Claude into your Outlook inbox
 and calendar. It is built for professionals whose work runs through email,
 including private equity and investment banking associates managing deal
@@ -51,19 +43,13 @@ Microsoft 365 is required.
 
 ###  Install for yourself
 
-1
-
 Open the marketplace listing
 
 Go to the [Claude for Outlook listing on Microsoft AppSource](https://appsource.microsoft.com/).
 
-2
-
 Install the add-in
 
 Select “Get it now” to install.
-
-3
 
 Open Claude in Outlook
 
@@ -79,21 +65,15 @@ Apps. It then appears on every message and in the Home ribbon.
 Organization admins can deploy Claude for Outlook through the Microsoft
 365 Admin Center.
 
-1
-
 Allow Office Store access
 
 In the [Microsoft 365 Admin Center](https://admin.microsoft.com), go
 to Settings, Org Settings, User owned apps and services, and turn on
 [“Let users access the Office Store”](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-addins-in-the-admin-center).
 
-2
-
 Open Integrated apps
 
 Go to Settings, then Integrated apps.
-
-3
 
 Find the add-in
 
@@ -106,8 +86,6 @@ Deploy
 Deploy the add-in to your organization or to specific people. See
 [Microsoft’s deployment guide](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins)
 for assignment options.
-
-5
 
 Grant Microsoft Graph consent
 
@@ -139,22 +117,16 @@ this, deploy using the manifest XML file described below.
 If your organization blocks the Microsoft Store, an IT administrator can
 deploy the add-in by uploading its manifest file directly.
 
-1
-
 Download the manifest
 
 Download the
 [Claude for Outlook manifest](https://pivot.claude.ai/manifest-outlook.xml)
 and save it to a secure location.
 
-2
-
 Open Integrated apps
 
 In the [Microsoft 365 Admin Center](https://admin.microsoft.com), go
 to Settings, then Integrated apps.
-
-3
 
 Upload the add-in
 
@@ -168,8 +140,6 @@ Assign people
 
 Choose your deployment scope: the entire organization, specific
 people, specific groups, or just yourself for testing.
-
-5
 
 Deploy
 
@@ -217,22 +187,16 @@ flow is identical; the Graph token stays in the user’s Outlook client
 either way. The difference is that approval and Conditional Access policy
 live entirely under an application your organization owns.
 
-1
-
 Register the application
 
 In the Entra admin center, go to App registrations and create a new
 registration. Choose “Accounts in this organizational directory only”.
-
-2
 
 Configure authentication
 
 Under Authentication, add a Single-page application platform with
 redirect URI `brk-multihub://pivot.claude.ai`. In Advanced settings,
 set “Allow public client flows” to Yes.
-
-3
 
 Add Graph permissions
 
@@ -283,9 +247,9 @@ GCC High, so `graph_cloud=us-gov-dod` is always required for DoD.
 ###  Connect through a third-party platform
 
 If your organization routes API traffic through an internal LLM gateway,
-Google Cloud Vertex AI, or Azure AI Foundry, you can use the add-in
-without Claude accounts. This is the same gateway pattern used by Claude
-Code. Amazon Bedrock is not currently supported for Claude for Outlook.
+Amazon Bedrock, Google Cloud Vertex AI, or Azure AI Foundry, you can use
+the add-in without Claude accounts. This is the same gateway pattern used
+by Claude Code.
 For setup instructions and gateway requirements, see
 [Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms).
 

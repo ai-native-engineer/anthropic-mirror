@@ -1,11 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14555877-claude-code-communications-kit -->
 
-# Claude Code communications kit
-
-Ready-to-send messages for Slack, Teams, and email — Enterprise admin enablement
-
-April 29, 2026
-
 This kit covers launch communications, a twenty-message "tips and tricks" drip campaign, and a quick-reference FAQ for the questions you’ll get asked most. Each message links out to a docs page developers can go deeper on.
 
 ## How to use this kit
@@ -13,6 +7,8 @@ This kit covers launch communications, a twenty-message "tips and tricks" drip c
 Three parts, in the order you’ll need them. **Part 1** is your launch announcement—one primary message in email and Slack formats, with swap-in variants for an executive-sponsored send and pilot groups. **Part 2** provides twenty drip-campaign messages packaged as ready-to-paste Slack/Teams posts. **Part 3** is a quick-reference FAQ and link directory.
 
 **Treat everything in this kit as draft copy, not finished copy.** Rewrite each message in your org’s voice, swap the example tasks for real bugs and modules from your own codebase, and replace the [bracketed placeholders] before sending. The announcements that actually drive adoption are the ones that read like someone at your company wrote them.
+
+---
 
 ## Part 1: Launch communications
 
@@ -79,6 +75,8 @@ After launch, DM the two or three people who are most active in `#claude-code`.
 |  |
 | --- |
 | Hey [name] — your `#claude-code` posts are doing more for adoption than my announcement did. A couple of people told me your [thread / screenshot] was why they actually tried it.    Want to make that semi-official? Low lift — mostly keep posting what you’re posting, plus first crack at new features and a direct line to the Anthropic team. I can share a short playbook for that if you’re in. |
+
+---
 
 ## Part 2: Tips and tricks campaign
 
@@ -238,6 +236,8 @@ Copy the message body from each table below directly into Slack or Teams. Replac
 | --- |
 | ✅ **Tip: The 4 habits that separate “tried it once” from “use it daily”**    Most people who bounce off Claude Code skipped one of these. Most people who stick did all four in week one.  1. Start in plan mode for anything touching multiple files. 2. Run `/init` early — context compounds. 3. Review diffs before committing — Claude can be confidently wrong. 4. Verify changes that touch critical paths; treat it like a sharp junior, not an oracle.  **Try it now:** if you’ve only done one or two of these, pick the one you’re missing and do it on your next task. Post what changed in `#claude-code`.    📖 **[Best practices](https://code.claude.com/docs/en/best-practices)** |
 
+---
+
 ## Part 3: Quick reference
 
 ### 3.1 FAQ responses
@@ -268,6 +268,8 @@ One-line Slack replies for the questions you’ll get asked most.
 | Make a skill | *“make me a /ship skill that runs tests and lint before commit”* |
 | Debug a stack trace | *“here’s the stack trace — find the root cause, don’t just paper over it”* |
 
+---
+
 ## Appendix: Verified links reference
 
 |  |  |
@@ -295,4 +297,8 @@ One-line Slack replies for the questions you’ll get asked most.
 
 Claude Code ships frequently—verify version-specific details against **[code.claude.com/docs](https://code.claude.com/docs)** before distributing internally.
 
-[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)[Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)[Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)[Claude Code champion kit](https://support.claude.com/en/articles/14555399-claude-code-champion-kit)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
+* [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
+* [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
+* [Claude Code champion kit](https://support.claude.com/en/articles/14555399-claude-code-champion-kit)

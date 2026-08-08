@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14793921-find-and-join-a-console-organization -->
 
-# Find and join a Console organization
-
-April 29, 2026
-
 Organization discovery lets you find and join your company’s existing Console organization when you start the sign-up flow with a business email address. Instead of creating a personal account, you can request to join—or be added automatically—depending on your organization’s configuration.
 
 **Note:** Organization discovery only applies to organization accounts on the Console, not individual accounts, and must be enabled by an Admin before the capability is available. It’s unavailable for organizations that have single sign-on (SSO) enabled. If your organization uses SSO, your existing provisioning settings remain in effect.
@@ -33,6 +29,8 @@ Admins select how join requests are handled:
 * **Approve automatically:** People are added to the organization automatically when they ask to join. They can immediately access the workspaces and resources their role permits.
 * **Require admin approval:** An admin reviews and approves each join request individually. People aren’t added to the organization until an admin approves the request.
 
+---
+
 ## How to find and join an organization
 
 When someone signs up for the Console with a business email address that matches a discoverable organization, they’ll see the option to join during the signup flow. They can choose to join or continue with a personal account.
@@ -42,12 +40,16 @@ When someone signs up for the Console with a business email address that matches
 
 If multiple organizations share the same email domain and are all discoverable, the requester sees all of them and can choose which one to join.
 
+---
+
 ## Other ways to join an organization
 
 In addition to organization discovery, there are a few other ways to join a Console organization:
 
 * **Email invitation:** An Admin or existing member of the organization may send you an email invitation to join.
 * **Admin invitation:** An Admin can add you directly from **[Organization settings > Members](https://platform.claude.com/settings/members)**.
+
+---
 
 ## SSO and organization discovery
 
@@ -57,4 +59,4 @@ Organization discovery isn’t available for Console organizations with single s
 * [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
 * [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
 * [Join an organization via invite link](https://support.claude.com/en/articles/13776697-join-an-organization-via-invite-link)
-* [OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)
+* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)

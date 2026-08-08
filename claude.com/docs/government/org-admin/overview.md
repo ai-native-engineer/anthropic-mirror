@@ -58,7 +58,7 @@ The navigation groups the pages into three sections.
 
 | Page | What it’s for |
 | --- | --- |
-| [Config](https://claude.com/docs/government/org-admin/configuration) | Adjust product settings such as telemetry, the desktop banner, and enabled tabs for everyone in your organization. |
+| [Config](https://claude.com/docs/government/org-admin/configuration) | Adjust product settings such as telemetry, the desktop banner, and product availability for everyone in your organization. |
 | [Readiness](https://claude.com/docs/government/org-admin/readiness) | See what is blocking users from using Claude and where each item is resolved. |
 
 The **Billing** tab only appears when the billing account is active and your own organization is active on it. If you don’t see it, contact your tenant administrators about credits or spend caps.

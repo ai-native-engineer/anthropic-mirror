@@ -1,85 +1,106 @@
 <!-- source: https://platform.claude.com/cookbook/multimodal-reading-charts-graphs-powerpoints -->
 
-# Working with Charts, Graphs, and Slide Decks
+#  Working with Charts, Graphs, and Slide Decks
 
 Claude is highly capable of working with charts, graphs, and broader slide decks. Depending on your use case, there are a number of tips and tricks that you may want to take advantage of. This recipe will show you common patterns for using Claude with these materials.
 
-## Charts and Graphs
+##  Charts and Graphs
 
 For the most part, using claude with charts and graphs is simple. Let's walk through how to ingest them and pass them to Claude, as well as some common tips to improve your results.
 
-### Ingestion and calling the Claude API
+###  Ingestion and calling the Claude API
 
 The best way to pass Claude charts and graphs is to take advantage of its vision capabilities and the PDF support feature. That is, give Claude a PDF document of the chart or graph, along with a text question about it.
 
 At the moment, only `claude-sonnet-4-6` supports the PDF feature. Since the feature is still in beta, you will need to provide it with the `pdfs-2024-09-25` beta header.
 
-python
+
 
-```
 # Install and create the Anthropic client.
+
 %pip install anthropic
-```
 
-python
+
 
-```
 import base64
 
 from anthropic import Anthropic
 
 # While PDF support is in beta, you must pass in the correct beta header
-client = Anthropic(default_headers={"anthropic-beta": "pdfs-2024-09-25"})
+
+client = Anthropic(default\_headers={"anthropic-beta": "pdfs-2024-09-25"})
+
 # For now, only claude-sonnet-4-6 supports PDFs
-MODEL_NAME = "claude-sonnet-4-6"
-```
 
-python
+MODEL\_NAME = "claude-sonnet-4-6"
 
-```
+
+
 # Make a useful helper function.
-def get_completion(messages):
-    response = client.messages.create(
-        model=MODEL_NAME, max_tokens=8192, temperature=0, messages=messages
-    )
-    return response.content[0].text
-```
 
-python
+def get\_completion(messages):
 
-```
-# To start, we'll need a PDF. We will be using the .pdf document located at cvna_2021_annual_report.pdf.
+response = client.messages.create(
+
+model=MODEL\_NAME, max\_tokens=8192, temperature=0, messages=messages
+
+)
+
+return response.content[0].text
+
+
+
+# To start, we'll need a PDF. We will be using the .pdf document located at cvna\_2021\_annual\_report.pdf.
+
 # Start by reading in the PDF and encoding it as base64.
-with open("./documents/cvna_2021_annual_report.pdf", "rb") as pdf_file:
-    binary_data = pdf_file.read()
-    base_64_encoded_data = base64.b64encode(binary_data)
-    base64_string = base_64_encoded_data.decode("utf-8")
-```
+
+with open("./documents/cvna\_2021\_annual\_report.pdf", "rb") as pdf\_file:
+
+binary\_data = pdf\_file.read()
+
+base\_64\_encoded\_data = base64.b64encode(binary\_data)
+
+base64\_string = base\_64\_encoded\_data.decode("utf-8")
 
 Let's see how we can pass this document to the model alongside a simple question.
 
-python
+
 
-```
 messages = [
-    {
-        "role": "user",
-        "content": [
-            {
-                "type": "document",
-                "source": {
-                    "type": "base64",
-                    "media_type": "application/pdf",
-                    "data": base64_string,
-                },
-            },
-            {"type": "text", "text": "What's in this document? Answer in a single sentence."},
-        ],
-    }
+
+{
+
+"role": "user",
+
+"content": [
+
+{
+
+"type": "document",
+
+"source": {
+
+"type": "base64",
+
+"media\_type": "application/pdf",
+
+"data": base64\_string,
+
+},
+
+},
+
+{"type": "text", "text": "What's in this document? Answer in a single sentence."},
+
+],
+
+}
+
 ]
 
-print(get_completion(messages))
-```
+print(get\_completion(messages))
+
+
 
 ```
 This is a page from Carvana's 2021 Annual Report showing four key metrics: retail units sold, total revenue, total markets at year end, and car vending machines, all displaying significant growth from 2014 to 2021.
@@ -87,36 +108,57 @@ This is a page from Carvana's 2021 Annual Report showing four key metrics: retai
 
 That's pretty good! Now let's ask it some more useful questions.
 
-python
+
 
-```
 questions = [
-    "What was CVNA revenue in 2020?",
-    "How many additional markets has Carvana added since 2014?",
-    "What was 2016 revenue per retail unit sold?",
+
+"What was CVNA revenue in 2020?",
+
+"How many additional markets has Carvana added since 2014?",
+
+"What was 2016 revenue per retail unit sold?",
+
 ]
 
 for index, question in enumerate(questions):
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "document",
-                    "source": {
-                        "type": "base64",
-                        "media_type": "application/pdf",
-                        "data": base64_string,
-                    },
-                },
-                {"type": "text", "text": question},
-            ],
-        }
-    ]
 
-    print(f"\n----------Question {index + 1}----------")
-    print(get_completion(messages))
-```
+messages = [
+
+{
+
+"role": "user",
+
+"content": [
+
+{
+
+"type": "document",
+
+"source": {
+
+"type": "base64",
+
+"media\_type": "application/pdf",
+
+"data": base64\_string,
+
+},
+
+},
+
+{"type": "text", "text": question},
+
+],
+
+}
+
+]
+
+print(f"\n----------Question {index + 1}----------")
+
+print(get\_completion(messages))
+
+
 
 ```
 ----------Question 1----------
@@ -142,7 +184,7 @@ As you can see, Claude is capable of answering fairly detailed questions about c
 * With super complicated charts and graphs, we can ask Claude to "First describe every data point you see in the document" as a way to elicit similar improvements to what we seen in traditional Chain of Thought.
 * Claude occasionally struggles with charts that depend on lots of colors to convey information, such as grouped bar charts with many groups. Asking Claude to first identify the colors in your graph using HEX codes can boost its accuracy.
 
-## Slide Decks
+##  Slide Decks
 
 Now that we know Claude is a charts and graphs wizard, it is only logical that we extend it to the true home of charts and graphs - slide decks!
 
@@ -152,33 +194,43 @@ The PDF support feature can be a great replacement as a result. It uses both ext
 
 The best way to get a typical slide deck into claude is to download it as a PDF and provide it directly to Claude.
 
-python
+
 
-```
 # Open the multi-page PDF document the same way we did earlier.
-with open("./documents/twilio_q4_2023.pdf", "rb") as pdf_file:
-    binary_data = pdf_file.read()
-    base_64_encoded_data = base64.b64encode(binary_data)
-    base64_string = base_64_encoded_data.decode("utf-8")
-```
 
-python
+with open("./documents/twilio\_q4\_2023.pdf", "rb") as pdf\_file:
 
-```
+binary\_data = pdf\_file.read()
+
+base\_64\_encoded\_data = base64.b64encode(binary\_data)
+
+base64\_string = base\_64\_encoded\_data.decode("utf-8")
+
+
+
 # Now let's pass the document directly to Claude. Note that Claude will process both the text and visual elements of the document.
+
 question = "What was Twilio y/y revenue growth for fiscal year 2023?"
+
 content = [
-    {
-        "type": "document",
-        "source": {"type": "base64", "media_type": "application/pdf", "data": base64_string},
-    },
-    {"type": "text", "text": question},
+
+{
+
+"type": "document",
+
+"source": {"type": "base64", "media\_type": "application/pdf", "data": base64\_string},
+
+},
+
+{"type": "text", "text": question},
+
 ]
 
 messages = [{"role": "user", "content": content}]
 
-print(get_completion(messages))
-```
+print(get\_completion(messages))
+
+
 
 ```
 According to the financial results shown in the presentation, Twilio's year-over-year revenue growth for fiscal year 2023 was 9%. This can be found in the "Total Company Results Highlights" section, which shows FY 2023 revenue growth of 9%.
@@ -193,97 +245,141 @@ Luckily, we can take advantage of Claude's vision capabilities to get a much hig
 
 We find the best way to do this is to ask Claude to sequentially narrate the deck from start to finish, passing it the current slide and its prior narration. Let's see how.
 
-python
+
 
-```
 # Define a prompt for narrating our slide deck. We would adjut this prompt based on the nature of the deck, but keep the structure largely the same.
+
 prompt = """
+
 You are the Twilio CFO, narrating your Q4 2023 earnings presentation.
 
 The entire earnings presentation document is provided to you.
+
 Please narrate this presentation from Twilio's Q4 2023 Earnings as if you were the presenter. Do not talk about any things, especially acronyms, if you are not exactly sure you know what they mean.
 
 Do not leave any details un-narrated as some of your viewers are vision-impaired, so if you don't narrate every number they won't know the number.
 
 Structure your response like this:
+
 <narration>
-    <page_narration id=1>
-    [Your narration for page 1]
-    </page_narration>
 
-    <page_narration id=2>
-    [Your narration for page 2]
-    </page_narration>
+<page\_narration id=1>
 
-    ... and so on for each page
+[Your narration for page 1]
+
+</page\_narration>
+
+<page\_narration id=2>
+
+[Your narration for page 2]
+
+</page\_narration>
+
+... and so on for each page
+
 </narration>
 
 Use excruciating detail for each page, ensuring you describe every visual element and number present. Show the full response in a single message.
+
 """
+
 messages = [
-    {
-        "role": "user",
-        "content": [
-            {
-                "type": "document",
-                "source": {
-                    "type": "base64",
-                    "media_type": "application/pdf",
-                    "data": base64_string,
-                },
-            },
-            {"type": "text", "text": prompt},
-        ],
-    }
+
+{
+
+"role": "user",
+
+"content": [
+
+{
+
+"type": "document",
+
+"source": {
+
+"type": "base64",
+
+"media\_type": "application/pdf",
+
+"data": base64\_string,
+
+},
+
+},
+
+{"type": "text", "text": prompt},
+
+],
+
+}
+
 ]
 
 # Now we use our prompt to narrate the entire deck. Note that this may take a few minutes to run (often up to 10).
-completion = get_completion(messages)
-```
 
-python
+completion = get\_completion(messages)
 
-```
+
+
 import re
 
 # Next we'll parse the response from Claude using regex
-pattern = r"<narration>(.*?)</narration>"
+
+pattern = r"<narration>(.\*?)</narration>"
+
 match = re.search(pattern, completion.strip(), re.DOTALL)
+
 if match:
-    narration = match.group(1)
+
+narration = match.group(1)
+
 else:
-    raise ValueError("No narration available. Likely due to the model response being truncated.")
-```
+
+raise ValueError("No narration available. Likely due to the model response being truncated.")
 
 Now that we have a text-based narration (it's far from perfect but it's pretty good), we have the ability to use this deck with any text-only workflow. Including vector search!
 
 As a final sanity check, let's ask a few questions of our narration-only setup!
 
-python
+
 
-```
 questions = [
-    "What percentage of q4 total revenue was the Segment business line?",
-    "Has the rate of growth of quarterly revenue been increasing or decreasing? Give just an answer.",
-    "What was acquisition revenue for the year ended december 31, 2023 (including negative revenues)?",
+
+"What percentage of q4 total revenue was the Segment business line?",
+
+"Has the rate of growth of quarterly revenue been increasing or decreasing? Give just an answer.",
+
+"What was acquisition revenue for the year ended december 31, 2023 (including negative revenues)?",
+
 ]
 
 for index, question in enumerate(questions):
-    prompt = f"""You are an expert financial analyst analyzing a transcript of Twilio's earnings call.
+
+prompt = f"""You are an expert financial analyst analyzing a transcript of Twilio's earnings call.
+
 Here is the transcript:
+
 <transcript>
+
 {narration}
+
 </transcript>
 
 Please answer the following question:
-<question>
-{question}
-</question>"""
-    messages = [{"role": "user", "content": [{"type": "text", "text": prompt}]}]
 
-    print(f"\n----------Question {index + 1}----------")
-    print(get_completion(messages))
-```
+<question>
+
+{question}
+
+</question>"""
+
+messages = [{"role": "user", "content": [{"type": "text", "text": prompt}]}]
+
+print(f"\n----------Question {index + 1}----------")
+
+print(get\_completion(messages))
+
+
 
 ```
 ----------Question 1----------

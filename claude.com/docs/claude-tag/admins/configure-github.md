@@ -17,7 +17,7 @@ If you link your GitHub organization before running [setup](https://claude.com/d
 
 ##  Link your GitHub organization
 
-The person who completes the link must be both an **owner of the GitHub organization** and an **Admin in your Claude organization**. If you aren’t a GitHub organization owner, use **Copy message** under **Not a GitHub organization owner?** on the GitHub settings page to send the link to someone who is.
+The person who completes the link must be both an **owner of the GitHub organization** and an **Admin in your Claude organization**. If you aren’t a GitHub organization owner, use **Copy message** under **Not a GitHub account owner?** on the GitHub settings page to send the link to someone who is.
 
 1
 
@@ -27,15 +27,15 @@ Open [`claude.ai/admin-settings/claude-code/github`](https://claude.ai/admin-set
 
 2
 
-Connect GitHub
+Connect Claude to GitHub
 
-Click **Connect GitHub** and complete the GitHub authorization. After authorizing, the page shows two sections: **Installations** lists organizations already linked, and **Unlinked accounts** lists organizations where the Claude GitHub App is installed but not yet linked.
+Click **Connect Claude to GitHub** and complete the GitHub authorization. After authorizing, the page shows two sections: **Connected GitHub accounts** lists organizations already linked, and **Unlinked accounts** lists organizations where the Claude GitHub App is installed but not yet linked.
 
 3
 
 Link or install
 
-If your organization is under **Unlinked accounts**, click **Link** next to it. If it isn’t listed at all, click **Install on another organization** and complete the install on github.com; you’re returned to this page with the organization under **Installations** as **Active**.
+If your organization is under **Unlinked accounts**, click **Link** next to it. If it isn’t listed at all, click **Install on another organization** and complete the install on github.com; you’re returned to this page with the organization under **Connected GitHub accounts** as **Connected**.
 
 * A disabled **Link** button means you aren’t an owner of that GitHub organization
 * A **Needs permissions** status means the installation has a pending request; **Review permissions** takes you to github.com to approve it
@@ -54,11 +54,11 @@ Open an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connection
 
 Select repositories
 
-Choose the repositories Claude can read from and open pull requests against. Access is per listed repository, or choose **Connect all repos** for the organization.
+Choose the repositories Claude can read from and open pull requests against. Access is per listed repository, or choose **Connect all** for the organization.
 
 ##  Verify GitHub access
 
-* The GitHub organization shows as **Active** under **Installations** at [`claude.ai/admin-settings/claude-code/github`](https://claude.ai/admin-settings/claude-code/github).
+* The GitHub organization shows as **Connected** under **Connected GitHub accounts** at [`claude.ai/admin-settings/claude-code/github`](https://claude.ai/admin-settings/claude-code/github).
 * The granted repositories are listed in the bundle’s **Repositories** tab.
 * For the end-to-end check, open a draft PR from a test channel; see [Verify the bundle is live](https://claude.com/docs/claude-tag/admins/attach-to-scope#verify-the-bundle-is-live).
 
@@ -68,7 +68,7 @@ When Claude replies “That environment or repo isn’t configured for Claude Co
 
 | Check | Where |
 | --- | --- |
-| The GitHub organization that owns the repository shows **Active** under **Installations** | [`claude.ai/admin-settings/claude-code/github`](https://claude.ai/admin-settings/claude-code/github). An installation still waiting on a GitHub organization owner shows **Needs permissions**; **Review permissions** opens the approval on github.com. |
+| The GitHub organization that owns the repository shows **Connected** under **Connected GitHub accounts** | [`claude.ai/admin-settings/claude-code/github`](https://claude.ai/admin-settings/claude-code/github). An installation still waiting on a GitHub organization owner shows **Needs permissions**; **Review permissions** opens the approval on github.com. |
 | The repository is listed on the bundle’s **Repositories** tab, and that bundle is attached to the channel’s scope | [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) → **Access bundles** → the bundle → **Repositories**. A repository granted in one bundle isn’t reachable from a channel under a different bundle. |
 
 Repository grants apply to new threads. After changing the **Repositories** tab, start a fresh thread in the channel and name the repository in the first message.
@@ -80,8 +80,14 @@ Granting a repository in a bundle makes it *available* to Claude in any channel 
 
 ###  What loads from a repository
 
-When Claude clones a granted repository into a session, its `CLAUDE.md`, `.claude/CLAUDE.md`, and `.claude/rules/*.md` files load on the next turn after the clone completes, so project context arrives without further prompting. A repository’s `.mcp.json` is never loaded; connections come only from the Access bundle.
-Skills in the repository’s `.claude/skills/` folder also load, so Claude can use them in the session. They apply only in sessions that have the repository. To give a skill to every channel under a scope, add it through a [skills repository](https://claude.com/docs/claude-tag/admins/skills-repo).
+When Claude clones a granted repository into a session, its Claude Code configuration loads on the next turn after the clone completes, so project context arrives without further prompting:
+
+* `CLAUDE.md`, `.claude/CLAUDE.md`, and `.claude/rules/*.md` load as project context
+* Skills in `.claude/skills/` load, so Claude can use them in the session
+* The project settings in `.claude/settings.json` load, so hooks defined there run in the session as they do under Claude Code
+
+A repository’s `.mcp.json` is never loaded, and connections come only from the Access bundle.
+Repository skills apply only in sessions that have the repository. To give a skill to every channel under a scope, add it through a [skills repository](https://claude.com/docs/claude-tag/admins/skills-repo).
 
 ###  Install project dependencies
 

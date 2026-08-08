@@ -235,7 +235,7 @@ Note the `WWW-Authenticate` header in the response.
 
 Add it as a custom connector in Claude
 
-Claude reaches custom connectors from Anthropic’s infrastructure, so `localhost` is not reachable directly. Expose the server over a public HTTPS tunnel (for example, `cloudflared tunnel --url http://localhost:3000` or `ngrok http 3000`), then in **Settings → Connectors → Add custom connector** enter the tunnel’s `/mcp` URL. See [Testing your connector](https://claude.com/docs/connectors/building/testing) for details.Ask Claude to list products (no prompt), then ask for your orders — the inline **Connect** card appears, and after authenticating the same call completes.
+Claude reaches custom connectors from Anthropic’s infrastructure, so `localhost` is not reachable directly. Expose the server over a public HTTPS tunnel (for example, `cloudflared tunnel --url http://localhost:3000` or `ngrok http 3000`), then in **Customize > Connectors**, select **Add custom connector** and enter the tunnel’s `/mcp` URL. See [Testing your connector](https://claude.com/docs/connectors/building/testing) for details.Ask Claude to list products (no prompt), then ask for your orders — the inline **Connect** card appears, and after authenticating the same call completes.
 
 The sample’s README includes a longer `curl` walkthrough that drives the stub `/authorize` and `/token` endpoints directly.
 

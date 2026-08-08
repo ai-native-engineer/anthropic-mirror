@@ -35,11 +35,11 @@ Leaving this enabled also adds `api.anthropic.com` to the [agent egress allowlis
 
 ###  Non-essential services
 
-Cosmetic third-party fetches: favicons for connectors shown in the UI, the MCP connector directory lookup, and the sandboxed iframe that renders interactive artifact previews. Disabling these degrades the UI slightly (generic icons, no directory suggestions, static artifact previews) but doesn’t affect functionality.
+Cosmetic third-party fetches: favicons for connectors shown in the UI, the MCP connector directory lookup, the sandboxed iframe that renders interactive artifact previews, and the sandboxed iframes that render [MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/getting-started), the interactive widgets connectors can display. Disabling these degrades the UI (generic icons, no directory suggestions, static artifact previews, and connector tool results shown as text instead of widgets) but doesn’t affect functionality.
 
 | Setting | Default | Effect when `true` |
 | --- | --- | --- |
-| `disableNonessentialServices` | `false` | Favicon and artifact-preview fetches are blocked. |
+| `disableNonessentialServices` | `false` | Favicon, artifact-preview, and MCP App widget fetches are blocked. Connectors that return MCP Apps show the tool’s text result instead of the widget. |
 
 ###  Auto-updates
 
@@ -52,15 +52,15 @@ Checks Anthropic’s update feed and downloads new builds.
 ##  Sending telemetry to your own collector
 
 Independently of what’s sent to Anthropic, you can export session activity to your own OpenTelemetry collector by setting `otlpEndpoint`. This is the recommended way to retain an audit trail in environments that disable Anthropic-bound telemetry.
-By default the export includes session metadata (event names, durations, token counts, result counts, errors) but not message content. See [Monitoring](https://claude.com/docs/cowork/monitoring) for the event schema and the [`otlp*` keys](https://claude.com/docs/third-party/claude-desktop/configuration#otlpendpoint) in the configuration reference.
-The export carries logs and metrics. Cowork sessions, Code tab sessions, and the desktop application’s own events arrive under the `service.name` values `cowork`, `claude-code-desktop`, and `claude-desktop` respectively. The app adds the collector host to the sandbox egress allowlist automatically, so `otlpEndpoint` does not need an entry in `coworkEgressAllowedHosts`; your perimeter firewall still needs to allow the host.
+For third-party deployments, the export includes session metadata (event names, durations, token counts, result counts, errors) by default, but not message content. See [Monitoring](https://claude.com/docs/cowork/monitoring) for the event schema and the [`otlp*` keys](https://claude.com/docs/third-party/claude-desktop/configuration#otlpendpoint) in the configuration reference.
+The export carries logs and metrics. Cowork sessions, Code sessions, and the desktop application’s own events arrive under the `service.name` values `cowork`, `claude-code-desktop`, and `claude-desktop` respectively. The app adds the collector host to the sandbox egress allowlist automatically, so `otlpEndpoint` does not need an entry in `coworkEgressAllowedHosts`; your perimeter firewall still needs to allow the host.
 For collector authentication headers, extra resource attributes, and the log level of the desktop application’s own event stream, see [`otlpHeaders`, `otlpResourceAttributes`, and `otlpDesktopLogLevel`](https://claude.com/docs/third-party/claude-desktop/configuration#otlpheaders) in the configuration reference.
 
 ###  Exporter protocol
 
 The `otlpProtocol` key selects the transport for the telemetry export to your collector: `http/protobuf` (the default), `http/json`, or `grpc`. The protocol applies per session type:
 
-* [Code tab](https://claude.com/docs/third-party/claude-desktop/code) sessions export over the protocol as configured, including `grpc`.
+* [Code](https://claude.com/docs/third-party/claude-desktop/code) sessions export over the protocol as configured, including `grpc`.
 * Cowork sessions do not support gRPC export. When `otlpProtocol` is set to `grpc`, Cowork sessions export over `http/protobuf` instead; other protocol values apply as configured.
 
 The fallback changes the protocol only, not the endpoint. When `otlpProtocol` is `grpc`, Cowork’s export goes to the same `otlpEndpoint` over HTTP; if that address is your collector’s OTLP/gRPC receiver (conventionally port 4317), Cowork telemetry never reaches the collector. To receive telemetry from both session types with one collector, set `otlpProtocol` to `http/protobuf` and point `otlpEndpoint` at the collector’s OTLP/HTTP receiver (conventionally port 4318).
@@ -82,7 +82,7 @@ Content is exported only to your configured `otlpEndpoint`. Anthropic does not r
 
 ###  Traces (beta)
 
-The export carries logs (events) and metrics; it does not include traces unless you enable them. To export OpenTelemetry traces as well, set `otlpTracesEnabled` to `true`. Cowork and Code tab sessions then record a trace for each user interaction, with spans for model requests and tool executions, and every event emitted during a span carries that span’s `trace_id` and `span_id`. This lets your backend correlate a prompt’s events end-to-end natively, with no transformation on ingest.
+The export carries logs (events) and metrics; it does not include traces unless you enable them. To export OpenTelemetry traces as well, set `otlpTracesEnabled` to `true`. Cowork and Code sessions then record a trace for each user interaction, with spans for model requests and tool executions, and every event emitted during a span carries that span’s `trace_id` and `span_id`. This lets your backend correlate a prompt’s events end-to-end natively, with no transformation on ingest.
 Traces use the same `otlpEndpoint` and `otlpProtocol` as the rest of the export, including the Cowork gRPC fallback described in [Exporter protocol](#exporter-protocol). Span and span-event content is gated by the same `otlpContentCapture` categories as events: with no categories enabled, traces carry metadata only (timing, tool names, durations, token counts). Captured content appears primarily on events; spans stay close to metadata.
 Two scope notes:
 

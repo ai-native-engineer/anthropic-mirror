@@ -120,8 +120,6 @@ These facts give us cautious optimism that with tighter monitoring and controls 
 1. We routinely test internal research prototypes like this one. It is not planned for general release.
 2. We generally store traces for benchmark evaluations. We have carefully audited these two benchmarks in particular for signs of harm because the OpenAI/Hugging Face incident occurred during an evaluation of ExploitGym.
 
-### Introducing Claude Opus 5
+### Our position on open-weights models
 
-Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work.
-
-[Read more](https://www.anthropic.com/news/claude-opus-5)
+[Read more](https://www.anthropic.com/news/position-open-weights-models)

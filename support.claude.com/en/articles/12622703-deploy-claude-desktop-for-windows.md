@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows -->
 
-# Deploy Claude Desktop for Windows
-
-Updated over 3 weeks ago
-
 Administrators on Team or Enterprise plans can deploy Claude Desktop automatically across their organization to manage installations and updates centrally. We offer MSIX packages for Windows deployments via Microsoft Intune, SCCM, Group Policy, or PowerShell.
 
 ## Installation requirements
@@ -72,6 +68,8 @@ By default, Claude Desktop checks for updates approximately every four hours and
 ## Configuration
 
 To configure Claude Desktop settings such as auto-updates, extensions, and MCP servers, see **[Enterprise configuration](https://support.claude.com/en/articles/12622667-enterprise-configuration)**.
+
+---
 
 ## Troubleshooting
 

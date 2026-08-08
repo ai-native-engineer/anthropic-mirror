@@ -1,14 +1,12 @@
 <!-- source: https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning -->
 
-# Set up JIT or SCIM provisioning
-
-June 30, 2026
-
 This guide covers how to configure user provisioning and role assignment for your Claude or Claude Console organization.
 
 JIT provisioning is available for Team plans, Enterprise plans, and Console organizations. SCIM provisioning is available for Enterprise and Console organizations only.
 
 **Before you begin:** This guide assumes you have already completed the steps in **[Set up single sign-on (SSO)](https://support.claude.com/en/articles/13132885-setting-up-single-sign-on-sso)**, including domain verification and SSO configuration with your Identity Provider (IdP), and you have an Admin (Console) or Owner (Claude) role.
+
+---
 
 ## Step 1: Choose your provisioning mode
 
@@ -37,7 +35,7 @@ Use this table to help decide which provisioning mode is right for your organiza
 
 Both JIT and SCIM can be combined with **Enable group mappings** to control role or seat tier assignment based on IdP group membership. If you select either of these options for your provisioning mode, **Enable group mappings** will appear within the **User provisioning** section:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1785803400&signature=3036d36de14cab532fc8e8e2379dc624d7b70e994534e01874541d7abd7b3cbd&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQ65cDVlyxFMG%2BIEvQSfGRPb6vuvr6QK17KAY%0ADWJX4vB6GdVEHOCbBbE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1785803400&signature=3036d36de14cab532fc8e8e2379dc624d7b70e994534e01874541d7abd7b3cbd&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQ65cDVlyxFMG%2BIEvQSfGRPb6vuvr6QK17KAY%0ADWJX4vB6GdVEHOCbBbE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1786212000&signature=aeee35080b832bae4a3a113b7fc569b096d8161ebefdc6b5fa16ec0155399186&req=diMmFM5%2Bm4FWUPMW3nq%2BgfvyY15K9wtEj7g49Ml26XTBJnW8vHkI0oGifWwc%0AwaoCwp6MpvWaMbnyksqAKVwKjqk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1786212000&signature=aeee35080b832bae4a3a113b7fc569b096d8161ebefdc6b5fa16ec0155399186&req=diMmFM5%2Bm4FWUPMW3nq%2BgfvyY15K9wtEj7g49Ml26XTBJnW8vHkI0oGifWwc%0AwaoCwp6MpvWaMbnyksqAKVwKjqk%3D%0A)
 
 ### Available roles and seat tiers
 
@@ -52,13 +50,15 @@ Both JIT and SCIM can be combined with **Enable group mappings** to control role
 
 For information on purchasing seats or adjusting your plan's seat allocation, see our guides for **[Team plans](https://support.claude.com/en/articles/12004354-purchasing-and-managing-seats)** and **[Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans)**.
 
+---
+
 ## Step 2: Set up SCIM directory sync (if using SCIM)
 
 **Note:** Skip this step if you're using Invite only or JIT provisioning.
 
 If you chose SCIM as your provisioning mode, you need to establish the connection between your Identity Provider and Anthropic before enabling it.
 
-1. Navigate to your **Organization and access** settings in Claude (**[claude.ai/admin-settings/organization](http://claude.ai/admin-settings/organization)**) or your **Identity and access** settings in Console (**[platform.claude.com/settings/identity](http://platform.claude.com/settings/identity)**)
+1. Navigate to your **Organization and access** settings in Claude (**[claude.ai/admin-settings/organization](https://claude.ai/admin-settings/organization)**) or your **Identity and access** settings in Console (**[platform.claude.com/settings/identity](https://platform.claude.com/settings/identity)**)
 2. In the **User provisioning** section, click “Setup SCIM” (or “Manage SCIM”)next to **SCIM directory sync**.
 3. Follow the WorkOS setup guide to configure SCIM in your Identity Provider. You'll need to copy values from WorkOS into your IdP's Anthropic application.
 
@@ -74,6 +74,8 @@ For IdP-specific JIT / SCIM setup instructions, see:
 * See additional IdPs **[here](https://workos.com/docs/integrations)**
 
 Once your IdP is connected, continue to Step 3.
+
+---
 
 ## Step 3: Configure provisioning mode and enable group mappings
 
@@ -91,6 +93,8 @@ Once your IdP is connected, continue to Step 3.
 
 **Important**: Saving before users are properly assigned will result in those users being deprovisioned from the organization. Where it's available, the admin console shows a preview of what the sync will change, including how many members will be removed, before it applies. Review it before you confirm, and cancel if the removal count is higher than you expect. Learn more about **[how SCIM sync works](https://support.claude.com/en/articles/14499648-how-scim-sync-works-for-enterprise-organizations)**.
 
+---
+
 ## Step 4: Configure groups in your Identity Provider and map groups to roles and seat types
 
 1. Create groups in your IdP for each role you want to assign. Unless you're on the single-seat Enterprise plan, create groups for each seat type as well.
@@ -100,7 +104,7 @@ Once your IdP is connected, continue to Step 3.
 3. Return to your **Organization and access** or **Identity and access** settings in Claude or Console, and find **User provisioning**.
 4. Toggle **Enable group mappings** on (if it’s not already):
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1785803400&signature=61940fcf3e65d04a57f2887342aff648518875c49faa6e281497d9ea007de766&req=diMmFM5%2FmYdcXPMW1HO4zeBEbsDQl%2FlMyb72rapuHpPuNsP2ZQLbb8htNXwe%0Ah5X4%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1785803400&signature=61940fcf3e65d04a57f2887342aff648518875c49faa6e281497d9ea007de766&req=diMmFM5%2FmYdcXPMW1HO4zeBEbsDQl%2FlMyb72rapuHpPuNsP2ZQLbb8htNXwe%0Ah5X4%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1786212000&signature=9d0d5c34c1a9e0f5cfddbc53ba8c9e695fa3d4552c424156b0f12a5770bb7591&req=diMmFM5%2FmYdcXPMW3nq%2BgQ152WYnPEnzZz8gm2WmwAJGfY4kSl8nfoJY53Re%0AJ6LBwLiCN2FF5F9Ts%2B%2BfHG8YUKw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1786212000&signature=9d0d5c34c1a9e0f5cfddbc53ba8c9e695fa3d4552c424156b0f12a5770bb7591&req=diMmFM5%2FmYdcXPMW3nq%2BgQ152WYnPEnzZz8gm2WmwAJGfY4kSl8nfoJY53Re%0AJ6LBwLiCN2FF5F9Ts%2B%2BfHG8YUKw%3D%0A)
 5. In the **Enable group mappings** section, click “Add” next to each role and select the corresponding group from your IdP in the dropdown.
 
    1. When using group mappings, you *must* assign all users to a role-based group in order to ensure they’re provisioned an account. Assigning users to seat-tier based groups is optional.
@@ -122,6 +126,8 @@ Once your IdP is connected, continue to Step 3.
 * The Primary Owner role cannot be assigned via SCIM group mappings. It can only be transferred manually from **[Organization settings > Members](https://claude.ai/admin-settings/members)**. Set your intended Primary Owner before enabling SCIM.
 * The Primary Owner is not exempt from SSO sign-in enforcement. SSO enforcement is applied by email domain; if the Primary Owner's email is on an enforced domain, they must authenticate through SSO.
 
+---
+
 ## Troubleshooting
 
 ### Users assigned correctly and showing in the directory but aren’t being added to the Claude as members?
@@ -138,7 +144,7 @@ Verify you have enough seats purchased and available to add members to your org.
 3. **For JIT:** The user needs to log out and log back in for role changes to take effect.
 4. **For SCIM:** Click "Sync" to prompt an immediate sync, or wait for the automatic sync cycle:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1785803400&signature=5549a63bdad0885eb681f984c536d17ece801844d656fd944866d1d536edb070&req=diMmFM5%2FmoVdWPMW1HO4zZ9La1ilGcnG5hujYvMis4dZzF4Ay40FSvfYBHEx%0AwQqV%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1785803400&signature=5549a63bdad0885eb681f984c536d17ece801844d656fd944866d1d536edb070&req=diMmFM5%2FmoVdWPMW1HO4zZ9La1ilGcnG5hujYvMis4dZzF4Ay40FSvfYBHEx%0AwQqV%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1786212000&signature=b00bb5837fc8a6479b5d6595199555200618da095096aaf2448090942161519d&req=diMmFM5%2FmoVdWPMW3nq%2BgREJfJk7qicnKEq7lv2I5odZErGwdY1A1OkJt3hR%0AQCPiSCkxkG1LFOi00xnk8KePJxY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1786212000&signature=b00bb5837fc8a6479b5d6595199555200618da095096aaf2448090942161519d&req=diMmFM5%2FmoVdWPMW3nq%2BgREJfJk7qicnKEq7lv2I5odZErGwdY1A1OkJt3hR%0AQCPiSCkxkG1LFOi00xnk8KePJxY%3D%0A)
 
 ### I lost Admin/Owner access after enabling group mappings
 

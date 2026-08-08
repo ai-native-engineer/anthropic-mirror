@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription -->
 
-# Cancel your Pro or Max subscription
-
-Updated over 3 weeks ago
-
 You may cancel your Pro or Max plan subscription at any time by following the cancellation instructions for the platform you signed up on. Your cancellation will take effect at the end of your current billing period and you can continue using your paid plan until then.
 
 **Note:** To avoid being charged for your next billing period, cancel your subscription at least 24 hours before your next billing date.

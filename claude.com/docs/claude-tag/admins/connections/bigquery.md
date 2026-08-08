@@ -10,7 +10,7 @@
 
 Connections are added inside an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle). At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open **Access bundles** in the left navigation, click into a bundle (or **Create** one), and go to its **Credentials** tab.
 
-Connecting BigQuery lets Claude run queries against your datasets from any channel under the bundle’s scope. Add it as a custom credential with **Connect another tool**; BigQuery has no preset button in the picker.
+Connecting BigQuery lets Claude run queries against your datasets from any channel under the bundle’s scope. Add it as a custom credential with **Custom tool**; BigQuery has no preset button in the picker.
 This is an HTTP API connection, not a personal claude.ai connector. Pair it with a plugin that covers BigQuery so Claude knows how to form and run queries; without one, Claude can reach the API but has to work out the request shape on its own. See [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins).
 
 ##  Create the credential in Google Cloud
@@ -28,7 +28,7 @@ Together the two grants let Claude run read-only queries against those datasets.
 
 ##  Add the connection to a bundle
 
-In the bundle, click **Connect another tool** and choose **GCP access token (with Service Account Key)**.
+In the bundle, click **Connect** next to **Custom tool** and choose **GCP access token (with Service Account Key)**.
 
 | Field | Value |
 | --- | --- |

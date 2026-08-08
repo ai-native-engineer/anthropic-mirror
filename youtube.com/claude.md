@@ -1,7 +1,10 @@
 # claude (YouTube)
 
-영상 163개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 168개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [How Ramp engineers work with AI agents at every step](claude/260806-how-ramp-engineers-work-with-ai-agents-at-every-step.md) — 2026-08-06
+- [What happens when you talk to AI?](claude/260805-what-happens-when-you-talk-to-ai.md) — 2026-08-05
+- [How auto mode works with Claude Code](claude/260804-how-auto-mode-works-with-claude-code.md) — 2026-08-04
 - [Build data-driven lesson plans with Claude for Teachers](claude/260715-build-data-driven-lesson-plans-with-claude-for-teachers.md) — 2026-07-15
 - [Plan smarter with Claude for Teachers](claude/260714-plan-smarter-with-claude-for-teachers.md) — 2026-07-14
 - [The Briefing: AI for Science](claude/260713-the-briefing-ai-for-science.md) — 2026-07-13
@@ -102,6 +105,7 @@
 - [Getting started with Claude Cowork](claude/260508-getting-started-with-claude-cowork.md) — 2026-05-08
 - [Collaborate with Claude across Microsoft365 apps](claude/260507-collaborate-with-claude-across-microsoft365-apps.md) — 2026-05-07 (자막없음)
 - [Hooks in Claude Code](claude/260507-hooks-in-claude-code.md) — 2026-05-07
+- [What is Claude Code?](claude/260505-what-is-claude-code.md) — 2026-05-05
 - [New agents for financial services | Claude Cowork + Claude Managed Agents](claude/260505-new-agents-for-financial-services-claude-cowork-claude-manag.md) — 2026-05-05 (자막없음)
 - [Find and fix security vulnerabilities with Claude](claude/260430-find-and-fix-security-vulnerabilities-with-claude.md) — 2026-04-30 (자막없음)
 - [Claude now connects to Autodesk Fusion](claude/260428-claude-now-connects-to-autodesk-fusion.md) — 2026-04-28 (자막없음)
@@ -129,6 +133,7 @@
 - [Claude can now show you](claude/260312-claude-can-now-show-you.md) — 2026-03-12 (자막없음)
 - [One conversation across Claude for Excel and PowerPoint](claude/260312-one-conversation-across-claude-for-excel-and-powerpoint.md) — 2026-03-12 (자막없음)
 - [How Slack uses Claude for AI search and summaries](claude/260310-how-slack-uses-claude-for-ai-search-and-summaries.md) — 2026-03-10
+- [Introducing Code Review](claude/260309-introducing-code-review.md) — 2026-03-09 (자막없음)
 - [What are skills?](claude/260227-what-are-skills.md) — 2026-02-27
 - [Cowork and Plugins: Helping enterprises move faster](claude/260224-cowork-and-plugins-helping-enterprises-move-faster.md) — 2026-02-24 (자막없음)
 - [How Lyft uses Claude for faster, more human customer support](claude/260218-how-lyft-uses-claude-for-faster-more-human-customer-support.md) — 2026-02-18

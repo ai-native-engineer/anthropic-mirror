@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14552646-troubleshoot-claude-code-installation-and-authentication -->
 
-# Troubleshoot Claude Code installation and authentication
-
-April 15, 2026
-
 These ten issues account for the large majority of installation and authentication support tickets related to Claude Code. Each entry includes the most reliable fix.
 
 ## 1. **claude: command not found** right after installing.
@@ -50,4 +46,8 @@ Your account exists but does not have access to the model Claude Code is request
 
 Run `claude doctor` from your normal shell (not from inside a Claude session). It prints a diagnostic report you can attach to a support ticket. For the full list of known issues, see the **[troubleshooting guide](https://code.claude.com/docs/en/troubleshooting)**.
 
-[Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)[Your first day in Claude Code](https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code)[Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)[Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)[Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)
+* [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Your first day in Claude Code](https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code)
+* [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
+* [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)

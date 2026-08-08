@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet -->
 
-# Real-time cyber safeguards on Claude Opus and Sonnet
-
-Updated over a week ago
-
 **Note**: This article applies only to Opus and Sonnet class models.
 
 As part of our ongoing safety commitments, we have real-time cyber safeguards on Claude Opus and Sonnet models. These safeguards are designed to automatically detect and block requests that may indicate prohibited or high-risk cybersecurity usage based on our Usage Policy.
@@ -32,7 +28,7 @@ How you apply depends on how you access Claude. Once you submit your application
 | **How you access Claude** | **How to apply** |
 | **Anthropic first-party** (Claude.ai, Claude Code, the Anthropic API) | Navigate to the **[Verification Portal](http://portal.anthropic.com/programs/cvp)** to apply for access to the Cyber Verification Program.    **Note:** Only authorized admins will see this option. |
 | **Microsoft Foundry** | Find both your Azure Tenant ID and Subscription ID in your Azure Portal (see instructions **[here](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id)**). Choose "Azure" under the **Surface** field in the **[Cyber Use Case Form](https://claude.com/form/cyber-use-case)**. |
-| **Amazon Bedrock** | The Cyber Verification Program is not available on Bedrock at this time. |
+| **Amazon Bedrock** | Navigate to the **[Verification Portal](http://portal.anthropic.com/link?account_source=aws&program=cvp)** to apply for access to the Cyber Verification Program. You will need to create or log into an Anthropic account, then link your AWS account.    **Note:** Only authorized admins will be able to apply, and **CVP is not available on Opus 5 for Bedrock at this time.** |
 | **Claude Platform on AWS** | Navigate to the **[Verification Portal](http://portal.anthropic.com/link?account_source=aws&program=cvp)** to apply for access to the Cyber Verification Program. You will need to create or log into an Anthropic account, then link your AWS account. ​  **Note:** Only authorized admins will be able to apply. |
 | **Google Vertex AI** | The Cyber Verification Program is not available on Vertex at this time. |
 | **Third-party platform** (coding tools and other apps powered by Claude) | Reach out to your platform directly to check if Anthropic CVP is available and if so request access to the Cyber Use Case Form through the platform. Not all platforms participate in the CVP at this time. |
@@ -55,7 +51,7 @@ If you’re encountering one of these issues, we recommend checking the followin
 If you've checked both and still believe something is wrong, you can **[submit a report or appeal form](https://claude.com/form/cyber-block-false-positive-report-cvp-rejection-appeal)**. Your feedback helps us refine these safeguards.
 
 * [API Safeguards Tools](https://support.claude.com/en/articles/9199617-api-safeguards-tools)
-* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
+* [Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
 * [Why Claude switched models in your conversation with Fable 5](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)

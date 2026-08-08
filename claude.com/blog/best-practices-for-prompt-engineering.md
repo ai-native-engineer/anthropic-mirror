@@ -473,6 +473,18 @@ Start prompting in Claude today.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
+
+Aug 6, 2026
+
+### Millennium and Anthropic are building a digital risk analyst with Claude
+
+Enterprise AI
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
 Jul 24, 2026
@@ -508,18 +520,6 @@ Claude Code
 [How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
 
 [How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
-
-Jul 22, 2026
-
-### How Outtake built a cyber investigator on Claude
-
-Agents
-
-[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
-
-[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
 
 ## Transform how your organization operates with Claude
 

@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9125743-what-is-the-external-researcher-access-program -->
 
-# What is the External Researcher Access Program?
-
-March 16, 2026
-
 Our External Researcher Access Program is specifically designed to support and lower the barrier to entry for researchers working on AI safety and alignment topics that we consider high priority by providing free API credits.
 
 If you are an alignment researcher and are interested in receiving free API credits for AI safety and alignment research purposes, you might qualify for our External Researcher Access Program.
@@ -29,7 +25,9 @@ Please complete the following application form with details about your team and 
 2. If successful, we will apply $1000 in API credits to the account. For rare special cases, we may approve a higher quantity of credit.
 3. **Please note that given the substantial number of applications we receive (sometimes thousands in a single week), we regret that we cannot provide individual responses to unapproved submissions.** In addition, we reserve the right to reject submissions for any reason and will not be able to provide explanations for each individual applicant. However, we appreciate the time and effort put into each submission and will carefully review all entries. Thank you for your understanding.
 
-If you are having an issue that requires a response urgently (e.g., you’ve suddenly run out of your credits before a major conference), please email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#54263127313526373c312635373731272714353a203c263b243d377a373b39). However, please note that we will not be able to respond if your question is already addressed by the following FAQ.
+If you are having an issue that requires a response urgently (e.g., you’ve suddenly run out of your credits before a major conference), please email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#32405741575340515a574053515157414172535c465a405d425b511c515d5f). However, please note that we will not be able to respond if your question is already addressed by the following FAQ.
+
+---
 
 ## FAQ
 

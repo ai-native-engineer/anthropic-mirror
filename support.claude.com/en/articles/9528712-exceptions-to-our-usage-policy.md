@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9528712-exceptions-to-our-usage-policy -->
 
-# Exceptions to our Usage Policy
-
 Anthropic maintains a comprehensive Usage Policy to ensure the responsible deployment of our AI systems. Anthropic may enter into contracts with government customers that tailor use restrictions to that customer’s public mission and legal authorities if, in Anthropic’s judgment, the contractual use restrictions and applicable safeguards are adequate to mitigate the potential harms addressed by this Usage Policy.
 
 For example, with carefully selected government entities, we may allow foreign intelligence analysis in accordance with applicable law. All other use restrictions in our Usage Policy, including those prohibiting use for disinformation campaigns, the design or use of weapons, censorship, domestic surveillance, and malicious cyber operations, remain.
@@ -18,4 +16,8 @@ Our evaluation of whether to tailor use restrictions to the mission and legal au
 * The safeguards in place to prevent misuse and mitigate risks of mistakes.
 * The degree of independent and democratic oversight of the organizations and their uses of AI technologies, including legislative or regulatory constraints and other relevant public commitments.
 
-[Our Approach to User Safety](https://support.claude.com/en/articles/8106465-our-approach-to-user-safety)[API Safeguards Tools](https://support.claude.com/en/articles/9199617-api-safeguards-tools)[Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)[Using Agents According to Our Usage Policy](https://support.claude.com/en/articles/12005017-using-agents-according-to-our-usage-policy)[Child safety guidance for developers](https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers)
+* [Our Approach to User Safety](https://support.claude.com/en/articles/8106465-our-approach-to-user-safety)
+* [API Safeguards Tools](https://support.claude.com/en/articles/9199617-api-safeguards-tools)
+* [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)
+* [Using Agents According to Our Usage Policy](https://support.claude.com/en/articles/12005017-using-agents-according-to-our-usage-policy)
+* [Child safety guidance for developers](https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers)

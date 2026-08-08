@@ -12,7 +12,7 @@ Qodo Skills: AI agent capabilities for code quality, testing, security, and comp
   [Qodo.ai](https://www.qodo.ai)
 * Installs
 
-  35
+  11807
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

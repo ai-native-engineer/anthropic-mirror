@@ -4444,33 +4444,33 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaMessage, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-    MaxTokens: 1024,
-    Messages: []anthropic.BetaMessageParam{anthropic.BetaMessageParam{
-      Content: []anthropic.BetaContentBlockParamUnion{anthropic.BetaContentBlockParamUnion{
-        OfText: &anthropic.BetaTextBlockParam{
-          Text: "x",
-        },
-      }},
-      Role: anthropic.BetaMessageParamRoleUser,
-    }},
-    Model: anthropic.ModelClaudeOpus4_6,
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaMessage.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaMessage, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
+		MaxTokens: 1024,
+		Messages: []anthropic.BetaMessageParam{anthropic.BetaMessageParam{
+			Content: []anthropic.BetaContentBlockParamUnion{anthropic.BetaContentBlockParamUnion{
+				OfText: &anthropic.BetaTextBlockParam{
+					Text: "x",
+				},
+			}},
+			Role: anthropic.BetaMessageParamRoleUser,
+		}},
+		Model: anthropic.ModelClaudeOpus4_6,
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaMessage.ID)
 }
 ```
 
@@ -7346,32 +7346,32 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaMessageTokensCount, err := client.Beta.Messages.CountTokens(context.TODO(), anthropic.BetaMessageCountTokensParams{
-    Messages: []anthropic.BetaMessageParam{anthropic.BetaMessageParam{
-      Content: []anthropic.BetaContentBlockParamUnion{anthropic.BetaContentBlockParamUnion{
-        OfText: &anthropic.BetaTextBlockParam{
-          Text: "x",
-        },
-      }},
-      Role: anthropic.BetaMessageParamRoleUser,
-    }},
-    Model: anthropic.ModelClaudeOpus4_6,
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaMessageTokensCount.ContextManagement)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaMessageTokensCount, err := client.Beta.Messages.CountTokens(context.TODO(), anthropic.BetaMessageCountTokensParams{
+		Messages: []anthropic.BetaMessageParam{anthropic.BetaMessageParam{
+			Content: []anthropic.BetaContentBlockParamUnion{anthropic.BetaContentBlockParamUnion{
+				OfText: &anthropic.BetaTextBlockParam{
+					Text: "x",
+				},
+			}},
+			Role: anthropic.BetaMessageParamRoleUser,
+		}},
+		Model: anthropic.ModelClaudeOpus4_6,
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaMessageTokensCount.ContextManagement)
 }
 ```
 
@@ -30409,3 +30409,5 @@ func main() {
       - `ErrorCode BetaWebSearchToolResultErrorCode`
 
         - `const BetaWebSearchToolResultErrorCodeInvalidToolInput BetaWebSearchToolResultErrorCode = "invalid_tool_input"`
+
+        - `const BetaWebSearchToolResultErrorCodeUnavailable BetaWebSearchToolResultErrorCode = "unavailable"`

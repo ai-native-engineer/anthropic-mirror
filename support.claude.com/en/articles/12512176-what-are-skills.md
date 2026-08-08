@@ -1,18 +1,18 @@
 <!-- source: https://support.claude.com/en/articles/12512176-what-are-skills -->
 
-# What are skills?
-
-Updated over 3 weeks ago
-
 Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete specific tasks in a repeatable way, whether that's creating documents with your company's brand guidelines, analyzing data using your organization's specific workflows, or automating personal tasks.
 
 Skills are available for users on Free, Pro, Max, Team, and Enterprise plans. This feature requires **[code execution to be enabled](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_1c99382190)**. Skills are also available in beta for Claude Code users and for all API users using the code execution tool.
+
+---
 
 ## How do skills work?
 
 Skills improve Claude’s consistency, speed, and performance on many tasks. Skills work through progressive disclosure—Claude determines which skills are relevant and loads the information it needs to complete that task, helping to prevent context window overload.
 
 When you ask Claude to complete a task, it reviews available skills, loads relevant ones, and applies their instructions.
+
+---
 
 ## Types of skills
 
@@ -45,6 +45,8 @@ Learn more about provisioning skills in **[Provision and manage skills for your 
 
 The Skills Directory features professionally-built skills from partners like Notion, Figma, Atlassian, and others. These skills are designed to work seamlessly with their respective MCP connectors, enabling powerful integrated workflows.
 
+---
+
 ## Key benefits
 
 **Improvement in Claude’s performance of specific tasks**: Skills provide specialized capabilities for tasks like document creation, data analysis, and domain-specific work that requires supplementing Claude's general knowledge.
@@ -55,9 +57,13 @@ The Skills Directory features professionally-built skills from partners like Not
 
 **Centralized management for organizations:** Team and Enterprise plan Owners can provision skills organization-wide, ensuring consistent workflows across teams without requiring individual setup from each user.
 
+---
+
 ## Agent Skills open standard
 
 The Agent Skills specification is published as an open standard at **[agentskills.io](https://agentskills.io)**. This means skills you create aren't locked to Claude—the same skill format works across AI platforms and tools that adopt the standard. A reference Python SDK is also available for developers implementing skills support in their own platforms.
+
+---
 
 ## Skills compared to other Claude capabilities
 
@@ -73,14 +79,18 @@ MCP connects Claude to external services and data sources. Skills provide proced
 
 **[Custom instructions](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features)** apply broadly to all your conversations. Skills are task-specific and only load when relevant, making them better for specialized workflows.
 
+---
+
 ## Learn more about skills
 
 To discover available skills, check out the directory by clicking "Customize" in your account and navigating to "Skills." You can click "+" then "Browse skills" to open the directory. For more information, see **[Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)**.
 
+On the Enterprise plan, organizations can turn on skill scanning to check uploaded skills and plugins for malicious content. Learn more about **[skill and plugin scanning](https://support.claude.com/en/articles/15927065)**.
+
 For more details about how skills work, see **[Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)** in our Claude Docs.
 
+* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
 * [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 * [How to create custom skills](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
-* [Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)
 * [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
-* [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
+* [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)

@@ -34,7 +34,7 @@ The binding takes full effect in new threads only. A thread already running keep
 
 ###  Attach to a workspace
 
-Each paired workspace already has a scope; bind a bundle in the scope’s **Access bundles** section. On the **Access bundles** page in the left navigation, each bundle’s card shows where it’s used. To add another workspace, [pair it](https://claude.com/docs/claude-tag/admins/pair-workspace) first.
+Each paired workspace already has a scope; bind a bundle in the scope’s **Access bundles** section. On the **Access bundles** page in the left navigation, each bundle’s card shows how many places it’s used in. To see which scopes those are, open the bundle’s **Manage** dialog and hover over the usage count in its footer. To add another workspace, [pair it](https://claude.com/docs/claude-tag/admins/pair-workspace) first.
 
 ###  Attach to a channel
 
@@ -74,7 +74,7 @@ Three kinds of standing instruction can apply in a channel, written by different
 
 | Layer | Who writes it | Where |
 | --- | --- | --- |
-| Custom instructions | Owner for any scope; channel members for the channel scope, unless [restricted](#restrict-who-can-set-channel-instructions) | The scope’s settings dialog in admin settings, or the **Configure** link in any reply footer for the channel scope |
+| Custom instructions | Owner for any scope; channel members for the channel scope, unless [restricted](#restrict-who-can-set-channel-instructions) | The scope’s panel in admin settings, or the **Configure** link in any reply footer for the channel scope |
 | Channel memory | Anyone in the channel | By telling Claude to remember |
 | Task prompt | The requester | The message itself |
 
@@ -83,7 +83,7 @@ Custom instructions are read ahead of the conversation and take priority in prac
 
 ###  Add custom instructions
 
-Each scope can carry custom instructions, which are standing guidance Claude reads in every session there, like team conventions or where to file tickets. The field is in the scope’s settings dialog, opened from the **•••** button on the scope’s panel.
+Each scope can carry custom instructions, which are standing guidance Claude reads in every session there, like team conventions or where to file tickets. The **Custom instructions** field is on the scope’s panel, shown when you select the scope on the **Slack** tab in admin settings.
 Channel members reach the same field for the channel scope through the **Configure** page, linked in the footer of any Claude reply, without going through admin settings. Both entry points write the same instructions, so a change from either place is visible in the other.
 The field is plain text, inserted as written; there is no include or template syntax, and `{{include:...}}` is passed through literally. To give Claude a repository’s `CLAUDE.md`, [grant the repository](https://claude.com/docs/claude-tag/admins/configure-github#grant-repository-access) and name it in the request; its `CLAUDE.md` loads after the clone completes.
 
@@ -101,7 +101,7 @@ A chain of scopes that all inherit resolves to **Allow**. Set **Block** at the w
 
 ##  Verify the bundle is live
 
-* The bundle card lists the workspace or channel you attached under the places it’s used.
+* The bundle card’s usage count includes the new scope. To see it named, open the bundle’s **Manage** dialog and hover over the count in its footer.
 * A test task in the pilot channel uses the bundle’s connections, and the action appears in the connected service’s audit log under your service account.
 
 Repeat the attach step for any additional scopes that need elevated access, then widen per the [rollout patterns](https://claude.com/docs/claude-tag/admins/setup-overview#after-setup).

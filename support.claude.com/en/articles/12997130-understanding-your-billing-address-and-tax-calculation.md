@@ -1,24 +1,20 @@
 <!-- source: https://support.claude.com/en/articles/12997130-understanding-your-billing-address-and-tax-calculation -->
 
-# Understanding your billing address and tax calculation
-
-June 26, 2026
-
 Your billing address determines how taxes are calculated on your Claude purchases. This address should represent the primary place of business receiving the product.
 
 ## How billing addresses work by plan type
 
-### Pro, Max, and self-serve Team plans
+### Pro, Max, self-serve Team, and self-serve Enterprise plans
 
-Your billing address is automatically set to match your payment method's billing address. To update it, navigate to [Settings > Billing](http://claude.ai/settings/billing) and click “Update” to the right of your current payment method.
+Your billing address is automatically set to match your payment method's billing address. To update it, navigate to **[Settings > Billing](https://claude.ai/settings/billing)** and click “Update” to the right of your current payment method.
 
-### Sales-assisted Team plans and Enterprise plans
+### Sales-assisted Team plans and sales-assisted Enterprise plans
 
 You can update your billing address directly in Settings → Billing → Billing Addresses. Changes take effect immediately for future invoices.
 
 ### API (usage tiers / self-serve)
 
-Your billing address is tied to your payment method. Update your payment method by navigating to [Settings > Billing in the Claude Console](https://platform.claude.com/settings/billing) and clicking the pencil icon to the right of your current card number to change your billing address.
+Your billing address is tied to your payment method. Update your payment method by navigating to **[Settings > Billing in the Claude Console](https://platform.claude.com/settings/billing)** and clicking the pencil icon to the right of your current card number to change your billing address.
 
 ### Paid API contracts
 
@@ -26,15 +22,18 @@ You can update your billing address directly in the Claude Console under Setting
 
 ## Requesting a different billing address
 
-If you need a billing address that differs from your payment method address, contact our Support team with documentation verifying your primary business location:
+If your billing address doesn't match your payment method's address—for example, you're on a self-serve plan and need it to reflect a different business location for VAT purposes—you have two options:
 
-* **Non-US customers:** VAT registration certificate matching your requested location
-* **US customers:** State of incorporation, business license, or tax ID documentation
+* **Update your payment method's address.** Self-serve plans (Pro, Max, self-serve Team, self-serve Enterprise, and API usage tiers) take their billing address from the payment method, so updating the address on your card or Link wallet updates your billing address too.
+* **Contact support to lock a fixed address.** If you need an address that stays the same even when you change payment methods, contact our Support team with documentation verifying your primary business location:
+
+  + **Non-US customers:** VAT registration certificate matching your requested location
+  + **US customers:** State of incorporation, business license, or tax ID documentation
 
 Once verified, your billing address won't automatically update when you change payment methods.
 
 * [Paid plan billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)
+* [What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)
 * [Add or update your paid Claude account’s tax or VAT ID](https://support.claude.com/en/articles/9889408-add-or-update-your-paid-claude-account-s-tax-or-vat-id)
-* [Add or update your Claude Console organization's tax or VAT ID](https://support.claude.com/en/articles/9889428-add-or-update-your-claude-console-organization-s-tax-or-vat-id)
-* [Add or update your Team plan's tax or VAT ID](https://support.claude.com/en/articles/9927624-add-or-update-your-team-plan-s-tax-or-vat-id)
-* [Team plan billing FAQs](https://support.claude.com/en/articles/12997503-team-plan-billing-faqs)
+* [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
+* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)

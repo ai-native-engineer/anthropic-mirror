@@ -20,7 +20,7 @@ Send Events
 
     Parameters for sending a user message to the session.
 
-    - `content: List[Content]`
+    - `content: Iterable[Content]`
 
       Array of content blocks for the user message.
 
@@ -380,7 +380,7 @@ Send Events
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -432,11 +432,19 @@ Send Events
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -885,17 +893,23 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 beta_managed_agents_send_session_events = client.beta.sessions.events.send(
     session_id="sesn_011CZkZAtmR3yMPDzynEDxu7",
-    events=[{
-        "content": [{
-            "text": "Where is my order #1234?",
-            "type": "text",
-        }],
-        "type": "user.message",
-    }],
+    events=[
+        {
+            "content": [
+                {
+                    "text": "Where is my order #1234?",
+                    "type": "text",
+                }
+            ],
+            "type": "user.message",
+        }
+    ],
 )
 print(beta_managed_agents_send_session_events.data)
 ```

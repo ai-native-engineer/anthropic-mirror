@@ -10,7 +10,12 @@
 
 [1 · Pair workspace](https://claude.com/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/claude-tag/admins/add-connections)[3 · Spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit)[4 · See it work](https://claude.com/docs/claude-tag/admins/test-it)
 
-Work Claude does in channels bills to your **organization’s usage balance**, not to individual seats. The **spend limit** is a cap you set on how much of that balance Claude Tag can use each billing period. (DMs are separate: a DM bills to the user’s own seat, not to this balance.)
+Work Claude does in channels bills to your **organization’s usage balance**, not to individual seats. The **spend limit** is a cap you set on how much of that balance Claude Tag can use each billing period.
+
+| Work | Bills to | Capped by |
+| --- | --- | --- |
+| Channel work | Your organization’s usage balance | The spend limit, plus any [per-channel limits](https://claude.com/docs/claude-tag/admins/restrict-access#set-spend-limits) |
+| A DM with Claude | The sender’s own seat | The seat’s usual limits, not the spend limit |
 
 ##  Whether this step is required depends on your plan
 
@@ -20,6 +25,8 @@ Work Claude does in channels bills to your **organization’s usage balance**, n
 | **Enterprise (invoiced)** | **Recommended.** Usage bills to your invoice with no upper bound until you set a spend limit. Set one to cap exposure during the pilot. |
 
 ##  Set the spend limit
+
+If your organization bills through a reseller, this page is not available and these steps don’t apply; your organization’s usage is funded through the reseller instead.
 
 1
 

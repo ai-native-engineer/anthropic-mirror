@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-mongodb-rag-using-mongodb -->
 
-# How to Build A RAG System Using Claude 3 And MongoDB
+#  How to Build A RAG System Using Claude 3 And MongoDB
 
 This tutorial implements a chatbot prompted to take on the role of a Venture capital tech Analyst. The chatbot is a naive RAG system with a collection of tech news articles acting as its knowledge source.
 This notebook covers the following:
@@ -15,7 +15,7 @@ You will need the following:
 * VoyageAI API Key
 * Hugging Face Access Token
 
-## Step 1: Library installation, data loading and preparation
+##  Step 1: Library installation, data loading and preparation
 
 Below are brief explanations of the tools and libraries utilised within the implementation code:
 
@@ -25,11 +25,9 @@ Below are brief explanations of the tools and libraries utilised within the impl
 * voyageai: This is the official Python client library for accessing VoyageAI's suite of embedding models.
 * pymongo: PyMongo is a Python toolkit for MongoDB. It enables interactions with a MongoDB database.
 
-python
+
 
-```
 !pip install pymongo datasets pandas anthropic voyageai
-```
 
 The code snippet below executes the following steps:
 
@@ -44,7 +42,7 @@ The code snippet below executes the following steps:
 1. Function Definition: The `download_and_combine_parquet_files` function is defined with two parameters:
 
 * `parquet_file_urls`: a list of URLs as strings, each pointing to a Parquet file that contains a sub-collection of the tech-news-embedding dataset.
-* `hf_token` is a string representing a Hugging Face authorization token. Access tokens can be created or copied from the [Hugging Face platform](https://huggingface.co/docs/hub/en/security-tokens#:~:text=To%20create%20an%20access%20token,you%27re%20ready%20to%20go!)
+* `hf_token` is a string representing a Hugging Face authorization token. Access tokens can be created or copied from the [Hugging Face platform(opens in new tab)](https://huggingface.co/docs/hub/en/security-tokens#:~:text=To%20create%20an%20access%20token,you%27re%20ready%20to%20go!)
 
 1. Download and Read Parquet Files: The function iterates over each URL in parquet\_file\_urls. For each URL, it:
 
@@ -55,126 +53,157 @@ The code snippet below executes the following steps:
 
 1. Combine DataFrames: After downloading and reading all Parquet files into DataFrames, there’s a check to ensure that `all_dataframes` is not empty. If there are DataFrames to work with, then all DataFrames are concatenated into a single DataFrame using pd.concat, with ignore\_index=True to reindex the new combined DataFrame. This combined DataFrame is the overall process output in the `download_and_combine_parquet_files` function.
 
-python
+
 
-```
 from io import BytesIO
 
 import pandas as pd
+
 import requests
+
 from google.colab import userdata
 
-def download_and_combine_parquet_files(parquet_file_urls, hf_token):
-    """
-    Downloads Parquet files from the provided URLs using the given Hugging Face token,
-    and returns a combined DataFrame.
+def download\_and\_combine\_parquet\_files(parquet\_file\_urls, hf\_token):
 
-    Parameters:
-    - parquet_file_urls: List of strings, URLs to the Parquet files.
-    - hf_token: String, Hugging Face authorization token.
+"""
 
-    Returns:
-    - combined_df: A pandas DataFrame containing the combined data from all Parquet files.
-    """
-    headers = {"Authorization": f"Bearer {hf_token}"}
-    all_dataframes = []
+Downloads Parquet files from the provided URLs using the given Hugging Face token,
 
-    for parquet_file_url in parquet_file_urls:
-        response = requests.get(parquet_file_url, headers=headers, timeout=60)
-        if response.status_code == 200:
-            parquet_bytes = BytesIO(response.content)
-            df = pd.read_parquet(parquet_bytes)
-            all_dataframes.append(df)
-        else:
-            print(
-                f"Failed to download Parquet file from {parquet_file_url}: {response.status_code}"
-            )
+and returns a combined DataFrame.
 
-    if all_dataframes:
-        combined_df = pd.concat(all_dataframes, ignore_index=True)
-        return combined_df
-    else:
-        print("No dataframes to concatenate.")
-        return None
-```
+Parameters:
 
-Below is a list of the Parquet files required for this tutorial. The complete list of all files is located [here](https://huggingface.co/datasets/MongoDB/tech-news-embeddings/tree/refs%2Fconvert%2Fparquet/default/train). Each Parquet file represents approximately 45,000 data points.
+- parquet\_file\_urls: List of strings, URLs to the Parquet files.
+
+- hf\_token: String, Hugging Face authorization token.
+
+Returns:
+
+- combined\_df: A pandas DataFrame containing the combined data from all Parquet files.
+
+"""
+
+headers = {"Authorization": f"Bearer {hf\_token}"}
+
+all\_dataframes = []
+
+for parquet\_file\_url in parquet\_file\_urls:
+
+response = requests.get(parquet\_file\_url, headers=headers, timeout=60)
+
+if response.status\_code == 200:
+
+parquet\_bytes = BytesIO(response.content)
+
+df = pd.read\_parquet(parquet\_bytes)
+
+all\_dataframes.append(df)
+
+else:
+
+print(
+
+f"Failed to download Parquet file from {parquet\_file\_url}: {response.status\_code}"
+
+)
+
+if all\_dataframes:
+
+combined\_df = pd.concat(all\_dataframes, ignore\_index=True)
+
+return combined\_df
+
+else:
+
+print("No dataframes to concatenate.")
+
+return None
+
+Below is a list of the Parquet files required for this tutorial. The complete list of all files is located [here(opens in new tab)](https://huggingface.co/datasets/MongoDB/tech-news-embeddings/tree/refs%2Fconvert%2Fparquet/default/train). Each Parquet file represents approximately 45,000 data points.
 
 In the code snippet below, a subset of the tech-news-embeddings dataset is grouped into a single DataFrame, which is then assigned to the variable `combined_df`.
 
-python
+
 
-```
 # Uncomment the links below to load more data
+
 # For the full list of data visit: https://huggingface.co/datasets/MongoDB/tech-news-embeddings/tree/refs%2Fconvert%2Fparquet/default/train
-parquet_files = [
-    "https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0000.parquet",
-    # "https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0001.parquet",
-    # "https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0002.parquet",
-    # "https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0003.parquet",
-    # "https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0004.parquet",
-    # "https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0005.parquet",
+
+parquet\_files = [
+
+"https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0000.parquet",
+
+# "https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0001.parquet",
+
+# "https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0002.parquet",
+
+# "https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0003.parquet",
+
+# "https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0004.parquet",
+
+# "https://huggingface.co/api/datasets/AIatMongoDB/tech-news-embeddings/parquet/default/train/0005.parquet",
+
 ]
 
-hf_token = userdata.get("HF_TOKEN")
-combined_df = download_and_combine_parquet_files(parquet_files, hf_token)
-```
+hf\_token = userdata.get("HF\_TOKEN")
+
+combined\_df = download\_and\_combine\_parquet\_files(parquet\_files, hf\_token)
 
 As a final phase in data preparation, the code snippet below shows the step to remove the `_id` column from the grouped dataset, as it is unnecessary for subsequent steps in this tutorial. Additionally, the data within the embedding column for each data point is converted from a numpy array to a Python list to prevent errors related to incompatible data types during the data ingestion.
 
-python
+
 
-```
-# Remove the _id coloum from the intital dataset
-combined_df = combined_df.drop(columns=["_id"])
+# Remove the \_id coloum from the intital dataset
+
+combined\_df = combined\_df.drop(columns=["\_id"])
 
 # Remove the initial embedding coloumn as we are going to create new embeddings with VoyageAI embedding model
-combined_df = combined_df.drop(columns=["embedding"])
-```
 
-python
+combined\_df = combined\_df.drop(columns=["embedding"])
 
-```
-combined_df.head()
-```
+
 
-python
+combined\_df.head()
 
-```
+
+
 # Limiting the amount of document used to 500 for this demo due to the rate limit on VoyageAI API
+
 # Read more on VoyageAI rate limits: https://docs.voyageai.com/docs/rate-limits
-max_documents = 500
 
-if len(combined_df) > max_documents:
-    combined_df = combined_df[:max_documents]
-```
+max\_documents = 500
 
-python
+if len(combined\_df) > max\_documents:
 
-```
+combined\_df = combined\_df[:max\_documents]
+
+
+
 import voyageai
 
-vo = voyageai.Client(api_key=userdata.get("VOYAGE_API_KEY"))
+vo = voyageai.Client(api\_key=userdata.get("VOYAGE\_API\_KEY"))
 
-def get_embedding(text: str) -> list[float]:
-    if not text.strip():
-        print("Attempted to get embedding for empty text.")
-        return []
+def get\_embedding(text: str) -> list[float]:
 
-    embedding = vo.embed(text, model="voyage-large-2", input_type="document")
+if not text.strip():
 
-    return embedding.embeddings[0]
+print("Attempted to get embedding for empty text.")
 
-combined_df["embedding"] = combined_df["description"].apply(get_embedding)
+return []
 
-combined_df.head()
-```
+embedding = vo.embed(text, model="voyage-large-2", input\_type="document")
 
-## Step 2: Database and collection creation
+return embedding.embeddings[0]
+
+combined\_df["embedding"] = combined\_df["description"].apply(get\_embedding)
+
+combined\_df.head()
+
+##  Step 2: Database and collection creation
 
 **To create a new MongoDB database, set up a database cluster:**
 
-1. Register for a [free MongoDB Atlas account](https://www.mongodb.com/cloud/atlas/register?utm_campaign=devrel&utm_source=community&utm_medium=cta&utm_content=Partner%20Cookbook&utm_term=richmond.alake), or existing users, [sign into MongoDB Atlas](https://account.mongodb.com/account/login?utm_campaign=devrel&utm_source=community&utm_medium=cta&utm_content=Partner%20Cookbook&utm_term=richmond.alake)
+1. Register for a [free MongoDB Atlas account(opens in new tab)](https://www.mongodb.com/cloud/atlas/register?utm_campaign=devrel&utm_source=community&utm_medium=cta&utm_content=Partner%20Cookbook&utm_term=richmond.alake), or existing users, [sign into MongoDB Atlas(opens in new tab)](https://account.mongodb.com/account/login?utm_campaign=devrel&utm_source=community&utm_medium=cta&utm_content=Partner%20Cookbook&utm_term=richmond.alake)
 2. Select the “Database” option on the left-hand pane, which will navigate to the Database Deployment page with a deployment specification of any existing cluster. Create a new database cluster by clicking on the "+Create" button.
 3. For assistance with database cluster setup and obtaining the URI, refer to our guide for setting up a MongoDB cluster and getting your connection string.
    Note: Don’t forget to whitelist the IP for the Python host or 0.0.0.0/0 for any IP when creating proof of concepts.
@@ -185,26 +214,33 @@ combined_df.head()
 Once you have created a cluster, navigate to the cluster page and create a database and collection within the MongoDB Atlas cluster by clicking + Create Database.
 The database will be named `tech_news`, and the collection will be named `hacker_noon_tech_news`.
 
-## Step 3: Vector search index creation
+##  Step 3: Vector search index creation
 
 By this point, you have created a cluster, database and collection.
 
-The steps in this section are crucial to ensure that a vector search can be conducted using the queries entered into the chatbot and searched against the records within the hacker\_noon\_tech\_news collection. The objective of this step is to create a vector search index. To achieve this, refer to the official [vector search index creation guide](https://www.mongodb.com/docs/atlas/atlas-vector-search/create-index/).
+The steps in this section are crucial to ensure that a vector search can be conducted using the queries entered into the chatbot and searched against the records within the hacker\_noon\_tech\_news collection. The objective of this step is to create a vector search index. To achieve this, refer to the official [vector search index creation guide(opens in new tab)](https://www.mongodb.com/docs/atlas/atlas-vector-search/create-index/).
 
 In the creation of a vector search index using the JSON editor on MongoDB Atlas, ensure your vector search index is named vector\_index and the vector search index definition is as follows:
 
-```
-{
- "fields": [{
-     "numDimensions": 1536,
-     "path": "embedding",
-     "similarity": "cosine",
-     "type": "vector"
-   }]
-}
-```
+
 
-## Step 4: Data ingestion
+{
+
+"fields": [{
+
+"numDimensions": 1536,
+
+"path": "embedding",
+
+"similarity": "cosine",
+
+"type": "vector"
+
+}]
+
+}
+
+##  Step 4: Data ingestion
 
 To ingest data into the MongoDB database created in previous steps. The following operations have to be carried out:
 
@@ -215,60 +251,75 @@ To ingest data into the MongoDB database created in previous steps. The followin
 
 This tutorial requires the cluster's URI (unique resource identifier). Grab the URI and copy it into the Google Colab Secrets environment in a variable named MONGO\_URI, or place it in a .env file or equivalent.
 
-python
+
 
-```
 import pymongo
+
 from google.colab import userdata
 
-def get_mongo_client(mongo_uri):
-    """Establish connection to the MongoDB."""
-    try:
-        client = pymongo.MongoClient(mongo_uri)
-        print("Connection to MongoDB successful")
-        return client
-    except pymongo.errors.ConnectionFailure as e:
-        print(f"Connection failed: {e}")
-        return None
+def get\_mongo\_client(mongo\_uri):
 
-mongo_uri = userdata.get("MONGO_URI")
-if not mongo_uri:
-    print("MONGO_URI not set in environment variables")
+"""Establish connection to the MongoDB."""
 
-mongo_client = get_mongo_client(mongo_uri)
+try:
 
-DB_NAME = "tech_news"
-COLLECTION_NAME = "hacker_noon_tech_news"
+client = pymongo.MongoClient(mongo\_uri)
 
-db = mongo_client[DB_NAME]
-collection = db[COLLECTION_NAME]
-```
+print("Connection to MongoDB successful")
+
+return client
+
+except pymongo.errors.ConnectionFailure as e:
+
+print(f"Connection failed: {e}")
+
+return None
+
+mongo\_uri = userdata.get("MONGO\_URI")
+
+if not mongo\_uri:
+
+print("MONGO\_URI not set in environment variables")
+
+mongo\_client = get\_mongo\_client(mongo\_uri)
+
+DB\_NAME = "tech\_news"
+
+COLLECTION\_NAME = "hacker\_noon\_tech\_news"
+
+db = mongo\_client[DB\_NAME]
+
+collection = db[COLLECTION\_NAME]
+
+
 
 ```
 Connection to MongoDB successful
 ```
 
-python
+
 
-```
 # To ensure we are working with a fresh collection
+
 # delete any existing records in the collection
-collection.delete_many({})
-```
+
+collection.delete\_many({})
+
+
 
 ```
 DeleteResult({'n': 228012, 'electionId': ObjectId('7fffffff000000000000000e'), 'opTime': {'ts': Timestamp(1709660559, 7341), 't': 14}, 'ok': 1.0, '$clusterTime': {'clusterTime': Timestamp(1709660559, 7341), 'signature': {'hash': b'jT\xf1\xb4\xa9\xd3\xe3suu\x03`\x15(}\x8f\x00\x9f\xe9\x8a', 'keyId': 7320226449804230661}}, 'operationTime': Timestamp(1709660559, 7341)}, acknowledged=True)
 ```
 
-python
+
 
-```
 # Data Ingestion
-combined_df_json = combined_df.to_dict(orient="records")
-collection.insert_many(combined_df_json)
-```
 
-## Step 5: Vector Search
+combined\_df\_json = combined\_df.to\_dict(orient="records")
+
+collection.insert\_many(combined\_df\_json)
+
+##  Step 5: Vector Search
 
 This section showcases the creation of a vector search custom function that accepts a user query, which corresponds to entries to the chatbot. The function also takes a second parameter, `collection`, which points to the database collection containing records against which the vector search operation should be conducted.
 
@@ -283,55 +334,83 @@ The code snippet below conducts the following operations to allow semantic searc
 5. The $project stage formats the results to excludes the \_id the `embedding` field.
 6. The aggregate executes the defined pipeline to obtain the vector search results. The final operation converts the returned cursor from the database into a list.
 
-python
+
 
-```
-def vector_search(user_query, collection):
-    """
-    Perform a vector search in the MongoDB collection based on the user query.
+def vector\_search(user\_query, collection):
 
-    Args:
-    user_query (str): The user's query string.
-    collection (MongoCollection): The MongoDB collection to search.
+"""
 
-    Returns:
-    list: A list of matching documents.
-    """
+Perform a vector search in the MongoDB collection based on the user query.
 
-    # Generate embedding for the user query
-    query_embedding = get_embedding(user_query)
+Args:
 
-    if query_embedding is None:
-        return "Invalid query or embedding generation failed."
+user\_query (str): The user's query string.
 
-    # Define the vector search pipeline
-    pipeline = [
-        {
-            "$vectorSearch": {
-                "index": "vector_index",
-                "queryVector": query_embedding,
-                "path": "embedding",
-                "numCandidates": 150,  # Number of candidate matches to consider
-                "limit": 5,  # Return top 5 matches
-            }
-        },
-        {
-            "$project": {
-                "_id": 0,  # Exclude the _id field
-                "embedding": 0,  # Exclude the embedding field
-                "score": {
-                    "$meta": "vectorSearchScore"  # Include the search score
-                },
-            }
-        },
-    ]
+collection (MongoCollection): The MongoDB collection to search.
 
-    # Execute the search
-    results = collection.aggregate(pipeline)
-    return list(results)
-```
+Returns:
 
-## Step 6: Handling user queries with Claude 3 models
+list: A list of matching documents.
+
+"""
+
+# Generate embedding for the user query
+
+query\_embedding = get\_embedding(user\_query)
+
+if query\_embedding is None:
+
+return "Invalid query or embedding generation failed."
+
+# Define the vector search pipeline
+
+pipeline = [
+
+{
+
+"$vectorSearch": {
+
+"index": "vector\_index",
+
+"queryVector": query\_embedding,
+
+"path": "embedding",
+
+"numCandidates": 150, # Number of candidate matches to consider
+
+"limit": 5, # Return top 5 matches
+
+}
+
+},
+
+{
+
+"$project": {
+
+"\_id": 0, # Exclude the \_id field
+
+"embedding": 0, # Exclude the embedding field
+
+"score": {
+
+"$meta": "vectorSearchScore" # Include the search score
+
+},
+
+}
+
+},
+
+]
+
+# Execute the search
+
+results = collection.aggregate(pipeline)
+
+return list(results)
+
+##  Step 6: Handling user queries with Claude 3 models
 
 The final section of the tutorial outlines the sequence of operations performed as follows:
 
@@ -343,15 +422,13 @@ The final section of the tutorial outlines the sequence of operations performed 
 
 An important note is that the dimensions of the user query embedding match the dimensions set in the vector search index definition on MongoDB Atlas.
 
-The next step in this section is to import the anthropic library and load the client to access the anthropic’s methods for handling messages and accessing Claude models. Ensure you obtain an Claude API key located within the settings page on the [official Anthropic website](https://console.anthropic.com/settings/keys).
+The next step in this section is to import the anthropic library and load the client to access the anthropic’s methods for handling messages and accessing Claude models. Ensure you obtain an Claude API key located within the settings page on the [official Anthropic website(opens in new tab)](https://console.anthropic.com/settings/keys).
 
-python
+
 
-```
 import anthropic
 
-client = anthropic.Client(api_key=userdata.get("ANTHROPIC_API_KEY"))
-```
+client = anthropic.Client(api\_key=userdata.get("ANTHROPIC\_API\_KEY"))
 
 Below is a more detailed description of the operations in the code snippet below:
 
@@ -366,53 +443,77 @@ Below is a more detailed description of the operations in the code snippet below
 
 1. Return the Generated Response and Search Results: It extracts and returns the response text from the first item in the response's content, alongside the compiled search results.
 
-python
+
 
-```
-def handle_user_query(query, collection):
-    get_knowledge = vector_search(query, collection)
+def handle\_user\_query(query, collection):
 
-    search_result = ""
-    for result in get_knowledge:
-        search_result += (
-            f"Title: {result.get('title', 'N/A')}, "
-            f"Company Name: {result.get('companyName', 'N/A')}, "
-            f"Company URL: {result.get('companyUrl', 'N/A')}, "
-            f"Date Published: {result.get('published_at', 'N/A')}, "
-            f"Article URL: {result.get('url', 'N/A')}, "
-            f"Description: {result.get('description', 'N/A')}, \n"
-        )
+get\_knowledge = vector\_search(query, collection)
 
-    response = client.messages.create(
-        model="claude-opus-4-1",
-        max_tokens=1024,
-        system="You are Venture Captital Tech Analyst with access to some tech company articles and information. You use the information you are given to provide advice.",
-        messages=[
-            {
-                "role": "user",
-                "content": "Answer this user query: "
-                + query
-                + " with the following context: "
-                + search_result,
-            }
-        ],
-    )
+search\_result = ""
 
-    return (response.content[0].text), search_result
-```
+for result in get\_knowledge:
+
+search\_result += (
+
+f"Title: {result.get('title', 'N/A')}, "
+
+f"Company Name: {result.get('companyName', 'N/A')}, "
+
+f"Company URL: {result.get('companyUrl', 'N/A')}, "
+
+f"Date Published: {result.get('published\_at', 'N/A')}, "
+
+f"Article URL: {result.get('url', 'N/A')}, "
+
+f"Description: {result.get('description', 'N/A')}, \n"
+
+)
+
+response = client.messages.create(
+
+model="claude-opus-4-1",
+
+max\_tokens=1024,
+
+system="You are Venture Captital Tech Analyst with access to some tech company articles and information. You use the information you are given to provide advice.",
+
+messages=[
+
+{
+
+"role": "user",
+
+"content": "Answer this user query: "
+
++ query
+
++ " with the following context: "
+
++ search\_result,
+
+}
+
+],
+
+)
+
+return (response.content[0].text), search\_result
 
 The final step in this tutorial is to initialize the query, pass it into the `handle_user_query` function and print the response returned.
 
-python
+
 
-```
 # Conduct query with retrieval of sources
+
 query = "Give me the best tech stock to invest in and tell me why"
-response, source_information = handle_user_query(query, collection)
+
+response, source\_information = handle\_user\_query(query, collection)
 
 print(f"Response: {response}")
-print(f"\\nSource Information: \\n{source_information}")
-```
+
+print(f"\\nSource Information: \\n{source\_information}")
+
+
 
 ```
 Response: Based on the information provided in the article titles and descriptions, Alibaba Group Holding Limited appears to be a top technology stock pick for 2023 according to renowned investor Ray Dalio. The article "Top 10 Technology Stocks to Buy in 2023 According to Ray Dalio" suggests that Alibaba is one of Dalio's favored tech investments for the year.

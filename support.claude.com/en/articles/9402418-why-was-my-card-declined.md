@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9402418-why-was-my-card-declined -->
 
-# Why was my card declined?
-
-Updated over 3 weeks ago
-
 There are several reasons your card may have been declined when trying to process this transaction. While we don't receive detailed information from issuing banks regarding the specific reasons for a decline, there are several common factors that may contribute to this issue. A few ideas to try are:
 
 ## Ensure supported billing location

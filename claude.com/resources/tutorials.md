@@ -26,6 +26,34 @@ Product
 
 Features
 
+![How to choose between voice mode and dictation](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a72171367d5fac36c73e896_Screenshot%202026-08-04%20at%209.44.51%E2%80%AFAM.png)
+
+How to choose between voice mode and dictation
+
+Professional
+
+Category
+
+Professional
+
+Product
+
+Claude.ai
+
+Features
+
+No items found.
+
+Read tutorial
+
+[Read tutorial](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)Read tutorial
+
+[How to choose between voice mode and dictation](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)How to choose between voice mode and dictation
+
+[Text Link](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)
+
+Professional
+
 ![How AI gets its character](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a55978c2a3fad32a041cdd0_Thumb%20v1_L3.png)
 
 How AI gets its character
@@ -439,38 +467,6 @@ Professional
 Engineering
 
 Marketing
-
-![Using Claude Design for presentations and slide decks](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e1cbe330a0642ef57ca30c_Screenshot%202026-04-16%20at%2010.57.47%E2%80%AFPM.png)
-
-Using Claude Design for presentations and slide decks
-
-Professional
-
-Category
-
-Professional
-
-Product
-
-Claude Design
-
-Features
-
-No items found.
-
-Read tutorial
-
-[Read tutorial](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Read tutorial
-
-[Using Claude Design for presentations and slide decks](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Using Claude Design for presentations and slide decks
-
-[Text Link](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)
-
-Marketing
-
-Professional
-
-Sales
 
 [View more](https://claude.com/resources/tutorials?8adb0641_page=2)
 

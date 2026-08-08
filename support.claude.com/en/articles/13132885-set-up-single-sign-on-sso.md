@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13132885-set-up-single-sign-on-sso -->
 
-# Set up single sign-on (SSO)
-
-June 24, 2026
-
 Single sign-on is available for Team plans, Enterprise plans, and Console organizations.
 
 This guide covers the steps to configure SSO for Team and Enterprise plans, and Claude Console organizations.
@@ -28,6 +24,8 @@ Please contact your organization's IT Administrator if you do not have permissio
 
 **Note:** WorkOS is Anthropic's provider for domain verification and SSO setup. More details can be found in **[Anthropic's Subprocessor List](https://trust.anthropic.com/subprocessors)**. You will be taken through a WorkOS setup flow when configuring SSO and provisioning features—find your Identity Provider in their **[Integration documentation](https://workos.com/docs/integrations)**.
 
+---
+
 ## Step 2: Verify your domain(s)
 
 Domain verification proves that you own your company's domain. Once verified, you can configure SSO for accounts with your company's domain.
@@ -36,16 +34,16 @@ You can verify multiple domains for a single organization, but all domains must 
 
 **Note:** Verifying your domain by itself will not impact existing users' ability to access our products. End users’ access is only affected once SSO is set up and explicitly enforced.
 
-1. Navigate to your **Organization and access** settings in Claude (**[claude.ai/admin-settings/organization](http://claude.ai/admin-settings/organization)**) or your **Identity and access** settings in Console (**[platform.claude.com/settings/identity](http://platform.claude.com/settings/identity)**) – note this page will only appear on Console if you've worked with Sales to enable SSO or completed a merge proposal.
+1. Navigate to your **Organization and access** settings in Claude (**[claude.ai/admin-settings/organization](https://claude.ai/admin-settings/organization)**) or your **Identity and access** settings in Console (**[platform.claude.com/settings/identity](https://platform.claude.com/settings/identity)**) – note this page will only appear on Console if you've worked with Sales to enable SSO or completed a merge proposal.
 2. In the **Domains** section, click “Add or edit domains.”
 3. Enter the domain(s) you want to verify in the **Update organization email domains** modal and click the “+” button:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1785803400&signature=462851ef9e9819a6c84fb301d61075d007cb24bc3650d5cf6553a54048f21d7d&req=diQuHsF6noNXW%2FMW1HO4zSdmHnkx%2BseIe3H0OpmIzWE1MnMbNVUWGHMfkWmG%0Avv9g%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1785803400&signature=462851ef9e9819a6c84fb301d61075d007cb24bc3650d5cf6553a54048f21d7d&req=diQuHsF6noNXW%2FMW1HO4zSdmHnkx%2BseIe3H0OpmIzWE1MnMbNVUWGHMfkWmG%0Avv9g%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1786212000&signature=81394e6c031784b2da3afda8ce820bc22997438bbcfa7268b7289ef15068bc85&req=diQuHsF6noNXW%2FMW3nq%2BgVKY2TIwyOvS%2B1k2K%2BjeP18m4n3WZby6uS838RWf%0A5m4G1pQVfHa4P4a4xzqeScoDz1Y%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1786212000&signature=81394e6c031784b2da3afda8ce820bc22997438bbcfa7268b7289ef15068bc85&req=diQuHsF6noNXW%2FMW3nq%2BgVKY2TIwyOvS%2B1k2K%2BjeP18m4n3WZby6uS838RWf%0A5m4G1pQVfHa4P4a4xzqeScoDz1Y%3D%0A)
 4. Click “Save” when you’re finished adding domains.
 5. The domain(s) you added will now appear in the **Domains** section; click “Verify” to the right of the domain(s) to begin the verification process.
 6. Enter your domain in the text box and click “Continue”:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1785803400&signature=db6c5177caca456bfb25a2fb840715ebfc62f77bcab1497b77a2c872429883e6&req=diAjEcl6n4dcWfMW1HO4zWHctRifl9KuyoyXAW0OlXo0PHVsg9DvDI4aXgmP%0Af2v0%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1785803400&signature=db6c5177caca456bfb25a2fb840715ebfc62f77bcab1497b77a2c872429883e6&req=diAjEcl6n4dcWfMW1HO4zWHctRifl9KuyoyXAW0OlXo0PHVsg9DvDI4aXgmP%0Af2v0%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1786212000&signature=fc19a66565abe57868f032d31446fbb33ba58ea2f84a45d08d8dce4aa4af3b0d&req=diAjEcl6n4dcWfMW3nq%2BgU1ga4Pjz29FNk4J2wlNvc1r3EkhalTQBxREa72T%0AdoW1f9xvTmth8z5BVNeJRU%2BrrbI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1786212000&signature=fc19a66565abe57868f032d31446fbb33ba58ea2f84a45d08d8dce4aa4af3b0d&req=diAjEcl6n4dcWfMW3nq%2BgU1ga4Pjz29FNk4J2wlNvc1r3EkhalTQBxREa72T%0AdoW1f9xvTmth8z5BVNeJRU%2BrrbI%3D%0A)
 7. The setup screen displays a TXT record. **Copy the full Value using the copy button**—it begins with `anthropic-domain-verification-` and is longer than what's visible in the box. In your DNS provider, add a TXT record with **Host/Name** set to `@` (the root of your domain) and **Value** set to the copied string. Add it alongside any existing TXT records; don't replace them. The value is case-sensitive, so paste it exactly.
 
    1. **Important:** Save the TXT value before leaving the setup screen. Once the domain shows as Pending, the admin console doesn't display the value again. If you lose it, you'll need to remove and re-add the domain, which generates a new value.
@@ -65,13 +63,15 @@ Clicking "Refresh" re-checks your DNS; it won't show Verified until the publishe
 
 If the record is correct and propagated but the status still shows Pending, contact Support.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1785803400&signature=3170b00d05250cede62b5286220636a48f3d54c0e287bb10cbe0f821b2854391&req=diAjEcl6mYVWX%2FMW1HO4zVjmWSwIb3e9PM2D8Zcdgrj81%2BRs0847y%2BIL1WHa%0At26vcmdnBesjHgJmMG0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1785803400&signature=3170b00d05250cede62b5286220636a48f3d54c0e287bb10cbe0f821b2854391&req=diAjEcl6mYVWX%2FMW1HO4zVjmWSwIb3e9PM2D8Zcdgrj81%2BRs0847y%2BIL1WHa%0At26vcmdnBesjHgJmMG0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1786212000&signature=cc44c2d1e8c39aed6f09de98f8b53f13c4570a2c0dd9a39eea26751c14d39bd5&req=diAjEcl6mYVWX%2FMW3nq%2BgRz1alCPKmRi%2BK%2F4XWURBt58jQJ6tmf4OEBWryBf%0AO0%2BW4VTM6FyL%2FVpYBuwpN868stU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1786212000&signature=cc44c2d1e8c39aed6f09de98f8b53f13c4570a2c0dd9a39eea26751c14d39bd5&req=diAjEcl6mYVWX%2FMW3nq%2BgRz1alCPKmRi%2BK%2F4XWURBt58jQJ6tmf4OEBWryBf%0AO0%2BW4VTM6FyL%2FVpYBuwpN868stU%3D%0A)
 
 **Note:** Once your domain is verified, you'll see a **Restrict organization creation** toggle under **Security** on the Organization and access organization settings page. Enable this if you want to prevent users from creating new Claude or Console organizations—including personal accounts—using your verified domains.
 
+---
+
 ## Step 3: Set up SSO with your Identity Provider
 
-1. Navigate to your **Organization and access** settings in Claude (**[claude.ai/admin-settings/organization](http://claude.ai/admin-settings/organization)**) or your **Identity and access** settings in Console (**[platform.claude.com/settings/identity](http://platform.claude.com/settings/identity)**).
+1. Navigate to your **Organization and access** settings in Claude (**[claude.ai/admin-settings/organization](https://claude.ai/admin-settings/organization)**) or your **Identity and access** settings in Console (**[platform.claude.com/settings/identity](https://platform.claude.com/settings/identity)**).
 2. In the **Authentication** section, click “Setup SSO” (or “Manage SSO”).
 3. Follow the setup guide provided for your Identity Provider (see below for additional guides).
 4. At the end of these steps, you’ll be prompted to Test Single Sign-on to confirm there are no errors and the configuration is successful.
@@ -88,15 +88,19 @@ For IdP-specific setup instructions, see:
 * **[JumpCloud SAML](https://workos.com/docs/integrations/jumpcloud-saml)**
 * **[Duo SAML](https://workos.com/docs/integrations/duo-saml/4-enter-duo-saml-settings-in-your-workos-dashboard)**
 
+---
+
 ## Step 4: Choose to require SSO
 
 You can now choose to toggle on **Require SSO for Console** and/or **Require SSO for Claude,** on the **Organization and access** page, under the **Authentication** section:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1785803400&signature=89edba906b4bf15748e897fefd6ff360410abc4bd989b7a9916ba0e386174c13&req=diMmFM93nYNfWfMW1HO4zdAICwqpAn8OItXtKivx6ZFIkujv9VYNFaNzNnX3%0ABShRxdJazwtuc8OdOgQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1785803400&signature=89edba906b4bf15748e897fefd6ff360410abc4bd989b7a9916ba0e386174c13&req=diMmFM93nYNfWfMW1HO4zdAICwqpAn8OItXtKivx6ZFIkujv9VYNFaNzNnX3%0ABShRxdJazwtuc8OdOgQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1786212000&signature=0cf62e8ce7571fd0a358995dbd55cd84973710f75630b4db26694b75b819dd79&req=diMmFM93nYNfWfMW3nq%2BgRYH5xpAopbj%2B6jEdawRDawAKv%2B114RD1O8kvpt%2F%0ALmJjoZaayy9OQ8%2BirafKg1l8Fc4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1786212000&signature=0cf62e8ce7571fd0a358995dbd55cd84973710f75630b4db26694b75b819dd79&req=diMmFM93nYNfWfMW3nq%2BgRYH5xpAopbj%2B6jEdawRDawAKv%2B114RD1O8kvpt%2F%0ALmJjoZaayy9OQ8%2BirafKg1l8Fc4%3D%0A)
 
 When SSO is required, users must use the “Continue with SSO” option to log in to their Claude/Console accounts. When SSO is not required, they will have the option to choose “Continue with SSO” or “Continue with email.”
 
 Before you decide, review **[What happens to existing users when SSO is enabled](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning#h_644f467167)**.
+
+---
 
 ## Step 5: Choose your provisioning approach
 
@@ -116,18 +120,22 @@ For more control over provisioning, see **[Set up JIT or SCIM provisioning](http
 
 **Note:** We don't currently support IdP-initiated login for Claude Console organizations that share SSO settings with a Team or Enterprise plan organization. Users will be redirected to claude.ai with IdP-initiated login. As a workaround, if possible in your IdP, create a bookmark called "Claude Console" that links to platform.claude.com/login?sso=true to redirect users to Console for SP-initiated login.
 
+---
+
 ## Updating your SSO certificate
 
 When your Identity Provider's X.509 signing certificate expires or is rotated, you'll need to update it in Claude or Console to maintain SSO functionality.
 
 1. Navigate to your settings:
 
-   * For Team and Enterprise plans: **[claude.ai/admin-settings/organization](http://claude.ai/admin-settings/organization)**
-   * For Claude Console: **[platform.claude.com/settings/identity](http://platform.claude.com/settings/organization)**
+   * For Team and Enterprise plans: **[claude.ai/admin-settings/organization](https://claude.ai/admin-settings/organization)**
+   * For Claude Console: **[platform.claude.com/settings/identity](https://platform.claude.com/settings/organization)**
 2. In the **Authentication** section, click “Manage SSO.”
 3. Find the **Metadata configuration** section and click “Edit.”
 4. Update your certificate information and save your changes.
 5. Click "Test sign-in" on the same page to confirm everything is working.
+
+---
 
 ## Turning off SSO
 

@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/7996918-what-is-amazon-bedrock -->
 
-# What is Amazon Bedrock?
-
 Amazon Bedrock is a fully managed service that offers a choice of high-performing
 
 foundation models (FMs) from leading AI companies like Anthropic through a single API,
@@ -20,4 +18,8 @@ and data sources. Since Amazon Bedrock is serverless, you don't have to manage a
 
 You can learn more about Anthropic’s Claude models in Amazon Bedrock [here](https://aws.amazon.com/bedrock/claude/).
 
-[How do I get access to Claude in Amazon Bedrock?](https://support.claude.com/en/articles/7996920-how-do-i-get-access-to-claude-in-amazon-bedrock)[I use Claude in Amazon Bedrock. Who do I contact for customer support inquiries?](https://support.claude.com/en/articles/7996921-i-use-claude-in-amazon-bedrock-who-do-i-contact-for-customer-support-inquiries)[What AWS Regions are Claude models available in Amazon Bedrock?](https://support.claude.com/en/articles/10280791-what-aws-regions-are-claude-models-available-in-amazon-bedrock)[Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)[Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
+* [How do I get access to Claude in Amazon Bedrock?](https://support.claude.com/en/articles/7996920-how-do-i-get-access-to-claude-in-amazon-bedrock)
+* [I use Claude in Amazon Bedrock. Who do I contact for customer support inquiries?](https://support.claude.com/en/articles/7996921-i-use-claude-in-amazon-bedrock-who-do-i-contact-for-customer-support-inquiries)
+* [What AWS Regions are Claude models available in Amazon Bedrock?](https://support.claude.com/en/articles/10280791-what-aws-regions-are-claude-models-available-in-amazon-bedrock)
+* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
+* [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)

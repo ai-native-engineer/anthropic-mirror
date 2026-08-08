@@ -27,16 +27,16 @@ Directory connectors and custom connectors run on the same infrastructure—see 
 
 Access the Connectors Directory through:
 
-* **[Settings > Connectors](https://claude.ai/settings/connectors)** in Claude.ai
-* **[Admin Settings > Connectors](https://claude.ai/admin-settings/connectors)** for Team/Enterprise admins
+* **[Customize > Connectors](https://claude.ai/customize/connectors)** in claude.ai
+* **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)** for Team/Enterprise admins
 
 ##  Requesting a connector on a Team plan
 
 On Claude Team plans, members who do not have permission to enable connectors see a **Request** button on each directory connector instead of a connect action. Selecting **Request** sends the connector to your organization’s admins for review. The button changes to **Requested** while the request is pending.
 If you are a Team admin with permission to manage connectors, member requests appear in two places:
 
-* **[Admin Settings > Connectors](https://claude.ai/admin-settings/connectors)** shows a **Requested by your team** section above the connector list.
-* **[Admin Settings > Notifications](https://claude.ai/admin-settings/notifications)** lists each requested connector on the **Requests** tab, and the **Notifications** item in the admin sidebar shows a count badge while requests are pending.
+* **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)** shows a **Requested by your team** section above the connector list.
+* **[Organization settings > Notifications](https://claude.ai/admin-settings/notifications)** lists each requested connector on the **Requests** tab, and the **Notifications** item in the admin sidebar shows a count badge while requests are pending.
 
 From either location you can enable the connector for your organization or dismiss the request. Claude shows the requesting member the outcome the next time they open the connectors directory.
 
@@ -45,7 +45,7 @@ From either location you can enable the connector for your organization or dismi
 Occasionally a provider updates the endpoint URL behind its directory listing, for example moving a server from `https://mcp.example.com/sse` to `https://mcp.example.com/mcp`. This is a routine change on the provider’s side. Here is what you may notice in Claude:
 
 * **Your existing connection keeps working.** Connectors you added before the change keep using the endpoint they were installed with, and your authentication is unaffected.
-* **It appears as a custom connector.** Because your connector no longer matches the updated directory listing, it shows under “Custom” in [Settings > Connectors](https://claude.ai/settings/connectors) instead of as a named directory connector.
+* **It appears as a custom connector.** Because your connector no longer matches the updated directory listing, it shows under “Custom” in [Customize > Connectors](https://claude.ai/customize/connectors) instead of as a named directory connector.
 * **The directory listing shows as not installed.** Adding the connector from the directory again without removing the original gives you two connections: your original one and a new one on the updated endpoint.
 
 To move to the new endpoint, remove the connector and re-add it from the directory. Claude prompts you to authenticate with the service again.

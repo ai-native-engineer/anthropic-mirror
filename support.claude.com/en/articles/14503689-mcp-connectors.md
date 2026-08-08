@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14503689-mcp-connectors -->
 
-# MCP connectors
-
-April 10, 2026
-
 MCP connectors let Claude connect to your organization’s tools, data sources, and services. Claude can search your documents, read your email, or call external APIs on your behalf, all without leaving the chat.
 
 For general questions about connectors in Claude, see **[Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)**.
@@ -47,6 +43,8 @@ After your org admin enables a connector, it appears in your personal settings.
 3. Complete the authentication flow—typically a one-time OAuth consent screen.
 4. The connector is now active in your chats. Claude will use it automatically when relevant, or you can reference it directly ("search my SharePoint for…").
 
+---
+
 ## Security and privacy
 
 ### How authentication works
@@ -67,6 +65,8 @@ Whether the **connected service** sits inside or outside the boundary depends on
 
 **Important:** Adding a connector does not change Claude for Government's FedRAMP authorization, but your agency's own ATO process may require you to evaluate the specific data-handling characteristics of each connector before enabling it.
 
+---
+
 ## Frequently asked questions
 
 ### Does enabling a connector give Anthropic access to our data?
@@ -85,4 +85,8 @@ Connectors are enabled at the organization level. Once enabled, any user in the 
 
 It depends on the connector: admins should review all connector permissions before adding them. Custom connectors can expose write tools if your MCP server implements them; see the security guidance in Custom Connectors before enabling write scopes.
 
-[Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)[Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)[MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)[MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)[Authorize MCP connectors for your entire organization](https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization)
+* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
+* [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
+* [MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)
+* [Authorize MCP connectors for your entire organization](https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization)

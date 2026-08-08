@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14447276-configure-a-custom-opentelemetry-collector-for-office-agents -->
 
-# Configure a custom OpenTelemetry collector for Office agents
-
-May 15, 2026
-
 You can route full audit telemetry from Office agents to your own OpenTelemetry (OTEL) collector. This gives your organization complete control over retention, encryption, and integration with your SIEM or observability platform.
 
 This guide covers how to enable a custom collector, what data you'll receive, and the full span schema reference.
@@ -19,6 +15,8 @@ Your collector receives all span attributes, including those carrying user-gener
 **Important:** Metrics aren't sent to custom collectors. The `office_agent.*` counter namespace routes to Anthropic only. However, every counter increment also appears as a span event on the active span, so the same signals are available in your traces.
 
 Telemetry is sent via OTLP/HTTP to your endpoint at `{your_url}/v1/traces`. gRPC isn't supported because the add-in runs in an Office WebView.
+
+---
 
 ## Enable a custom collector
 
@@ -42,7 +40,7 @@ The protocol must be HTTP-based OTLP. gRPC is rejected at configuration time.
 
 For deployments that authenticate against your own model provider rather than Claude.ai, the collector endpoint is supplied through one of three configuration channels. All three use the same two keys.
 
-**Recommended:** Use the **[claude-in-office plugin](https://github.com/anthropics/financial-services-plugins/tree/main/claude-in-office)** for Claude Code. It walks you through generating the manifest, registering Entra extension attributes, and standing up a bootstrap endpoint with `otlp_endpoint` and `otlp_headers` pre-wired. The three channels below are documented for reference and manual setup.
+**Recommended:** Use the **[claude-for-msft-365-install plugin](https://github.com/anthropics/financial-services/tree/main/claude-for-msft-365-install)** for Claude Code. It walks you through generating the manifest, registering Entra extension attributes, and standing up a bootstrap endpoint with `otlp_endpoint` and `otlp_headers` pre-wired. The three channels below are documented for reference and manual setup.
 
 |  |  |  |
 | --- | --- | --- |
@@ -58,7 +56,7 @@ If `otlp_endpoint` is unset or empty, no custom collector is configured and the 
 
 Append the keys as query string parameters to the taskpane URL in your custom add-in manifest:
 
-[`https://<addin-host>/taskpane.html?otlp_endpoint=https://otel-collector.your-domain.com&otlp_headers=Authorization=Bearer%20<token`](https://<addin-host>/taskpane.html?otlp_endpoint=https://otel-collector.your-domain.com&otlp_headers=Authorization=Bearer%20<token)`>`
+`https://<addin-host>/taskpane.html?otlp_endpoint=https://otel-collector.your-domain.com&otlp_headers=Authorization=Bearer%20<token>`
 
 URL-encode the values. This applies the configuration to every user who installs the manifest.
 
@@ -71,8 +69,8 @@ The claim names in the issued ID token follow Azure's directory extension format
 |  |  |
 | --- | --- |
 | **Claim** | **Maps to** |
-| `extn.otlp_endpoint` | otlp\_endpoint |
-| `extn.otlp_headers` | otlp\_headers |
+| `extn.otlp_endpoint` | `otlp_endpoint` |
+| `extn.otlp_headers` | `otlp_headers` |
 
 Set these per-user with a Graph PATCH against the user object. Azure encodes directory extension values as single-element arrays in the ID token; the add-in unwraps them automatically. This channel requires `entra_sso=1` in the manifest URL parameters to enable NAA token acquisition.
 
@@ -93,7 +91,9 @@ The bootstrap endpoint URL itself is configured via `bootstrap_url` in either th
 
 When multiple channels supply a value, later channels override earlier ones: manifest parameters are read first, then Entra claims, then the bootstrap response. The bootstrap response wins.
 
-If you haven't already, the fastest path is the **[claude-in-office plugin](https://github.com/anthropics/financial-services-plugins/tree/main/claude-in-office)**.
+If you haven't already, the fastest path is the **[claude-for-msft-365-install plugin](https://github.com/anthropics/financial-services/tree/main/claude-for-msft-365-install)**.
+
+---
 
 ## Deployment modes
 
@@ -113,6 +113,8 @@ Every span includes two labels identifying which Office application and platform
 | **Label** | **Values** |
 | `agent.surface` | sheet (Excel), doc (Word), slide (PowerPoint), mail (Outlook) |
 | `agent.vendor` | m (Microsoft) |
+
+---
 
 ## Span reference
 
@@ -240,6 +242,8 @@ One span per individual file upload, as a child of the query span. SpanKind: CLI
 | `file.upload.file_id` | Anthropic Files API identifier |
 | `file.upload.success` | Boolean |
 
+---
+
 ## Span events
 
 Span events are timestamped markers attached to the spans above. They capture lifecycle transitions and counter-equivalent signals.
@@ -252,6 +256,8 @@ Span events are timestamped markers attached to the spans above. They capture li
 
 Every internal product counter also records a span event with the same name on the currently active span, providing the equivalent of the metrics stream within your trace data. The `office_agent.token.usage` event is emitted on each `agent.stream` span, once per non-zero token type, with attributes {token\_usage.type: input | output | cacheRead | cacheCreation, token\_usage.model, token\_usage.token\_count}. This mirrors the `*.token.usage` counter shape emitted by other Anthropic products, so a single collector can aggregate token cost across products by grouping on `service.name`.
 
+---
+
 ## Surface-specific behavior
 
 The telemetry schema is consistent across all surfaces. These are the differences:
@@ -260,6 +266,8 @@ The telemetry schema is consistent across all surfaces. These are the difference
 * Documents (Word): document-edit funnel events track the edit lifecycle: `office_agent.doc_edit_received_total`, `office_agent.doc_edit_parsed_total`, `office_agent.doc_edit_applied_total`, `office_agent.doc_proposed_edit_reviewed_total`. No `sheet.cells_*` attributes.
 * Slides (PowerPoint): no surface-specific attributes or events beyond the common schema.
 * Mail (Outlook): no surface-specific attributes or events beyond the common schema.
+
+---
 
 ## Reconstructing a user session
 
@@ -281,8 +289,8 @@ The add-in has no Claude.ai user identity in this mode, so spans carry no `user.
 
 This produces a complete, ordered transcript of the interaction in both deployment modes.
 
+* [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
 * [Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)
 * [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
 * [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)
-* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
 * [Monitor Claude Cowork activity with OpenTelemetry](https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)

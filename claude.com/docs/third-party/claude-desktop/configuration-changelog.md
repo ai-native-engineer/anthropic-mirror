@@ -10,6 +10,64 @@
 
 Configuration keys by Claude Desktop release. Each section lists keys added in that release, with the MDM key name (for plist/registry deployment) and the equivalent JSON shape (for local-file or bootstrap remote configuration).
 
+v1.26832.0
+
+2026-08-06
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`updateViaUpdatesHost`](https://claude.com/docs/third-party/claude-desktop/configuration#updateviaupdateshost) | `boolean` | Check for updates on releases.claude.com |
+| [`allowedWorkspaceFolders[].mode`](https://claude.com/docs/third-party/claude-desktop/configuration#allowedworkspacefolders) | `enum` | New subfield: `ro` makes the folder read-only in Cowork; Code enforces file tools only. |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "autoUpdate": {
+    "viaUpdatesHost": "<boolean>"
+  }
+}
+```
+
+`trustBootstrapLocalExec` was renamed to `trustBootstrapDelivery`; the previous name is still accepted.
+
+v1.25927.0
+
+2026-08-04
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`inferenceGatewayOidcAuthFlow`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencegatewayoidcauthflow) | `enum` | Gateway sign-in flow |
+| [`inferenceVertexWorkforceAuthFlow`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencevertexworkforceauthflow) | `enum` | Workforce Identity sign-in flow |
+| [`trustBootstrapLocalExec`](https://claude.com/docs/third-party/claude-desktop/configuration#trustbootstrapdelivery) | `boolean` | Trust bootstrap-delivered local commands |
+| [`skillCreationEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#skillcreationenabled) | `boolean` | Allow user-created skills |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "inference": {
+    "credential": {
+      "authFlow": "<browser|broker>"
+    }
+  },
+  "bootstrap": {
+    "trustBootstrapLocalExec": "<boolean>"
+  },
+  "workspace": {
+    "skillCreationEnabled": "<boolean>"
+  }
+}
+```
+
+**Changed:**
+
+* `claudeAiImport`, `deploymentDisplayName`, and `deploymentDisplaySubtitle` now accept values from MDM and a local configuration file as well as a bootstrap server, and `disableDeepLinkRegistration`, `microsoftAuthBroker`, `userContentRendererUrl`, `inferenceFoundryTenantId`, `inferenceFoundryClientId`, `inferenceCredentialHelper` (with its TTL, timeout, and silent-refresh keys), `inferenceBedrockProfile`, `inferenceBedrockAwsDir`, `inferenceBedrockAwsCliPath`, and `inferenceVertexCredentialsFile` can now be delivered by a bootstrap server. The keys that name a local executable go through the `trustBootstrapLocalExec` consent prompt.
+* `managedMcpServers` gains a built-in `github` server: set `server` to `github` and supply your own GitHub OAuth app client ID with the device flow enabled. The new `host`, `toolsets`, and `readOnly` subfields point the connector at a GitHub Enterprise Server instance, choose which toolsets load, and offer read tools only.
+* `managedMcpServers[].oauth.authFlow` is a new subfield that lets a managed connector sign in through the operating system’s Microsoft Entra account broker on Windows and macOS, so Conditional Access policies that require a managed device no longer block it. Devices without a broker keep using browser sign-in.
+* `enduserAttribution` is renamed to the corrected spelling `endUserAttribution`. The previous spelling is still accepted and now records a configuration warning.
+* `organizationPluginsUrl` is deprecated and removed from the configuration reference. The key is still honored, but organization plugins are better configured with `allowedPluginMarketplaces`.
+
 v1.24012.11
 
 2026-08-03

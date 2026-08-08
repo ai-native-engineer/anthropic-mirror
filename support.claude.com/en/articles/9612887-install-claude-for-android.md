@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9612887-install-claude-for-android -->
 
-# Install Claude for Android
-
-Updated over 3 weeks ago
-
 ## Install the Claude for Android app
 
 You can install the Claude app onto your device by navigating to the Play Store and searching for "Claude by Anthropic," or by navigating directly to our **[Play Store listing](https://play.google.com/store/apps/details?id=com.anthropic.claude)**. Click on “Install” from the app listing to prompt your download.

@@ -1,12 +1,10 @@
 <!-- source: https://support.claude.com/en/articles/13917817-google-workspace-sso-scim-email-mismatch -->
 
-# Google Workspace SSO/SCIM email mismatch
-
-March 24, 2026
-
 Claude uses email as the primary identifier to match SSO logins to provisioned seats. In Google Workspace, SCIM auto-provisioning and SAML SSO can send different email values—especially when people have email aliases—causing a mismatch that blocks access.
 
 **Applies to:** Enterprise plans and Console organizations using SCIM provisioning. Team plans don't have SCIM provisioning, so this mismatch scenario doesn't apply — see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195)** for what's available on each plan.
+
+---
 
 ## Symptoms
 
@@ -16,6 +14,8 @@ People may experience one or more of the following when attempting to access you
 * **Landing on a free personal account** — If organization creation is not restricted, the person bypasses your organization entirely and creates or lands on a free personal account instead of their provisioned seat.
 * **"Please confirm your email" mismatch** — The SSO callback shows a different email than the one the person entered at login.
 * **Claude Code authentication failure** — The Claude Code CLI shows an email mismatch error during the authentication flow, preventing the person from connecting to your organization.
+
+---
 
 ## How this happens
 
@@ -32,6 +32,8 @@ Google Workspace accounts have a primary email and may have multiple aliases. SC
 The most common mismatch: SCIM is configured to send an alias address while SAML sends the primary email (or vice versa). Since aliases and primary emails are different strings, Claude cannot match them. Claude requires an **exact string match**.
 
 **Common confusion:** In Google Admin, SCIM auto-provisioning settings and SAML attribute mapping are on separate tabs within the same app. Admins sometimes update one and miss the other. Verify both locations.
+
+---
 
 ## Diagnostic steps
 
@@ -51,6 +53,8 @@ The most common mismatch: SCIM is configured to send an alias address while SAML
 1. In the app settings, go to **SAML → Service provider details**.
 2. Confirm that the **Name ID** is set to **Basic Information → Primary email**.
 3. If Name ID is set to a custom schema field or alias, it may send a different value than SCIM.
+
+---
 
 ## Resolution
 
@@ -72,6 +76,8 @@ Google Workspace's primaryEmail is the most reliable source for both SCIM and SA
 3. Alternatively, remove and re-add affected people from the app assignment to force their individual records to re-provision.
 4. Monitor the provisioning logs for errors and confirm emails updated to match the SAML format before asking people to retry.
 
+---
+
 ## Post-fix cleanup
 
 After correcting the attribute mapping and completing the full sync:
@@ -82,12 +88,16 @@ After correcting the attribute mapping and completing the full sync:
 * **Re-adding affected people:** After ghost accounts are removed, people with the corrected email may need to be re-invited or re-provisioned.
 * **Prevent future occurrences:** Enable "Restrict organization creation" in your organization's Identity and access settings. This prevents people who aren't yet provisioned from accidentally creating free personal accounts.
 
+---
+
 ## Verification
 
 1. Check a sample of provisioned people—confirm their email in the provisioning log matches the email format that SSO sends.
 2. Ask an affected person to clear browser cookies for claude.ai, then log in via SSO. They should land directly in your organization's workspace without any error.
 3. Confirm people aren't creating free accounts—with organization creation restricted, blocked people see a clear error rather than landing on a personal account.
 4. If Claude Code was affected, have the person re-run `claude auth login --enterprise` and confirm the email matches their provisioned seat.
+
+---
 
 ## Common issues
 
@@ -101,6 +111,8 @@ After correcting the attribute mapping and completing the full sync:
 | Someone's primary email changed but the old email still appears in Claude | A full re-sync is needed after primary email changes. |
 | Emails updated in SCIM but person still can't log in | Check for rogue free orgs or ghost accounts. Clear browser cookies and retry. |
 
+---
+
 ## When to contact Support
 
 Contact **[our Support team](https://support.claude.com/en/articles/9015913)** with your organization's domain, the affected person's email, and screenshots of your attribute mappings when:
@@ -110,4 +122,8 @@ Contact **[our Support team](https://support.claude.com/en/articles/9015913)** w
 * You need help cleaning up ghost accounts or rogue free orgs.
 * People are hitting an out-of-seats error despite available contracted seats.
 
-[Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)[Okta SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch)[OneLogin SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917861-onelogin-sso-scim-email-mismatch)[Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)[Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)
+* [Okta SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch)
+* [OneLogin SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917861-onelogin-sso-scim-email-mismatch)
+* [Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)
+* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)

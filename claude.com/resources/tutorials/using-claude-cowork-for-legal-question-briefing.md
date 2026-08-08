@@ -169,6 +169,14 @@ The setup is the same every time:
 
 ## Related tutorials
 
+[How to choose between voice mode and dictation](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)How to choose between voice mode and dictation
+
+How to choose between voice mode and dictation
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)Tutorial
+
 [Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
 
 Delegating and scheduling tasks in Claude Cowork
@@ -192,11 +200,3 @@ Best practices for using @Claude
 Tutorial
 
 [Tutorial](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Tutorial
-
-[Using Claude Cowork for marketing ops: run a weekly review that preps itself](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Tutorial
-
-[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Tutorial

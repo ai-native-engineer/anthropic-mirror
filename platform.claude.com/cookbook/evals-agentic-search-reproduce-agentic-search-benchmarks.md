@@ -1,20 +1,20 @@
 <!-- source: https://platform.claude.com/cookbook/evals-agentic-search-reproduce-agentic-search-benchmarks -->
 
-# Reproducing Claude's Agentic Search Benchmark Scores
+#  Reproducing Claude's Agentic Search Benchmark Scores
 
-Claude's [published agentic-search scores](https://www.anthropic.com/system-cards) (DeepSearchQA, BrowseComp) **are reproducible on the public Messages API**. The key is harness configuration: a handful of API parameters that don't matter for short conversations become load-bearing once an agent is running 30+ tool calls across hundreds of thousands of tokens.
+Claude's [published agentic-search scores(opens in new tab)](https://www.anthropic.com/system-cards) (DeepSearchQA, BrowseComp) **are reproducible on the public Messages API**. The key is harness configuration: a handful of API parameters that don't matter for short conversations become load-bearing once an agent is running 30+ tool calls across hundreds of thousands of tokens.
 
 A common reason third-party evaluations come in lower is harness configuration. This cookbook walks through each parameter and explains why it matters.
 
 > **Cost & runtime**: the live cells in this notebook run **3 demo questions** (roughly 5–10 minutes, a few dollars in API spend). Reproducing a full 900-question benchmark takes a few hundred dollars and a couple of hours at moderate concurrency; this notebook does not re-execute the full run.
 
-## By the end of this cookbook, you'll be able to:
+##  By the end of this cookbook, you'll be able to:
 
 * **Build** an agentic search loop using programmatic tool calling, server-side compaction, and task budgets that reproduces Claude's published agentic-search scores.
 * **Understand** why each configuration choice matters for long-horizon agentic tasks.
 * **Adapt** the same harness to BrowseComp, or your own deep-research benchmark, by swapping the dataset, a few config lines, and the grader.
 
-## Prerequisites
+##  Prerequisites
 
 **Required knowledge**
 
@@ -25,66 +25,84 @@ A common reason third-party evaluations come in lower is harness configuration. 
 
 * Python 3.11+
 * `anthropic >= 0.111.0`
-* An Anthropic API key with access to the `web_search`, `web_fetch`, and `code_execution` server tools ([how to enable](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool))
+* An Anthropic API key with access to the `web_search`, `web_fetch`, and `code_execution` server tools ([how to enable(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool))
 
 **Recommended**
 
-* The [Programmatic Tool Calling cookbook](https://platform.claude.com/cookbook/tool-use-programmatic-tool-calling-ptc), which introduces the pattern we use here
-* The [Automatic Context Compaction cookbook](https://platform.claude.com/cookbook/tool-use-automatic-context-compaction), which we lean on heavily
+* The [Programmatic Tool Calling cookbook(opens in new tab)](https://platform.claude.com/cookbook/tool-use-programmatic-tool-calling-ptc), which introduces the pattern we use here
+* The [Automatic Context Compaction cookbook(opens in new tab)](https://platform.claude.com/cookbook/tool-use-automatic-context-compaction), which we lean on heavily
 
-## Setup
+##  Setup
 
-python
+
 
-```
 %%capture
+
 %pip install -U "anthropic>=0.111.0" pandas python-dotenv
-```
 
-python
+
 
-```
 import time
 
 import anthropic
+
 import pandas as pd
-from dotenv import load_dotenv
-from utils.agentic_search import (
-    SAMPLE_QUESTIONS,
-    USER_PROMPT_TEMPLATE,
-    extract_result_tag,
-    grade_response,
-    summarize_response,
+
+from dotenv import load\_dotenv
+
+from utils.agentic\_search import (
+
+SAMPLE\_QUESTIONS,
+
+USER\_PROMPT\_TEMPLATE,
+
+extract\_result\_tag,
+
+grade\_response,
+
+summarize\_response,
+
 )
 
-load_dotenv()
+load\_dotenv()
 
 MODEL = "claude-sonnet-5"
+
 # Hold the grader model fixed so scores are comparable across the model under test.
-GRADER_MODEL = "claude-opus-4-6"
+
+GRADER\_MODEL = "claude-opus-4-6"
 
 # With server-side tools, a single streamed call can run for many minutes of
-# in-sandbox tool execution before the first token arrives. We raise the read
-# timeout to 60 minutes; with streaming this is a per-event ceiling, not a
-# whole-response one, so it only matters for the gap before the first event.
-client = anthropic.Anthropic(
-    max_retries=20,
-    timeout=anthropic.Timeout(5.0, read=3600.0, write=600.0, pool=600.0),
-)
-```
 
-## The task
+# in-sandbox tool execution before the first token arrives. We raise the read
+
+# timeout to 60 minutes; with streaming this is a per-event ceiling, not a
+
+# whole-response one, so it only matters for the gap before the first event.
+
+client = anthropic.Anthropic(
+
+max\_retries=20,
+
+timeout=anthropic.Timeout(5.0, read=3600.0, write=600.0, pool=600.0),
+
+)
+
+##  The task
 
 Here are three demo questions in the DeepSearchQA format. Each is answerable, but only after several rounds of searching, reading, and cross-referencing:
 
-python
+
 
-```
-for q in SAMPLE_QUESTIONS:
-    print(f"[{q['example_id']}] ({q['answer_type']})")
-    print(f"  Q: {q['problem']}")
-    print(f"  A: {q['answer']}\n")
-```
+for q in SAMPLE\_QUESTIONS:
+
+print(f"[{q['example\_id']}] ({q['answer\_type']})")
+
+print(f" Q: {q['problem']}")
+
+print(f" A: {q['answer']}\n")
+
+
 
 ```
 [demo-0] (Single Answer)
@@ -102,11 +120,11 @@ for q in SAMPLE_QUESTIONS:
 
 We wrap each question in a short prompt that asks Claude to plan freely and put its final answer in `<result>` tags so the grader can extract it cleanly:
 
-python
+
 
-```
-print(USER_PROMPT_TEMPLATE.format(question=SAMPLE_QUESTIONS[0]["problem"]))
-```
+print(USER\_PROMPT\_TEMPLATE.format(question=SAMPLE\_QUESTIONS[0]["problem"]))
+
+
 
 ```
 I want you to answer the following question.
@@ -122,101 +140,141 @@ The model needs to plan, search the web, fetch and read pages, run calculations,
 
 > The three questions above are written for this cookbook (not drawn from DeepSearchQA-900) to keep the live cells fast and cheap. For the real benchmarks, see *Datasets* below.
 
-### Datasets
+###  Datasets
 
 | Benchmark | Size | Where to get it |
 | --- | --- | --- |
-| **BrowseComp** | 1,266 questions | [Wei et al., 2025](https://arxiv.org/html/2504.12516v1) (OpenAI) |
-| **DeepSearchQA** | 900 questions | [Kaggle Benchmarks](https://www.kaggle.com/benchmarks/google/dsqa) ([paper](https://arxiv.org/abs/2601.20975)) |
+| **BrowseComp** | 1,266 questions | [Wei et al., 2025(opens in new tab)](https://arxiv.org/html/2504.12516v1) (OpenAI) |
+| **DeepSearchQA** | 900 questions | [Kaggle Benchmarks(opens in new tab)](https://www.kaggle.com/benchmarks/google/dsqa) ([paper(opens in new tab)](https://arxiv.org/abs/2601.20975)) |
 
 The harness expects each row to have `problem`, `answer`, and `answer_type` fields; map the source schema accordingly when you load it.
 
-## 1. Tools: programmatic tool calling
+##  1. Tools: programmatic tool calling
 
-The single biggest efficiency lever is **[programmatic tool calling](https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling)** (PTC): instead of Claude calling `web_search` and `web_fetch` directly and round-tripping each result through the API, Claude writes Python in a `code_execution` sandbox and calls search/fetch *from inside that code*. Only the code's printed summary returns to the conversation.
+The single biggest efficiency lever is **[programmatic tool calling(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling)** (PTC): instead of Claude calling `web_search` and `web_fetch` directly and round-tripping each result through the API, Claude writes Python in a `code_execution` sandbox and calls search/fetch *from inside that code*. Only the code's printed summary returns to the conversation.
 
 For deep research this is essential. A single question can issue 50+ fetches. Without PTC every one of those page bodies lands in context; with PTC the model reads them in-sandbox and surfaces only what it needs.
 
 We enable it by listing `code_execution` as the only directly-callable tool, and marking `web_search`/`web_fetch` as callable *from* code execution with their results excluded from the response:
 
-python
+
 
-```
 TOOLS = [
-    {
-        "type": "code_execution_20260521",
-        "name": "code_execution",
-    },
-    {
-        "type": "web_search_20260318",
-        "name": "web_search",
-        "max_uses": 10_000,
-        "allowed_callers": ["code_execution_20260521"],
-        "response_inclusion": "excluded",
-    },
-    {
-        "type": "web_fetch_20260318",
-        "name": "web_fetch",
-        "max_uses": 10_000,
-        "max_content_tokens": 1_000_000,
-        "allowed_callers": ["code_execution_20260521"],
-        "response_inclusion": "excluded",
-    },
+
+{
+
+"type": "code\_execution\_20260521",
+
+"name": "code\_execution",
+
+},
+
+{
+
+"type": "web\_search\_20260318",
+
+"name": "web\_search",
+
+"max\_uses": 10\_000,
+
+"allowed\_callers": ["code\_execution\_20260521"],
+
+"response\_inclusion": "excluded",
+
+},
+
+{
+
+"type": "web\_fetch\_20260318",
+
+"name": "web\_fetch",
+
+"max\_uses": 10\_000,
+
+"max\_content\_tokens": 1\_000\_000,
+
+"allowed\_callers": ["code\_execution\_20260521"],
+
+"response\_inclusion": "excluded",
+
+},
+
 ]
 
 BETAS = [
-    "compact-2026-01-12",
-    "task-budgets-2026-03-13",
+
+"compact-2026-01-12",
+
+"task-budgets-2026-03-13",
+
 ]
-```
 
 Two details worth calling out:
 
 * **`code_execution_20260521`** uses a tool prompt that discloses the sandbox's per-cell wall-clock limit, so Claude breaks long-running searches into shorter cells instead of writing one big loop that times out.
 * **`response_inclusion: "excluded"`** keeps `web_search` and `web_fetch` results inside the sandbox; everything else in the response (`thinking`, `text`, `server_tool_use`, code-execution results, `compaction`) round-trips with `model_dump()` in §3.
 
-## 2. Thinking, effort, budget, and compaction
+##  2. Thinking, effort, budget, and compaction
 
 Four request-level parameters tell Claude *how hard to work* and *how to manage its own context*:
 
-python
+
 
-```
 THINKING = {"type": "adaptive"}
 
-OUTPUT_CONFIG = {
-    "effort": "max",
-    "task_budget": {"type": "tokens", "total": 3_000_000},
+OUTPUT\_CONFIG = {
+
+"effort": "max",
+
+"task\_budget": {"type": "tokens", "total": 3\_000\_000},
+
 }
 
 # Match the system-card configuration. To reproduce a different model's score,
-# use the effort tier and compaction trigger from that model's model card.
-COMPACTION_TRIGGER = 200_000
 
-COMPACT_INSTRUCTIONS = (
-    "Your summary MUST begin by restating the user's ORIGINAL QUESTION "
-    "verbatim and in full, wrapped in <original_question> and "
-    "</original_question> tags. Then summarize the research progress so "
-    "far: key sources found, data extracted, partial answers, and what "
-    "remains to be done. Do NOT call any tools. Your summary MUST also "
-    "include this instruction verbatim: 'Provide your final answer "
-    "wrapped in <result> and </result> tags.'"
+# use the effort tier and compaction trigger from that model's model card.
+
+COMPACTION\_TRIGGER = 200\_000
+
+COMPACT\_INSTRUCTIONS = (
+
+"Your summary MUST begin by restating the user's ORIGINAL QUESTION "
+
+"verbatim and in full, wrapped in <original\_question> and "
+
+"</original\_question> tags. Then summarize the research progress so "
+
+"far: key sources found, data extracted, partial answers, and what "
+
+"remains to be done. Do NOT call any tools. Your summary MUST also "
+
+"include this instruction verbatim: 'Provide your final answer "
+
+"wrapped in <result> and </result> tags.'"
+
 )
 
-CONTEXT_MANAGEMENT = {
-    "edits": [
-        {
-            "type": "compact_20260112",
-            "trigger": {"type": "input_tokens", "value": COMPACTION_TRIGGER},
-            "instructions": COMPACT_INSTRUCTIONS,
-        }
-    ]
+CONTEXT\_MANAGEMENT = {
+
+"edits": [
+
+{
+
+"type": "compact\_20260112",
+
+"trigger": {"type": "input\_tokens", "value": COMPACTION\_TRIGGER},
+
+"instructions": COMPACT\_INSTRUCTIONS,
+
 }
-```
 
-### Why `COMPACT_INSTRUCTIONS` matters so much
+]
 
-When the conversation reaches the trigger threshold, the API compacts it: a separate model call summarizes the history and the agent continues from the summary. The default summarization prompt is task-agnostic by design; it doesn't know that *for a benchmark*, the original question and the answer-format instruction are the two things that absolutely must survive. [Custom `instructions`](https://platform.claude.com/docs/en/build-with-claude/compaction#custom-summarization-instructions) are how you tell it.
+}
+
+###  Why `COMPACT_INSTRUCTIONS` matters so much
+
+When the conversation reaches the trigger threshold, the API compacts it: a separate model call summarizes the history and the agent continues from the summary. The default summarization prompt is task-agnostic by design; it doesn't know that *for a benchmark*, the original question and the answer-format instruction are the two things that absolutely must survive. [Custom `instructions`(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/compaction#custom-summarization-instructions) are how you tell it.
 
 Without them, the post-compaction agent has a summary of *what it found* but not *what it was asked*, and on long questions it frequently asks the user to restate the question, which scores zero.
 
@@ -232,144 +290,223 @@ The other three:
 | `effort` | The model card numbers are reported at the model's highest effort tier |
 | `task_budget.total` | Tells Claude its cumulative output budget across all turns and compactions, so it can pace itself instead of giving up early |
 
-## 3. The round-trip loop
+##  3. The round-trip loop
 
 With server-side tools, each API call can run many tool iterations internally, then return with `stop_reason="pause_turn"` to checkpoint. Our job on the client is just: take the response content, append it as an assistant turn, and call again. We keep going until `stop_reason="end_turn"`.
 
 One helper keeps the request body tidy across turns:
 
-python
+
 
-```
-def truncate_to_last_compaction(messages: list[dict]) -> list[dict]:
-    """Drop history that precedes the most recent compaction block.
+def truncate\_to\_last\_compaction(messages: list[dict]) -> list[dict]:
 
-    The server already discarded that history when it compacted; resending it is
-    pure overhead and on long runs can exceed the 32 MB request-body limit.
-    `messages[0]` (the original user prompt) is always kept so the request still
-    starts with a user turn.
-    """
-    for mi in range(len(messages) - 1, 0, -1):
-        content = messages[mi].get("content")
-        if not isinstance(content, list):
-            continue
-        for bi in range(len(content) - 1, -1, -1):
-            blk = content[bi]
-            if isinstance(blk, dict) and blk.get("type") == "compaction":
-                trimmed = {**messages[mi], "content": content[bi:]}
-                return [messages[0], trimmed, *messages[mi + 1 :]]
-    return messages
-```
+"""Drop history that precedes the most recent compaction block.
+
+The server already discarded that history when it compacted; resending it is
+
+pure overhead and on long runs can exceed the 32 MB request-body limit.
+
+`messages[0]` (the original user prompt) is always kept so the request still
+
+starts with a user turn.
+
+"""
+
+for mi in range(len(messages) - 1, 0, -1):
+
+content = messages[mi].get("content")
+
+if not isinstance(content, list):
+
+continue
+
+for bi in range(len(content) - 1, -1, -1):
+
+blk = content[bi]
+
+if isinstance(blk, dict) and blk.get("type") == "compaction":
+
+trimmed = {\*\*messages[mi], "content": content[bi:]}
+
+return [messages[0], trimmed, \*messages[mi + 1 :]]
+
+return messages
 
 Now the loop itself. It's a single function, long but with every line doing something a real benchmark run needs:
 
-python
+
 
-```
-def sample(question: str, *, max_turns: int = 100) -> dict:
-    """Run one question to completion through the agentic search loop."""
-    # cache_control on the user message turns on prompt caching for the whole
-    # request, so the server-side tool loop caches between iterations.
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": USER_PROMPT_TEMPLATE.format(question=question),
-                    "cache_control": {"type": "ephemeral"},
-                }
-            ],
-        }
-    ]
-    request = {
-        "model": MODEL,
-        "max_tokens": 64_000,
-        "tools": TOOLS,
-        "betas": BETAS,
-        "thinking": THINKING,
-        "output_config": OUTPUT_CONFIG,
-        "context_management": CONTEXT_MANAGEMENT,
-        "messages": messages,
-    }
+def sample(question: str, \*, max\_turns: int = 100) -> dict:
 
-    usage = {"input_tokens": 0, "output_tokens": 0, "cache_read_input_tokens": 0}
-    transcript: list[str] = []
-    tool_calls = 0
-    start = time.time()
+"""Run one question to completion through the agentic search loop."""
 
-    for turn in range(max_turns):
-        # Stream so the per-event read-timeout applies, not a per-response one.
-        with client.beta.messages.stream(**request) as stream:
-            response = stream.get_final_message()
+# cache\_control on the user message turns on prompt caching for the whole
 
-        usage["input_tokens"] += response.usage.input_tokens
-        usage["output_tokens"] += response.usage.output_tokens
-        usage["cache_read_input_tokens"] += (
-            getattr(response.usage, "cache_read_input_tokens", 0) or 0
-        )
-        tool_calls += sum(
-            1 for b in response.content if getattr(b, "type", "") == "server_tool_use"
-        )
-        transcript.append(f"--- turn {turn} ---\n" + summarize_response(response))
+# request, so the server-side tool loop caches between iterations.
 
-        # Persist the code-execution container so state survives across turns.
-        if getattr(response, "container", None) is not None:
-            request["container"] = response.container.id
+messages = [
 
-        # Round-trip: append assistant content, drop pre-compaction history.
-        messages.append(
-            {
-                "role": "assistant",
-                "content": [b.model_dump(exclude_none=True) for b in response.content],
-            }
-        )
-        messages[:] = truncate_to_last_compaction(messages)
+{
 
-        if response.stop_reason == "end_turn":
-            final_text = "".join(
-                b.text for b in response.content if getattr(b, "type", "") == "text"
-            )
-            return {
-                "text": final_text,
-                "result": extract_result_tag(final_text),
-                "turns": turn + 1,
-                "tool_calls": tool_calls,
-                "elapsed_s": time.time() - start,
-                "usage": usage,
-                "transcript": transcript,
-            }
-        if response.stop_reason not in ("pause_turn", "max_tokens"):
-            raise RuntimeError(f"unexpected stop_reason={response.stop_reason}")
+"role": "user",
 
-    raise RuntimeError(f"did not finish within {max_turns} turns")
-```
+"content": [
 
-### Retries
+{
 
-The SDK [retries automatically](https://platform.claude.com/docs/en/api/sdks/python#retries) on connection errors, `408`, `409`, `429`, and `≥500` responses with exponential backoff, and honors the `Retry-After` header the API sends on rate-limit responses. The default is 2 retries; for a full benchmark run we set `max_retries=20` on the client (in *Setup* above) so a brief overload mid-run doesn't score a question as zero.
+"type": "text",
+
+"text": USER\_PROMPT\_TEMPLATE.format(question=question),
+
+"cache\_control": {"type": "ephemeral"},
+
+}
+
+],
+
+}
+
+]
+
+request = {
+
+"model": MODEL,
+
+"max\_tokens": 64\_000,
+
+"tools": TOOLS,
+
+"betas": BETAS,
+
+"thinking": THINKING,
+
+"output\_config": OUTPUT\_CONFIG,
+
+"context\_management": CONTEXT\_MANAGEMENT,
+
+"messages": messages,
+
+}
+
+usage = {"input\_tokens": 0, "output\_tokens": 0, "cache\_read\_input\_tokens": 0}
+
+transcript: list[str] = []
+
+tool\_calls = 0
+
+start = time.time()
+
+for turn in range(max\_turns):
+
+# Stream so the per-event read-timeout applies, not a per-response one.
+
+with client.beta.messages.stream(\*\*request) as stream:
+
+response = stream.get\_final\_message()
+
+usage["input\_tokens"] += response.usage.input\_tokens
+
+usage["output\_tokens"] += response.usage.output\_tokens
+
+usage["cache\_read\_input\_tokens"] += (
+
+getattr(response.usage, "cache\_read\_input\_tokens", 0) or 0
+
+)
+
+tool\_calls += sum(
+
+1 for b in response.content if getattr(b, "type", "") == "server\_tool\_use"
+
+)
+
+transcript.append(f"--- turn {turn} ---\n" + summarize\_response(response))
+
+# Persist the code-execution container so state survives across turns.
+
+if getattr(response, "container", None) is not None:
+
+request["container"] = response.container.id
+
+# Round-trip: append assistant content, drop pre-compaction history.
+
+messages.append(
+
+{
+
+"role": "assistant",
+
+"content": [b.model\_dump(exclude\_none=True) for b in response.content],
+
+}
+
+)
+
+messages[:] = truncate\_to\_last\_compaction(messages)
+
+if response.stop\_reason == "end\_turn":
+
+final\_text = "".join(
+
+b.text for b in response.content if getattr(b, "type", "") == "text"
+
+)
+
+return {
+
+"text": final\_text,
+
+"result": extract\_result\_tag(final\_text),
+
+"turns": turn + 1,
+
+"tool\_calls": tool\_calls,
+
+"elapsed\_s": time.time() - start,
+
+"usage": usage,
+
+"transcript": transcript,
+
+}
+
+if response.stop\_reason not in ("pause\_turn", "max\_tokens"):
+
+raise RuntimeError(f"unexpected stop\_reason={response.stop\_reason}")
+
+raise RuntimeError(f"did not finish within {max\_turns} turns")
+
+###  Retries
+
+The SDK [retries automatically(opens in new tab)](https://platform.claude.com/docs/en/api/sdks/python#retries) on connection errors, `408`, `409`, `429`, and `≥500` responses with exponential backoff, and honors the `Retry-After` header the API sends on rate-limit responses. The default is 2 retries; for a full benchmark run we set `max_retries=20` on the client (in *Setup* above) so a brief overload mid-run doesn't score a question as zero.
 
 > **Spotting silent tool throttling**: server-tool rate limits are separate from model token limits. Exhausting them does not raise an API error; the `too_many_requests` shows up as a tool-result error inside the response, and Claude usually retries in-sandbox. If a full-benchmark run scores unexpectedly low with no exceptions, check `result["transcript"]` for code-execution cells that print `rate_limit_error` or `too_many_requests`. The client-side fix is lower concurrency (or contact Anthropic support for higher tool rate limits); client retries won't help because the API call returned 200.
 >
 > Similarly, wrap each per-question `sample()` call in a `try/except` so a single `stop_reason="refusal"` or unrecoverable error scores that question as zero instead of aborting the whole run.
 
-## 4. Run one question end-to-end
+##  4. Run one question end-to-end
 
 Let's run the first question. Expect this cell to take a minute or two: behind that single `stream()` call, Claude is writing and executing search code several times.
 
-python
+
 
-```
-result = sample(SAMPLE_QUESTIONS[0]["problem"])
+result = sample(SAMPLE\_QUESTIONS[0]["problem"])
 
-print(f"tool_calls={result['tool_calls']}  elapsed={result['elapsed_s']:.0f}s")
+print(f"tool\_calls={result['tool\_calls']} elapsed={result['elapsed\_s']:.0f}s")
+
 print(
-    f"tokens: in={result['usage']['input_tokens']:,}  out={result['usage']['output_tokens']:,}  "
-    f"cache_read={result['usage']['cache_read_input_tokens']:,}"
+
+f"tokens: in={result['usage']['input\_tokens']:,} out={result['usage']['output\_tokens']:,} "
+
+f"cache\_read={result['usage']['cache\_read\_input\_tokens']:,}"
+
 )
+
 print()
+
 print("Final <result>:", result["result"])
-```
+
+
 
 ```
 tool_calls=4  elapsed=56s
@@ -380,12 +517,13 @@ Final <result>: **Jamie Dimon**, CEO of **JPMorgan Chase**, had held his CEO pos
 
 The transcript shows the shape of the work. Each turn is a `pause_turn` checkpoint after a batch of in-sandbox tool calls:
 
-python
+
 
-```
 for line in result["transcript"]:
-    print(line + "\n")
-```
+
+print(line + "\n")
+
+
 
 ```
 --- turn 0 ---
@@ -417,7 +555,7 @@ for line in result["transcript"]:
   usage: in=130 out=3,842 cache_read=39,703 stop=end_turn
 ```
 
-## 5. Grading
+##  5. Grading
 
 Benchmark scoring uses a model-as-judge F1 grader. The grader sees the question, the gold answer, and the extracted `<result>` text, then reports which gold items were found and which extra items appeared that aren't in the gold set. From that we compute precision, recall, and F1.
 
@@ -428,40 +566,57 @@ Two things to get right:
 
 The grader prompt is straightforward:
 
-```
+
+
 Your task is to evaluate whether a given response arrived at the correct answer.
 
 Question: <question>\{question}</question>
-Correct answer (type: \{answer_type}): <correct_answer>\{answer}</correct_answer>
+
+Correct answer (type: \{answer\_type}): <correct\_answer>\{answer}</correct\_answer>
+
 Response to evaluate: <response>\{response}</response>
 
 For each expected answer item, indicate whether it appears in the response.
+
 Then list any answers in the response that are NOT in the correct-answer list.
+
 Wording does not need to match exactly.
 
 Reply in this exact XML format:
+
 <evaluation>
-  <explanation>one sentence</explanation>
-  <correctness_details>
-    <item answer="expected_item_1" correct="true|false"/>
-  </correctness_details>
-  <excessive_answers>
-    <item>extra_item_if_any</item>
-  </excessive_answers>
+
+<explanation>one sentence</explanation>
+
+<correctness\_details>
+
+<item answer="expected\_item\_1" correct="true|false"/>
+
+</correctness\_details>
+
+<excessive\_answers>
+
+<item>extra\_item\_if\_any</item>
+
+</excessive\_answers>
+
 </evaluation>
-```
 
-Parsing and the precision/recall/F1 arithmetic live in [`utils/agentic_search.py`](https://github.com/anthropics/claude-cookbooks/blob/main/evals/agentic_search/utils/agentic_search.py); here we just call it:
+Parsing and the precision/recall/F1 arithmetic live in [`utils/agentic_search.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/evals/agentic_search/utils/agentic_search.py); here we just call it:
 
-python
+
 
-```
-grade = grade_response(client, GRADER_MODEL, SAMPLE_QUESTIONS[0], result["text"])
-print(f"answer    : {grade['extracted_answer']}")
+grade = grade\_response(client, GRADER\_MODEL, SAMPLE\_QUESTIONS[0], result["text"])
+
+print(f"answer : {grade['extracted\_answer']}")
+
 print(f"precision : {grade['precision']:.2f}")
-print(f"recall    : {grade['recall']:.2f}")
-print(f"F1        : {grade['f1']:.2f}")
-```
+
+print(f"recall : {grade['recall']:.2f}")
+
+print(f"F1 : {grade['f1']:.2f}")
+
+
 
 ```
 answer    : **Jamie Dimon**, CEO of **JPMorgan Chase**, had held his CEO position the longest among the chief executives of the four largest US banks by total assets (JPMorgan Chase, Bank of America, Citigroup, and Wells Fargo) as of Q1 2024. Dimon became JPMorgan Chase's CEO on January 1, 2006 — roughly 18 years by Q1 2024 — compared to Brian Moynihan (Bank of America CEO since January 2010), Charles Scharf (Wells Fargo CEO since October 2019), and Jane Fraser (Citigroup CEO since March 2021).
@@ -470,35 +625,53 @@ recall    : 1.00
 F1        : 1.00
 ```
 
-## 6. Run the demo set
+##  6. Run the demo set
 
 Now all three questions, with usage and F1 in a comparison table. (To run the full 900-question benchmark, replace `SAMPLE_QUESTIONS` with the full dataset and add concurrency; see *Next steps*.)
 
-python
+
 
-```
 rows = []
-for q in SAMPLE_QUESTIONS:
-    r = sample(q["problem"])
-    g = grade_response(client, GRADER_MODEL, q, r["text"])
-    rows.append(
-        {
-            "id": q["example_id"],
-            "tool_calls": r["tool_calls"],
-            "in_tokens": r["usage"]["input_tokens"],
-            "out_tokens": r["usage"]["output_tokens"],
-            "f1": g["f1"],
-            "answer": g["extracted_answer"][:60],
-        }
-    )
+
+for q in SAMPLE\_QUESTIONS:
+
+r = sample(q["problem"])
+
+g = grade\_response(client, GRADER\_MODEL, q, r["text"])
+
+rows.append(
+
+{
+
+"id": q["example\_id"],
+
+"tool\_calls": r["tool\_calls"],
+
+"in\_tokens": r["usage"]["input\_tokens"],
+
+"out\_tokens": r["usage"]["output\_tokens"],
+
+"f1": g["f1"],
+
+"answer": g["extracted\_answer"][:60],
+
+}
+
+)
 
 df = pd.DataFrame(rows)
-print(df.to_string(index=False))
+
+print(df.to\_string(index=False))
+
 print(f"\nMean F1: {df['f1'].mean():.2f}")
-# in_tokens is the uncached billed input; with caching on, most of the actual
-# context is cache reads (tracked separately in usage.cache_read_input_tokens).
-print(f"Total tokens: {df['in_tokens'].sum():,} in / {df['out_tokens'].sum():,} out")
-```
+
+# in\_tokens is the uncached billed input; with caching on, most of the actual
+
+# context is cache reads (tracked separately in usage.cache\_read\_input\_tokens).
+
+print(f"Total tokens: {df['in\_tokens'].sum():,} in / {df['out\_tokens'].sum():,} out")
+
+
 
 ```
 id  tool_calls  in_tokens  out_tokens  f1                                                        answer
@@ -510,24 +683,27 @@ Mean F1: 1.00
 Total tokens: 624 in / 21,863 out
 ```
 
-## 7. Scaling to the full benchmark
+##  7. Scaling to the full benchmark
 
-Running this notebook's configuration over the full DeepSearchQA-900 and BrowseComp-1266 sets reproduces the published model-card scores. For published agentic-search scores across models, see the per-model [Claude model cards](https://www.anthropic.com/system-cards).
+Running this notebook's configuration over the full DeepSearchQA-900 and BrowseComp-1266 sets reproduces the published model-card scores. For published agentic-search scores across models, see the per-model [Claude model cards(opens in new tab)](https://www.anthropic.com/system-cards).
 
-## 8. Adapting to BrowseComp
+##  8. Adapting to BrowseComp
 
 BrowseComp questions are single-answer ("Which 1995 film…") rather than set-valued, so the only harness change is the grader:
 
-python
+
 
-```
-from utils.agentic_search import grade_browsecomp
+from utils.agentic\_search import grade\_browsecomp
 
 # Grading: a single-letter judge (A=correct, B=incorrect, C=abstain).
+
 # accuracy = fraction of "A" verdicts.
-bc_grade = grade_browsecomp(client, GRADER_MODEL, SAMPLE_QUESTIONS[0], result["text"])
-print(bc_grade)
-```
+
+bc\_grade = grade\_browsecomp(client, GRADER\_MODEL, SAMPLE\_QUESTIONS[0], result["text"])
+
+print(bc\_grade)
+
+
 
 ```
 {'example_id': 'demo-0', 'extracted_answer': "**Jamie Dimon**, CEO of **JPMorgan Chase**, had held his CEO position the longest among the chief executives of the four largest US banks by total assets (JPMorgan Chase, Bank of America, Citigroup, and Wells Fargo) as of Q1 2024. Dimon became JPMorgan Chase's CEO on January 1, 2006 — roughly 18 years by Q1 2024 — compared to Brian Moynihan (Bank of America CEO since January 2010), Charles Scharf (Wells Fargo CEO since October 2019), and Jane Fraser (Citigroup CEO since March 2021).", 'grader_letter': 'A', 'accuracy': 1.0}
@@ -537,7 +713,7 @@ Tools, betas, and the `sample()` loop are unchanged. Check the model card for th
 
 That's the point: once the loop is right, swapping benchmarks is a dataset, a few config lines, and a grader.
 
-## Recap
+##  Recap
 
 You built an agentic search loop that:
 
@@ -547,9 +723,9 @@ You built an agentic search loop that:
 * Round-trips `pause_turn` responses correctly, persisting the code container and trimming pre-compaction history (§3).
 * Grades with a model-as-judge F1 grader and reproduces the published DeepSearchQA score (§5–7).
 
-## Next steps
+##  Next steps
 
 * **Scale to the full benchmark**: wrap `sample()` in a `concurrent.futures.ThreadPoolExecutor` (the client is thread-safe); the SDK's built-in retry already covers 429/529. At concurrency 50, DeepSearchQA-900 finishes in roughly 2 hours.
-* **Try the multi-agent variant**: the [Async Multi-Agent Orchestration cookbook](https://platform.claude.com/cookbook/patterns-agents-async-multi-agent-orchestration) shows how an N-agent team can exceed this single-agent loop's accuracy at lower latency.
+* **Try the multi-agent variant**: the [Async Multi-Agent Orchestration cookbook(opens in new tab)](https://platform.claude.com/cookbook/patterns-agents-async-multi-agent-orchestration) shows how an N-agent team can exceed this single-agent loop's accuracy at lower latency.
 * **Port to your own benchmark**: the contract is `[{problem, answer, answer_type}]` rows, a few config lines, and a grader function. The loop doesn't change.
-* **Read the model cards**: the per-model [Claude model cards](https://www.anthropic.com/system-cards) document the configuration each published benchmark number was produced with.
+* **Read the model cards**: the per-model [Claude model cards(opens in new tab)](https://www.anthropic.com/system-cards) document the configuration each published benchmark number was produced with.

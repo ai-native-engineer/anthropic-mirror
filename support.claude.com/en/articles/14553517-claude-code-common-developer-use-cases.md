@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases -->
 
-# Claude Code: Common developer use cases
-
-April 15, 2026
-
 Claude Code is a command-line agent that runs in your terminal, reads your repository, edits files, executes commands, and requests confirmation before performing potentially destructive actions. It is designed to assist at every stage of the software development lifecycle—from exploring an unfamiliar codebase to shipping and maintaining production code.
 
 The table below summarizes where Claude Code fits across the development lifecycle. The remainder of this article walks through the ten tasks developers most frequently use it for, with a sample prompt and expected result for each.
@@ -20,6 +16,8 @@ The table below summarizes where Claude Code fits across the development lifecyc
 Each use case below includes when to use it, an example prompt, and the expected result. No configuration is required for any of them except §9 (issue-tracker integration), which requires a one-time MCP connector setup.
 
 Use cases are ordered roughly by how early most developers encounter them. Select the one that matches your current task.
+
+---
 
 ## Use cases
 

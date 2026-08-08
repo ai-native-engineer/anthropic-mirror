@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage -->
 
-# How do I pay for my Claude API usage?
-
 Claude API and Workbench usage is billed via prepaid "usage credits." Credits must be purchased prior to using the API, and your credits will be applied to your usage according to our current **[pricing](https://claude.com/pricing#api)**. These credits can be used for API access, Workbench usage, and Claude Code. Failed requests are not charged, and you will only be billed for successful API calls and completed tasks.
 
 You can track credit usage in your **[Claude Console settings on the Billing page](https://platform.claude.com/settings/billing)**. If you run out of credits, you will no longer be able to call the API or use Workbench. You can choose to set up an auto-reload that purchases additional credits when your balance falls below a set limit.
@@ -23,4 +21,8 @@ Learn more about credit usage and how it relates to usage limits in our **[Claud
 3. Click the pencil icon next to your current payment method to update your card information.
 4. Enter your new card details in the **Update payment method** modal, then click "Update."
 
-[How can I access the Claude API?](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api)[I created a Claude Console organization - how do I start using the Claude API?](https://support.claude.com/en/articles/8114531-i-created-a-claude-console-organization-how-do-i-start-using-the-claude-api)[How can I advance my Claude API usage to Tier 2?](https://support.claude.com/en/articles/10366389-how-can-i-advance-my-claude-api-usage-to-tier-2)[Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)[Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [How can I access the Claude API?](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api)
+* [I created a Claude Console organization - how do I start using the Claude API?](https://support.claude.com/en/articles/8114531-i-created-a-claude-console-organization-how-do-i-start-using-the-claude-api)
+* [Claude Console roles and permissions](https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions)
+* [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)

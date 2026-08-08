@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13015708-access-the-compliance-api -->
 
-# Access the Compliance API
-
-July 2, 2026
-
 The Compliance API lets your organization programmatically pull activity feed events, chat data, and file content across all your Claude deployments. Use it to monitor, audit, and meet compliance requirements with your own tools.
 
 The Compliance API is available to Claude Enterprise plans, excluding Public Sector organizations, and Claude Platform customers.

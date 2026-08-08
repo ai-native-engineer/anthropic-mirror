@@ -194,6 +194,14 @@ Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and su
 
 ## Related stories
 
+[Wondr Health scales trusted health coaching with Claude](https://claude.com/customers/wondr-health)Wondr Health scales trusted health coaching with Claude
+
+Wondr Health scales trusted health coaching with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/wondr-health)Customer story
+
 [How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
 
 How Notability built a study tool that improves with every Claude release
@@ -217,11 +225,3 @@ How Vercel built an ecosystem on the open skills standard
 Customer story
 
 [Customer story](https://claude.com/customers/vercel-qa)Customer story
-
-[Box builds document creation into its AI agent with Claude](https://claude.com/customers/box)Box builds document creation into its AI agent with Claude
-
-Box builds document creation into its AI agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/box)Customer story

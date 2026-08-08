@@ -1,155 +1,206 @@
 <!-- source: https://platform.claude.com/cookbook/multimodal-using-sub-agents -->
 
-# Using Haiku as a sub-agent
+#  Using Haiku as a sub-agent
 
 In this recipe, we'll demonstrate how to analyze Apple's 2023 financial earnings reports using Claude 3 Haiku sub-agent models to extract relevant information from earnings release PDFs. We'll then use Claude 3 Opus to generate a response to our question and create a graph using matplotlib to accompany its response.
 
-## Step 1: Set up the environment
+##  Step 1: Set up the environment
 
 First, let's install the required libraries and set up the Claude API client.
 
-python
+
 
-```
 %pip install anthropic IPython PyMuPDF matplotlib
-```
 
-python
+
 
-```
 # Import the required libraries
+
 import base64
+
 import io
+
 import os
+
 from concurrent.futures import ThreadPoolExecutor
 
 import fitz
+
 import requests
+
 from anthropic import Anthropic
+
 from PIL import Image
 
 # Set up the Claude API client
-client = Anthropic()
-MODEL_NAME = "claude-haiku-4-5"
-```
 
-## Step 2: Gather our documents and ask a question
+client = Anthropic()
+
+MODEL\_NAME = "claude-haiku-4-5"
+
+##  Step 2: Gather our documents and ask a question
 
 For this example, we will be using all Apple's financial statements from the 2023 financial year and asking about the net sales over the year.
 
-python
+
 
-```
 # List of Apple's earnings release PDF URLs
-pdf_urls = [
-    "https://www.apple.com/newsroom/pdfs/fy2023-q4/FY23_Q4_Consolidated_Financial_Statements.pdf",
-    "https://www.apple.com/newsroom/pdfs/fy2023-q3/FY23_Q3_Consolidated_Financial_Statements.pdf",
-    "https://www.apple.com/newsroom/pdfs/FY23_Q2_Consolidated_Financial_Statements.pdf",
-    "https://www.apple.com/newsroom/pdfs/FY23_Q1_Consolidated_Financial_Statements.pdf",
+
+pdf\_urls = [
+
+"https://www.apple.com/newsroom/pdfs/fy2023-q4/FY23\_Q4\_Consolidated\_Financial\_Statements.pdf",
+
+"https://www.apple.com/newsroom/pdfs/fy2023-q3/FY23\_Q3\_Consolidated\_Financial\_Statements.pdf",
+
+"https://www.apple.com/newsroom/pdfs/FY23\_Q2\_Consolidated\_Financial\_Statements.pdf",
+
+"https://www.apple.com/newsroom/pdfs/FY23\_Q1\_Consolidated\_Financial\_Statements.pdf",
+
 ]
 
 # User's question
-QUESTION = "How did Apple's net sales change quarter to quarter in the 2023 financial year and what were the key contributors to the changes?"
-```
 
-## Step 3: Download and convert PDFs to images
+QUESTION = "How did Apple's net sales change quarter to quarter in the 2023 financial year and what were the key contributors to the changes?"
+
+##  Step 3: Download and convert PDFs to images
 
 Next, we'll define functions to download the earnings release PDFs and convert them to base64-encoded PNG images. We have to do this because these PDFs are full of tables that are hard to parse with traditional PDF parsers. It's easier if we just convert them to images and pass the images to Haiku.
 
 The `download_pdf` function downloads a PDF file from a given URL and saves it to the specified folder. The `pdf_to_base64_pngs` function converts a PDF to a list of base64-encoded PNG images.
 
-python
+
 
-```
 # Function to download a PDF file from a URL and save it to a specified folder
-def download_pdf(url, folder):
-    response = requests.get(url, timeout=60)
-    if response.status_code == 200:
-        file_name = os.path.join(folder, url.split("/")[-1])
-        with open(file_name, "wb") as file:
-            file.write(response.content)
-        return file_name
-    else:
-        print(f"Failed to download PDF from {url}")
-        return None
+
+def download\_pdf(url, folder):
+
+response = requests.get(url, timeout=60)
+
+if response.status\_code == 200:
+
+file\_name = os.path.join(folder, url.split("/")[-1])
+
+with open(file\_name, "wb") as file:
+
+file.write(response.content)
+
+return file\_name
+
+else:
+
+print(f"Failed to download PDF from {url}")
+
+return None
 
 # Define the function to convert a PDF to a list of base64-encoded PNG images
-def pdf_to_base64_pngs(pdf_path, quality=75, max_size=(1024, 1024)):
-    # Open the PDF file
-    doc = fitz.open(pdf_path)
 
-    base64_encoded_pngs = []
+def pdf\_to\_base64\_pngs(pdf\_path, quality=75, max\_size=(1024, 1024)):
 
-    # Iterate through each page of the PDF
-    for page_num in range(doc.page_count):
-        # Load the page
-        page = doc.load_page(page_num)
+# Open the PDF file
 
-        # Render the page as a PNG image
-        pix = page.get_pixmap(matrix=fitz.Matrix(300 / 72, 300 / 72))
+doc = fitz.open(pdf\_path)
 
-        # Convert the pixmap to a PIL Image
-        image = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+base64\_encoded\_pngs = []
 
-        # Resize the image if it exceeds the maximum size
-        if image.size[0] > max_size[0] or image.size[1] > max_size[1]:
-            image.thumbnail(max_size, Image.Resampling.LANCZOS)
+# Iterate through each page of the PDF
 
-        # Convert the PIL Image to base64-encoded PNG
-        image_data = io.BytesIO()
-        image.save(image_data, format="PNG", optimize=True, quality=quality)
-        image_data.seek(0)
-        base64_encoded = base64.b64encode(image_data.getvalue()).decode("utf-8")
-        base64_encoded_pngs.append(base64_encoded)
+for page\_num in range(doc.page\_count):
 
-    # Close the PDF document
-    doc.close()
+# Load the page
 
-    return base64_encoded_pngs
+page = doc.load\_page(page\_num)
+
+# Render the page as a PNG image
+
+pix = page.get\_pixmap(matrix=fitz.Matrix(300 / 72, 300 / 72))
+
+# Convert the pixmap to a PIL Image
+
+image = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+
+# Resize the image if it exceeds the maximum size
+
+if image.size[0] > max\_size[0] or image.size[1] > max\_size[1]:
+
+image.thumbnail(max\_size, Image.Resampling.LANCZOS)
+
+# Convert the PIL Image to base64-encoded PNG
+
+image\_data = io.BytesIO()
+
+image.save(image\_data, format="PNG", optimize=True, quality=quality)
+
+image\_data.seek(0)
+
+base64\_encoded = base64.b64encode(image\_data.getvalue()).decode("utf-8")
+
+base64\_encoded\_pngs.append(base64\_encoded)
+
+# Close the PDF document
+
+doc.close()
+
+return base64\_encoded\_pngs
 
 # Folder to save the downloaded PDFs
-folder = "../images/using_sub_agents"
+
+folder = "../images/using\_sub\_agents"
 
 # Create the directory if it doesn't exist
+
 os.makedirs(folder)
 
 # Download the PDFs concurrently
-with ThreadPoolExecutor() as executor:
-    pdf_paths = list(executor.map(download_pdf, pdf_urls, [folder] * len(pdf_urls)))
 
-# Remove any None values (failed downloads) from pdf_paths
-pdf_paths = [path for path in pdf_paths if path is not None]
-```
+with ThreadPoolExecutor() as executor:
+
+pdf\_paths = list(executor.map(download\_pdf, pdf\_urls, [folder] \* len(pdf\_urls)))
+
+# Remove any None values (failed downloads) from pdf\_paths
+
+pdf\_paths = [path for path in pdf\_paths if path is not None]
 
 We use ThreadPoolExecutor to download the PDFs concurrently and store the file paths in pdf\_paths.
 
-## Step 4: Generate a specific prompt for Haiku using Opus
+##  Step 4: Generate a specific prompt for Haiku using Opus
 
 Let's use Opus as an orchestrator and have it write a specific prompt for each Haiku sub-agent based on the user provided question.
 
-python
+
 
-```
-def generate_haiku_prompt(question):
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": f"Based on the following question, please generate a specific prompt for an LLM sub-agent to extract relevant information from an earning's report PDF. Each sub-agent only has access to a single quarter's earnings report. Output only the prompt and nothing else.\n\nQuestion: {question}",
-                }
-            ],
-        }
-    ]
+def generate\_haiku\_prompt(question):
 
-    response = client.messages.create(model="claude-opus-4-1", max_tokens=2048, messages=messages)
+messages = [
 
-    return response.content[0].text
+{
 
-haiku_prompt = generate_haiku_prompt(QUESTION)
-print(haiku_prompt)
-```
+"role": "user",
+
+"content": [
+
+{
+
+"type": "text",
+
+"text": f"Based on the following question, please generate a specific prompt for an LLM sub-agent to extract relevant information from an earning's report PDF. Each sub-agent only has access to a single quarter's earnings report. Output only the prompt and nothing else.\n\nQuestion: {question}",
+
+}
+
+],
+
+}
+
+]
+
+response = client.messages.create(model="claude-opus-4-1", max\_tokens=2048, messages=messages)
+
+return response.content[0].text
+
+haiku\_prompt = generate\_haiku\_prompt(QUESTION)
+
+print(haiku\_prompt)
+
+
 
 ```
 Extract the following information from the Apple earnings report PDF for the quarter:
@@ -161,55 +212,83 @@ Extract the following information from the Apple earnings report PDF for the qua
 Organize the extracted information in a clear, concise format focusing on the key data points and insights related to the change in net sales for the quarter.
 ```
 
-## Step 5: Extract information from PDFs
+##  Step 5: Extract information from PDFs
 
 Now, let's define our question and extract information from the PDFs using sub-agent Haiku models. We format the information from each model into a neatly defined set of XML tags.
 
-python
+
 
-```
-def extract_info(pdf_path, haiku_prompt):
-    base64_encoded_pngs = pdf_to_base64_pngs(pdf_path)
+def extract\_info(pdf\_path, haiku\_prompt):
 
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                *[
-                    {
-                        "type": "image",
-                        "source": {
-                            "type": "base64",
-                            "media_type": "image/png",
-                            "data": base64_encoded_png,
-                        },
-                    }
-                    for base64_encoded_png in base64_encoded_pngs
-                ],
-                {"type": "text", "text": haiku_prompt},
-            ],
-        }
-    ]
+base64\_encoded\_pngs = pdf\_to\_base64\_pngs(pdf\_path)
 
-    response = client.messages.create(model="claude-haiku-4-5", max_tokens=2048, messages=messages)
+messages = [
 
-    return response.content[0].text, pdf_path
+{
 
-def process_pdf(pdf_path):
-    return extract_info(pdf_path, haiku_prompt)
+"role": "user",
+
+"content": [
+
+\*[
+
+{
+
+"type": "image",
+
+"source": {
+
+"type": "base64",
+
+"media\_type": "image/png",
+
+"data": base64\_encoded\_png,
+
+},
+
+}
+
+for base64\_encoded\_png in base64\_encoded\_pngs
+
+],
+
+{"type": "text", "text": haiku\_prompt},
+
+],
+
+}
+
+]
+
+response = client.messages.create(model="claude-haiku-4-5", max\_tokens=2048, messages=messages)
+
+return response.content[0].text, pdf\_path
+
+def process\_pdf(pdf\_path):
+
+return extract\_info(pdf\_path, haiku\_prompt)
 
 # Process the PDFs concurrently with Haiku sub-agent models
-with ThreadPoolExecutor() as executor:
-    extracted_info_list = list(executor.map(process_pdf, pdf_paths))
 
-extracted_info = ""
+with ThreadPoolExecutor() as executor:
+
+extracted\_info\_list = list(executor.map(process\_pdf, pdf\_paths))
+
+extracted\_info = ""
+
 # Display the extracted information from each model call
-for info in extracted_info_list:
-    extracted_info += (
-        '<info quarter="' + info[1].split("/")[-1].split("_")[1] + '">' + info[0] + "</info>\n"
-    )
-print(extracted_info)
-```
+
+for info in extracted\_info\_list:
+
+extracted\_info += (
+
+'<info quarter="' + info[1].split("/")[-1].split("\_")[1] + '">' + info[0] + "</info>\n"
+
+)
+
+print(extracted\_info)
+
+
 
 ```
 <info quarter="Q4">According to the condensed consolidated statements of operations, Apple's net sales changed as follows in the 2023 financial year:
@@ -258,33 +337,47 @@ So the overall increase in net sales was driven primarily by higher product sale
 
 We extract information from the PDFs concurrently using sub-agent models and combine the extracted information. We then prepare the messages for the powerful model, including the question and the extracted information, and ask it to generate a response and matplotlib code.
 
-## Step 6: Pass the information to Opus to generate a response
+##  Step 6: Pass the information to Opus to generate a response
 
 Now that we have fetched the information from each PDF using the sub-agents, let's call Opus to actually answer the question and write code to create a graph to accompany the answer.
 
-python
+
 
-```
 # Prepare the messages for the powerful model
+
 messages = [
-    {
-        "role": "user",
-        "content": [
-            {
-                "type": "text",
-                "text": f"Based on the following extracted information from Apple's earnings releases, please provide a response to the question: {QUESTION}\n\nAlso, please generate Python code using the matplotlib library to accompany your response. Enclose the code within <code> tags.\n\nExtracted Information:\n{extracted_info}",
-            }
-        ],
-    }
+
+{
+
+"role": "user",
+
+"content": [
+
+{
+
+"type": "text",
+
+"text": f"Based on the following extracted information from Apple's earnings releases, please provide a response to the question: {QUESTION}\n\nAlso, please generate Python code using the matplotlib library to accompany your response. Enclose the code within <code> tags.\n\nExtracted Information:\n{extracted\_info}",
+
+}
+
+],
+
+}
+
 ]
 
 # Generate the matplotlib code using the powerful model
-response = client.messages.create(model="claude-opus-4-1", max_tokens=4096, messages=messages)
 
-generated_response = response.content[0].text
+response = client.messages.create(model="claude-opus-4-1", max\_tokens=4096, messages=messages)
+
+generated\_response = response.content[0].text
+
 print("Generated Response:")
-print(generated_response)
-```
+
+print(generated\_response)
+
+
 
 ```
 Generated Response:
@@ -324,7 +417,7 @@ plt.show()
 This code creates a bar chart showing Apple's net sales for each quarter in the 2023 financial year. The x-axis represents the quarters, and the y-axis represents the net sales in millions of dollars. The chart also includes data labels showing the exact net sales values for each quarter.
 ```
 
-## Step 7: Extract response and execute Matplotlib code
+##  Step 7: Extract response and execute Matplotlib code
 
 Finally, let's extract the matplotlib code from the generated response and execute it to visualize the revenue growth trend.
 
@@ -332,31 +425,48 @@ We define the `extract_code_and_response` function to extract the matplotlib cod
 
 Note that it is not good practice to use `exec` on model-written code outside of a sandbox but for the purposes of this demo we are doing it :)
 
-python
+
 
-```
 # Extract the matplotlib code from the response
+
 # Function to extract the code and non-code parts from the response
-def extract_code_and_response(response):
-    start_tag = "<code>"
-    end_tag = "</code>"
-    start_index = response.find(start_tag)
-    end_index = response.find(end_tag)
-    if start_index != -1 and end_index != -1:
-        code = response[start_index + len(start_tag) : end_index].strip()
-        non_code_response = response[:start_index].strip()
-        return code, non_code_response
-    else:
-        return None, response.strip()
 
-matplotlib_code, non_code_response = extract_code_and_response(generated_response)
+def extract\_code\_and\_response(response):
 
-print(non_code_response)
-if matplotlib_code:
-    # Execute the extracted matplotlib code
-    # Note: exec is used here for demonstration purposes to run model-generated visualization code.
-    # In production, use a sandboxed environment for executing untrusted code.
-    exec(matplotlib_code)  # noqa: S102
+start\_tag = "<code>"
+
+end\_tag = "</code>"
+
+start\_index = response.find(start\_tag)
+
+end\_index = response.find(end\_tag)
+
+if start\_index != -1 and end\_index != -1:
+
+code = response[start\_index + len(start\_tag) : end\_index].strip()
+
+non\_code\_response = response[:start\_index].strip()
+
+return code, non\_code\_response
+
 else:
-    print("No matplotlib code found in the response.")
-```
+
+return None, response.strip()
+
+matplotlib\_code, non\_code\_response = extract\_code\_and\_response(generated\_response)
+
+print(non\_code\_response)
+
+if matplotlib\_code:
+
+# Execute the extracted matplotlib code
+
+# Note: exec is used here for demonstration purposes to run model-generated visualization code.
+
+# In production, use a sandboxed environment for executing untrusted code.
+
+exec(matplotlib\_code) # noqa: S102
+
+else:
+
+print("No matplotlib code found in the response.")

@@ -1,220 +1,320 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-customer-service-agent -->
 
-# Creating a Customer Service Agent with Client-Side Tools
+#  Creating a Customer Service Agent with Client-Side Tools
 
 In this recipe, we'll demonstrate how to create a customer service chatbot using Claude 3 plus client-side tools. The chatbot will be able to look up customer information, retrieve order details, and cancel orders on behalf of the customer. We'll define the necessary tools and simulate synthetic responses to showcase the chatbot's capabilities.
 
-## Step 1: Set up the environment
+##  Step 1: Set up the environment
 
 First, let's install the required libraries and set up the Claude API client.
 
-python
+
 
-```
 %pip install anthropic
-```
 
-python
+
 
-```
 import anthropic
 
 client = anthropic.Client()
-MODEL_NAME = "claude-opus-4-1"
-```
 
-## Step 2: Define the client-side tools
+MODEL\_NAME = "claude-opus-4-1"
+
+##  Step 2: Define the client-side tools
 
 Next, we'll define the client-side tools that our chatbot will use to assist customers. We'll create three tools: get\_customer\_info, get\_order\_details, and cancel\_order.
 
-python
+
 
-```
 tools = [
-    {
-        "name": "get_customer_info",
-        "description": "Retrieves customer information based on their customer ID. Returns the customer's name, email, and phone number.",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "customer_id": {
-                    "type": "string",
-                    "description": "The unique identifier for the customer.",
-                }
-            },
-            "required": ["customer_id"],
-        },
-    },
-    {
-        "name": "get_order_details",
-        "description": "Retrieves the details of a specific order based on the order ID. Returns the order ID, product name, quantity, price, and order status.",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "order_id": {
-                    "type": "string",
-                    "description": "The unique identifier for the order.",
-                }
-            },
-            "required": ["order_id"],
-        },
-    },
-    {
-        "name": "cancel_order",
-        "description": "Cancels an order based on the provided order ID. Returns a confirmation message if the cancellation is successful.",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "order_id": {
-                    "type": "string",
-                    "description": "The unique identifier for the order to be cancelled.",
-                }
-            },
-            "required": ["order_id"],
-        },
-    },
-]
-```
 
-## Step 3: Simulate synthetic tool responses
+{
+
+"name": "get\_customer\_info",
+
+"description": "Retrieves customer information based on their customer ID. Returns the customer's name, email, and phone number.",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"customer\_id": {
+
+"type": "string",
+
+"description": "The unique identifier for the customer.",
+
+}
+
+},
+
+"required": ["customer\_id"],
+
+},
+
+},
+
+{
+
+"name": "get\_order\_details",
+
+"description": "Retrieves the details of a specific order based on the order ID. Returns the order ID, product name, quantity, price, and order status.",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"order\_id": {
+
+"type": "string",
+
+"description": "The unique identifier for the order.",
+
+}
+
+},
+
+"required": ["order\_id"],
+
+},
+
+},
+
+{
+
+"name": "cancel\_order",
+
+"description": "Cancels an order based on the provided order ID. Returns a confirmation message if the cancellation is successful.",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"order\_id": {
+
+"type": "string",
+
+"description": "The unique identifier for the order to be cancelled.",
+
+}
+
+},
+
+"required": ["order\_id"],
+
+},
+
+},
+
+]
+
+##  Step 3: Simulate synthetic tool responses
 
 Since we don't have real customer data or order information, we'll simulate synthetic responses for our tools. In a real-world scenario, these functions would interact with your actual customer database and order management system.
 
-python
+
 
-```
-def get_customer_info(customer_id):
-    # Simulated customer data
-    customers = {
-        "C1": {"name": "John Doe", "email": "john@example.com", "phone": "123-456-7890"},
-        "C2": {"name": "Jane Smith", "email": "jane@example.com", "phone": "987-654-3210"},
-    }
-    return customers.get(customer_id, "Customer not found")
+def get\_customer\_info(customer\_id):
 
-def get_order_details(order_id):
-    # Simulated order data
-    orders = {
-        "O1": {
-            "id": "O1",
-            "product": "Widget A",
-            "quantity": 2,
-            "price": 19.99,
-            "status": "Shipped",
-        },
-        "O2": {
-            "id": "O2",
-            "product": "Gadget B",
-            "quantity": 1,
-            "price": 49.99,
-            "status": "Processing",
-        },
-    }
-    return orders.get(order_id, "Order not found")
+# Simulated customer data
 
-def cancel_order(order_id):
-    # Simulated order cancellation
-    if order_id in ["O1", "O2"]:
-        return True
-    else:
-        return False
-```
+customers = {
 
-## Step 4: Process tool calls and return results
+"C1": {"name": "John Doe", "email": "john@example.com", "phone": "123-456-7890"},
+
+"C2": {"name": "Jane Smith", "email": "jane@example.com", "phone": "987-654-3210"},
+
+}
+
+return customers.get(customer\_id, "Customer not found")
+
+def get\_order\_details(order\_id):
+
+# Simulated order data
+
+orders = {
+
+"O1": {
+
+"id": "O1",
+
+"product": "Widget A",
+
+"quantity": 2,
+
+"price": 19.99,
+
+"status": "Shipped",
+
+},
+
+"O2": {
+
+"id": "O2",
+
+"product": "Gadget B",
+
+"quantity": 1,
+
+"price": 49.99,
+
+"status": "Processing",
+
+},
+
+}
+
+return orders.get(order\_id, "Order not found")
+
+def cancel\_order(order\_id):
+
+# Simulated order cancellation
+
+if order\_id in ["O1", "O2"]:
+
+return True
+
+else:
+
+return False
+
+##  Step 4: Process tool calls and return results
 
 We'll create a function to process the tool calls made by Claude and return the appropriate results.
 
-python
+
 
-```
-def process_tool_call(tool_name, tool_input):
-    if tool_name == "get_customer_info":
-        return get_customer_info(tool_input["customer_id"])
-    elif tool_name == "get_order_details":
-        return get_order_details(tool_input["order_id"])
-    elif tool_name == "cancel_order":
-        return cancel_order(tool_input["order_id"])
-```
+def process\_tool\_call(tool\_name, tool\_input):
 
-## Step 5: Interact with the chatbot
+if tool\_name == "get\_customer\_info":
+
+return get\_customer\_info(tool\_input["customer\_id"])
+
+elif tool\_name == "get\_order\_details":
+
+return get\_order\_details(tool\_input["order\_id"])
+
+elif tool\_name == "cancel\_order":
+
+return cancel\_order(tool\_input["order\_id"])
+
+##  Step 5: Interact with the chatbot
 
 Now, let's create a function to interact with the chatbot. We'll send a user message, process any tool calls made by Claude, and return the final response to the user.
 
-python
+
 
-```
 import json
 
-def chatbot_interaction(user_message):
-    print(f"\n{'=' * 50}\nUser Message: {user_message}\n{'=' * 50}")
+def chatbot\_interaction(user\_message):
 
-    messages = [{"role": "user", "content": user_message}]
+print(f"\n{'=' \* 50}\nUser Message: {user\_message}\n{'=' \* 50}")
 
-    response = client.messages.create(
-        model=MODEL_NAME, max_tokens=4096, tools=tools, messages=messages
-    )
+messages = [{"role": "user", "content": user\_message}]
 
-    print("\nInitial Response:")
-    print(f"Stop Reason: {response.stop_reason}")
-    print(f"Content: {response.content}")
+response = client.messages.create(
 
-    while response.stop_reason == "tool_use":
-        tool_use = next(block for block in response.content if block.type == "tool_use")
-        tool_name = tool_use.name
-        tool_input = tool_use.input
+model=MODEL\_NAME, max\_tokens=4096, tools=tools, messages=messages
 
-        print(f"\nTool Used: {tool_name}")
-        print("Tool Input:")
-        print(json.dumps(tool_input, indent=2))
+)
 
-        tool_result = process_tool_call(tool_name, tool_input)
+print("\nInitial Response:")
 
-        print("\nTool Result:")
-        print(json.dumps(tool_result, indent=2))
+print(f"Stop Reason: {response.stop\_reason}")
 
-        messages = [
-            {"role": "user", "content": user_message},
-            {"role": "assistant", "content": response.content},
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "tool_result",
-                        "tool_use_id": tool_use.id,
-                        "content": str(tool_result),
-                    }
-                ],
-            },
-        ]
+print(f"Content: {response.content}")
 
-        response = client.messages.create(
-            model=MODEL_NAME, max_tokens=4096, tools=tools, messages=messages
-        )
+while response.stop\_reason == "tool\_use":
 
-        print("\nResponse:")
-        print(f"Stop Reason: {response.stop_reason}")
-        print(f"Content: {response.content}")
+tool\_use = next(block for block in response.content if block.type == "tool\_use")
 
-    final_response = next(
-        (block.text for block in response.content if hasattr(block, "text")),
-        None,
-    )
+tool\_name = tool\_use.name
 
-    print(f"\nFinal Response: {final_response}")
+tool\_input = tool\_use.input
 
-    return final_response
-```
+print(f"\nTool Used: {tool\_name}")
 
-## Step 6: Test the chatbot
+print("Tool Input:")
+
+print(json.dumps(tool\_input, indent=2))
+
+tool\_result = process\_tool\_call(tool\_name, tool\_input)
+
+print("\nTool Result:")
+
+print(json.dumps(tool\_result, indent=2))
+
+messages = [
+
+{"role": "user", "content": user\_message},
+
+{"role": "assistant", "content": response.content},
+
+{
+
+"role": "user",
+
+"content": [
+
+{
+
+"type": "tool\_result",
+
+"tool\_use\_id": tool\_use.id,
+
+"content": str(tool\_result),
+
+}
+
+],
+
+},
+
+]
+
+response = client.messages.create(
+
+model=MODEL\_NAME, max\_tokens=4096, tools=tools, messages=messages
+
+)
+
+print("\nResponse:")
+
+print(f"Stop Reason: {response.stop\_reason}")
+
+print(f"Content: {response.content}")
+
+final\_response = next(
+
+(block.text for block in response.content if hasattr(block, "text")),
+
+None,
+
+)
+
+print(f"\nFinal Response: {final\_response}")
+
+return final\_response
+
+##  Step 6: Test the chatbot
 
 Let's test our customer service chatbot with a few sample queries.
 
-python
+
 
-```
-chatbot_interaction("Can you tell me the email address for customer C1?")
-chatbot_interaction("What is the status of order O2?")
-chatbot_interaction("Please cancel order O1 for me.")
-```
+chatbot\_interaction("Can you tell me the email address for customer C1?")
+
+chatbot\_interaction("What is the status of order O2?")
+
+chatbot\_interaction("Please cancel order O1 for me.")
+
+
 
 ```
 ==================================================

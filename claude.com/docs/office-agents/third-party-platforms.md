@@ -1,13 +1,5 @@
 <!-- source: https://claude.com/docs/office-agents/third-party-platforms -->
 
-> ## Documentation Index
->
-> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
->
-> Use this file to discover all available pages before exploring further.
-
-[Skip to main content](#content-area)
-
 Organizations using Amazon Bedrock, Google Cloud Vertex AI, Azure AI
 Foundry, or an LLM gateway can deploy Claude’s Office add-ins without
 requiring individual Claude accounts. The add-in connects through your
@@ -223,15 +215,13 @@ application with the same delegated Graph permissions and provide its
 client ID to the setup wizard as `graph_client_id`. See
 [Use your own Entra app instead](https://claude.com/docs/office-agents/outlook#use-your-own-entra-app-instead).
 
-Amazon Bedrock is not currently supported for Claude for Outlook. Bedrock
-remains supported for Claude for Excel, PowerPoint, and Word. Claude for
-Outlook on third-party platforms currently supports Claude Opus 4.7 only.
+Claude for Outlook on third-party platforms supports Claude Opus 4.7 and
+later and Claude Sonnet 5 and later. Earlier model generations are not
+available on the Outlook surface.
 
 ###  Deploy to Microsoft 365
 
 After the wizard generates your manifest files:
-
-1
 
 Upload the manifest
 
@@ -240,16 +230,12 @@ apps, Upload custom apps. Select “Office Add-in” as the app type,
 then upload the `manifest.xml` file. If you are deploying Outlook,
 repeat this step with `manifest-outlook.xml` as a second custom app.
 
-2
-
 Choose who gets the add-in
 
 If all users share the same configuration, select “Entire
 organization”. If you wrote per-user attributes, assign to “Specific
 users/groups” matching exactly who was configured. Others would open
 the add-in with no configuration.
-
-3
 
 Finish deployment
 
@@ -271,13 +257,9 @@ assignment. You can change assignment later without redeploying.
 
 ###  LLM gateway
 
-1
-
 Open the add-in
 
 Open Excel, PowerPoint, Word, or Outlook and launch the Claude add-in.
-
-2
 
 Select your connection mode
 
@@ -285,8 +267,6 @@ On the sign-in screen, select “Cloud provider or gateway”. Then
 choose your connection: Gateway, Vertex, Bedrock, or Azure. Contact
 your IT team for connection details if you’re unsure which one to
 select.
-
-3
 
 Enter your credentials
 
@@ -320,13 +300,9 @@ LLM gateway request flow: the add-in calls your gateway, which routes to your ch
 
 ###  Bedrock, Vertex AI, or Foundry direct
 
-1
-
 Open the add-in
 
 Open Excel, PowerPoint, Word, or Outlook and launch the Claude add-in.
-
-2
 
 Authenticate
 
@@ -339,8 +315,6 @@ via the Google OAuth client created during setup.
 For Foundry, the add-in connects automatically if your admin
 pre-filled the Azure resource name and API key. Otherwise, enter the
 values your IT team provided and select Connect.
-
-3
 
 Start working
 
@@ -462,8 +436,18 @@ below summarizes how the Office add-in setup differs.
 | --- | --- | --- |
 | Credential storage | OS keychain or environment variables | Browser localStorage (sandboxed iframe) |
 | Auth configuration | Environment variables, settings file, helper scripts | Manual entry in add-in UI (gateway), Entra ID (Bedrock), Google OAuth (Vertex AI), or Azure API key (Foundry) |
-| Token refresh | Supports helper scripts for rotation | Manual re-entry in settings (gateway), automatic via Entra ID (Bedrock) or Google OAuth (Vertex AI) |
+| Token refresh | Supports helper scripts for rotation | Automatic via a bootstrap endpoint (gateway), Entra ID (Bedrock), or Google OAuth (Vertex AI); gateway tokens entered manually in the add-in UI require re-entry in settings |
 | Custom model names | Configurable via environment variables | Not configurable in v1 |
+
+When gateway configuration comes from a bootstrap endpoint, the add-in
+keeps the token current without user action. It calls the bootstrap
+endpoint again about five minutes before the expiry declared in the
+bootstrap response and applies the returned token to the running session.
+If the gateway rejects a request as unauthorized before that expiry, the
+add-in calls the bootstrap endpoint once and retries the request if the
+token changed.
+Gateway tokens entered manually in the add-in UI do not refresh
+automatically: update the token in settings when it rotates.
 
 ##  Example gateway configuration with LiteLLM
 
@@ -688,7 +672,7 @@ third-party platforms yet. Support is being added.
 | --- | --- | --- |
 | Chat with your spreadsheet, deck, document, or email | Yes | Yes |
 | Read and edit cells, slides, formulas, and document text | Yes | Yes |
-| Read, search, and triage your mailbox and calendar (Outlook) | Yes | Yes, except Bedrock |
+| Read, search, and triage your mailbox and calendar (Outlook) | Yes | Yes |
 | Connectors (S&P, FactSet, and others) | Yes | Coming soon |
 | Working across apps | Yes | No |
 | Dictation | Yes | No |

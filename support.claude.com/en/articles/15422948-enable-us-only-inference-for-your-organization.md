@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization -->
 
-# Enable US-only inference for your organization
-
-June 15, 2026
-
 This article explains what the **US-only inference** setting does, how to turn it on, and how it affects billing for your Enterprise organization.
 
 US-only inference is available on usage-based Enterprise plans. Primary Owners, Owners, and custom roles with the Privacy permission set to "Can manage" can manage this setting.
@@ -59,4 +55,4 @@ US-only inference is only available on usage-based Enterprise plans. If your org
 * [Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)
 * [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
 * [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
-* [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)
+* [Inference hooks overview](https://support.claude.com/en/articles/16059458-inference-hooks-overview)

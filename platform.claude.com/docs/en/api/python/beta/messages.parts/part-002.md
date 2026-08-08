@@ -3,6 +3,12 @@
 
 <!-- chunk-start -->
 
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
                 - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 14 more]`
 
                   The model that will complete your prompt.
@@ -817,12 +823,14 @@ import os
 from anthropic import Anthropic
 
 client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
 )
 for batch in client.beta.messages.batches.results(
     message_batch_id="message_batch_id",
 ):
-  print(batch)
+    print(batch)
 ```
 
 ## Domain Types

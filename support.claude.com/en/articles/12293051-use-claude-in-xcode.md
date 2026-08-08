@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12293051-use-claude-in-xcode -->
 
-# Use Claude in Xcode
-
-May 19, 2026
-
 Claude in Xcode is available for individuals with Pro and Max plans, and users with premium seats on Team and Enterprise plans.
 
 Claude Sonnet 4 is now available in Xcode 26, bringing AI-powered coding assistance directly to Apple's integrated development environment (IDE).
@@ -32,7 +28,7 @@ To start using Claude in Xcode:
 2. Open Xcode preferences and navigate to the Intelligence settings.
 3. Log in with your Claude account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1785803400&signature=45d7f25fc07604beeb68dec8c130fd8b54fcb5f0bd639f0be4b3308536565e42&req=dSclEcp5nIRXXPMW1HO4zUAXI8kKUqvQFalhp3bugHLHs%2FYIvMKwiscM5mTv%0A2iJqvwdwplfJdGvJul4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1785803400&signature=45d7f25fc07604beeb68dec8c130fd8b54fcb5f0bd639f0be4b3308536565e42&req=dSclEcp5nIRXXPMW1HO4zUAXI8kKUqvQFalhp3bugHLHs%2FYIvMKwiscM5mTv%0A2iJqvwdwplfJdGvJul4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1786167000&signature=23a5b101d92813189e38fb30f43c830fd7313d0e6d4979ca8890182c79604f35&req=dSclEcp5nIRXXPMW1HO4zUAXI8oDVK%2FUFalhp3bugHLiSL5t6wLHhQ2R%2FvLT%0ApV7h%2BcbYw421Q6hk8Z0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1786167000&signature=23a5b101d92813189e38fb30f43c830fd7313d0e6d4979ca8890182c79604f35&req=dSclEcp5nIRXXPMW1HO4zUAXI8oDVK%2FUFalhp3bugHLiSL5t6wLHhQ2R%2FvLT%0ApV7h%2BcbYw421Q6hk8Z0%3D%0A)
 
 ## Usage limits
 

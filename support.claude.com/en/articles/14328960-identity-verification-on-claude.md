@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14328960-identity-verification-on-claude -->
 
-# Identity verification on Claude
-
-Updated over a week ago
-
 Being responsible with powerful technology starts with knowing who is using it. Identity verification helps us prevent abuse, enforce our usage policies, and comply with legal obligations.
 
 We are rolling out identity verification for a few use cases, and you might see a verification prompt when accessing certain capabilities, as part of our routine platform integrity checks, or other safety and compliance measures.
@@ -85,4 +81,8 @@ If you feel your account has been wrongly suspended or terminated, please go to 
 
 If you have questions about identity verification, your data, or the verification process, reach out to us via this **[form](http://claude.com/form/identity-verification-help)**.
 
-[Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)[Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)[Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)[Real-time cyber safeguards on Claude](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude)[Age assurance on Claude](https://support.claude.com/en/articles/15171100-age-assurance-on-claude)
+* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
+* [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
+* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
+* [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
+* [Age assurance on Claude](https://support.claude.com/en/articles/15171100-age-assurance-on-claude)

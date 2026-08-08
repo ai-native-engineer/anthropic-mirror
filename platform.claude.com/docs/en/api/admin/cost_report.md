@@ -25,13 +25,13 @@ Get Cost Report
 
   Time buckets that end before this RFC 3339 timestamp will be returned.
 
-- `group_by: optional array of "workspace_id" or "description"`
+- `group_by: optional array of "description" or "workspace_id"`
 
   Group by any subset of the available options.
 
-  - `"workspace_id"`
-
   - `"description"`
+
+  - `"workspace_id"`
 
 - `limit: optional number`
 
@@ -75,17 +75,17 @@ Get Cost Report
 
         - `"200k-1M"`
 
-      - `cost_type: "tokens" or "web_search" or "code_execution" or "session_usage"`
+      - `cost_type: "code_execution" or "session_usage" or "tokens" or "web_search"`
 
         Type of cost. `null` if not grouping by description.
-
-        - `"tokens"`
-
-        - `"web_search"`
 
         - `"code_execution"`
 
         - `"session_usage"`
+
+        - `"tokens"`
+
+        - `"web_search"`
 
       - `currency: string`
 
@@ -95,36 +95,41 @@ Get Cost Report
 
         Description of the cost item. `null` if not grouping by description.
 
-      - `inference_geo: string`
+      - `inference_geo: "global" or "not_available" or "us"`
 
-        Inference geo used matching requests' `inference_geo` parameter if set, otherwise the workspace's `default_inference_geo`.
-        For models that do not support specifying `inference_geo` the value is `"not_available"`. Always `null` if not grouping by inference geo.
+        InferenceGeo values extended with NOT_AVAILABLE for filtering usage data.
+
+        - `"global"`
+
+        - `"not_available"`
+
+        - `"us"`
 
       - `model: string`
 
         Model name used. `null` if not grouping by description or for non-token costs.
 
-      - `service_tier: "standard" or "batch"`
+      - `service_tier: "batch" or "standard"`
 
         Service tier used. `null` if not grouping by description or for non-token costs.
 
-        - `"standard"`
-
         - `"batch"`
 
-      - `token_type: "uncached_input_tokens" or "output_tokens" or "cache_read_input_tokens" or 2 more`
+        - `"standard"`
+
+      - `token_type: "cache_creation.ephemeral_1h_input_tokens" or "cache_creation.ephemeral_5m_input_tokens" or "cache_read_input_tokens" or 2 more`
 
         Type of token. `null` if not grouping by description or for non-token costs.
-
-        - `"uncached_input_tokens"`
-
-        - `"output_tokens"`
-
-        - `"cache_read_input_tokens"`
 
         - `"cache_creation.ephemeral_1h_input_tokens"`
 
         - `"cache_creation.ephemeral_5m_input_tokens"`
+
+        - `"cache_read_input_tokens"`
+
+        - `"output_tokens"`
+
+        - `"uncached_input_tokens"`
 
       - `workspace_id: string`
 
@@ -175,7 +180,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
     }
   ],
   "has_more": true,
-  "next_page": "2019-12-27T18:11:19.117Z"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -207,17 +212,17 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
 
         - `"200k-1M"`
 
-      - `cost_type: "tokens" or "web_search" or "code_execution" or "session_usage"`
+      - `cost_type: "code_execution" or "session_usage" or "tokens" or "web_search"`
 
         Type of cost. `null` if not grouping by description.
-
-        - `"tokens"`
-
-        - `"web_search"`
 
         - `"code_execution"`
 
         - `"session_usage"`
+
+        - `"tokens"`
+
+        - `"web_search"`
 
       - `currency: string`
 
@@ -227,36 +232,41 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
 
         Description of the cost item. `null` if not grouping by description.
 
-      - `inference_geo: string`
+      - `inference_geo: "global" or "not_available" or "us"`
 
-        Inference geo used matching requests' `inference_geo` parameter if set, otherwise the workspace's `default_inference_geo`.
-        For models that do not support specifying `inference_geo` the value is `"not_available"`. Always `null` if not grouping by inference geo.
+        InferenceGeo values extended with NOT_AVAILABLE for filtering usage data.
+
+        - `"global"`
+
+        - `"not_available"`
+
+        - `"us"`
 
       - `model: string`
 
         Model name used. `null` if not grouping by description or for non-token costs.
 
-      - `service_tier: "standard" or "batch"`
+      - `service_tier: "batch" or "standard"`
 
         Service tier used. `null` if not grouping by description or for non-token costs.
 
-        - `"standard"`
-
         - `"batch"`
 
-      - `token_type: "uncached_input_tokens" or "output_tokens" or "cache_read_input_tokens" or 2 more`
+        - `"standard"`
+
+      - `token_type: "cache_creation.ephemeral_1h_input_tokens" or "cache_creation.ephemeral_5m_input_tokens" or "cache_read_input_tokens" or 2 more`
 
         Type of token. `null` if not grouping by description or for non-token costs.
-
-        - `"uncached_input_tokens"`
-
-        - `"output_tokens"`
-
-        - `"cache_read_input_tokens"`
 
         - `"cache_creation.ephemeral_1h_input_tokens"`
 
         - `"cache_creation.ephemeral_5m_input_tokens"`
+
+        - `"cache_read_input_tokens"`
+
+        - `"output_tokens"`
+
+        - `"uncached_input_tokens"`
 
       - `workspace_id: string`
 

@@ -1,16 +1,12 @@
 <!-- source: https://support.claude.com/en/articles/13756069-public-sector-faqs -->
 
-# Public Sector FAQs
-
-March 25, 2026
-
 ## 1. Products and features
 
 ### What products are available to Public Sector customers?
 
 Select your product based on both your technical/functional requirements, and also your compliance/security/deployment environment requirements. Here is a list of options:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1785803400&signature=4ce9c202fa04d85c8c4d8787958f12a47e654c3fb6faa8b153d5689ac0c2b0a2&req=diEuEc5%2FmoBZWPMW1HO4zU94LlwtHd402WxtU42UVC17M2j9a769ed5wGeGN%0AelKi0HjHy3eBFa0JNWw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1785803400&signature=4ce9c202fa04d85c8c4d8787958f12a47e654c3fb6faa8b153d5689ac0c2b0a2&req=diEuEc5%2FmoBZWPMW1HO4zU94LlwtHd402WxtU42UVC17M2j9a769ed5wGeGN%0AelKi0HjHy3eBFa0JNWw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1786167000&signature=62dc018c9da231efe7f5e011ecc4b9c4ba8309b88485ca229f91f8d1dfe33d81&req=diEuEc5%2FmoBZWPMW1HO4zU94Ll8kG9ow2WxtU42UVC3zXledCp9fIO8MOjrS%0AwW2BiwpYAR0KjQ4d2hc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1786167000&signature=62dc018c9da231efe7f5e011ecc4b9c4ba8309b88485ca229f91f8d1dfe33d81&req=diEuEc5%2FmoBZWPMW1HO4zU94Ll8kG9ow2WxtU42UVC3zXledCp9fIO8MOjrS%0AwW2BiwpYAR0KjQ4d2hc%3D%0A)
 
 ### What is Claude for Government (C4G)?
 
@@ -39,6 +35,8 @@ For more information, see our **[Claude Code product page](https://claude.com/pr
 ### What models are available in Claude for Government?
 
 Our Claude for Government application is updated with our latest commercial model releases.
+
+---
 
 ## 2. FedRAMP, Impact Levels, and compliance
 
@@ -88,6 +86,8 @@ No. At present, our only product offering on AWS Marketplace is Claude Enterpris
 
 Learn more here: **[Claude in Amazon Bedrock: Approved for use in FedRAMP High and DoD IL4/5 workloads](https://www.anthropic.com/news/claude-in-amazon-bedrock-fedramp-high)**
 
+---
+
 ## 3. Cloud service providers and deployment
 
 ### How do I deploy Claude in Amazon Bedrock on AWS GovCloud / GCP Vertex in Assured Workloads?
@@ -106,6 +106,8 @@ Learn more here: **[Claude in Amazon Bedrock: Approved for use in FedRAMP High a
 **AWS Bedrock: [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/)**
 
 **Google Cloud Vertex AI:** **[Cost of building and deploying AI models in Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/pricing)**
+
+---
 
 ## 4. Pricing and procurement
 
@@ -128,7 +130,7 @@ Other pricing plans are available here: **[Team and Enterprise plan pricing](htt
 Learn more here: **[Offering expanded Claude access across all three branches of the U.S. government](https://www.anthropic.com/news/offering-expanded-claude-access-across-all-three-branches-of-government)**
 
 * [What is Amazon Bedrock?](https://support.claude.com/en/articles/7996918-what-is-amazon-bedrock)
+* [I use Claude in Amazon Bedrock. Who do I contact for customer support inquiries?](https://support.claude.com/en/articles/7996921-i-use-claude-in-amazon-bedrock-who-do-i-contact-for-customer-support-inquiries)
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
-* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
 * [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

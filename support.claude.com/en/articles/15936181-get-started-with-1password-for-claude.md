@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/15936181-get-started-with-1password-for-claude -->
 
-# Get started with 1Password for Claude
-
-Updated over 2 weeks ago
-
 1Password for Claude lets Claude complete browser tasks that require signing in, using logins you've stored in 1Password. 1Password fills the credential directly on the page, so Claude never sees your password or one-time code.
 
 1Password for Claude is in beta for paid plans (Pro, Max, Team, Enterprise) using Claude Desktop on macOS. It's available to 1Password customers on individual, family, and business plans, and requires Claude in Chrome. 1Password for Claude is off by default for Team and Enterprise plans.
@@ -46,7 +42,7 @@ Once the requirements are in place, you can set up 1Password from a few places i
 3. Toggle on **Enable for your team** if it isn't already on.
 4. Toggle on **Password managers**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1785803400&signature=fd9106c7652b350abe1e85dac0ab1bfe71af94ee5158443ffccf263a5a5d5878&req=diUjEMh8m4RWX%2FMW1HO4zU5lnm5mrcZnGkiu4hEpcPXJK5GZD4E4sXr2jIUR%0AsNokJlamjy83gyeG7uk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1785803400&signature=fd9106c7652b350abe1e85dac0ab1bfe71af94ee5158443ffccf263a5a5d5878&req=diUjEMh8m4RWX%2FMW1HO4zU5lnm5mrcZnGkiu4hEpcPXJK5GZD4E4sXr2jIUR%0AsNokJlamjy83gyeG7uk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1786167000&signature=20a9f33d70840ac9ce9a13f9f4b1751546acfe2e7b34c5cf825cc2384202477e&req=diUjEMh8m4RWX%2FMW1HO4zU5lnm1vq8JjGkiu4hEpcPU6baZOWe6GvG%2FS5KJ7%0Az52q0PsfWy2vEZfF1xk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1786167000&signature=20a9f33d70840ac9ce9a13f9f4b1751546acfe2e7b34c5cf825cc2384202477e&req=diUjEMh8m4RWX%2FMW1HO4zU5lnm1vq8JjGkiu4hEpcPU6baZOWe6GvG%2FS5KJ7%0Az52q0PsfWy2vEZfF1xk%3D%0A)
 
 Once enabled, eligible users will see the discovery options above. Users still need to install and set up the required apps and extensions themselves.
 

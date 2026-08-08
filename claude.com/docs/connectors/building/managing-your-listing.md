@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-Organizations that submit to the [Connectors Directory](https://claude.com/docs/connectors/directory) get a submissions dashboard in Claude.ai at [Admin settings > Directory](https://claude.ai/admin-settings/directory/submissions). Use it to track submissions through review, monitor your published server’s health and usage, and edit your listing.
+Organizations that submit to the [Connectors Directory](https://claude.com/docs/connectors/directory) get a submissions dashboard in Claude.ai at [Organization settings > Directory](https://claude.ai/admin-settings/directory/submissions). Use it to track submissions through review, monitor your published server’s health and usage, and edit your listing.
 
 The dashboard covers directory-listed remote MCP servers only. Custom connectors and local servers (desktop extensions) don’t appear here, and the dashboard shows only your own organization’s submissions.
 
@@ -17,7 +17,7 @@ The dashboard covers directory-listed remote MCP servers only. Custom connectors
 The dashboard is part of your organization’s admin settings, so you need:
 
 * **A Team or Enterprise organization**
-* **Directory management access.** By default, only organization Owners and Primary owners have it. On Enterprise, an Owner can delegate access through a custom role with the **Directory management** or **Libraries** permission; see [Before you start](https://claude.com/docs/connectors/building/submission#before-you-start) for the steps. Team plans don’t have custom roles, so on Team this stays with Owners.
+* **Directory management access.** By default, only organization Owners and Primary owners have it. On Enterprise, an Owner can delegate access through a custom role with the **Directory** or **Libraries** permission; see [Before you start](https://claude.com/docs/connectors/building/submission#before-you-start) for the steps. Team plans don’t have custom roles, so on Team this stays with Owners.
 
 The same access covers everything on this page: viewing submissions, metrics, and reviewer feedback, and editing and submitting listings.
 

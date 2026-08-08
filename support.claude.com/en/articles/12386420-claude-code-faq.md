@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12386420-claude-code-faq -->
 
-# Claude Code FAQ
-
-June 18, 2026
-
 This article is a compilation of commonly-asked questions about Claude Code related to authentication, integrations, configuration, and more. If you're interested in learning more about Claude Code, please refer to our Claude Docs here: **[Claude Code overview](https://docs.claude.com/en/docs/claude-code/overview)**.
 
 ## How do I set up single sign-on (SSO) for Claude Code?

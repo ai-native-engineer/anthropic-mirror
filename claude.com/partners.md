@@ -26,7 +26,7 @@ Check out Anthropic Academy to get Claude certified.
 
 Learn more
 
-[Learn more](https://www.anthropic.com/learn)Learn more
+[Learn more](https://anthropic-partners.skilljar.com/page/partner-certifications)Learn more
 
 ## Flexible deployment for
 any environment

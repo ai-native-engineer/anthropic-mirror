@@ -174,6 +174,28 @@ Customer stories
 
 Inside the startups and founders using Claude. See what they shipped, and what it gave back.
 
+[View story](https://claude.com/customers/wondr-health)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7554a1ec915407cc422bfa_logo_wondrhealth-light-mode%201.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7554a6949ac0de1b799cd2_logo_wondrhealth-dark-mode.png)
+
+Wondr Health scales trusted health coaching with Claude
+
+Wondr Health
+
+Startup
+
+AWS
+
+North America
+
+August 14, 2026
+
+Claude Platform
+
+Software
+
+Claude Platform
+
 [View story](https://claude.com/customers/notability)View story
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ffe769f703495a0fb59604_nb-primary-full-marketing.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ffe76dfd86b6d4e80e72ba_nb-primary-full-marketing-dark.svg)
@@ -277,28 +299,6 @@ Claude Platform
 Claude Code
 
 Claude Cowork
-
-Software
-
-Claude Platform
-
-[View story](https://claude.com/customers/delightai-qa)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a20a3704e9edd41be5cc440_logo_delight-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a20a3756b53473bfeef6932_logo_delight-dark-mode.svg)
-
-Inside Delight.ai’s AI/ML team: Building internal tools with Claude Code
-
-delight.ai
-
-Startup
-
-AWS
-
-North America
-
-June 5, 2026
-
-Claude Code
 
 Software
 

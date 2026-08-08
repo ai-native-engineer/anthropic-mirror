@@ -1,11 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration -->
 
-# Claude Code on Console to Enterprise migration
-
-Claude Console (API) → Claude Enterprise
-
-Updated over 3 weeks ago
-
 ## Overview
 
 This guide is built for teams migrating from Console-based Claude Code access to Claude Enterprise. Note that individual users don’t need to migrate session history for CLI sessions since these are stored locally. You only need to provision Claude Enterprise accounts for each user, and then users should switch their login method from Console to Claude Enterprise.
@@ -15,6 +9,8 @@ This guide is built for teams migrating from Console-based Claude Code access to
 Claude Code on the Console API is a fast way to get developers started, but it leaves governance up to each individual machine. Claude Enterprise puts the same Claude Code your developers already use behind the controls that security, IT, and finance teams need to run it at scale. You get centralized identity and access through your existing IdP, server-managed settings that enforce tool, file, and MCP policies on every client without MDM, and granular spend caps that cascade from the org down to individual users.
 
 Claude Enterprise adds rich analytics and audit logs (including contribution metrics like PRs and lines committed), custom data retention controls, and additional product surfaces—Claude Code on the web, mobile, and Slack (Claude Tag), plus Code Review—that aren't available on Console. And because Claude Enterprise is available via AWS Marketplace, procurement can run through the channel you already have.
+
+---
 
 ## Claude Enterprise compared to Console
 
@@ -42,6 +38,8 @@ Claude Enterprise adds rich analytics and audit logs (including contribution met
 
 **Docs: [Roles and permissions](https://support.claude.com/en/articles/9267276-roles-and-permissions)**, **[Purchasing and managing seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans), [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)**, **[Using Claude Code with your Enterprise plan](https://support.claude.com/en/articles/11845131-using-claude-code-with-your-team-or-enterprise-plan)**
 
+---
+
 ## SCIM provisioning
 
 Here’s what your identity team needs to do:
@@ -56,6 +54,8 @@ Here’s what your identity team needs to do:
 **Note:** Microsoft Entra SCIM changes sync every ~40 minutes. Use the “Sync” button to trigger on-demand after group changes.
 
 If your Enterprise organization's SSO is configured as login-only, signing in does not create accounts — users must be invited manually. Enable JIT or SCIM provisioning before directing developers to log in. See **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning).**
+
+---
 
 ## Spend limits
 
@@ -79,6 +79,8 @@ Claude Enterprise plans offer a hierarchical spend control system. Limits cascad
 Owners can set limits to "unlimited," but all consumption is still billed. If a user on a consumption seat hits their limit, they cannot use Claude or Claude Code until the next billing period or until an admin increases their limit.
 
 **Docs: [Configuring spend limits](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)**, **[Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)**
+
+---
 
 ## Issuing new seats and re-authentication
 
@@ -121,6 +123,8 @@ Remove migrated developers from the Console org (or rotate their keys). Removal 
 
 **Docs: [Purchasing and managing seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans)**
 
+---
+
 ## Improvements in reporting
 
 Moving from Console API to Claude Enterprise unlocks richer analytics for Claude Code usage:
@@ -140,6 +144,8 @@ Moving from Console API to Claude Enterprise unlocks richer analytics for Claude
 All reporting is accessible from **[Analytics](https://claude.ai/analytics/activity)** in the Claude admin panel. For programmatic access, the **[Claude Enterprise Analytics API](https://platform.claude.com/docs/en/manage-claude/analytics-api)** returns per-user engagement metrics, Claude Code activity (commits, pull requests, lines of code), and usage and cost data. Analytics do not migrate: the Enterprise organization starts with fresh reporting history, and its Analytics/Admin API requires a new API key created in the Enterprise organization — Console keys don't carry over. Export any Console analytics you need for historical dashboards before cutover. Traffic that remains on Console API keys (for example CI) continues to appear only in Console reporting.
 
 **Docs: [Claude Code Usage Analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)**
+
+---
 
 ## Managed policy settings — deep dive
 

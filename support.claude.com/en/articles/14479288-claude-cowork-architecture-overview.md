@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview -->
 
-# Claude Cowork architecture overview
-
-Updated today
-
 This article explains where Claude Cowork runs, how each execution mode is isolated, and the admin controls available for restricting its scope.
 
 This article is for Enterprise admins. The architecture described here is the same across all plans. The device-level admin controls at the end apply to Team and Enterprise plans.
@@ -41,6 +37,8 @@ Local sessions apply to existing desktop deployments and use two execution envir
 
 For a detailed technical overview, see the **[Claude Cowork desktop security architecture overview](https://trust.anthropic.com/resources?s=2a7bbzo1lyymvdt551q7kl&name=claude-cowork-desktop-security-architecture-overview)** on our Trust Center.
 
+---
+
 ## Admin controls for managed devices
 
 Two MDM keys let you restrict Cowork's scope on managed devices. Both are device-level settings applied through your MDM solution, not from organization settings.
@@ -54,6 +52,8 @@ These MDM keys govern the Claude Desktop app, so they apply to local sessions an
 
 The organization-wide Cowork toggle in **Organization settings > Cowork** (**Enable for your organization**) controls whether Cowork is available at all. The device-level controls above only apply when Cowork is enabled.
 
+---
+
 ## Organization controls for sessions in the cloud
 
 Beyond the organization-wide Cowork toggle, sessions in the cloud have their own controls in organization settings:
@@ -64,6 +64,8 @@ Beyond the organization-wide Cowork toggle, sessions in the cloud have their own
 * Require trusted-device enrollment and a recent sign-in for sessions in the cloud. When enabled, this applies to every session in the cloud in the organization.
 
 The device-level MDM keys above govern the Claude Desktop app, so they also apply to what a session in the cloud can reach through the app. With local MCP servers disabled on a managed device, only the folder-limited desktop file tools remain available to sessions in the cloud.
+
+---
 
 ## Frequently asked questions
 

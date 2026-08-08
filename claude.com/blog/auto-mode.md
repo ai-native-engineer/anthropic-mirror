@@ -11,7 +11,7 @@ Auto mode provides a safer long-running alternative to `--dangerously-skip-permi
   [Product announcements](https://claude.com/blog/category/announcements)
 * Product
 
-  Claude Code
+  [Claude Code](https://claude.com/product/claude-code)
 * Date
 
   March 24, 2026
@@ -97,53 +97,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
 
-Jul 28, 2026
+Aug 7, 2026
 
-### Bringing MCP 2026-07-28 to Claude
+### Auto mode is now the default in Claude Code for Pro, Max, and Team plans
 
-Product announcements
+Claude Code
 
-[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
+[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
 
-[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
+[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
 
-Jul 24, 2026
+Aug 7, 2026
 
-### Claude models explained: choosing the best model for your use case
+### Running auto mode in production
+
+Claude Code
+
+[Running auto mode in production](#)Running auto mode in production
+
+[Running auto mode in production](https://claude.com/blog/auto-mode-in-production)Running auto mode in production
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
+
+Aug 5, 2026
+
+### Inference hooks: inline data loss prevention for Claude Enterprise
 
 Enterprise AI
 
-[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
 
-[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22651dd05046d0fdb0b_39c40393e610cc0a5e65f50ad12ff5ada273f792-1000x1000.svg)
 
-Jul 22, 2026
+Aug 6, 2026
 
-### Building verification loops in Claude Code with skills
+### Run Claude Code sessions on your own compute
 
-Claude Code
+Product announcements
 
-[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
+[Run Claude Code sessions on your own compute](#)Run Claude Code sessions on your own compute
 
-[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
-
-Jul 6, 2026
-
-### A field guide to Claude Fable 5: Finding your unknowns
-
-Claude Code
-
-[A field guide to Claude Fable 5: Finding your unknowns](#)A field guide to Claude Fable 5: Finding your unknowns
-
-[A field guide to Claude Fable 5: Finding your unknowns](https://claude.com/blog/a-field-guide-to-claude-fable-finding-your-unknowns)A field guide to Claude Fable 5: Finding your unknowns
+[Run Claude Code sessions on your own compute](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)Run Claude Code sessions on your own compute
 
 ## Transform how your organization operates with Claude
 

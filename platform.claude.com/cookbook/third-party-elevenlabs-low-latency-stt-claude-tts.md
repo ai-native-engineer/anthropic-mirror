@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-elevenlabs-low-latency-stt-claude-tts -->
 
-# Low Latency Voice Assistant with ElevenLabs and Claude
+#  Low Latency Voice Assistant with ElevenLabs and Claude
 
 This notebook demonstrates how to build a low-latency voice assistant using ElevenLabs for speech-to-text and text-to-speech, combined with Claude for intelligent responses. We'll measure the performance gains from streaming responses to minimize latency.
 
@@ -13,40 +13,39 @@ In this notebook, we will demonstrate how to:
 
 ---
 
-## Installation
+##  Installation
 
 First, install the required dependencies:
 
-python
+
 
-```
 %pip install --upgrade pip
-```
 
-python
+
 
-```
 %pip install -r requirements.txt
-```
 
-## Imports
+##  Imports
 
 Import the necessary libraries for ElevenLabs integration, Claude API access, and audio playback:
 
-python
+
 
-```
 import io
+
 import os
+
 import time
 
 import anthropic
-import elevenlabs
-from dotenv import load_dotenv
-from IPython.display import Audio
-```
 
-## API Keys
+import elevenlabs
+
+from dotenv import load\_dotenv
+
+from IPython.display import Audio
+
+##  API Keys
 
 Set up your API keys for both ElevenLabs and Anthropic.
 
@@ -54,66 +53,76 @@ Set up your API keys for both ElevenLabs and Anthropic.
 
 1. Copy `.env.example` to `.env` in this directory
 2. Edit `.env` and add your actual API keys:
-   * Get your ElevenLabs API key: <https://elevenlabs.io/app/developers/api-keys>
-   * Get your Anthropic API key: <https://console.anthropic.com/settings/keys>
+   * Get your ElevenLabs API key: [https://elevenlabs.io/app/developers/api-keys(opens in new tab)](https://elevenlabs.io/app/developers/api-keys)
+   * Get your Anthropic API key: [https://console.anthropic.com/settings/keys(opens in new tab)](https://console.anthropic.com/settings/keys)
 
 The keys will be automatically loaded from the `.env` file.
 
-python
+
 
-```
 # Load environment variables from .env file
 
-load_dotenv()
+load\_dotenv()
 
-ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY")
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-```
+ELEVENLABS\_API\_KEY = os.getenv("ELEVENLABS\_API\_KEY")
 
-## Initialize Clients
+ANTHROPIC\_API\_KEY = os.getenv("ANTHROPIC\_API\_KEY")
+
+##  Initialize Clients
 
 Create client instances for both ElevenLabs and Anthropic services:
 
-python
+
 
-```
-assert ELEVENLABS_API_KEY is not None, (
-    "ERROR: ELEVENLABS_API_KEY not found. Please copy .env.example to .env and add your API keys."
-)
-assert ANTHROPIC_API_KEY is not None, (
-    "ERROR: ANTHROPIC_API_KEY not found. Please copy .env.example to .env and add your API keys."
+assert ELEVENLABS\_API\_KEY is not None, (
+
+"ERROR: ELEVENLABS\_API\_KEY not found. Please copy .env.example to .env and add your API keys."
+
 )
 
-elevenlabs_client = elevenlabs.ElevenLabs(
-    api_key=ELEVENLABS_API_KEY, base_url="https://api.elevenlabs.io"
+assert ANTHROPIC\_API\_KEY is not None, (
+
+"ERROR: ANTHROPIC\_API\_KEY not found. Please copy .env.example to .env and add your API keys."
+
 )
 
-anthropic_client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-```
+elevenlabs\_client = elevenlabs.ElevenLabs(
 
-## List Available Models and Voices
+api\_key=ELEVENLABS\_API\_KEY, base\_url="https://api.elevenlabs.io"
+
+)
+
+anthropic\_client = anthropic.Anthropic(api\_key=ANTHROPIC\_API\_KEY)
+
+##  List Available Models and Voices
 
 Explore the available ElevenLabs models and voices. We'll automatically select the first available voice for the assistant's responses:
 
-python
+
 
-```
 print("Available Models and Voices:\n")
-for model in elevenlabs_client.models.list():
-    print(f"{model.name}: {model.model_id}")
+
+for model in elevenlabs\_client.models.list():
+
+print(f"{model.name}: {model.model\_id}")
 
 print()
 
-voices = elevenlabs_client.voices.search().voices
+voices = elevenlabs\_client.voices.search().voices
+
 for voice in voices:
-    print(f"{voice.name}: {voice.voice_id}")
+
+print(f"{voice.name}: {voice.voice\_id}")
 
 # Select the first voice for assistant responses
-selected_voice = voices[0]
-VOICE_ID = selected_voice.voice_id
 
-print(f"\nSelected voice: {selected_voice.name} with ID: {VOICE_ID}")
-```
+selected\_voice = voices[0]
+
+VOICE\_ID = selected\_voice.voice\_id
+
+print(f"\nSelected voice: {selected\_voice.name} with ID: {VOICE\_ID}")
+
+
 
 ```
 Available Models and Voices:
@@ -143,78 +152,94 @@ Sarah: EXAVITQu4vr4xnSDxMaL
 Selected voice: Rachel with ID: 21m00Tcm4TlvDq8ikWAM
 ```
 
-## Generate Input Audio
+##  Generate Input Audio
 
 Create a sample audio file using ElevenLabs text-to-speech. This will simulate user input for our voice assistant:
 
-python
+
 
-```
-audio = elevenlabs_client.text_to_speech.convert(
-    voice_id=VOICE_ID,  # Use the dynamically selected voice
-    output_format="mp3_44100_128",
-    model_id="eleven_v3",
-    text="Hello, Claude. ",
+audio = elevenlabs\_client.text\_to\_speech.convert(
+
+voice\_id=VOICE\_ID, # Use the dynamically selected voice
+
+output\_format="mp3\_44100\_128",
+
+model\_id="eleven\_v3",
+
+text="Hello, Claude. ",
+
 )
 
-audio_data = io.BytesIO()
-for chunk in audio:
-    audio_data.write(chunk)
+audio\_data = io.BytesIO()
 
-Audio(audio_data.getvalue())
-```
+for chunk in audio:
+
+audio\_data.write(chunk)
+
+Audio(audio\_data.getvalue())
+
+
 
 ```
 <IPython.lib.display.Audio object>
 ```
 
-## Speech Transcription
+##  Speech Transcription
 
 Transcribe the audio input using ElevenLabs' speech-to-text model. We'll measure the transcription latency:
 
-python
+
 
-```
-audio_data.seek(0)
+audio\_data.seek(0)
 
-start_time = time.time()
+start\_time = time.time()
 
-transcription = elevenlabs_client.speech_to_text.convert(file=audio_data, model_id="scribe_v1")
+transcription = elevenlabs\_client.speech\_to\_text.convert(file=audio\_data, model\_id="scribe\_v1")
 
-end_time = time.time()
-transcription_time = end_time - start_time
+end\_time = time.time()
+
+transcription\_time = end\_time - start\_time
 
 print(f"Transcribed text: {transcription.text}")
-print(f"Transcription time: {transcription_time:.2f} seconds")
-```
+
+print(f"Transcription time: {transcription\_time:.2f} seconds")
+
+
 
 ```
 Transcribed text: Hello, Claude.
 Transcription time: 0.54 seconds
 ```
 
-## Get a Response from Claude
+##  Get a Response from Claude
 
 Send the transcribed text to Claude and measure the response time. We're using `claude-haiku-4-5` for fast, high-quality responses:
 
-python
+
 
-```
-start_time = time.time()
+start\_time = time.time()
 
-message = anthropic_client.messages.create(
-    model="claude-haiku-4-5",
-    max_tokens=1000,
-    temperature=0,
-    messages=[{"role": "user", "content": transcription.text}],
+message = anthropic\_client.messages.create(
+
+model="claude-haiku-4-5",
+
+max\_tokens=1000,
+
+temperature=0,
+
+messages=[{"role": "user", "content": transcription.text}],
+
 )
 
-end_time = time.time()
-non_streaming_response_time = end_time - start_time
+end\_time = time.time()
+
+non\_streaming\_response\_time = end\_time - start\_time
 
 print(message.content[0].text)
-print(f"\nResponse time: {non_streaming_response_time:.2f} seconds")
-```
+
+print(f"\nResponse time: {non\_streaming\_response\_time:.2f} seconds")
+
+
 
 ```
 Hello! It's nice to meet you. How can I help you today?
@@ -222,35 +247,49 @@ Hello! It's nice to meet you. How can I help you today?
 Response time: 1.03 seconds
 ```
 
-## Optimize with Streaming
+##  Optimize with Streaming
 
 Improve response latency by using Claude's streaming API. This allows us to receive the first tokens much faster, significantly reducing perceived latency:
 
-python
+
 
-```
-start_time = time.time()
-first_token_time = None
+start\_time = time.time()
 
-claude_full_response = ""
+first\_token\_time = None
 
-with anthropic_client.messages.stream(
-    model="claude-haiku-4-5",
-    max_tokens=1000,
-    temperature=0,
-    messages=[{"role": "user", "content": transcription.text}],
+claude\_full\_response = ""
+
+with anthropic\_client.messages.stream(
+
+model="claude-haiku-4-5",
+
+max\_tokens=1000,
+
+temperature=0,
+
+messages=[{"role": "user", "content": transcription.text}],
+
 ) as stream:
-    for text in stream.text_stream:
-        claude_full_response += text
-        print(text, end="", flush=True)
-        if first_token_time is None:
-            first_token_time = time.time()
 
-streaming_time_to_first_token = first_token_time - start_time
+for text in stream.text\_stream:
+
+claude\_full\_response += text
+
+print(text, end="", flush=True)
+
+if first\_token\_time is None:
+
+first\_token\_time = time.time()
+
+streaming\_time\_to\_first\_token = first\_token\_time - start\_time
+
 print(
-    f"\n\nStreaming time to first token: {streaming_time_to_first_token:.2f} seconds - reducing perceived latency by {(non_streaming_response_time - streaming_time_to_first_token) * 100 / non_streaming_response_time:.2f}%"
+
+f"\n\nStreaming time to first token: {streaming\_time\_to\_first\_token:.2f} seconds - reducing perceived latency by {(non\_streaming\_response\_time - streaming\_time\_to\_first\_token) \* 100 / non\_streaming\_response\_time:.2f}%"
+
 )
-```
+
+
 
 ```
 Hello! It's nice to meet you. How can I help you today?
@@ -260,31 +299,41 @@ Streaming time to first token: 0.71 seconds - reducing perceived latency by 30.7
 
 Text to speech. Similar to above, we can stream the response to reduce the silence.
 
-python
+
 
-```
-start_time = time.time()
-first_audio_chunk_time = None
+start\_time = time.time()
 
-audio_buffer = io.BytesIO()
+first\_audio\_chunk\_time = None
 
-audio_generator = elevenlabs_client.text_to_speech.stream(
-    voice_id=VOICE_ID,
-    output_format="mp3_44100_128",
-    text=claude_full_response,
-    model_id="eleven_turbo_v2_5",
+audio\_buffer = io.BytesIO()
+
+audio\_generator = elevenlabs\_client.text\_to\_speech.stream(
+
+voice\_id=VOICE\_ID,
+
+output\_format="mp3\_44100\_128",
+
+text=claude\_full\_response,
+
+model\_id="eleven\_turbo\_v2\_5",
+
 )
 
-for chunk in audio_generator:
-    if first_audio_chunk_time is None:
-        first_audio_chunk_time = time.time()
-    audio_buffer.write(chunk)
+for chunk in audio\_generator:
 
-streaming_tts_time_to_first_chunk = first_audio_chunk_time - start_time
-print(f"Streaming TTS time to first audio chunk: {streaming_tts_time_to_first_chunk:.2f} seconds")
+if first\_audio\_chunk\_time is None:
 
-Audio(audio_buffer.getvalue())
-```
+first\_audio\_chunk\_time = time.time()
+
+audio\_buffer.write(chunk)
+
+streaming\_tts\_time\_to\_first\_chunk = first\_audio\_chunk\_time - start\_time
+
+print(f"Streaming TTS time to first audio chunk: {streaming\_tts\_time\_to\_first\_chunk:.2f} seconds")
+
+Audio(audio\_buffer.getvalue())
+
+
 
 ```
 Streaming TTS time to first audio chunk: 0.39 seconds
@@ -292,76 +341,113 @@ Streaming TTS time to first audio chunk: 0.39 seconds
 <IPython.lib.display.Audio object>
 ```
 
-## Streaming Claude Directly to TTS (Sentence-by-Sentence)
+##  Streaming Claude Directly to TTS (Sentence-by-Sentence)
 
 We've optimized Claude's streaming and TTS separately, but can we combine them? Let's stream Claude's response and synthesize audio as soon as we have complete sentences.
 
 This approach detects sentence boundaries (using punctuation like `.`, `!`, `?`) and immediately sends each sentence to TTS, further reducing latency.
 
-python
+
 
-```
 import re
 
-sentence_pattern = re.compile(r"[.!?]+")
-sentence_buffer = ""
-audio_chunks = []
+sentence\_pattern = re.compile(r"[.!?]+")
 
-start_time = time.time()
-first_audio_time = None
+sentence\_buffer = ""
 
-with anthropic_client.messages.stream(
-    model="claude-haiku-4-5",
-    max_tokens=1000,
-    temperature=0,
-    messages=[{"role": "user", "content": transcription.text}],
+audio\_chunks = []
+
+start\_time = time.time()
+
+first\_audio\_time = None
+
+with anthropic\_client.messages.stream(
+
+model="claude-haiku-4-5",
+
+max\_tokens=1000,
+
+temperature=0,
+
+messages=[{"role": "user", "content": transcription.text}],
+
 ) as stream:
-    for text in stream.text_stream:
-        print(text, end="", flush=True)
-        sentence_buffer += text
 
-        if sentence_pattern.search(sentence_buffer):
-            sentences = sentence_pattern.split(sentence_buffer)
+for text in stream.text\_stream:
 
-            # Process all complete sentences (all but the last element)
-            for i in range(len(sentences) - 1):
-                complete_sentence = sentences[i].strip()
-                if complete_sentence:
-                    audio_gen = elevenlabs_client.text_to_speech.stream(
-                        voice_id=VOICE_ID,
-                        output_format="mp3_44100_128",  # Free tier format
-                        text=complete_sentence,
-                        model_id="eleven_turbo_v2_5",
-                    )
+print(text, end="", flush=True)
 
-                    sentence_audio = io.BytesIO()
-                    for chunk in audio_gen:
-                        if first_audio_time is None:
-                            first_audio_time = time.time()
-                        sentence_audio.write(chunk)
+sentence\_buffer += text
 
-                    audio_chunks.append(sentence_audio.getvalue())
+if sentence\_pattern.search(sentence\_buffer):
 
-            sentence_buffer = sentences[-1]
+sentences = sentence\_pattern.split(sentence\_buffer)
 
-if sentence_buffer.strip():
-    audio_gen = elevenlabs_client.text_to_speech.stream(
-        voice_id=VOICE_ID,
-        output_format="mp3_44100_128",
-        text=sentence_buffer.strip(),
-        model_id="eleven_turbo_v2_5",
-    )
-    sentence_audio = io.BytesIO()
-    for chunk in audio_gen:
-        sentence_audio.write(chunk)
-    audio_chunks.append(sentence_audio.getvalue())
+# Process all complete sentences (all but the last element)
 
-sentence_streaming_time_to_first_audio = first_audio_time - start_time
-print(f"\n\nTime to first audio: {sentence_streaming_time_to_first_audio:.2f} seconds")
+for i in range(len(sentences) - 1):
 
-combined_pcm = b"".join(audio_chunks)
-Audio(combined_pcm)
-```
+complete\_sentence = sentences[i].strip()
+
+if complete\_sentence:
+
+audio\_gen = elevenlabs\_client.text\_to\_speech.stream(
+
+voice\_id=VOICE\_ID,
+
+output\_format="mp3\_44100\_128", # Free tier format
+
+text=complete\_sentence,
+
+model\_id="eleven\_turbo\_v2\_5",
+
+)
+
+sentence\_audio = io.BytesIO()
+
+for chunk in audio\_gen:
+
+if first\_audio\_time is None:
+
+first\_audio\_time = time.time()
+
+sentence\_audio.write(chunk)
+
+audio\_chunks.append(sentence\_audio.getvalue())
+
+sentence\_buffer = sentences[-1]
+
+if sentence\_buffer.strip():
+
+audio\_gen = elevenlabs\_client.text\_to\_speech.stream(
+
+voice\_id=VOICE\_ID,
+
+output\_format="mp3\_44100\_128",
+
+text=sentence\_buffer.strip(),
+
+model\_id="eleven\_turbo\_v2\_5",
+
+)
+
+sentence\_audio = io.BytesIO()
+
+for chunk in audio\_gen:
+
+sentence\_audio.write(chunk)
+
+audio\_chunks.append(sentence\_audio.getvalue())
+
+sentence\_streaming\_time\_to\_first\_audio = first\_audio\_time - start\_time
+
+print(f"\n\nTime to first audio: {sentence\_streaming\_time\_to\_first\_audio:.2f} seconds")
+
+combined\_pcm = b"".join(audio\_chunks)
+
+Audio(combined\_pcm)
+
+
 
 ```
 Hello! It's nice to meet you. How can I help you today?
@@ -371,13 +457,13 @@ Time to first audio: 1.48 seconds
 <IPython.lib.display.Audio object>
 ```
 
-### The Problem: Disconnected Audio
+###  The Problem: Disconnected Audio
 
 While this approach achieves excellent latency, there's a quality issue. Each sentence is synthesized independently, which causes the audio to sound disconnected and unnatural. The prosody (rhythm, stress, intonation) doesn't flow smoothly between sentences.
 
 This happens because the TTS model doesn't have context about what comes next, so each sentence is treated as a standalone utterance.
 
-## WebSocket Streaming: The Best of Both Worlds
+##  WebSocket Streaming: The Best of Both Worlds
 
 ElevenLabs offers a WebSocket API that solves this problem perfectly. Instead of waiting for complete sentences, we can stream text chunks directly to the TTS engine as they arrive from Claude.
 
@@ -390,11 +476,11 @@ The WebSocket API:
 
 Let's implement this ultimate optimization:
 
-## Building a Production Voice Assistant
+##  Building a Production Voice Assistant
 
 The techniques demonstrated in this notebook provide the foundation for building a real-time voice assistant. The WebSocket streaming approach minimizes latency while maintaining natural audio quality.
 
-### Key Implementation Challenges
+###  Key Implementation Challenges
 
 When building a production system, you'll need to solve several additional challenges beyond the basic streaming:
 
@@ -403,7 +489,7 @@ When building a production system, you'll need to solve several additional chall
 3. **Conversation State**: Maintaining conversation history across turns so Claude can reference previous context.
 4. **Audio Quality**: Converting between different audio formats (PCM, WAV) and avoiding artifacts from encoding.
 
-### Complete Implementation
+###  Complete Implementation
 
 We've built a complete voice assistant script that demonstrates all these techniques:
 
@@ -418,8 +504,8 @@ We've built a complete voice assistant script that demonstrates all these techni
 
 Run the script to experience a fully functional voice assistant:
 
-```
-python stream_voice_assistant_websocket.py
-```
+
+
+python stream\_voice\_assistant\_websocket.py
 
 This demonstrates how the streaming optimizations from this notebook translate into a real-world application with production-quality audio handling.

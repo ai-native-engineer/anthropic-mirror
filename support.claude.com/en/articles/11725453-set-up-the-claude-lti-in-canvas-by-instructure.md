@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/11725453-set-up-the-claude-lti-in-canvas-by-instructure -->
 
-# Set up the Claude LTI in Canvas by Instructure
-
-March 16, 2026
-
 This article provides information on how to enable the Claude LTI integration in Canvas LMS. These steps are intended for Claude for Education administrators and Learning Management Systems (LMS) administrators.
 
 ## Creating Claude LTI Developer Key in Canvas
@@ -32,7 +28,7 @@ This article provides information on how to enable the Claude LTI integration in
 4. Input the Client ID generated for your developer key (from Step 6 under Creating Claude LTI Developer Key in Canvas).
 5. Click "Install" and refresh the course page.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1611422430/c8e0875feac1f2c7cb033be74fc9/AD_4nXfLU_bui3EXcCjQ0qm70HD97neqjGayKeDer_t76utlci8gZSUjYRhw6ZSOlDdqSEcwXBzd_shAh7pQEJ-8OoE0O21DM5coOgxmO_WD5hlwiuwtS2iYXcTavhIRyQT5zKFWvfn3NA?expires=1785803400&signature=be00edb8a18dc7eea3189037b10a12a2d5d7a0b09fd9869230e15a0dccf45f15&req=dSYmF818n4VcWfMW1HO4zTEDau4Wm%2FCFEv2ojHLMyla%2FTPoHsZA42wv1fbfv%0AZPm%2BlY6jKF7FCl1m5uo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1611422430/c8e0875feac1f2c7cb033be74fc9/AD_4nXfLU_bui3EXcCjQ0qm70HD97neqjGayKeDer_t76utlci8gZSUjYRhw6ZSOlDdqSEcwXBzd_shAh7pQEJ-8OoE0O21DM5coOgxmO_WD5hlwiuwtS2iYXcTavhIRyQT5zKFWvfn3NA?expires=1785803400&signature=be00edb8a18dc7eea3189037b10a12a2d5d7a0b09fd9869230e15a0dccf45f15&req=dSYmF818n4VcWfMW1HO4zTEDau4Wm%2FCFEv2ojHLMyla%2FTPoHsZA42wv1fbfv%0AZPm%2BlY6jKF7FCl1m5uo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1611422430/c8e0875feac1f2c7cb033be74fc9/AD_4nXfLU_bui3EXcCjQ0qm70HD97neqjGayKeDer_t76utlci8gZSUjYRhw6ZSOlDdqSEcwXBzd_shAh7pQEJ-8OoE0O21DM5coOgxmO_WD5hlwiuwtS2iYXcTavhIRyQT5zKFWvfn3NA?expires=1786167000&signature=09acb1c51826f6ea3e4df17fc7b27c04f999017ac8fbdedd7019dac6a769d9b0&req=dSYmF818n4VcWfMW1HO4zTEDau0fnfSBEv2ojHLMylb4oW3tTkP7BaRdyB0n%0AVifdMIoXSmvyEklU1d8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1611422430/c8e0875feac1f2c7cb033be74fc9/AD_4nXfLU_bui3EXcCjQ0qm70HD97neqjGayKeDer_t76utlci8gZSUjYRhw6ZSOlDdqSEcwXBzd_shAh7pQEJ-8OoE0O21DM5coOgxmO_WD5hlwiuwtS2iYXcTavhIRyQT5zKFWvfn3NA?expires=1786167000&signature=09acb1c51826f6ea3e4df17fc7b27c04f999017ac8fbdedd7019dac6a769d9b0&req=dSYmF818n4VcWfMW1HO4zTEDau0fnfSBEv2ojHLMylb4oW3tTkP7BaRdyB0n%0AVifdMIoXSmvyEklU1d8%3D%0A)
 
 ## Turn on the Claude LTI Integration in Claude for Education organization settings
 
@@ -51,7 +47,7 @@ This article provides information on how to enable the Claude LTI integration in
 If you have any questions about your Claude for Education plan account or the Claude LTI, we encourage you to contact your university’s administrator(s).
 
 * [Get started with Claude for Education at your university (for Owners/Admins)](https://support.claude.com/en/articles/11139094-get-started-with-claude-for-education-at-your-university-for-owners-admins)
-* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
+* [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
 * [Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)
 * [Open the Claude mobile app with a link](https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link)

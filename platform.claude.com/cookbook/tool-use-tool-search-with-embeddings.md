@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-tool-search-with-embeddings -->
 
-# Tool Search with Embeddings: Scaling Claude to Thousands of Tools
+#  Tool Search with Embeddings: Scaling Claude to Thousands of Tools
 
 Building Claude applications with dozens of specialized tools quickly hits a wall: providing all tool definitions upfront consumes your context window, increases latency and costs, and makes it harder for Claude to find the right tool. Beyond ~100 tools, this approach becomes impractical.
 
@@ -14,31 +14,33 @@ Semantic tool search solves this by treating tools as discoverable resources. In
 
 This pattern is used in production by teams managing large tool ecosystems where context efficiency is critical. While we'll demonstrate with a small set of tools for clarity, the same approach scales seamlessly to libraries with hundreds or thousands of tools.
 
-## Prerequisites
+##  Prerequisites
 
 Before following this guide, ensure you have:
 
 **Required Knowledge**
 
 * Python fundamentals - comfortable with functions, dictionaries, and basic data structures
-* Basic understanding of Claude tool use - we recommend reading the [Tool Use Guide](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) first
+* Basic understanding of Claude tool use - we recommend reading the [Tool Use Guide(opens in new tab)](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) first
 
 **Required Tools**
 
 * Python 3.11 or higher
-* Anthropic API key ([get one here](https://docs.anthropic.com/claude/reference/getting-started-with-the-api))
+* Anthropic API key ([get one here(opens in new tab)](https://docs.anthropic.com/claude/reference/getting-started-with-the-api))
 
-## Setup
+##  Setup
 
 First, install the required dependencies:
 
-python
+
 
-```
 # Note: we use -q to avoid printing too much to stdout
+
 # Use --only-binary to avoid build issues with pythran
+
 %pip install --only-binary :all: -q anthropic sentence-transformers numpy python-dotenv
-```
+
+
 
 ```
 huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
@@ -51,218 +53,382 @@ Note: you may need to restart the kernel to use updated packages.
 
 Ensure your `.env` file contains:
 
-```
-ANTHROPIC_API_KEY=your_key_here
-```
+
+
+ANTHROPIC\_API\_KEY=your\_key\_here
 
 Load your environment variables and configure the client:
 
-python
+
 
-```
 import json
+
 import random
+
 from datetime import datetime, timedelta
+
 from typing import Any
 
 import anthropic
+
 import numpy as np
-from dotenv import load_dotenv
-from sentence_transformers import SentenceTransformer
+
+from dotenv import load\_dotenv
+
+from sentence\_transformers import SentenceTransformer
 
 # Load environment variables from .env file
-load_dotenv()
+
+load\_dotenv()
 
 # Define model constant for easy updates
+
 MODEL = "claude-sonnet-4-6"
 
 # Initialize Claude client (API key loaded from environment)
-claude_client = anthropic.Anthropic()
+
+claude\_client = anthropic.Anthropic()
 
 # Load the SentenceTransformer model
+
 # all-MiniLM-L6-v2 is a lightweight model with 384 dimensional embeddings
+
 # It will be downloaded from HuggingFace on first use
+
 print("Loading SentenceTransformer model...")
-embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+
+embedding\_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
 print("✓ Clients initialized successfully")
-```
+
+
 
 ```
 Loading SentenceTransformer model...
 ✓ Clients initialized successfully
 ```
 
-## Define Tool Library
+##  Define Tool Library
 
 Before we can implement semantic search, we need tools to search through. We'll create a library of 8 tools across two categories: Weather and Finance.
 
 In production applications, you might manage hundreds or thousands of tools across your internal APIs, database operations, or third-party integrations. The semantic search approach scales to these larger libraries without modification - we're using a small set here purely for demonstration clarity.
 
-python
+
 
-```
 # Define our tool library with 2 domains
-TOOL_LIBRARY = [
-    # Weather Tools
-    {
-        "name": "get_weather",
-        "description": "Get the current weather in a given location",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "location": {
-                    "type": "string",
-                    "description": "The city and state, e.g. San Francisco, CA",
-                },
-                "unit": {
-                    "type": "string",
-                    "enum": ["celsius", "fahrenheit"],
-                    "description": "The unit of temperature",
-                },
-            },
-            "required": ["location"],
-        },
-    },
-    {
-        "name": "get_forecast",
-        "description": "Get the weather forecast for multiple days ahead",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "location": {
-                    "type": "string",
-                    "description": "The city and state",
-                },
-                "days": {
-                    "type": "number",
-                    "description": "Number of days to forecast (1-10)",
-                },
-            },
-            "required": ["location", "days"],
-        },
-    },
-    {
-        "name": "get_timezone",
-        "description": "Get the current timezone and time for a location",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "location": {
-                    "type": "string",
-                    "description": "City name or timezone identifier",
-                }
-            },
-            "required": ["location"],
-        },
-    },
-    {
-        "name": "get_air_quality",
-        "description": "Get current air quality index and pollutant levels for a location",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "location": {
-                    "type": "string",
-                    "description": "City name or coordinates",
-                }
-            },
-            "required": ["location"],
-        },
-    },
-    # Finance Tools
-    {
-        "name": "get_stock_price",
-        "description": "Get the current stock price and market data for a given ticker symbol",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "ticker": {
-                    "type": "string",
-                    "description": "Stock ticker symbol (e.g., AAPL, GOOGL)",
-                },
-                "include_history": {
-                    "type": "boolean",
-                    "description": "Include historical data",
-                },
-            },
-            "required": ["ticker"],
-        },
-    },
-    {
-        "name": "convert_currency",
-        "description": "Convert an amount from one currency to another using current exchange rates",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "number",
-                    "description": "Amount to convert",
-                },
-                "from_currency": {
-                    "type": "string",
-                    "description": "Source currency code (e.g., USD)",
-                },
-                "to_currency": {
-                    "type": "string",
-                    "description": "Target currency code (e.g., EUR)",
-                },
-            },
-            "required": ["amount", "from_currency", "to_currency"],
-        },
-    },
-    {
-        "name": "calculate_compound_interest",
-        "description": "Calculate compound interest for investments over time",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "principal": {
-                    "type": "number",
-                    "description": "Initial investment amount",
-                },
-                "rate": {
-                    "type": "number",
-                    "description": "Annual interest rate (as percentage)",
-                },
-                "years": {"type": "number", "description": "Number of years"},
-                "frequency": {
-                    "type": "string",
-                    "enum": ["daily", "monthly", "quarterly", "annually"],
-                    "description": "Compounding frequency",
-                },
-            },
-            "required": ["principal", "rate", "years"],
-        },
-    },
-    {
-        "name": "get_market_news",
-        "description": "Get recent financial news and market updates for a specific company or sector",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "query": {
-                    "type": "string",
-                    "description": "Company name, ticker symbol, or sector",
-                },
-                "limit": {
-                    "type": "number",
-                    "description": "Maximum number of news articles to return",
-                },
-            },
-            "required": ["query"],
-        },
-    },
+
+TOOL\_LIBRARY = [
+
+# Weather Tools
+
+{
+
+"name": "get\_weather",
+
+"description": "Get the current weather in a given location",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"location": {
+
+"type": "string",
+
+"description": "The city and state, e.g. San Francisco, CA",
+
+},
+
+"unit": {
+
+"type": "string",
+
+"enum": ["celsius", "fahrenheit"],
+
+"description": "The unit of temperature",
+
+},
+
+},
+
+"required": ["location"],
+
+},
+
+},
+
+{
+
+"name": "get\_forecast",
+
+"description": "Get the weather forecast for multiple days ahead",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"location": {
+
+"type": "string",
+
+"description": "The city and state",
+
+},
+
+"days": {
+
+"type": "number",
+
+"description": "Number of days to forecast (1-10)",
+
+},
+
+},
+
+"required": ["location", "days"],
+
+},
+
+},
+
+{
+
+"name": "get\_timezone",
+
+"description": "Get the current timezone and time for a location",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"location": {
+
+"type": "string",
+
+"description": "City name or timezone identifier",
+
+}
+
+},
+
+"required": ["location"],
+
+},
+
+},
+
+{
+
+"name": "get\_air\_quality",
+
+"description": "Get current air quality index and pollutant levels for a location",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"location": {
+
+"type": "string",
+
+"description": "City name or coordinates",
+
+}
+
+},
+
+"required": ["location"],
+
+},
+
+},
+
+# Finance Tools
+
+{
+
+"name": "get\_stock\_price",
+
+"description": "Get the current stock price and market data for a given ticker symbol",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"ticker": {
+
+"type": "string",
+
+"description": "Stock ticker symbol (e.g., AAPL, GOOGL)",
+
+},
+
+"include\_history": {
+
+"type": "boolean",
+
+"description": "Include historical data",
+
+},
+
+},
+
+"required": ["ticker"],
+
+},
+
+},
+
+{
+
+"name": "convert\_currency",
+
+"description": "Convert an amount from one currency to another using current exchange rates",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"amount": {
+
+"type": "number",
+
+"description": "Amount to convert",
+
+},
+
+"from\_currency": {
+
+"type": "string",
+
+"description": "Source currency code (e.g., USD)",
+
+},
+
+"to\_currency": {
+
+"type": "string",
+
+"description": "Target currency code (e.g., EUR)",
+
+},
+
+},
+
+"required": ["amount", "from\_currency", "to\_currency"],
+
+},
+
+},
+
+{
+
+"name": "calculate\_compound\_interest",
+
+"description": "Calculate compound interest for investments over time",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"principal": {
+
+"type": "number",
+
+"description": "Initial investment amount",
+
+},
+
+"rate": {
+
+"type": "number",
+
+"description": "Annual interest rate (as percentage)",
+
+},
+
+"years": {"type": "number", "description": "Number of years"},
+
+"frequency": {
+
+"type": "string",
+
+"enum": ["daily", "monthly", "quarterly", "annually"],
+
+"description": "Compounding frequency",
+
+},
+
+},
+
+"required": ["principal", "rate", "years"],
+
+},
+
+},
+
+{
+
+"name": "get\_market\_news",
+
+"description": "Get recent financial news and market updates for a specific company or sector",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"query": {
+
+"type": "string",
+
+"description": "Company name, ticker symbol, or sector",
+
+},
+
+"limit": {
+
+"type": "number",
+
+"description": "Maximum number of news articles to return",
+
+},
+
+},
+
+"required": ["query"],
+
+},
+
+},
+
 ]
 
-print(f"✓ Defined {len(TOOL_LIBRARY)} tools in the library")
-```
+print(f"✓ Defined {len(TOOL\_LIBRARY)} tools in the library")
+
+
 
 ```
 ✓ Defined 8 tools in the library
 ```
 
-## Create Tool Embeddings
+##  Create Tool Embeddings
 
 Semantic search works by comparing the *meaning* of text, rather than just searching for keywords. To enable this, we need to convert each tool definition into an **embedding vector** that captures its semantic meaning.
 
@@ -276,38 +442,57 @@ We picked this model because it is:
 
 Let's start by creating a function that converts tool definitions into searchable text:
 
-python
+
 
-```
-def tool_to_text(tool: dict[str, Any]) -> str:
-    """
-    Convert a tool definition into a text representation for embedding.
-    Combines the tool name, description, and parameter information.
-    """
-    text_parts = [
-        f"Tool: {tool['name']}",
-        f"Description: {tool['description']}",
-    ]
+def tool\_to\_text(tool: dict[str, Any]) -> str:
 
-    # Add parameter information
-    if "input_schema" in tool and "properties" in tool["input_schema"]:
-        params = tool["input_schema"]["properties"]
-        param_descriptions = []
-        for param_name, param_info in params.items():
-            param_desc = param_info.get("description", "")
-            param_type = param_info.get("type", "")
-            param_descriptions.append(f"{param_name} ({param_type}): {param_desc}")
+"""
 
-        if param_descriptions:
-            text_parts.append("Parameters: " + ", ".join(param_descriptions))
+Convert a tool definition into a text representation for embedding.
 
-    return "\n".join(text_parts)
+Combines the tool name, description, and parameter information.
+
+"""
+
+text\_parts = [
+
+f"Tool: {tool['name']}",
+
+f"Description: {tool['description']}",
+
+]
+
+# Add parameter information
+
+if "input\_schema" in tool and "properties" in tool["input\_schema"]:
+
+params = tool["input\_schema"]["properties"]
+
+param\_descriptions = []
+
+for param\_name, param\_info in params.items():
+
+param\_desc = param\_info.get("description", "")
+
+param\_type = param\_info.get("type", "")
+
+param\_descriptions.append(f"{param\_name} ({param\_type}): {param\_desc}")
+
+if param\_descriptions:
+
+text\_parts.append("Parameters: " + ", ".join(param\_descriptions))
+
+return "\n".join(text\_parts)
 
 # Test with one tool
-sample_text = tool_to_text(TOOL_LIBRARY[0])
+
+sample\_text = tool\_to\_text(TOOL\_LIBRARY[0])
+
 print("Sample tool text representation:")
-print(sample_text)
-```
+
+print(sample\_text)
+
+
 
 ```
 Sample tool text representation:
@@ -318,22 +503,27 @@ Parameters: location (string): The city and state, e.g. San Francisco, CA, unit 
 
 Now let's create embeddings for all our tools:
 
-python
+
 
-```
 # Create embeddings for all tools
+
 print("Creating embeddings for all tools...")
 
-tool_texts = [tool_to_text(tool) for tool in TOOL_LIBRARY]
+tool\_texts = [tool\_to\_text(tool) for tool in TOOL\_LIBRARY]
 
 # Embed all tools at once using SentenceTransformer
-# The model returns normalized embeddings by default
-tool_embeddings = embedding_model.encode(tool_texts, convert_to_numpy=True)
 
-print(f"✓ Created embeddings with shape: {tool_embeddings.shape}")
-print(f"  - {tool_embeddings.shape[0]} tools")
-print(f"  - {tool_embeddings.shape[1]} dimensions per embedding")
-```
+# The model returns normalized embeddings by default
+
+tool\_embeddings = embedding\_model.encode(tool\_texts, convert\_to\_numpy=True)
+
+print(f"✓ Created embeddings with shape: {tool\_embeddings.shape}")
+
+print(f" - {tool\_embeddings.shape[0]} tools")
+
+print(f" - {tool\_embeddings.shape[1]} dimensions per embedding")
+
+
 
 ```
 Creating embeddings for all tools...
@@ -342,7 +532,7 @@ Creating embeddings for all tools...
   - 384 dimensions per embedding
 ```
 
-## Implement Tool Search
+##  Implement Tool Search
 
 With our tools embedded as vectors, we can now implement semantic search. If two pieces of text have similar meanings, their embedding vectors will be close together in vector space. We measure this "closeness" using **cosine similarity**.
 
@@ -356,48 +546,69 @@ With semantic search, Claude can search using natural language like "I need to c
 
 Let's implement the search function and test it with a sample query:
 
-python
+
 
-```
-def search_tools(query: str, top_k: int = 5) -> list[dict[str, Any]]:
-    """
-    Search for tools using semantic similarity.
+def search\_tools(query: str, top\_k: int = 5) -> list[dict[str, Any]]:
 
-    Args:
-        query: Natural language description of what tool is needed
-        top_k: Number of top tools to return
+"""
 
-    Returns:
-        List of tool definitions most relevant to the query
-    """
-    # Embed the query using SentenceTransformer
-    query_embedding = embedding_model.encode(query, convert_to_numpy=True)
+Search for tools using semantic similarity.
 
-    # Calculate cosine similarity using dot product
-    # SentenceTransformer returns normalized embeddings, so dot product = cosine similarity
-    similarities = np.dot(tool_embeddings, query_embedding)
+Args:
 
-    # Get top k indices
-    top_indices = np.argsort(similarities)[-top_k:][::-1]
+query: Natural language description of what tool is needed
 
-    # Return the corresponding tools with their scores
-    results = []
-    for idx in top_indices:
-        results.append({"tool": TOOL_LIBRARY[idx], "similarity_score": float(similarities[idx])})
+top\_k: Number of top tools to return
 
-    return results
+Returns:
+
+List of tool definitions most relevant to the query
+
+"""
+
+# Embed the query using SentenceTransformer
+
+query\_embedding = embedding\_model.encode(query, convert\_to\_numpy=True)
+
+# Calculate cosine similarity using dot product
+
+# SentenceTransformer returns normalized embeddings, so dot product = cosine similarity
+
+similarities = np.dot(tool\_embeddings, query\_embedding)
+
+# Get top k indices
+
+top\_indices = np.argsort(similarities)[-top\_k:][::-1]
+
+# Return the corresponding tools with their scores
+
+results = []
+
+for idx in top\_indices:
+
+results.append({"tool": TOOL\_LIBRARY[idx], "similarity\_score": float(similarities[idx])})
+
+return results
 
 # Test the search function
-test_query = "I need to check the weather"
-test_results = search_tools(test_query, top_k=3)
 
-print(f"Search query: '{test_query}'\n")
+test\_query = "I need to check the weather"
+
+test\_results = search\_tools(test\_query, top\_k=3)
+
+print(f"Search query: '{test\_query}'\n")
+
 print("Top 3 matching tools:")
-for i, result in enumerate(test_results, 1):
-    tool_name = result["tool"]["name"]
-    score = result["similarity_score"]
-    print(f"{i}. {tool_name} (similarity: {score:.3f})")
-```
+
+for i, result in enumerate(test\_results, 1):
+
+tool\_name = result["tool"]["name"]
+
+score = result["similarity\_score"]
+
+print(f"{i}. {tool\_name} (similarity: {score:.3f})")
+
+
 
 ```
 Search query: 'I need to check the weather'
@@ -408,37 +619,55 @@ Top 3 matching tools:
 3. get_air_quality (similarity: 0.401)
 ```
 
-## Define the tool\_search Tool
+##  Define the tool\_search Tool
 
 Now we'll implement the **meta-tool** that allows Claude to discover other tools on demand. When Claude needs a capability it doesn't have, it searches for it using this `tool_search` tool, receives the tool definitions in the result, and can use those newly discovered tools immediately.
 
 This is the only tool we provide to Claude initially:
 
-python
+
 
-```
-# The tool_search tool definition
-TOOL_SEARCH_DEFINITION = {
-    "name": "tool_search",
-    "description": "Search for available tools that can help with a task. Returns tool definitions for matching tools. Use this when you need a tool but don't have it available yet.",
-    "input_schema": {
-        "type": "object",
-        "properties": {
-            "query": {
-                "type": "string",
-                "description": "Natural language description of what kind of tool you need (e.g., 'weather information', 'currency conversion', 'stock prices')",
-            },
-            "top_k": {
-                "type": "number",
-                "description": "Number of tools to return (default: 5)",
-            },
-        },
-        "required": ["query"],
-    },
+# The tool\_search tool definition
+
+TOOL\_SEARCH\_DEFINITION = {
+
+"name": "tool\_search",
+
+"description": "Search for available tools that can help with a task. Returns tool definitions for matching tools. Use this when you need a tool but don't have it available yet.",
+
+"input\_schema": {
+
+"type": "object",
+
+"properties": {
+
+"query": {
+
+"type": "string",
+
+"description": "Natural language description of what kind of tool you need (e.g., 'weather information', 'currency conversion', 'stock prices')",
+
+},
+
+"top\_k": {
+
+"type": "number",
+
+"description": "Number of tools to return (default: 5)",
+
+},
+
+},
+
+"required": ["query"],
+
+},
+
 }
 
 print("✓ Tool search definition created")
-```
+
+
 
 ```
 ✓ Tool search definition created
@@ -446,36 +675,51 @@ print("✓ Tool search definition created")
 
 Now let's implement the handler that processes `tool_search` calls from Claude and returns discovered tools:
 
-python
+
 
-```
-def handle_tool_search(query: str, top_k: int = 5) -> list[dict[str, Any]]:
-    """
-    Handle a tool_search invocation and return tool references.
+def handle\_tool\_search(query: str, top\_k: int = 5) -> list[dict[str, Any]]:
 
-    Returns a list of tool_reference content blocks for discovered tools.
-    """
-    # Search for relevant tools
-    results = search_tools(query, top_k=top_k)
+"""
 
-    # Create tool_reference objects instead of full definitions
-    tool_references = [
-        {"type": "tool_reference", "tool_name": result["tool"]["name"]} for result in results
-    ]
+Handle a tool\_search invocation and return tool references.
 
-    print(f"\n🔍 Tool search: '{query}'")
-    print(f"   Found {len(tool_references)} tools:")
-    for i, result in enumerate(results, 1):
-        print(f"   {i}. {result['tool']['name']} (similarity: {result['similarity_score']:.3f})")
+Returns a list of tool\_reference content blocks for discovered tools.
 
-    return tool_references
+"""
+
+# Search for relevant tools
+
+results = search\_tools(query, top\_k=top\_k)
+
+# Create tool\_reference objects instead of full definitions
+
+tool\_references = [
+
+{"type": "tool\_reference", "tool\_name": result["tool"]["name"]} for result in results
+
+]
+
+print(f"\n🔍 Tool search: '{query}'")
+
+print(f" Found {len(tool\_references)} tools:")
+
+for i, result in enumerate(results, 1):
+
+print(f" {i}. {result['tool']['name']} (similarity: {result['similarity\_score']:.3f})")
+
+return tool\_references
 
 # Test the handler
-test_result = handle_tool_search("stock market data", top_k=3)
-print(f"\nReturned {len(test_result)} tool references:")
-for ref in test_result:
-    print(f"  {ref}")
-```
+
+test\_result = handle\_tool\_search("stock market data", top\_k=3)
+
+print(f"\nReturned {len(test\_result)} tool references:")
+
+for ref in test\_result:
+
+print(f" {ref}")
+
+
 
 ```
 🔍 Tool search: 'stock market data'
@@ -490,186 +734,325 @@ Returned 3 tool references:
   {'type': 'tool_reference', 'tool_name': 'calculate_compound_interest'}
 ```
 
-## Mock Tool Execution
+##  Mock Tool Execution
 
 For this demonstration, we'll create mock responses for tool executions. In a real application, these would call actual APIs or services:
 
-python
+
 
-```
-def mock_tool_execution(tool_name: str, tool_input: dict[str, Any]) -> str:
-    """
-    Generate realistic mock responses for tool executions.
+def mock\_tool\_execution(tool\_name: str, tool\_input: dict[str, Any]) -> str:
 
-    Args:
-        tool_name: Name of the tool being executed
-        tool_input: Input parameters for the tool
+"""
 
-    Returns:
-        Mock response string appropriate for the tool
-    """
-    # Weather tools
-    if tool_name == "get_weather":
-        location = tool_input.get("location", "Unknown")
-        unit = tool_input.get("unit", "fahrenheit")
-        temp = random.randint(15, 30) if unit == "celsius" else random.randint(60, 85)
-        conditions = random.choice(["sunny", "partly cloudy", "cloudy", "rainy"])
-        return json.dumps(
-            {
-                "location": location,
-                "temperature": temp,
-                "unit": unit,
-                "conditions": conditions,
-                "humidity": random.randint(40, 80),
-                "wind_speed": random.randint(5, 20),
-            }
-        )
+Generate realistic mock responses for tool executions.
 
-    elif tool_name == "get_forecast":
-        location = tool_input.get("location", "Unknown")
-        days = int(tool_input.get("days", 5))
-        forecast = []
-        for i in range(days):
-            date = (datetime.now() + timedelta(days=i)).strftime("%Y-%m-%d")
-            forecast.append(
-                {
-                    "date": date,
-                    "high": random.randint(20, 30),
-                    "low": random.randint(10, 20),
-                    "conditions": random.choice(["sunny", "cloudy", "rainy", "partly cloudy"]),
-                }
-            )
-        return json.dumps({"location": location, "forecast": forecast})
+Args:
 
-    elif tool_name == "get_timezone":
-        location = tool_input.get("location", "Unknown")
-        return json.dumps(
-            {
-                "location": location,
-                "timezone": "UTC+9",
-                "current_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "utc_offset": "+09:00",
-            }
-        )
+tool\_name: Name of the tool being executed
 
-    elif tool_name == "get_air_quality":
-        location = tool_input.get("location", "Unknown")
-        aqi = random.randint(20, 150)
-        categories = {
-            (0, 50): "Good",
-            (51, 100): "Moderate",
-            (101, 150): "Unhealthy for Sensitive Groups",
-        }
-        category = next(cat for (low, high), cat in categories.items() if low <= aqi <= high)
-        return json.dumps(
-            {
-                "location": location,
-                "aqi": aqi,
-                "category": category,
-                "pollutants": {
-                    "pm25": random.randint(5, 50),
-                    "pm10": random.randint(10, 100),
-                    "o3": random.randint(20, 80),
-                },
-            }
-        )
+tool\_input: Input parameters for the tool
 
-    # Finance tools
-    elif tool_name == "get_stock_price":
-        ticker = tool_input.get("ticker", "UNKNOWN")
-        return json.dumps(
-            {
-                "ticker": ticker,
-                "price": round(random.uniform(100, 500), 2),
-                "change": round(random.uniform(-5, 5), 2),
-                "change_percent": round(random.uniform(-2, 2), 2),
-                "volume": random.randint(1000000, 10000000),
-                "market_cap": f"${random.randint(100, 1000)}B",
-            }
-        )
+Returns:
 
-    elif tool_name == "convert_currency":
-        amount = tool_input.get("amount", 0)
-        from_currency = tool_input.get("from_currency", "USD")
-        to_currency = tool_input.get("to_currency", "EUR")
-        # Mock exchange rate
-        rate = random.uniform(0.8, 1.2)
-        converted = round(amount * rate, 2)
-        return json.dumps(
-            {
-                "original_amount": amount,
-                "from_currency": from_currency,
-                "to_currency": to_currency,
-                "exchange_rate": round(rate, 4),
-                "converted_amount": converted,
-            }
-        )
+Mock response string appropriate for the tool
 
-    elif tool_name == "calculate_compound_interest":
-        principal = tool_input.get("principal", 0)
-        rate = tool_input.get("rate", 0)
-        years = tool_input.get("years", 0)
-        frequency = tool_input.get("frequency", "monthly")
+"""
 
-        # Calculate compound interest
-        n_map = {"daily": 365, "monthly": 12, "quarterly": 4, "annually": 1}
-        n = n_map.get(frequency, 12)
-        final_amount = principal * (1 + rate / 100 / n) ** (n * years)
-        interest_earned = final_amount - principal
+# Weather tools
 
-        return json.dumps(
-            {
-                "principal": principal,
-                "rate": rate,
-                "years": years,
-                "compounding_frequency": frequency,
-                "final_amount": round(final_amount, 2),
-                "interest_earned": round(interest_earned, 2),
-            }
-        )
+if tool\_name == "get\_weather":
 
-    elif tool_name == "get_market_news":
-        query = tool_input.get("query", "")
-        limit = tool_input.get("limit", 5)
-        news = []
-        for i in range(min(limit, 5)):
-            news.append(
-                {
-                    "title": f"{query} - News Article {i + 1}",
-                    "source": random.choice(
-                        [
-                            "Bloomberg",
-                            "Reuters",
-                            "Financial Times",
-                            "Wall Street Journal",
-                        ]
-                    ),
-                    "published": (datetime.now() - timedelta(hours=random.randint(1, 24))).strftime(
-                        "%Y-%m-%d %H:%M"
-                    ),
-                    "summary": f"Latest developments regarding {query}...",
-                }
-            )
-        return json.dumps({"query": query, "articles": news, "count": len(news)})
+location = tool\_input.get("location", "Unknown")
 
-    # Default fallback
-    else:
-        return json.dumps(
-            {
-                "status": "executed",
-                "tool": tool_name,
-                "message": f"Tool {tool_name} executed successfully with input: {json.dumps(tool_input)}",
-            }
-        )
+unit = tool\_input.get("unit", "fahrenheit")
+
+temp = random.randint(15, 30) if unit == "celsius" else random.randint(60, 85)
+
+conditions = random.choice(["sunny", "partly cloudy", "cloudy", "rainy"])
+
+return json.dumps(
+
+{
+
+"location": location,
+
+"temperature": temp,
+
+"unit": unit,
+
+"conditions": conditions,
+
+"humidity": random.randint(40, 80),
+
+"wind\_speed": random.randint(5, 20),
+
+}
+
+)
+
+elif tool\_name == "get\_forecast":
+
+location = tool\_input.get("location", "Unknown")
+
+days = int(tool\_input.get("days", 5))
+
+forecast = []
+
+for i in range(days):
+
+date = (datetime.now() + timedelta(days=i)).strftime("%Y-%m-%d")
+
+forecast.append(
+
+{
+
+"date": date,
+
+"high": random.randint(20, 30),
+
+"low": random.randint(10, 20),
+
+"conditions": random.choice(["sunny", "cloudy", "rainy", "partly cloudy"]),
+
+}
+
+)
+
+return json.dumps({"location": location, "forecast": forecast})
+
+elif tool\_name == "get\_timezone":
+
+location = tool\_input.get("location", "Unknown")
+
+return json.dumps(
+
+{
+
+"location": location,
+
+"timezone": "UTC+9",
+
+"current\_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+
+"utc\_offset": "+09:00",
+
+}
+
+)
+
+elif tool\_name == "get\_air\_quality":
+
+location = tool\_input.get("location", "Unknown")
+
+aqi = random.randint(20, 150)
+
+categories = {
+
+(0, 50): "Good",
+
+(51, 100): "Moderate",
+
+(101, 150): "Unhealthy for Sensitive Groups",
+
+}
+
+category = next(cat for (low, high), cat in categories.items() if low <= aqi <= high)
+
+return json.dumps(
+
+{
+
+"location": location,
+
+"aqi": aqi,
+
+"category": category,
+
+"pollutants": {
+
+"pm25": random.randint(5, 50),
+
+"pm10": random.randint(10, 100),
+
+"o3": random.randint(20, 80),
+
+},
+
+}
+
+)
+
+# Finance tools
+
+elif tool\_name == "get\_stock\_price":
+
+ticker = tool\_input.get("ticker", "UNKNOWN")
+
+return json.dumps(
+
+{
+
+"ticker": ticker,
+
+"price": round(random.uniform(100, 500), 2),
+
+"change": round(random.uniform(-5, 5), 2),
+
+"change\_percent": round(random.uniform(-2, 2), 2),
+
+"volume": random.randint(1000000, 10000000),
+
+"market\_cap": f"${random.randint(100, 1000)}B",
+
+}
+
+)
+
+elif tool\_name == "convert\_currency":
+
+amount = tool\_input.get("amount", 0)
+
+from\_currency = tool\_input.get("from\_currency", "USD")
+
+to\_currency = tool\_input.get("to\_currency", "EUR")
+
+# Mock exchange rate
+
+rate = random.uniform(0.8, 1.2)
+
+converted = round(amount \* rate, 2)
+
+return json.dumps(
+
+{
+
+"original\_amount": amount,
+
+"from\_currency": from\_currency,
+
+"to\_currency": to\_currency,
+
+"exchange\_rate": round(rate, 4),
+
+"converted\_amount": converted,
+
+}
+
+)
+
+elif tool\_name == "calculate\_compound\_interest":
+
+principal = tool\_input.get("principal", 0)
+
+rate = tool\_input.get("rate", 0)
+
+years = tool\_input.get("years", 0)
+
+frequency = tool\_input.get("frequency", "monthly")
+
+# Calculate compound interest
+
+n\_map = {"daily": 365, "monthly": 12, "quarterly": 4, "annually": 1}
+
+n = n\_map.get(frequency, 12)
+
+final\_amount = principal \* (1 + rate / 100 / n) \*\* (n \* years)
+
+interest\_earned = final\_amount - principal
+
+return json.dumps(
+
+{
+
+"principal": principal,
+
+"rate": rate,
+
+"years": years,
+
+"compounding\_frequency": frequency,
+
+"final\_amount": round(final\_amount, 2),
+
+"interest\_earned": round(interest\_earned, 2),
+
+}
+
+)
+
+elif tool\_name == "get\_market\_news":
+
+query = tool\_input.get("query", "")
+
+limit = tool\_input.get("limit", 5)
+
+news = []
+
+for i in range(min(limit, 5)):
+
+news.append(
+
+{
+
+"title": f"{query} - News Article {i + 1}",
+
+"source": random.choice(
+
+[
+
+"Bloomberg",
+
+"Reuters",
+
+"Financial Times",
+
+"Wall Street Journal",
+
+]
+
+),
+
+"published": (datetime.now() - timedelta(hours=random.randint(1, 24))).strftime(
+
+"%Y-%m-%d %H:%M"
+
+),
+
+"summary": f"Latest developments regarding {query}...",
+
+}
+
+)
+
+return json.dumps({"query": query, "articles": news, "count": len(news)})
+
+# Default fallback
+
+else:
+
+return json.dumps(
+
+{
+
+"status": "executed",
+
+"tool": tool\_name,
+
+"message": f"Tool {tool\_name} executed successfully with input: {json.dumps(tool\_input)}",
+
+}
+
+)
 
 print("✓ Mock tool execution function created")
-```
+
+
 
 ```
 ✓ Mock tool execution function created
 ```
 
-## Implement Conversation Loop
+##  Implement Conversation Loop
 
 Now let's put it all together! We'll create a conversation loop that handles the complete tool search workflow.
 
@@ -681,116 +1064,179 @@ Now let's put it all together! We'll create a conversation loop that handles the
 4. When Claude calls a discovered tool, we execute it (using mock responses for this demo)
 5. The loop continues until Claude has a final answer
 
-python
+
 
-```
-def run_tool_search_conversation(user_message: str, max_turns: int = 5) -> None:
-    """
-    Run a conversation with Claude using the tool search pattern.
+def run\_tool\_search\_conversation(user\_message: str, max\_turns: int = 5) -> None:
 
-    Args:
-        user_message: The initial user message
-        max_turns: Maximum number of conversation turns
-    """
-    print(f"\n{'=' * 80}")
-    print(f"USER: {user_message}")
-    print(f"{'=' * 80}\n")
+"""
 
-    # Initialize conversation with only tool_search available
-    messages = [{"role": "user", "content": user_message}]
+Run a conversation with Claude using the tool search pattern.
 
-    for turn in range(max_turns):
-        print(f"\n--- Turn {turn + 1} ---")
+Args:
 
-        # Call Claude with current message history
-        response = claude_client.messages.create(
-            model=MODEL,
-            max_tokens=1024,
-            tools=TOOL_LIBRARY + [TOOL_SEARCH_DEFINITION],
-            messages=messages,
-            # IMPORTANT: This beta header enables tool definitions in tool results
-            extra_headers={"anthropic-beta": "advanced-tool-use-2025-11-20"},
-        )
+user\_message: The initial user message
 
-        # Add assistant's response to messages
-        messages.append({"role": "assistant", "content": response.content})
+max\_turns: Maximum number of conversation turns
 
-        # Check if we're done
-        if response.stop_reason == "end_turn":
-            print("\n✓ Conversation complete\n")
-            # Print final response
-            for block in response.content:
-                if block.type == "text":
-                    print(f"ASSISTANT: {block.text}")
-            break
+"""
 
-        # Handle tool uses
-        if response.stop_reason == "tool_use":
-            tool_results = []
+print(f"\n{'=' \* 80}")
 
-            for block in response.content:
-                if block.type == "text":
-                    print(f"\nASSISTANT: {block.text}")
+print(f"USER: {user\_message}")
 
-                elif block.type == "tool_use":
-                    tool_name = block.name
-                    tool_input = block.input
-                    tool_use_id = block.id
+print(f"{'=' \* 80}\n")
 
-                    print(f"\n🔧 Tool invocation: {tool_name}")
-                    print(f"   Input: {json.dumps(tool_input, indent=2)}")
+# Initialize conversation with only tool\_search available
 
-                    if tool_name == "tool_search":
-                        # Handle tool search
-                        query = tool_input["query"]
-                        top_k = tool_input.get("top_k", 5)
+messages = [{"role": "user", "content": user\_message}]
 
-                        # Get tool references
-                        tool_references = handle_tool_search(query, top_k)
+for turn in range(max\_turns):
 
-                        # Create tool result with tool_reference content blocks
-                        tool_results.append(
-                            {
-                                "type": "tool_result",
-                                "tool_use_id": tool_use_id,
-                                "content": tool_references,
-                            }
-                        )
-                    else:
-                        # Execute the discovered tool with mock data
-                        mock_result = mock_tool_execution(tool_name, tool_input)
+print(f"\n--- Turn {turn + 1} ---")
 
-                        # Print a preview of the result
-                        if len(mock_result) > 150:
-                            print(f"   ✅ Mock result: {mock_result[:150]}...")
-                        else:
-                            print(f"   ✅ Mock result: {mock_result}")
+# Call Claude with current message history
 
-                        tool_results.append(
-                            {
-                                "type": "tool_result",
-                                "tool_use_id": tool_use_id,
-                                "content": mock_result,
-                            }
-                        )
+response = claude\_client.messages.create(
 
-            # Add tool results to messages
-            if tool_results:
-                messages.append({"role": "user", "content": tool_results})
-        else:
-            print(f"\nUnexpected stop reason: {response.stop_reason}")
-            break
+model=MODEL,
 
-    print(f"\n{'=' * 80}\n")
+max\_tokens=1024,
+
+tools=TOOL\_LIBRARY + [TOOL\_SEARCH\_DEFINITION],
+
+messages=messages,
+
+# IMPORTANT: This beta header enables tool definitions in tool results
+
+extra\_headers={"anthropic-beta": "advanced-tool-use-2025-11-20"},
+
+)
+
+# Add assistant's response to messages
+
+messages.append({"role": "assistant", "content": response.content})
+
+# Check if we're done
+
+if response.stop\_reason == "end\_turn":
+
+print("\n✓ Conversation complete\n")
+
+# Print final response
+
+for block in response.content:
+
+if block.type == "text":
+
+print(f"ASSISTANT: {block.text}")
+
+break
+
+# Handle tool uses
+
+if response.stop\_reason == "tool\_use":
+
+tool\_results = []
+
+for block in response.content:
+
+if block.type == "text":
+
+print(f"\nASSISTANT: {block.text}")
+
+elif block.type == "tool\_use":
+
+tool\_name = block.name
+
+tool\_input = block.input
+
+tool\_use\_id = block.id
+
+print(f"\n🔧 Tool invocation: {tool\_name}")
+
+print(f" Input: {json.dumps(tool\_input, indent=2)}")
+
+if tool\_name == "tool\_search":
+
+# Handle tool search
+
+query = tool\_input["query"]
+
+top\_k = tool\_input.get("top\_k", 5)
+
+# Get tool references
+
+tool\_references = handle\_tool\_search(query, top\_k)
+
+# Create tool result with tool\_reference content blocks
+
+tool\_results.append(
+
+{
+
+"type": "tool\_result",
+
+"tool\_use\_id": tool\_use\_id,
+
+"content": tool\_references,
+
+}
+
+)
+
+else:
+
+# Execute the discovered tool with mock data
+
+mock\_result = mock\_tool\_execution(tool\_name, tool\_input)
+
+# Print a preview of the result
+
+if len(mock\_result) > 150:
+
+print(f" ✅ Mock result: {mock\_result[:150]}...")
+
+else:
+
+print(f" ✅ Mock result: {mock\_result}")
+
+tool\_results.append(
+
+{
+
+"type": "tool\_result",
+
+"tool\_use\_id": tool\_use\_id,
+
+"content": mock\_result,
+
+}
+
+)
+
+# Add tool results to messages
+
+if tool\_results:
+
+messages.append({"role": "user", "content": tool\_results})
+
+else:
+
+print(f"\nUnexpected stop reason: {response.stop\_reason}")
+
+break
+
+print(f"\n{'=' \* 80}\n")
 
 print("✓ Conversation loop implemented")
-```
+
+
 
 ```
 ✓ Conversation loop implemented
 ```
 
-## Example 1: Weather Query
+##  Example 1: Weather Query
 
 Let's test with a simple weather question. Claude should:
 
@@ -798,11 +1244,11 @@ Let's test with a simple weather question. Claude should:
 2. Receive weather tool definitions in the result
 3. Use one of the discovered tools
 
-python
+
 
-```
-run_tool_search_conversation("What's the weather like in Tokyo?")
-```
+run\_tool\_search\_conversation("What's the weather like in Tokyo?")
+
+
 
 ```
 ================================================================================
@@ -832,17 +1278,19 @@ It's a pleasant day with comfortable temperatures and some cloud cover!
 ================================================================================
 ```
 
-## Example 2: Finance Query
+##  Example 2: Finance Query
 
 Let's try a financial calculation query that requires discovering and using finance tools:
 
-python
+
 
-```
-run_tool_search_conversation(
-    "If I invest $10,000 at 5% annual interest for 10 years with monthly compounding, how much will I have?"
+run\_tool\_search\_conversation(
+
+"If I invest $10,000 at 5% annual interest for 10 years with monthly compounding, how much will I have?"
+
 )
-```
+
+
 
 ```
 ================================================================================
@@ -875,7 +1323,7 @@ The monthly compounding means that interest is calculated and added to your prin
 ================================================================================
 ```
 
-## Conclusion
+##  Conclusion
 
 In this cookbook, we implemented a client-side tool search system that enables Claude to work with large tool libraries efficiently. We covered:
 
@@ -883,7 +1331,7 @@ In this cookbook, we implemented a client-side tool search system that enables C
 * **Dynamic tool loading**: Returning tool definitions in tool results using Claude's tool search feature, allowing Claude to discover and immediately use new tools mid-conversation
 * **Context optimization**: Reducing initial context from thousands of tokens (19+ tool definitions) to just the single `tool_search` definition, cutting context usage by 90%+
 
-### Applying This to Your Projects
+###  Applying This to Your Projects
 
 Consider tool search when:
 
@@ -892,7 +1340,7 @@ Consider tool search when:
 * You need to support **domain-specific APIs** with hundreds of endpoints (database operations, internal microservices, third-party integrations)
 * **Cost and latency optimization** are priorities for your application
 
-### Next Steps
+###  Next Steps
 
 To take this implementation further:
 
@@ -902,8 +1350,8 @@ To take this implementation further:
 4. **Add tool metadata**: Include usage statistics, cost information, or reliability scores in your search ranking
 5. **Implement caching**: Cache frequently used tool definitions to reduce repeated searches
 
-### Further Reading
+###  Further Reading
 
-* [Claude Tool Use Guide](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) - Comprehensive guide to building with tools
-* [SentenceTransformers Documentation](https://www.sbert.net/) - Learn more about embedding models and semantic search
-* [Tool Search Tool Documentation](https://docs.anthropic.com/en/docs/build-with-claude/tool-use#tool-search) - Official documentation on the tool search pattern
+* [Claude Tool Use Guide(opens in new tab)](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) - Comprehensive guide to building with tools
+* [SentenceTransformers Documentation(opens in new tab)](https://www.sbert.net/) - Learn more about embedding models and semantic search
+* [Tool Search Tool Documentation(opens in new tab)](https://docs.anthropic.com/en/docs/build-with-claude/tool-use#tool-search) - Official documentation on the tool search pattern

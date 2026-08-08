@@ -161,6 +161,22 @@ Co-founder and President, National Domestic Workers Alliance
 
 ## Related stories
 
+[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
+
+Mercy Corps on what AI makes possible in humanitarian work
+
+Customer story
+
+[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
+
+[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
+
+Mercy Corps accelerates global humanitarian response to community feedback with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/mercy-corps)Customer story
+
 [The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
 The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
@@ -176,19 +192,3 @@ How the Epilepsy Foundation uses Claude across the organization
 Customer story
 
 [Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
-
-[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Customer story
-
-[Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story
-
-[RAINN brings crisis support to encrypted messaging platforms with Claude](https://claude.com/customers/rainn)RAINN brings crisis support to encrypted messaging platforms with Claude
-
-RAINN brings crisis support to encrypted messaging platforms with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rainn)Customer story

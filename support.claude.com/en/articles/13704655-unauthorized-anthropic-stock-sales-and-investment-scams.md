@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13704655-unauthorized-anthropic-stock-sales-and-investment-scams -->
 
-# Unauthorized Anthropic stock sales and investment scams
-
-June 29, 2026
-
 Originally published: February 11, 2026
 
 We are sharing important information about investments in Anthropic to help protect individuals from potentially invalid transfers or investment fraud.
@@ -51,7 +47,7 @@ Scammers regularly attempt to carry out fraudulent investment schemes falsely cl
 
 Before investing in any opportunity claiming to offer Anthropic stock, we strongly encourage individuals to verify the legitimacy of the offering through official regulatory databases and to seek independent legal and financial advice.
 
-If you have concerns about someone claiming to sell Anthropic stock or marketing access to Anthropic equity, please email **[[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#771619031f0518071e145a1206021e030e5a161b12050304371619031f0518071e145914181a)**. This inbox is only monitored for emails related to stock inquiries.
+If you have concerns about someone claiming to sell Anthropic stock or marketing access to Anthropic equity, please email **[[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#d3b2bda7bba1bca3bab0feb6a2a6baa7aafeb2bfb6a1a7a093b2bda7bba1bca3bab0fdb0bcbe)**. This inbox is only monitored for emails related to stock inquiries.
 
 If you believe you have been targeted by a stock scam:
 
@@ -59,10 +55,12 @@ If you believe you have been targeted by a stock scam:
 * In the United States, you can report suspected fraud to the **[Securities and Exchange Commission (SEC)](https://www.sec.gov/tcr)** or review investor alerts on **[Investor.gov](https://www.investor.gov/)**.
 * Consult with a qualified financial advisor or attorney before making any investment decision.
 
+---
+
 *This article is intended to provide general information about Anthropic's stock transfer restrictions and to warn about potential investment scams. It does not constitute legal or financial advice.*
 
 * [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
 * [Anthropic Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms)
 * [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)
+* [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)

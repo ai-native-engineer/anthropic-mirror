@@ -63,7 +63,7 @@ Claude supports both Streamable HTTP and the legacy HTTP+SSE transport. The lega
 
 ##  Testing your server
 
-1. Add directly to Claude via **Settings > Connectors**
+1. Add directly to Claude via **Customize > Connectors**
 2. Use the [MCP inspector](https://modelcontextprotocol.io/docs/tools/inspector) to validate auth flows
 3. Add to Claude Code with `claude mcp add` and check `/mcp` for status. See the [Claude Code MCP quickstart](https://code.claude.com/docs/en/mcp-quickstart).
 

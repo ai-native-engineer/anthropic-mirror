@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14503703-mcp-individual-connectors -->
 
-# MCP: Individual connectors
-
-April 9, 2026
-
 Your organization can register its own MCP servers in Claude for Government, letting Claude connect to internal systems, custom tools, or third-party services you've approved for your environment.
 
 **Custom connectors work the same way in Claude for Government as in Claude Enterprise.** The prerequisites, the registration flow, and the behavior once enabled are identical. For full setup instructions, see **[Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)**. This page covers only what's different.
@@ -36,4 +32,8 @@ Claude, the MCP proxy, and all OAuth token storage stay inside the FedRAMP High 
 
 **Prefer FedRAMP-authorized backing services.** If your connector talks to a SaaS product, check whether that product has a government-cloud offering—Atlassian Government Cloud, Salesforce Government Cloud, ServiceNow GCC—and point the connector there rather than at the commercial endpoint.
 
-[Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)[Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)[MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)[MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)[Authorize MCP connectors for your entire organization](https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization)
+* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
+* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
+* [MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)
+* [Authorize MCP connectors for your entire organization](https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization)

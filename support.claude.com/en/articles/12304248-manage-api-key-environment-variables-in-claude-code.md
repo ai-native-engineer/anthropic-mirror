@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12304248-manage-api-key-environment-variables-in-claude-code -->
 
-# Manage API key environment variables in Claude Code
-
-May 5, 2026
-
 When using Claude Code, it's important to understand how authentication methods are prioritized to avoid unexpected API charges and ensure you're using your intended account.
 
 ## How authentication works
@@ -147,8 +143,8 @@ Windows (permanent): Delete the variable from System Environment Variables setti
 
 If you have any questions, please **[contact our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)**.
 
+* [API Key Best Practices: Keeping Your Keys Safe and Secure](https://support.claude.com/en/articles/9767949-api-key-best-practices-keeping-your-keys-safe-and-secure)
 * [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
-* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Your first day in Claude Code](https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code)
 * [Troubleshoot Claude Code installation and authentication](https://support.claude.com/en/articles/14552646-troubleshoot-claude-code-installation-and-authentication)

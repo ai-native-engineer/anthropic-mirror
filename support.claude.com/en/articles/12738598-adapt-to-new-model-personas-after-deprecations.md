@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12738598-adapt-to-new-model-personas-after-deprecations -->
 
-# Adapt to new model personas after deprecations
-
-Updated over 3 weeks ago
-
 **[Model deprecations and retirements](https://docs.claude.com/en/docs/about-claude/model-deprecations#model-status)** are routine parts of the model lifecycle. While we would like to keep past models publicly available as we continue to advance the frontier of safety and capabilities, maintenance overhead and capacity constraints do not currently allow this. We nonetheless recognize that losing access to models comes with costs to many users, particularly those who have come to value the unique character or capabilities of a specific model on a personal level. We aim to provide resources, tools, and guidance to such users to minimize these costs and make the transitions between models as smooth and seamless as possible.
 
 ## Strategies and recommendations
@@ -22,5 +18,5 @@ These strategies aren’t perfect and can only go so far toward preserving or re
 * [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
 * [Model Safety Bug Bounty Program](https://support.claude.com/en/articles/12119250-model-safety-bug-bounty-program)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
+* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
-* [Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)

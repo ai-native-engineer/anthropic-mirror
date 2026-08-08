@@ -1,16 +1,12 @@
 <!-- source: https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government -->
 
-# Get started with Claude for Government
-
-Updated over 3 weeks ago
-
 ## What is Claude for Government?
 
 Claude for Government brings Anthropic's Claude AI to environments requiring the highest security authorization levels. It delivers the same frontier reasoning, writing, and analysis capabilities that power Claude—deployed inside a FedRAMP High–authorized environment with the security controls, compliance authorizations, and procurement pathways that government agencies and high-security public sector enterprises require. Claude for Government gives teams direct access to Claude's most capable models for drafting, research, analysis, and coding, while meeting the stringent data handling and auditability standards of federal and state government missions.
 
 ## How do I access Claude for Government?
 
-Claude for Government is available to U.S. federal, state, and local government agencies and qualifying public sector organizations. To learn more or get started, contact Anthropic's **[public sector Sales team](https://claude.com/contact-sales/government)**.
+Claude for Government is available to U.S. federal, state, and local government agencies and qualifying public sector organizations. To learn more or get started, contact Anthropic's public sector Sales team via the **[Contact sales form](https://claude.com/contact-sales)** (choose "Contact sales" for **What can we help you with?**) and select "Government & Public Sector" for the **Industry** field.
 
 ## Product differentiation between Claude for Government and Claude Enterprise
 
@@ -53,8 +49,8 @@ Claude for Government is licensed on an annual, per-seat basis. A limited-time p
 
 Contact the public sector Sales team for current pricing for state, local, and non-federal public sector customers.
 
+* [How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
-* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

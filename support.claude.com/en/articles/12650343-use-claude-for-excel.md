@@ -2,7 +2,7 @@
 
 # Use Claude for Excel
 
-Updated today
+Updated this week
 
 Claude for Excel is available to Pro, Max, Team, and Enterprise plans.
 
@@ -263,7 +263,7 @@ Users can approve all of Claude’s actions via a confirmation pop-up that appea
 * File system access: IMAGE, FILES, DIRECTORY, FOPEN, FWRITE, FCLOSE
 * System information: REGISTER.ID, RTD, INFO
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1785888000&signature=df840cf03b076c5d2589d13285007dbda36717df3d63839acd5eb4935f57d776&req=dSgjH819nIJeWfMW3nq%2BgfAvMWKD8LiUAQbF3Y2%2BSQ%2BWvNjhP90W6gcv1QxD%0A0nIA2dfPlND8sGhG0hgYQJ1uMLA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1785888000&signature=df840cf03b076c5d2589d13285007dbda36717df3d63839acd5eb4935f57d776&req=dSgjH819nIJeWfMW3nq%2BgfAvMWKD8LiUAQbF3Y2%2BSQ%2BWvNjhP90W6gcv1QxD%0A0nIA2dfPlND8sGhG0hgYQJ1uMLA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1786062600&signature=946f1198400c0e212ddccf2b2277ec53e6b6c261310f96be953e9e0915f8d6cf&req=dSgjH819nIJeWfMW1HO4zYWKaORrJNh0qAsRdssXCyAbzyaLN2b3NkHmy9YC%0ACqpSPOHrZlWljFVq1fc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1786062600&signature=946f1198400c0e212ddccf2b2277ec53e6b6c261310f96be953e9e0915f8d6cf&req=dSgjH819nIJeWfMW1HO4zYWKaORrJNh0qAsRdssXCyAbzyaLN2b3NkHmy9YC%0ACqpSPOHrZlWljFVq1fc%3D%0A)
 
 While we continue to develop our offerings and improve safety measures to reduce these risks, users should exercise caution when using Claude for Excel and should not use it with spreadsheets from external, untrusted sources.
 

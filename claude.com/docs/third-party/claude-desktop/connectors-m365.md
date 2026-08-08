@@ -126,7 +126,7 @@ Select **Save**, then deploy the configuration through your device-management to
 
 ###  Sign in as a user
 
-After the configuration is deployed, each user opens **Settings → Connectors** in Claude Desktop and selects **Connect** next to Microsoft 365. Their browser opens to your tenant’s sign-in page; once they consent, the connector is ready to use in conversations.
+After the configuration is deployed, each user opens **Customize → Connectors** in Claude Desktop and selects **Connect** next to Microsoft 365. Their browser opens to your tenant’s sign-in page; once they consent, the connector is ready to use in conversations.
 
 ###  Allow the required network hosts
 
@@ -151,7 +151,7 @@ The errors below are the ones most commonly seen during setup. Each maps to a sp
 
 ##  Local connector
 
-Claude Desktop includes a built-in copy of the Microsoft 365 server. As an alternative to the remote connector, you can configure the app to run that server as a local process on each user’s machine: the user signs in to Microsoft Entra on the device, and the server calls Microsoft Graph directly from the device. No Microsoft 365 data or tokens pass through Anthropic’s infrastructure.
+Claude Desktop includes a built-in copy of the Microsoft 365 server. As an alternative to the remote connector, you can configure the app to run that server as a local process on each user’s machine: the user signs in to Microsoft Entra on the device, and the server calls Microsoft Graph directly from the device. No Microsoft 365 data or tokens pass through Anthropic’s infrastructure. The local connector is in beta, and the in-app configuration window marks it with a **Beta** pill.
 Choose the local connector when your data-residency requirements do not allow Microsoft 365 content to transit infrastructure outside your control, when your tenant enforces device-based Conditional Access policies (such as *Require compliant device*) that the remote connector’s server-side token exchange cannot satisfy, or when you want to avoid the allowlisting step. The [comparison table](#choose-a-connector) above summarizes the differences.
 
 ###  Set up the local connector
@@ -274,7 +274,7 @@ Every write tool requires user approval on each call by default. Administrators 
 
 ###  How users sign in
 
-After the configuration is deployed, the connector appears in **Settings → Connectors** in Claude Desktop. Sign-in starts when the user selects **Connect**.
+After the configuration is deployed, the connector appears in **Customize → Connectors** in Claude Desktop. Sign-in starts when the user selects **Connect**.
 On both Windows and macOS, sign-in goes through the device’s native authentication broker when the device is set up for it: a system account-picker dialog appears instead of the browser, and the issued tokens carry the device identity claim that device-based Conditional Access policies (such as *Require compliant device*) evaluate. When the broker is unavailable, sign-in opens the system browser instead. The requirements for each platform are listed below.
 Browser sign-in works on tenants without device-based Conditional Access policies. It satisfies device policies only when the browser itself carries the device identity: on Windows, a browser signed in with the work account on an Entra-joined device (such as Microsoft Edge) provides this; on macOS, deploy Microsoft’s Enterprise SSO browser integration, or use brokered sign-in instead.
 

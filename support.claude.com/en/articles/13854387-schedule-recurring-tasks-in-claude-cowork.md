@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork -->
 
-# Schedule recurring tasks in Claude Cowork
-
-Updated over 3 weeks ago
-
 Scheduled tasks allow you to delegate work to Claude Cowork by creating tasks that run automatically on a recurring basis, or on demand. Instead of starting each task from scratch, you describe it once and Claude handles it on your schedule—delivering finished outputs like reports, briefings, and summaries every time.
 
 Scheduled tasks are available in Cowork for all paid plans (Pro, Max, Team, Enterprise).
@@ -32,6 +28,8 @@ Scheduled tasks run remotely, so they run on their cadence even when your comput
 
 For Team and Enterprise organizations, admins control Cowork access through the admin toggle. For more details, see **[Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879)**.
 
+---
+
 ## Create a scheduled task
 
 There are two ways to create a scheduled task:
@@ -45,7 +43,7 @@ There are two ways to create a scheduled task:
 5. Once Claude has all the necessary information, it will output the name of the task it’s creating, the schedule it will follow, and what the task actually does.
 6. You can explicitly confirm you want to schedule the task when prompted by Claude by clicking “Schedule":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1785803400&signature=40733e817def403c7da3aac445501368d49d23de674a845dacfa1183c6ebf08e&req=diEnEsl2mIJWUPMW1HO4zeLJBkDs%2F%2BmDPx%2FSrZI7l8x5W2k50SSR0bGRmR9c%0A9cH8%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1785803400&signature=40733e817def403c7da3aac445501368d49d23de674a845dacfa1183c6ebf08e&req=diEnEsl2mIJWUPMW1HO4zeLJBkDs%2F%2BmDPx%2FSrZI7l8x5W2k50SSR0bGRmR9c%0A9cH8%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1786166100&signature=ab3d0e2d483cac71870ab77e4a3eedb230a5f4184b1f279913039f3ed38d22f6&req=diEnEsl2mIJWUPMW1HO4zeLJBkPl%2BeyGPx%2FSrZI7l8ysP2e2i2ZJ%2FQDcqedt%0AWzS2%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1786166100&signature=ab3d0e2d483cac71870ab77e4a3eedb230a5f4184b1f279913039f3ed38d22f6&req=diEnEsl2mIJWUPMW1HO4zeLJBkPl%2BeyGPx%2FSrZI7l8ysP2e2i2ZJ%2FQDcqedt%0AWzS2%0A)
 7. Claude will create and schedule your task, and it will be added to the **Scheduled tasks** page.
 
 ### Set up manually

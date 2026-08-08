@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs -->
 
-# Paid plan billing FAQs
-
-Updated over 3 weeks ago
-
 This article covers Pro and Max subscriptions purchased on the web. If you subscribed through Claude for iOS or Claude for Android, your payment is handled by the Apple App Store or Google Play, and you'll manage your payment method and receipts through your app store account. To cancel or manage an app store subscription, see **[Cancel your Pro or Max subscription](https://support.claude.com/en/articles/8325617)**.
 
 ## Where can I find the invoice or receipt for my Pro or Max plan payment?
@@ -43,7 +39,7 @@ There's no separate option to remove a card, and updating to a new card replaces
 
 If you want to use a name other than the one tied to your payment method, check the "Use a different name on invoices" box when adding or updating your payment method in **[Settings > Billing](https://claude.ai/settings/billing)**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1785803400&signature=2e6f3026044a5766c1779a72bb6f5d5d2458c4d4dcdec4fdd73adb2447ceaaf9&req=dSklFMh6nIZXXPMW1HO4zVXW8GijazDIQoNvNFTb5cdoCmuLPrSBzr69ZYcK%0A2QpsqN%2BYR1iFaUWauio%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1785803400&signature=2e6f3026044a5766c1779a72bb6f5d5d2458c4d4dcdec4fdd73adb2447ceaaf9&req=dSklFMh6nIZXXPMW1HO4zVXW8GijazDIQoNvNFTb5cdoCmuLPrSBzr69ZYcK%0A2QpsqN%2BYR1iFaUWauio%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1786166100&signature=7b7aec8b58d06746b2eacf115608aba6c98a91f00a31d2608affb4d44c7f0879&req=dSklFMh6nIZXXPMW1HO4zVXW8GuqbTXNQoNvNFTb5cd6wq8UhoFyhLdOv6Z9%0AaMdQ8VkQb%2F3WTO%2FV8q8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1786166100&signature=7b7aec8b58d06746b2eacf115608aba6c98a91f00a31d2608affb4d44c7f0879&req=dSklFMh6nIZXXPMW1HO4zVXW8GuqbTXNQoNvNFTb5cd6wq8UhoFyhLdOv6Z9%0AaMdQ8VkQb%2F3WTO%2FV8q8%3D%0A)
 
 ## How can I edit a paid invoice?
 

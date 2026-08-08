@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise -->
 
-# Migrate your organization from Team to Enterprise
-
-June 29, 2026
-
 When upgrading from a Team plan to an Enterprise plan, we recommend you keep the same Team organization and follow the upgrade path to change it to Enterprise. This will allow you to preserve your data (memberships/roles, conversations, and projects) and some of the settings from your Team plan organization. If you create a brand new Enterprise organization, then you'll need to set up everything from scratch.
 
 There are two ways to upgrade: upgrade using the self-serve flow, or follow the sales-assisted flow if you’re working with an Anthropic account executive on an invoiced or contracted agreement. The steps and timing differ, so use the section that matches your situation.
@@ -77,6 +73,8 @@ Read more about groups, group spend limits, and custom roles:
 * **[Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)**
 * **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**
 
+---
+
 ## Additional information
 
 ### SSO and identity setup timeline
@@ -97,6 +95,8 @@ If you had purchased usage credits for your Team plan, any unused balance will r
 ### Provisioning process
 
 On the start date, you'll be provisioned and able to use the new features by the end of the day. After initial setup, Owners and Primary Owners can self-serve additional seats by navigating to **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)** and clicking "Manage" under **Total seats**.
+
+---
 
 ## Helpful resources
 

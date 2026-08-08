@@ -154,6 +154,22 @@ Video caption
 
 ## Related stories
 
+[Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)Cyera on making Claude Cowork the front door to 40 tools
+
+Cyera on making Claude Cowork the front door to 40 tools
+
+Customer story
+
+[Customer story](https://claude.com/customers/cyera-qa)Customer story
+
+[Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera) Cyera scales agentic AI across 1,500 employees with Claude Enterprise
+
+Cyera scales agentic AI across 1,500 employees with Claude Enterprise
+
+Customer story
+
+[Customer story](https://claude.com/customers/cyera)Customer story
+
 [Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai) Kai delivers preemptive exposure management with Claude
 
 Kai delivers preemptive exposure management with Claude
@@ -169,19 +185,3 @@ How Artemis helps security teams cut incident resolution time by 96%
 Customer story
 
 [Customer story](https://claude.com/customers/artemis)Customer story
-
-[Cogent resolves security threats 97% faster with Claude](https://claude.com/customers/cogent)Cogent resolves security threats 97% faster with Claude
-
-Cogent resolves security threats 97% faster with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/cogent)Customer story
-
-[How eSentire runs expert-level threat investigations at scale with Claude](https://claude.com/customers/esentire)How eSentire runs expert-level threat investigations at scale with Claude
-
-How eSentire runs expert-level threat investigations at scale with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/esentire)Customer story

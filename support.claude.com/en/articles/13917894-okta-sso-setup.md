@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13917894-okta-sso-setup -->
 
-# Okta SSO setup
-
-March 24, 2026
-
 This guide covers configuring SSO and SCIM provisioning for Claude with Okta as your identity provider. It applies to Team plans, Enterprise plans, and Console organizations.
 
 ## Prerequisites
@@ -11,7 +7,7 @@ This guide covers configuring SSO and SCIM provisioning for Claude with Okta as 
 * A Claude Team plan, Enterprise plan, or Console organization with a parent organization (see **[Important considerations before enabling SSO](https://support.claude.com/en/articles/10276682)** for Console parent org requirements)
 * Owner or Primary Owner role (Team and Enterprise) or Admin role (Console)
 * Okta administrator access
-* Your domain verified in Claude's Identity and access settings — see **[Set up single sign-on](https://support.claude.com/en/articles/13132885)** for the full setup path including domain verification
+* Your domain verified in Claude's Identity and access settings—see **[Set up single sign-on](https://support.claude.com/en/articles/13132885)** for the full setup path including domain verification
 
 ## Where to find your configuration values
 
@@ -21,6 +17,8 @@ The ACS URL, Entity ID, and SCIM credentials referenced below are provided in th
 * **Console organizations:** go to **[platform.claude.com/settings/identity](https://platform.claude.com/settings/identity)**
 
 Start the SSO setup flow there and keep it open alongside the Okta Admin console as you work through the steps below.
+
+---
 
 ## Step 1 — Create the Okta application
 
@@ -56,8 +54,14 @@ Start the SSO setup flow there and keep it open alongside the Okta Admin console
 1. If you enabled SCIM, check provisioning logs to confirm people were successfully created in Claude.
 2. Have a test user complete SSO and verify they land in your organization's workspace.
 
+---
+
 ## Need help?
 
 For the full end-to-end flow including domain verification and choosing a provisioning approach, see **[Set up single sign-on](https://support.claude.com/en/articles/13132885)**. If you run into issues, contact **[our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)** with your organization's domain and a screenshot of your Okta SAML configuration.
 
-[Okta SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch)[Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)[Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)[OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)[Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)
+* [Okta SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch)
+* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
+* [OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)
+* [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)

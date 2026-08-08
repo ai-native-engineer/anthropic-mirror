@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14546867-set-organization-instructions -->
 
-# Set organization instructions
-
-April 30, 2026
-
 Organization instructions let Admins and above on Team and Enterprise plans set custom instructions that Claude follows in every conversation across your organization. Use them to apply communication standards, formatting requirements, compliance guidance, or domain-specific context that should show up everywhere your team works with Claude.
 
 Organization instructions are available to Admins, Owners, and Primary Owners on Team and Enterprise plans.
@@ -28,13 +24,15 @@ Individual instructions still apply for anything the organization instructions d
 
 You need at least an Admin role to configure organization instructions.
 
-1. Go to **[Organization settings > Organization and access](http://claude.ai/admin-settings/organization)**.
+1. Go to **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**.
 2. Find the **Organization instructions** section.
 3. Enter your instructions in the text area. The maximum length is 3,000 characters.
 4. Click “Save.”
 5. Changes may take up to an hour to take effect across Claude products.
 
 To remove instructions entirely, clear the text area and click “Save.”
+
+---
 
 ## Best practices
 
@@ -52,6 +50,8 @@ To remove instructions entirely, clear the text area and click “Save.”
 
 **Review and update regularly.** As your organization’s needs change, revisit your instructions to make sure they’re still relevant. Removing outdated instructions keeps Claude’s responses focused.
 
+---
+
 ## Example instructions
 
 **Team identity.** “Address the team as the Acme Platform team. When users ask about ‘our product,’ they mean Acme Cloud.”
@@ -62,7 +62,7 @@ To remove instructions entirely, clear the text area and click “Save.”
 
 **Domain context.** “Our team works in healthcare claims processing. When users mention ‘claims,’ they’re referring to insurance claims, not legal claims.”
 
-**Referral guidance.** “When users ask about HR policies, direct them to **[[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#fe968cbe9f9d939bd09d9193)** rather than giving specific policy advice.”
+**Referral guidance.** “When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#3d554f7d5c5e5058135e5250) rather than giving specific policy advice.”
 
 **Data handling reminders.** “Don’t include customer names, account numbers, or other personally identifiable information in responses or generated artifacts.”
 

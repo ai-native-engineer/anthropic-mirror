@@ -1,15 +1,13 @@
 <!-- source: https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context -->
 
-# Use Claude’s chat search and memory to build on previous context
-
-Updated over 2 weeks ago
-
 You can now prompt Claude to search through your previous conversations to find and reference relevant information in new chats. Additionally, Claude can remember context from previous chats, creating continuity across your conversations. This article introduces Claude’s chat search and memory capabilities and explains how they work, what Claude can and can’t remember, and how you can toggle the features on/off.
 
 **Important:** We are gradually introducing an improved experience for memory from chats. The new experience will be the default for new users, and users on free, Pro and Max plans will be migrated to the new experience. Team and Enterprise plan admins will receive more information about a rollout in the coming weeks. In the interim, users on Team and Enterprise plans will stay on the legacy experience.
 
 * If you see **[Settings > Memory](https://claude.ai/new#settings/customize-memory)**, you’re using the new memory experience, and the main sections that follow apply to you.
-* If you see **Memory** in **[Settings > Capabilities](http://claude.ai/settings/capabilities)**, you’re using the legacy memory experience and can skip to **[Information for legacy memory users](#h_89fe1c2710)**.
+* If you see **Memory** in **[Settings > Capabilities](https://claude.ai/settings/capabilities)**, you’re using the legacy memory experience and can skip to **[Information for legacy memory users](#h_89fe1c2710)**.
+
+---
 
 ## Search past chats with Claude
 
@@ -38,7 +36,7 @@ When Claude searches your previous chats, you will see this reflected in your cu
 
 Yes, navigate to **[Settings > Memory](https://claude.ai/new#settings/customize-memory)** and switch the toggle next to "Search and reference chats" off:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1785803400&signature=128618cfd73065822577bb10ec8164d69e15e4d743ec3c63f95e2a42a9ee6281&req=diUkFc12n4VcUPMW1HO4zY9IRA9kVdJzYNcz5nFaZkEzmLLu7d3Oe7U3tdyw%0A7YEJQtaj%2BcdjpDGESR4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1785803400&signature=128618cfd73065822577bb10ec8164d69e15e4d743ec3c63f95e2a42a9ee6281&req=diUkFc12n4VcUPMW1HO4zY9IRA9kVdJzYNcz5nFaZkEzmLLu7d3Oe7U3tdyw%0A7YEJQtaj%2BcdjpDGESR4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1786212000&signature=1f5b48b75968a78e2d741acfb897042730de061e8d70ed9b13d702273e32d947&req=diUkFc12n4VcUPMW3nq%2Bgc%2FqKU4PN09pXlEe7sLh5cxDbyewOdT1mulyINau%0A4hd4DckmcW%2B%2F5MpAzhCwYYlqW5U%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1786212000&signature=1f5b48b75968a78e2d741acfb897042730de061e8d70ed9b13d702273e32d947&req=diUkFc12n4VcUPMW3nq%2Bgc%2FqKU4PN09pXlEe7sLh5cxDbyewOdT1mulyINau%0A4hd4DckmcW%2B%2F5MpAzhCwYYlqW5U%3D%0A)
 
 ## Can I exclude a specific past chat from searches?
 
@@ -49,6 +47,8 @@ When starting a new chat with Claude outside of a project, you'll see a ghost ic
 Clicking the ghost icon will open an incognito chat, creating a temporary conversation that isn’t saved to your chat history. Claude won’t pull information from incognito chats when searching previous conversations.
 
 **Important:** If you’re using an Enterprise or Team plan account, incognito chats are included in standard data exports and follow your organization's data retention policies. You can't search past chats if your organization uses customer-managed encryption keys on an Enterprise plan because conversation content is encrypted.
+
+---
 
 ## What is Claude's memory?
 
@@ -76,7 +76,7 @@ Each project has its own separate memory space and dedicated project summary, so
 
 You can toggle Claude’s memory on by navigating to **[Settings > Memory](https://claude.ai/new#settings/customize-memory)** and turning on **Generate memory from chats**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1785803400&signature=7fa94553e7a30f80d5da68359d01b4f1445aa25449a3d8983be6f0f8c8417817&req=diUkFc12n4VbWPMW1HO4zRlYrp5l4lMoNshWSMEMw9d6hgKo2%2BKWQatiuz%2Fk%0AxqrzV9Uav1V6CGb%2BEyE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1785803400&signature=7fa94553e7a30f80d5da68359d01b4f1445aa25449a3d8983be6f0f8c8417817&req=diUkFc12n4VbWPMW1HO4zRlYrp5l4lMoNshWSMEMw9d6hgKo2%2BKWQatiuz%2Fk%0AxqrzV9Uav1V6CGb%2BEyE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1786212000&signature=1d368f2a44a43413193c06f29e271320bde9f898cf5935441e5125cb8b940349&req=diUkFc12n4VbWPMW3nq%2BgUSsLm4kb0yXFT9z1G74VAHkIoDDmh4mbklPPm%2BR%0AfGQMAGdE%2BWC5t2laUhP2H1UAKnA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1786212000&signature=1d368f2a44a43413193c06f29e271320bde9f898cf5935441e5125cb8b940349&req=diUkFc12n4VbWPMW3nq%2BgUSsLm4kb0yXFT9z1G74VAHkIoDDmh4mbklPPm%2BR%0AfGQMAGdE%2BWC5t2laUhP2H1UAKnA%3D%0A)
 
 If you want to disable Claude’s memory, click the toggle and you'll see two options:
 
@@ -101,6 +101,8 @@ Incognito chats are available to all Claude users (free, Pro, Max, Team, and Ent
 
 When starting a chat with Claude outside of a project, you will see a ghost icon in the upper right corner of your screen; clicking this enables incognito chats. When this mode is switched on, Claude won’t remember your chats, so they won’t be saved to Claude’s memory or your chat history. Close your current incognito chat when you’re ready for Claude to start remembering your conversations again.
 
+---
+
 ## Data retention and privacy
 
 All memory will be retained in accordance with existing chat data retention policies.
@@ -110,6 +112,8 @@ All memory will be retained in accordance with existing chat data retention poli
 * All memory data is included in data exports.
 * Enterprise data retention policies apply to all memory-related data, including incognito chats.
   ​
+
+---
 
 ## User controls and visibility
 
@@ -133,9 +137,11 @@ You maintain control over Claude’s ability to search past chats and use memory
 
 You can now transfer your memory between Claude and other AI services. This feature lets you import memories from other AI assistants or export your Claude memory for backup or migration. This feature is experimental and still in active development, but for best practices, see this article: **[Importing and exporting your memory from Claude](https://support.claude.com/en/articles/12123587-importing-and-exporting-your-memory-from-claude)**.
 
+---
+
 ## Information for legacy memory users
 
-**Important:** We are gradually introducing an improved experience for memory from chats. The sections below only apply to people who have the legacy memory experience and see **Memory** in **[Settings > Capabilities](http://claude.ai/settings/capabilities)**. If you see **[Settings > Memory](https://claude.ai/new#settings/customize-memory)**, you’re using the new memory experience and the sections above apply to you.
+**Important:** We are gradually introducing an improved experience for memory from chats. The sections below only apply to people who have the legacy memory experience and see **Memory** in **[Settings > Capabilities](https://claude.ai/settings/capabilities)**. If you see **[Settings > Memory](https://claude.ai/new#settings/customize-memory)**, you’re using the new memory experience and the sections above apply to you.
 
 ### Search past chats with Claude
 
@@ -162,9 +168,9 @@ When Claude searches your previous chats, you will see this reflected in your cu
 
 ### Can I prevent Claude from searching my past chats?
 
-Yes, navigate to **[Settings > Capabilities](http://claude.ai/settings/capabilities)** and find the **Preferences** section. Switch the toggle next to “Search and reference chats” off:
+Yes, navigate to **[Settings > Capabilities](https://claude.ai/settings/capabilities)** and find the **Preferences** section. Switch the toggle next to “Search and reference chats” off:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1785803400&signature=1e86bd8c37d06dc066aa107ea45160e4141cf4416533f750c17cbcb189b211a1&req=dScmH859nYlXUPMW1HO4zRzXH1o4IzLGJG68qZhl782goVHy2Cq8JZHos%2BIO%0AKQeujof5qNfrG%2BFP%2Fh0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1785803400&signature=1e86bd8c37d06dc066aa107ea45160e4141cf4416533f750c17cbcb189b211a1&req=dScmH859nYlXUPMW1HO4zRzXH1o4IzLGJG68qZhl782goVHy2Cq8JZHos%2BIO%0AKQeujof5qNfrG%2BFP%2Fh0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1786212000&signature=5dd14194bbafc24a40d40e81ba66ae133a5aee6c05b3ecff9b49242aa238a1d6&req=dScmH859nYlXUPMW3nq%2BgZWAenTwzX29RRCiEHajSEQgbRrPwpaVQwUVQ6m8%0AQo6ECDUlxBeF6X13Y8qOI6j%2FTMQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1786212000&signature=5dd14194bbafc24a40d40e81ba66ae133a5aee6c05b3ecff9b49242aa238a1d6&req=dScmH859nYlXUPMW3nq%2BgZWAenTwzX29RRCiEHajSEQgbRrPwpaVQwUVQ6m8%0AQo6ECDUlxBeF6X13Y8qOI6j%2FTMQ%3D%0A)
 
 ### Can I exclude a specific past chat from searches?
 
@@ -172,11 +178,13 @@ Incognito chats are available to all Claude users (free, Pro, Max, Team, and Ent
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1785803400&signature=21e0e33502c9b20cf87eb0c71dd10a925050627eabae3c71bebd9175bb68b43c&req=dScmH859nYlWWvMW1HO4za54sKZkPIW%2FXDpzhlKsgjNowZl3uj4%2BPLh78Rrb%0AWSJzRZLlwSd5h%2FzgMJ0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1785803400&signature=21e0e33502c9b20cf87eb0c71dd10a925050627eabae3c71bebd9175bb68b43c&req=dScmH859nYlWWvMW1HO4za54sKZkPIW%2FXDpzhlKsgjNowZl3uj4%2BPLh78Rrb%0AWSJzRZLlwSd5h%2FzgMJ0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1786212000&signature=911e2182a38b1a8a7b327c10c8b89960ee7bddc09ee28f7ae319131e7ee1d23a&req=dScmH859nYlWWvMW3nq%2Bgf44pcp9rO%2FzNm11mzkyUm2S0wTK1y1AM1MzYlTj%0AAF0P7VKPLpGw7hKcpnkvta0wXxU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1786212000&signature=911e2182a38b1a8a7b327c10c8b89960ee7bddc09ee28f7ae319131e7ee1d23a&req=dScmH859nYlWWvMW3nq%2Bgf44pcp9rO%2FzNm11mzkyUm2S0wTK1y1AM1MzYlTj%0AAF0P7VKPLpGw7hKcpnkvta0wXxU%3D%0A)
 
 Clicking the ghost icon will open an incognito chat, creating a temporary conversation that isn’t saved to your chat history. Claude won’t pull information from incognito chats when searching previous conversations.
 
 **Important:** If you’re using an Enterprise or Team plan account, incognito chats are included in standard data exports and follow your organization's data retention policies. You can’t search past chats if your organization uses customer-managed encryption keys on an Enterprise plan because conversation content is encrypted.
+
+---
 
 ### What is Claude's memory?
 
@@ -200,9 +208,9 @@ Each project has its own separate memory space and dedicated project summary, so
 
 **Note:** Members of Enterprise plans can only enable this feature individually when it’s enabled by an Owner for their organization. See **[Controls for Enterprise plan Owners](#h_f7d6b307e2)** for more information.
 
-You can toggle Claude’s memory on by navigating to **[Settings > Capabilities](http://claude.ai/settings/capabilities)**:
+You can toggle Claude’s memory on by navigating to **[Settings > Capabilities](https://claude.ai/settings/capabilities)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1785803400&signature=c8e1fe6ae4c4e48841fe2b5e46e8d5c6b877f282b63beff0086926634a907a82&req=dScmH859nYlWW%2FMW1HO4zTD5MMTud%2BdBBq9N9dRTKYcp1u7t%2BGEOBu9KjbCq%0Acd7Bsw1TmBz9Z9wK72w%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1785803400&signature=c8e1fe6ae4c4e48841fe2b5e46e8d5c6b877f282b63beff0086926634a907a82&req=dScmH859nYlWW%2FMW1HO4zTD5MMTud%2BdBBq9N9dRTKYcp1u7t%2BGEOBu9KjbCq%0Acd7Bsw1TmBz9Z9wK72w%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1786212000&signature=5ac6b01027f44edea0982329ef382d187ef290c6f56acd4bc938c46bfc67fa43&req=dScmH859nYlWW%2FMW3nq%2BgRexfslS0nA5VG%2FBdWCMNKMJVKprKsoChPePvReW%0AQmDAigrT%2BbxZcB%2FYZIDlkeIpJBM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1786212000&signature=5ac6b01027f44edea0982329ef382d187ef290c6f56acd4bc938c46bfc67fa43&req=dScmH859nYlWW%2FMW3nq%2BgRexfslS0nA5VG%2FBdWCMNKMJVKprKsoChPePvReW%0AQmDAigrT%2BbxZcB%2FYZIDlkeIpJBM%3D%0A)
 
 If you want to disable Claude’s memory, click the toggle to see two options:
 
@@ -228,6 +236,8 @@ Incognito chats are available to all Claude users (free, Pro, Max, Team, and Ent
 
 When starting a chat with Claude outside of a project, you will see a ghost icon in the upper right corner of your screen; clicking this enables incognito chats. When this mode is switched on, Claude won’t remember your chats, so they won’t be saved to Claude’s memory or your chat history. Close your current incognito chat when you’re ready for Claude to start remembering your conversations again.
 
+---
+
 ### Data retention and privacy
 
 All memory will be retained in accordance with existing chat data retention policies.
@@ -237,13 +247,15 @@ All memory will be retained in accordance with existing chat data retention poli
 * All memory data is included in data exports.
 * Enterprise data retention policies apply to all memory-related data, including incognito chats.
 
+---
+
 ### User controls and visibility
 
 You have several mechanisms for managing and overseeing Claude's memory.
 
 **View and manage your memory summary**
 
-See exactly what Claude remembers about you by navigating to **[Settings > Capabilities](http://claude.ai/settings/capabilities)** and clicking “View and edit memory.” The **Manage memory** modal displays everything Claude remembers about you. In addition to asking Claude to edit the existing summary, you can also tell Claude what you want it to remember. To add custom instructions to Claude’s memory, click the pencil icon in the lower left corner of the summary.
+See exactly what Claude remembers about you by navigating to **[Settings > Capabilities](https://claude.ai/settings/capabilities)** and clicking “View and edit memory.” The **Manage memory** modal displays everything Claude remembers about you. In addition to asking Claude to edit the existing summary, you can also tell Claude what you want it to remember. To add custom instructions to Claude’s memory, click the pencil icon in the lower left corner of the summary.
 
 You can also update your memory summary directly from your chats. Simply tell Claude what you'd like it to remember, and it will update your memory summary without needing to leave the conversation. Any edits made in this way will immediately apply to your next conversation, so you don’t need to wait for the daily synthesis to run.
 
@@ -253,11 +265,13 @@ When Claude references previous conversations, you'll see citations linking back
 
 **Toggle search past chats and memory on/off**
 
-You maintain control over Claude’s ability to search past chats and use memory – you can always disable these features and enable them again when needed in **[Settings > Capabilities](http://claude.ai/settings/capabilities)**.
+You maintain control over Claude’s ability to search past chats and use memory – you can always disable these features and enable them again when needed in **[Settings > Capabilities](https://claude.ai/settings/capabilities)**.
 
 **Importing your memory from other AI tools**
 
 You can now transfer your memory between Claude and other AI services. This feature lets you import memories from other AI assistants or export your Claude memory for backup or migration. This feature is experimental and still in active development, but for best practices, see this article: **[Importing and exporting your memory from Claude](https://support.claude.com/en/articles/12123587-importing-and-exporting-your-memory-from-claude)**.
+
+---
 
 ### Controls for Enterprise plan owners
 

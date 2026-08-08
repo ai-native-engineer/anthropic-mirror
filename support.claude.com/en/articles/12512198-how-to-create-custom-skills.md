@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12512198-how-to-create-custom-skills -->
 
-# How to create custom skills
-
-Updated over a week ago
-
 Skills are available for users on Free, Pro, Max, Team, and Enterprise plans. This feature requires **[code execution to be enabled](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_1c99382190)**. Skills are also available in beta for Claude Code users and for all API users using the code execution tool.
 
 Custom skills let you enhance Claude with specialized knowledge and workflows specific to your organization or personal work style. This article explains how to create, structure, and test your own skills.
@@ -15,6 +11,8 @@ Skills can be as simple as a few lines of instructions or as complex as multi-fi
 * Include examples when helpful
 * Define when they should be used
 * Are focused on one workflow rather than trying to do everything
+
+---
 
 ## Record a skill
 
@@ -61,6 +59,8 @@ Skills you save from a recording appear in **[Customize > Skills](https://claude
 The video and audio from your recording aren't retained. After you send your recording to Claude, Claude reviews the recording to build the skill. What's saved afterward is a set of screenshots from the session, which you can view by expanding the **Recorded demonstration** step in the task.
 
 Because those screenshots live in the Cowork task, deleting the task removes them. See **[Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)** for how task deletion and retention work.
+
+---
 
 ## Create a skill.md file
 
@@ -150,6 +150,8 @@ For more advanced skills, attach executable code files to skill.md, allowing Cla
 
 **Note:** Claude and Claude Code can install packages from standard repositories (Python PyPI, JavaScript npm) when loading skills. It’s not possible to install additional packages at runtime with API Skills—all dependencies must be pre-installed in the container.
 
+---
+
 ## Package your skill
 
 Once your skill folder is complete:
@@ -173,6 +175,8 @@ my-skill.zip
 my-skill.zip
 
 └── (files directly in ZIP root)
+
+---
 
 ## Test your skill
 
@@ -200,6 +204,8 @@ When you're iterating on a skill with Claude in chat, you can edit the skill fil
 
 **Note for Team and Enterprise plans:** To make a skill available to all users in your organization, see **[Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provisioning-and-managing-skills-for-your-organization)**.
 
+---
+
 ## Best practices
 
 **Keep it focused:** Create separate skills for different workflows. Multiple focused skills compose better than one large skill.
@@ -218,6 +224,8 @@ When you're iterating on a skill with Claude in chat, you can edit the skill fil
 
 For a more in-depth guide to skill creation, refer to **[Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)** in our Claude Docs.
 
+---
+
 ## Security considerations
 
 * Exercise caution when adding scripts to your skill.md file.
@@ -225,12 +233,14 @@ For a more in-depth guide to skill creation, refer to **[Skill authoring best pr
 * Review any skills you download before enabling them.
 * Use appropriate MCP connections for external service access.
 
+---
+
 ## Example skills to reference
 
 Visit our repository on GitHub for example skills you can use as templates: **<https://github.com/anthropics/skills/tree/main/skills>**.
 
 * [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
 * [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
-* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
+* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
 * [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

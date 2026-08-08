@@ -10,7 +10,7 @@
 
 > **Who this is for:** IT administrators who install Claude Desktop on agency devices and connect it to Claude for Government.
 
-A fresh install of Claude Desktop connects to claude.ai. To connect it to Claude for Government instead, each device needs one managed setting that tells the app where to reach Claude for Government. Once that setting is in place, everything else that governs the app (enabled products and tabs, model access, [connectors](https://claude.com/docs/government/connectors/overview), usage limits, the desktop banner) is controlled through the [tenant](https://claude.com/docs/government/tenant-admin/configuration) and [organization](https://claude.com/docs/government/org-admin/configuration) configuration pages in this portal and delivered to each user when they sign in.
+A fresh install of Claude Desktop connects to claude.ai. To connect it to Claude for Government instead, each device needs one managed setting that tells the app where to reach Claude for Government. Once that setting is in place, everything else that governs the app (which products and features are available, model access, [connectors](https://claude.com/docs/government/connectors/overview), usage limits, the desktop banner) is controlled through the [tenant](https://claude.com/docs/government/tenant-admin/configuration) and [organization](https://claude.com/docs/government/org-admin/configuration) configuration pages in this portal and delivered to each user when they sign in.
 
 ##  Choose how to deploy
 
@@ -130,7 +130,7 @@ Windows Registry Editor Version 5.00
 
 The `.reg` file from the Export menu targets `HKEY_CURRENT_USER`, which is correct for single-machine testing. For fleet deployment, deliver the values under `HKEY_LOCAL_MACHINE` as shown here.
 
-Cowork, the agentic workspace in Claude Desktop, requires the **Virtual Machine Platform** Windows optional feature. Enable that feature through your device management system before rollout. If the feature is not already enabled when a user opens the Cowork workspace, the app shows the workspace as unavailable and offers to enable the feature, which requires administrator rights that a standard user does not have. Chat works regardless of this feature.
+Cowork, the agentic workspace in Claude Desktop, requires the **Virtual Machine Platform** Windows optional feature. Enable that feature through your device management system before rollout. On a device where the feature is not enabled, Cowork is unavailable until someone turns the feature on, which requires administrator rights that a standard user does not have. Chat works regardless of this feature.
 
 ###  Linux
 
@@ -185,7 +185,7 @@ Sign in as a provisioned test user. Chat works and the model picker lists the mo
 
 Confirm per-user settings arrived
 
-After sign-in, the tabs that are enabled for the user and any organization-managed connectors appear in the app. One end-to-end test is to set a short message in the **Desktop banner** setting on the tenant [Config](https://claude.com/docs/government/tenant-admin/configuration) page during rollout; if the message appears across the top of the app after sign-in, per-user delivery is working. If sign-in succeeds but none of these settings arrive, re-check the configured address.
+After sign-in, what the app offers matches that user’s [product availability](https://claude.com/docs/government/config/settings#product-availability) settings (with everything on, the sidebar shows **Home** and **Code**), and any organization-managed connectors appear in the app. One end-to-end test is to set a short message in the **Desktop banner** setting on the tenant [Config](https://claude.com/docs/government/tenant-admin/configuration) page during rollout; if the message appears across the top of the app after sign-in, per-user delivery is working. If sign-in succeeds but none of these settings arrive, re-check the configured address.
 
 ##  Troubleshooting
 

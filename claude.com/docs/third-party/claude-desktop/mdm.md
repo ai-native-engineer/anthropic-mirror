@@ -47,7 +47,7 @@ The window is organized into sections in the left sidebar. Work through them in 
 | Section | What you set |
 | --- | --- |
 | **Connection** | Inference provider (Gateway, Anthropic API, Google Cloud’s Agent Platform, Bedrock, or Foundry) and its credentials Model list Organization UUID Optional credential-helper script |
-| **Workspace restrictions** | Which tabs (Cowork, Code) are enabled Allowed egress hosts for the sandbox Disabled built-in tools Allowed workspace folders |
+| **Workspace restrictions** | Which of Cowork, Code, and Chat are available Allowed egress hosts for the sandbox Disabled built-in tools Allowed workspace folders |
 | **Connectors & extensions** | Managed MCP servers pushed to all users Whether users can add their own local MCP servers Whether desktop extensions (`.mcpb`) are allowed Whether the extension directory is shown Whether unsigned extensions are rejected |
 | **Telemetry & updates** | OpenTelemetry collector endpoint Whether auto-updates are blocked, and the enforcement window if not The three Anthropic-bound telemetry toggles (essential, nonessential, nonessential services) |
 | **Usage limits** | Per-device token cap and its window length |

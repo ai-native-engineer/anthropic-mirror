@@ -876,13 +876,13 @@ Claude Code
 
 This is some text inside of a div block.
 
-[### Qodo Skills
+[### Qodo
 
-Qodo Skills: AI agents that integrate code quality, testing, security, and compliance checks into your SDLC.
+Qodo Skills: AI agent capabilities for code quality, testing, security, and compliance across your SDLC.
 
-11772
+11807
 
-installs](https://claude.com/plugins/qodo-skills)
+installs](https://claude.com/plugins/qodo)
 
 Claude Code
 

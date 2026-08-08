@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8114526-how-will-i-be-billed-for-claude-api-use -->
 
-# How will I be billed for Claude API use?
-
-March 16, 2026
-
 **Note:** If you have received access to the Claude Console on or after 2/13/24, you will pay via our prepaid billing process. Refer to this article for more information on prepaid billing: [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
 
 Once you’re on a paid API contract, we aggregate your usage across API calls, Console chats, and other services we may make available associated with your account. In general, failed requests are not charged, and you will only be billed for successful API calls and completed tasks. However you will be charged if your client disconnects or times out in the middle of an API call that was on track to be successful.

@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller -->
 
-# Does Anthropic Act as a Data Processor or Controller?
-
 *This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see* *[here](https://privacy.claude.com/en/collections/10663362-consumers).*
 
 When a commercial customer creates a Claude for Work account (Team or Enterprise plan), under our [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms) the customer is the "Controller" of the data submitted by its Users. This means:
@@ -21,4 +19,8 @@ For more details on our data practices, please see the:
 * [Anthropic Trust Center](http://trust.anthropic.com)
 * [Anthropic Privacy Policy](https://www.anthropic.com/legal/privacy)
 
-[Who owns and manages the data of my team?](https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)[About the Development Partner Program](https://support.claude.com/en/articles/11174108-about-the-development-partner-program)[Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)[Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)[Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
+* [Who owns and manages the data of my team?](https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
+* [Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
+* [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
+* [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
+* [Claude for Teachers: your data and our terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms)

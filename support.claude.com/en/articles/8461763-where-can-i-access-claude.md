@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8461763-where-can-i-access-claude -->
 
-# Where can I access Claude?
-
 You can access Claude in the following locations:
 
 * Albania

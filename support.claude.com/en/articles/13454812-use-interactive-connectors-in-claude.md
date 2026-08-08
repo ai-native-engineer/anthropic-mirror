@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude -->
 
-# Use interactive connectors in Claude
-
-March 25, 2026
-
 Interactive connectors are available for all users on Claude, Cowork, Claude Desktop, and Claude for iOS/Android.
 
 ## What are interactive connectors?
@@ -15,6 +11,8 @@ For example, you might ask Claude about your project status, and instead of just
 Claude can also generate its own custom visuals—diagrams, charts, and simple interactive elements built from scratch for your question. When a connected service offers an interactive interface that handles your request, like an MCP app, Claude will use it. Custom visuals fill the gaps when no connector interface fits what you’re asking for.
 
 For more on Claude-generated visuals, see **[Custom visuals in chat](https://support.claude.com/en/articles/13979539-custom-visuals-in-chat)**.
+
+---
 
 ## How interactive connectors appear
 
@@ -65,6 +63,8 @@ We’re adding support for more interactive connectors over time.
 
 Yes. Team and Enterprise owners can disable the specific tool calls that render interactive connectors within **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**. This does not disable the connector itself — text-based tool functionality continues to work normally.
 
+---
+
 ## Permissions and security
 
 ### How are interactive connectors secured?
@@ -78,6 +78,8 @@ No. Interactive connectors use the same permissions you granted when connecting 
 ### Can interactive connectors make purchases or financial transactions?
 
 No. Purchases through third-party interactive connectors are not supported.
+
+---
 
 ## Troubleshooting
 
@@ -97,6 +99,8 @@ No. Purchases through third-party interactive connectors are not supported.
 * **Team and Enterprise users:** Ask your organization owner to disable the relevant tool calls in **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**.
 * **Individual users:** You can disable specific connector tools via the "Search and tools" menu in your conversation.
 
+---
+
 ## I'm a developer. Where can I learn about building MCP Apps?
 
 MCP Apps is the open-source extension to the Model Context Protocol that powers interactive apps. If you are building your own interactive connector, note that it must meet additional design, security, and testing requirements. See the **[Remote MCP Server Submission Guide](https://support.claude.com/en/articles/12922490)** for details.
@@ -105,4 +109,4 @@ MCP Apps is the open-source extension to the Model Context Protocol that powers 
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [When to use desktop and web connectors](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors)
 * [Visual and interactive content](https://support.claude.com/en/articles/13641943-visual-and-interactive-content)
-* [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
+* [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)

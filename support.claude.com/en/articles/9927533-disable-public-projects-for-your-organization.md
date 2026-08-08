@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9927533-disable-public-projects-for-your-organization -->
 
-# Disable public projects for your organization
-
-March 16, 2026
-
 This feature is available to Primary Owners and Owners on Team and Enterprise plans.
 
 Disabling the public project feature allows Team and Enterprise owners to restrict the creation of public projects across their organization while maintaining internal sharing capabilities.
@@ -13,7 +9,7 @@ Follow these steps:
 1. Navigate to **[Organization settings > Data and privacy](https://claude.ai/admin-settings/data-privacy-controls)**.
 2. Find **Public projects** and toggle it off
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1785803400&signature=ba50d85594d83fa882e133f541b4a15839052706c96ef5212ea81680d252a8c2&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2KsawNbYabJlVJ9VPwcnoNIkD%2F1LecSzoQ5%0AfXRbNhdXoVcElSLo2M4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1785803400&signature=ba50d85594d83fa882e133f541b4a15839052706c96ef5212ea81680d252a8c2&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2KsawNbYabJlVJ9VPwcnoNIkD%2F1LecSzoQ5%0AfXRbNhdXoVcElSLo2M4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1786167000&signature=e79a75323edf67cb2b20b8d7a5fd5787f567e39f3812f4c4fda478c0ea0f48e2&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2GlbQdfYabJlVJ9VPxKM%2FxNm2H8Y3fCZOXw%0AUgujkB5%2FjKhv5ii2qNg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1786167000&signature=e79a75323edf67cb2b20b8d7a5fd5787f567e39f3812f4c4fda478c0ea0f48e2&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2GlbQdfYabJlVJ9VPxKM%2FxNm2H8Y3fCZOXw%0AUgujkB5%2FjKhv5ii2qNg%3D%0A)
 
 ## How does disabling public projects work?
 

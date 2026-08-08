@@ -1,13 +1,5 @@
 <!-- source: https://claude.com/docs/claude-tag/overview -->
 
-> ## Documentation Index
->
-> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
->
-> Use this file to discover all available pages before exploring further.
-
-[Skip to main content](#content-area)
-
 Public Beta
 
 Tag @Claude in. Get results back in the thread.

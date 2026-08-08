@@ -12,7 +12,7 @@ You’re approving the Claude app install for someone who’s setting up Claude 
 
 ##  Where Claude reads and posts
 
-Claude reads and posts only in channels a workspace member has added it to, and in direct messages with users who link their own Claude account. Installing the app does not add it to any channel.
+Claude reads and posts only in channels a workspace member has added it to, and in direct messages. Any workspace member who opens a direct message with Claude receives its welcome message, whether or not they’ve linked a Claude account. Installing the app does not add it to any channel.
 A member can add Claude to a channel in one of two ways:
 
 * Invite it with `/invite @Claude` in the channel
@@ -38,6 +38,7 @@ It responds when @-mentioned, and may respond to other messages it judges warran
 ##  After you install
 
 Post `@Claude connect` in any channel with no other text, or send `connect` on its own in a direct message with Claude, and give the code it returns to whoever asked you to install. That code is what pairs your workspace to their Claude organization; it expires after 15 minutes.
+Pick a channel that belongs to just your workspace. Claude can decline to reply in [guest and shared channels](https://claude.com/docs/claude-tag/admins/troubleshooting#guest-and-shared-channels).
 
 ##  Related resources
 

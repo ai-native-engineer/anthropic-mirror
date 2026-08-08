@@ -32,11 +32,11 @@ Anything not marked forward unchanged is yours to consume or ignore.
 
 A gateway must expose at least one of the following API formats to Claude Code clients. Which format Claude Code speaks is determined by the client's configuration: the variable in the Selected by column of the table below points Claude Code at your gateway in that format. Google Cloud's Agent Platform is Google Cloud's Claude endpoint, formerly Vertex AI; its variable names keep the `VERTEX` spelling.
 
-| Format                                   | Selected by                                                   | Endpoints                                                                | Forward unchanged                                                                                        |
-| :--------------------------------------- | :------------------------------------------------------------ | :----------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
-| Anthropic Messages                       | `ANTHROPIC_BASE_URL`                                          | `/v1/messages`, `/v1/messages/count_tokens` (optional)                   | `anthropic-beta` and `anthropic-version` request headers                                                 |
-| Amazon Bedrock InvokeModel               | `ANTHROPIC_BEDROCK_BASE_URL` with `CLAUDE_CODE_USE_BEDROCK=1` | `/model/{model}/invoke`, `/model/{model}/invoke-with-response-stream`    | `anthropic_beta` and `anthropic_version` request body fields                                             |
-| Google Cloud's Agent Platform rawPredict | `ANTHROPIC_VERTEX_BASE_URL` with `CLAUDE_CODE_USE_VERTEX=1`   | `:rawPredict`, `:streamRawPredict`, `count-tokens:rawPredict` (optional) | `anthropic-beta` and `anthropic-version` request headers, and the `anthropic_version` request body field |
+| Format                                   | Selected by                                                   | Endpoints                                                                                                       | Forward unchanged                                                                                        |
+| :--------------------------------------- | :------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
+| Anthropic Messages                       | `ANTHROPIC_BASE_URL`                                          | `/v1/messages`, `/v1/messages/count_tokens` (optional)                                                          | `anthropic-beta` and `anthropic-version` request headers                                                 |
+| Amazon Bedrock InvokeModel               | `ANTHROPIC_BEDROCK_BASE_URL` with `CLAUDE_CODE_USE_BEDROCK=1` | `/model/{model}/invoke`, `/model/{model}/invoke-with-response-stream`, `/model/{model}/count-tokens` (optional) | `anthropic_beta` and `anthropic_version` request body fields                                             |
+| Google Cloud's Agent Platform rawPredict | `ANTHROPIC_VERTEX_BASE_URL` with `CLAUDE_CODE_USE_VERTEX=1`   | `:rawPredict`, `:streamRawPredict`, `count-tokens:rawPredict` (optional)                                        | `anthropic-beta` and `anthropic-version` request headers, and the `anthropic_version` request body field |
 
 ### Foundry and Claude Platform on AWS
 
@@ -46,13 +46,15 @@ Microsoft Foundry and the [Claude Platform on AWS](/docs/en/claude-platform-on-a
 
 Token-counting endpoints are the only optional ones: when they're absent, Claude Code estimates context usage locally. Inference requests post to `/v1/messages?beta=true`, so match on the path, not the full URL. The Google Cloud's Agent Platform method suffixes attach to the publisher model path, as in `/projects/{project}/locations/{location}/publishers/anthropic/models/{model}:streamRawPredict`.
 
-A gateway also sees best-effort startup traffic it can reject without breaking anything: a `HEAD /` connectivity probe, and on Amazon Bedrock-format gateways a `GET /inference-profiles?type=SYSTEM_DEFINED` request.
+A gateway also sees best-effort startup traffic it can reject without breaking anything. An Anthropic Messages-format gateway receives a `HEAD /api/hello` connection-warming probe, which Claude Code skips when an HTTP proxy or client certificate is configured. An Amazon Bedrock-format gateway receives a `GET /inference-profiles?type=SYSTEM_DEFINED` request and, when the configured model is an inference profile, `GET /inference-profiles/{profile}` lookups.
 
 The [fast mode](/docs/en/fast-mode) availability check never appears in gateway logs: it calls `api.anthropic.com` directly rather than following `ANTHROPIC_BASE_URL`, so on a network that blocks direct egress to `api.anthropic.com`, fast mode can report a connectivity error while inference through the gateway keeps working. The [WebFetch domain safety check](/docs/en/data-usage#webfetch-domain-safety-check) also calls `api.anthropic.com` directly. [Use fast mode behind proxies and LLM gateways](/docs/en/fast-mode#use-fast-mode-behind-proxies-and-llm-gateways) covers the variables that restore it.
 
 ### Streaming
 
 Inference responses must stream. Claude Code consumes server-sent events as they arrive, so a gateway that buffers complete responses before relaying them stalls the client.
+
+Forward keep-alive pings as well. On connections through `ANTHROPIC_BASE_URL` or `ANTHROPIC_AWS_BASE_URL`, Claude Code counts every byte your gateway relays, including SSE `ping` events and comment lines, and aborts a stream that goes silent for 300 seconds by default. The upstream's pings are the only traffic during long thinking pauses, so if your gateway strips or buffers them, Claude Code aborts the stream during those pauses; [Automatic retries](/docs/en/errors#automatic-retries) covers what an aborted stream reports based on how far the response had progressed. Gateways reached through `ANTHROPIC_BEDROCK_BASE_URL`, `ANTHROPIC_VERTEX_BASE_URL`, or `ANTHROPIC_FOUNDRY_BASE_URL` aren't wrapped by this byte-level watchdog, even when they relay the Anthropic Messages format; there, a [5-minute idle timeout](/docs/en/env-vars) aborts a silent stream instead, and on `ANTHROPIC_BEDROCK_BASE_URL` connections you can add the byte watchdog with [`CLAUDE_ENABLE_BYTE_WATCHDOG_BEDROCK`](/docs/en/env-vars).
 
 ### Format mismatch with the upstream
 
@@ -100,7 +102,7 @@ The strip is positional, so it only works when the gateway forwards the `system`
 
 Requests that reach the endpoint unmodified are unaffected.
 
-{/* min-version: 2.1.181 */}From Claude Code v2.1.181, the block is stable for the lifetime of a conversation when requests route through a custom base URL, so a gateway-side prompt cache keyed on the full request body works without disabling it, and any provider your gateway forwards to receives a stable prompt prefix. Before v2.1.181 the block included a per-request token that changed the start of the system prompt on every request. On those versions, set `CLAUDE_CODE_ATTRIBUTION_HEADER=0` when your gateway does either of these:
+From Claude Code v2.1.181, the block is stable for the lifetime of a conversation when requests route through a custom base URL, so a gateway-side prompt cache keyed on the full request body works without disabling it, and any provider your gateway forwards to receives a stable prompt prefix. Before v2.1.181 the block included a per-request token that changed the start of the system prompt on every request. On those versions, set `CLAUDE_CODE_ATTRIBUTION_HEADER=0` when your gateway does either of these:
 
 * Implements a prompt cache keyed on the request body.
 * Forwards requests to a third-party provider such as Amazon Bedrock, Microsoft Foundry, or Google Cloud's Agent Platform, in the Anthropic Messages format or the provider's own, where the changing prefix reduces prompt-cache reuse on that provider.
@@ -140,7 +142,7 @@ The set of capabilities Claude Code sends grows over releases. For current beta 
 
 When `ANTHROPIC_BASE_URL` points at a gateway that exposes the Anthropic Messages format, Claude Code can query the gateway's `/v1/models` endpoint at startup and add the returned models to the `/model` picker.
 
-Developers enable it by setting [`CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1`](/docs/en/env-vars), in their own environment or through managed settings. Discovery is off by default so that gateways backed by a shared API key don't surface every model the key can access to every user. This requires Claude Code v2.1.129 or later.
+Developers enable it by setting [`CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1`](/docs/en/env-vars), in their own environment or through managed settings. Discovery is off by default so that gateways backed by a shared API key don't surface every model the key can access to every user.
 
 ### When discovery runs
 
@@ -161,7 +163,7 @@ The discovery request sends exactly one credential header:
 
 This differs from inference requests, which send a helper value in both headers. A gateway that authenticates `/v1/models` must accept `x-api-key` for helper deployments. Any headers from `ANTHROPIC_CUSTOM_HEADERS` are included as well.
 
-Claude Code reads `id` and the optional `display_name` from each entry in the response's `data` array, and ignores entries whose `id` doesn't begin with `claude` or `anthropic`:
+Claude Code reads `id` and the optional `display_name` from each entry in the response's `data` array:
 
 ```json theme={null}
 {
@@ -172,11 +174,13 @@ Claude Code reads `id` and the optional `display_name` from each entry in the re
 }
 ```
 
+Claude Code keeps an entry when its `id` contains `claude` or `anthropic` anywhere in the string, matched case-insensitively, and ignores the rest. Provider-prefixed IDs such as `vertex_ai/claude-sonnet-4-6` or `bedrock/anthropic.claude-sonnet-4-5` pass the filter; an ID that contains neither substring doesn't. Before v2.1.223, Claude Code kept an entry only when its `id` began with `claude` or `anthropic`, which hid provider-prefixed IDs.
+
 ### Picker entries and caching
 
 The picker is the interactive model list that opens when a developer runs `/model` in Claude Code. Each discovered entry is labeled "From gateway" and uses `display_name` when provided. The [`availableModels` managed setting](/docs/en/settings#available-settings) bounds what discovery can add.
 
-A discovered ID is skipped when it exactly matches a row already in the picker, or when both the discovered and existing IDs resolve to [Fable](/docs/en/model-config#work-with-fable-5). {/* min-version: 2.1.197 */}As of Claude Code v2.1.197, a discovered explicit ID is also folded into a built-in entry when both resolve to the same model. Built-in rows are keyed on aliases such as `sonnet`, so a discovered explicit ID of the model the alias currently resolves to, such as `claude-sonnet-5`, collapses into the `sonnet` row, while an ID the alias doesn't resolve to, such as `claude-sonnet-4-6`, still adds its own "From gateway" row alongside the built-in entry.
+A discovered ID is skipped when it exactly matches a row already in the picker, or when both the discovered and existing IDs resolve to [Fable](/docs/en/model-config#work-with-fable-5). As of Claude Code v2.1.197, a discovered explicit ID is also folded into a built-in entry when both resolve to the same model. Built-in rows are keyed on aliases such as `sonnet`, so a discovered explicit ID of the model the alias currently resolves to, such as `claude-sonnet-5`, collapses into the `sonnet` row, while an ID the alias doesn't resolve to, such as `claude-sonnet-4-6`, still adds its own "From gateway" row alongside the built-in entry.
 
 Results are cached to `~/.claude/cache/gateway-models.json`, or `%USERPROFILE%\.claude\cache\gateway-models.json` on Windows, and refreshed on each startup. If you set [`CLAUDE_CONFIG_DIR`](/docs/en/env-vars), the cache lives under that directory instead. If the request fails or the gateway doesn't implement `/v1/models`, the picker falls back to the cached list from the previous startup or to the built-in model list. If your gateway serves Claude models under aliases that don't match the discovery filter, developers can add those aliases manually with the [model configuration](/docs/en/model-config) variables.
 

@@ -1,12 +1,8 @@
 <!-- source: https://support.claude.com/en/articles/8287232-verify-your-phone-number -->
 
-# Verify your phone number
-
-May 19, 2026
-
 When you first create a Claude account, you’ll be asked to enter your phone number from a **[supported location](https://support.claude.com/en/articles/8461763-where-can-i-access-claude)** to receive a verification code via text message:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1785803400&signature=a2390fbab0cb16d1ec3349efa17eeae6e53a07d774017258e052ef65f5fea5ee&req=dSguFch5noBbWvMW1HO4zVIf8JVr3Cl%2BoTnI%2BoMZk7cAk4LBqY2YCIpVxheb%0AYb%2B8qUsbs1WzSDQatkM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1785803400&signature=a2390fbab0cb16d1ec3349efa17eeae6e53a07d774017258e052ef65f5fea5ee&req=dSguFch5noBbWvMW1HO4zVIf8JVr3Cl%2BoTnI%2BoMZk7cAk4LBqY2YCIpVxheb%0AYb%2B8qUsbs1WzSDQatkM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1786167000&signature=e6b328e37262fe0affae9a7a49d576610abf2a361a85344003020d7eb6590080&req=dSguFch5noBbWvMW1HO4zVIf8JZi2i16oTnI%2BoMZk7ekYP7Sj%2BdIS3W14R%2BU%0AgRPNGAej%2FZo2JhJAE78%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1786167000&signature=e6b328e37262fe0affae9a7a49d576610abf2a361a85344003020d7eb6590080&req=dSguFch5noBbWvMW1HO4zVIf8JZi2i16oTnI%2BoMZk7ekYP7Sj%2BdIS3W14R%2BU%0AgRPNGAej%2FZo2JhJAE78%3D%0A)
 
 Once you receive the text message with the code, type it into the box and click “Verify code.” This will complete the verification and account creation process and allow you to start chatting with Claude.
 
@@ -56,6 +52,6 @@ There isn’t a way to change your phone number associated with your Claude acco
 
 * [How do I change the email address associated with my account?](https://support.claude.com/en/articles/8452276-how-do-i-change-the-email-address-associated-with-my-account)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
-* [Logging in to your Console account](https://support.claude.com/en/articles/13371040-logging-in-to-your-console-account)
+* [Log in to your Console account](https://support.claude.com/en/articles/13371040-log-in-to-your-console-account)
 * [Age assurance on Claude](https://support.claude.com/en/articles/15171100-age-assurance-on-claude)
 * [Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)

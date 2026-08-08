@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12157520-claude-code-usage-analytics -->
 
-# Claude Code usage analytics
-
-July 1, 2026
-
 This feature allows Console users and owners of Team and Enterprise plans to monitor how their organization uses Claude Code, tracking productivity metrics and adoption patterns across teams.
 
 Claude Code usage analytics are available to:
@@ -28,6 +24,8 @@ Claude Code usage analytics are available to:
 3. Click “Claude Code” under **Analytics**.
 4. View Claude Code usage analytics on **[Settings > Claude Code](https://platform.claude.com/claude-code)**.
 
+---
+
 ## Usage tab
 
 The **Usage** tab displays the following metrics for your organization. Data on this tab refreshes daily.
@@ -40,11 +38,13 @@ The **Usage** tab displays the following metrics for your organization. Data on 
 * **Lines accepted over time**: Daily breakdown of accepted code lines.
 * **Top commands**: The Claude Code commands used most often across your organization.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785803400&signature=895374a7d3f3184e2dd2b2fa9d44839a8fc10540e97c0f9e376cf225d402a81d&req=dScmEcx5lINYXvMW1HO4zfiEP6NYj3rKCX9h5MbdDjPu81Z1EC%2FWNkYsBB%2FH%0AU6vWi%2FBGHZ2yZL8g%2BEQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785803400&signature=895374a7d3f3184e2dd2b2fa9d44839a8fc10540e97c0f9e376cf225d402a81d&req=dScmEcx5lINYXvMW1HO4zfiEP6NYj3rKCX9h5MbdDjPu81Z1EC%2FWNkYsBB%2FH%0AU6vWi%2FBGHZ2yZL8g%2BEQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1786167000&signature=96cdf2f85566849934914ee77f9a21ac6f5948e89abd1a6fea8850f41b567014&req=dScmEcx5lINYXvMW1HO4zfiEP6BRiX7OCX9h5MbdDjNwHydBokAiIBfZEbXW%0AQZIAR3F8pGBJ8kfq8LA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1786167000&signature=96cdf2f85566849934914ee77f9a21ac6f5948e89abd1a6fea8850f41b567014&req=dScmEcx5lINYXvMW1HO4zfiEP6BRiX7OCX9h5MbdDjNwHydBokAiIBfZEbXW%0AQZIAR3F8pGBJ8kfq8LA%3D%0A)
 
 ### User-level metrics
 
 **Individual usage**: View each team member's email address and their total lines of code accepted for the current month. You can search for specific users or click the “Export” button to generate a CSV of members’ email addresses and total lines of code.
+
+---
 
 ## Value tab
 
@@ -55,6 +55,8 @@ The **Value** tab summarizes usage and cost data to help you understand what Cla
 * **Estimated annual value**
 
 Every formula used on this tab is shown inline. Click any input to adjust it to match your organization's assumptions, and the estimates recalculate.
+
+---
 
 ## Contribution metrics (beta)
 
@@ -89,6 +91,8 @@ Once enabled, the following metrics appear in your Claude Code analytics dashboa
 
 Data is collected by correlating Claude Code session activity with GitHub commits and pull requests.
 
+---
+
 ## Data reset and availability
 
 Usage metrics display data for the current calendar month and reset at the beginning of each month. Historical data visualization shows daily granularity for tracking trends over time.
@@ -100,6 +104,8 @@ Review your organization's code acceptance rate to understand if teams are findi
 Monitor individual usage patterns to identify power users who can share best practices with the broader team, or to spot team members who might benefit from additional support.
 
 Track activity trends to understand when your team uses Claude Code most effectively and ensure adequate seat allocation during peak periods.
+
+---
 
 ## Frequently asked questions
 

@@ -35,6 +35,7 @@ You can’t remove the last remaining tenant administrator. The button is disabl
 
 ##  Things to know
 
+* Adding tenant administrators is self-service and does not require any action from Anthropic. See [Adding a tenant administrator](#adding-a-tenant-administrator) above.
 * You cannot remove yourself from the list. If your own access needs to be removed, ask another tenant administrator to do it.
 * There is no upper limit on the number of tenant administrators, but because the access is broad, keep the list as short as your operational needs allow.
 * If the only person on this list leaves your agency or loses account access, contact Anthropic to have a new tenant administrator appointed.

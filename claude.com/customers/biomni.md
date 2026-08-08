@@ -154,6 +154,22 @@ Video caption
 
 ## Related stories
 
+[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
+
+Mercy Corps on what AI makes possible in humanitarian work
+
+Customer story
+
+[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
+
+[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
+
+Mercy Corps accelerates global humanitarian response to community feedback with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/mercy-corps)Customer story
+
 [How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
 
 How can a medical lab keep patients at the center of its work while the caseload keeps growing?
@@ -169,19 +185,3 @@ The Epilepsy Foundation turns years of expert content into a personal epilepsy a
 Customer story
 
 [Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
-
-[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Customer story
-
-[Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story

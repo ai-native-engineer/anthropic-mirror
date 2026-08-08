@@ -2,7 +2,7 @@
 
 # Use Claude for Outlook
 
-Updated today
+Updated this week
 
 Claude for Outlook is an add-in that integrates Claude into your Outlook inbox and calendar. It’s designed for professionals who live in email, including private equity and investment banking associates managing deal flow, in-house legal teams running counterparty negotiations, and consultants juggling client threads.
 

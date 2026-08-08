@@ -15,7 +15,7 @@ This page covers the most common reasons a connector fails to connect or authent
 When a connection fails, the error toast and the page URL include a reference ID that starts with `ofid_`. For example:
 
 ```
-.../settings/connectors?step=start_error&flow_id=ofid_d32594c73257a651
+.../customize/connectors?step=start_error&flow_id=ofid_d32594c73257a651
 ```
 
 Copy that ID and include it in any GitHub issue or support request. It lets Anthropic trace the exact failure on the server side. Reference IDs are time-limited, so report them soon after the failure.

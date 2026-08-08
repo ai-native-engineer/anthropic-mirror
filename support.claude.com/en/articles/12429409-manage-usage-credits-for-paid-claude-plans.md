@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans -->
 
-# Manage usage credits for paid Claude plans
-
-May 18, 2026
-
 This article explains how usage credits work on your paid Claude plan (Pro, Max 5x, or Max 20x), allowing you to continue working with Claude after reaching your plan's usage limits by switching to pay-as-you-go pricing.
 
 ## What are usage credits?
@@ -11,6 +7,8 @@ This article explains how usage credits work on your paid Claude plan (Pro, Max 
 Usage credits allow individuals subscribed to paid Claude plans (Pro, Max 5x, and Max 20x) to continue using Claude seamlessly after reaching their included usage limits. Instead of being blocked when you hit your session limits, you can switch to consumption-based pricing at standard API rates and continue your work without interruption.
 
 **Note:** If you subscribed through one of the Claude mobile apps, you can only enable usage credits on the web version of Claude. You will need to add your payment method before enabling and purchasing usage credits on the web.
+
+---
 
 ## How usage credits work
 
@@ -22,6 +20,8 @@ When you reach your plan’s usage limit with usage credits enabled:
 * Your session limits reset every five hours as usual.
 
 **Note:** Usage credits are charged separately from your paid Claude subscription and appear as additional charges on your bill.
+
+---
 
 ## Enabling usage credits
 
@@ -36,9 +36,11 @@ To enable usage credits on your paid Claude plan:
 7. You’ll then need to prepay to cover usage beyond your plan limits. Click “Add funds,” enter the amount you want to purchase in the modal, then click “Purchase.”
 8. You can also enable auto-reload to automatically make a purchase when your balance falls below a threshold you set:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1785803400&signature=26d61b6c80102420b1ee764be4b3423f15acb9acaaa0fd3e5ffb70f0c2c1feb9&req=dSgnE8F%2FlIZXXPMW1HO4zYj2AReRpfM8opE7m38Ydfe0JhzGx%2Bq0PUCApn4%2B%0AhVip8E0P0LgDxSZvxUg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1785803400&signature=26d61b6c80102420b1ee764be4b3423f15acb9acaaa0fd3e5ffb70f0c2c1feb9&req=dSgnE8F%2FlIZXXPMW1HO4zYj2AReRpfM8opE7m38Ydfe0JhzGx%2Bq0PUCApn4%2B%0AhVip8E0P0LgDxSZvxUg%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1786167000&signature=93e2ea33a03cfb8671341df19fa8a1d8e972245f8dd4e1e4ec0f8ee43532bc8b&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARSYo%2Fc4opE7m38YdfeHiXp%2FRdfC%2FP2McUJE%0ALEqzOjXe%2F4Yvg7T0xyM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1786167000&signature=93e2ea33a03cfb8671341df19fa8a1d8e972245f8dd4e1e4ec0f8ee43532bc8b&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARSYo%2Fc4opE7m38YdfeHiXp%2FRdfC%2FP2McUJE%0ALEqzOjXe%2F4Yvg7T0xyM%3D%0A)
 
 **Note:** There is a daily redemption limit of $2000.
+
+---
 
 ## Set spend limits
 
@@ -48,11 +50,15 @@ Control your usage credit spending with:
 * **Auto-reload settings:** Automatically add funds when your balance drops below a threshold.
 * **Usage alerts:** Receive notifications when approaching your spend limits.
 
+---
+
 ## Usage credit pricing
 
 Usage credits are billed at standard API rates; see our **[pricing page](https://claude.com/pricing#api)** for details.
 
 Price and plans are subject to change at Anthropic's discretion.
+
+---
 
 ## Managing your usage credits
 
@@ -74,6 +80,8 @@ To manage usage credit costs while maintaining productivity:
 * **Use projects effectively:** Store frequently referenced documents in project knowledge instead of re-uploading.
 * **Set appropriate limits:** Start with conservative spending caps and adjust based on your needs.
 
+---
+
 ## How usage credits work with other features
 
 ### Claude Code
@@ -87,6 +95,8 @@ When using Research mode, usage credits apply once you exceed your plan's includ
 ### Projects and files
 
 Documents stored in project files count toward your context when used in conversations. Usage credits apply to all tokens processed, including project content.
+
+---
 
 ## Frequently asked questions
 

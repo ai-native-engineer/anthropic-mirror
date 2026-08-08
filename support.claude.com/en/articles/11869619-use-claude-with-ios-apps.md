@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps -->
 
-# Use Claude with iOS apps
-
-Updated over a week ago
-
 Claude can now connect with your iOS device's system apps to help you take action directly from your conversations. When you chat with Claude, it can draft messages, emails, or calendar events, find locations, manage reminders, and analyze your health and fitness data — all seamlessly integrated with your mobile apps.
 
 This feature is supported on all Claude plans and works with iOS system apps (Messages, Mail, Calendar, Maps, Reminders, and Location Services), as well as compatible third-party apps. Health features are currently in beta, require a Pro or Max plan, and are available in the US only.
@@ -27,6 +23,8 @@ Claude can help you:
 * **Reminders:** Claude cannot create or edit reminder lists themselves, only items within existing lists.
 * **Contacts:** Claude does not have direct access to your contacts.
 * **Health:** Available in beta on Pro and Max plans only. Currently limited to users in the US. Claude can read health data but cannot write or modify entries in Apple Health.
+
+---
 
 ## How Claude helps you take action
 
@@ -92,6 +90,8 @@ When Claude determines that using one of these features would be helpful, it wil
 
 Note that when Claude uses tools to take these actions, their use is preserved in the conversation history in the same way as any tool.
 
+---
+
 ## Access and analyze your health data
 
 **Note:** Health features are available in beta on Pro and Max plans only, and currently limited to users in the US.
@@ -142,6 +142,8 @@ Tap on chart elements to see more details about specific data points.
 
 To get the best results, be specific about what you want, include relevant details like dates, times, and locations in your requests, and review content before sending or saving. Claude understands natural language, so you can make requests conversationally.
 
+---
+
 ## What data can Claude access?
 
 Claude only accesses the data necessary for each specific request:
@@ -171,6 +173,8 @@ These permissions can be managed at any time in your device settings by going to
 Health permissions work differently from other app permissions. When Claude requests health access, you'll see the standard iOS Health permissions screen where you can choose exactly which data types to share. You can modify these permissions at any time by going to Settings > Health > Data Access & Devices > Claude.
 
 Claude will only request permissions if needed for specific features, and you can always choose to decline while still using other capabilities.
+
+---
 
 ## Troubleshooting
 
@@ -210,6 +214,6 @@ Claude will only request permissions if needed for specific features, and you ca
 
 * [Install Claude for iOS](https://support.claude.com/en/articles/9266462-install-claude-for-ios)
 * [Use Claude app intents, shortcuts, and widgets on iOS](https://support.claude.com/en/articles/10263469-use-claude-app-intents-shortcuts-and-widgets-on-ios)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [How to update Claude for iOS](https://support.claude.com/en/articles/11825384-how-to-update-claude-for-ios)
 * [Use Claude with Android apps](https://support.claude.com/en/articles/11869629-use-claude-with-android-apps)
-* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)

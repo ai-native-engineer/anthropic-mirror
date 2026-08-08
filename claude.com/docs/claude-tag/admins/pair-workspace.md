@@ -30,7 +30,7 @@ Open [claude.com/claude-for-slack](https://claude.com/claude-for-slack), click *
 
 Run @Claude connect in Slack
 
-Send `@Claude connect` in any channel, with no other text, either as a new top-level message or in a thread where Claude isn’t already working. In a DM with Claude, send `connect` on its own; `link` works in place of `connect` in both cases. Claude replies with a pairing code valid for 15 minutes. In a thread where Claude is already working, it treats the message as a normal request instead.Only a Slack workspace admin (or Grid org admin) can run this command. If that’s not you, [send them the install request](#send-the-install-request-to-your-slack-admin) and have them return the code.If your install is missing a permission, the reply names it (and may still issue a code with a warning); see [the section below](#if-@claude-connect-says-the-installation-is-out-of-date).
+Send `@Claude connect` in any channel, with no other text, as a new top-level message or in a thread where Claude isn’t already working. Claude replies with a pairing code valid for 15 minutes. In a thread where Claude is already working, it treats the message as a normal request instead.Pick a channel that belongs to just your workspace. Claude can decline to reply in [guest and shared channels](https://claude.com/docs/claude-tag/admins/troubleshooting#guest-and-shared-channels).In a DM with Claude, send `connect` on its own. Sending `link` works in place of `connect` in both cases.Only a Slack workspace admin (or Grid org admin) can run this command. If that’s not you, [send them the install request](#send-the-install-request-to-your-slack-admin) and have them return the code.If your install is missing a permission, the reply names it (and may still issue a code with a warning); see [the section below](#if-@claude-connect-says-the-installation-is-out-of-date).
 
 3
 
@@ -45,7 +45,7 @@ Setup confirms the pairing and moves on to choosing Claude’s tools, so there�
 Steps 1–2 above need a Slack workspace admin; step 3 needs an Owner in your Claude organization. If those are two people, send the Slack admin this and have them return the code:
 
 ```
-Please install the Claude app (https://claude.com/claude-for-slack) in [workspace]. When that's done, let me know a time that works for the next part: you post "@Claude connect" in any channel with no other text and send me the code it returns. The code expires 15 minutes after Claude posts it, so I'll redeem it right away. What it can access: https://claude.com/docs/claude-tag/admins/for-slack-admins
+Please install the Claude app (https://claude.com/claude-for-slack) in [workspace]. When that's done, let me know a time that works for the next part: you post "@Claude connect" in any channel with no other text and send me the code it returns. Pick a channel that belongs to just [workspace]. The code expires 15 minutes after Claude posts it, so I'll redeem it right away. What it can access: https://claude.com/docs/claude-tag/admins/for-slack-admins
 ```
 
 ###  If `@Claude` doesn’t respond at all
@@ -83,7 +83,7 @@ The fix is to pair the whole grid rather than one workspace. Claude’s reply to
 
 ##  After pairing: where Claude is enabled
 
-Once a workspace is paired, where Claude responds depends on what you chose when pairing (entire workspace or specific channels), the **Turn on Claude Tag** toggle, and your [access restriction](https://claude.com/docs/claude-tag/admins/restrict-access#members) setting.
+Once a workspace is paired, where Claude responds depends on what you chose when pairing (entire workspace or specific channels), the **Enable Claude Tag for your organization** toggle, and your [access restriction](https://claude.com/docs/claude-tag/admins/restrict-access#members) setting.
 
 * **What Claude can reach** in each channel depends on which Access bundles you bind; see [Configure per-channel access](https://claude.com/docs/claude-tag/admins/attach-to-scope).
 * **Nothing runs until usage is funded** on Team plans; see [Set a spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit).

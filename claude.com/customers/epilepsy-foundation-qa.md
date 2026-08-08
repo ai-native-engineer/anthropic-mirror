@@ -178,6 +178,22 @@ Turn limited resources into lasting impact. Generate grant proposals, track prog
 
 ## Related stories
 
+[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
+
+Mercy Corps on what AI makes possible in humanitarian work
+
+Customer story
+
+[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
+
+[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
+
+Mercy Corps accelerates global humanitarian response to community feedback with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/mercy-corps)Customer story
+
 [The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
 The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
@@ -193,19 +209,3 @@ Building dignity-driven AI: A conversation with the National Domestic Workers Al
 Customer story
 
 [Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story
-
-[National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude](https://claude.com/customers/national-domestic-workers-alliance)National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
-
-National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/national-domestic-workers-alliance)Customer story
-
-[RAINN brings crisis support to encrypted messaging platforms with Claude](https://claude.com/customers/rainn)RAINN brings crisis support to encrypted messaging platforms with Claude
-
-RAINN brings crisis support to encrypted messaging platforms with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rainn)Customer story

@@ -60,7 +60,7 @@ The advisor is a weaker fit for single-turn Q\&A (nothing to plan), pure pass-th
         {
           "type": "advisor_20260301",
           "name": "advisor",
-          "model": "claude-fable-5"
+          "model": "claude-opus-5"
         }
       ],
       "messages": [{
@@ -77,7 +77,7 @@ The advisor is a weaker fit for single-turn Q\&A (nothing to plan), pure pass-th
   tools:
     - type: advisor_20260301
       name: advisor
-      model: claude-fable-5
+      model: claude-opus-5
   messages:
     - role: user
       content: Build a concurrent worker pool in Go with graceful shutdown.
@@ -95,7 +95,7 @@ The advisor is a weaker fit for single-turn Q\&A (nothing to plan), pure pass-th
           {
               "type": "advisor_20260301",
               "name": "advisor",
-              "model": "claude-fable-5",
+              "model": "claude-opus-5",
           }
       ],
       messages=[
@@ -120,7 +120,7 @@ The advisor is a weaker fit for single-turn Q\&A (nothing to plan), pure pass-th
       {
         type: "advisor_20260301",
         name: "advisor",
-        model: "claude-fable-5"
+        model: "claude-opus-5"
       }
     ],
     messages: [
@@ -148,7 +148,7 @@ The advisor is a weaker fit for single-turn Q\&A (nothing to plan), pure pass-th
       {
           new BetaAdvisorTool20260301
           {
-              Model = Messages::Model.ClaudeFable5
+              Model = Messages::Model.ClaudeOpus5
           }
       },
       Messages =
@@ -174,7 +174,7 @@ The advisor is a weaker fit for single-turn Q\&A (nothing to plan), pure pass-th
   	MaxTokens: 4096,
   	Tools: []anthropic.BetaToolUnionParam{
   		{OfAdvisorTool20260301: &anthropic.BetaAdvisorTool20260301Param{
-  			Model: anthropic.ModelClaudeFable5,
+  			Model: anthropic.ModelClaudeOpus5,
   		}},
   	},
   	Messages: []anthropic.BetaMessageParam{
@@ -203,7 +203,7 @@ The advisor is a weaker fit for single-turn Q\&A (nothing to plan), pure pass-th
           .model(Model.CLAUDE_SONNET_5)
           .maxTokens(4096L)
           .addTool(BetaAdvisorTool20260301.builder()
-              .model(Model.CLAUDE_FABLE_5)
+              .model(Model.CLAUDE_OPUS_5)
               .build())
           .addUserMessage("Build a concurrent worker pool in Go with graceful shutdown.")
           .addBeta("advisor-tool-2026-03-01")
@@ -230,7 +230,7 @@ The advisor is a weaker fit for single-turn Q\&A (nothing to plan), pure pass-th
           [
               'type' => 'advisor_20260301',
               'name' => 'advisor',
-              'model' => 'claude-fable-5',
+              'model' => 'claude-opus-5',
           ],
       ],
       betas: ['advisor-tool-2026-03-01'],
@@ -249,7 +249,7 @@ The advisor is a weaker fit for single-turn Q\&A (nothing to plan), pure pass-th
       {
         type: "advisor_20260301",
         name: "advisor",
-        model: "claude-fable-5"
+        model: "claude-opus-5"
       }
     ],
     messages: [
@@ -286,7 +286,7 @@ The advisor itself runs without tools and without context management. Its thinki
 | ------------ | -------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `type`       | string         | *required*                 | Must be `"advisor_20260301"`.                                                                                                                                                                                                                                                                                                                                                  |
 | `name`       | string         | *required*                 | Must be `"advisor"`.                                                                                                                                                                                                                                                                                                                                                           |
-| `model`      | string         | *required*                 | The advisor model ID, such as claude-fable-5. Billed at this model's rates for the sub-inference.                                                                                                                                                                                                                                                                              |
+| `model`      | string         | *required*                 | The advisor model ID, such as claude-opus-5. Billed at this model's rates for the sub-inference.                                                                                                                                                                                                                                                                               |
 | `max_uses`   | integer        | unlimited                  | Maximum number of advisor calls allowed in a single request. Once the executor reaches this cap, further advisor calls return an `advisor_tool_result_error` with `error_code: "max_uses_exceeded"` and the executor continues without further advice. This is a per-request cap, not a per-conversation cap. See [Cost control](#cost-control) for conversation-level limits. |
 | `max_tokens` | integer        | advisor model's output cap | Caps the advisor's total output (thinking plus text) per call. Minimum 1024. See [Capping advisor output](#capping-advisor-output).                                                                                                                                                                                                                                            |
 | `caching`    | object \| null | `null` (off)               | Enables [prompt caching](/docs/en/build-with-claude/prompt-caching) for the advisor's own transcript across calls within a conversation. See [Advisor prompt caching](#advisor-prompt-caching).                                                                                                                                                                                |
@@ -299,7 +299,7 @@ The advisor tool also accepts the generic properties available on any tool defin
 
 ### Successful advisor call
 
-When the advisor is called, a `server_tool_use` block is followed by an `advisor_tool_result` block in the assistant's content. The following example shows the plaintext `advisor_result` variant returned by a Claude Opus 4.8 advisor. The [Quick start](#quick-start) uses Claude Fable 5, which returns the encrypted `advisor_redacted_result` variant instead; see [Result variants](#result-variants).
+When the advisor is called, a `server_tool_use` block is followed by an `advisor_tool_result` block in the assistant's content. The following example shows the plaintext `advisor_result` variant returned by a Claude Opus 4.8 advisor. The [Quick start](#quick-start) uses Claude Opus 5, which returns the encrypted `advisor_redacted_result` variant instead; see [Result variants](#result-variants).
 
 ```json
 {
@@ -374,6 +374,7 @@ The executor sees the error and continues without further advice. The request it
 | `overloaded`              | The advisor sub-inference hit capacity limits.                                                                                  |
 | `prompt_too_long`         | The transcript exceeded the advisor model's context window.                                                                     |
 | `execution_time_exceeded` | The advisor sub-inference timed out.                                                                                            |
+| `model_not_found`         | The configured advisor model is not available.                                                                                  |
 | `unavailable`             | Any other advisor failure.                                                                                                      |
 
 Advisor rate limits draw from the same per-model bucket as direct calls to the advisor model. A rate limit on the advisor appears as `too_many_requests` inside the tool result. A rate limit on the executor fails the whole request with HTTP 429.
@@ -382,7 +383,7 @@ Advisor rate limits draw from the same per-model bucket as direct calls to the a
 
 Pass the full assistant content, including `advisor_tool_result` blocks, back to the API on subsequent turns. This example uses `claude-opus-4-8` as the advisor so the plaintext advice is visible in `response.content`; the mechanics are identical for any advisor model.
 
-<CodeGroup exclude="shell, go">
+<CodeGroup exclude="shell">
   ```python Python
   client = anthropic.Anthropic()
 
@@ -508,6 +509,63 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
       Messages = messages,
       Betas = ["advisor-tool-2026-03-01"]
   });
+  ```
+
+  ```go Go
+  client := anthropic.NewClient()
+
+  tools := []anthropic.BetaToolUnionParam{
+  	{OfAdvisorTool20260301: &anthropic.BetaAdvisorTool20260301Param{
+  		Model: anthropic.ModelClaudeOpus4_8,
+  	}},
+  }
+
+  messages := []anthropic.BetaMessageParam{
+  	anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Build a concurrent worker pool in Go with graceful shutdown.")),
+  }
+
+  response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
+  	Model:     anthropic.ModelClaudeSonnet5,
+  	MaxTokens: 1024,
+  	Tools:     tools,
+  	Messages:  messages,
+  	Betas: []anthropic.AnthropicBeta{
+  		anthropic.AnthropicBetaAdvisorTool2026_03_01,
+  	},
+  })
+  if err != nil {
+  	log.Fatal(err)
+  }
+
+  // Append the full response content, including any advisor_tool_result blocks.
+  // BetaMessage.ToParam drops advisor result content as of anthropic-sdk-go
+  // v1.61.0, so re-parse each response block's raw JSON into a param block instead.
+  assistantContent := make([]anthropic.BetaContentBlockParamUnion, len(response.Content))
+  for i, block := range response.Content {
+  	if err := json.Unmarshal([]byte(block.RawJSON()), &assistantContent[i]); err != nil {
+  		log.Fatal(err)
+  	}
+  }
+  messages = append(messages, anthropic.BetaMessageParam{
+  	Role:    anthropic.BetaMessageParamRoleAssistant,
+  	Content: assistantContent,
+  })
+
+  // Continue the conversation
+  messages = append(messages, anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Now add a max-in-flight limit of 10.")))
+
+  response, err = client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
+  	Model:     anthropic.ModelClaudeSonnet5,
+  	MaxTokens: 1024,
+  	Tools:     tools,
+  	Messages:  messages,
+  	Betas: []anthropic.AnthropicBeta{
+  		anthropic.AnthropicBetaAdvisorTool2026_03_01,
+  	},
+  })
+  if err != nil {
+  	log.Fatal(err)
+  }
   ```
 
   ```java Java
@@ -646,15 +704,15 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
   ```
 </CodeGroup>
 
-If you omit the advisor tool from `tools` on a follow-up turn while the message history still contains `advisor_tool_result` blocks, the API returns a `400 invalid_request_error`.
+You can drop the advisor tool from `tools` on a follow-up turn while the message history still contains `advisor_tool_result` blocks. The request is accepted and the historical blocks are preserved; the model cannot call the advisor on that turn. You must still send the `advisor-tool-2026-03-01` beta header for those history blocks to be accepted.
 
 <Note>
-  The advisor tool has no built-in conversation-level cap. To limit advisor calls across a conversation, count them client-side. When you reach your ceiling, remove the advisor tool from your `tools` array **and** strip all `advisor_tool_result` blocks from your message history to avoid a `400 invalid_request_error`.
+  The advisor tool has no built-in conversation-level cap. To limit advisor calls across a conversation, count them client-side. When you reach your ceiling, remove the advisor tool from your `tools` array. You do not need to strip `advisor_tool_result` blocks from your message history.
 </Note>
 
 ### Resuming a paused turn
 
-A response can end with `stop_reason: "pause_turn"` while an advisor call is still pending. When that occurs, the response contains the advisor's `server_tool_use` block with no `advisor_tool_result` for it. To resume, append that assistant message to `messages` with its content unchanged, keeping the `server_tool_use` block, and send the request again with the same advisor tool and beta header. You do not need to add a user message or a `tool_result` block. The API runs the pending advisor call and continues the executor's turn in the new response. A resumed turn can pause again. If it does, repeat the same step. Omitting the advisor tool from the resume request returns a `400 invalid_request_error`. If instead the executor called one of your tools in the same turn, the response ends with `stop_reason: "tool_use"` while the advisor call is still pending. Send the `tool_result` blocks as usual, and the pending advisor call runs at the start of that next request. See [Mixing server tools and client tools in one turn](/docs/en/agents-and-tools/tool-use/server-tools#mixing-server-tools-and-client-tools-in-one-turn).
+A response can end with `stop_reason: "pause_turn"` while an advisor call is still pending. When that occurs, the response contains the advisor's `server_tool_use` block with no `advisor_tool_result` for it. To resume, append that assistant message to `messages` with its content unchanged, keeping the `server_tool_use` block, and send the request again with the same advisor tool and beta header. You do not need to add a user message or a `tool_result` block. The API runs the pending advisor call and continues the executor's turn in the new response. A resumed turn can pause again. If it does, repeat the same step. Omitting the advisor tool from the resume request returns a 400 `invalid_request_error`, because the pending `server_tool_use` block has no tool definition to run against; include the tool whenever a call is pending. If instead the executor called one of your tools in the same turn, the response ends with `stop_reason: "tool_use"` while the advisor call is still pending. Send the `tool_result` blocks as usual, and the pending advisor call runs at the start of that next request. See [Mixing server tools and client tools in one turn](/docs/en/agents-and-tools/tool-use/server-tools#mixing-server-tools-and-client-tools-in-one-turn).
 
 ### Mid-conversation nudge for under-calling executors
 
@@ -662,7 +720,7 @@ If a Haiku executor has not called the advisor in its first assistant turn, appe
 
 With the default `NUDGE_TURN` of 2, the reminder typically arrives after the model has oriented on the task but before it has committed to an approach.
 
-<CodeGroup exclude="shell, go">
+<CodeGroup exclude="shell">
   ```python Python
   client = anthropic.Anthropic()
 
@@ -687,7 +745,7 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
       ]
 
   tools = [
-      {"type": "advisor_20260301", "name": "advisor", "model": "claude-fable-5"},
+      {"type": "advisor_20260301", "name": "advisor", "model": "claude-opus-5"},
       # ... your other tools
   ]
   task = "Build a concurrent worker pool in Go with graceful shutdown."
@@ -744,7 +802,7 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
   }
 
   const tools: Anthropic.Beta.Messages.BetaToolUnion[] = [
-    { type: "advisor_20260301", name: "advisor", model: "claude-fable-5" }
+    { type: "advisor_20260301", name: "advisor", model: "claude-opus-5" }
     // ... your other tools
   ];
   const task = "Build a concurrent worker pool in Go with graceful shutdown.";
@@ -816,7 +874,7 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
 
   var tools = new BetaToolUnion[]
   {
-      new BetaAdvisorTool20260301 { Model = Messages::Model.ClaudeFable5 }
+      new BetaAdvisorTool20260301 { Model = Messages::Model.ClaudeOpus5 }
       // ... your other tools
   };
   var task = "Build a concurrent worker pool in Go with graceful shutdown.";
@@ -866,6 +924,96 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
   }
   ```
 
+  ```go Go
+  const (
+  	nudgeTurn = 2 // inject before this assistant turn if no advisor call yet
+  	nudgeText = "You have not consulted the advisor yet. If the task has a non-obvious " +
+  		"design decision or a failure mode you haven't ruled out, call advisor " +
+  		"now before committing to an approach."
+  	maxTurns = 10 // agent loop cap
+  )
+
+  // Replace with your tool dispatch. Returns one tool_result block per tool_use block.
+  func runYourTools(content []anthropic.BetaContentBlockUnion) []anthropic.BetaContentBlockParamUnion {
+  	var results []anthropic.BetaContentBlockParamUnion
+  	for _, block := range content {
+  		if block.Type == "tool_use" {
+  			results = append(results, anthropic.NewBetaToolResultBlock(block.ID, "Replace with your tool output.", false))
+  		}
+  	}
+  	return results
+  }
+
+  func main() {
+  	client := anthropic.NewClient()
+
+  	tools := []anthropic.BetaToolUnionParam{
+  		{OfAdvisorTool20260301: &anthropic.BetaAdvisorTool20260301Param{
+  			Model: anthropic.ModelClaudeOpus5,
+  		}},
+  		// ... your other tools
+  	}
+  	task := "Build a concurrent worker pool in Go with graceful shutdown."
+  	messages := []anthropic.BetaMessageParam{
+  		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock(task)),
+  	}
+  	advisorCalled := false
+
+  	for turn := 1; turn <= maxTurns; turn++ {
+  		response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
+  			Model:     anthropic.ModelClaudeHaiku4_5,
+  			MaxTokens: 4096,
+  			Tools:     tools,
+  			Messages:  messages,
+  			Betas: []anthropic.AnthropicBeta{
+  				anthropic.AnthropicBetaAdvisorTool2026_03_01,
+  			},
+  		})
+  		if err != nil {
+  			log.Fatal(err)
+  		}
+
+  		// Append the full response content, including any advisor_tool_result blocks.
+  		// BetaMessage.ToParam drops advisor result content as of anthropic-sdk-go
+  		// v1.61.0, so re-parse each response block's raw JSON into a param block instead.
+  		assistantContent := make([]anthropic.BetaContentBlockParamUnion, len(response.Content))
+  		for i, block := range response.Content {
+  			if err := json.Unmarshal([]byte(block.RawJSON()), &assistantContent[i]); err != nil {
+  				log.Fatal(err)
+  			}
+  		}
+  		messages = append(messages, anthropic.BetaMessageParam{
+  			Role:    anthropic.BetaMessageParamRoleAssistant,
+  			Content: assistantContent,
+  		})
+
+  		for _, block := range response.Content {
+  			if block.Type == "server_tool_use" && block.Name == "advisor" {
+  				advisorCalled = true
+  			}
+  		}
+  		if response.StopReason == anthropic.BetaStopReasonEndTurn {
+  			break
+  		}
+  		if response.StopReason == anthropic.BetaStopReasonPauseTurn {
+  			continue // server tool pending; re-send to let the API complete it
+  		}
+
+  		results := runYourTools(response.Content) // list of tool_result blocks
+  		if len(results) > 0 {
+  			messages = append(messages, anthropic.BetaMessageParam{
+  				Role:    anthropic.BetaMessageParamRoleUser,
+  				Content: results,
+  			})
+  		}
+  		// Skip this if your system prompt already tells the model to call sparingly.
+  		if turn == nudgeTurn-1 && !advisorCalled {
+  			messages = append(messages, anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock(nudgeText)))
+  		}
+  	}
+  }
+  ```
+
   ```java Java
   import com.anthropic.models.beta.messages.BetaAdvisorTool20260301;
   import com.anthropic.models.beta.messages.BetaContentBlock;
@@ -906,7 +1054,7 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
 
       List<BetaToolUnion> tools = List.of(
           BetaToolUnion.ofAdvisorTool20260301(
-              BetaAdvisorTool20260301.builder().model(Model.CLAUDE_FABLE_5).build())
+              BetaAdvisorTool20260301.builder().model(Model.CLAUDE_OPUS_5).build())
           // ... your other tools
       );
       String task = "Build a concurrent worker pool in Go with graceful shutdown.";
@@ -986,7 +1134,7 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
   }
 
   $tools = [
-      ['type' => 'advisor_20260301', 'name' => 'advisor', 'model' => 'claude-fable-5'],
+      ['type' => 'advisor_20260301', 'name' => 'advisor', 'model' => 'claude-opus-5'],
       // ... your other tools
   ];
   $task = 'Build a concurrent worker pool in Go with graceful shutdown.';
@@ -1044,7 +1192,7 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
   end
 
   tools = [
-    { type: "advisor_20260301", name: "advisor", model: "claude-fable-5" }
+    { type: "advisor_20260301", name: "advisor", model: "claude-opus-5" }
     # ... your other tools
   ]
   task = "Build a concurrent worker pool in Go with graceful shutdown."
@@ -1084,7 +1232,7 @@ To force a consult on a specific request instead of nudging, set `tool_choice` t
 
 ## Streaming
 
-The advisor sub-inference does not stream. The executor's stream pauses while the advisor runs, then the full result arrives in a single event.
+The advisor sub-inference does not stream. The executor's stream pauses while the advisor runs; then the full result arrives in a single event.
 
 The `server_tool_use` block with `name: "advisor"` signals that an advisor call is starting. The pause begins when that block closes (`content_block_stop`). During the pause, the stream is quiet except for standard SSE `ping` keepalives emitted roughly every 30 seconds. Short advisor calls might show no pings.
 
@@ -1099,8 +1247,8 @@ Advisor calls run as a separate sub-inference billed at the advisor model's rate
 ```json
 {
   "usage": {
-    "input_tokens": 412,
-    "cache_read_input_tokens": 0,
+    "input_tokens": 1760,
+    "cache_read_input_tokens": 412,
     "cache_creation_input_tokens": 0,
     "output_tokens": 531,
     "iterations": [
@@ -1113,7 +1261,7 @@ Advisor calls run as a separate sub-inference billed at the advisor model's rate
       },
       {
         "type": "advisor_message",
-        "model": "claude-fable-5",
+        "model": "claude-opus-5",
         "input_tokens": 823,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0,
@@ -1133,7 +1281,7 @@ Advisor calls run as a separate sub-inference billed at the advisor model's rate
 
 Top-level `usage` fields reflect executor tokens only. Advisor tokens are not rolled into the top-level totals because they are billed at a different rate. Iterations with `type: "advisor_message"` are billed at the advisor model's rates, and iterations with `type: "message"` are billed at the executor model's rates.
 
-The aggregation rules differ by field. Top-level `output_tokens` is the sum of all executor iterations. Top-level `input_tokens` and `cache_read_input_tokens` reflect the first executor iteration only. Subsequent executor iterations' inputs are not re-summed because they include prior output tokens. Use `usage.iterations` for a full per-iteration breakdown when building cost-tracking logic.
+Every top-level `usage` field is the sum of that field across all executor iterations, including `input_tokens`, `output_tokens`, and `cache_read_input_tokens`. Because each executor iteration re-sends the growing conversation, later iterations' inputs include earlier iterations' output, so summed `input_tokens` exceeds the size of any single prompt. Use `usage.iterations` for a full per-iteration breakdown when building cost-tracking logic.
 
 Advisor output is typically 400 to 700 text tokens, or 1,400 to 1,800 tokens total including thinking. The cost savings come from the advisor not generating your full final output. The executor does that at its lower rate.
 
@@ -1158,7 +1306,7 @@ tools = [
     {
         "type": "advisor_20260301",
         "name": "advisor",
-        "model": "claude-fable-5",
+        "model": "claude-opus-5",
         "caching": {"type": "ephemeral", "ttl": "5m"},
     }
 ]
@@ -1188,7 +1336,7 @@ tools = [
     {
         "type": "advisor_20260301",
         "name": "advisor",
-        "model": "claude-fable-5",
+        "model": "claude-opus-5",
     },
     {
         "name": "run_bash",
@@ -1362,7 +1510,7 @@ For coding tasks, pairing a Sonnet executor at medium [effort](/docs/en/build-wi
 
 ### Cost control
 
-* For conversation-level budgets, count advisor calls client-side. When you reach your cap, remove the advisor tool from `tools` **and** strip all `advisor_tool_result` blocks from your message history to avoid a `400 invalid_request_error` (see the note in [Multi-turn conversations](#multi-turn-conversations)).
+* For conversation-level budgets, count advisor calls client-side. When you reach your cap, remove the advisor tool from `tools`; you do not need to strip `advisor_tool_result` blocks from your message history (see the note in [Multi-turn conversations](#multi-turn-conversations)).
 * Enable `caching` only for conversations where you expect three or more advisor calls.
 
 ## Model compatibility
@@ -1378,14 +1526,18 @@ The executor model (the top-level `model` field) and the advisor model (the `mod
 | Claude Opus 4.7 (claude-opus-4-7)     | Claude Mythos 5 (claude-mythos-5) Claude Fable 5 (claude-fable-5) Claude Opus 5 (claude-opus-5) Claude Opus 4.8 (claude-opus-4-8) Claude Opus 4.7 (claude-opus-4-7)                                                                                                           |
 | Claude Opus 4.8 (claude-opus-4-8)     | Claude Mythos 5 (claude-mythos-5) Claude Fable 5 (claude-fable-5) Claude Opus 5 (claude-opus-5) Claude Opus 4.8 (claude-opus-4-8) Claude Opus 4.7 (claude-opus-4-7)                                                                                                           |
 | Claude Opus 5 (claude-opus-5)         | Claude Mythos 5 (claude-mythos-5) Claude Fable 5 (claude-fable-5) Claude Opus 5 (claude-opus-5)                                                                                                                                                                               |
-| Claude Fable 5 (claude-fable-5)       | Claude Fable 5 (claude-fable-5) Claude Opus 5 (claude-opus-5)                                                                                                                                                                                                                 |
-| Claude Mythos 5 (claude-mythos-5)     | Claude Mythos 5 (claude-mythos-5) Claude Opus 5 (claude-opus-5)                                                                                                                                                                                                               |
+| Claude Fable 5 (claude-fable-5)       | Claude Mythos 5 (claude-mythos-5) Claude Fable 5 (claude-fable-5) Claude Opus 5 (claude-opus-5)                                                                                                                                                                               |
+| Claude Mythos 5 (claude-mythos-5)     | Claude Mythos 5 (claude-mythos-5) Claude Fable 5 (claude-fable-5) Claude Opus 5 (claude-opus-5)                                                                                                                                                                               |
 
 If you request an invalid pair, the API returns a `400 invalid_request_error` naming the unsupported combination.
 
 ### Platform availability
 
 The advisor tool is available in beta on the Claude API and on [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws). It is not currently available on Amazon Bedrock, Google Cloud, or Microsoft Foundry.
+
+## Advisor on Claude Managed Agents
+
+[Claude Managed Agents](/docs/en/managed-agents/overview) sessions support an advisor as well, configured as part of the agent rather than as a tool definition: add a `{"type": "advisor", "model": ...}` entry to the agent's multiagent roster, and the session's primary thread can consult that model mid-turn. The roster entry takes no `max_uses`, `max_tokens`, or `caching` options, and advice is delivered as thread events on the session's event stream rather than as `advisor_tool_result` blocks in the response. See [Give the session an advisor](/docs/en/managed-agents/multiagent-orchestration#give-the-session-an-advisor).
 
 ## Next steps
 

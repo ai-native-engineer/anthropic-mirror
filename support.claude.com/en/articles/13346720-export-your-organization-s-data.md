@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13346720-export-your-organization-s-data -->
 
-# Export your organization's data
-
-Updated over 2 weeks ago
-
 Organization data exports are only available to Team and Enterprise plan Primary Owners. Data exports include conversation data and the user data for your account. Individual members of Team and Enterprise organizations do not have a self-serve export option.
 
 If you're an individual Claude user on a Free, Pro, or Max plan looking to export your data, see **[Export your Claude data](https://support.claude.com/en/articles/9450526)**.
@@ -31,4 +27,8 @@ Please note:
 
 If you're an Enterprise Primary Owner looking to export audit logs, see **[How to access audit logs](https://support.claude.com/en/articles/9970975-how-to-access-audit-logs)**.
 
-[Who owns and manages the data of my team?](https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)[Export your Claude data](https://support.claude.com/en/articles/9450526-export-your-claude-data)[Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)[HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)[Enable US-only inference for your organization](https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization)
+* [Who owns and manages the data of my team?](https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
+* [Export your Claude data](https://support.claude.com/en/articles/9450526-export-your-claude-data)
+* [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
+* [Set organization instructions](https://support.claude.com/en/articles/14546867-set-organization-instructions)
+* [Enable US-only inference for your organization](https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization)

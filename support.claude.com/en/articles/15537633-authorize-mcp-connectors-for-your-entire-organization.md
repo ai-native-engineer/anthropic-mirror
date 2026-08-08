@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization -->
 
-# Authorize MCP connectors for your entire organization
-
-June 18, 2026
-
 This article explains how Enterprise-managed auth works and how admins can authorize connectors for their organization through their identity provider. With Enterprise-managed auth, you authorize a connector once for your entire organization, and your team inherits access automatically on first login.
 
 This feature is available in beta for Team and Enterprise plans on Claude. If you are a Claude customer, **[apply for access to get started](https://claude.com/form/ema-waitlist)**. If you are an MCP provider, **[apply here](https://docs.google.com/forms/d/e/1FAIpQLSf1goHGNDVFK7rncYuh6wnRpWSy7eGOcgL1i8uw3oyKFO9UUA/viewform?usp=sharing&ouid=101055591948883487705)**. We’ll share documentation with customers and MCP providers on how to get started once you have access.

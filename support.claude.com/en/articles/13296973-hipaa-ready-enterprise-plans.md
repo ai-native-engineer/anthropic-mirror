@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans -->
 
-# HIPAA-ready Enterprise plans
-
-Updated over a week ago
-
 This feature is available for Enterprise plans only (both self-serve and sales-assisted).
 
 We offer a HIPAA-ready version of Claude that is available for organizations on Enterprise plans that choose to process protected health information (PHI) through Claude. This article explains what the offering includes, which features are available, and how to get started.
@@ -37,6 +33,8 @@ Additionally, Cowork is not yet covered under Anthropic’s BAA.
 For detailed implementation requirements and technical specifications, review the **[Implementation Guide for HIPAA Entities](https://trust.anthropic.com/resources?s=rgirr4qe8u7ek8c2igx3&name=claude-for-enterprise-hipaa-ready-offering-implementation-guide)** on the Anthropic Trust Center. You can download the Implementation Guide directly during the setup flow.
 
 **Note:** You'll need to request access to view the Implementation Guide. Requests from domains matching existing customer accounts are approved automatically.
+
+---
 
 ## Get started
 
@@ -75,6 +73,8 @@ Once enabled, you'll see a checkmark in the **HIPAA Compliance** section of orga
 The onboarding modal will guide you through next steps for your team.
 
 For help with the BAA, the Implementation Guide, or post-enablement questions, reach out to your Anthropic account team or **[our support team](https://support.claude.com/en/articles/9015913-how-to-get-support)**.
+
+---
 
 ## If you have an existing API BAA
 

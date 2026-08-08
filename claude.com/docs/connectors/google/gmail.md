@@ -14,7 +14,7 @@ Available on Pro, Max, Team, and Enterprise plans.
 
 ##  Connect Gmail
 
-1. In claude.ai, go to **Settings > Connectors**.
+1. In claude.ai, go to **Customize > Connectors**.
 2. Find Gmail and click **Connect**.
 3. Sign in to your Google account and grant the requested permissions.
 

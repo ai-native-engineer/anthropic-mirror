@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14729354-use-analytics-chat-to-ask-claude-about-usage -->
 
-# Use analytics chat to ask Claude about usage
-
-July 1, 2026
-
 Analytics chat lets you ask Claude questions about your organization’s usage in plain language. Instead of clicking through dashboard tabs or exporting data, type a question. Claude runs the right query against your organization’s data and responds with a chart and a short summary of what it found.
 
 Analytics chat is available on the Enterprise plan. Access requires the same permissions as the rest of the analytics dashboard.
@@ -16,6 +12,8 @@ If you can already see the **All activity** view under Analytics, you have acces
 2. In the left sidebar, select “Analytics.”
 3. Click the “Analytics Chat” tab.
 
+---
+
 ## How it works
 
 Type a question, or select one of the suggested prompts below the input box. Claude matches your question to the closest supported query, runs it against your organization’s pre-aggregated usage data, and returns:
@@ -24,6 +22,8 @@ Type a question, or select one of the suggested prompts below the input box. Cla
 * A brief written summary calling out the key trend or numbers.
 
 You can follow up in the same conversation. Claude keeps context, so you can refine a result ("what about just last week?"), drill in ("break that down by product"), or pivot to a related metric without starting over.
+
+---
 
 ## What you can ask
 
@@ -71,6 +71,8 @@ Analytics chat answers questions across these areas.
 
 By default, results cover the **last 30 days**, but you can specify a different range in your question. For example: "show me daily spend since January 1."
 
+---
+
 ## Review the results
 
 ### The chart is the answer
@@ -85,20 +87,28 @@ Analytics chat reads from tables that are typically updated within one to two da
 
 Queries that list individual users (top spenders, inactive seats, least active users) return up to 20 users at a time.
 
+---
+
 ## Export and share results
 
 When Claude returns a chart, hover over it and click to download it. You can share the exported file with stakeholders who don't have access to the analytics dashboard.
+
+---
 
 ## Limitations
 
 * **Analytics questions only.** Analytics chat is scoped to your organization’s usage data. If you ask an unrelated question, Claude will suggest starting a regular conversation instead. Web search, file uploads, and connectors aren't available here.
 * **Your organization only.** Results are always scoped to the organization you’re signed into. Cross-organization comparisons aren’t available.
 
+---
+
 ## Tips
 
 * **Start with a suggested prompt.** The chips below the input show common starting points. Selecting one is the fastest way to see what's available, and you can refine from there.
 * **Ask follow-ups instead of starting over.** After any chart, "now compare that to last month" or "show me just Claude Code" will refine the result in place.
 * **Be specific about dates.** "Last 30 days" is the default; say "for March" or "year to date" to change the window.
+
+---
 
 ## Troubleshooting
 
@@ -114,8 +124,8 @@ Check the date shown on the result. The underlying data typically lags by one to
 
 Confirm your organization is on the Enterprise plan and that your account has access to the analytics dashboard. If you’re an admin and still don’t see it, contact your Anthropic account team.
 
+* [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
 * [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
 * [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
-* [Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

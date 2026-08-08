@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/15707726-using-claude-for-legal-work-privilege-confidentiality-and-how-to-think-about-configuration -->
 
-# Using Claude for Legal Work: Privilege, Confidentiality, and How to Think About Configuration
-
-June 30, 2026
-
 Lawyers and legal teams increasingly want to use Claude for research, drafting, contract review, and litigation prep. One of the most common questions we hear is some version of: *can I do that without putting privilege or client confidentiality at risk?* We think the answer is yes, with the right configuration and the right practices—and we want to be transparent about both how Claude is built and where the law currently stands.
 
 This is Anthropic's perspective on our own products and the public record; it isn't legal advice, and the right answer for your practice depends on your jurisdiction, your clients, and your matters.
@@ -48,10 +44,12 @@ On the second—what survives even when a vendor sees something—two doctrines 
 
 We believe Claude's commercial offerings can be configured by lawyers in a way that maintains privilege and confidentiality, and that the legal profession's experience with email and cloud—initial caution, then a reasonable-care standard, then mainstream adoption—is the likely arc here too. We also think it matters that it goes that way: technology competence is now part of the duty of competence. Rules that scare lawyers away from capable tools don't protect clients and they make representation slower and more expensive in a system where most people already can't afford a lawyer. We'll keep publishing how our systems work, keep our commercial terms aligned with what professional responsibility guidance requires, and keep engaging in the public conversation as the law develops.
 
+---
+
 *This document describes Anthropic's products and Anthropic's perspective on publicly available legal authorities as of June 2026. It is not legal advice. Whether any particular configuration meets your confidentiality, privilege, or regulatory obligations is a question for your own counsel.*
 
-* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+* [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
-* [Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)
-* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)
+* [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
+* [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)
+* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)

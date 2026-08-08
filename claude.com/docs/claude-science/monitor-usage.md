@@ -13,7 +13,7 @@ Claude Science usage counts against each member’s standard weekly quota and us
 ##  Analytics in Organization settings
 
 Go to Organization settings > Analytics > All Activity and select Claude Science in the product filter to see active members, sessions, and spend for this product.
-The Monitor usage link on the Claude Science row in Organization settings > Capabilities links to Analytics.
+The Monitor usage link in Organization settings > Claude Science opens Analytics.
 
 ##  Admin API
 

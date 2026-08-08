@@ -32,21 +32,21 @@ You can manually add any third-party connector to Claude as long as you have the
 
 **Owners must:**
 
-1. Navigate to **Admin settings > Connectors**
-2. Click “Add custom connector”
+1. Navigate to **Organization settings > Connectors**
+2. Select **Add**, then **Custom**. If Claude asks for the connector type, choose **Web**.
 3. Enter the remote MCP server URL
 4. Optionally configure OAuth Client ID/Secret in Advanced settings
 5. Click “Add”
 
 **Members then:**
 
-1. Go to **Settings > Connectors**
+1. Go to **Customize > Connectors**
 2. Find the connector with “Custom” label
 3. Click “Connect” to authenticate
 
 ###  For Free, Pro, and Max plans
 
-1. Navigate to **Settings > Connectors**
+1. Navigate to **Customize > Connectors**
 2. Click “Add custom connector”
 3. Enter the remote MCP server URL
 4. Optionally configure OAuth credentials
@@ -88,7 +88,7 @@ Most servers that use bearer tokens reject the second form. If your server’s d
 
 To remove or edit connectors:
 
-1. Go to **Settings > Connectors**
+1. Go to **Customize > Connectors**
 2. Click “Remove” or select the three-dot menu
 3. Follow prompts to edit or remove
 
@@ -113,8 +113,9 @@ Remote MCP servers enable Claude to invoke tools that can:
 
 * Monitor Claude’s actions for unintended effects
 * Review tool approval requests carefully
-* Only click “Allow always” for trusted servers
-* Disable irrelevant tools via the “Search and tools” menu
+* Only click “Always allow” for trusted servers
+* Turn off connectors you aren’t using with the toggles in the chat ”+” menu’s **Connectors** item
+* Block individual tools you don’t need under **Customize > Connectors** by selecting the connector and setting the tool’s permission to **Blocked**
 
 ##  Reporting issues
 

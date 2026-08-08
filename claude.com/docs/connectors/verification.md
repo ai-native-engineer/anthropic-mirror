@@ -17,7 +17,7 @@ Anthropic has reviewed this connector for quality and security. Verified connect
 ##  Community
 
 A third-party developer built this connector. It passed Anthropic’s automated checks, but Anthropic has not reviewed it in depth.
-Community connectors show a “Community” label in the directory and in [Settings > Connectors](https://claude.ai/settings/connectors). Before you connect one, Claude shows a reminder that it has not been reviewed in depth.
+Community connectors show a “Community” label in the directory and in [Customize > Connectors](https://claude.ai/customize/connectors). Before you connect one, Claude shows a reminder that it has not been reviewed in depth.
 The label is a quality signal. It affects how the connector is displayed and discovered in the directory, not how the connector itself functions: once connected, a community connector works the same way as a verified one.
 
 ##  Custom

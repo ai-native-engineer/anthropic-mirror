@@ -1,12 +1,10 @@
 <!-- source: https://support.claude.com/en/articles/14730684-how-claude-suggests-connected-apps -->
 
-# How Claude suggests connected apps
-
-April 23, 2026
-
 When you connect an app like Spotify or Instacart to Claude, you don’t have to ask for it by name every time. Claude can bring up a connected app on its own when it fits what you’re doing. This article covers when that happens, how Claude picks between apps, and how you stay in control.
 
 Connected apps are available on Claude, Claude Desktop, and Claude for iOS/Android. Installing an app on mobile is currently in beta.
+
+---
 
 ## When Claude suggests an app
 
@@ -32,6 +30,8 @@ Claude doesn’t take payment to recommend any connected app. There are no spons
 
 When more than one app could help, the order you see them in reflects what’s likely useful to you, not partnership arrangements.
 
+---
+
 ## Turn off suggestions or disconnect an app
 
 You control which of your connected apps Claude can bring into a conversation.
@@ -42,4 +42,8 @@ You control which of your connected apps Claude can bring into a conversation.
 
 For more on managing connected apps, see **[Use connectors to extend Claude’s capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)**.
 
-[Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)[Get started with Claude in Slack](https://support.claude.com/en/articles/11506255-get-started-with-claude-in-slack)[Use Claude in Slack](https://support.claude.com/en/articles/12461605-use-claude-in-slack)[Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)[Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+* [Use Claude with Android apps](https://support.claude.com/en/articles/11869629-use-claude-with-android-apps)
+* [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
+* [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
+* [Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)

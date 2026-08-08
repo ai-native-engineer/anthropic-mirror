@@ -76,19 +76,19 @@ Brewing…
 
 Connect development workflows to Chrome for a partner that tests and iterates with you.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/694320254c2733b2fc057890_f897789b6a1506818f1885082c9dd49b_chrome-cal.avif)
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/694320254c2733b2fc057890_6dcdae28d911568c68fba4b6c531892a_chrome-cal.jpg)
 
 ### Uses your everyday tools
 
 Bring Claude into your workflow to make apps work better, without leaving the browser.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69432026dfae957748f945d8_826ba9b2c3fe4ee30de2f858aa593f57_chrome-zillow.webp)
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69432026dfae957748f945d8_d5b869c0c0b8c76a4896b2a43fdb1e6c_chrome-zillow.jpg)
 
 ### Runs tasks in the background
 
 Start a workflow and move on. Claude completes tasks while you focus elsewhere.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/694320258ff6344a1f4fa014_2ab3b41e9bf4e2f060dce800b315f6da_chrome-gmail.avif)
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/694320258ff6344a1f4fa014_af6a7951e6cf4c11df8540f661c362b4_chrome-gmail.jpg)
 
 ### Completes scheduled workflows
 

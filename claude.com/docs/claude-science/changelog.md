@@ -8,6 +8,18 @@
 
 [Skip to main content](#content-area)
 
+0.1.27
+
+August 7, 2026
+
+* On macOS, installs that showed an environment setup error in their first session now repair themselves automatically after updating; the Featured connectors become available once the repair finishes, which can take a few minutes
+* Star a session from its menu to keep it in a Starred section at the top of your project’s session list
+* Get notified when any of your sessions finishes or needs your input, even while you work in another project. In-app notifications are on by default; sound and desktop notifications are under Settings > General > Notifications
+* Set reasoning effort for a single session from the session options next to the message box; the value in Settings stays the default for new sessions
+* On Pro and Max plans, see your credit balance and monthly spend limit and turn usage credits on or off under Settings > Usage
+* When you ask for a plan, Claude now waits for your approval before running code or marking steps done
+* Lots of other miscellaneous improvements and fixes
+
 0.1.21
 
 July 21, 2026

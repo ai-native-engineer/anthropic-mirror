@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14503675-organization-instructions-in-claude-for-government -->
 
-# Organization instructions in Claude for Government
-
-April 30, 2026
-
 Organization instructions allow administrators to define custom instructions that Claude follows in every conversation for all users in the organization. Use this to set compliance guidance, communication standards, formatting requirements, or domain-specific context.
 
 ## How organization and user instructions interact
@@ -34,6 +30,8 @@ To configure organization instructions, you must have an Owner or Admin role for
 
 To remove instructions entirely, clear the text area and click "Save."
 
+---
+
 ## Best practices
 
 **Keep instructions concise and clear.** Organization instructions are included in every message sent by every user in your organization, so shorter instructions help keep conversations efficient. Aim for direct, specific guidance rather than lengthy explanations.
@@ -50,6 +48,8 @@ To remove instructions entirely, clear the text area and click "Save."
 
 **Review and update regularly.** As your organization's needs change, revisit your instructions to ensure they remain relevant and accurate. Removing outdated instructions keeps Claude's responses focused.
 
+---
+
 ## Example instructions
 
 **Compliance and classification guidance** — "Treat all responses as CUI. Do not include controlled unclassified information in web search queries or file names."
@@ -60,10 +60,10 @@ To remove instructions entirely, clear the text area and click "Save."
 
 **Response formatting** — "Prefer concise responses under 300 words. Use bullet points for lists with three or more items."
 
-**Referral guidance** — "When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#4c243e0c29342d213c2029622f2321) rather than providing specific policy advice."
+**Referral guidance** — "When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#c7afb587a2bfa6aab7aba2e9a4a8aa) rather than providing specific policy advice."
 
 * [Understanding Claude's personalization features](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features)
-* [Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)
 * [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [Classification banner in Claude for Government](https://support.claude.com/en/articles/14503804-classification-banner-in-claude-for-government)
 * [Set organization instructions](https://support.claude.com/en/articles/14546867-set-organization-instructions)
+* [Get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)

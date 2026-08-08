@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9266767-what-is-the-team-plan -->
 
-# What is the Team plan?
-
-Updated over 2 weeks ago
-
 The Team plan is a paid plan for our Claude chat experience built for ambitious teams. It is currently available in certain **[supported locations](https://support.claude.com/en/articles/8461763-where-can-i-access-claude)**.
 
 ## What’s included in the Team plan?
@@ -37,6 +33,8 @@ Users with Standard seats on the Team plan can access the following:
   + 200k context window. Room to process long documents, discuss complex topics, and maintain multi-step conversations.
   + Priority access during high-traffic periods, early access to new features, more usage, and more.
 
+---
+
 ## Premium seats for Team plans
 
 In addition to all features of Standard seats listed above, Premium seats offer significantly more usage than Standard seats. This makes Premium seats ideal for power users who need extended capacity for demanding workloads.
@@ -44,6 +42,8 @@ In addition to all features of Standard seats listed above, Premium seats offer 
 Organizations can mix and match seat types, assigning Premium seats to power users who need more usage while keeping other team members on Standard seats.
 
 Refer to this article for more information about Premium seats: **[Purchase and manage seats on Team plans](https://support.claude.com/en/articles/12004354)**.
+
+---
 
 ## How much does the Team plan cost?
 
@@ -68,6 +68,8 @@ Team plans support up to 150 seats. If your organization is on the Team plan and
 Price and plans are subject to change at Anthropic's discretion.
 
 ##
+
+---
 
 ## Do Team plans have any usage limits?
 

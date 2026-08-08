@@ -8,6 +8,95 @@
 
 [Skip to main content](#content-area)
 
+v1.26832.0
+
+2026-08-06
+
+**General**
+
+* Added a “Start a new project” option to the “Add to project” menu, which opens the create-project dialog.
+* Added Esc as a way to end voice mode in the chat composer.
+* Added the ability to add suggested skills in local sessions, and plugins from your personal marketplaces, directly from their suggestion cards.
+* Fixed Claude Desktop on Linux entering a crash-and-relaunch loop that consumed heavy processor time when automatic session restore ran into persistent graphics failures.
+* Fixed starting a chat inside a project showing a blank screen until the response finished, and leaving the chat without its project name or title.
+* Fixed the scheduled-task prompt editor not being announced to screen readers as a labeled multiline text box.
+
+**Code**
+
+* Added session-window restore: Claude Code session windows that were open when you quit now reopen the next time you launch the app.
+* Changed permission-mode picks so they apply to the folder where you made them instead of becoming a machine-wide default.
+* Removed the “Always allow” option when approving dev server starts in the Browser preview; each new server start now asks, and a server that has crashed asks again instead of restarting silently.
+* Fixed “Try again” on session-error cards sometimes doing nothing, and a failed send’s retry card and prompt text now survive an app relaunch.
+* Fixed leftover session workspaces building up on disk until new sessions could fail with a disk-space error.
+* Fixed repository pickers in project settings and scheduled tasks timing out or omitting repositories in large organizations; they now load quickly, can search every repository, and can load more results.
+
+**Cowork**
+
+* Added a ⋮ menu to scheduled tasks in the sidebar, including Mark as unread for the latest run.
+* Added a confirmation before a link in a live artifact opens in your browser, with a per-site “Don’t ask again” option.
+
+**3P**
+
+* Added `updateViaUpdatesHost`. Set it to `true` to read the update feed from `releases.claude.com`, a host that serves only the desktop update check and carries no model API, so networks that block `api.anthropic.com` can still receive updates. Installer downloads continue to come from `downloads.claude.ai`. Defaults to `false`.
+* Added an access mode to each `allowedWorkspaceFolders` entry. Set `mode` to `ro` to let Claude read and search a folder without changing it: in Cowork, writes are blocked and Claude is directed to put modified copies in the session outputs folder. In the Code tab this covers Claude’s file tools only; Bash in the Code tab and SSH sessions do not yet enforce it. Entries without `mode` stay read-write, so existing configurations are unchanged.
+* Added optional `:port` suffixes to `coworkEgressAllowedHosts` entries, for example `internal.corp.com:8443` or `*.corp.com:8443`, restricting that entry to the named port. This applies to the sandbox’s web fetch now, and to shell egress once the updated virtual machine image ships; on the Code tab, a port-scoped entry is treated as its bare host (any port). Entries without a port keep allowing any port, and an invalid entry is dropped on its own with a warning in the logs.
+* Added settings that decide where users sign in for inference to the one-time bootstrap consent prompt: the Azure AI Foundry Entra tenant and client, Bedrock IAM Identity Center, the Vertex OAuth client and workforce identity, and gateway OIDC. Set `trustBootstrapDelivery` to `true` in your device-management profile to accept these for everyone in advance.
+* Added the merged Chat and Cowork home as the default. The “New” button starts a chat or a task from one composer, and the sidebar shows Home, which lists chats and tasks together, alongside Code.
+* Changed the `trustBootstrapLocalExec` key name to `trustBootstrapDelivery`, reflecting that it now covers sign-in targets as well as helper scripts and connectors. The previous name continues to work in existing profiles.
+* Fixed chats started inside a Project not picking up the Project’s Instructions and Context links, including reading the files linked there.
+* Fixed Code sessions on a custom gateway endpoint ending with an idle-timeout error while the gateway was still sending keep-alive responses.
+* Fixed Code tab sessions on gateway and direct API key deployments still sending nonessential traffic to `api.anthropic.com` after an administrator turned off nonessential telemetry.
+* Fixed model selections provided by your deployment being overridden by an out-of-date Claude Code `managed-settings.json` left on the device.
+* Fixed the published `bootstrap-config-v2.schema.json` describing flat keys instead of the nested shape the app’s own configuration export uses.
+
+v1.25927.0
+
+2026-08-04
+
+**General**
+
+* Added a chevron next to the composer’s microphone button that switches between dictation and voice mode and keeps your choice; clicking the microphone now starts dictation right away.
+* Fixed `⌘K` (or `Ctrl+K` on Windows and Linux) search missing results from tool output and archived sessions.
+* Fixed a crash on macOS during passkey and Touch ID prompts when the system language is German, Spanish, French, Hindi, Indonesian, Italian, Japanese, or Korean.
+* Fixed automatic and menu-triggered update restarts interrupting an in-progress Claude Code or Cowork task.
+* Fixed the app being left with no usable window: a failure during startup now shows an error dialog and records the details to a file, and a window the system shut down under low memory reloads instead of staying blank.
+
+**Code**
+
+* Added automatic resume for sessions interrupted when your computer goes to sleep. A banner with a manual Continue button appears only when resuming isn’t safe, and you can continue the session in the cloud instead.
+* Added capture and annotation for the page the Browser pane is showing, including external sites, so you can mark up what you see and attach the image to chat.
+* Fixed a crash while using the in-app browser on pages with heavy console or network activity.
+* Fixed messages sent while Claude was working disappearing from a session after it was reloaded from disk.
+* Fixed sessions sometimes becoming permanently unopenable, showing “No messages yet” while their conversation history was still on disk.
+* Fixed starting a session and swapping repositories stalling in organizations with very large repository lists: the pickers now load repositories page by page, find the rest as you type, say when more are available by searching, and report a failed search instead of showing empty results.
+
+**Cowork**
+
+* Added pasted and attached images to the session’s uploads folder, so Claude can open and edit the actual file.
+* Fixed “Allow for this task” not appearing for connector tools when your organization has turned off persistent “Always allow”.
+* Fixed documents showing an internal file id instead of their title, including in export filenames and approval prompts.
+* Fixed long-running workspace shell commands, such as large database queries, being cut off too early.
+* Fixed scheduled task problems: a cron expression using `7` for Sunday never ran, stalled runs kept running in the background until the app was restarted, and “Allow for all scheduled runs” appeared on prompts where the choice could not be saved, so the task asked again on every run.
+
+**3P**
+
+* Added Projects for organizing Chat conversations: create a project, start a chat inside it, or move existing chats in. Projects stays available even when your administrator has turned the Cowork tab off.
+* Added `inferenceGatewayOidcAuthFlow` and `inferenceVertexWorkforceAuthFlow`, which choose whether identity-provider sign-in for gateway and Vertex workforce-identity credentials runs in the system browser (the default) or through the operating system’s Microsoft account broker on Windows and macOS, so sign-in can satisfy Conditional Access policies that require a managed device.
+* Added `managedMcpServers[].oauth.authFlow`, which lets a managed connector sign in through the operating system’s Microsoft Entra account broker on Windows and macOS, so Conditional Access policies that require a managed device no longer block it. Devices without a broker keep using browser sign-in.
+* Added `skillCreationEnabled`, which controls whether users can create and upload their own skills. It defaults to on; setting it to `false` hides the creation and upload surfaces and turns off Claude’s skill-creation tools. It appears in the Setup window under workspace restrictions.
+* Added `trustBootstrapLocalExec`. Each user is now asked once for consent when the bootstrap configuration includes settings that run local commands, such as credential helpers and local connectors. Set this key to `true` to accept them for everyone in advance. It defaults to `false` and is accepted only from MDM or a local configuration file.
+* Added a built-in GitHub connector to `managedMcpServers`: set `server` to `github` and supply your own GitHub OAuth app client ID with the device flow enabled. The new `host`, `toolsets`, and `readOnly` subfields point the connector at a GitHub Enterprise Server instance, choose which toolsets load, and offer read tools only. The connector is also configurable from the Setup window.
+* Added support for mounting Windows mapped network drives into the Cowork sandbox, so shell commands and document processing can work with files on network drives, and fixed adding a mapped network-drive folder mid-session being rejected with a message to use the folder picker.
+* (breaking) Changed the nested v2 bootstrap response: `deploymentDisplayName` and `deploymentDisplaySubtitle` now sit under `appearance`, and `endUserAttribution` and `userContentRendererUrl` under `workspace`. The flat MDM key names are unchanged.
+* Changed `managedMcpServers` and `microsoftAuthBroker` to be supported on standard deployments as well, so an administrator can enable the built-in Microsoft 365 connector by adding it to `managedMcpServers` through MDM. It stays off unless configured.
+* Changed where several keys can be delivered from: `claudeAiImport`, `deploymentDisplayName`, and `deploymentDisplaySubtitle` now accept values from MDM and a local configuration file as well as a bootstrap server, and `disableDeepLinkRegistration`, `microsoftAuthBroker`, `userContentRendererUrl`, `inferenceFoundryTenantId`, `inferenceFoundryClientId`, `inferenceCredentialHelper` (with its TTL, timeout, and silent-refresh keys), `inferenceBedrockProfile`, `inferenceBedrockAwsDir`, `inferenceBedrockAwsCliPath`, and `inferenceVertexCredentialsFile` can now be delivered by a bootstrap server. The keys that name a local executable go through the consent prompt above.
+* Deprecated `organizationPluginsUrl` and removed it from the configuration reference. The key is still honored, but organization plugins are better configured with `allowedPluginMarketplaces`.
+* Updated `enduserAttribution` to the corrected spelling `endUserAttribution`. The previous spelling is still accepted and now records a configuration warning.
+* Fixed connector sign-in recovery: connectors no longer ask you to sign in again after a slow startup when the credentials are still valid, and the GitHub connector shows its Reconnect card on the next tool call after its token is revoked on github.com instead of staying stuck.
+* Fixed tasks failing with “Couldn’t start this task” for the rest of the session when the app launched while the network or the sign-in credential was unavailable.
+* Fixed the app losing administrator-enabled features, such as the Chat tab, for the rest of the session when the organization’s configuration server was unreachable at launch. It now retries in the background and recovers.
+* Fixed the home composer and sidebar still offering Cowork when an administrator has turned the Cowork tab off; Cowork is now hidden instead of greyed out, while Chat and Projects remain available.
+
 v1.24012.11
 
 2026-08-03

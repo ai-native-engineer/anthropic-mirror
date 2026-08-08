@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14554922-claude-code-user-faq -->
 
-# Claude Code user FAQ
-
-Updated over 2 weeks ago
-
 Short answers to the questions that come up most at office hours, with a link to go deeper. Organized by where you are in your first few weeks.
 
 ## How to use this guide
@@ -26,13 +22,15 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | **1.9 What should I try first?** | Point it at a tedious-but-not-hard bug you’ve been putting off. Example: *“the test in [file] is flaky, figure out why.”* Let it read the code instead of you explaining the code.  Reference: **[Common use cases](https://code.claude.com/docs/en/common-workflows)** |
 | **1.10 How do I update it?** | Native installs auto-update in the background. To force one now, run `claude update`. Homebrew/WinGet don’t auto-update: run `brew upgrade claude-code` or `winget upgrade Anthropic.ClaudeCode` periodically.  Reference: **[Setup: updates](https://code.claude.com/docs/en/setup)** |
 
+---
+
 ## 2. Day-to-day use
 
 |  |  |
 | --- | --- |
 | **Question** | **Answer** |
 | **2.1 It keeps asking permission for the same commands** | Approvals last for the current session by default. To make them persist: • Pick “always allow” at the prompt • Add the pattern to `permissions.allow` in `.claude/settings.json` • Or run `/permissions` to manage interactively  Reference: **[Permissions](https://code.claude.com/docs/en/permissions)** |
-| **2.2 Permission modes and how to switch** | Press **Shift+Tab** to cycle modes:  * **default** · asks before risky edits or commands * **acceptEdits** · file edits go through; still asks before running commands * **plan** · read-only; proposes a plan and waits for approval * **auto** · auto-approves with a background safety check. Requires your org to enable it *and* you to opt in with claude --enable-auto-mode.  Reference: **[Permission modes](https://code.claude.com/docs/en/permission-modes)** |
+| **2.2 Permission modes and how to switch** | Press **Shift+Tab** to cycle modes:  * **auto** · auto-approves with a background safety check. Available unless your organization has turned it off in managed settings, on supported models. * **manual** · asks before risky edits or commands * **acceptEdits** · file edits go through; still asks before running commands * **plan** · read-only; proposes a plan and waits for approval  Reference: **[Permission modes](https://code.claude.com/docs/en/permission-modes)** |
 | **2.3 What is /init and when do I run it?** | Run it once, early, in any repo you’ll work in more than once. It scans the project and writes `CLAUDE.md` with build commands, architecture, and conventions. Every future session loads it automatically, so Claude starts with context.  Reference: **[Memory and CLAUDE.md](https://code.claude.com/docs/en/memory)** |
 | **2.4 What goes in CLAUDE.md?** | Things tooling can’t enforce that a new teammate would get wrong on day one: “deploy from `release`, not `main`”, “all IDs are strings”, “never call the DB directly from a route handler.” Keep it under two screens; longer gets skimmed.  Reference: **[Memory and CLAUDE.md](https://code.claude.com/docs/en/memory)** |
 | **2.5 Claude isn’t following my CLAUDE.md** | • Too long or too vague: trim to the rules that actually matter • Buried in prose: put hard rules near the top, use imperative language (“Never X. Always Y.”)  Reference: **[Best practices](https://code.claude.com/docs/en/best-practices)** |
@@ -43,6 +41,8 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | **2.10 Switch models** | `/model` opens the picker. Set a default in `.claude/settings.json` if you want the same model every session.  Reference: **[Model configuration](https://code.claude.com/docs/en/model-config)** |
 | **2.11 Extended thinking** | On by default. The reasoning itself is hidden in the normal view; press **Ctrl+O** to switch to the verbose transcript if you want to read it. Use `/effort` to dial depth up or down. Worth the extra latency for tricky debugging or architecture calls.  Reference: **[Extended thinking](https://code.claude.com/docs/en/common-workflows#use-extended-thinking-thinking-mode)** |
 | **2.12 Stop it mid-task** | Press **Ctrl+C** to cancel the current generation, then tell it what to do instead. No need to start the conversation over. |
+
+---
 
 ## 3. Leveling up
 
@@ -59,6 +59,8 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | **3.8 Undo what it did** | `/rewind` rolls back to an earlier checkpoint. Checkpoints are taken automatically at every prompt you send. For anything already committed, use a normal `git revert`.  Reference: **[Checkpointing](https://code.claude.com/docs/en/checkpointing)** |
 | **3.9 Share your setup with the team** | Check `.claude/` into the repo (CLAUDE.md, commands, MCP config). Anyone who clones the repo gets the same setup automatically. Skills can also be packaged as a **plugin** that teams install via `/plugin`.  Reference: **[Plugins](https://code.claude.com/docs/en/plugins)** |
 
+---
+
 ## 4. Common gotchas
 
 |  |  |
@@ -72,6 +74,8 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | **4.6 Non-interactive -p mode behaves differently** | * MCP servers that need OAuth can’t prompt in non-interactive mode * Interactive approvals don’t carry over  For non-interactive/CI runs, prefer API-key auth and MCP servers configured with env-var tokens. |
 | **4.7 Ran out of context mid-task** | `/compact` summarizes earlier conversation to free up space. `/clear` starts fresh while keeping `CLAUDE.md` and settings loaded. For long tasks, break into steps with a `/clear` between phases.  Reference: **[Managing context](https://code.claude.com/docs/en/common-workflows)** |
 
+---
+
 ## 5. Privacy and trust
 
 |  |  |
@@ -83,6 +87,8 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | **5.4 How do I keep secrets and .env files out of the conversation?** | Claude only reads files it needs for the task; it doesn’t scan your whole repo. To hard-block specific files, add a Read deny rule in `.claude/settings.json` (e.g. `"Read(.env*)"`). Denied files can’t be read even if you accidentally ask for them.  Reference: **[Permissions](https://code.claude.com/docs/en/permissions)** |
 | **5.5 What can “acceptEdits” mode do without asking me?** | File edits go through without a prompt. It still asks before running shell commands, making network calls, or touching anything outside your working directory. For tighter control, stay in default mode.  Reference: **[Permissions](https://code.claude.com/docs/en/permissions)** |
 
+---
+
 ## Appendix: Still stuck?
 
 |  |  |
@@ -92,6 +98,8 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | `/feedback` | File an issue from the terminal (alias for `/bug`) |
 | **[Full docs](https://code.claude.com/docs)** | Everything here, in detail |
 | Your team’s `#claude-code` channel | Small wins and weird errors both belong there |
+
+---
 
 ## Appendix: Resource directory
 

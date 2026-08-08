@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/10065433-install-claude-desktop -->
 
-# Install Claude Desktop
-
-June 30, 2026
-
 The Claude desktop apps bring Claude's capabilities directly to your computer, allowing for seamless integration with your workflow.
 
 ## Availability
@@ -25,7 +21,7 @@ Claude Desktop is available on macOS, Windows, and Linux (beta). What you can do
 
 ## Installation steps for mac OS and Windows
 
-1. Visit the **[Claude downloads page](http://claude.ai/download)**.
+1. Visit the **[Claude downloads page](https://claude.ai/download)**.
 2. Select the appropriate version for your operating system:
 
    * For Mac users, find **macOS** and click "Download."
@@ -64,7 +60,7 @@ The app doesn't update itself. Updates arrive with your system's regular package
 
 If you can’t install Claude Desktop using apt, you can install it by downloading a .deb file instead:
 
-1. Visit the **[Claude downloads page](http://claude.ai/download)**.
+1. Visit the **[Claude downloads page](https://claude.ai/download)**.
 2. Find the .deb for your architecture (x64 or arm64) and click "Download."
 3. From the folder you downloaded the .deb file, run: `sudo apt install ~/Downloads/claude-desktop_amd64.deb`
 4. Launch Claude from your applications menu (or run `claude-desktop`), then sign in.
@@ -82,6 +78,8 @@ Verify the signing key fingerprint before trusting it:
 * Dictation isn't available.
 * Quick Entry, the global hotkey, works on X11. On native Wayland, it relies on your desktop's GlobalShortcuts portal.
 
+---
+
 ## Desktop extensions
 
 Desktop extensions transform how you connect Claude to your desktop applications and data. Similar to browser extensions, these secure, installable packages let you:
@@ -95,6 +93,8 @@ To explore desktop extensions, navigate to Settings > Extensions within the Clau
 **Note:** We’re building a directory of desktop extensions – if you’re a developer hoping to add an extension you built to the directory, complete our **[desktop extensions interest form](https://docs.google.com/forms/d/14_Dmcig4z8NeRMB_e7TOyrKzuZ88-BLYdLvS6LPhiZU/viewform?edit_requested=true)** to share more information with us.
 
 Read more about desktop extensions in our **[Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)** article.
+
+---
 
 ## Claude Cowork
 

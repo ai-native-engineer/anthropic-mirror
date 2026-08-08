@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9517075-what-are-projects -->
 
-# What are projects?
-
-Updated over a week ago
-
 Projects are available to all users, including those with free Claude accounts. Free users can create a maximum of five projects.
 
 Projects allow you to create self-contained workspaces with their own chat histories and knowledge bases. Within each project, you can upload documents, provide context, and have focused chats with Claude.

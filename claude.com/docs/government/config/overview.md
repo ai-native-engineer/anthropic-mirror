@@ -10,7 +10,7 @@
 
 > **Who this is for:** Tenant administrators and organization owners who set product behavior for the people they manage.
 
-The **Config** page in the admin portal is where you set product behavior such as the session timeout, desktop banner, enabled products and tabs, and telemetry for the people you manage. The same page appears at both the tenant and the organization level, with the same list of settings, and this page explains how the two levels fit together. For the settings themselves, see [Available settings](https://claude.com/docs/government/config/settings).
+The **Config** page in the admin portal is where you set product behavior such as the session timeout, desktop banner, product availability, and telemetry for the people you manage. The same page appears at both the tenant and the organization level, with the same list of settings, and this page explains how the two levels fit together. For the settings themselves, see [Available settings](https://claude.com/docs/government/config/settings).
 
 ##  How settings are applied
 
@@ -28,11 +28,12 @@ Settings combine across the chain in one of three ways, and the kind is fixed pe
 
 A **lock** prevents levels below from changing a setting. When you lock a setting at your level it shows as **Enforced** to you, and levels below see it as **Managed**, which means it is read-only for them. Any value a lower level had previously set is ignored while your lock is in place, and it comes back into effect if you later remove the lock.
 A tenant lock makes the setting read-only for every organization. A lock you set at the organization level prevents any group-level value within your organization from taking priority over it.
+**Locked by Anthropic** is the **Managed** state when the lock was applied by Anthropic at the application level rather than by your own tenant. It appears on features that are not available in Claude for Government, and only Anthropic can change or unlock those settings.
 Settings that may contain secrets, such as telemetry headers, are never echoed back in the chain view. You see that a value is set, but not what it is.
 
 ##  When changes take effect
 
-Settings that govern the admin portal, such as whether organizations may manage seat tiers, apply immediately. Settings that govern the Claude applications themselves, such as the desktop banner, enabled tabs, and telemetry endpoint, are delivered to each member’s application the next time it refreshes its configuration, which happens when the application is launched or the member signs in. You do not need to push anything, but members who are currently running the application may need to restart it to pick up a change. Lowering the session idle timeout is the one case that applies to new sign-ins only.
+Settings that govern the admin portal, such as whether organizations may manage seat tiers, apply immediately. Settings that govern the Claude applications themselves, such as the desktop banner, product availability, and telemetry endpoint, are delivered to each member’s application the next time it refreshes its configuration, which happens when the application is launched or the member signs in. You do not need to push anything, but members who are currently running the application may need to restart it to pick up a change. Lowering the session idle timeout is the one case that applies to new sign-ins only.
 
 ##  Working with the list
 
@@ -57,7 +58,7 @@ Before you pick a person, the **Groups** and **Organization** columns list every
 ###  Looking up one person’s settings
 
 Type a name into the search box above the table to see exactly what settings apply to that person. The table re-resolves every setting from that person’s point of view: the **Groups** column shows the value from the one group that applies to them (with any lower-priority groups they belong to shown faded, since those do not count), the **Organization** column shows their organization’s value, and the **Final value** column shows what they actually get. A summary card above the table lists the tenant, group, and organization being used for the lookup.
-Click any row to expand a plain-English explanation of how the final value was reached, for example “Anthropic’s default is On. Your tenant hasn’t changed it. The Program-Reviewers group sets this to Off.” This is the quickest way to answer a question like “why is this turned off for this person?” or “why can’t this person see the Code tab?”
+Click any row to expand a plain-English explanation of how the final value was reached, for example “Anthropic’s default is On. Your tenant hasn’t changed it. The Program-Reviewers group sets this to Off.” This is the quickest way to answer a question like “why is this turned off for this person?” or “why can’t this person use Code in Claude Desktop?”
 
 ##  Group-specific settings
 

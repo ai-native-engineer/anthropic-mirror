@@ -16,6 +16,54 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
+
+Aug 6, 2026
+
+Millennium and Anthropic are building a digital risk analyst with Claude
+
+Enterprise AI
+
+Millennium and Anthropic are building a digital risk analyst with Claude
+
+August 6, 2026
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
+
+Aug 5, 2026
+
+Inference hooks: inline data loss prevention for Claude Enterprise
+
+Enterprise AI
+
+Inference hooks: inline data loss prevention for Claude Enterprise
+
+August 5, 2026
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+Aug 4, 2026
+
+A guide to cost visibility and control in Claude
+
+Enterprise AI
+
+A guide to cost visibility and control in Claude
+
+August 4, 2026
+
+[A guide to cost visibility and control in Claude](https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude)A guide to cost visibility and control in Claude
+
+[A guide to cost visibility and control in Claude](#)A guide to cost visibility and control in Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224f466b800c4a5a016_a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
 
 Jul 24, 2026
@@ -208,54 +256,6 @@ July 13, 2026
 
 [Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail](#)Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22c10cdf166eebe4c84_d4b15045df86e43e5b5dc7b25784321ce8b5dd88-1000x1000.svg)
-
-Jul 10, 2026
-
-Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
-
-Enterprise AI
-
-Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
-
-July 10, 2026
-
-[Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night](https://claude.com/blog/working-at-the-frontier-how-cognition-trusts-claude-fable-5-to-work-through-the-night)Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
-
-[Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night](#)Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e7cc0b92f0562c5e3_a199a67a3347dcc102d63943338e14cb3b4e5405-1000x1000.svg)
-
-Jul 8, 2026
-
-Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
-
-Enterprise AI
-
-Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
-
-July 8, 2026
-
-[Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work](https://claude.com/blog/working-at-the-frontier-how-thomson-reuters-builds-ai-for-high--stakes-professional-work)Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
-
-[Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work](#)Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2261b7d4c0eae4fdf9b_036c01a9e427ea0f4d1e6c7221e4f6dce2259bf7-1000x1000.svg)
-
-Jul 8, 2026
-
-How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
-
-Enterprise AI
-
-How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
-
-July 8, 2026
-
-[How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds](https://claude.com/blog/how-anthropics-marketing-operations-team-uses-claude-cowork-to-automate-reporting-and-campaign-builds)How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
-
-[How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds](#)How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
-
 [View more](https://claude.com/blog-category/enterprise-ai?1e959936_page=2)
 
 Category
@@ -263,6 +263,54 @@ Category
 Product
 
 Usecase
+
+### Millennium and Anthropic are building a digital risk analyst with Claude
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 6, 2026
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+
+### Inference hooks: inline data loss prevention for Claude Enterprise
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 5, 2026
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
+
+### A guide to cost visibility and control in Claude
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 4, 2026
+
+[A guide to cost visibility and control in Claude](https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude)A guide to cost visibility and control in Claude
+
+[A guide to cost visibility and control in Claude](#)A guide to cost visibility and control in Claude
 
 ### How the product designer who built Claude Design uses it to explore ideas before building them
 
@@ -455,54 +503,6 @@ July 13, 2026
 [Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail](https://claude.com/blog/working-at-the-frontier-how-hebbia-builds-ai-for-financial-diligence-that-cant-miss-a-detail)Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail
 
 [Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail](#)Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail
-
-### Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 10, 2026
-
-[Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night](https://claude.com/blog/working-at-the-frontier-how-cognition-trusts-claude-fable-5-to-work-through-the-night)Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
-
-[Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night](#)Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
-
-### Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 8, 2026
-
-[Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work](https://claude.com/blog/working-at-the-frontier-how-thomson-reuters-builds-ai-for-high--stakes-professional-work)Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
-
-[Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work](#)Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
-
-### How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 8, 2026
-
-[How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds](https://claude.com/blog/how-anthropics-marketing-operations-team-uses-claude-cowork-to-automate-reporting-and-campaign-builds)How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
-
-[How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds](#)How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
 
 [View more](https://claude.com/blog-category/enterprise-ai?2f226f2c_page=2)
 

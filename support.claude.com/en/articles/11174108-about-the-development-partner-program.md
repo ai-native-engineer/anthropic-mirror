@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/11174108-about-the-development-partner-program -->
 
-# About the Development Partner Program
-
-May 22, 2026
-
 The Development Partner Program is an optional, transparent way for organizations to help shape the future of Claude while maintaining control over their data.
 
 By default, Anthropic doesn’t train our models on the data you generate when using our commercial products (e.g. Claude Enterprise, Claude API, etc.). Learn more about our commitments to privacy and how we handle your data in our **[Privacy Center](https://privacy.claude.com/en/collections/10663361-commercial-customers)**.
@@ -50,4 +46,8 @@ To opt out of the Development Partner Program:
 
 Please contact your Anthropic account executive to see if you are eligible for the Development Partner Program. These organizations will not see the option to join the Development Partner Program in their settings.
 
-[Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)[Does Anthropic Act as a Data Processor or Controller?](https://support.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)[Covered Models](https://support.claude.com/en/articles/15425695-covered-models)[Data retention practices for Mythos-class models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-mythos-class-models)[Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)
+* [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
+* [Does Anthropic Act as a Data Processor or Controller?](https://support.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
+* [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
+* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+* [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)

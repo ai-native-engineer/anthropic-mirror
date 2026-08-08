@@ -1,12 +1,10 @@
 <!-- source: https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop -->
 
-# Enterprise configuration for Claude Desktop
-
-Updated today
-
 Administrators on Team or Enterprise plans can control Claude Desktop through system policies.
 
 **Note:** Enterprise policy controls at the user-machine level will override the in-app **[allowlist](https://support.claude.com/en/articles/12592343-enabling-and-using-the-desktop-extension-allowlist)**. If you want to use the allowlist, ensure `isDesktopExtensionEnabled` and `isDesktopExtensionDirectoryEnabled` are not set to "false" so the allowlist can populate the available registry.
+
+---
 
 ## macOS enterprise configuration
 
@@ -17,6 +15,8 @@ Deploy configuration settings through your MDM solution using configuration prof
 * Built-in MDM profile editors (Jamf Pro, Kandji, Intune)
 * **[ProfileCreator](https://github.com/profileCreator/ProfileCreator/)** - Profile management
 * **[iMazing Profile Editor](https://imazing.com/profile-editor)** - Configuration profiles
+
+---
 
 ## Windows enterprise configuration
 
@@ -35,6 +35,8 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Claude" -Name "isClaudeCodeForDe
 ```
 ```
 
+---
+
 ## Enterprise policy options
 
 |  |  |  |  |
@@ -43,6 +45,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Claude" -Name "isClaudeCodeForDe
 | `allowedWorkspaceFolders` | string[] (JSON) | Unrestricted | Filepath or filepaths the user can mount to Cowork |
 | `autoUpdaterEnforcementHours` | Integer (1-72) | 72 | Hours before forcefully restarting Claude to apply a prepared update |
 | `disableAutoUpdates` | Boolean | false | Disable automatic updates. Set this when your MDM manages Claude Desktop versions; leave unset to let the app self-update after a one-time provisioned install. See **[Deploy Claude Desktop for Windows](https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows)**. |
+| `effortLevel` | string | null | Sets the default effort level (`low`, `medium`, `high`, `xhigh`, or `max`) for Claude Code sessions in Claude Desktop. The managed value applies fresh at the start of every session, even if someone changed the effort level from the picker in an earlier session. Requires Claude Desktop version 1.25927.0 or later. Doesn't apply to Cowork sessions in Claude Desktop, which don't read Claude Code managed settings. |
 | `forceLoginOrgUUID` | string / array | null | Require login to belong to a specific organization. Accepts a single UUID string, which also pre-selects that organization during login, or an array of UUIDs where any listed organization is accepted without pre-selection. Login fails if the authenticated account does not belong to a listed organization. |
 | `isClaudeCodeForDesktopEnabled` | Boolean | true | Enable Claude code access in desktop |
 | `isDesktopExtensionEnabled` | Boolean | true | Enable/disable extensions |
@@ -53,5 +56,5 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Claude" -Name "isClaudeCodeForDe
 * [Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)
 * [Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)
 * [Deploy Claude Desktop for Windows](https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows)
-* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
+* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
 * [Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)

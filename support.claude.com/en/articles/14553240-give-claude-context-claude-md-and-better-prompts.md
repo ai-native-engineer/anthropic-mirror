@@ -1,10 +1,8 @@
 <!-- source: https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts -->
 
-# Give Claude context: CLAUDE.md and better prompts
-
-April 15, 2026
-
 Claude Code works well out of the box, but it becomes noticeably more effective once it knows your project's conventions and once you adopt a few prompting habits. This guide covers both.
+
+---
 
 ## Part 1 — CLAUDE.md: your project's memory
 
@@ -69,6 +67,8 @@ Treat it like a living onboarding doc, not a spec.
 
 You can also add to it mid-session: open `/memory` to edit the file directly, or just ask Claude to "remember" a rule and it will append it to the right `CLAUDE.md` for you.
 
+---
+
 ## Part 2 — Prompting habits that pay off in Claude Code
 
 These are not generic prompt-engineering tips; they are the habits that matter most specifically when Claude is reading and editing a real codebase.
@@ -109,6 +109,8 @@ Long sessions accumulate noise. When you switch from "fix the login bug" to "ref
 
 If the first answer is off, you do not need to rephrase the whole request. Simply say what is wrong — for example, *"That changes the public API; keep the signature the same."* Claude will keep everything else and adjust only that point.
 
+---
+
 ## Quick reference
 
 |  |  |
@@ -123,5 +125,5 @@ If the first answer is off, you do not need to rephrase the whole request. Simpl
 * [Your first day in Claude Code](https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code)
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
 * [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
-* [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
+* [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

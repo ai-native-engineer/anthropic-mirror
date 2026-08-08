@@ -186,3 +186,8 @@ When the broker is available, it carries the device claim, and Conditional Acces
 | Entra error `AADSTS700016` at sign-in | The **Client ID** or **Tenant ID** on the Config page does not match an application in the selected **Azure cloud**. | Re-check the Client ID and Tenant ID against the application’s Overview page, and confirm that **Azure cloud** matches the cloud where you registered the application. |
 | Sign-in or Claude’s Microsoft 365 calls fail with a network error and no `AADSTS` code | The member’s device cannot reach the Microsoft Entra or Microsoft Graph host for your Azure cloud. | Allow outbound HTTPS to the hosts listed under [Allow outbound network access](#allow-outbound-network-access). |
 | A tool returns a permission error | The Microsoft Graph permission that tool needs is not approved on the app registration, or is not selected under **Access**. | Add the permission in both places and select **Grant admin consent** again. |
+
+##  Things to know
+
+* Read and write permissions are separate per Microsoft 365 service. You can approve read broadly while limiting write to specific services or none at all by selecting only the permissions you want under [Choose which Microsoft 365 permissions to allow](#choose-which-microsoft-365-permissions-to-allow).
+* The **Access** selection applies to everyone who receives this connector card. There is no separate per-group write toggle inside the card. To give different groups different permissions, set the card at the group scope on the Config page; see [Group-specific settings](https://claude.com/docs/government/config/overview#group-specific-settings).

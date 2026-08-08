@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14499648-how-scim-sync-works-for-enterprise-organizations -->
 
-# How SCIM sync works for Enterprise organizations
-
-July 1, 2026
-
 SCIM provisioning keeps your Enterprise organization's membership and groups in sync with your identity provider. This article covers what gets synced, how syncs are triggered, how to preview a sync before it applies, and what to watch for when resyncing.
 
 Available on the Enterprise plan. For setup instructions, see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)**.
@@ -49,7 +45,7 @@ You can trigger a manual sync from two places in your admin settings.
 1. Go to **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**.
 2. Click "Check for updates" under **SCIM sync**:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1785803400&signature=ffbd6d1f7f7547a6c77bbe97ee29f32f51820d75582e759105d66da8a9b1919b&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDClNc6wrgfl7PnOiukwdR%2Ftrwg5fEYDsB6R%0AsRfm%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1785803400&signature=ffbd6d1f7f7547a6c77bbe97ee29f32f51820d75582e759105d66da8a9b1919b&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDClNc6wrgfl7PnOiukwdR%2Ftrwg5fEYDsB6R%0AsRfm%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1786212000&signature=9959d521a42f74493448678051926fd5c541173abdd09fc45f388addb2c7b89b&req=diMmFM9%2FnoRbUfMW3nq%2Bgagh6LSUS6HMbPb4knc3ZiRR1dT3UkBt40oL0J1X%0A%2BoyAvn5g6MLw0rRqc423n1uk4BQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1786212000&signature=9959d521a42f74493448678051926fd5c541173abdd09fc45f388addb2c7b89b&req=diMmFM9%2FnoRbUfMW3nq%2Bgagh6LSUS6HMbPb4knc3ZiRR1dT3UkBt40oL0J1X%0A%2BoyAvn5g6MLw0rRqc423n1uk4BQ%3D%0A)
 3. Select whether to sync members, groups, or both.
 
 **From the Manage SCIM page**
@@ -58,7 +54,7 @@ You can trigger a manual sync from two places in your admin settings.
 2. Click "Sync."
 3. Select whether to sync members, groups, or both:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1785803400&signature=3e71184722ae900fd368f8364ab9aae5ed5edb32fb7dc511362384de442a6e21&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4fr%2F4yzgb43OpyTHzM9SHyi9DxFMosNqDX9K6%0Af1AP%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1785803400&signature=3e71184722ae900fd368f8364ab9aae5ed5edb32fb7dc511362384de442a6e21&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4fr%2F4yzgb43OpyTHzM9SHyi9DxFMosNqDX9K6%0Af1AP%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1786212000&signature=6ec075aa8277ca73399071d8b2bda1073c87d6e6f4e79168aafc17a013bf95ac&req=diMmFM9%2BlYBeUPMW3nq%2BgVEwMWRqYiN31X%2FyLxrNCaSvF1k2O8lnL%2FjcyCj8%0A3C6alycSMxe3qr%2Fn9%2F%2FpIxjY0Jw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1786212000&signature=6ec075aa8277ca73399071d8b2bda1073c87d6e6f4e79168aafc17a013bf95ac&req=diMmFM9%2BlYBeUPMW3nq%2BgVEwMWRqYiN31X%2FyLxrNCaSvF1k2O8lnL%2FjcyCj8%0A3C6alycSMxe3qr%2Fn9%2F%2FpIxjY0Jw%3D%0A)
 
 **Note:** If you trigger a manual sync while background changes are processing, your organization takes the most recent change for each member or group. If multiple changes are queued for the same member or group, you may need to resync again to make sure everything applies correctly.
 
@@ -85,7 +81,7 @@ Manual syncs rescan WorkOS for the full list of members and groups to establish 
 
 To check whether your organization's membership and groups are current, you have two options:
 
-* **Export your member list.** Go to **[Organization settings > Members](http://claude.ai/admin-settings/members)** and click "Export CSV" to download the current view of your membership.
+* **Export your member list.** Go to **[Organization settings > Members](https://claude.ai/admin-settings/members)** and click "Export CSV" to download the current view of your membership.
 * **View the WorkOS integration's record.** Go to **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)** and click "Manage SCIM" to see what WorkOS currently holds for your organization.
 
 ## Risks to watch for when resyncing

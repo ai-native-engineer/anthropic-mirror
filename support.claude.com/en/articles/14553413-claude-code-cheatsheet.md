@@ -1,10 +1,8 @@
 <!-- source: https://support.claude.com/en/articles/14553413-claude-code-cheatsheet -->
 
-# Claude Code cheatsheet
-
-April 15, 2026
-
 This page collects the vocabulary, commands, and keyboard shortcuts that are worth committing to muscle memory. Keep it open in a browser tab (or printed beside your keyboard) during your first few weeks with Claude Code. Most of the friction new users hit comes from not knowing a command already exists for what they are trying to do, so a quick scan here before reaching for a workaround usually pays off.
+
+---
 
 ## Glossary
 
@@ -24,6 +22,8 @@ This page collects the vocabulary, commands, and keyboard shortcuts that are wor
 | **Hook** | A shell command that runs automatically at a defined point in Claude's lifecycle, such as before a tool runs, after an edit, or on session start. Hooks are commonly used for auto-formatting, linting, or blocking unsafe commands. |
 | **Skill** | A packaged set of instructions and helper files that teaches Claude a specific workflow, such as generating a PDF report, scaffolding a component, or following a deploy runbook. Skills are invoked with / like built-in commands and can also load automatically when relevant. |
 | **Command** | Any input starting with /. Built-in commands control the session (see the table below); custom ones are skills your team defines in `.claude/skills/<name>/SKILL.md` (the legacy `.claude/commands/` path still works). |
+
+---
 
 ## Commands
 
@@ -62,12 +62,14 @@ Type `/` on an empty prompt to see every command available in your setup, includ
 | `/login` / `/logout` | Authenticate, switch accounts, or sign out. |
 | `/exit` | Quit the CLI. Alias: `/quit`. |
 
+---
+
 ## Keyboard shortcuts
 
 |  |  |
 | --- | --- |
 | **Key** | **Action** |
-| **Shift + Tab** | Cycle permission mode: `default → acceptEdits → plan`. Also includes auto after running `claude --enable-auto-mode`, and `bypassPermissions` when that mode is enabled. |
+| **Shift + Tab** | Cycle permission mode: `auto → manual → acceptEdits → plan`. Also includes `bypassPermissions` when that mode is enabled. |
 | **Esc** | Interrupt Claude mid-response so you can type again. |
 | **Esc, Esc** | Open the rewind/checkpoint menu to roll back to an earlier point in the session. |
 | **Ctrl + C** | Cancel the current input, or exit on an empty prompt. |
@@ -80,8 +82,8 @@ Type `/` on an empty prompt to see every command available in your setup, includ
 
 Shortcuts vary slightly by terminal and IDE. Press **`?`** inside a session for the exact list in your environment.
 
-* [Give Claude context: CLAUDE.md and better prompts](https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts)
 * [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
 * [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
+* [Claude Code champion kit](https://support.claude.com/en/articles/14555399-claude-code-champion-kit)
 * [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

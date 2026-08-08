@@ -1,13 +1,5 @@
 <!-- source: https://claude.com/docs/office-agents/work-across-apps -->
 
-> ## Documentation Index
->
-> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
->
-> Use this file to discover all available pages before exploring further.
-
-[Skip to main content](#content-area)
-
 Claude can coordinate between the Excel, PowerPoint, Word, and Outlook
 add-ins in your Microsoft 365 suite. Instead of switching between apps
 and re-providing context each time, Claude can read from one app and
@@ -34,15 +26,11 @@ on cross-app mode.
 
 ##  Enable cross-app mode
 
-1
-
 Install each add-in
 
 Install Claude for Excel, PowerPoint, Word, and Outlook from the
 Microsoft AppSource. Open each app and activate the add-in at
 least once before using cross-app features.
-
-2
 
 Enable per add-in
 
@@ -107,13 +95,9 @@ For more on Skills, see
 Team and Enterprise organization owners can control whether team members
 can access this capability.
 
-1
-
 Open organization settings
 
 Go to Organization settings, Office agents.
-
-2
 
 Toggle the setting
 

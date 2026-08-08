@@ -1,14 +1,12 @@
 <!-- source: https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude -->
 
-# Create and edit files with Claude
-
-April 29, 2026
-
 Claude can execute code to create and work with files directly in your conversations. Prompt Claude using natural language to generate Excel spreadsheets, PowerPoint presentations, Word documents, and PDF files that you can download and use immediately.
 
 Code execution and file creation is available to all Claude users (Free, Pro, Max, Team, and Enterprise) on the web, Claude Desktop, and Claude Mobile.
 
 These capabilities make it easy to produce professional documents by simply chatting with Claude. You can create financial models in Excel with working formulas, perform advanced analyses on uploaded data, produce reports with charts and visualizations, and generate presentations from your documents—all without specialized software skills.
+
+---
 
 ## Availability
 
@@ -30,61 +28,67 @@ These capabilities make it easy to produce professional documents by simply chat
 * Network access is disabled by default; owners can enable it in organization settings
 * Owners can configure network access controls, including domain whitelisting
 
+---
+
 ## How to get started
 
 ### Enabling on web and desktop
 
-**Enterprise plans:** This capability is enabled by default at the organization level with **Allow network egress** toggled off for new Enterprise organizations. Owners can adjust this in **[Organization settings > Capabilities](http://claude.ai/admin-settings/capabilities)** using the **Code execution and file creation** toggle.
+**Enterprise plans:** This capability is enabled by default at the organization level with **Allow network egress** toggled off for new Enterprise organizations. Owners can adjust this in **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)** using the **Code execution and file creation** toggle.
 
-**Team plans:** This capability is enabled by default at the organization level with **Allow network egress** toggled on with access to package managers only. An organization owner can manually disable this for the organization in **[Organization settings > Capabilities](http://claude.ai/admin-settings/capabilities)** if needed.
+**Team plans:** This capability is enabled by default at the organization level with **Allow network egress** toggled on with access to package managers only. An organization owner can manually disable this for the organization in **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)** if needed.
 
-**Free, Pro, and Max plans:** Enable file creation from **[Settings > Capabilities](http://claude.ai/settings/capabilities)** by toggling **Code execution and file creation** on.
+**Free, Pro, and Max plans:** Enable file creation from **[Settings > Capabilities](https://claude.ai/settings/capabilities)** by toggling **Code execution and file creation** on.
 
 To give Claude access to external data sources, toggle **Allow network egress** on:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1785803400&signature=ec89d9129c1053f83740197c85f6ad1494593cef404970506ddf1c6c0075822a&req=diAiEs55mYFfXPMW1HO4zYFJywhNDJrKPQVowIiib2lBKAwdsXeKErAUNxJN%0AuEVtXXYVO0VCuv1q9Qc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1785803400&signature=ec89d9129c1053f83740197c85f6ad1494593cef404970506ddf1c6c0075822a&req=diAiEs55mYFfXPMW1HO4zYFJywhNDJrKPQVowIiib2lBKAwdsXeKErAUNxJN%0AuEVtXXYVO0VCuv1q9Qc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1786212000&signature=305a20862be8124907b489c0ff210aaa54585e1c499a28eadcd65aa778f258a1&req=diAiEs55mYFfXPMW3nq%2BgWwhvHagSfIT6eh%2BPMWT8DgCeQgMSNfOL20GJzhY%0APegJxMiCKImcdigV%2BNjsKS0Yvj4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1786212000&signature=305a20862be8124907b489c0ff210aaa54585e1c499a28eadcd65aa778f258a1&req=diAiEs55mYFfXPMW3nq%2BgWwhvHagSfIT6eh%2BPMWT8DgCeQgMSNfOL20GJzhY%0APegJxMiCKImcdigV%2BNjsKS0Yvj4%3D%0A)
 
 ### Enabling on Claude Mobile
 
 To enable or disable this feature on Claude for iOS or Android, tap your initials or name in the left sidebar to open Settings. Select "Capabilities" and toggle **Code execution and file creation** on or off.
 
+---
+
 ## Configuring network access (Team and Enterprise plans)
 
-Team and Enterprise organization owners can control network access settings in **[Organization settings > Capabilities](http://claude.ai/admin-settings/capabilities)**. After enabling code execution and file creation, choose from the following options to configure network access for your team:
+Team and Enterprise organization owners can control network access settings in **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**. After enabling code execution and file creation, choose from the following options to configure network access for your team:
 
 * **Allow network egress toggled off:** Claude operates with pre-installed packages only, with no internet access. This provides maximum security for sensitive environments.
 * **Allow network egress to package managers only (default):** Claude can access approved package managers (npm, PyPI, GitHub, etc.) to install necessary software packages. This balances functionality with security, but some advanced features may be limited.
 * **Allow network egress to package managers and specific domains:** Claude can access package managers plus additional domains you specify. Add domains individually to whitelist specific resources your organization needs:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1785803400&signature=6d5d8a76d2aeddd81f134a97ff3740fc6cabcc737fcb37d170b4b74d2e88da4f&req=dScvH8B6mIJZW%2FMW1HO4zXJcBmhLlSpPpMW6Iph6YZe6sV%2FPglOSnSUxTwFB%0AQ4Sa5THWAhpwHz%2BQUZE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1785803400&signature=6d5d8a76d2aeddd81f134a97ff3740fc6cabcc737fcb37d170b4b74d2e88da4f&req=dScvH8B6mIJZW%2FMW1HO4zXJcBmhLlSpPpMW6Iph6YZe6sV%2FPglOSnSUxTwFB%0AQ4Sa5THWAhpwHz%2BQUZE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1786212000&signature=823c7064a8c3ece23212cd8451abcddd7393b90901636130c602e890d05a91da&req=dScvH8B6mIJZW%2FMW3nq%2BgdQoTgnvUtdZCp7NBj0zeZQ4S5YCmk04jYvyFD2W%0A8qXPgGfG%2B89tOU3RqjwgdAgtXJo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1786212000&signature=823c7064a8c3ece23212cd8451abcddd7393b90901636130c602e890d05a91da&req=dScvH8B6mIJZW%2FMW3nq%2BgdQoTgnvUtdZCp7NBj0zeZQ4S5YCmk04jYvyFD2W%0A8qXPgGfG%2B89tOU3RqjwgdAgtXJo%3D%0A)
 
 **All domains:** Claude has full internet access except for domains on Anthropic's legal blocklist. While this provides maximum flexibility for file creation and analysis tasks, it’s also the riskiest option. Please review the **[security considerations below](#h_0ee9d698a1)** before enabling “All domains”:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1785803400&signature=dbc20c9d4517fcfd4bdbfe35f48b4e34e8c4caf3f62afd9358d2b3b44d0e7491&req=dScvH8B6mIJZWPMW1HO4zdnseBGa7jymqgKIA6CM1tq0KufjzpXzD8UG0XaI%0AEnJG7zV7XqhGhLrnHzs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1785803400&signature=dbc20c9d4517fcfd4bdbfe35f48b4e34e8c4caf3f62afd9358d2b3b44d0e7491&req=dScvH8B6mIJZWPMW1HO4zdnseBGa7jymqgKIA6CM1tq0KufjzpXzD8UG0XaI%0AEnJG7zV7XqhGhLrnHzs%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1786212000&signature=a8bc50357d092332ab020a6cf274e14a67b9dbf52c3bb3fcbacffe2603e7b54a&req=dScvH8B6mIJZWPMW3nq%2BgcDM0aeOmZlMl%2Beqj03ykB5CuXeendBn7ONILApm%0Al2GbNymx6dGwwOP%2FKf7LWcxf1oI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1786212000&signature=a8bc50357d092332ab020a6cf274e14a67b9dbf52c3bb3fcbacffe2603e7b54a&req=dScvH8B6mIJZWPMW3nq%2BgcDM0aeOmZlMl%2Beqj03ykB5CuXeendBn7ONILApm%0Al2GbNymx6dGwwOP%2FKf7LWcxf1oI%3D%0A)
+
+---
 
 ## How does disabling network access address security concerns with code execution and file creation?
 
-**Short answer:** Disabling network access prevents data from leaving Claude's sandboxed environment - even if something goes wrong.
+Disabling network access prevents data from leaving Claude's sandboxed environment—even if something goes wrong.
 
 ### How it works
 
 When Claude executes code or creates files, it operates within an isolated, sandboxed container. This means the work happens in a controlled environment separate from your systems. However, if network access is enabled, there's a potential risk: through prompt injection or other attacks, Claude could theoretically be tricked into sending data to external servers.
 
-Disabling network access eliminates this risk entirely. Your team still gets Claude's full code execution and file creation capabilities - building Excel models, creating presentations, analyzing data - but with the assurance that nothing can be transmitted outside the sandbox.
+Disabling network access eliminates this risk entirely. Your team still gets Claude's full code execution and file creation capabilities - building Excel models, creating presentations, analyzing data—but with the assurance that nothing can be transmitted outside the sandbox.
 
 ### A phased approach to network access
 
-Claude is most powerful with network access enabled - it can install new packages and dependencies, pull in real-time data, and interact with web services. For organizations comfortable with that risk profile, enabling access to vetted, trusted domains unlocks the full potential of code execution and file creation.
-
-For those taking a more cautious approach, we recommend starting with network access disabled and adjusting as your team builds confidence:
+Claude is most powerful with network access enabled, allowing it to install new packages and dependencies, pull in real-time data, and interact with web services. For organizations comfortable with that risk profile, enabling access to vetted, trusted domains unlocks the full potential of code execution and file creation. For those taking a more cautious approach, we recommend starting with network access disabled and adjusting as your team builds confidence:
 
 1. **Start with network access off.** This is the most secure configuration. Claude can execute code and create files, but cannot communicate externally.
 2. **Enable package managers.** Unlocks pip, npm, and other package managers to install dependencies - significantly expands what Claude can build.
 3. **Expand network access as needed.** Add specific domains to an allowlist based on business requirements, maintaining visibility into what's permitted.
 
-This approach gives you defense in depth - even if there were vulnerabilities in the sandbox or a successful prompt injection, disabled network access acts as a final barrier preventing data from leaving Anthropic's infrastructure.
+This approach gives you defense in depth—even if there were vulnerabilities in the sandbox or a successful prompt injection, disabled network access acts as a final barrier preventing data from leaving Anthropic's infrastructure.
 
 **Note:** If MCP (Model Context Protocol) integrations are enabled, network communication remains possible through those connections regardless of the network egress setting. Organizations should evaluate MCP configurations separately.
+
+---
 
 ## Using code execution and file creation
 
@@ -99,6 +103,8 @@ Claude can create Excel spreadsheets (.xlsx), PowerPoint presentations (.pptx), 
 With this feature, Claude can also do more advanced data analysis and data science work. Claude can create Python scripts for data analysis. Claude can create data visualizations in image files like PNG. You can also upload CSV, TSV, and other files for data analysis and visualization.
 
 The maximum file size is 30MB per file for both uploads and downloads.
+
+---
 
 ## Key capabilities
 
@@ -129,6 +135,8 @@ The context window has been expanded to support more complex multi-step workflow
 
 Claude provides full support for multiple languages in both the user interface and generated files, with proper formatting and regional standards.
 
+---
+
 ## Security and network access
 
 ### How it works
@@ -139,6 +147,8 @@ Code execution and file creation gives Claude a sandboxed computing environment.
 
 * Download and install packages from approved package managers (npm, PyPI, etc.)
 * Access resources needed for file creation and analysis
+
+---
 
 ## Security considerations
 
@@ -172,21 +182,25 @@ Team and Enterprise owners have full control over this feature, including:
 
 **Note:** Claude can only be tricked into leaking data it has access to in a conversation via an individual user's prompt, project, or activated connections.
 
+---
+
 ## Approved network domains
 
 When network access is enabled, Claude can access the following approved domains:
 
-* **Anthropic Services (Explicit):** [api.anthropic.com](http://api.anthropic.com/), [statsig.anthropic.com](http://statsig.anthropic.com/)
-* ​**GitHub:** [github.com](http://github.com/)
-* **NPM:** [registry.npmjs.org](http://registry.npmjs.org/), [npmjs.com](http://npmjs.com/), [npmjs.org](http://npmjs.org/)
-* ​**Python:** [pypi.org](http://pypi.org/), [files.pythonhosted.org](http://files.pythonhosted.org/), [pythonhosted.org](http://pythonhosted.org/)
-* **Rust:** [crates.io](https://crates.io), [index.crates.io](https://index.crates.io), [static.crates.io](https://static.crates.io)
-* **Ubuntu:** [archive.ubuntu.com](https://archive.ubuntu.com), [security.ubuntu.com](https://security.ubuntu.com)
-* **Yarn:** [yarnpkg.com](http://yarnpkg.com/), [registry.yarnpkg.com](http://registry.yarnpkg.com/)
+* **Anthropic Services (Explicit):** api.anthropic.com, statsig.anthropic.com
+* ​**GitHub:** github.com
+* **NPM:** registry.npmjs.org, npmjs.com, npmjs.org
+* ​**Python:** pypi.org, files.pythonhosted.org, pythonhosted.org
+* **Rust:** crates.io, index.crates.io, static.crates.io
+* **Ubuntu:** archive.ubuntu.com, security.ubuntu.com
+* **Yarn:** yarnpkg.com, registry.yarnpkg.com
+
+---
 
 ## Common workflows
 
-**Note:** Refer to **[Create and edit files with Claude to eliminate hours of busy work](https://support.claude.com/en/articles/12143746-create-and-edit-files-with-claude-to-eliminate-hours-of-busy-work)**for use cases and demo videos, and **[Financial Analysis Workflows with Claude](https://support.claude.com/en/articles/12220298-financial-analysis-workflows-with-claude)** for guidelines specific to Claude for Financial Services customers.
+**Note:** Refer to **[Create and edit files with Claude to eliminate hours of busy work](https://support.claude.com/en/articles/12143746-create-and-edit-files-with-claude-to-eliminate-hours-of-busy-work)**for use cases and demo videos, and **[Financial analysis workflows with Claude](https://claude.com/resources/tutorials/financial-analysis-workflows-with-claude)** for guidelines specific to Claude for Financial Services customers.
 
 ### Build a financial model in Excel
 
@@ -240,6 +254,8 @@ Claude will pull the data, organize it in spreadsheet format, and add visualizat
 ### Perform complex analyses
 
 Upload a CSV with data and ask Claude to build a machine learning model to predict a particular outcome. Have Claude output a report summarizing what it did and the results. Claude will use python to train a model on your data, and provide an explanation of what it did, including the quality of the model, and the results.
+
+---
 
 ## Frequently asked questions
 

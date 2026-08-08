@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/11049762-choose-a-claude-plan -->
 
-# Choose a Claude plan
-
-May 19, 2026
-
 Use the following guide to determine which plan is right for you.
 
 |  |  |  |  |  |
@@ -19,4 +15,8 @@ The plans listed above are intended for individual users. Looking for a plan for
 * **[What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)**
 * **[What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)**
 
-[What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)[How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)[Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)[Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)[Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)
+* [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+* [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
+* [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)

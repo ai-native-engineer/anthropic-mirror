@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8114535-where-can-i-go-for-claude-api-support-and-assistance -->
 
-# Where can I go for Claude API support and assistance?
-
-March 16, 2026
-
 For our API users, we currently maintain three main resources:
 
 * Our [Client Software Development Kits (SDKs)](https://docs.claude.com/en/api/client-sdks);

@@ -54,7 +54,7 @@ Switch to Claude Cowork when you want to hand off a task. Find it next to Chat.
 
 ### Claude Cowork takes on your tasks
 
-It works directly in folders and tools you choose, and runs your task end-to-end to deliver work for review. No need to copy from a chat or paste into files.
+Works directly in folders and tools you choose, and runs your task to deliver work for review. No need to copy from a chat or paste into files.
 
 ### Say what, not how
 
@@ -70,57 +70,181 @@ Claude Cowork runs on web, desktop, and mobile and is the same Claude, wherever 
 
 ### Claude works when you don’t
 
-Close your laptop, Claude Cowork keeps going. Schedule a task for any cadence, and it runs unattended. You come back to your deck, spreadsheet, or research.
+Close your laptop, it keeps going. Schedule a task for any cadence, and it runs unattended. You come back to your deck, spreadsheet, or research.
 
 ### More than one thing at a time
 
-Claude Cowork splits big projects into chunks that run together. While it drafts, it also researches and organizes at the same time. You review polished work.
+Big projects are split into chunks that run together. While it drafts, it researches and organizes at the same time. You review polished work.
 
-Claude Cowork doesn't just answer, it takes action
-
-Spend less time fixing and formatting. Claude wrangles your data and research into a deck, spreadsheet, or doc. You sign off.
+## Power through tedious tasks
 
 See more use cases
 
 [See more use cases](https://claude.com/resources/use-cases#claude-cowork)See more use cases
 
-Marketing
+Schedule reports
 
-Sales
+Build spreadsheets
 
-Legal
+Review in bulk
+
+Analyze notes
 
 Active
 
-![marketing thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3ac21c45fd1a5c3fb1ed7c_marketing.webp)
+Note
 
-### Build your weekly metrics deck
+Interact with the data—hover and toggle views to uncover patterns
 
-Attach your campaign exports, schedule a weekly task. Ask for a 4-slide deck with recommended actions for you to review every Monday.
+Prompt
 
-Learn more
+Every Monday morning, build last week's marketing readout. Pull web views and signups from Amplitude, and the newsletter, social, and webinar numbers from Marketing/Channel-tracker in Drive. Compare everything to the week before. Slide one: company name and the week. Slide two: awareness metrics with anything that moved more than 10% flagged. Slide three: consideration metrics, same flags. Note any trend worth watching and anything you couldn't pull. Save to Marketing/Weekly in Drive.
 
-[Learn more](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Learn more
+Connectors
 
-![sales thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3ac22356fc915f8ef66f85_sales.webp)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
 
-### Walk in fully prepared
+Amplitude
 
-Connect your CRM, call recordings, messaging app, calendar, and email. Get a brief for every meeting: who's coming, recent threads, what’s new at their company.
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690c442881b2f70098a4491a_logo_microsoft.svg)
 
-Learn more
+Microsoft 365
 
-[Learn more](https://claude.com/resources/tutorials/using-claude-cowork-for-sales-account-research)Learn more
+![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
-![legal thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3ac2232033d66d13fa34e5_legal.webp)
+### Schedule recurring reports, ready for review
 
-### Organize your audit
+Schedule a report once and get it daily, weekly, or monthly. Claude pulls the numbers, compares them to the period before, and builds the deck, so Monday starts with the readout instead of the assembly.
 
-Attach a folder of policies and contracts. Claude renames every file, sorts by control area, and flags coverage gaps.
+Note
 
-Learn more
+Interact with the data—hover and toggle views to uncover patterns
 
-[Learn more](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Learn more
+Prompt
+
+Our October close is in the Close/October folder. Pull actuals from the four regional exports, roll them into one summary tab, and compare against the budget file. Flag any line where the variance is over 5% or over $50k. Give me a tab per region plus the summary, and a short note on what didn't reconcile.
+
+Connectors
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690c442881b2f70098a4491a_logo_microsoft.svg)
+
+Microsoft 365
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69c3e9405a173533acdaf552_f0d9b6e44e75fdd2a15586497528ec53_CleanShot%202026-03-25%20at%2009.54.54%402x.webp)
+
+Reconcile data in spreadsheets
+
+Hand off recurring close work. Point Claude at the folder of regional exports and budget files, and come back to a working spreadsheet with variances flagged and a note on what didn't reconcile.
+
+Note
+
+Interact with the data—hover and toggle views to uncover patterns
+
+Prompt
+
+These vendor agreements in Contracts/Inbound are up for review. Check each one against our playbook in Legal/Playbook.docx and write me a memo per contract: where it departs from our positions, how far, and which departures are worth pushing back on. Cite the clause number for every issue. Flag anything the playbook doesn't cover.
+
+Connectors
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690c442881b2f70098a4491a_logo_microsoft.svg)
+
+Microsoft 365
+
+### Kelmswick Supply Co. — MSA review
+
+*Memo 3 of 12 for Contracts/Inbound · draft v2 (June 30, 2026) · vs Legal/Playbook.docx rev. March 2026 · prepared by Claude, July 9, 2026*
+
+#### What matters most
+
+Push back hard on two departures (liability cap, one-way indemnity), negotiate two (payment terms, renewal notice), accept one (governing law). Two clauses the playbook doesn't cover — those need you.
+
+* **§11.2 · Limitation of liability** — High · Push back
+* **§14.1 · Indemnification** — High · Push back
+* **§7.3 · Payment terms** — Medium · Negotiate
+* **§9.1 · Auto-renewal notice** — Medium · Negotiate
+* **§16.4 · Governing law** — Low · Accept
+* **§12.5 · AI-assisted deliverables** — Not covered · Needs you
+* **§18.2 · Data localization** — Not covered · Needs you
+
+#### Push back — high severity
+
+##### §11.2 · Limitation of liability
+
+* **Playbook:** Cap at 12 months' fees, with carve-outs for confidentiality, IP, and indemnity obligations (playbook §4.1)
+* **This contract:** Cap at 3 months' fees, no carve-outs
+* **Gap:** On projected spend (~$45k/month), the cap drops from ~$540k to ~$135k — and a confidentiality breach would sit inside it
+* **Suggested ask:** Restore the 12-month cap and the three standard carve-outs; the playbook marks both as non-negotiable
+
+##### §14.1 · Indemnification
+
+* **Playbook:** Mutual indemnity for third-party claims (playbook §5.2)
+* **This contract:** One-way — we indemnify Kelmswick; no reciprocal obligation
+* **Gap:** Full asymmetry on third-party IP and negligence claims
+* **Suggested ask:** Make §14 mutual, mirroring the obligations in §14.2 back to Kelmswick
+
+#### Negotiate — medium severity
+
+##### §7.3 · Invoicing and payment
+
+* **Playbook:** Net 45; late-fee clauses discouraged (playbook §2.3)
+* **This contract:** Net 20, with 1.5% per month on late balances
+* **Gap:** 25 days of float on roughly $45k a month, plus late-fee exposure
+* **Recommendation:** Open at net 45; the playbook allows settling at net 30 with the late fee struck
+
+##### §9.1 · Term and auto-renewal
+
+* **Playbook:** Non-renewal notice of 60 days or less (playbook §2.6)
+* **This contract:** 12-month auto-renew with 120-day non-renewal notice
+* **Gap:** Doubles the notice window; a missed date locks in a full year
+* **Recommendation:** Counter at 60; 90 is a livable compromise if they hold
+
+#### Accept — low severity
+
+**§16.4 · Governing law.** The contract selects New York; the playbook prefers Delaware but lists New York as an acceptable alternative (playbook §7.4). No action needed.
+
+#### Where the playbook is silent
+
+**§12.5 · Ownership of AI-assisted deliverables.** The contract assigns Kelmswick all rights in deliverables "produced in whole or part by automated means." The playbook (rev. March 2026) takes no position on AI work-product.
+
+**§18.2 · Data localization.** Adds UK and Swiss residency requirements; playbook guidance covers EU residency only (playbook §6.1). Whether we can operationally commit is a question for you, not the playbook.
+
+#### Suggested next step
+
+The two high-severity blocks end with language written to be lifted straight into your negotiation email. The other eleven memos in this folder follow the same structure, so the same email skeleton works across the batch.
+
+*Reviewed: kelmswick-supply-MSA-v2.docx (14,210 words) against Legal/Playbook.docx rev. March 2026. Clause numbers follow the contract's own numbering.*
+
+### Get a first-pass review of every contract at once
+
+Hand off first-pass contract review. Point Claude at the folder of inbound agreements and your playbook, and come back to a memo per contract with every departure cited to the clause, and the gaps your playbook doesn't cover marked for you.
+
+Note
+
+Interact with the data—hover and toggle views to uncover patterns
+
+Prompt
+
+My call notes for this quarter are in Deals/Q3. Read through them and write me a memo: where each open deal stands, what the customer said was blocking it, and who has to sign off. Then a section on objections that came up across more than one deal. Quote the note each point comes from. Call out any account I haven't touched in three weeks.
+
+Connectors
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+
+Amplitude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a31e318eaad6802d0604536_Google%20Drive.jpg)
+
+Google Drive
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac11074040a8d303e83a5_Slack.jpg)
+
+Slack
+
+![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+
+### Analyze every objection you've heard this quarter, in one place
+
+Hand off first-pass contract review. Point Claude at the folder of inbound agreements and your playbook, and come back to a memo per contract with every departure cited to the clause, and the gaps your playbook doesn't cover marked for you.
 
 ## Customize Claude with plugins
 
@@ -229,6 +353,46 @@ Blog
 [Blog](https://claude.com/blog/cowork-plugins-across-enterprise)Blog
 
 Feb 24, 2026
+
+## Claude Cowork doesn't just answer, it takes action
+
+Marketing
+
+Sales
+
+Legal
+
+Active
+
+![marketing thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3ac21c45fd1a5c3fb1ed7c_marketing.webp)
+
+### Claude Cowork for marketing
+
+See how Anthropic uses Claude Cowork to gather weekly reviews on a schedule.
+
+Learn more
+
+[Learn more](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Learn more
+
+![sales thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3ac22356fc915f8ef66f85_sales.webp)
+
+Claude Cowork for sales
+
+See how Anthropic uses Claude Cowork to research any account before the first call.
+
+Learn more
+
+[Learn more](https://claude.com/resources/tutorials/using-claude-cowork-for-sales-account-research)Learn more
+
+![legal thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3ac2232033d66d13fa34e5_legal.webp)
+
+Claude Cowork for legal teams
+
+See how Anthropic uses Claude Cowork to answer questions on past decisions.
+
+Learn more
+
+[Learn more](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Learn more
 
 ## Stay in control
 
@@ -378,7 +542,9 @@ Cowork is where you hand Claude real work. It runs on desktop, with web and mobi
 
 ### What’s the difference between Claude Cowork and Chat?
 
-In regular chat, Claude responds to your messages but can't access your files directly. In Cowork, Claude has permission to read, edit, and create files in folders you specify—so it can actually complete tasks rather than just describe how to do them.
+Claude Code is built for software engineering, including writing, debugging, and shipping code. It's available in the terminal, in the desktop app, in IDEs like VS Code and JetBrains, and via Claude Tag.
+
+Claude Cowork is built for work like research, analysis, document creation, and other multi-step tasks. It uses the same agentic approach as Claude Code.
 
 ### What's the difference between Claude Cowork and Claude Code?
 

@@ -3,52 +3,6 @@
 
 <!-- chunk-start -->
 
-      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-    - `Type BetaManagedAgentsScheduleType`
-
-      - `const BetaManagedAgentsScheduleTypeCron BetaManagedAgentsScheduleType = "cron"`
-
-    - `LastRunAt Time`
-
-      A timestamp in RFC 3339 format
-
-    - `UpcomingRunsAt []Time`
-
-      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-  - `Status BetaManagedAgentsDeploymentStatus`
-
-    Lifecycle status of a deployment.
-
-    - `const BetaManagedAgentsDeploymentStatusActive BetaManagedAgentsDeploymentStatus = "active"`
-
-    - `const BetaManagedAgentsDeploymentStatusPaused BetaManagedAgentsDeploymentStatus = "paused"`
-
-  - `Type BetaManagedAgentsDeploymentType`
-
-    - `const BetaManagedAgentsDeploymentTypeDeployment BetaManagedAgentsDeploymentType = "deployment"`
-
-  - `UpdatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `VaultIDs []string`
-
-    Vault IDs supplying stored credentials for sessions created from this deployment.
-
-### Beta Managed Agents Deployment Initial Event
-
-- `type BetaManagedAgentsDeploymentInitialEventUnion interface{…}`
-
-  An event sent to a session immediately after it is created. Supports `user.message`, `user.define_outcome`, and `system.message`.
-
-  - `type BetaManagedAgentsDeploymentUserMessageEvent struct{…}`
-
-    A user message sent to the session.
-
-    - `Content []BetaManagedAgentsDeploymentUserMessageEventContentUnion`
-
       Array of content blocks for the user message.
 
       - `type BetaManagedAgentsTextBlock struct{…}`
@@ -1843,24 +1797,22 @@ List Deployment Runs
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.DeploymentRuns.List(context.TODO(), anthropic.BetaDeploymentRunListParams{
-
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.DeploymentRuns.List(context.TODO(), anthropic.BetaDeploymentRunListParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -2244,28 +2196,26 @@ Get Deployment Run
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsDeploymentRun, err := client.Beta.DeploymentRuns.Get(
-    context.TODO(),
-    "deployment_run_id",
-    anthropic.BetaDeploymentRunGetParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsDeploymentRun.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsDeploymentRun, err := client.Beta.DeploymentRuns.Get(
+		context.TODO(),
+		"deployment_run_id",
+		anthropic.BetaDeploymentRunGetParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsDeploymentRun.ID)
 }
 ```
 
@@ -2972,24 +2922,24 @@ Create Vault
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsVault, err := client.Beta.Vaults.New(context.TODO(), anthropic.BetaVaultNewParams{
-    DisplayName: "Example vault",
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsVault.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsVault, err := client.Beta.Vaults.New(context.TODO(), anthropic.BetaVaultNewParams{
+		DisplayName: "Example vault",
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsVault.ID)
 }
 ```
 
@@ -3145,24 +3095,22 @@ List Vaults
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.Vaults.List(context.TODO(), anthropic.BetaVaultListParams{
-
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.Vaults.List(context.TODO(), anthropic.BetaVaultListParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -3313,28 +3261,26 @@ Get Vault
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsVault, err := client.Beta.Vaults.Get(
-    context.TODO(),
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    anthropic.BetaVaultGetParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsVault.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsVault, err := client.Beta.Vaults.Get(
+		context.TODO(),
+		"vlt_011CZkZDLs7fYzm1hXNPeRjv",
+		anthropic.BetaVaultGetParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsVault.ID)
 }
 ```
 
@@ -3488,28 +3434,26 @@ Update Vault
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsVault, err := client.Beta.Vaults.Update(
-    context.TODO(),
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    anthropic.BetaVaultUpdateParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsVault.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsVault, err := client.Beta.Vaults.Update(
+		context.TODO(),
+		"vlt_011CZkZDLs7fYzm1hXNPeRjv",
+		anthropic.BetaVaultUpdateParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsVault.ID)
 }
 ```
 
@@ -3635,28 +3579,26 @@ Delete Vault
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsDeletedVault, err := client.Beta.Vaults.Delete(
-    context.TODO(),
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    anthropic.BetaVaultDeleteParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsDeletedVault.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsDeletedVault, err := client.Beta.Vaults.Delete(
+		context.TODO(),
+		"vlt_011CZkZDLs7fYzm1hXNPeRjv",
+		anthropic.BetaVaultDeleteParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsDeletedVault.ID)
 }
 ```
 
@@ -3795,28 +3737,26 @@ Archive Vault
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsVault, err := client.Beta.Vaults.Archive(
-    context.TODO(),
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    anthropic.BetaVaultArchiveParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsVault.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsVault, err := client.Beta.Vaults.Archive(
+		context.TODO(),
+		"vlt_011CZkZDLs7fYzm1hXNPeRjv",
+		anthropic.BetaVaultArchiveParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsVault.ID)
 }
 ```
 
@@ -4306,34 +4246,34 @@ Create Credential
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.New(
-    context.TODO(),
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    anthropic.BetaVaultCredentialNewParams{
-      Auth: anthropic.BetaVaultCredentialNewParamsAuthUnion{
-        OfStaticBearer: &anthropic.BetaManagedAgentsStaticBearerCreateParams{
-          Token: "bearer_exampletoken",
-          MCPServerURL: "https://example-server.modelcontextprotocol.io/sse",
-          Type: anthropic.BetaManagedAgentsStaticBearerCreateParamsTypeStaticBearer,
-        },
-      },
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsCredential.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.New(
+		context.TODO(),
+		"vlt_011CZkZDLs7fYzm1hXNPeRjv",
+		anthropic.BetaVaultCredentialNewParams{
+			Auth: anthropic.BetaVaultCredentialNewParamsAuthUnion{
+				OfStaticBearer: &anthropic.BetaManagedAgentsStaticBearerCreateParams{
+					Token:        "bearer_exampletoken",
+					MCPServerURL: "https://example-server.modelcontextprotocol.io/sse",
+					Type:         anthropic.BetaManagedAgentsStaticBearerCreateParamsTypeStaticBearer,
+				},
+			},
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsCredential.ID)
 }
 ```
 
@@ -4628,28 +4568,26 @@ List Credentials
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.Vaults.Credentials.List(
-    context.TODO(),
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    anthropic.BetaVaultCredentialListParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.Vaults.Credentials.List(
+		context.TODO(),
+		"vlt_011CZkZDLs7fYzm1hXNPeRjv",
+		anthropic.BetaVaultCredentialListParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -4941,28 +4879,28 @@ Get Credential
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Get(
-    context.TODO(),
-    "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-    anthropic.BetaVaultCredentialGetParams{
-      VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsCredential.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Get(
+		context.TODO(),
+		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		anthropic.BetaVaultCredentialGetParams{
+			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsCredential.ID)
 }
 ```
 
@@ -5377,28 +5315,28 @@ Update Credential
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Update(
-    context.TODO(),
-    "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-    anthropic.BetaVaultCredentialUpdateParams{
-      VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsCredential.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Update(
+		context.TODO(),
+		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		anthropic.BetaVaultCredentialUpdateParams{
+			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsCredential.ID)
 }
 ```
 
@@ -5533,28 +5471,28 @@ Delete Credential
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsDeletedCredential, err := client.Beta.Vaults.Credentials.Delete(
-    context.TODO(),
-    "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-    anthropic.BetaVaultCredentialDeleteParams{
-      VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsDeletedCredential.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsDeletedCredential, err := client.Beta.Vaults.Credentials.Delete(
+		context.TODO(),
+		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		anthropic.BetaVaultCredentialDeleteParams{
+			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsDeletedCredential.ID)
 }
 ```
 
@@ -5829,28 +5767,28 @@ Archive Credential
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Archive(
-    context.TODO(),
-    "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-    anthropic.BetaVaultCredentialArchiveParams{
-      VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsCredential.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Archive(
+		context.TODO(),
+		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		anthropic.BetaVaultCredentialArchiveParams{
+			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsCredential.ID)
 }
 ```
 
@@ -6055,28 +5993,28 @@ Validate Credential
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsCredentialValidation, err := client.Beta.Vaults.Credentials.MCPOAuthValidate(
-    context.TODO(),
-    "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-    anthropic.BetaVaultCredentialMCPOAuthValidateParams{
-      VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsCredentialValidation.CredentialID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsCredentialValidation, err := client.Beta.Vaults.Credentials.MCPOAuthValidate(
+		context.TODO(),
+		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		anthropic.BetaVaultCredentialMCPOAuthValidateParams{
+			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsCredentialValidation.CredentialID)
 }
 ```
 
@@ -7393,24 +7331,24 @@ Create a memory store
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsMemoryStore, err := client.Beta.MemoryStores.New(context.TODO(), anthropic.BetaMemoryStoreNewParams{
-    Name: "x",
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsMemoryStore.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsMemoryStore, err := client.Beta.MemoryStores.New(context.TODO(), anthropic.BetaMemoryStoreNewParams{
+		Name: "x",
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsMemoryStore.ID)
 }
 ```
 
@@ -7579,24 +7517,22 @@ List memory stores
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.MemoryStores.List(context.TODO(), anthropic.BetaMemoryStoreListParams{
-
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.MemoryStores.List(context.TODO(), anthropic.BetaMemoryStoreListParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -7752,28 +7688,26 @@ Retrieve a memory store
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsMemoryStore, err := client.Beta.MemoryStores.Get(
-    context.TODO(),
-    "memory_store_id",
-    anthropic.BetaMemoryStoreGetParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsMemoryStore.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsMemoryStore, err := client.Beta.MemoryStores.Get(
+		context.TODO(),
+		"memory_store_id",
+		anthropic.BetaMemoryStoreGetParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsMemoryStore.ID)
 }
 ```
 
@@ -7936,28 +7870,26 @@ Update a memory store
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsMemoryStore, err := client.Beta.MemoryStores.Update(
-    context.TODO(),
-    "memory_store_id",
-    anthropic.BetaMemoryStoreUpdateParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsMemoryStore.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsMemoryStore, err := client.Beta.MemoryStores.Update(
+		context.TODO(),
+		"memory_store_id",
+		anthropic.BetaMemoryStoreUpdateParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsMemoryStore.ID)
 }
 ```
 
@@ -8084,28 +8016,26 @@ Delete a memory store
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsDeletedMemoryStore, err := client.Beta.MemoryStores.Delete(
-    context.TODO(),
-    "memory_store_id",
-    anthropic.BetaMemoryStoreDeleteParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsDeletedMemoryStore.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsDeletedMemoryStore, err := client.Beta.MemoryStores.Delete(
+		context.TODO(),
+		"memory_store_id",
+		anthropic.BetaMemoryStoreDeleteParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsDeletedMemoryStore.ID)
 }
 ```
 
@@ -8248,28 +8178,26 @@ Archive a memory store
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsMemoryStore, err := client.Beta.MemoryStores.Archive(
-    context.TODO(),
-    "memory_store_id",
-    anthropic.BetaMemoryStoreArchiveParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsMemoryStore.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsMemoryStore, err := client.Beta.MemoryStores.Archive(
+		context.TODO(),
+		"memory_store_id",
+		anthropic.BetaMemoryStoreArchiveParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsMemoryStore.ID)
 }
 ```
 
@@ -8496,29 +8424,29 @@ Create a memory
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsMemory, err := client.Beta.MemoryStores.Memories.New(
-    context.TODO(),
-    "memory_store_id",
-    anthropic.BetaMemoryStoreMemoryNewParams{
-      Content: anthropic.String("content"),
-      Path: "xx",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsMemory.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsMemory, err := client.Beta.MemoryStores.Memories.New(
+		context.TODO(),
+		"memory_store_id",
+		anthropic.BetaMemoryStoreMemoryNewParams{
+			Content: anthropic.String("content"),
+			Path:    "xx",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsMemory.ID)
 }
 ```
 
@@ -8713,28 +8641,26 @@ List memories
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.MemoryStores.Memories.List(
-    context.TODO(),
-    "memory_store_id",
-    anthropic.BetaMemoryStoreMemoryListParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.MemoryStores.Memories.List(
+		context.TODO(),
+		"memory_store_id",
+		anthropic.BetaMemoryStoreMemoryListParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -8906,28 +8832,28 @@ Retrieve a memory
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsMemory, err := client.Beta.MemoryStores.Memories.Get(
-    context.TODO(),
-    "memory_id",
-    anthropic.BetaMemoryStoreMemoryGetParams{
-      MemoryStoreID: "memory_store_id",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsMemory.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsMemory, err := client.Beta.MemoryStores.Memories.Get(
+		context.TODO(),
+		"memory_id",
+		anthropic.BetaMemoryStoreMemoryGetParams{
+			MemoryStoreID: "memory_store_id",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsMemory.ID)
 }
 ```
 
@@ -9106,28 +9032,28 @@ Update a memory
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsMemory, err := client.Beta.MemoryStores.Memories.Update(
-    context.TODO(),
-    "memory_id",
-    anthropic.BetaMemoryStoreMemoryUpdateParams{
-      MemoryStoreID: "memory_store_id",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsMemory.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsMemory, err := client.Beta.MemoryStores.Memories.Update(
+		context.TODO(),
+		"memory_id",
+		anthropic.BetaMemoryStoreMemoryUpdateParams{
+			MemoryStoreID: "memory_store_id",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsMemory.ID)
 }
 ```
 
@@ -9262,28 +9188,28 @@ Delete a memory
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsDeletedMemory, err := client.Beta.MemoryStores.Memories.Delete(
-    context.TODO(),
-    "memory_id",
-    anthropic.BetaMemoryStoreMemoryDeleteParams{
-      MemoryStoreID: "memory_store_id",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsDeletedMemory.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsDeletedMemory, err := client.Beta.MemoryStores.Memories.Delete(
+		context.TODO(),
+		"memory_id",
+		anthropic.BetaMemoryStoreMemoryDeleteParams{
+			MemoryStoreID: "memory_store_id",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsDeletedMemory.ID)
 }
 ```
 
@@ -9840,28 +9766,26 @@ List memory versions
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.MemoryStores.MemoryVersions.List(
-    context.TODO(),
-    "memory_store_id",
-    anthropic.BetaMemoryStoreMemoryVersionListParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.MemoryStores.MemoryVersions.List(
+		context.TODO(),
+		"memory_store_id",
+		anthropic.BetaMemoryStoreMemoryVersionListParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -10096,28 +10020,28 @@ Retrieve a memory version
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsMemoryVersion, err := client.Beta.MemoryStores.MemoryVersions.Get(
-    context.TODO(),
-    "memory_version_id",
-    anthropic.BetaMemoryStoreMemoryVersionGetParams{
-      MemoryStoreID: "memory_store_id",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsMemoryVersion.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsMemoryVersion, err := client.Beta.MemoryStores.MemoryVersions.Get(
+		context.TODO(),
+		"memory_version_id",
+		anthropic.BetaMemoryStoreMemoryVersionGetParams{
+			MemoryStoreID: "memory_store_id",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsMemoryVersion.ID)
 }
 ```
 
@@ -10343,28 +10267,28 @@ Redact a memory version
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaManagedAgentsMemoryVersion, err := client.Beta.MemoryStores.MemoryVersions.Redact(
-    context.TODO(),
-    "memory_version_id",
-    anthropic.BetaMemoryStoreMemoryVersionRedactParams{
-      MemoryStoreID: "memory_store_id",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaManagedAgentsMemoryVersion.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsMemoryVersion, err := client.Beta.MemoryStores.MemoryVersions.Redact(
+		context.TODO(),
+		"memory_version_id",
+		anthropic.BetaMemoryStoreMemoryVersionRedactParams{
+			MemoryStoreID: "memory_store_id",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsMemoryVersion.ID)
 }
 ```
 
@@ -10740,26 +10664,26 @@ Upload File
 package main
 
 import (
-  "bytes"
-  "context"
-  "fmt"
-  "io"
+	"bytes"
+	"context"
+	"fmt"
+	"io"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  fileMetadata, err := client.Beta.Files.Upload(context.TODO(), anthropic.BetaFileUploadParams{
-    File: io.Reader(bytes.NewBuffer([]byte("Example data"))),
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", fileMetadata.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	fileMetadata, err := client.Beta.Files.Upload(context.TODO(), anthropic.BetaFileUploadParams{
+		File: io.Reader(bytes.NewBuffer([]byte("Example data"))),
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", fileMetadata.ID)
 }
 ```
 
@@ -10941,24 +10865,22 @@ List Files
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.Files.List(context.TODO(), anthropic.BetaFileListParams{
-
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.Files.List(context.TODO(), anthropic.BetaFileListParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -11085,28 +11007,26 @@ Download File
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  response, err := client.Beta.Files.Download(
-    context.TODO(),
-    "file_id",
-    anthropic.BetaFileDownloadParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", response)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	response, err := client.Beta.Files.Download(
+		context.TODO(),
+		"file_id",
+		anthropic.BetaFileDownloadParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", response)
 }
 ```
 
@@ -11256,28 +11176,26 @@ Get File Metadata
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  fileMetadata, err := client.Beta.Files.GetMetadata(
-    context.TODO(),
-    "file_id",
-    anthropic.BetaFileGetMetadataParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", fileMetadata.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	fileMetadata, err := client.Beta.Files.GetMetadata(
+		context.TODO(),
+		"file_id",
+		anthropic.BetaFileGetMetadataParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", fileMetadata.ID)
 }
 ```
 
@@ -11409,28 +11327,26 @@ Delete File
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  deletedFile, err := client.Beta.Files.Delete(
-    context.TODO(),
-    "file_id",
-    anthropic.BetaFileDeleteParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", deletedFile.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	deletedFile, err := client.Beta.Files.Delete(
+		context.TODO(),
+		"file_id",
+		anthropic.BetaFileDeleteParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", deletedFile.ID)
 }
 ```
 
@@ -11676,26 +11592,26 @@ Create Skill
 package main
 
 import (
-  "bytes"
-  "context"
-  "fmt"
-  "io"
+	"bytes"
+	"context"
+	"fmt"
+	"io"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  skill, err := client.Beta.Skills.New(context.TODO(), anthropic.BetaSkillNewParams{
-    Files: []io.Reader{io.Reader(bytes.NewBuffer([]byte("Example data")))},
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", skill.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	skill, err := client.Beta.Skills.New(context.TODO(), anthropic.BetaSkillNewParams{
+		Files: []io.Reader{io.Reader(bytes.NewBuffer([]byte("Example data")))},
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", skill.ID)
 }
 ```
 
@@ -11869,24 +11785,22 @@ List Skills
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.Skills.List(context.TODO(), anthropic.BetaSkillListParams{
-
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.Skills.List(context.TODO(), anthropic.BetaSkillListParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -12051,28 +11965,26 @@ Get Skill
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  skill, err := client.Beta.Skills.Get(
-    context.TODO(),
-    "skill_id",
-    anthropic.BetaSkillGetParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", skill.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	skill, err := client.Beta.Skills.Get(
+		context.TODO(),
+		"skill_id",
+		anthropic.BetaSkillGetParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", skill.ID)
 }
 ```
 
@@ -12202,28 +12114,26 @@ Delete Skill
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  skill, err := client.Beta.Skills.Delete(
-    context.TODO(),
-    "skill_id",
-    anthropic.BetaSkillDeleteParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", skill.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	skill, err := client.Beta.Skills.Delete(
+		context.TODO(),
+		"skill_id",
+		anthropic.BetaSkillDeleteParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", skill.ID)
 }
 ```
 
@@ -12388,30 +12298,30 @@ Create Skill Version
 package main
 
 import (
-  "bytes"
-  "context"
-  "fmt"
-  "io"
+	"bytes"
+	"context"
+	"fmt"
+	"io"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  version, err := client.Beta.Skills.Versions.New(
-    context.TODO(),
-    "skill_id",
-    anthropic.BetaSkillVersionNewParams{
-      Files: []io.Reader{io.Reader(bytes.NewBuffer([]byte("Example data")))},
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", version.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	version, err := client.Beta.Skills.Versions.New(
+		context.TODO(),
+		"skill_id",
+		anthropic.BetaSkillVersionNewParams{
+			Files: []io.Reader{io.Reader(bytes.NewBuffer([]byte("Example data")))},
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", version.ID)
 }
 ```
 
@@ -12584,28 +12494,26 @@ List Skill Versions
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.Skills.Versions.List(
-    context.TODO(),
-    "skill_id",
-    anthropic.BetaSkillVersionListParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.Skills.Versions.List(
+		context.TODO(),
+		"skill_id",
+		anthropic.BetaSkillVersionListParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -12736,28 +12644,28 @@ Download a skill version's content as a zip archive.
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  response, err := client.Beta.Skills.Versions.Download(
-    context.TODO(),
-    "version",
-    anthropic.BetaSkillVersionDownloadParams{
-      SkillID: "skill_id",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", response)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	response, err := client.Beta.Skills.Versions.Download(
+		context.TODO(),
+		"version",
+		anthropic.BetaSkillVersionDownloadParams{
+			SkillID: "skill_id",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", response)
 }
 ```
 
@@ -12911,28 +12819,28 @@ Get Skill Version
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  version, err := client.Beta.Skills.Versions.Get(
-    context.TODO(),
-    "version",
-    anthropic.BetaSkillVersionGetParams{
-      SkillID: "skill_id",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", version.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	version, err := client.Beta.Skills.Versions.Get(
+		context.TODO(),
+		"version",
+		anthropic.BetaSkillVersionGetParams{
+			SkillID: "skill_id",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", version.ID)
 }
 ```
 
@@ -13069,28 +12977,28 @@ Delete Skill Version
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  version, err := client.Beta.Skills.Versions.Delete(
-    context.TODO(),
-    "version",
-    anthropic.BetaSkillVersionDeleteParams{
-      SkillID: "skill_id",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", version.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	version, err := client.Beta.Skills.Versions.Delete(
+		context.TODO(),
+		"version",
+		anthropic.BetaSkillVersionDeleteParams{
+			SkillID: "skill_id",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", version.ID)
 }
 ```
 
@@ -13275,24 +13183,22 @@ Create User Profile
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaUserProfile, err := client.Beta.UserProfiles.New(context.TODO(), anthropic.BetaUserProfileNewParams{
-
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaUserProfile.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaUserProfile, err := client.Beta.UserProfiles.New(context.TODO(), anthropic.BetaUserProfileNewParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaUserProfile.ID)
 }
 ```
 
@@ -13480,24 +13386,22 @@ List User Profiles
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.UserProfiles.List(context.TODO(), anthropic.BetaUserProfileListParams{
-
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.UserProfiles.List(context.TODO(), anthropic.BetaUserProfileListParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -13676,28 +13580,26 @@ Get User Profile
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaUserProfile, err := client.Beta.UserProfiles.Get(
-    context.TODO(),
-    "uprof_011CZkZCu8hGbp5mYRQgUmz9",
-    anthropic.BetaUserProfileGetParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaUserProfile.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaUserProfile, err := client.Beta.UserProfiles.Get(
+		context.TODO(),
+		"uprof_011CZkZCu8hGbp5mYRQgUmz9",
+		anthropic.BetaUserProfileGetParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaUserProfile.ID)
 }
 ```
 
@@ -13893,28 +13795,26 @@ Update User Profile
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaUserProfile, err := client.Beta.UserProfiles.Update(
-    context.TODO(),
-    "uprof_011CZkZCu8hGbp5mYRQgUmz9",
-    anthropic.BetaUserProfileUpdateParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaUserProfile.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaUserProfile, err := client.Beta.UserProfiles.Update(
+		context.TODO(),
+		"uprof_011CZkZCu8hGbp5mYRQgUmz9",
+		anthropic.BetaUserProfileUpdateParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaUserProfile.ID)
 }
 ```
 
@@ -14048,28 +13948,26 @@ Create Enrollment URL
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaUserProfileEnrollmentURL, err := client.Beta.UserProfiles.NewEnrollmentURL(
-    context.TODO(),
-    "uprof_011CZkZCu8hGbp5mYRQgUmz9",
-    anthropic.BetaUserProfileNewEnrollmentURLParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaUserProfileEnrollmentURL.ExpiresAt)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaUserProfileEnrollmentURL, err := client.Beta.UserProfiles.NewEnrollmentURL(
+		context.TODO(),
+		"uprof_011CZkZCu8hGbp5mYRQgUmz9",
+		anthropic.BetaUserProfileNewEnrollmentURLParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaUserProfileEnrollmentURL.ExpiresAt)
 }
 ```
 
@@ -14433,32 +14331,32 @@ Create a Dream
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaDream, err := client.Beta.Dreams.New(context.TODO(), anthropic.BetaDreamNewParams{
-    Inputs: []anthropic.BetaDreamInputUnionParam{anthropic.BetaDreamInputUnionParam{
-      OfMemoryStore: &anthropic.BetaDreamMemoryStoreInputParam{
-        MemoryStoreID: "x",
-        Type: anthropic.BetaDreamMemoryStoreInputTypeMemoryStore,
-      },
-    }},
-    Model: anthropic.BetaDreamNewParamsModelUnion{
-      OfString: anthropic.String("string"),
-    },
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaDream.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaDream, err := client.Beta.Dreams.New(context.TODO(), anthropic.BetaDreamNewParams{
+		Inputs: []anthropic.BetaDreamInputUnionParam{anthropic.BetaDreamInputUnionParam{
+			OfMemoryStore: &anthropic.BetaDreamMemoryStoreInputParam{
+				MemoryStoreID: "x",
+				Type:          anthropic.BetaDreamMemoryStoreInputTypeMemoryStore,
+			},
+		}},
+		Model: anthropic.BetaDreamNewParamsModelUnion{
+			OfString: anthropic.String("string"),
+		},
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaDream.ID)
 }
 ```
 
@@ -14743,24 +14641,22 @@ List Dreams
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.Dreams.List(context.TODO(), anthropic.BetaDreamListParams{
-
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.Dreams.List(context.TODO(), anthropic.BetaDreamListParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -15018,28 +14914,26 @@ Get a Dream
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaDream, err := client.Beta.Dreams.Get(
-    context.TODO(),
-    "dream_id",
-    anthropic.BetaDreamGetParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaDream.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaDream, err := client.Beta.Dreams.Get(
+		context.TODO(),
+		"dream_id",
+		anthropic.BetaDreamGetParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaDream.ID)
 }
 ```
 
@@ -15292,28 +15186,26 @@ Cancel a Dream
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaDream, err := client.Beta.Dreams.Cancel(
-    context.TODO(),
-    "dream_id",
-    anthropic.BetaDreamCancelParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaDream.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaDream, err := client.Beta.Dreams.Cancel(
+		context.TODO(),
+		"dream_id",
+		anthropic.BetaDreamCancelParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaDream.ID)
 }
 ```
 
@@ -15566,28 +15458,26 @@ Archive a Dream
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaDream, err := client.Beta.Dreams.Archive(
-    context.TODO(),
-    "dream_id",
-    anthropic.BetaDreamArchiveParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaDream.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaDream, err := client.Beta.Dreams.Archive(
+		context.TODO(),
+		"dream_id",
+		anthropic.BetaDreamArchiveParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaDream.ID)
 }
 ```
 
@@ -16036,24 +15926,22 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaTunnel, err := client.Beta.Tunnels.New(context.TODO(), anthropic.BetaTunnelNewParams{
-
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaTunnel.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaTunnel, err := client.Beta.Tunnels.New(context.TODO(), anthropic.BetaTunnelNewParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaTunnel.ID)
 }
 ```
 
@@ -16194,28 +16082,26 @@ Fetches a tunnel by ID.
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaTunnel, err := client.Beta.Tunnels.Get(
-    context.TODO(),
-    "tunnel_id",
-    anthropic.BetaTunnelGetParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaTunnel.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaTunnel, err := client.Beta.Tunnels.Get(
+		context.TODO(),
+		"tunnel_id",
+		anthropic.BetaTunnelGetParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaTunnel.ID)
 }
 ```
 
@@ -16366,24 +16252,22 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.Tunnels.List(context.TODO(), anthropic.BetaTunnelListParams{
-
-  })
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.Tunnels.List(context.TODO(), anthropic.BetaTunnelListParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -16529,28 +16413,26 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaTunnel, err := client.Beta.Tunnels.Archive(
-    context.TODO(),
-    "tunnel_id",
-    anthropic.BetaTunnelArchiveParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaTunnel.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaTunnel, err := client.Beta.Tunnels.Archive(
+		context.TODO(),
+		"tunnel_id",
+		anthropic.BetaTunnelArchiveParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaTunnel.ID)
 }
 ```
 
@@ -16679,28 +16561,26 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaTunnelToken, err := client.Beta.Tunnels.RevealToken(
-    context.TODO(),
-    "tunnel_id",
-    anthropic.BetaTunnelRevealTokenParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaTunnelToken.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaTunnelToken, err := client.Beta.Tunnels.RevealToken(
+		context.TODO(),
+		"tunnel_id",
+		anthropic.BetaTunnelRevealTokenParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaTunnelToken.ID)
 }
 ```
 
@@ -16830,28 +16710,26 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaTunnelToken, err := client.Beta.Tunnels.RotateToken(
-    context.TODO(),
-    "tunnel_id",
-    anthropic.BetaTunnelRotateTokenParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaTunnelToken.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaTunnelToken, err := client.Beta.Tunnels.RotateToken(
+		context.TODO(),
+		"tunnel_id",
+		anthropic.BetaTunnelRotateTokenParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaTunnelToken.ID)
 }
 ```
 
@@ -17049,28 +16927,28 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaTunnelCertificate, err := client.Beta.Tunnels.Certificates.New(
-    context.TODO(),
-    "tunnel_id",
-    anthropic.BetaTunnelCertificateNewParams{
-      CaCertificatePem: "ca_certificate_pem",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaTunnelCertificate.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaTunnelCertificate, err := client.Beta.Tunnels.Certificates.New(
+		context.TODO(),
+		"tunnel_id",
+		anthropic.BetaTunnelCertificateNewParams{
+			CaCertificatePem: "ca_certificate_pem",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaTunnelCertificate.ID)
 }
 ```
 
@@ -17220,28 +17098,28 @@ Fetches a tunnel certificate by ID.
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaTunnelCertificate, err := client.Beta.Tunnels.Certificates.Get(
-    context.TODO(),
-    "certificate_id",
-    anthropic.BetaTunnelCertificateGetParams{
-      TunnelID: "tunnel_id",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaTunnelCertificate.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaTunnelCertificate, err := client.Beta.Tunnels.Certificates.Get(
+		context.TODO(),
+		"certificate_id",
+		anthropic.BetaTunnelCertificateGetParams{
+			TunnelID: "tunnel_id",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaTunnelCertificate.ID)
 }
 ```
 
@@ -17399,28 +17277,26 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  page, err := client.Beta.Tunnels.Certificates.List(
-    context.TODO(),
-    "tunnel_id",
-    anthropic.BetaTunnelCertificateListParams{
-
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", page)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.Tunnels.Certificates.List(
+		context.TODO(),
+		"tunnel_id",
+		anthropic.BetaTunnelCertificateListParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
 }
 ```
 
@@ -17575,28 +17451,28 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 package main
 
 import (
-  "context"
-  "fmt"
+	"context"
+	"fmt"
 
-  "github.com/anthropics/anthropic-sdk-go"
-  "github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 func main() {
-  client := anthropic.NewClient(
-    option.WithAPIKey("my-anthropic-api-key"),
-  )
-  betaTunnelCertificate, err := client.Beta.Tunnels.Certificates.Archive(
-    context.TODO(),
-    "certificate_id",
-    anthropic.BetaTunnelCertificateArchiveParams{
-      TunnelID: "tunnel_id",
-    },
-  )
-  if err != nil {
-    panic(err.Error())
-  }
-  fmt.Printf("%+v\n", betaTunnelCertificate.ID)
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaTunnelCertificate, err := client.Beta.Tunnels.Certificates.Archive(
+		context.TODO(),
+		"certificate_id",
+		anthropic.BetaTunnelCertificateArchiveParams{
+			TunnelID: "tunnel_id",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaTunnelCertificate.ID)
 }
 ```
 

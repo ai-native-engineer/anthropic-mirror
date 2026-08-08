@@ -14,7 +14,13 @@ Next generation of intelligence for the hardest knowledge work and coding proble
 
 * UPDATE
 
-  Claude Fable 5 is rolling out
+  Improving Fable 5's biology safeguards
+
+  Aug 6, 2026
+
+  We’re making updates to Claude Fable 5’s biology safeguards in a way that substantially reduces false positives.
+
+* Claude Fable 5 is rolling out
 
   Jul 1, 2026
 

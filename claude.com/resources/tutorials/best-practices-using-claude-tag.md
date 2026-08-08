@@ -129,6 +129,14 @@ A few things run underneath all of the above, and they're worth knowing because 
 
 ## Related tutorials
 
+[How to choose between voice mode and dictation](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)How to choose between voice mode and dictation
+
+How to choose between voice mode and dictation
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)Tutorial
+
 [Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
 
 Delegating and scheduling tasks in Claude Cowork
@@ -152,11 +160,3 @@ Using Claude Cowork for legal: answer fast questions on past decisions
 Tutorial
 
 [Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial
-
-[Using Claude Cowork for marketing ops: run a weekly review that preps itself](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Tutorial
-
-[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Tutorial

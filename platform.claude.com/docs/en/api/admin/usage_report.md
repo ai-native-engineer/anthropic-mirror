@@ -23,15 +23,15 @@ Get Messages Usage Report
 
   Restrict usage returned to the specified API key ID(s).
 
-- `bucket_width: optional "1d" or "1m" or "1h"`
+- `bucket_width: optional "1d" or "1h" or "1m"`
 
   Time granularity of the response data.
 
   - `"1d"`
 
-  - `"1m"`
-
   - `"1h"`
+
+  - `"1m"`
 
 - `context_window: optional array of "0-200k" or "200k-1M"`
 
@@ -45,37 +45,37 @@ Get Messages Usage Report
 
   Time buckets that end before this RFC 3339 timestamp will be returned.
 
-- `group_by: optional array of "api_key_id" or "workspace_id" or "model" or 6 more`
+- `group_by: optional array of "account_id" or "api_key_id" or "context_window" or 6 more`
 
   Group by any subset of the available options. Grouping by `speed` requires the `fast-mode-2026-02-01` beta header.
 
+  - `"account_id"`
+
   - `"api_key_id"`
-
-  - `"workspace_id"`
-
-  - `"model"`
-
-  - `"service_tier"`
 
   - `"context_window"`
 
   - `"inference_geo"`
 
-  - `"speed"`
-
-  - `"account_id"`
+  - `"model"`
 
   - `"service_account_id"`
 
-- `inference_geos: optional array of "global" or "us" or "not_available"`
+  - `"service_tier"`
+
+  - `"speed"`
+
+  - `"workspace_id"`
+
+- `inference_geos: optional array of "global" or "not_available" or "us"`
 
   Restrict usage returned to the specified inference geo(s). Use `not_available` for models that do not support specifying `inference_geo`.
 
   - `"global"`
 
-  - `"us"`
-
   - `"not_available"`
+
+  - `"us"`
 
 - `limit: optional number`
 
@@ -98,30 +98,30 @@ Get Messages Usage Report
 
   Restrict usage returned to the specified service account ID(s).
 
-- `service_tiers: optional array of "standard" or "batch" or "priority" or 3 more`
+- `service_tiers: optional array of "batch" or "flex" or "flex_discount" or 3 more`
 
   Restrict usage returned to the specified service tier(s).
 
-  - `"standard"`
-
   - `"batch"`
-
-  - `"priority"`
-
-  - `"priority_on_demand"`
 
   - `"flex"`
 
   - `"flex_discount"`
 
-- `speeds: optional array of "standard" or "fast"`
+  - `"priority"`
+
+  - `"priority_on_demand"`
+
+  - `"standard"`
+
+- `speeds: optional array of "fast" or "standard"`
 
   Restrict usage returned to the specified speed(s) (Claude Code research preview).
   Requires the `fast-mode-2026-02-01` beta header.
 
-  - `"standard"`
-
   - `"fast"`
+
+  - `"standard"`
 
 - `workspace_ids: optional array of string`
 
@@ -181,10 +181,15 @@ Get Messages Usage Report
 
         - `"200k-1M"`
 
-      - `inference_geo: string`
+      - `inference_geo: "global" or "not_available" or "us"`
 
-        Inference geo used matching requests' `inference_geo` parameter if set, otherwise the workspace's `default_inference_geo`.
-        For models that do not support specifying `inference_geo` the value is `"not_available"`. Always `null` if not grouping by inference geo.
+        InferenceGeo values extended with NOT_AVAILABLE for filtering usage data.
+
+        - `"global"`
+
+        - `"not_available"`
+
+        - `"us"`
 
       - `model: string`
 
@@ -206,21 +211,21 @@ Get Messages Usage Report
 
         ID of the service account that made the request. `null` if not grouping by service account or for non-OIDC-federation requests.
 
-      - `service_tier: "standard" or "batch" or "priority" or 3 more`
+      - `service_tier: "batch" or "flex" or "flex_discount" or 3 more`
 
         Service tier used. `null` if not grouping by service tier.
 
-        - `"standard"`
-
         - `"batch"`
+
+        - `"flex"`
+
+        - `"flex_discount"`
 
         - `"priority"`
 
         - `"priority_on_demand"`
 
-        - `"flex"`
-
-        - `"flex_discount"`
+        - `"standard"`
 
       - `uncached_input_tokens: number`
 
@@ -283,7 +288,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/messages \
     }
   ],
   "has_more": true,
-  "next_page": "2019-12-27T18:11:19.117Z"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -378,7 +383,8 @@ Enables organizations to analyze developer productivity and build custom dashboa
 
     - `date: string`
 
-      UTC date for the usage metrics in YYYY-MM-DD format.
+      UTC day the usage metrics cover, as an RFC 3339 timestamp at midnight UTC
+      (for example `2025-08-08T00:00:00Z`).
 
     - `model_breakdown: array of object { estimated_cost, model, tokens }`
 
@@ -491,7 +497,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
             "amount": 186,
             "currency": "USD"
           },
-          "model": "claude-sonnet-4-20250514",
+          "model": "claude-opus-4-8",
           "tokens": {
             "cache_creation": 2340,
             "cache_read": 8790,
@@ -504,7 +510,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
             "amount": 42,
             "currency": "USD"
           },
-          "model": "claude-3-5-haiku-20241022",
+          "model": "claude-sonnet-5",
           "tokens": {
             "cache_creation": 890,
             "cache_read": 3420,
@@ -613,7 +619,8 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
 
     - `date: string`
 
-      UTC date for the usage metrics in YYYY-MM-DD format.
+      UTC day the usage metrics cover, as an RFC 3339 timestamp at midnight UTC
+      (for example `2025-08-08T00:00:00Z`).
 
     - `model_breakdown: array of object { estimated_cost, model, tokens }`
 
@@ -737,10 +744,15 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
 
         - `"200k-1M"`
 
-      - `inference_geo: string`
+      - `inference_geo: "global" or "not_available" or "us"`
 
-        Inference geo used matching requests' `inference_geo` parameter if set, otherwise the workspace's `default_inference_geo`.
-        For models that do not support specifying `inference_geo` the value is `"not_available"`. Always `null` if not grouping by inference geo.
+        InferenceGeo values extended with NOT_AVAILABLE for filtering usage data.
+
+        - `"global"`
+
+        - `"not_available"`
+
+        - `"us"`
 
       - `model: string`
 
@@ -762,21 +774,21 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
 
         ID of the service account that made the request. `null` if not grouping by service account or for non-OIDC-federation requests.
 
-      - `service_tier: "standard" or "batch" or "priority" or 3 more`
+      - `service_tier: "batch" or "flex" or "flex_discount" or 3 more`
 
         Service tier used. `null` if not grouping by service tier.
 
-        - `"standard"`
-
         - `"batch"`
+
+        - `"flex"`
+
+        - `"flex_discount"`
 
         - `"priority"`
 
         - `"priority_on_demand"`
 
-        - `"flex"`
-
-        - `"flex_discount"`
+        - `"standard"`
 
       - `uncached_input_tokens: number`
 

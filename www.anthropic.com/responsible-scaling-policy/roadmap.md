@@ -34,20 +34,23 @@ We will provide updates on whether we achieve the goals, and set new goals whene
 
 ### Updates
 
-*You can find an archive of all our previous Frontier Safety Roadmap goals [here](https://www.anthropic.com/responsible-scaling-policy/updates).*
+You can find an archive of all our previous Frontier Safety Roadmap goals [here](https://www.anthropic.com/responsible-scaling-policy/updates).
 
 1. **April 2, 2026: Launching “moonshot R&D” projects.** We completed this goal by selecting and beginning work on two projects, detailed [below](https://www.anthropic.com/responsible-scaling-policy/roadmap#moonshot-r-d-projects).
 2. **April 2, 2026: Principles for data retention.** We completed our goal of writing a “comprehensive internal report to identify how our Safeguards could be improved by updating our data retention policies.” The report was completed and sent to leadership on March 29, 2026. As stated [below](https://www.anthropic.com/responsible-scaling-policy/roadmap#principles-for-data-retention), within 6 weeks of that date, we will publish a new goal related to this or announce that we are not doing so.
 3. **May 5, 2026: Principles for data retention.** We removed this content from the page after deciding not to set a new goal on this front. Based in part on the analysis we completed as a prior roadmap goal, we are undertaking a major project to improve our data retention practices for certain future models from a safety point of view, and we will be putting out public content explaining our thinking. We don’t feel that setting a separate date-bound goal in this context would be helpful as a forcing function for the goal—we feel that other internal processes will provide adequate forcing functions.
 4. **May 5, 2026: “Moonshot R&D” projects.** We changed our target date for Phase 1 from May 15, 2026 to September 30, 2026 because we decided to focus the relevant resources on accelerating our “Leveling up across the board” goal for the time being. While we still don’t expect to *fully complete* the latter goal in the next few months, we believe we will make significant progress on it, and that the safety benefits of doing so are greater than what we’d realize with our original prioritization. As for the latter goal, our initial discussions have left us skeptical that isolated networks are a feasible path forward inside the next 1-2 years, when [powerful AI may be developed](https://www.darioamodei.com/essay/the-adolescence-of-technology). We still plan to complete Phase 1, which will hopefully leave us with a more confident and grounded view.
+5. **July 8, 2026: A roadmap for policymakers.** We consider our [Advanced AI Framework](https://www-cdn.anthropic.com/files/4zrzovbb/website/0a58d567024a8b448ff15158ebc3625328dfcc1f.pdf) to fulfill this goal. We plan to publish a new policy goal to replace it.
+6. **July 10, 2026: Upholding Claude's Constitution.** We clarified the language on when the public Constitution must be updated. Where we previously stated we planned to update it within 90 days of relevant internal updates, we now specify that we will update it to match the most recent trained-on Constitution within 90 days of relevant internal or external deployments of models trained on updated Constitutions.
+7. **July 29, 2026: “Moonshot R&D” projects.** Corrected a date typo in the main text. The Phase 1 deadline is September 30, 2026 (per the goal set May 5, 2026 seen above), but we had erroneously stated September 15.
 
-## Our goals as of May 5th, 2026
+## Our goals as of July 10th, 2026
 
 Collaborations to rapidly and responsibly develop AI alongside measures to mitigate the potential for our systems to cause undue harm.
 
 AllSecuritySafeguardsAlignmentPolicyCross-cutting
 
-SecurityTarget: September 15, 2026 and September 30, 2026
+SecurityTarget: September 30, 2026
 
 ### "Moonshot R&D" projects
 
@@ -55,7 +58,7 @@ Security is an ongoing and immediate priority for us, but it is also a long-term
 
 Current ongoing projects:
 
-* We are exploring a potential prototype of what our key workflows and infrastructure would look like (and what the productivity impact would be) if they were subject to extreme security practices. This would include simulating (at very small scale) isolated networks, “green lines” for limited remote connections, as well as commensurate physical security controls. We will complete Phase 1 - an inventory of needed components and preliminary analysis of costs and timelines - by September 15, 2026 and decide on next steps within 2 weeks of doing so. (It’s possible that we will de-prioritize this project in favor of other work, depending on what we determine in Phase 1.)
+* We are exploring a potential prototype of what our key workflows and infrastructure would look like (and what the productivity impact would be) if they were subject to extreme security practices. This would include simulating (at very small scale) isolated networks, “green lines” for limited remote connections, as well as commensurate physical security controls. We will complete Phase 1 - an inventory of needed components and preliminary analysis of costs and timelines - by September 30, 2026 and decide on next steps within 2 weeks of doing so. (It’s possible that we will de-prioritize this project in favor of other work, depending on what we determine in Phase 1.)
 * We will develop a prototype by September 30, 2026 of *provable inference*, a technique for reliably, provably “signing” AI model outputs in a way that makes them attributable to a specific set of model weights. In the future, it’s possible that very sophisticated attackers will seek to infiltrate our systems and modify our models after we’ve trained them - whether to sabotage our work or co-opt our models into serving their own goals. If we could reliably and systematically verify that model outputs were coming from a specific set of model weights, we believe this threat would be significantly reduced.
 
 Read more
@@ -120,7 +123,7 @@ We recently published [Claude’s Constitution](https://www.anthropic.com/consti
 * We will keep our public Constitution up to date and run a systematic oversight process over our training data to evaluate alignment with it.
 * We will perform systematic “alignment assessments” to examine Claude’s behavioral patterns and propensities, and evaluate whether they are in line with the spirit of the Constitution. These alignment assessments will incorporate findings from our interpretability research, and will validate the effectiveness of our methods using testing exercises with intentionally misaligned models. We will publish our findings in our system cards or Risk Reports.
 
-**Keeping the Constitution up to date and running a systematic oversight process.** We will ensure that the public [Claude’s Constitution](https://www.anthropic.com/constitution) stays in sync with what we use internally (updating it within 90 days of relevant internal updates). We may also use additional guidelines and other training data (such as human preference labels) that are in line with Claude’s Constitution without publishing those.
+**Keeping the Constitution up to date and running a systematic oversight process.** We will ensure that the public [Claude’s Constitution](https://www.anthropic.com/constitution) stays in sync with what we use internally (specifically, updating it to match the most recent trained-on Constitution within 90 days of relevant internal or external deployments of models trained on updated Constitutions). We may also use additional guidelines and other training data (such as human preference labels) that are in line with Claude’s Constitution without publishing those.
 
 We will run an oversight process over a representative sample of our production-relevant post-training data and rewards to evaluate alignment with the Constitution, aiming to ensure that we review for any egregious inconsistencies with the Constitution in ways that Claude itself can detect and will describe this oversight process in our Risk Reports.
 
@@ -172,15 +175,11 @@ We have moderate confidence that we can make Claude aligned enough that monitori
 
 Read more
 
-PolicyTarget: July 1, 2026
+Policy
 
-### A roadmap for policymakers
+### A roadmap for policymakers update
 
-We will develop and share a set of ambitious policy proposals to effectively manage industry AI risks globally without unnecessarily limiting the benefits from AI development or slowing the AI development of democracies relative to that of autocracies.
-
-We believe the right framework is a **regulatory ladder**: requirements that scale with risk. Today's frontier models require transparency and basic oversight. Yet as capabilities increase, we are moving towards a need for more rigorous external testing, stronger incident reporting, and deeper government oversight. At the most advanced capability levels and risks, the appropriate governance analogy may be closer to nuclear energy or financial regulation than to today's approach to software.
-
-As with our advocacy for transparency [frameworks](https://www.anthropic.com/news/the-need-for-transparency-in-frontier-ai) as a starting point, we will develop and advocate for more advanced and risk-appropriate proposals in collaboration with a wide array of stakeholders.
+We recently completed our “roadmap for policymakers” goal and expect to publish a new goal in the coming weeks.
 
 ## Expectations as AI capabilities advance
 

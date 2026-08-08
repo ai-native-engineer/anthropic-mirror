@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide -->
 
-# Microsoft 365 connector security guide
-
-Updated over a month ago
-
 The Microsoft 365 connector is an **Anthropic-hosted integration** that enables Claude to securely access Microsoft 365 services (Outlook, SharePoint, OneDrive, Teams) through user-delegated permissions. Anthropic has completed Microsoft's publisher verification process, associating our verified Microsoft Partner Network account with this application to confirm our organizational identity.
 
 The Microsoft 365 connector is available on all Claude plans: Free, Pro, Max, Team, and Enterprise.
@@ -273,8 +269,8 @@ Anthropic has the following certifications:
 * **[Connect Claude to Microsoft 365](https://support.claude.com/en/articles/15183774)**
 * **[Overview of Microsoft Graph permissions: Delegated permissions](https://learn.microsoft.com/en-us/graph/permissions-overview?tabs=http#delegated-permissions)**
 
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
 * [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
-* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)

@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access -->
 
-# Manage Claude’s tool access
-
 When you connect many services to Claude, you can control how those connectors are loaded into your conversations. This helps Claude work more accurately and efficiently, especially if you've added 10 or more connectors.
 
 Tool access modes are available for all users on Claude, Cowork, Claude Desktop, and Claude Mobile (iOS and Android).
@@ -11,6 +9,8 @@ Tool access modes are available for all users on Claude, Cowork, Claude Desktop,
 Each connector takes up space in a conversation. With a small number of connected services, this is rarely noticeable. But as your connector library grows, the combined overhead can limit how much room is left for your actual work: documents, code, and conversation history.
 
 To address this, Claude supports three tool access modes that control when and how your connectors are loaded.
+
+---
 
 ## Tool access modes
 
@@ -28,6 +28,8 @@ Choose from three options:
   + Best for: Large connector libraries (10 or more), or when you're running into conversation length issues.
   + Trade-off: Claude may take an extra step to find the right connector before using it.
 
+---
+
 ## Which mode should I use?
 
 |  |  |
@@ -38,6 +40,8 @@ Choose from three options:
 | 30+ tools or multiple connectors connected | On demand or Auto |
 | A specific connector needs to work every time without fail | Always available |
 | Conversations are hitting length limits | On demand |
+
+---
 
 ## How to change your tool access setting
 
@@ -50,6 +54,8 @@ You can set your tool access mode per conversation by following these steps:
 
 Your selection only applies to that conversation. You can change it at any time.
 
+---
+
 ## Frequently asked questions
 
 ### Will “On demand” mode miss the connectors I need?
@@ -60,4 +66,8 @@ Claude searches for the most relevant connectors based on your request, so it wo
 
 In “On demand” mode, Claude searches for the right tool before using it. This search step adds one interaction, but keeps your conversation from hitting length limits when you have many tools connected.
 
-[Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)[Get started with Claude in Slack](https://support.claude.com/en/articles/11506255-get-started-with-claude-in-slack)[Troubleshoot Claude error messages](https://support.claude.com/en/articles/12466728-troubleshoot-claude-error-messages)[Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)[Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+* [Troubleshoot Claude error messages](https://support.claude.com/en/articles/12466728-troubleshoot-claude-error-messages)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
+* [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
+* [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)

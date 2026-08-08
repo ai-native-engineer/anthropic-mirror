@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations -->
 
-# Get started with Claude Compliance API integrations
-
-Updated over 2 weeks ago
-
 Security and compliance platforms have built integrations on top of the Claude Compliance API, so your team can monitor Claude activity within the tools you already use. Integrations are available from security and compliance providers across the categories enterprises rely on, spanning DLP, SASE, data security, SIEM and security operations, identity, eDiscovery, AI security posture management, and AI observability and telemetry infrastructure.
 
 This article lists available Compliance API integrations with a link to their setup documentation. If you're a security, compliance, or IT platform that has built a Compliance API integration, **[apply here to join the program](https://forms.gle/1rkBcdwwR5bLLD82A)**.
@@ -130,6 +126,6 @@ For Claude Platform, contact your Anthropic sales team. Review **[Compliance API
 
 * [Access the Compliance API](https://support.claude.com/en/articles/13015708-access-the-compliance-api)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
-* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
+* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
 * [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)

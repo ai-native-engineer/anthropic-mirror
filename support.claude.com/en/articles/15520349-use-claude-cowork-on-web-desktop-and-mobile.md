@@ -1,12 +1,10 @@
 <!-- source: https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile -->
 
-# Use Claude Cowork on web, desktop, and mobile
-
-Updated today
-
 Claude Cowork is now available on web and mobile in addition to desktop. Cowork runs your sessions remotely in the cloud (in beta), so your sessions and files live with your Claude account and go where you go, on any device. This article explains how to start a Cowork session and what's available on each surface.
 
 Claude Cowork is in beta on web and mobile for Max, Team, and Enterprise plans, and will be rolling out to Pro plans over the next several weeks.
+
+---
 
 ## Start a Cowork session
 
@@ -15,6 +13,8 @@ Chat and Cowork share one home, so you start both from the same place. On any su
 * **Web:** Go to [claude.ai](http://claude.ai) and find the “Home” tab.
 * **Mobile:** Open the latest version of Claude for iOS or Claude for Android. If you don't see the Cowork option in the message box, update the app.
 * **Desktop:** Open the latest version of the Claude Desktop app. If you don't see the Cowork option in the message box, update the app. Desktop is the full Cowork experience, where Claude can also use your local files and browser.
+
+---
 
 ## How sessions work in the cloud
 
@@ -26,6 +26,8 @@ In a session in the cloud, Claude's work runs on Anthropic's servers instead of 
 * Sessions run in the cloud on every surface.
 
 For details on how local sessions and sessions in the cloud are isolated and what each can access, see **[Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288)**. For safety guidance, see **[Use Claude Cowork safely](https://support.claude.com/en/articles/13364135)**.
+
+---
 
 ## What's available on each surface
 
@@ -78,4 +80,4 @@ When Claude finishes a task or needs your input, you'll get a notification on yo
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
-* [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)

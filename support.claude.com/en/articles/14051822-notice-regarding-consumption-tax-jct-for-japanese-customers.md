@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14051822-notice-regarding-consumption-tax-jct-for-japanese-customers -->
 
-# Notice regarding consumption tax (JCT) for Japanese customers
-
 ## Consumption tax
 
 Effective April 1, 2026, Anthropic will be levying a separate consumption tax (JCT) of 10% on services provided to Japanese customers in accordance with Japanese consumption tax law. Anthropic has completed registration as a qualified invoice issuing business.
@@ -46,4 +44,5 @@ Please contact us using the details below depending on the nature of your inquir
 | Regarding Tax Qualified Invoices (TQI) | Our **[Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)** |
 | Consumption tax treatment | Your company's tax officer or accountant |
 
-[I use Claude in Amazon Bedrock. Who do I contact for customer support inquiries?](https://support.claude.com/en/articles/7996921-i-use-claude-in-amazon-bedrock-who-do-i-contact-for-customer-support-inquiries)[Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
+* [I use Claude in Amazon Bedrock. Who do I contact for customer support inquiries?](https://support.claude.com/en/articles/7996921-i-use-claude-in-amazon-bedrock-who-do-i-contact-for-customer-support-inquiries)
+* [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

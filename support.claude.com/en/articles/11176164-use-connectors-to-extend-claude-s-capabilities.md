@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities -->
 
-# Use connectors to extend Claude's capabilities
-
-Updated over a month ago
-
 This guide explains how to enable and use connectors with Claude to enhance its capabilities.
 
 Web connectors are available for all users on Claude, Cowork, Claude Desktop, and Claude Mobile (iOS and Android). Desktop extensions are available to all users on Claude Desktop.
@@ -36,9 +32,11 @@ You can browse the directory from two areas:
 
 **From settings**
 
-1. Navigate to **[Customize > Connectors](http://claude.ai/customize/connectors)**.
+1. Navigate to **[Customize > Connectors](https://claude.ai/customize/connectors)**.
 2. Click the “+” button next to **Connectors**.
 3. Browse available connectors by category or scroll through the complete list.
+
+---
 
 ## Connect a service to Claude
 
@@ -81,12 +79,14 @@ Common use cases:
 
 To configure action restrictions:
 
-1. Navigate to **[Customize > Connectors](http://claude.ai/customize/connectors).**
+1. Navigate to **[Customize > Connectors](https://claude.ai/customize/connectors).**
 2. Select the connector to see **Tool permissions**.
 3. The permissions will be categorized by type (for example, read-only tools, write/delete tools).
 4. For each permission category or individual permission, select Always allow, Needs approval, or Blocked.
 
 **Note:** Action restrictions work alongside source-system permissions. Even when you allow a write action in Claude, a person still needs the underlying permission in the source system to make that change. Restricting actions in Claude never grants more access than the source system permits—it only narrows it.
+
+---
 
 ## Use connected services
 
@@ -103,19 +103,25 @@ For example, after connecting Linear, you can ask Claude to "Create a new issue 
 
 Some connectors are interactive and can render live interfaces—like dashboards, task boards, and design tools—directly within your conversation. Look for the **Interactive** badge in the Connectors Directory to find connectors with this capability.
 
+---
+
 ## Choose how connectors load in your conversation
 
 When you add many connectors, Claude gives you control over how they load. You can find the **Tool access** setting by clicking the “+” button in the lower left corner of your chat, or typing “/” to open the menu. Hover over “Connectors,” then “Tool access” to choose your preferred mode. For most users, **Auto** (the default) works well. If you have 10 or more connectors active, consider switching to **On demand** to give your conversations more room.
 
 Learn more about tool access modes: **[Manage Claude's tool access](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access)**.
 
+---
+
 ## Manage your connectors
 
 To manage your connected services:
 
-1. Navigate to **[Customize > Connectors](http://claude.ai/customize/connectors)**.
+1. Navigate to **[Customize > Connectors](https://claude.ai/customize/connectors)**.
 2. View all your connected services in the **Connectors** section.
 3. For each service, you can disconnect it, modify connection settings, or review permissions and access levels.
+
+---
 
 ## Custom connectors
 
@@ -123,7 +129,7 @@ Custom connectors using remote MCP are available on Claude, Cowork, and Claude D
 
 In addition to directory connectors, you can add custom connectors:
 
-1. Navigate to **[Customize > Connectors](http://claude.ai/customize/connectors)**.
+1. Navigate to **[Customize > Connectors](https://claude.ai/customize/connectors)**.
 2. Click the “+” button next to **Connectors**.
 3. Select “Add custom connector.”
 4. Enter the connector's name and URL.
@@ -133,6 +139,8 @@ In addition to directory connectors, you can add custom connectors:
 Custom connectors connect to your MCP server from Anthropic's cloud, not from your local device. Your server must be reachable over the public internet. If it's behind a firewall or on a private network, see **[Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166)** for network requirements and private network options.
 
 **Important:** Custom connectors allow you to connect Claude to services that haven't been verified by Anthropic. Only connect to servers from trusted organizations and review authentication permissions carefully.
+
+---
 
 ## Security and privacy
 
@@ -148,6 +156,8 @@ When connecting to services from the directory, review what access the service i
 * Connectors are only available in private projects.
 * Chats with synced content can't be shared.
 
+---
+
 ## Troubleshoot connection issues
 
 If you're having trouble connecting to a service, try these steps:
@@ -155,7 +165,7 @@ If you're having trouble connecting to a service, try these steps:
 1. Check that you have a stable internet connection.
 2. Verify you have an active account with the service.
 3. Review any permissions or account type requirements for the service.
-4. If authentication fails, try disconnecting and reconnecting from **[Customize > Connectors](http://claude.ai/customize/connectors)**.
+4. If authentication fails, try disconnecting and reconnecting from **[Customize > Connectors](https://claude.ai/customize/connectors)**.
 
 ### See a message that says, "This corporate identity belongs to an Enterprise that manages access through their own Claude account"?
 

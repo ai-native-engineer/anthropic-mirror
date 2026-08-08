@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12326764-can-i-use-my-outputs-to-train-an-ai-model -->
 
-# Can I use my Outputs to train an AI model?
-
 ## Understanding our policies on using Claude's Outputs for model training and development
 
 When you use Claude, you own the Outputs generated from your Inputs. However, there are important restrictions on using these Outputs to train AI models which are standard practice across the AI industry. We prohibit customers from using our services to train or develop AI models without our written permission. This article explains what uses are permitted, what uses are prohibited, and why these policies exist.
@@ -36,4 +34,8 @@ Uses that are prohibited include:
 * Using Outputs as training targets for models
 * Reverse engineering training methods
 
-[Why am I receiving an 'Output blocked by content filtering policy' error?](https://support.claude.com/en/articles/9205721-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error)[Why am I receiving an 'Output blocked by content filtering policy' error?](https://support.claude.com/en/articles/10023638-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error)[Covered Models](https://support.claude.com/en/articles/15425695-covered-models)[Data retention practices for Mythos-class models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-mythos-class-models)[Child safety guidance for developers](https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers)
+* [Why am I receiving an 'Output blocked by content filtering policy' error?](https://support.claude.com/en/articles/9205721-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error)
+* [Why am I receiving an 'Output blocked by content filtering policy' error?](https://support.claude.com/en/articles/10023638-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error)
+* [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
+* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+* [Using Claude for Legal Work: Privilege, Confidentiality, and How to Think About Configuration](https://support.claude.com/en/articles/15707726-using-claude-for-legal-work-privilege-confidentiality-and-how-to-think-about-configuration)

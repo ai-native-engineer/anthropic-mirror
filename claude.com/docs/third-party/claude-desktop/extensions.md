@@ -21,7 +21,7 @@ Admins can disable the user layer entirely; see [Controlling user extensions](#c
 
 ##  Managed MCP servers (admin)
 
-Use the `managedMcpServers` configuration key to deploy MCP servers (remote HTTP/SSE or local stdio command) to every device. These appear in the user’s connector list automatically, can’t be removed by the user, and support per-tool policy locks (`allow` / `ask` / `blocked`).
+Use the `managedMcpServers` configuration key to deploy MCP servers (remote HTTP/SSE or local stdio command) to every device. These appear in the user’s connector list automatically, can’t be removed by the user, and support per-tool policy locks (`allow` / `ask` / `blocked`). The same key also activates the servers bundled inside the app (Microsoft 365, web search, and GitHub); see [Built-in connectors](https://claude.com/docs/third-party/claude-desktop/built-in-connectors).
 The **Connectors & extensions** section of the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration) provides a form for each server: name, per-tool policy, headers or a headers helper script, transport, and URL.
 
 ![In-app configuration window showing a managed MCP server named sentry, with fields for name, tool policy, headers, headers helper script, Streamable HTTP transport, and URL.](https://mintcdn.com/claude-ai/JnLDSb03Rtghdgpj/images/third-party/config-window-managed-mcp.png?fit=max&auto=format&n=JnLDSb03Rtghdgpj&q=85&s=294cce4e42a951fc5479c36676c3b3b5)
@@ -68,7 +68,12 @@ Mid-session renewal requires Claude Desktop 1.21459.0 or later. Earlier versions
 ###  Supported MCP servers
 
 Any MCP server reachable from the user’s device over HTTPS works with Claude Desktop on 3P, including public servers from third parties and internal servers you build and host (including on internal gateways).
+
+Claude Desktop does not present a TLS client certificate when connecting to MCP servers, so a server that requires mutual TLS (mTLS) client-certificate authentication fails to connect. Terminate the client-certificate requirement before the MCP endpoint (for example, at a gateway or reverse proxy), and authenticate the connection with headers or OAuth instead.
+
 The [Claude connector directory](https://claude.com/connectors) is the canonical catalog of vetted servers. **Every connector in the directory that is not labeled “Made by Anthropic” is accessible in Claude Desktop on 3P** and can be deployed via `managedMcpServers` or installed by users. Connectors labeled “Made by Anthropic” are hosted on Anthropic infrastructure and are available only in standard Claude Desktop.
+
+Some connectors return [MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/getting-started), interactive widgets that Claude Desktop renders in place of a plain-text tool result. Each widget loads in a sandboxed iframe on `*.claudemcpcontent.com`, and setting [`disableNonessentialServices`](https://claude.com/docs/third-party/claude-desktop/configuration#disablenonessentialservices) to `true` blocks that origin, so Claude Desktop shows the connector’s text result instead of the widget. The same key also blocks artifact previews, connector favicons, and the connector directory lookup. To keep MCP Apps rendering, leave `disableNonessentialServices` unset or `false`, and allow the widget hosts listed under [Required egress paths](https://claude.com/docs/third-party/claude-desktop/telemetry#required-egress-paths) at your perimeter firewall.
 
 ###  Productivity suites
 
@@ -89,7 +94,7 @@ This is the recommended way to distribute organization plugins. Use the [system-
 
 Plugin marketplaces are in beta and require Claude Desktop 1.17377.1 or later.
 
-The `allowedPluginMarketplaces` key configures the **Cowork** tab only. The [**Code** tab](https://claude.com/docs/third-party/claude-desktop/code) reads Claude Code’s own plugin configuration on the host instead; to deploy a marketplace there, use Claude Code’s [`extraKnownMarketplaces` and `strictKnownMarketplaces`](https://code.claude.com/docs/en/plugin-marketplaces#managed-marketplace-restrictions) settings. The same marketplace repository works for both tabs; only the configuration path differs.
+The `allowedPluginMarketplaces` key configures **Cowork** only. [**Code**](https://claude.com/docs/third-party/claude-desktop/code) reads Claude Code’s own plugin configuration on the host instead; to deploy a marketplace there, use Claude Code’s [`extraKnownMarketplaces` and `strictKnownMarketplaces`](https://code.claude.com/docs/en/plugin-marketplaces#managed-marketplace-restrictions) settings. The same marketplace repository works for both; only the configuration path differs.
 
 ###  Create the marketplace repository
 
@@ -218,6 +223,8 @@ org-plugins/
 | `skills/` | [Skill](https://claude.com/docs/skills/overview) directories. |
 | `hooks/` | Hook definitions that run on agent lifecycle events. |
 
+Each entry in `org-plugins/` must carry a valid manifest: a `.claude-plugin/plugin.json`, or a top-level `SKILL.md` for an entry that distributes a single skill. A directory with neither is not loaded and never appears in the user’s plugin browser; the diagnostic report’s plugin section shows the rejected entry and why. To distribute an MCP connector, declare it in a plugin’s `.mcp.json` or use [`managedMcpServers`](#managed-mcp-servers-admin).
+
 See the [plugins reference](https://code.claude.com/docs/en/plugins) for the full file format of each component, including the hooks schema.
 
 Symlinks inside a plugin are followed as long as the target resolves to a path inside the plugin directory. Symlinks that point outside the plugin (for example, `skills/foo/SKILL.md → /etc/hosts`) are skipped. A symlinked top-level plugin directory (for example, `org-plugins/my-plugin → /opt/shared/my-plugin`) is also followed.
@@ -258,6 +265,7 @@ To roll out a new version of a plugin:
 Unless restricted by an admin, end users can add their own extensions through the in-app UI:
 
 * **Plugins:** install plugins (which can bundle skills, hooks, slash commands, and sub-agents) from the Plugins settings page
+* **Skills:** create and upload their own [skills](https://claude.com/docs/skills/overview), including by asking Claude to save one in a conversation
 * **Connectors:** install local desktop extensions (`.mcpb`) from the Connectors settings page
 * **Local MCP servers:** add local MCP server processes from **Settings → Developer**, when enabled by the admin
 
@@ -272,12 +280,13 @@ Admins can restrict or disable each user-extension surface independently via man
 | `isLocalDevMcpEnabled` | Users cannot add their own local MCP servers from **Settings → Developer**. |
 | `isDesktopExtensionEnabled` | Users cannot install local `.mcpb` desktop extensions. |
 | `isDesktopExtensionSignatureRequired` | (When `true`) Unsigned `.mcpb` extensions are rejected. |
+| `skillCreationEnabled` | Users cannot create or upload skills in the app. Claude does not offer to create or update skills in conversations. |
 
-Setting the first two to `false` restricts MCP servers and connectors to those delivered through `managedMcpServers` and `org-plugins/`. Users can still add their own skills and plugins regardless of these settings. See the [Locked down profile](https://claude.com/docs/third-party/claude-desktop/configuration#recommended-security-profiles) for a complete example.
+Setting the first two to `false` restricts MCP servers and connectors to those delivered through `managedMcpServers` and `org-plugins/`. Setting [`skillCreationEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#skillcreationenabled) to `false` turns off skill creation and upload in the app. Skills already on the device keep working, as do skills from [organization plugins](#organization-plugins-admin). Users can still install plugins regardless of these settings. See the [Locked down profile](https://claude.com/docs/third-party/claude-desktop/configuration#recommended-security-profiles) for a complete example.
 
 ##  Related topics
 
-## Code tab
+## Code
 
 How extensions and managed settings reach the embedded Claude Code engine.
 

@@ -1,12 +1,10 @@
 <!-- source: https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch -->
 
-# Microsoft Entra ID SSO/SCIM email mismatch
-
-March 24, 2026
-
 Claude uses email as the primary identifier to match SSO logins to provisioned seats. In Microsoft Entra ID, SCIM provisioning and SSO authentication are configured in *separate places* and can pull email from different user attributes—causing a mismatch that blocks access. This guide walks through how to identify the problem, fix the attribute mapping, and clean up any side effects.
 
 **Applies to:** Enterprise plans and Console organizations using SCIM provisioning. Team plans don't have SCIM provisioning, so this mismatch scenario doesn't apply — see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195)** for what's available on each plan.
+
+---
 
 ## Symptoms
 
@@ -16,6 +14,8 @@ People may experience one or more of the following when attempting to access you
 * **Landing on a free personal account** — If organization creation is not restricted, the person bypasses your organization and creates or lands on a free personal account.
 * **"Please confirm your email" mismatch** — The SSO callback shows a different email than the one the person entered at login.
 * **Claude Code authentication failure** — The Claude Code CLI shows an email mismatch error during the authentication flow.
+
+---
 
 ## How this happens
 
@@ -32,6 +32,8 @@ Microsoft Entra ID user accounts have multiple email-like attributes that can ho
 The mismatch occurs when SCIM pulls email from one attribute while SSO sends the email from another. Even a subtle difference blocks access—Claude requires an **exact string match**.
 
 **Common confusion:** Entra has two separate admin areas. The **SCIM provisioning app** lives under **Enterprise applications** (Microsoft's term for integrated apps—unrelated to your Claude plan). The **SSO/OIDC app** lives under **App registrations**. IT admins frequently navigate to the wrong location.
+
+---
 
 ## Diagnostic steps
 
@@ -52,6 +54,8 @@ The mismatch occurs when SCIM pulls email from one attribute while SSO sends the
 2. Find the Claude OIDC app and click "Token configuration."
 3. Check the email optional claim.
 4. Cross-reference with your SCIM attribute mapping to confirm whether they match.
+
+---
 
 ## Resolution
 
@@ -76,6 +80,8 @@ Navigate to the **SCIM provisioning app** — not the SSO/OIDC app:
 3. Wait for the sync to complete.
 4. Verify in provisioning logs that emails have updated to the correct format.
 
+---
+
 ## Post-fix cleanup
 
 After correcting the attribute mapping and completing the full sync:
@@ -86,12 +92,16 @@ After correcting the attribute mapping and completing the full sync:
 * **Re-adding affected people:** After ghost accounts are removed, people with the corrected email may need to be re-invited or re-provisioned.
 * **Prevent future occurrences:** Enable "Restrict organization creation" in your organization's Identity and access settings.
 
+---
+
 ## Verification
 
 1. Check a sample of provisioned people—confirm their email in the provisioning log matches the email format that SSO sends.
 2. Ask an affected person to clear browser cookies for claude.ai, then log in via SSO. They should land directly in your organization's workspace.
 3. Confirm people aren't creating free accounts—with organization creation restricted, blocked people see a clear error instead of landing on a personal account.
 4. If Claude Code was affected, have the person re-run `claude auth login --enterprise` and confirm the email matches their provisioned seat.
+
+---
 
 ## Common issues
 
@@ -104,6 +114,8 @@ After correcting the attribute mapping and completing the full sync:
 | OIDC app email claim not configured as an optional claim | Add email under **App registrations → Token configuration**. |
 | Emails updated but person still can't log in | Look for rogue free orgs or ghost accounts. Clear browser cookies and retry. |
 
+---
+
 ## When to contact Support
 
 Contact **[our Support team](https://support.claude.com/en/articles/9015913)** with your organization's domain, the affected person's email, and attribute mapping screenshots when:
@@ -113,4 +125,8 @@ Contact **[our Support team](https://support.claude.com/en/articles/9015913)** w
 * You need help cleaning up ghost accounts or rogue free orgs.
 * People are hitting an out-of-seats error despite available contracted seats.
 
-[Google Workspace SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917817-google-workspace-sso-scim-email-mismatch)[Okta SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch)[OneLogin SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917861-onelogin-sso-scim-email-mismatch)[Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)[Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
+* [Google Workspace SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917817-google-workspace-sso-scim-email-mismatch)
+* [Okta SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch)
+* [OneLogin SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917861-onelogin-sso-scim-email-mismatch)
+* [Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)

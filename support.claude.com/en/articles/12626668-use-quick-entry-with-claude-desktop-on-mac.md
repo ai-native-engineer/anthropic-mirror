@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12626668-use-quick-entry-with-claude-desktop-on-mac -->
 
-# Use quick entry with Claude Desktop on Mac
-
-March 16, 2026
-
 Quick entry is a redesigned experience for Claude Desktop on Mac that lets you access Claude instantly from anywhere on your computer. With quick entry, you can start chats, capture screenshots, share application windows, and use voice dictation to interact with Claude without navigating away from your current task.
 
 Quick entry is available to all Claude users (free, Pro, Max, Team, and Enterprise plans) using Claude Desktop on macOS.
@@ -37,7 +33,7 @@ When you first open the updated version of Claude Desktop, you'll see a prompt t
 
 Once enabled, double-tapping Option will open a text box where you can type your message and start a new chat. You can also click "New chat" to see your five most recent conversations.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1785803400&signature=085f5105d9b06838c039f3a57e53847291c18706cdfb30eb3981a70bc7373046&req=dSguFcl2lYJZXPMW1HO4zWggD9tZpp%2BeRC8c%2FcM5c2LkMt3pr0vrpLRXA0hF%0AhNZOIWpYMZAxSl4BPxk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1785803400&signature=085f5105d9b06838c039f3a57e53847291c18706cdfb30eb3981a70bc7373046&req=dSguFcl2lYJZXPMW1HO4zWggD9tZpp%2BeRC8c%2FcM5c2LkMt3pr0vrpLRXA0hF%0AhNZOIWpYMZAxSl4BPxk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1786167000&signature=94960cf59f3b5128c667139ec85ee344cf7c28f2b6f136d110a6216a3e311cca&req=dSguFcl2lYJZXPMW1HO4zWggD9hQoJuaRC8c%2FcM5c2K02Gubi7sVQeZnVJ%2Bo%0AmMB2hBDTyiDDLPl%2Fgeo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1786167000&signature=94960cf59f3b5128c667139ec85ee344cf7c28f2b6f136d110a6216a3e311cca&req=dSguFcl2lYJZXPMW1HO4zWggD9hQoJuaRC8c%2FcM5c2K02Gubi7sVQeZnVJ%2Bo%0AmMB2hBDTyiDDLPl%2Fgeo%3D%0A)
 
 ### Enable the voice shortcut (optional)
 

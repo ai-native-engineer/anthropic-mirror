@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8606378-how-do-i-use-the-workbench -->
 
-# How do I use the Workbench?
-
-Updated over 2 weeks ago
-
 We’ve recently updated Workbench. The new Workbench enables developers to try out Claude models and API features directly in the Claude Console, but no longer supports saving prompt history or evaluating prompts.
 
 **Workbench (legacy) is no longer available to new users and will be retired for all users on August 17, 2026**. If you're still using the legacy version, see the section below, **[How do I use Workbench (legacy)?](#h_b659fc7faa)**, and if there are prompts, completions, or evals you wish to retain, **consider exporting your data before August 17, 2026.**
@@ -56,21 +52,23 @@ Click the "code" toggle to export your current request as a code snippet. The sn
 
 Code examples in our documentation include an "Open in Workbench" option, which loads the example into Workbench so you can run and modify it.
 
+---
+
 ## How do I use Workbench (legacy)?
 
 **Note: Workbench (legacy) is no longer available to new users and will be retired for all users on August 17, 2026.** After this date, Workbench (legacy) and any saved prompts, prompt versions, and evals stored in it will no longer be accessible. Use the Export option to download your data before then.
 
 Workbench (legacy) allows you to create and test prompts within your Claude Console account. You can enter your prompt into the "Human" dialogue box and click "Run" to test Claude's output. Click on the + icon in the upper left to create a new prompt, or click on the bulleted list icon to see prompts you've tested in the past:
 
-[![](https://downloads.intercomcdn.com/i/o/888021849/31a22a0dc4d1fc4b605cc8ee/Screenshot+2023-11-19+at+4.21.51+PM.png?expires=1785803400&signature=c62aa54a9c98deb5eb7131efc54fa503980d2518d6bd0fb8de0fea4174ac05e1&req=fCgvFst%2FlYVWFb4f3HP0gKWhcTMM0UJbOkmmaOsi7ICkYLWPsLIEvC3tvR9T%0Am69JmH53TdqVAdD8lw%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888021849/31a22a0dc4d1fc4b605cc8ee/Screenshot+2023-11-19+at+4.21.51+PM.png?expires=1785803400&signature=c62aa54a9c98deb5eb7131efc54fa503980d2518d6bd0fb8de0fea4174ac05e1&req=fCgvFst%2FlYVWFb4f3HP0gKWhcTMM0UJbOkmmaOsi7ICkYLWPsLIEvC3tvR9T%0Am69JmH53TdqVAdD8lw%3D%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/888021849/31a22a0dc4d1fc4b605cc8ee/Screenshot+2023-11-19+at+4.21.51+PM.png?expires=1786167000&signature=26ab3cbc4bae0a751a4a53232094eb566ac11151eeccd28f960cf6af1eee4562&req=fCgvFst%2FlYVWFb4f3HP0gKWhcjoK1UZbOkmmaOsi7ICaDVbSBhbZSeWzIsQ0%0ASQ13FmaQ84GjJZ1v%2BA%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888021849/31a22a0dc4d1fc4b605cc8ee/Screenshot+2023-11-19+at+4.21.51+PM.png?expires=1786167000&signature=26ab3cbc4bae0a751a4a53232094eb566ac11151eeccd28f960cf6af1eee4562&req=fCgvFst%2FlYVWFb4f3HP0gKWhcjoK1UZbOkmmaOsi7ICaDVbSBhbZSeWzIsQ0%0ASQ13FmaQ84GjJZ1v%2BA%3D%3D%0A)
 
 Workbench (legacy) also allows you to configure several settings when prompting Claude. You can click on the slider icon to review your model settings. This allows you to select the model, temperature, and max tokens to sample:
 
-[![](https://downloads.intercomcdn.com/i/o/888023061/61e26396355f6f6cd506d7e4/Screenshot+2023-11-19+at+4.09.28+PM.png?expires=1785803400&signature=597b14e62a7b567418c6ad831205eb4a6281d917c5e812c95d370e73fcea36bb&req=fCgvFst9nYdeFb4f3HP0gN55XNrQOoC3DUq7%2BRvcmSPnZ4GmpVXgv9oSKIDr%0AvXjgShHu6jvQGINZBA%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888023061/61e26396355f6f6cd506d7e4/Screenshot+2023-11-19+at+4.09.28+PM.png?expires=1785803400&signature=597b14e62a7b567418c6ad831205eb4a6281d917c5e812c95d370e73fcea36bb&req=fCgvFst9nYdeFb4f3HP0gN55XNrQOoC3DUq7%2BRvcmSPnZ4GmpVXgv9oSKIDr%0AvXjgShHu6jvQGINZBA%3D%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/888023061/61e26396355f6f6cd506d7e4/Screenshot+2023-11-19+at+4.09.28+PM.png?expires=1786167000&signature=762208a5b2bd5429fb83a81931ae282c1ca54b75810a656a3e6140a3d849d95f&req=fCgvFst9nYdeFb4f3HP0gN55X9PWPoS3DUq7%2BRvcmSOzU58fym%2BEe3eSHDxJ%0A1gaG6KsQPq58e3BOXQ%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888023061/61e26396355f6f6cd506d7e4/Screenshot+2023-11-19+at+4.09.28+PM.png?expires=1786167000&signature=762208a5b2bd5429fb83a81931ae282c1ca54b75810a656a3e6140a3d849d95f&req=fCgvFst9nYdeFb4f3HP0gN55X9PWPoS3DUq7%2BRvcmSOzU58fym%2BEe3eSHDxJ%0A1gaG6KsQPq58e3BOXQ%3D%3D%0A)
 
 After crafting your prompt, click on the "Get code" button to generate a sample using our Python and Typescript SDKs:
 
-[![](https://downloads.intercomcdn.com/i/o/888023545/b12afe07f16f079daff7587d/Screenshot+2023-11-19+at+4.28.27+PM.png?expires=1785803400&signature=20a1b3333b0510747e06c1d331df6af0a84add0d9be4fa1a0e46e3b0d8713d3a&req=fCgvFst9mIVaFb4f3HP0gEZTsTCe4eDrRWixPJbjiQcmM2xPVHgMW9kRT1FS%0AOHZ6uXKT3xcpVikQVQ%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888023545/b12afe07f16f079daff7587d/Screenshot+2023-11-19+at+4.28.27+PM.png?expires=1785803400&signature=20a1b3333b0510747e06c1d331df6af0a84add0d9be4fa1a0e46e3b0d8713d3a&req=fCgvFst9mIVaFb4f3HP0gEZTsTCe4eDrRWixPJbjiQcmM2xPVHgMW9kRT1FS%0AOHZ6uXKT3xcpVikQVQ%3D%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/888023545/b12afe07f16f079daff7587d/Screenshot+2023-11-19+at+4.28.27+PM.png?expires=1786167000&signature=a04cedc05c455b4dc3bdf9629fe9f38955bfc8b92d151e0d36cfb2a54d9c2959&req=fCgvFst9mIVaFb4f3HP0gEZTsjmY5eTrRWixPJbjiQfbKCYZ5Wp8bKjeDkvS%0AqPN8po37%2BKCR2M9zVg%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888023545/b12afe07f16f079daff7587d/Screenshot+2023-11-19+at+4.28.27+PM.png?expires=1786167000&signature=a04cedc05c455b4dc3bdf9629fe9f38955bfc8b92d151e0d36cfb2a54d9c2959&req=fCgvFst9mIVaFb4f3HP0gEZTsjmY5eTrRWixPJbjiQfbKCYZ5Wp8bKjeDkvS%0AqPN8po37%2BKCR2M9zVg%3D%3D%0A)
 
 ## How can I access my previous work and prompt history in Workbench (legacy)?
 
@@ -82,7 +80,7 @@ You can access your previous Workbench prompts on your Console account by follow
 
 3. Click the "List prompts" button on the upper left corner of the page, next to the "+" button to create a new prompt:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1945992985/45a8969fb6cec956bd44fb5c4ba7/CleanShot+2026-01-15+at+12_07_22%402x.png?expires=1785803400&signature=7e5b3f15d0b18969d5ad27eb59c37415fcb9bffa46e7d05b7bf82a33406f7aad&req=dSkjE8B3n4hXXPMW1HO4zQQ9sFQBN3C8TyGSpkcb8MV3JIo1xhX1DHLxBWW8%0AHGJV85wnKHUOGNbeeBE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1945992985/45a8969fb6cec956bd44fb5c4ba7/CleanShot+2026-01-15+at+12_07_22%402x.png?expires=1785803400&signature=7e5b3f15d0b18969d5ad27eb59c37415fcb9bffa46e7d05b7bf82a33406f7aad&req=dSkjE8B3n4hXXPMW1HO4zQQ9sFQBN3C8TyGSpkcb8MV3JIo1xhX1DHLxBWW8%0AHGJV85wnKHUOGNbeeBE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1945992985/45a8969fb6cec956bd44fb5c4ba7/CleanShot+2026-01-15+at+12_07_22%402x.png?expires=1786167000&signature=3964cca2ae70c1a31e54d745d4609dcd171af3701a908eb1e62ab60bb8856feb&req=dSkjE8B3n4hXXPMW1HO4zQQ9sFcIMXS4TyGSpkcb8MU4Q760iNq%2BgTLJ8mKi%0A%2FuM7T3H7oP6U4LMOVuc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1945992985/45a8969fb6cec956bd44fb5c4ba7/CleanShot+2026-01-15+at+12_07_22%402x.png?expires=1786167000&signature=3964cca2ae70c1a31e54d745d4609dcd171af3701a908eb1e62ab60bb8856feb&req=dSkjE8B3n4hXXPMW1HO4zQQ9sFcIMXS4TyGSpkcb8MU4Q760iNq%2BgTLJ8mKi%0A%2FuM7T3H7oP6U4LMOVuc%3D%0A)
 
 4. A list of your previously-saved prompts will appear.
 
@@ -103,6 +101,8 @@ You can access your previous Workbench prompts on your Console account by follow
 4. Select "Export." Your data is packaged as JSON, and we'll email you a download link when it's ready.
 
 Export your data before **August 17, 2026**. It will not be accessible after Workbench (legacy) is retired.
+
+---
 
 ## Frequently asked questions
 

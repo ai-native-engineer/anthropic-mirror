@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-Claude Science is a desktop app for scientific research. It’s off by default for Team and Enterprise organizations. Turning it on in Organization settings > Capabilities walks you through a short setup wizard that covers what’s not supported yet, which roles get access, and which connectors to publish.
+Claude Science is a desktop app for scientific research. It’s off by default for Team and Enterprise organizations. Turning it on in Organization settings > Claude Science walks you through a short setup wizard that covers what’s not supported yet, which roles get access, and which connectors to publish.
 
 ##  Availability
 
@@ -25,8 +25,8 @@ If your organization has HIPAA compliance enabled, Claude Science app access is 
 
 ##  Turn on Claude Science
 
-Go to Organization settings > Capabilities.
-Find Claude Science and turn the toggle on. The setup wizard opens.
+Go to Organization settings > Claude Science.
+Turn on the Enable for your organization toggle. The setup wizard opens.
 Complete each step of the wizard, then select Enable Claude Science.
 Members with access can [download Claude Science](https://claude.com/product/claude-science) and sign in with their claude.ai account.
 You need an Owner or Primary Owner role to turn Claude Science on or off.
@@ -61,4 +61,4 @@ Organizations with HIPAA compliance enabled can turn on Claude Science during th
 
 ##  Turn off Claude Science
 
-Go to Organization settings > Capabilities and turn the Claude Science toggle off. Members can no longer sign in to the app. Data already on members’ computers stays there; see [How Claude Science works with your data](https://claude.com/docs/claude-science/how-claude-science-works-with-your-data) for details.
+Go to Organization settings > Claude Science and turn off the Enable for your organization toggle. Members can no longer sign in to the app. Data already on members’ computers stays there; see [How Claude Science works with your data](https://claude.com/docs/claude-science/how-claude-science-works-with-your-data) for details.

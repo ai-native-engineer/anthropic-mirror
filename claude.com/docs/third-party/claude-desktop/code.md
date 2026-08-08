@@ -8,11 +8,11 @@
 
 [Skip to main content](#content-area)
 
-The Code tab in Claude Desktop on third-party (3P) is the embedded [Claude Code](https://code.claude.com/docs/en/overview) interface. It runs the same Claude Code engine as the standalone CLI, with a graphical session manager, and it inherits your Claude Desktop on 3P configuration automatically.
+Code in Claude Desktop on third-party (3P) is the embedded [Claude Code](https://code.claude.com/docs/en/overview) interface. It runs the same Claude Code engine as the standalone CLI, with a graphical session manager, and it inherits your Claude Desktop on 3P configuration automatically.
 
 ##  How configuration propagates
 
-When the app starts a Code session, it translates your Claude Desktop on 3P [configuration keys](https://claude.com/docs/third-party/claude-desktop/configuration) into the equivalent Claude Code settings and passes them to the session. You configure one profile, and both tabs honor it.
+When the app starts a Code session, it translates your Claude Desktop on 3P [configuration keys](https://claude.com/docs/third-party/claude-desktop/configuration) into the equivalent Claude Code settings and passes them to the session. You configure one profile, and Cowork and Code both honor it.
 Each key reaches Claude Code through one of two mechanisms, and the distinction matters if you also deploy Claude Code’s own managed settings (see [the next section](#interaction-with-claude-code%E2%80%99s-own-managed-settings)).
 
 ###  Always applied
@@ -21,16 +21,16 @@ These keys are passed directly to the Claude Code process as environment variabl
 
 | Claude Desktop on 3P key | Effect in Code sessions |
 | --- | --- |
-| `inferenceProvider` and all provider credential keys (`inferenceGateway*`, `inferenceVertex*`, `inferenceBedrock*`, `inferenceFoundry*`, `inferenceCredentialHelper*`) | Selects the inference backend and supplies credentials. Code sessions use the same provider, endpoint, and credentials as the Cowork tab. |
+| `inferenceProvider` and all provider credential keys (`inferenceGateway*`, `inferenceVertex*`, `inferenceBedrock*`, `inferenceFoundry*`, `inferenceCredentialHelper*`) | Selects the inference backend and supplies credentials. Code sessions use the same provider, endpoint, and credentials as Cowork sessions. |
 | `inferenceModels` | Populates the model picker. The first entry is the default for new Code sessions. |
 | `autoModeEnabled` | Offers **Auto mode** in the Code session’s permission selector. A separately deployed Claude Code managed-settings file that sets `disableAutoMode` to `"disable"` overrides this and keeps Auto mode hidden; see below. |
 | `disabledBuiltinTools` | Removes the listed tools from Code sessions. Tools your provider does not support, such as WebSearch on Amazon Bedrock, are removed automatically in addition to your list. |
 | `builtinToolPolicy` | Tools set to `"ask"` require approval on each call in Code sessions, enforced via a PreToolUse hook and Claude Code `permissions.ask` rules. |
 | `managedMcpServers` | Makes the same managed MCP servers available in Code sessions. The app handles the connection and authentication; the Code session sees only the resulting tool list. |
 | `otlpEndpoint`, `otlpProtocol`, `otlpHeaders`, `otlpResourceAttributes` | Routes Claude Code’s OpenTelemetry metrics and logs to your collector. See [Telemetry](https://claude.com/docs/third-party/claude-desktop/telemetry). |
-| `disableEssentialTelemetry`, `disableNonessentialTelemetry` | Disables Claude Code’s crash reporting and usage telemetry to Anthropic, mirroring the Cowork tab. |
+| `disableEssentialTelemetry`, `disableNonessentialTelemetry` | Disables Claude Code’s crash reporting and usage telemetry to Anthropic, mirroring Cowork. |
 | `disableAutoUpdates` | The embedded Claude Code engine never self-updates regardless of this key; its version is managed by the app’s own updater. |
-| `inferenceMaxTokensPerWindow`, `inferenceTokenWindowHours` | The token budget is shared across the Cowork and Code tabs and enforced before each turn. |
+| `inferenceMaxTokensPerWindow`, `inferenceTokenWindowHours` | The token budget is shared across Cowork and Code sessions and enforced before each turn. |
 
 ###  Applied as managed policy
 
@@ -65,6 +65,6 @@ In a third-party deployment there is no Anthropic authentication, so Claude Code
 * [Claude Code sandboxing](https://code.claude.com/docs/en/sandboxing)
 * [Settings precedence](https://code.claude.com/docs/en/settings#settings-precedence)
 
-##  Disabling the Code tab
+##  Disabling Code
 
-To remove the Code tab entirely, set `isClaudeCodeForDesktopEnabled` to `false` in your Claude Desktop on 3P configuration. Users see only the Cowork tab.
+To turn off Code, set `isClaudeCodeForDesktopEnabled` to `false` in your Claude Desktop on 3P configuration. Users can no longer open Code. Cowork is unaffected, and so is [Chat](https://claude.com/docs/third-party/claude-desktop/chat#configuration) if you have enabled it.

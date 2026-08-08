@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/10065434-use-dictation-on-claude-mobile -->
 
-# Use dictation on Claude Mobile
-
-Updated over a week ago
-
 Dictation is available to all Claude users (Free, Pro, Max, Team, and Enterprise plans). Support for languages other than English is in beta.
 
 Dictation allows you to speak your prompts instead of typing them when using Claude for iOS or Android.

@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features -->
 
-# Understanding Claude's personalization features
-
-Updated over 3 weeks ago
-
 Claude offers several ways to personalize your experience: profile instructions, project instructions, and styles. Each serves a different purpose in helping Claude better understand and meet your needs.
 
 ## Instructions for Claude
@@ -23,6 +19,8 @@ To set your instructions:
 
 Any instructions you add here will be applied to all of your conversations with Claude.
 
+---
+
 ## Project instructions
 
 Project instructions help Claude understand the specific context and requirements for a particular project. These instructions only apply to chats within that project.
@@ -40,6 +38,8 @@ Project instructions are particularly useful when you're working on focused task
 
 For detailed information on using projects, see our article on **[creating and managing projects](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)**.
 
+---
+
 ## Skills
 
 Skills add specific behaviors or capabilities to your conversations with Claude. They can customize how Claude communicates, apply specialized expertise, or define repeatable behaviors you activate on demand.
@@ -52,6 +52,8 @@ Use skills when you want to:
 
 For more information, see **[What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)**
 
+---
+
 ## Choosing the right feature
 
 * Use profile instructions for account-wide settings that affect all your interactions with Claude.
@@ -61,7 +63,7 @@ For more information, see **[What are skills?](https://support.claude.com/en/art
 You can use these features independently or in combination to create the most effective experience for your needs.
 
 * [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
-* [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely -->
 
-# Use Claude in Chrome safely
-
-Updated over 2 weeks ago
-
 This article explains the risks of using Claude in Chrome and provides best practices for protecting yourself and your data.
 
 Claude in Chrome is available for all paid plans (Pro, Max, Team, and Enterprise). It's generally available in Claude Cowork and Claude Code, and in beta in the Chrome browser.
@@ -30,6 +26,8 @@ To see a page and decide what to do next, Claude takes screenshots of the tabs i
 
 Claude in Chrome isn't available to organizations covered by HIPAA, and we recommend against using it on pages that contain regulated data.
 
+---
+
 ## Our safety measures
 
 We've implemented multiple layers of protection:
@@ -55,7 +53,9 @@ For your safety, Claude cannot access sensitive, high-risk sites such as:
 
 Claude asks for permission before accessing financial sites.
 
-It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#156066706766747370616c55747b617d677a657c763b767a78).
+It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#8ffafceafdfceee9eafbf6cfeee1fbe7fde0ffe6eca1ece0e2).
+
+---
 
 ## Protecting yourself from malicious attackers
 
@@ -98,6 +98,8 @@ We strongly advise against using Claude in Chrome to manage or take actions on s
 
 Claude in Chrome isn’t available for HIPAA orgs, and we recommend against using Claude in Chrome on pages with regulated data generally. As a best practice, don't open the extension while viewing sensitive info, and consider using a separate browser profile.
 
+---
+
 ## Your responsibility
 
 You remain responsible for all browser actions taken by Claude performed on your behalf. This includes:
@@ -108,6 +110,8 @@ You remain responsible for all browser actions taken by Claude performed on your
 * Respecting third-party website terms of service, including any restrictions on automated access
 
 For more information about using AI agents safely, please review our **[Acceptable Use Policy for Agents](https://support.claude.com/en/articles/12005017-using-agents-according-to-our-usage-policy)**.
+
+---
 
 ## For Team and Enterprise users
 

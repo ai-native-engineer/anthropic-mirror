@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government -->
 
-# Set up SCIM in Claude for Government
-
-April 10, 2026
-
 System for Cross-domain Identity Management (SCIM) lets your identity provider automatically manage user accounts in Claude for Government. With SCIM, your IdP controls who has access, what role they hold, and what seat tier they're assigned—without manual intervention in the Claude admin console.
 
 For SCIM setup on Claude Enterprise, see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)**.
@@ -42,15 +38,15 @@ With SCIM, login and provisioning are separate. Your IdP tells Anthropic who sho
 
 **Important**: Store this key securely. It cannot be retrieved after you leave the page.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1785803400&signature=17abf434344158066f8cf73cae783895df19cb2c38bdad9ea34e0eeb3724efa0&req=diIiEMl6nYBWX%2FMW1HO4zSrRlakXaTUQyIvvU1hav7M0IjNNrKEXY5RZmVkk%0A372RtVbqnpNIq72C%2Bz0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1785803400&signature=17abf434344158066f8cf73cae783895df19cb2c38bdad9ea34e0eeb3724efa0&req=diIiEMl6nYBWX%2FMW1HO4zSrRlakXaTUQyIvvU1hav7M0IjNNrKEXY5RZmVkk%0A372RtVbqnpNIq72C%2Bz0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1786167000&signature=45f623f773ddd479a0e1a9d233840e8b4794ffccd9d268ee26f0fe4015c5b1e2&req=diIiEMl6nYBWX%2FMW1HO4zSrRlaoebzEUyIvvU1hav7M2w8gkwCWimgKY2Lyv%0ABFAXUobzXXEyF6rE3R8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1786167000&signature=45f623f773ddd479a0e1a9d233840e8b4794ffccd9d268ee26f0fe4015c5b1e2&req=diIiEMl6nYBWX%2FMW1HO4zSrRlaoebzEUyIvvU1hav7M2w8gkwCWimgKY2Lyv%0ABFAXUobzXXEyF6rE3R8%3D%0A)
 
 ### Step 2: Configure SCIM in your Identity Provider
 
 1. In your IdP (e.g., Entra ID, Okta), create or open a SCIM provisioning integration.
 2. Enter the following values:
 
-   1. SCIM endpoint URL: **<https://claude.fedstart.com/v1/scim/v2>**
-   2. API key / Bearer token: The key generated in Step 1
+   1. **SCIM endpoint URL:** `https://claude.fedstart.com/v1/scim/v2`
+   2. **API key / Bearer token:** The key generated in Step 1
 3. Configure the user attributes your IdP will sync (typically name and email).
 4. Assign users and groups to the SCIM integration within your IdP.
 
@@ -63,7 +59,7 @@ After enabling the integration in your IdP:
 
 **Warning**: When you fully enable SCIM provisioning, any users who were **not** synced via SCIM will be removed from the organization. Confirm that all expected users appear in the sync before proceeding.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1785803400&signature=f42c3126c9d07a6881eec3049eb9d0e7adce3593879b75da061f226ebd98356c&req=diIiEMl6nYBWUfMW1HO4zeLvMl1nSk%2F%2BoWupW8zJgMpfTRRqk%2FB9ZhM6Nk1f%0Ac80s%2FOXEu3s6bS1Az%2FA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1785803400&signature=f42c3126c9d07a6881eec3049eb9d0e7adce3593879b75da061f226ebd98356c&req=diIiEMl6nYBWUfMW1HO4zeLvMl1nSk%2F%2BoWupW8zJgMpfTRRqk%2FB9ZhM6Nk1f%0Ac80s%2FOXEu3s6bS1Az%2FA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1786167000&signature=318d114b0eafb40d270c9c8e445c43324b6e29dd153aee64f3e45291adedd755&req=diIiEMl6nYBWUfMW1HO4zeLvMl5uTEv6oWupW8zJgMrNBIahpin2pMIjD0gZ%0AOmuVofLgrz4%2BwJYeAr0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1786167000&signature=318d114b0eafb40d270c9c8e445c43324b6e29dd153aee64f3e45291adedd755&req=diIiEMl6nYBWUfMW1HO4zeLvMl5uTEv6oWupW8zJgMrNBIahpin2pMIjD0gZ%0AOmuVofLgrz4%2BwJYeAr0%3D%0A)
 
 ### Step 4: Map groups to roles and seat tiers
 
@@ -76,7 +72,7 @@ SCIM provisioning uses IdP groups to assign roles and seat tiers within Claude f
    2. Seat tier — The license tier, if your organization has purchased multiple tiers.
 3. Save your mappings.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1785803400&signature=15d9ea14b5b6d8540261bd55d7918dae408273999a4fb9a03e92e2d0af29951c&req=diIiEMl7m4VbWPMW1HO4zaWhsXYqskQfh340B79BYGYBI9mJKCqyiVrw9Zh2%0AGSio6InXzjQgYIhDjdM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1785803400&signature=15d9ea14b5b6d8540261bd55d7918dae408273999a4fb9a03e92e2d0af29951c&req=diIiEMl7m4VbWPMW1HO4zaWhsXYqskQfh340B79BYGYBI9mJKCqyiVrw9Zh2%0AGSio6InXzjQgYIhDjdM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1786167000&signature=74b4e3532e599fec0a7b2771785873e661ae8cebfb40cd23ef1e43d0dda77d30&req=diIiEMl7m4VbWPMW1HO4zaWhsXUjtEAbh340B79BYGYqo%2BI2OqN6hSBxRz1a%0AMuY9O265cKMwPeFikGo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1786167000&signature=74b4e3532e599fec0a7b2771785873e661ae8cebfb40cd23ef1e43d0dda77d30&req=diIiEMl7m4VbWPMW1HO4zaWhsXUjtEAbh340B79BYGYqo%2BI2OqN6hSBxRz1a%0AMuY9O265cKMwPeFikGo%3D%0A)
 
 If you manage multiple organizations under a single parent (see below), each organization maintains its own role and seat tier mappings. Switch between organizations using the organization selector in the bottom-left corner of the page.
 
@@ -95,7 +91,7 @@ In a multi-org setup:
 * Role and seat tier mappings are configured **per child organization**, allowing different groups to map to different orgs.
 * Any Owner or Primary Owner in a child organization can manage IdP settings. Restrict these roles to centralized IT staff.
 
-**Note:** Anthropic support will work with you during provisioning to configure parent/child organization relationships. Contact your account representative or **[Anthropic support](https://claude.fedstart.com/support)** if you need to set up a multi-org structure.
+**Note:** Anthropic support will work with you during provisioning to configure parent/child organization relationships. Contact your account representative or **[our Support team](https://support.claude.com/en/articles/13047024)** if you need to set up a multi-org structure.
 
 * [Set up single sign-on (SSO)](https://support.claude.com/en/articles/13132885-set-up-single-sign-on-sso)
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)

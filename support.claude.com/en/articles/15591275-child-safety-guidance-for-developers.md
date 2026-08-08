@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers -->
 
-# Child safety guidance for developers
-
-June 26, 2026
-
 ## **Our commitments to child safety**
 
 Anthropic takes a Safety by Design approach to child safety. We are signatories to **[Thorn and All Tech Is Human’s Safety by Design Principles for Generative AI](https://www.anthropic.com/news/child-safety-principles)** and report on our progress in the **[Transparency Hub](https://www.anthropic.com/transparency/voluntary-commitments)**. In practice, this means that we apply safety training designed to make our models refuse requests that sexualize or endanger minors, operate detection and monitoring systems across our services, and report apparent CSAM and other forms of child exploitation to the National Center for Missing & Exploited Children (NCMEC). Our first-party consumer services are restricted to users 18 years and older, and Claude does not produce photorealistic image or video output.

@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13117299-minimum-age-requirement-access-restriction -->
 
-# Minimum age requirement access restriction
-
 This article explains why you may be unable to create a Claude account or sign in to an existing account when using the Claude mobile app.
 
 ## Why am I seeing this message?
@@ -19,4 +17,8 @@ Anthropic does not have access to your app store account information and cannot 
 
 Your age information is managed through your Google account or Apple Account. If your account is part of a family group (such as Google Family Link or Apple Family Sharing), your age may have been set by a parent or guardian when the account was created. You may need to work with them to review or update your account information.
 
-[How do I cancel my paid Claude subscription?](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription)[Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)[Claude 4 Invite Contest](https://support.claude.com/en/articles/11408405-claude-4-invite-contest)[Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)[Age assurance on Claude](https://support.claude.com/en/articles/15171100-age-assurance-on-claude)
+* [Paid plan billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)
+* [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
+* [Claude 4 Invite Contest](https://support.claude.com/en/articles/11408405-claude-4-invite-contest)
+* [Request a refund for a paid Claude plan](https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan)
+* [Age assurance on Claude](https://support.claude.com/en/articles/15171100-age-assurance-on-claude)

@@ -1,14 +1,12 @@
 <!-- source: https://support.claude.com/en/articles/14604416-get-started-with-claude-design -->
 
-# Get started with Claude Design
-
-June 30, 2026
-
-**[Claude Design](http://claude.ai/design)** lets you create designs, interactive prototypes, presentations, and more by having a conversation with Claude. This guide walks you through creating your first project, iterating on designs, and getting the most out of the tool.
+**[Claude Design](https://claude.ai/design)** lets you create designs, interactive prototypes, presentations, and more by having a conversation with Claude. This guide walks you through creating your first project, iterating on designs, and getting the most out of the tool.
 
 Claude Design is now available in beta to Pro, Max, Team, and Enterprise plans. This capability is default off for Enterprise plans. You can use it on the web at claude.ai/design or from the sidebar in Claude Desktop.
 
 This guide assumes your organization’s design system has already been set up, so everything you create will automatically use your brand’s colors, typography, and component patterns. If you’re a design lead who needs to set up or modify the design system itself, see **[Set up your design system in Claude Design](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design)**.
+
+---
 
 ## How Claude Design works
 
@@ -36,6 +34,8 @@ If you prefer to work from Claude Code, connect the Claude Design MCP server to 
 2. Run `/design-login` to sign in.
 
 Once you're connected, you can import a design into your codebase, export your code as a live prototype, or let Claude build the whole thing from start to finish.
+
+---
 
 ## Create a new project
 
@@ -67,6 +67,8 @@ Here are some examples of prompts that work well:
 * “Build a landing page for our new API product with a hero section, code examples, and pricing.”
 * “Create a form for collecting customer feedback with conditional questions based on category.”
 * “Design an internal tool for our ops team to review and approve content submissions.”
+
+---
 
 ## Refine your design
 
@@ -108,6 +110,8 @@ Use **comments** for targeted, component-level changes (“fix this button,” �
 
 If you want to explore a different direction without losing your current work, tell Claude: “Save what we have and try a completely different approach.” Claude will save your current project and confirm where it’s saved, so you can reference earlier iterations in the conversation easily.
 
+---
+
 ## Export and share
 
 Once your design is ready, you can share it with colleagues or export it for use elsewhere. The right format depends on your use case—whether you’re getting stakeholder feedback, handing off to engineering, or presenting to a group.
@@ -125,9 +129,11 @@ Use the “Export” button in the upper right corner when viewing your project 
   + Send to local coding agent
   + Send to Claude Code Web
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785803400&signature=bb9d6330046da86cbf6b7e82f6ce40ae1464326bee00912be5ed69199bc83690&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlSm25wnfz9ljnuyXSBT64B%2BISf0I%2Fn0f1b%0AcIHjrCp%2FNQeqMtQ7H%2Bc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785803400&signature=bb9d6330046da86cbf6b7e82f6ce40ae1464326bee00912be5ed69199bc83690&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlSm25wnfz9ljnuyXSBT64B%2BISf0I%2Fn0f1b%0AcIHjrCp%2FNQeqMtQ7H%2Bc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1786212000&signature=a683165da7e98dd01ac0743bf8d2ce198c3d5dbde6c89165bfb18dd0881c8028&req=diIvEcx%2FnYhaW%2FMW3nq%2BgeY03psVG77BSuCDLaDjt0cA4wKb1ur6gH989dXT%0AnPt67WD7dMx%2BjaRel8aX6JGDvC4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1786212000&signature=a683165da7e98dd01ac0743bf8d2ce198c3d5dbde6c89165bfb18dd0881c8028&req=diIvEcx%2FnYhaW%2FMW3nq%2BgeY03psVG77BSuCDLaDjt0cA4wKb1ur6gH989dXT%0AnPt67WD7dMx%2BjaRel8aX6JGDvC4%3D%0A)
 
 You can also share projects within your organization using a shareable link. Sharing options include view-only, comment, and edit access.
+
+---
 
 ## Usage and pricing
 
@@ -136,6 +142,8 @@ Claude Design counts toward the same usage limits as the rest of Claude. Design 
 If you reach your usage limits, Claude Design is unavailable until your limits reset. If you've enabled usage credits, you can keep working after reaching your included limits. Learn more about **[how usage and length limits work](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)**.
 
 **Note:** Claude Design previously had its own weekly allowance, separate from your other usage limits. All Claude Design activity now counts toward your plan's shared limits.
+
+---
 
 ## Tips for best results
 
@@ -146,6 +154,8 @@ If you reach your usage limits, Claude Design is unavailable until your limits r
 * **Think about responsiveness early.** Mention whether your design needs to work on mobile, tablet, and desktop, or just one of those.
 * **Ask for variations.** If you’re unsure about a direction, ask Claude to show you 2–3 options. Comparing alternatives is much faster than guessing.
 * **Ask Claude for feedback.** Claude can review your design for accessibility, contrast ratios, information hierarchy, and general usability. Treat it as a design collaborator, not just a generator.
+
+---
 
 ## Known limitations
 

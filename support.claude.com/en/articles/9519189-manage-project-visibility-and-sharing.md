@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing -->
 
-# Manage project visibility and sharing
-
-Updated over a week ago
-
 Project visibility and sharing features are available to users on Team or Enterprise plans. This article assumes that public projects are enabled for your organization. For more information, see **[How can I disable public projects?](https://support.claude.com/en/articles/9927533-how-can-i-disable-public-projects)**
 
 Sharing a project with a group requires an Enterprise plan and is currently in beta.
@@ -15,7 +11,7 @@ When creating a project on a Team or Enterprise plan, you can choose between two
 * **Public:** Everyone in your organization can view and use the project.
 * **Private:** Only invited members can view and use the project.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370991/2b6b16e5deff094e073a5b4bb0ea/63197103-24c0-41e5-aebd-9b8f431837bb?expires=1785803400&signature=a64e356b1ca1c9e822a677e0c3a27b2ecd051f35a489ad4ae61ee77e771f6872&req=dScjFsp5nYhWWPMW1HO4zd3a2VksJI2jHK95%2FTFaPyk4LkJ9g9B8xejoke02%0AuF%2BSrRjv2dIhKG10zfM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370991/2b6b16e5deff094e073a5b4bb0ea/63197103-24c0-41e5-aebd-9b8f431837bb?expires=1785803400&signature=a64e356b1ca1c9e822a677e0c3a27b2ecd051f35a489ad4ae61ee77e771f6872&req=dScjFsp5nYhWWPMW1HO4zd3a2VksJI2jHK95%2FTFaPyk4LkJ9g9B8xejoke02%0AuF%2BSrRjv2dIhKG10zfM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370991/2b6b16e5deff094e073a5b4bb0ea/63197103-24c0-41e5-aebd-9b8f431837bb?expires=1786167000&signature=fb689e74f5eb5288a01d333499d611b917317f0795ac6d4dba448ee133f1c4c4&req=dScjFsp5nYhWWPMW1HO4zd3a2VolIomnHK95%2FTFaPymLzQVnwmzGL6t0BoIV%0A5xsG%2Bt47%2FErtlSTz1M8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370991/2b6b16e5deff094e073a5b4bb0ea/63197103-24c0-41e5-aebd-9b8f431837bb?expires=1786167000&signature=fb689e74f5eb5288a01d333499d611b917317f0795ac6d4dba448ee133f1c4c4&req=dScjFsp5nYhWWPMW1HO4zd3a2VolIomnHK95%2FTFaPymLzQVnwmzGL6t0BoIV%0A5xsG%2Bt47%2FErtlSTz1M8%3D%0A)
 
 ## What are public projects?
 
@@ -25,11 +21,11 @@ If you choose to share a project with the rest of your organization upon creatio
 
 Yes, you can switch the visibility of a project you created as public to private at any time by opening the project and clicking the “Share” button to the right of the project name:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370987/5d5db997e6b42e627ffa62fddf75/4823906b-9535-4a19-b89e-a1003f1e6e68?expires=1785803400&signature=32b0fefb650b844e2806f79cd16f58d6194b606c6bc41f8343b3cac0b5fc1b22&req=dScjFsp5nYhXXvMW1HO4zUiDoiz%2FgQUtE8Kp5wh0MSCpI3P1K2l%2Fs%2F83ij9c%0AUc2IN%2FzTdTw5tcgUU%2B8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370987/5d5db997e6b42e627ffa62fddf75/4823906b-9535-4a19-b89e-a1003f1e6e68?expires=1785803400&signature=32b0fefb650b844e2806f79cd16f58d6194b606c6bc41f8343b3cac0b5fc1b22&req=dScjFsp5nYhXXvMW1HO4zUiDoiz%2FgQUtE8Kp5wh0MSCpI3P1K2l%2Fs%2F83ij9c%0AUc2IN%2FzTdTw5tcgUU%2B8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370987/5d5db997e6b42e627ffa62fddf75/4823906b-9535-4a19-b89e-a1003f1e6e68?expires=1786167000&signature=2f381b4f37a30c0801368ffa2e6730678fb571d24298040509b0ee3b02f0dc5c&req=dScjFsp5nYhXXvMW1HO4zUiDoi%2F2hwEpE8Kp5wh0MSDlUNZN4wB0%2FG58J3i7%0Am92QUtCkVtl92WhP2ZY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370987/5d5db997e6b42e627ffa62fddf75/4823906b-9535-4a19-b89e-a1003f1e6e68?expires=1786167000&signature=2f381b4f37a30c0801368ffa2e6730678fb571d24298040509b0ee3b02f0dc5c&req=dScjFsp5nYhXXvMW1HO4zUiDoi%2F2hwEpE8Kp5wh0MSDlUNZN4wB0%2FG58J3i7%0Am92QUtCkVtl92WhP2ZY%3D%0A)
 
 Click “Everyone at [your organization]” under **General access** and select “Only people invited” to change the project from public to private:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370988/386407facbf3e73d2f5538623a18/69d8ffcd-e1ca-470f-a219-5b88704e41f2?expires=1785803400&signature=056b63473db19a2dcbc707a37751e32706a0e92c2d0348b841b3329d215c86e5&req=dScjFsp5nYhXUfMW1HO4zckCIfdqYiGgl3XeGelDRW0FOgKvDceWsZIz3bQO%0ArdWRkTUjrDyxlhGd8%2Bw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370988/386407facbf3e73d2f5538623a18/69d8ffcd-e1ca-470f-a219-5b88704e41f2?expires=1785803400&signature=056b63473db19a2dcbc707a37751e32706a0e92c2d0348b841b3329d215c86e5&req=dScjFsp5nYhXUfMW1HO4zckCIfdqYiGgl3XeGelDRW0FOgKvDceWsZIz3bQO%0ArdWRkTUjrDyxlhGd8%2Bw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370988/386407facbf3e73d2f5538623a18/69d8ffcd-e1ca-470f-a219-5b88704e41f2?expires=1786167000&signature=66b906e0300b7438ec3f9fb611c8a4e27cb982e0615d3b28f68ca647a6791a88&req=dScjFsp5nYhXUfMW1HO4zckCIfRjZCWkl3XeGelDRW3zzi5WAl2q16Y4JV5I%0AEOAOpMF7iWjBvtGHTS0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370988/386407facbf3e73d2f5538623a18/69d8ffcd-e1ca-470f-a219-5b88704e41f2?expires=1786167000&signature=66b906e0300b7438ec3f9fb611c8a4e27cb982e0615d3b28f68ca647a6791a88&req=dScjFsp5nYhXUfMW1HO4zckCIfRjZCWkl3XeGelDRW3zzi5WAl2q16Y4JV5I%0AEOAOpMF7iWjBvtGHTS0%3D%0A)
 
 ## What are private projects?
 
@@ -39,11 +35,11 @@ Choosing “Only people invited” keeps your project private so that you are th
 
 Yes, you can switch the visibility of a project you created as private to public at any time by opening the project and clicking the “Share” button to the right of the project name:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370989/f829dcd8bdd88e944322f678323f/9d25eff1-6df3-40be-82eb-ba7fe09187e8?expires=1785803400&signature=44afb8af915d7f858c74373dc8247f9b85bcfd7a741d1dd13ca34436a18cbfa7&req=dScjFsp5nYhXUPMW1HO4zaSEGlaUSrsJ2JrJefVtywnHI5DPhjXOxkSwt%2FnC%0Ag%2Fr70HnXz8Bn4QfX%2FS0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370989/f829dcd8bdd88e944322f678323f/9d25eff1-6df3-40be-82eb-ba7fe09187e8?expires=1785803400&signature=44afb8af915d7f858c74373dc8247f9b85bcfd7a741d1dd13ca34436a18cbfa7&req=dScjFsp5nYhXUPMW1HO4zaSEGlaUSrsJ2JrJefVtywnHI5DPhjXOxkSwt%2FnC%0Ag%2Fr70HnXz8Bn4QfX%2FS0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370989/f829dcd8bdd88e944322f678323f/9d25eff1-6df3-40be-82eb-ba7fe09187e8?expires=1786167000&signature=6486bcf9a24dc6acfbef859834400b9698e77a1d3f0c7949524ee022be97ab4b&req=dScjFsp5nYhXUPMW1HO4zaSEGlWdTL8N2JrJefVtywmSaP0VVGg9fduNbLsw%0AFlI3LuCeWLR2c28aKjA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370989/f829dcd8bdd88e944322f678323f/9d25eff1-6df3-40be-82eb-ba7fe09187e8?expires=1786167000&signature=6486bcf9a24dc6acfbef859834400b9698e77a1d3f0c7949524ee022be97ab4b&req=dScjFsp5nYhXUPMW1HO4zaSEGlWdTL8N2JrJefVtywmSaP0VVGg9fduNbLsw%0AFlI3LuCeWLR2c28aKjA%3D%0A)
 
 Click “Only people invited” under General access and select “Everyone at [your organization]” to change the project from private to public:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370990/d173fbc6f030780d30c6d7b8e204/7e47b9d1-89fe-4607-8b5b-f7b06e7ad0d6?expires=1785803400&signature=95a5a8fc6d9c014d6294ff78989f70aaa17d968b48c7025f4667bb87005c8d80&req=dScjFsp5nYhWWfMW1HO4zT7Q082zvQ8SAmYRPrgMBZnECOIaoKxbDhAHViLS%0AsKYYtmOvpwZcIwgxnNE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370990/d173fbc6f030780d30c6d7b8e204/7e47b9d1-89fe-4607-8b5b-f7b06e7ad0d6?expires=1785803400&signature=95a5a8fc6d9c014d6294ff78989f70aaa17d968b48c7025f4667bb87005c8d80&req=dScjFsp5nYhWWfMW1HO4zT7Q082zvQ8SAmYRPrgMBZnECOIaoKxbDhAHViLS%0AsKYYtmOvpwZcIwgxnNE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370990/d173fbc6f030780d30c6d7b8e204/7e47b9d1-89fe-4607-8b5b-f7b06e7ad0d6?expires=1786167000&signature=86c05c54b4686ae1e581d01f62077768c45db1b4b6f4ca874f0dafa7a914558b&req=dScjFsp5nYhWWfMW1HO4zT7Q0866uwsWAmYRPrgMBZnfTYzBIBjTOTLicUl9%0AOqA72%2FtQQqstBZ4ZJGA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370990/d173fbc6f030780d30c6d7b8e204/7e47b9d1-89fe-4607-8b5b-f7b06e7ad0d6?expires=1786167000&signature=86c05c54b4686ae1e581d01f62077768c45db1b4b6f4ca874f0dafa7a914558b&req=dScjFsp5nYhWWfMW1HO4zT7Q0866uwsWAmYRPrgMBZnfTYzBIBjTOTLicUl9%0AOqA72%2FtQQqstBZ4ZJGA%3D%0A)
 
 ## Add and remove access to private projects
 

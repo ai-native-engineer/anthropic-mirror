@@ -88,6 +88,118 @@ Grid
 
 List
 
+[View story](https://claude.com/customers/wondr-health)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7554a1ec915407cc422bfa_logo_wondrhealth-light-mode%201.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7554a6949ac0de1b799cd2_logo_wondrhealth-dark-mode.png)
+
+Wondr Health scales trusted health coaching with Claude
+
+Wondr Health
+
+Startup
+
+AWS
+
+North America
+
+August 14, 2026
+
+Claude Platform
+
+Software
+
+Claude Platform
+
+[View story](https://claude.com/customers/cyera-qa)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a755437bdd73dced6999628_logo_cyera2-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a755440205f26561ab3f47c_logo_cyera2-dark-mode.svg)
+
+Cyera on making Claude Cowork the front door to 40 tools
+
+Cyera-QA
+
+Large
+
+North America
+
+August 7, 2026
+
+Claude Cowork
+
+Claude Enterprise
+
+Cybersecurity
+
+Claude Cowork
+
+[View story](https://claude.com/customers/cyera)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a755437bdd73dced6999628_logo_cyera2-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a755440205f26561ab3f47c_logo_cyera2-dark-mode.svg)
+
+Cyera scales agentic AI across 1,500 employees with Claude Enterprise
+
+Cyera
+
+Large
+
+AWS
+
+North America
+
+August 7, 2026
+
+Claude Enterprise
+
+Claude Cowork
+
+Cybersecurity
+
+Claude Enterprise
+
+[View story](https://claude.com/customers/mercy-corps-qa)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e04954c57899e16ee740_logo_mercycorps-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e053a5775e0a59000aec_logo_mercycorps-dark-mode.svg)
+
+Mercy Corps on what AI makes possible in humanitarian work
+
+Mercy Corps Q&A
+
+Large
+
+North America
+
+August 4, 2026
+
+Claude Enterprise
+
+Claude for Nonprofits
+
+Beneficial Deployments
+
+Claude Enterprise
+
+[View story](https://claude.com/customers/mercy-corps)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e04954c57899e16ee740_logo_mercycorps-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e053a5775e0a59000aec_logo_mercycorps-dark-mode.svg)
+
+Mercy Corps accelerates global humanitarian response to community feedback with Claude
+
+Mercy Corps
+
+Large
+
+North America
+
+August 4, 2026
+
+Claude for Nonprofits
+
+Claude Enterprise
+
+Beneficial Deployments
+
+Claude Enterprise
+
 [View story](https://claude.com/customers/notability)View story
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ffe769f703495a0fb59604_nb-primary-full-marketing.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ffe76dfd86b6d4e80e72ba_nb-primary-full-marketing-dark.svg)
@@ -308,120 +420,6 @@ Retail Services
 
 Claude Enterprise
 
-[View story](https://claude.com/customers/pacific-community-ventures-qa)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d5437e0a6d096150a027f_logo_pcv-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d543b4dfd5746c3b7d611_logo_pcv-dark-mode.png)
-
-A conversation with Pacific Community Ventures on building AI for fair lending
-
-Pacific Community Ventures Q&A
-
-Small
-
-North America
-
-July 8, 2026
-
-Claude Platform
-
-Claude for Nonprofits
-
-Claude Platform
-
-[View story](https://claude.com/customers/pacific-community-ventures)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d5437e0a6d096150a027f_logo_pcv-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d543b4dfd5746c3b7d611_logo_pcv-dark-mode.png)
-
-Pacific Community Ventures scales worker feedback 10x with Claude
-
-Pacific Community Ventures
-
-Small
-
-North America
-
-July 8, 2026
-
-Claude Platform
-
-Claude for Nonprofits
-
-Beneficial Deployments
-
-Claude Platform
-
-[View story](https://claude.com/customers/dust)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a28a7bdb02b70485884e51e_logo_dust-light-mode.svg)![Dust logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c026e65569d372201cc547_Frame%20(5).svg)
-
-Dust enables agents to go deeper at lower cost with Claude
-
-Dust
-
-Startup
-
-Europe
-
-June 30, 2026
-
-Claude Platform
-
-Claude Code
-
-Software
-
-Claude Platform
-
-[View story](https://claude.com/customers/blank-metal-qa)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42a0bb96aaece6fd281bf8_logo_blankmetal-light-mode%20(1).svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42a0c1147ca2064059ee3c_logo_blankmetal-dark-mode%20(1).svg)
-
-How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-Blank Metal
-
-Small
-
-North America
-
-June 29, 2026
-
-Claude Cowork
-
-Claude Code
-
-Claude Enterprise
-
-Professional services
-
-Claude Cowork
-
-[View story](https://claude.com/customers/cox-and-accenture)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)
-
-Cox Communications drives a 7x return on AI across its B2B funnel with Claude and Accenture
-
-Cox x Accenture
-
-Large
-
-Accenture
-
-North America
-
-June 29, 2026
-
-Claude Platform
-
-Claude Code
-
-Claude Cowork
-
-Telecommunications
-
-Claude Platform
-
 [View more](https://claude.com/customers?fcdaa149_page=2)
 
 1 / 18
@@ -435,6 +433,168 @@ Product
 Location
 
 Partner
+
+[View story](https://claude.com/customers/cyera-qa)View story
+
+### Cyera-QA
+
+Industry
+
+Cybersecurity
+
+Company size
+
+Large
+
+Product
+
+Claude Cowork
+
+Claude Enterprise
+
+Claude Cowork
+
+Location
+
+North America
+
+Partner
+
+August 7, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/cyera-qa)Read customer story
+
+[View story](https://claude.com/customers/cyera)View story
+
+### Cyera
+
+Industry
+
+Cybersecurity
+
+Company size
+
+Large
+
+Product
+
+Claude Enterprise
+
+Claude Cowork
+
+Claude Enterprise
+
+Location
+
+North America
+
+Partner
+
+AWS
+
+August 7, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/cyera)Read customer story
+
+[View story](https://claude.com/customers/wondr-health)View story
+
+### Wondr Health
+
+Industry
+
+Software
+
+Company size
+
+Startup
+
+Product
+
+Claude Platform
+
+Claude Platform
+
+Location
+
+North America
+
+Partner
+
+AWS
+
+August 14, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/wondr-health)Read customer story
+
+[View story](https://claude.com/customers/mercy-corps-qa)View story
+
+### Mercy Corps Q&A
+
+Industry
+
+Beneficial Deployments
+
+Company size
+
+Large
+
+Product
+
+Claude Enterprise
+
+Claude for Nonprofits
+
+Claude Enterprise
+
+Location
+
+North America
+
+Partner
+
+August 4, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/mercy-corps-qa)Read customer story
+
+[View story](https://claude.com/customers/mercy-corps)View story
+
+### Mercy Corps
+
+Industry
+
+Beneficial Deployments
+
+Company size
+
+Large
+
+Product
+
+Claude for Nonprofits
+
+Claude Enterprise
+
+Claude Enterprise
+
+Location
+
+North America
+
+Partner
+
+August 4, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/mercy-corps)Read customer story
 
 [View story](https://claude.com/customers/notability)View story
 
@@ -926,169 +1086,9 @@ Read customer story
 
 [Read customer story](https://claude.com/customers/cox-communications-qa)Read customer story
 
-[View story](https://claude.com/customers/kai)View story
-
-### Kai
-
-Industry
-
-Cybersecurity
-
-Company size
-
-Startup
-
-Product
-
-Claude Platform
-
-Location
-
-North America
-
-Partner
-
-AWS
-
-June 25, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/kai)Read customer story
-
-[View story](https://claude.com/customers/vercel-qa)View story
-
-### Vercel Q&A
-
-Industry
-
-Software
-
-Company size
-
-Large
-
-Product
-
-Claude Enterprise
-
-Claude Code
-
-Claude Enterprise
-
-Location
-
-North America
-
-Partner
-
-June 24, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/vercel-qa)Read customer story
-
-[View story](https://claude.com/customers/box)View story
-
-### Box
-
-Industry
-
-Software
-
-Company size
-
-Large
-
-Product
-
-Claude Platform
-
-Claude Platform
-
-Location
-
-North America
-
-Partner
-
-June 23, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/box)Read customer story
-
-[View story](https://claude.com/customers/quantium-qa)View story
-
-### Quantium Q&A
-
-Industry
-
-Professional services
-
-Company size
-
-Large
-
-Product
-
-Claude Enterprise
-
-Claude Code
-
-Claude Cowork
-
-Claude Enterprise
-
-Location
-
-Asia Pacific
-
-Partner
-
-June 22, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/quantium-qa)Read customer story
-
-[View story](https://claude.com/customers/juno)View story
-
-### Juno
-
-Industry
-
-Software
-
-Company size
-
-Startup
-
-Product
-
-Claude Platform
-
-Claude Code
-
-Claude Cowork
-
-Claude Platform
-
-Location
-
-North America
-
-Partner
-
-June 16, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/juno)Read customer story
-
 [See more](https://claude.com/customers?38d7aa68_page=2)
 
-1 / 13
+1 / 14
 
 No stories for those filters
 

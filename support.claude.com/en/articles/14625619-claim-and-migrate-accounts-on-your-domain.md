@@ -1,14 +1,12 @@
 <!-- source: https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain -->
 
-# Claim and migrate accounts on your domain
-
-Updated over 2 weeks ago
-
 Domain claiming lets Enterprise admins discover, claim, and migrate existing personal Claude accounts (Free, Pro, and Max) on a verified company domain into their Enterprise workspace. This gives your organization a clean path to consolidate accounts on day one of an Enterprise deployment, and allows people using Claude on personal accounts to keep their work. Domain claiming is available for Enterprise plans, whether purchased directly through Anthropic or through the AWS Marketplace, and works the same in both cases.
 
 Domain claiming is supported on Claude Enterprise plans only.
 
 Team plans can verify a domain and block new personal accounts from being created, but admins can't claim or migrate existing accounts. People on a Team plan can still migrate their own personal accounts voluntarily—see **[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400)**.
+
+---
 
 ## Prerequisites
 
@@ -21,6 +19,8 @@ Before you can enable domain claiming, your organization must have all of the fo
 
 These prerequisites exist to prevent people from being locked out of Claude during the migration process. If SSO is enforced and provisioning is active, everyone on your domain will have a path to sign in after their accounts are migrated.
 
+---
+
 ## How domain claiming works
 
 ### Review accounts on your domain
@@ -31,7 +31,7 @@ Use this view to understand the scope of migration before initiating a claim. Ch
 
 ### Enable domain capture
 
-Navigate to **[Organization settings > Organization and access](http://claude.ai/admin-settings/organization)**, scroll down to **Security** and toggle **Migrate accounts using your domain** on to enable domain capture. This is an organization-level setting that enforces a policy: no non-Enterprise accounts can exist on your verified domain.
+Navigate to **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**, scroll down to **Security** and toggle **Migrate accounts using your domain** on to enable domain capture. This is an organization-level setting that enforces a policy: no non-Enterprise accounts can exist on your verified domain.
 
 **Warning:** Domain capture is a one-way door. Once enabled, it can’t be reversed. The admin UI will display a prominent confirmation before you proceed. Make sure your prerequisites are fully in place and you’ve reviewed the affected accounts before enabling.
 
@@ -77,6 +77,8 @@ Domain claiming integrates with your existing SSO and provisioning setup:
 * **SCIM and JIT:** If SCIM is enabled, provisioned accounts are linked to migrated accounts by email match. Don’t enable SCIM and JIT provisioning simultaneously—SCIM takes precedence if both are active.
 
 **Important:** To prevent lockouts, make sure all affected users are in your IdP before the migration deadline. Anyone not in the IdP won’t be able to sign in to the Enterprise workspace, and their personal account will be deactivated at the 30-day deadline. Your IT team will need to add them to the IdP.
+
+---
 
 ## Frequently asked questions
 

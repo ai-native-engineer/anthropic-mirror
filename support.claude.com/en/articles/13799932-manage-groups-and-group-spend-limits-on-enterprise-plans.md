@@ -1,10 +1,6 @@
 <!-- source: https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans -->
 
-# Manage groups and group spend limits on Enterprise plans
-
-Updated over a week ago
-
-Groups and group spend limits are available for Enterprise plan organizations. Owners, Primary Owners, and custom roles with the **Identity & Access** permission set to "Can manage" can go to **[Organization settings > Groups](http://claude.ai/admin-settings/groups)** to manage groups. Owners, Primary Owners, and custom roles with the **Billing** permission set to "Can manage" can go to **[Organization settings > Usage](https://claude.ai/admin-settings/usage)** to manage group spend limits. Group visibility settings are currently in beta.
+Groups and group spend limits are available for Enterprise plan organizations. Owners, Primary Owners, and custom roles with the **Identity & Access** permission set to "Can manage" can go to **[Organization settings > Groups](https://claude.ai/admin-settings/groups)** to manage groups. Owners, Primary Owners, and custom roles with the **Billing** permission set to "Can manage" can go to **[Organization settings > Usage](https://claude.ai/admin-settings/usage)** to manage group spend limits. Group visibility settings are currently in beta.
 
 ## What are groups?
 
@@ -18,9 +14,11 @@ Groups can be created manually or synced automatically from your identity provid
 
 In addition to spend limits, Enterprise admins can use groups to control plugin access in Cowork. Each plugin in your organization's marketplace can have group-level overrides that determine whether it's available, pre-installed, required, or hidden for members of a specific group. For details, see **[Manage Cowork plugins for your organization](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization)**.
 
+---
+
 ## Create a group
 
-1. Navigate to **[Organization settings > Groups](http://claude.ai/admin-settings/groups)**.
+1. Navigate to **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**.
 2. Click "Add group."
 3. Enter a **Group name**.
 4. Optionally enter a **Display name**. The display name replaces the group name on in-product surfaces, like the project sharing picker. Leave it blank to use the group name.
@@ -43,6 +41,8 @@ To change settings for several groups at once, select them with the checkboxes i
 
 Click the menu button to the right of any group and select "Delete." Deleting a group doesn't affect the custom roles that were assigned to it and doesn't remove any members from your organization. Deleting a group also removes its access to any projects shared with it. Members lose access to those projects unless they have access another way.
 
+---
+
 ## SCIM group sync
 
 If your organization uses SCIM directory sync, groups from your identity provider are automatically synced to Claude. SCIM groups appear with a sync indicator in the groups list.
@@ -52,6 +52,8 @@ SCIM groups support custom role assignments and spend limits the same way as man
 To manually trigger a sync, click “SCIM Sync."
 
 **Note:** Claude supports direct group memberships only. If your identity provider nests groups inside other groups, those relationships are ignored when memberships are pushed via SCIM, and only direct members appear in Claude. Some providers flatten nested memberships before pushing them, which makes members of child groups appear as direct members. Check your provider's SCIM behavior to confirm.
+
+---
 
 ## Group visibility
 
@@ -85,13 +87,15 @@ This revokes existing shares only. It doesn't block future sharing, so turn off 
 
 **Note:** Removing a group's access runs in the background. For groups with more than 1000 shared projects, it can take several minutes or longer.
 
+---
+
 ## Control member access with custom roles
 
 You can control individual members' feature access entirely through groups and custom roles. When a member's role is set to **Custom**, they have no default capabilities or permissions—their access is determined entirely by the custom roles assigned to their groups. This is different from the User, Admin, or Owner roles, which include built-in permissions.
 
 ### Set a member's role to Custom
 
-1. Navigate to **[Organization settings > Members](http://claude.ai/admin-settings/members)**.
+1. Navigate to **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 2. Find the member and click their role dropdown.
 3. Select "Custom."
 
@@ -99,8 +103,8 @@ Owners, Primary Owners, and custom roles with the **User Management** permission
 
 ### Recommended setup
 
-1. Create custom roles with the desired permissions in **[Organization settings > Roles](http://claude.ai/admin-settings/roles)**. For details, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.
-2. Create groups in **[Organization settings > Groups](http://claude.ai/admin-settings/groups)** (or sync them from your identity provider).
+1. Create custom roles with the desired permissions in **[Organization settings > Roles](https://claude.ai/admin-settings/roles)**. For details, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.
+2. Create groups in **[Organization settings > Groups](https://claude.ai/admin-settings/groups)** (or sync them from your identity provider).
 3. Assign custom roles to groups.
 4. Add members to the appropriate groups.
 
@@ -115,6 +119,8 @@ The member's effective permissions are now determined by their group memberships
 ### Invite new members
 
 When inviting a new member, Owners, Primary Owners, and custom roles with the **User Management** permission set to "Can manage" can select "Custom” as the role.The new member's access is determined by their group memberships after they join.
+
+---
 
 ## Group spend limits
 

@@ -108,7 +108,7 @@ Anthropic is a Public Benefit Corporation, whose purpose is the responsible deve
 Dario Amodei, Daniela Amodei, Yasmin Razavi, Reed Hastings, Chris Liddell, and Vas Narasimhan.
 
 **LTBT Trustees**
-Neil Buddy Shah, Richard Fontaine, Mariano-Florentino (Tino) Cuéllar, and Dr. Ben Bernanke.
+Neil Buddy Shah, Richard Fontaine, and Dr. Ben Bernanke.
 
 Want to help us build the future of safe AI?
 

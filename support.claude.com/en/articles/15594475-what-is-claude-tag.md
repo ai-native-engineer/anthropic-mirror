@@ -1,10 +1,6 @@
 <!-- source: https://support.claude.com/en/articles/15594475-what-is-claude-tag -->
 
-# What is Claude Tag?
-
-June 23, 2026
-
-Claude in Slack will be switched over to the new Claude Tag experience on August 3, 2026. To integrate Claude and Slack, use Claude Tag instead.
+Claude in Slack switched over to the new Claude Tag experience on August 3, 2026. To integrate Claude and Slack, use Claude Tag instead. Learn how to **[set up Claude Tag](https://claude.com/docs/claude-tag/admins/setup-overview)** or **[migrate from the earlier Claude in Slack](https://claude.com/docs/claude-tag/admins/migrate-from-earlier)**.
 
 Claude Tag is a new way to work with Claude: tag @Claude into a conversation and it takes on real work, using your organization's tools and the shared context around it. Claude works under its own identity, builds context by remembering relevant information from the channels it’s in, and can follow up on its own.
 
@@ -20,15 +16,19 @@ When you tag @Claude in a channel, Claude works through the task while the whole
 
 In direct messages and the assistant panel, Claude has the capabilities you've enabled in your own Claude account, like web search and your connected tools. Channel tagging works differently: Claude acts under your organization's identity, using the tools and access an admin set up for that channel, and the work is billed to your organization rather than to you.
 
+---
+
 ## Set up Claude Tag
 
 After the Claude app is installed, a Primary Owner or Owner sets up Claude Tag: provision Claude's identity, connect your organization's tools and repositories, and choose which channels Claude Tag can work in. People on your team don't need to set up anything individually once a channel is ready. For the full walkthrough, see the **[Claude Tag setup guide](https://claude.com/docs/claude-tag/admins/setup-overview)**.
 
 **Important:** Only a Primary Owner or Owner can set up Claude Tag's access and channels. The Admin role can't.
 
+---
+
 ## Control who can use Claude Tag
 
-In **Organization settings > Claude in Slack**, Member Access has three modes: open to anyone in the Slack workspace, open to any member of your Claude organization, or only members whose role allows it. The third option is role-based access and is available on the Claude Enterprise plan. To restrict by role, set Member Access to "Only members whose role allows it" and grant the "Claude in Slack" capability to a custom role. This setting applies to both channel mentions and direct messages. To set member access, see **[Restrict where Claude Tag operates](https://claude.com/docs/claude-tag/admins/restrict-access)**.
+In **Organization settings > Claude Tag**, Member Access has three modes: open to anyone in the Slack workspace, open to any member of your Claude organization, or only members whose role allows it. The third option is role-based access and is available on the Claude Enterprise plan. To restrict by role, set Member Access to "Only members whose role allows it" and grant the "Claude Tag in Slack" capability to a custom role. This setting applies to both channel mentions and direct messages. To set member access, see **[Restrict where Claude Tag operates](https://claude.com/docs/claude-tag/admins/restrict-access)**.
 
 ## Manage spend limits for Claude Tag
 
@@ -61,6 +61,8 @@ Claude Tag keeps context per channel and per workspace. Admins can view, edit, a
 
 An Audit view in **Organization settings > Claude Tag > Audit** lists every scheduled and one-time task across your organization in addition to all network calls made using Agent Identity. Each action is also traceable in the tool where it happened: posts come from the Claude app in Slack, and commits and pull requests show the Claude GitHub App as the author with a link back to the Slack thread that started them. In any channel, you can ask "@Claude what triggers do you have set up here?" to see and turn off standing work.
 
+---
+
 ## Privacy and data
 
 ### Data storage
@@ -69,7 +71,7 @@ Your Slack conversations with Claude remain separate from your Claude history, k
 
 ### Data visibility
 
-* Conversations initiated in Slack are not visible in **[your Claude chat history](http://claude.ai/recents)**.
+* Conversations initiated in Slack are not visible in **[your Claude chat history](https://claude.ai/recents)**.
 * Conversations initiated in the Claude web app are not accessible in Slack.
 * Each platform maintains separate conversation histories.
 
@@ -82,6 +84,8 @@ Your Slack conversations with Claude remain separate from your Claude history, k
 
 Claude Tag remembers context to do its work, so channel and workspace memory is retained rather than discarded after each task. Memory and activity respect channel boundaries, and admins can review or delete what Claude remembers. Channel work is attributed to your organization's Claude identity, while work done in a direct message runs on your own account.
 
+---
+
 ## Frequently asked questions
 
 ### How is Claude Tag different from the Claude in Slack I already use?
@@ -92,8 +96,8 @@ Claude Tag is the next generation of that experience, in the same place. The fam
 
 Only an organization's Primary Owner or Owner can set up Claude Tag's access and channels. Tagging Claude in a channel is billed to your organization. Direct messages are billed to the person’s own Claude account instead.
 
-* [Get started with Claude in Slack](https://support.claude.com/en/articles/11506255-get-started-with-claude-in-slack)
-* [Use Claude in Slack](https://support.claude.com/en/articles/12461605-use-claude-in-slack)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+* [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)
 * [Get started with 1Password for Claude](https://support.claude.com/en/articles/15936181-get-started-with-1password-for-claude)

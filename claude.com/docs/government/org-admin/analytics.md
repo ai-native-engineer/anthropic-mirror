@@ -47,6 +47,7 @@ The **Top users** table lists the most active users in the window with the same 
 
 ##  Things to know
 
+* Claude for Government does not currently offer a programmatic usage or analytics API. Usage data is available through this admin portal page. The [Compliance API](https://claude.com/docs/government/org-admin/compliance-api) returns governance and audit events, not usage metrics.
 * A user counts as **active** in the selected window if they made at least one request in it, regardless of which seat tier they were on at the time.
 * The **spend** column appears only in the self-managed view and is the amount debited from your billing account’s balance. The managed view has no spend column because managed-tier usage is covered by the seat price rather than by credit drawdown.
 * If the credit panel is missing from the self-managed view, credit data for your organization’s billing account is unavailable. The rest of the page will still load.

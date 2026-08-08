@@ -1,12 +1,28 @@
 <!-- source: https://claude.com/office-hours -->
 
-# Office Hours with Boris Cherny
+### Featuring
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a4c19697000e83c8f8d1ba9_26-115-CustomerConvo-Spotify-BRoll-01.webp)
+Rahul Sengottuvelu
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a4c1969e288aef7f1eccb00_26-115-CustomerConvo-Spotify-Overhead-02.webp)
+Chief Technology Officer
 
-The best engineering teams are rethinking how they work with AI. Boris Cherny talks with technical leaders to uncover what's changing for their teams, from how they’re building with Claude Code to organization design, and the shifting workflows that come with it.
+Austin Ray
+
+Staff Software Engineer
+
+Building for the model that doesn’t exist yet
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad62e2f100f80635f7a7_Ramp_dark.svg)![Ramp](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad62e2f100f80635f7a7_Ramp_dark.svg)
+
+Ramp runs agents across its entire engineering lifecycle: writing code, reviewing it, monitoring production, and root-causing incidents. Boris Cherny sat down with CTO Rahul Sengottuvelu and Staff Software Engineer Austin Ray to talk Claude Code setups, loops versus dynamic workflows, and building with future models in mind.
+
+[](https://assets.claude.ai/brand/videos/campaign/boris-office-hours/ramp-supercut-cc.webm)
+
+**“We’ve tried to build for what comes three to six months down the line, because when you're building for what's available today, it might already be too late by the time you ship.”**
+
+Rahul Sengottuvelu
+
+Chief Technology Officer
 
 ## Asynchronous coding and the end of the IDE
 
@@ -42,7 +58,7 @@ DoorDash runs Claude Code across their entire company and recently gave every on
 
 [](https://assets.claude.ai/brand/videos/campaign/boris-office-hours/doordash-supercut-cc.webm)
 
-“It wasn't until I was using Claude Code that I was shipping production code again. I had a major comeback.”
+“It wasn’t until I was using Claude Code that I was shipping production code again. I had a major comeback.”
 
 Andy Fang
 

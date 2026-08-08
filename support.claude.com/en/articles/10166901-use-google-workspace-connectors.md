@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/10166901-use-google-workspace-connectors -->
 
-# Use Google Workspace connectors
-
-May 22, 2026
-
 Connect your Gmail, Google Calendar, and Google Drive to Claude so you can search emails, manage your calendar, work with documents, and save files—all without leaving the conversation.
 
 Google Workspace connectors (Gmail, Google Calendar, and Google Drive) are available for all users on Claude and Claude Desktop.
@@ -41,6 +37,8 @@ For Team and Enterprise plans, an Owner or Primary Owner must enable these conne
 
 **Note:** Claude extracts text content only from Google Drive files. Images embedded in documents are not processed.
 
+---
+
 ## How to use the connectors
 
 Ask Claude a question that requires access to your Gmail, Calendar, or Drive. Claude automatically detects which tools it needs and uses them to respond. Each action Claude takes on your behalf requires your explicit approval.
@@ -76,6 +74,8 @@ You can enable or disable specific connectors from below the chat interface:
 2. Hover over "Connectors."
 3. Toggle individual connectors on or off.
 
+---
+
 ## Privacy and data handling
 
 * You must authenticate directly with your Google account before using these connectors.
@@ -93,6 +93,8 @@ You can enable or disable specific connectors from below the chat interface:
 
 During authentication, Google's OAuth screen mentions email sending permissions. Claude only reads emails and creates drafts with your explicit approval. The send function is not enabled—all emails must be sent manually through your Gmail account.
 
+---
+
 ## Current limitations
 
 * Attachment content is not directly accessible through Gmail (metadata only).
@@ -100,6 +102,8 @@ During authentication, Google's OAuth screen mentions email sending permissions.
 * Complex queries may require multiple API calls.
 * Rate limits apply per Google's API quotas.
 * Performance may vary for large mailboxes.
+
+---
 
 ## Troubleshooting
 
@@ -124,6 +128,8 @@ If your organization uses Google Workspace and the connectors aren't working (yo
 3. Click "Add app," then select "OAuth App Name."
 4. Search for "Claude" and set it as "Trusted."
 5. Wait approximately 15 minutes for Google's policy to propagate, then try connecting again.
+
+---
 
 ## Frequently asked questions
 
@@ -153,4 +159,8 @@ On Team and Enterprise plans, Owners and Primary Owners can disable Google Works
 
 Browse all available connectors in the **[Connectors Directory](https://claude.ai/directory)**.
 
-[Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)[Use Claude in Slack](https://support.claude.com/en/articles/12461605-use-claude-in-slack)[Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)[Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)[MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+* [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
+* [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
+* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
+* [Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)

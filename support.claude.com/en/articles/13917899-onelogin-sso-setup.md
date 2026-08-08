@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13917899-onelogin-sso-setup -->
 
-# OneLogin SSO setup
-
-March 24, 2026
-
 This guide walks through configuring SSO and SCIM for Claude with OneLogin as your identity provider. It applies to Team plans, Enterprise plans, and Console organizations.
 
 ## Prerequisites
@@ -11,16 +7,18 @@ This guide walks through configuring SSO and SCIM for Claude with OneLogin as yo
 * A Claude Team plan, Enterprise plan, or Console organization with a parent organization (see **[Important considerations before enabling SSO](https://support.claude.com/en/articles/10276682)** for Console parent org requirements)
 * Owner or Primary Owner role (Team and Enterprise) or Admin role (Console)
 * OneLogin Super User access
-* Your domain verified in Claude's Identity and access settings — see **[Set up single sign-on](https://support.claude.com/en/articles/13132885)** for the full setup path including domain verification
+* Your domain verified in Claude's Identity and access settings—see **[Set up single sign-on](https://support.claude.com/en/articles/13132885)** for the full setup path including domain verification
 
 ## Where to find your configuration values
 
-The Audience (Entity ID), ACS URL, and SCIM credentials referenced below are provided in the WorkOS setup flow within your Identity and access settings — not by contacting Support.
+The Audience (Entity ID), ACS URL, and SCIM credentials referenced below are provided in the WorkOS setup flow within your Identity and access settings—not by contacting Support.
 
 * **Team and Enterprise plans:** go to **[claude.ai/admin-settings/identity](https://claude.ai/admin-settings/identity)**
 * **Console organizations:** go to **[platform.claude.com/settings/identity](https://platform.claude.com/settings/identity)**
 
 Start the SSO setup flow there and keep it open alongside the OneLogin Admin portal as you work through the steps below.
+
+---
 
 ## Step 1 — Create a new application in OneLogin
 
@@ -42,7 +40,7 @@ Start the SSO setup flow there and keep it open alongside the OneLogin Admin por
 
 ## Step 4 — Enable SCIM provisioning
 
-**Note:** SCIM provisioning is available on Enterprise plans and eligible Console organizations only. If you're on a Team plan, skip this step — you can use JIT provisioning instead. See **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195)**.
+**Note:** SCIM provisioning is available on Enterprise plans and eligible Console organizations only. If you're on a Team plan, skip this step—you can use JIT provisioning instead. See **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195)**.
 
 1. In the **Provisioning** tab, enable **Enable provisioning**.
 2. Enter the SCIM Base URL and Bearer Token from the WorkOS setup flow.
@@ -61,8 +59,14 @@ In the **Users** tab, assign individual people or use **Rules** to automatically
 1. If you enabled SCIM, check the OneLogin provisioning activity log to confirm people were created in Claude.
 2. Have a test user complete SSO login and verify they land in your organization's workspace.
 
+---
+
 ## Need help?
 
 See **[Set up single sign-on](https://support.claude.com/en/articles/13132885)** for the full end-to-end flow including domain verification and choosing a provisioning approach. If you run into issues, contact **[our Support team](https://support.claude.com/en/articles/9015913)** with your OneLogin domain and a screenshot of your SAML configuration.
 
-[OneLogin SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917861-onelogin-sso-scim-email-mismatch)[Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)[Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)[Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)[Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)
+* [OneLogin SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917861-onelogin-sso-scim-email-mismatch)
+* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
+* [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
+* [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)

@@ -1,12 +1,12 @@
 <!-- source: https://platform.claude.com/cookbook/capabilities-retrieval-augmented-generation-guide -->
 
-# Retrieval Augmented Generation
+#  Retrieval Augmented Generation
 
 Claude excels at a wide range of tasks, but it may struggle with queries specific to your unique business context. This is where Retrieval Augmented Generation (RAG) becomes invaluable. RAG enables Claude to leverage your internal knowledge bases or customer support documents, significantly enhancing its ability to answer domain-specific questions. Enterprises are increasingly building RAG applications to improve workflows in customer support, Q&A over internal company documents, financial & legal analysis, and much more.
 
 In this guide, we'll demonstrate how to build and optimize a RAG system using the Claude Documentation as our knowledge base. We'll walk you through:
 
-1. Setting up a basic RAG system using an in-memory vector database and embeddings from [Voyage AI](https://www.voyageai.com/).
+1. Setting up a basic RAG system using an in-memory vector database and embeddings from [Voyage AI(opens in new tab)](https://www.voyageai.com/).
 2. Building a robust evaluation suite. We'll go beyond 'vibes' based evals and show you how to measure the retrieval pipeine & end to end performance independently.
 3. Implementing advanced techniques to improve RAG including summary indexing and re-ranking with Claude.
 
@@ -18,11 +18,11 @@ Through a series of targeted improvements, we achieved significant performance g
 * Avg Mean Reciprocal Rank (MRR): 0.74 --> 0.87
 * End-to-End Accuracy: 71% --> 81%
 
-#### Note:
+####  Note:
 
-The evaluations in this cookbook are meant to mirror a production evaluation system, and you should keep in mind that they can take a while to run. Also of note: if you run the evaluations in full, you may come up against [rate limits](https://docs.claude.com/en/api/rate-limits) depending on your usage tier. Consider skipping the full end to end eval if you're trying to conserve token usage.
+The evaluations in this cookbook are meant to mirror a production evaluation system, and you should keep in mind that they can take a while to run. Also of note: if you run the evaluations in full, you may come up against [rate limits(opens in new tab)](https://docs.claude.com/en/api/rate-limits) depending on your usage tier. Consider skipping the full end to end eval if you're trying to conserve token usage.
 
-## Table of Contents
+##  Table of Contents
 
 1. Setup
 2. Level 1 - Basic RAG
@@ -30,7 +30,7 @@ The evaluations in this cookbook are meant to mirror a production evaluation sys
 4. Level 2 - Summary Indexing
 5. Level 3 - Summary Indexing and Re-Ranking
 
-## Setup
+##  Setup
 
 We'll need a few libraries, including:
 
@@ -38,20 +38,27 @@ We'll need a few libraries, including:
 2. `voyageai` - to generate high quality embeddings
 3. `pandas`, `numpy`, `matplotlib`, and `scikit-learn` for data manipulation and visualization
 
-You'll also need API keys from [Anthropic](https://www.anthropic.com/) and [Voyage AI](https://www.voyageai.com/)
+You'll also need API keys from [Anthropic(opens in new tab)](https://www.anthropic.com/) and [Voyage AI(opens in new tab)](https://www.voyageai.com/)
 
-python
+
 
-```
 ## setup
+
 !pip install anthropic
+
 !pip install voyageai
+
 !pip install pandas
+
 !pip install numpy
+
 !pip install matplotlib
+
 !pip install seaborn
+
 !pip install -U scikit-learn
-```
+
+
 
 ```
 Requirement already satisfied: anthropic in /opt/homebrew/Caskroom/miniforge/base/envs/py311/lib/python3.11/site-packages (0.34.1)
@@ -124,126 +131,187 @@ Requirement already satisfied: joblib>=1.2.0 in /opt/homebrew/Caskroom/miniforge
 Requirement already satisfied: threadpoolctl>=3.1.0 in /opt/homebrew/Caskroom/miniforge/base/envs/py311/lib/python3.11/site-packages (from scikit-learn) (3.2.0)
 ```
 
-python
+
 
-```
 import os
 
-os.environ["VOYAGE_API_KEY"] = "VOYAGE KEY HERE"
-os.environ["ANTHROPIC_API_KEY"] = "ANTHROPIC KEY HERE"
-```
+os.environ["VOYAGE\_API\_KEY"] = "VOYAGE KEY HERE"
 
-python
+os.environ["ANTHROPIC\_API\_KEY"] = "ANTHROPIC KEY HERE"
 
-```
+
+
 import os
 
 import anthropic
 
 client = anthropic.Anthropic(
-    # This is the default and can be omitted
-    api_key=os.getenv("ANTHROPIC_API_KEY"),
-)
-```
 
-### Initialize a Vector DB Class
+# This is the default and can be omitted
+
+api\_key=os.getenv("ANTHROPIC\_API\_KEY"),
+
+)
+
+###  Initialize a Vector DB Class
 
 In this example, we're using an in-memory vector DB, but for a production application, you may want to use a hosted solution.
 
-python
+
 
-```
 import json
+
 import os
+
 import pickle
 
 import numpy as np
+
 import voyageai
 
 class VectorDB:
-    def __init__(self, name, api_key=None):
-        if api_key is None:
-            api_key = os.getenv("VOYAGE_API_KEY")
-        self.client = voyageai.Client(api_key=api_key)
-        self.name = name
-        self.embeddings = []
-        self.metadata = []
-        self.query_cache = {}
-        self.db_path = f"./data/{name}/vector_db.pkl"
 
-    def load_data(self, data):
-        if self.embeddings and self.metadata:
-            print("Vector database is already loaded. Skipping data loading.")
-            return
-        if os.path.exists(self.db_path):
-            print("Loading vector database from disk.")
-            self.load_db()
-            return
+def \_\_init\_\_(self, name, api\_key=None):
 
-        texts = [f"Heading: {item['chunk_heading']}\n\n Chunk Text:{item['text']}" for item in data]
-        self._embed_and_store(texts, data)
-        self.save_db()
-        print("Vector database loaded and saved.")
+if api\_key is None:
 
-    def _embed_and_store(self, texts, data):
-        batch_size = 128
-        result = [
-            self.client.embed(texts[i : i + batch_size], model="voyage-2").embeddings
-            for i in range(0, len(texts), batch_size)
-        ]
-        self.embeddings = [embedding for batch in result for embedding in batch]
-        self.metadata = data
+api\_key = os.getenv("VOYAGE\_API\_KEY")
 
-    def search(self, query, k=5, similarity_threshold=0.75):
-        if query in self.query_cache:
-            query_embedding = self.query_cache[query]
-        else:
-            query_embedding = self.client.embed([query], model="voyage-2").embeddings[0]
-            self.query_cache[query] = query_embedding
+self.client = voyageai.Client(api\_key=api\_key)
 
-        if not self.embeddings:
-            raise ValueError("No data loaded in the vector database.")
+self.name = name
 
-        similarities = np.dot(self.embeddings, query_embedding)
-        top_indices = np.argsort(similarities)[::-1]
-        top_examples = []
+self.embeddings = []
 
-        for idx in top_indices:
-            if similarities[idx] >= similarity_threshold:
-                example = {
-                    "metadata": self.metadata[idx],
-                    "similarity": similarities[idx],
-                }
-                top_examples.append(example)
+self.metadata = []
 
-                if len(top_examples) >= k:
-                    break
-        self.save_db()
-        return top_examples
+self.query\_cache = {}
 
-    def save_db(self):
-        data = {
-            "embeddings": self.embeddings,
-            "metadata": self.metadata,
-            "query_cache": json.dumps(self.query_cache),
-        }
-        os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
-        with open(self.db_path, "wb") as file:
-            pickle.dump(data, file)
+self.db\_path = f"./data/{name}/vector\_db.pkl"
 
-    def load_db(self):
-        if not os.path.exists(self.db_path):
-            raise ValueError(
-                "Vector database file not found. Use load_data to create a new database."
-            )
-        with open(self.db_path, "rb") as file:
-            data = pickle.load(file)
-        self.embeddings = data["embeddings"]
-        self.metadata = data["metadata"]
-        self.query_cache = json.loads(data["query_cache"])
-```
+def load\_data(self, data):
 
-## Level 1 - Basic RAG
+if self.embeddings and self.metadata:
+
+print("Vector database is already loaded. Skipping data loading.")
+
+return
+
+if os.path.exists(self.db\_path):
+
+print("Loading vector database from disk.")
+
+self.load\_db()
+
+return
+
+texts = [f"Heading: {item['chunk\_heading']}\n\n Chunk Text:{item['text']}" for item in data]
+
+self.\_embed\_and\_store(texts, data)
+
+self.save\_db()
+
+print("Vector database loaded and saved.")
+
+def \_embed\_and\_store(self, texts, data):
+
+batch\_size = 128
+
+result = [
+
+self.client.embed(texts[i : i + batch\_size], model="voyage-2").embeddings
+
+for i in range(0, len(texts), batch\_size)
+
+]
+
+self.embeddings = [embedding for batch in result for embedding in batch]
+
+self.metadata = data
+
+def search(self, query, k=5, similarity\_threshold=0.75):
+
+if query in self.query\_cache:
+
+query\_embedding = self.query\_cache[query]
+
+else:
+
+query\_embedding = self.client.embed([query], model="voyage-2").embeddings[0]
+
+self.query\_cache[query] = query\_embedding
+
+if not self.embeddings:
+
+raise ValueError("No data loaded in the vector database.")
+
+similarities = np.dot(self.embeddings, query\_embedding)
+
+top\_indices = np.argsort(similarities)[::-1]
+
+top\_examples = []
+
+for idx in top\_indices:
+
+if similarities[idx] >= similarity\_threshold:
+
+example = {
+
+"metadata": self.metadata[idx],
+
+"similarity": similarities[idx],
+
+}
+
+top\_examples.append(example)
+
+if len(top\_examples) >= k:
+
+break
+
+self.save\_db()
+
+return top\_examples
+
+def save\_db(self):
+
+data = {
+
+"embeddings": self.embeddings,
+
+"metadata": self.metadata,
+
+"query\_cache": json.dumps(self.query\_cache),
+
+}
+
+os.makedirs(os.path.dirname(self.db\_path), exist\_ok=True)
+
+with open(self.db\_path, "wb") as file:
+
+pickle.dump(data, file)
+
+def load\_db(self):
+
+if not os.path.exists(self.db\_path):
+
+raise ValueError(
+
+"Vector database file not found. Use load\_data to create a new database."
+
+)
+
+with open(self.db\_path, "rb") as file:
+
+data = pickle.load(file)
+
+self.embeddings = data["embeddings"]
+
+self.metadata = data["metadata"]
+
+self.query\_cache = json.loads(data["query\_cache"])
+
+##  Level 1 - Basic RAG
 
 To get started, we'll set up a basic RAG pipeline using a bare bones approach. This is sometimes called 'Naive RAG' by many in the industry. A basic RAG pipeline includes the following 3 steps:
 
@@ -251,62 +319,97 @@ To get started, we'll set up a basic RAG pipeline using a bare bones approach. T
 2. Embed each document
 3. Use Cosine similarity to retrieve documents in order to answer query
 
-python
+
 
-```
 import json
+
 import logging
-import xml.etree.ElementTree as ET  # noqa: S314
+
+import xml.etree.ElementTree as ET # noqa: S314
+
 from collections.abc import Callable
+
 from typing import Any
 
 import matplotlib.pyplot as plt
+
 from tqdm import tqdm
 
 # Load the evaluation dataset
-with open("evaluation/docs_evaluation_dataset.json") as f:
-    eval_data = json.load(f)
+
+with open("evaluation/docs\_evaluation\_dataset.json") as f:
+
+eval\_data = json.load(f)
 
 # Load the Claude Documentation
-with open("data/anthropic_docs.json") as f:
-    anthropic_docs = json.load(f)
+
+with open("data/anthropic\_docs.json") as f:
+
+anthropic\_docs = json.load(f)
 
 # Initialize the VectorDB
-db = VectorDB("anthropic_docs")
-db.load_data(anthropic_docs)
 
-def retrieve_base(query, db):
-    results = db.search(query, k=3)
-    context = ""
-    for result in results:
-        chunk = result["metadata"]
-        context += f"\n{chunk['text']}\n"
-    return results, context
+db = VectorDB("anthropic\_docs")
 
-def answer_query_base(query, db):
-    documents, context = retrieve_base(query, db)
-    prompt = f"""
-    You have been tasked with helping us to answer the following query:
-    <query>
-    {query}
-    </query>
-    You have access to the following documents which are meant to provide context as you answer the query:
-    <documents>
-    {context}
-    </documents>
-    Please remain faithful to the underlying context, and only deviate from it if you are 100% sure that you know the answer already.
-    Answer the question now, and avoid providing preamble such as 'Here is the answer', etc
-    """
-    response = client.messages.create(
-        model="claude-haiku-4-5",
-        max_tokens=2500,
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0,
-    )
-    return response.content[0].text
-```
+db.load\_data(anthropic\_docs)
 
-## Eval Setup
+def retrieve\_base(query, db):
+
+results = db.search(query, k=3)
+
+context = ""
+
+for result in results:
+
+chunk = result["metadata"]
+
+context += f"\n{chunk['text']}\n"
+
+return results, context
+
+def answer\_query\_base(query, db):
+
+documents, context = retrieve\_base(query, db)
+
+prompt = f"""
+
+You have been tasked with helping us to answer the following query:
+
+<query>
+
+{query}
+
+</query>
+
+You have access to the following documents which are meant to provide context as you answer the query:
+
+<documents>
+
+{context}
+
+</documents>
+
+Please remain faithful to the underlying context, and only deviate from it if you are 100% sure that you know the answer already.
+
+Answer the question now, and avoid providing preamble such as 'Here is the answer', etc
+
+"""
+
+response = client.messages.create(
+
+model="claude-haiku-4-5",
+
+max\_tokens=2500,
+
+messages=[{"role": "user", "content": prompt}],
+
+temperature=0,
+
+)
+
+return response.content[0].text
+
+##  Eval Setup
 
 When evaluating RAG applications, it's critical to evaluate the performance of the retrieval system and end to end system separately.
 
@@ -320,38 +423,55 @@ This is a relatively challenging dataset. Some of our questions require synthesi
 
 Run the next cell to see a preview of the dataset
 
-python
+
 
-```
 # previewing our eval dataset
+
 import json
 
-def preview_json(file_path, num_items=3):
-    try:
-        with open(file_path) as file:
-            data = json.load(file)
+def preview\_json(file\_path, num\_items=3):
 
-        if isinstance(data, list):
-            preview_data = data[:num_items]
-        elif isinstance(data, dict):
-            preview_data = dict(list(data.items())[:num_items])
-        else:
-            print(f"Unexpected data type: {type(data)}. Cannot preview.")
-            return
+try:
 
-        print(f"Preview of the first {num_items} items from {file_path}:")
-        print(json.dumps(preview_data, indent=2))
-        print(f"\nTotal number of items: {len(data)}")
+with open(file\_path) as file:
 
-    except FileNotFoundError:
-        print(f"File not found: {file_path}")
-    except json.JSONDecodeError:
-        print(f"Invalid JSON in file: {file_path}")
-    except Exception as e:
-        print(f"An error occurred: {str(e)}")
+data = json.load(file)
 
-preview_json("evaluation/docs_evaluation_dataset.json")
-```
+if isinstance(data, list):
+
+preview\_data = data[:num\_items]
+
+elif isinstance(data, dict):
+
+preview\_data = dict(list(data.items())[:num\_items])
+
+else:
+
+print(f"Unexpected data type: {type(data)}. Cannot preview.")
+
+return
+
+print(f"Preview of the first {num\_items} items from {file\_path}:")
+
+print(json.dumps(preview\_data, indent=2))
+
+print(f"\nTotal number of items: {len(data)}")
+
+except FileNotFoundError:
+
+print(f"File not found: {file\_path}")
+
+except json.JSONDecodeError:
+
+print(f"Invalid JSON in file: {file\_path}")
+
+except Exception as e:
+
+print(f"An error occurred: {str(e)}")
+
+preview\_json("evaluation/docs\_evaluation\_dataset.json")
+
+
 
 ```
 Preview of the first 3 items from evaluation/docs_evaluation_dataset.json:
@@ -388,13 +508,13 @@ Preview of the first 3 items from evaluation/docs_evaluation_dataset.json:
 Total number of items: 100
 ```
 
-# Metric Definitions
+#  Metric Definitions
 
 We'll evaluate our system based on 5 key metrics: Precision, Recall, F1 Score, Mean Reciprocal Rank (MRR), and End-to-End Accuracy.
 
-## Retrieval Metrics:
+##  Retrieval Metrics:
 
-### Precision
+###  Precision
 
 Precision represents the proportion of retrieved chunks that are actually relevant. It answers the question: "Of the chunks we retrieved, how many were correct?"
 
@@ -408,7 +528,7 @@ Formula:
 
 Precision=True PositivesTotal Retrieved=∣Retrieved∩Correct∣∣Retrieved∣\text{Precision} = \frac{\text{True Positives}}{\text{Total Retrieved}} = \frac{|\text{Retrieved} \cap \text{Correct}|}{|\text{Retrieved}|}Precision=Total RetrievedTrue Positives​=∣Retrieved∣∣Retrieved∩Correct∣​
 
-### Recall
+###  Recall
 
 Recall measures the completeness of our retrieval system. It answers the question: "Of all the correct chunks that exist, how many did we manage to retrieve?"
 
@@ -422,7 +542,7 @@ Formula:
 
 Recall=True PositivesTotal Correct=∣Retrieved∩Correct∣∣Correct∣\text{Recall} = \frac{\text{True Positives}}{\text{Total Correct}} = \frac{|\text{Retrieved} \cap \text{Correct}|}{|\text{Correct}|}Recall=Total CorrectTrue Positives​=∣Correct∣∣Retrieved∩Correct∣​
 
-### F1 Score
+###  F1 Score
 
 The F1 score provides a balanced measure between precision and recall. It's particularly useful when you need a single metric to evaluate system performance, especially with uneven class distributions.
 
@@ -442,14 +562,14 @@ Interpreting F1 score:
 * An F1 score of 0.0 indicates the worst performance.
 * Generally, the higher the F1 score, the better the overall performance.
 
-### Balancing Precision, Recall, and F1 Score:
+###  Balancing Precision, Recall, and F1 Score:
 
 * There's often a trade-off between precision and recall.
 * Our system's minimum chunk retrieval favors recall over precision.
 * The optimal balance depends on the specific use case.
 * In many RAG systems, high recall is often prioritized, as LLMs can filter out less relevant information during generation.
 
-### Mean Reciprocal Rank (MRR) @k
+###  Mean Reciprocal Rank (MRR) @k
 
 MRR measures how well our system ranks relevant information. It helps us understand how quickly a user would find what they're looking for if they started from the top of our retrieved results.
 
@@ -468,9 +588,9 @@ Where:
 * |Q| is the total number of queries
 * rank\_i is the position of the first relevant item for the i-th query
 
-## End to End Metrics:
+##  End to End Metrics:
 
-### End to End Accuracy
+###  End to End Accuracy
 
 We use an LLM-as-judge (Claude 3.5 Sonnet) to evaluate whether the generated answer is correct based on the question and ground truth answer.
 
@@ -480,297 +600,469 @@ End to End Accuracy=Number of Correct AnswersTotal Number of Questions\
 
 This metric evaluates the entire pipeline, from retrieval to answer generation.
 
-## Defining Our Metric Calculation Functions
+##  Defining Our Metric Calculation Functions
 
-python
+
 
-```
-def calculate_mrr(retrieved_links: list[str], correct_links: set[str]) -> float:
-    for i, link in enumerate(retrieved_links, 1):
-        if link in correct_links:
-            return 1 / i
-    return 0
+def calculate\_mrr(retrieved\_links: list[str], correct\_links: set[str]) -> float:
 
-def evaluate_retrieval(
-    retrieval_function: Callable, evaluation_data: list[dict[str, Any]], db: Any
+for i, link in enumerate(retrieved\_links, 1):
+
+if link in correct\_links:
+
+return 1 / i
+
+return 0
+
+def evaluate\_retrieval(
+
+retrieval\_function: Callable, evaluation\_data: list[dict[str, Any]], db: Any
+
 ) -> tuple[float, float, float, float, list[float], list[float], list[float]]:
-    precisions = []
-    recalls = []
-    mrrs = []
 
-    for i, item in enumerate(tqdm(evaluation_data, desc="Evaluating Retrieval")):
-        try:
-            retrieved_chunks, _ = retrieval_function(item["question"], db)
-            retrieved_links = [
-                chunk["metadata"].get("chunk_link", chunk["metadata"].get("url", ""))
-                for chunk in retrieved_chunks
-            ]
-        except Exception as e:
-            logging.error(f"Error in retrieval function: {e}")
-            continue
+precisions = []
 
-        correct_links = set(item["correct_chunks"])
+recalls = []
 
-        true_positives = len(set(retrieved_links) & correct_links)
-        precision = true_positives / len(retrieved_links) if retrieved_links else 0
-        recall = true_positives / len(correct_links) if correct_links else 0
-        mrr = calculate_mrr(retrieved_links, correct_links)
+mrrs = []
 
-        precisions.append(precision)
-        recalls.append(recall)
-        mrrs.append(mrr)
+for i, item in enumerate(tqdm(evaluation\_data, desc="Evaluating Retrieval")):
 
-        if (i + 1) % 10 == 0:
-            print(
-                f"Processed {i + 1}/{len(evaluation_data)} items. Current Avg Precision: {sum(precisions) / len(precisions):.4f}, Avg Recall: {sum(recalls) / len(recalls):.4f}, Avg MRR: {sum(mrrs) / len(mrrs):.4f}"
-            )
+try:
 
-    avg_precision = sum(precisions) / len(precisions) if precisions else 0
-    avg_recall = sum(recalls) / len(recalls) if recalls else 0
-    avg_mrr = sum(mrrs) / len(mrrs) if mrrs else 0
-    f1 = (
-        2 * (avg_precision * avg_recall) / (avg_precision + avg_recall)
-        if (avg_precision + avg_recall) > 0
-        else 0
-    )
+retrieved\_chunks, \_ = retrieval\_function(item["question"], db)
 
-    return avg_precision, avg_recall, avg_mrr, f1, precisions, recalls, mrrs
+retrieved\_links = [
 
-def evaluate_end_to_end(answer_query_function, db, eval_data):
-    correct_answers = 0
-    results = []
-    total_questions = len(eval_data)
+chunk["metadata"].get("chunk\_link", chunk["metadata"].get("url", ""))
 
-    for i, item in enumerate(tqdm(eval_data, desc="Evaluating End-to-End")):
-        query = item["question"]
-        correct_answer = item["correct_answer"]
-        generated_answer = answer_query_function(query, db)
+for chunk in retrieved\_chunks
 
-        prompt = f"""
-        You are an AI assistant tasked with evaluating the correctness of answers to questions about Anthropic's documentation.
+]
 
-        Question: {query}
+except Exception as e:
 
-        Correct Answer: {correct_answer}
+logging.error(f"Error in retrieval function: {e}")
 
-        Generated Answer: {generated_answer}
+continue
 
-        Is the Generated Answer correct based on the Correct Answer? You should pay attention to the substance of the answer, and ignore minute details that may differ.
+correct\_links = set(item["correct\_chunks"])
 
-        Small differences or changes in wording don't matter. If the generated answer and correct answer are saying essentially the same thing then that generated answer should be marked correct.
+true\_positives = len(set(retrieved\_links) & correct\_links)
 
-        However, if there is any critical piece of information which is missing from the generated answer in comparison to the correct answer, then we should mark this as incorrect.
+precision = true\_positives / len(retrieved\_links) if retrieved\_links else 0
 
-        Finally, if there are any direct contradictions between the correect answer and generated answer, we should deem the generated answer to be incorrect.
+recall = true\_positives / len(correct\_links) if correct\_links else 0
 
-        Respond in the following XML format:
-        <evaluation>
-        <content>
-        <explanation>Your explanation here</explanation>
-        <is_correct>true/false</is_correct>
-        </content>
-        </evaluation>
-        """
+mrr = calculate\_mrr(retrieved\_links, correct\_links)
 
-        try:
-            response = client.messages.create(
-                model="claude-sonnet-4-6",
-                max_tokens=1500,
-                messages=[
-                    {"role": "user", "content": prompt},
-                    {"role": "assistant", "content": "<evaluation>"},
-                ],
-                temperature=0,
-                stop_sequences=["</evaluation>"],
-            )
+precisions.append(precision)
 
-            response_text = response.content[0].text
-            print(response_text)
-            # Parse XML from trusted LLM response
-            evaluation = ET.fromstring(response_text)  # noqa: S314
-            is_correct = evaluation.find("is_correct").text.lower() == "true"
+recalls.append(recall)
 
-            if is_correct:
-                correct_answers += 1
-            results.append(is_correct)
+mrrs.append(mrr)
 
-            logging.info(f"Question {i + 1}/{total_questions}: {query}")
-            logging.info(f"Correct: {is_correct}")
-            logging.info("---")
+if (i + 1) % 10 == 0:
 
-        except ET.ParseError as e:
-            logging.error(f"XML parsing error: {e}")
-            is_correct = "true" in response_text.lower()
-            results.append(is_correct)
-        except Exception as e:
-            logging.error(f"Unexpected error: {e}")
-            results.append(False)
+print(
 
-        if (i + 1) % 10 == 0:
-            current_accuracy = correct_answers / (i + 1)
-            print(
-                f"Processed {i + 1}/{total_questions} questions. Current Accuracy: {current_accuracy:.4f}"
-            )
-        # time.sleep(2)
-    accuracy = correct_answers / total_questions
-    return accuracy, results
-```
+f"Processed {i + 1}/{len(evaluation\_data)} items. Current Avg Precision: {sum(precisions) / len(precisions):.4f}, Avg Recall: {sum(recalls) / len(recalls):.4f}, Avg MRR: {sum(mrrs) / len(mrrs):.4f}"
 
-## Helper Function to Plot Performance
+)
 
-python
+avg\_precision = sum(precisions) / len(precisions) if precisions else 0
 
-```
+avg\_recall = sum(recalls) / len(recalls) if recalls else 0
+
+avg\_mrr = sum(mrrs) / len(mrrs) if mrrs else 0
+
+f1 = (
+
+2 \* (avg\_precision \* avg\_recall) / (avg\_precision + avg\_recall)
+
+if (avg\_precision + avg\_recall) > 0
+
+else 0
+
+)
+
+return avg\_precision, avg\_recall, avg\_mrr, f1, precisions, recalls, mrrs
+
+def evaluate\_end\_to\_end(answer\_query\_function, db, eval\_data):
+
+correct\_answers = 0
+
+results = []
+
+total\_questions = len(eval\_data)
+
+for i, item in enumerate(tqdm(eval\_data, desc="Evaluating End-to-End")):
+
+query = item["question"]
+
+correct\_answer = item["correct\_answer"]
+
+generated\_answer = answer\_query\_function(query, db)
+
+prompt = f"""
+
+You are an AI assistant tasked with evaluating the correctness of answers to questions about Anthropic's documentation.
+
+Question: {query}
+
+Correct Answer: {correct\_answer}
+
+Generated Answer: {generated\_answer}
+
+Is the Generated Answer correct based on the Correct Answer? You should pay attention to the substance of the answer, and ignore minute details that may differ.
+
+Small differences or changes in wording don't matter. If the generated answer and correct answer are saying essentially the same thing then that generated answer should be marked correct.
+
+However, if there is any critical piece of information which is missing from the generated answer in comparison to the correct answer, then we should mark this as incorrect.
+
+Finally, if there are any direct contradictions between the correect answer and generated answer, we should deem the generated answer to be incorrect.
+
+Respond in the following XML format:
+
+<evaluation>
+
+<content>
+
+<explanation>Your explanation here</explanation>
+
+<is\_correct>true/false</is\_correct>
+
+</content>
+
+</evaluation>
+
+"""
+
+try:
+
+response = client.messages.create(
+
+model="claude-sonnet-4-6",
+
+max\_tokens=1500,
+
+messages=[
+
+{"role": "user", "content": prompt},
+
+{"role": "assistant", "content": "<evaluation>"},
+
+],
+
+temperature=0,
+
+stop\_sequences=["</evaluation>"],
+
+)
+
+response\_text = response.content[0].text
+
+print(response\_text)
+
+# Parse XML from trusted LLM response
+
+evaluation = ET.fromstring(response\_text) # noqa: S314
+
+is\_correct = evaluation.find("is\_correct").text.lower() == "true"
+
+if is\_correct:
+
+correct\_answers += 1
+
+results.append(is\_correct)
+
+logging.info(f"Question {i + 1}/{total\_questions}: {query}")
+
+logging.info(f"Correct: {is\_correct}")
+
+logging.info("---")
+
+except ET.ParseError as e:
+
+logging.error(f"XML parsing error: {e}")
+
+is\_correct = "true" in response\_text.lower()
+
+results.append(is\_correct)
+
+except Exception as e:
+
+logging.error(f"Unexpected error: {e}")
+
+results.append(False)
+
+if (i + 1) % 10 == 0:
+
+current\_accuracy = correct\_answers / (i + 1)
+
+print(
+
+f"Processed {i + 1}/{total\_questions} questions. Current Accuracy: {current\_accuracy:.4f}"
+
+)
+
+# time.sleep(2)
+
+accuracy = correct\_answers / total\_questions
+
+return accuracy, results
+
+##  Helper Function to Plot Performance
+
+
+
 import json
+
 import os
 
 import matplotlib.pyplot as plt
+
 import seaborn as sns
 
-def plot_performance(results_folder="evaluation/json_results", include_methods=None, colors=None):
-    # Set default colors
-    default_colors = ["skyblue", "lightgreen", "salmon"]
-    if colors is None:
-        colors = default_colors
+def plot\_performance(results\_folder="evaluation/json\_results", include\_methods=None, colors=None):
 
-    # Load JSON files
-    results = []
-    for filename in os.listdir(results_folder):
-        if filename.endswith(".json"):
-            file_path = os.path.join(results_folder, filename)
-            with open(file_path) as f:
-                try:
-                    data = json.load(f)
-                    if "name" not in data:
-                        print(f"Warning: {filename} does not contain a 'name' field. Skipping.")
-                        continue
-                    if include_methods is None or data["name"] in include_methods:
-                        results.append(data)
-                except json.JSONDecodeError:
-                    print(f"Warning: {filename} is not a valid JSON file. Skipping.")
+# Set default colors
 
-    if not results:
-        print("No JSON files found with matching 'name' fields.")
-        return
+default\_colors = ["skyblue", "lightgreen", "salmon"]
 
-    # Validate data
-    required_metrics = [
-        "average_precision",
-        "average_recall",
-        "average_f1",
-        "average_mrr",
-        "end_to_end_accuracy",
-    ]
-    for result in results.copy():
-        if not all(metric in result for metric in required_metrics):
-            print(f"Warning: {result['name']} is missing some required metrics. Skipping.")
-            results.remove(result)
+if colors is None:
 
-    if not results:
-        print("No valid results remaining after validation.")
-        return
+colors = default\_colors
 
-    # Sort results based on end-to-end accuracy
-    results.sort(key=lambda x: x["end_to_end_accuracy"])
+# Load JSON files
 
-    # Prepare data for plotting
-    methods = [result["name"] for result in results]
-    metrics = required_metrics
+results = []
 
-    # Set up the plot
-    plt.figure(figsize=(14, 6))
-    sns.set_style("whitegrid")
+for filename in os.listdir(results\_folder):
 
-    x = range(len(metrics))
-    width = 0.8 / len(results)
+if filename.endswith(".json"):
 
-    # Create color palette
-    num_methods = len(methods)
-    color_palette = colors[:num_methods] + sns.color_palette("husl", num_methods - len(colors))
+file\_path = os.path.join(results\_folder, filename)
 
-    # Plot bars for each method
-    for i, (result, color) in enumerate(zip(results, color_palette, strict=False)):
-        values = [result[metric] for metric in metrics]
-        offset = (i - len(results) / 2 + 0.5) * width
-        bars = plt.bar([xi + offset for xi in x], values, width, label=result["name"], color=color)
+with open(file\_path) as f:
 
-        # Add value labels on the bars
-        for bar in bars:
-            height = bar.get_height()
-            plt.text(
-                bar.get_x() + bar.get_width() / 2.0,
-                height,
-                f"{height:.2f}",
-                ha="center",
-                va="bottom",
-                fontsize=8,
-            )
+try:
 
-    # Customize the plot
-    plt.xlabel("Metrics", fontsize=12)
-    plt.ylabel("Values", fontsize=12)
-    plt.title("RAG Performance Metrics (Sorted by End-to-End Accuracy)", fontsize=16)
-    plt.xticks(x, metrics, rotation=45, ha="right")
-    plt.legend(title="Methods", bbox_to_anchor=(1.05, 1), loc="upper left")
-    plt.ylim(0, 1)
+data = json.load(f)
 
-    plt.tight_layout()
-    plt.show()
-```
+if "name" not in data:
 
-## Evaluating Our Base Case
+print(f"Warning: {filename} does not contain a 'name' field. Skipping.")
 
-python
+continue
 
-```
+if include\_methods is None or data["name"] in include\_methods:
+
+results.append(data)
+
+except json.JSONDecodeError:
+
+print(f"Warning: {filename} is not a valid JSON file. Skipping.")
+
+if not results:
+
+print("No JSON files found with matching 'name' fields.")
+
+return
+
+# Validate data
+
+required\_metrics = [
+
+"average\_precision",
+
+"average\_recall",
+
+"average\_f1",
+
+"average\_mrr",
+
+"end\_to\_end\_accuracy",
+
+]
+
+for result in results.copy():
+
+if not all(metric in result for metric in required\_metrics):
+
+print(f"Warning: {result['name']} is missing some required metrics. Skipping.")
+
+results.remove(result)
+
+if not results:
+
+print("No valid results remaining after validation.")
+
+return
+
+# Sort results based on end-to-end accuracy
+
+results.sort(key=lambda x: x["end\_to\_end\_accuracy"])
+
+# Prepare data for plotting
+
+methods = [result["name"] for result in results]
+
+metrics = required\_metrics
+
+# Set up the plot
+
+plt.figure(figsize=(14, 6))
+
+sns.set\_style("whitegrid")
+
+x = range(len(metrics))
+
+width = 0.8 / len(results)
+
+# Create color palette
+
+num\_methods = len(methods)
+
+color\_palette = colors[:num\_methods] + sns.color\_palette("husl", num\_methods - len(colors))
+
+# Plot bars for each method
+
+for i, (result, color) in enumerate(zip(results, color\_palette, strict=False)):
+
+values = [result[metric] for metric in metrics]
+
+offset = (i - len(results) / 2 + 0.5) \* width
+
+bars = plt.bar([xi + offset for xi in x], values, width, label=result["name"], color=color)
+
+# Add value labels on the bars
+
+for bar in bars:
+
+height = bar.get\_height()
+
+plt.text(
+
+bar.get\_x() + bar.get\_width() / 2.0,
+
+height,
+
+f"{height:.2f}",
+
+ha="center",
+
+va="bottom",
+
+fontsize=8,
+
+)
+
+# Customize the plot
+
+plt.xlabel("Metrics", fontsize=12)
+
+plt.ylabel("Values", fontsize=12)
+
+plt.title("RAG Performance Metrics (Sorted by End-to-End Accuracy)", fontsize=16)
+
+plt.xticks(x, metrics, rotation=45, ha="right")
+
+plt.legend(title="Methods", bbox\_to\_anchor=(1.05, 1), loc="upper left")
+
+plt.ylim(0, 1)
+
+plt.tight\_layout()
+
+plt.show()
+
+##  Evaluating Our Base Case
+
+
+
 import pandas as pd
 
-avg_precision, avg_recall, avg_mrr, f1, precisions, recalls, mrrs = evaluate_retrieval(
-    retrieve_base, eval_data, db
+avg\_precision, avg\_recall, avg\_mrr, f1, precisions, recalls, mrrs = evaluate\_retrieval(
+
+retrieve\_base, eval\_data, db
+
 )
-e2e_accuracy, e2e_results = evaluate_end_to_end(answer_query_base, db, eval_data)
+
+e2e\_accuracy, e2e\_results = evaluate\_end\_to\_end(answer\_query\_base, db, eval\_data)
 
 # Create a DataFrame
+
 df = pd.DataFrame(
-    {
-        "question": [item["question"] for item in eval_data],
-        "retrieval_precision": precisions,
-        "retrieval_recall": recalls,
-        "retrieval_mrr": mrrs,
-        "e2e_correct": e2e_results,
-    }
+
+{
+
+"question": [item["question"] for item in eval\_data],
+
+"retrieval\_precision": precisions,
+
+"retrieval\_recall": recalls,
+
+"retrieval\_mrr": mrrs,
+
+"e2e\_correct": e2e\_results,
+
+}
+
 )
 
 # Save to CSV
-df.to_csv("evaluation/csvs/evaluation_results_detailed.csv", index=False)
-print("Detailed results saved to evaluation/csvs/evaluation_results_one.csv")
+
+df.to\_csv("evaluation/csvs/evaluation\_results\_detailed.csv", index=False)
+
+print("Detailed results saved to evaluation/csvs/evaluation\_results\_one.csv")
 
 # Print the results
-print(f"Average Precision: {avg_precision:.4f}")
-print(f"Average Recall: {avg_recall:.4f}")
-print(f"Average MRR: {avg_mrr:.4f}")
+
+print(f"Average Precision: {avg\_precision:.4f}")
+
+print(f"Average Recall: {avg\_recall:.4f}")
+
+print(f"Average MRR: {avg\_mrr:.4f}")
+
 print(f"Average F1: {f1:.4f}")
-print(f"End-to-End Accuracy: {e2e_accuracy:.4f}")
+
+print(f"End-to-End Accuracy: {e2e\_accuracy:.4f}")
 
 # Save the results to a file
-with open("evaluation/json_results/evaluation_results_one.json", "w") as f:
-    json.dump(
-        {
-            "name": "Basic RAG",
-            "average_precision": avg_precision,
-            "average_recall": avg_recall,
-            "average_f1": f1,
-            "average_mrr": avg_mrr,
-            "end_to_end_accuracy": e2e_accuracy,
-        },
-        f,
-        indent=2,
-    )
+
+with open("evaluation/json\_results/evaluation\_results\_one.json", "w") as f:
+
+json.dump(
+
+{
+
+"name": "Basic RAG",
+
+"average\_precision": avg\_precision,
+
+"average\_recall": avg\_recall,
+
+"average\_f1": f1,
+
+"average\_mrr": avg\_mrr,
+
+"end\_to\_end\_accuracy": e2e\_accuracy,
+
+},
+
+f,
+
+indent=2,
+
+)
 
 print(
-    "Evaluation complete. Results saved to evaluation_results_one.json, evaluation_results_one.csv"
+
+"Evaluation complete. Results saved to evaluation\_results\_one.json, evaluation\_results\_one.csv"
+
 )
-```
+
+
 
 ```
 Evaluating Retrieval:  13%|█▎        | 13/100 [00:00<00:04, 17.92it/s]
@@ -1816,16 +2108,15 @@ End-to-End Accuracy: 0.7100
 Evaluation complete. Results saved to evaluation_results_one.json, evaluation_results_one.csv
 ```
 
-python
+
 
-```
 # let's visualize our performance
-plot_performance("evaluation/json_results", ["Basic RAG"], colors=["skyblue"])
-```
+
+plot\_performance("evaluation/json\_results", ["Basic RAG"], colors=["skyblue"])
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/capabilities-retrieval-augmented-generation-guide/capabilities-retrieval-augmented-generation-guide_cell18_out0_44cfd410.png)
 
-# Level 2: Document Summarization for Enhanced Retrieval
+#  Level 2: Document Summarization for Enhanced Retrieval
 
 In this section, we'll implement an improved approach to our retrieval system by incorporating document summaries. Instead of embedding chunks directly from the documents, we'll create a concise summary for each chunk and use this summary along with the original content in our embedding process.
 
@@ -1839,68 +2130,89 @@ Key steps in this process:
 
 This summary-enhanced approach is designed to provide more context during the embedding and retrieval phases, potentially improving the system's ability to understand and match the most relevant documents to user queries.
 
-## Generating the Summaries and Storing Them
+##  Generating the Summaries and Storing Them
 
-python
+
 
-```
 import json
 
 from tqdm import tqdm
 
-def generate_summaries(input_file, output_file):
-    # Load the original documents
-    with open(input_file) as f:
-        docs = json.load(f)
+def generate\_summaries(input\_file, output\_file):
 
-    # Prepare the context about the overall knowledge base
-    knowledge_base_context = "This is documentation for Anthropic's, a frontier AI lab building Claude, an LLM that excels at a variety of general purpose tasks. These docs contain model details and documentation on Anthropic's APIs."
+# Load the original documents
 
-    summarized_docs = []
+with open(input\_file) as f:
 
-    for doc in tqdm(docs, desc="Generating summaries"):
-        prompt = f"""
-        You are tasked with creating a short summary of the following content from Anthropic's documentation.
+docs = json.load(f)
 
-        Context about the knowledge base:
-        {knowledge_base_context}
+# Prepare the context about the overall knowledge base
 
-        Content to summarize:
-        Heading: {doc["chunk_heading"]}
-        {doc["text"]}
+knowledge\_base\_context = "This is documentation for Anthropic's, a frontier AI lab building Claude, an LLM that excels at a variety of general purpose tasks. These docs contain model details and documentation on Anthropic's APIs."
 
-        Please provide a brief summary of the above content in 2-3 sentences. The summary should capture the key points and be concise. We will be using it as a key part of our search pipeline when answering user queries about this content.
+summarized\_docs = []
 
-        Avoid using any preamble whatsoever in your response. Statements such as 'here is the summary' or 'the summary is as follows' are prohibited. You should get straight into the summary itself and be concise. Every word matters.
-        """
+for doc in tqdm(docs, desc="Generating summaries"):
 
-        response = client.messages.create(
-            model="claude-haiku-4-5",
-            max_tokens=150,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0,
-        )
+prompt = f"""
 
-        summary = response.content[0].text.strip()
+You are tasked with creating a short summary of the following content from Anthropic's documentation.
 
-        summarized_doc = {
-            "chunk_link": doc["chunk_link"],
-            "chunk_heading": doc["chunk_heading"],
-            "text": doc["text"],
-            "summary": summary,
-        }
-        summarized_docs.append(summarized_doc)
+Context about the knowledge base:
 
-    # Save the summarized documents to a new JSON file
-    with open(output_file, "w") as f:
-        json.dump(summarized_docs, f, indent=2)
+{knowledge\_base\_context}
 
-    print(f"Summaries generated and saved to {output_file}")
+Content to summarize:
 
-# generate_summaries('data/anthropic_docs.json', 'data/anthropic_summary_indexed_docs.json')
-```
+Heading: {doc["chunk\_heading"]}
 
-# Summary-Indexed Vector Database Creation
+{doc["text"]}
+
+Please provide a brief summary of the above content in 2-3 sentences. The summary should capture the key points and be concise. We will be using it as a key part of our search pipeline when answering user queries about this content.
+
+Avoid using any preamble whatsoever in your response. Statements such as 'here is the summary' or 'the summary is as follows' are prohibited. You should get straight into the summary itself and be concise. Every word matters.
+
+"""
+
+response = client.messages.create(
+
+model="claude-haiku-4-5",
+
+max\_tokens=150,
+
+messages=[{"role": "user", "content": prompt}],
+
+temperature=0,
+
+)
+
+summary = response.content[0].text.strip()
+
+summarized\_doc = {
+
+"chunk\_link": doc["chunk\_link"],
+
+"chunk\_heading": doc["chunk\_heading"],
+
+"text": doc["text"],
+
+"summary": summary,
+
+}
+
+summarized\_docs.append(summarized\_doc)
+
+# Save the summarized documents to a new JSON file
+
+with open(output\_file, "w") as f:
+
+json.dump(summarized\_docs, f, indent=2)
+
+print(f"Summaries generated and saved to {output\_file}")
+
+# generate\_summaries('data/anthropic\_docs.json', 'data/anthropic\_summary\_indexed\_docs.json')
+
+#  Summary-Indexed Vector Database Creation
 
 Here, we're creating a new vector database that incorporates our summary-enhanced document chunks. This approach combines the original text, the chunk heading, and the newly generated summary into a single text for embedding.
 
@@ -1913,114 +2225,179 @@ Key features of this process:
 
 This summary-indexed approach aims to create more informative embeddings, potentially leading to more accurate and contextually relevant document retrieval.
 
-python
+
 
-```
 import json
+
 import os
+
 import pickle
 
 import numpy as np
+
 import voyageai
 
 class SummaryIndexedVectorDB:
-    def __init__(self, name, api_key=None):
-        if api_key is None:
-            api_key = os.getenv("VOYAGE_API_KEY")
-        self.client = voyageai.Client(api_key=api_key)
-        self.name = name
-        self.embeddings = []
-        self.metadata = []
-        self.query_cache = {}
-        self.db_path = f"./data/{name}/summary_indexed_vector_db.pkl"
 
-    def load_data(self, data_file):
-        # Check if the vector database is already loaded
-        if self.embeddings and self.metadata:
-            print("Vector database is already loaded. Skipping data loading.")
-            return
-        # Check if vector_db.pkl exists
-        if os.path.exists(self.db_path):
-            print("Loading vector database from disk.")
-            self.load_db()
-            return
+def \_\_init\_\_(self, name, api\_key=None):
 
-        with open(data_file) as f:
-            data = json.load(f)
+if api\_key is None:
 
-        texts = [
-            f"{item['chunk_heading']}\n\n{item['text']}\n\n{item['summary']}" for item in data
-        ]  # Embed Chunk Heading + Text + Summary Together
-        # Embed more than 128 documents with a for loop
-        batch_size = 128
-        result = [
-            self.client.embed(texts[i : i + batch_size], model="voyage-2").embeddings
-            for i in range(0, len(texts), batch_size)
-        ]
+api\_key = os.getenv("VOYAGE\_API\_KEY")
 
-        # Flatten the embeddings
-        self.embeddings = [embedding for batch in result for embedding in batch]
-        self.metadata = data  # Store the entire item as metadata
-        self.save_db()
-        # Save the vector database to disk
-        print("Vector database loaded and saved.")
+self.client = voyageai.Client(api\_key=api\_key)
 
-    def search(self, query, k=3, similarity_threshold=0.75):
-        query_embedding = None
-        if query in self.query_cache:
-            query_embedding = self.query_cache[query]
-        else:
-            query_embedding = self.client.embed([query], model="voyage-2").embeddings[0]
-            self.query_cache[query] = query_embedding
+self.name = name
 
-        if not self.embeddings:
-            raise ValueError("No data loaded in the vector database.")
+self.embeddings = []
 
-        similarities = np.dot(self.embeddings, query_embedding)
-        top_indices = np.argsort(similarities)[::-1]
-        top_examples = []
+self.metadata = []
 
-        for idx in top_indices:
-            if similarities[idx] >= similarity_threshold:
-                example = {
-                    "metadata": self.metadata[idx],
-                    "similarity": similarities[idx],
-                }
-                top_examples.append(example)
+self.query\_cache = {}
 
-                if len(top_examples) >= k:
-                    break
-        self.save_db()
-        return top_examples
+self.db\_path = f"./data/{name}/summary\_indexed\_vector\_db.pkl"
 
-    def save_db(self):
-        data = {
-            "embeddings": self.embeddings,
-            "metadata": self.metadata,
-            "query_cache": json.dumps(self.query_cache),
-        }
+def load\_data(self, data\_file):
 
-        # Ensure the directory exists
-        os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
+# Check if the vector database is already loaded
 
-        with open(self.db_path, "wb") as file:
-            pickle.dump(data, file)
+if self.embeddings and self.metadata:
 
-    def load_db(self):
-        if not os.path.exists(self.db_path):
-            raise ValueError(
-                "Vector database file not found. Use load_data to create a new database."
-            )
+print("Vector database is already loaded. Skipping data loading.")
 
-        with open(self.db_path, "rb") as file:
-            data = pickle.load(file)
+return
 
-        self.embeddings = data["embeddings"]
-        self.metadata = data["metadata"]
-        self.query_cache = json.loads(data["query_cache"])
-```
+# Check if vector\_db.pkl exists
 
-# Enhanced Retrieval Using Summary-Indexed Embeddings
+if os.path.exists(self.db\_path):
+
+print("Loading vector database from disk.")
+
+self.load\_db()
+
+return
+
+with open(data\_file) as f:
+
+data = json.load(f)
+
+texts = [
+
+f"{item['chunk\_heading']}\n\n{item['text']}\n\n{item['summary']}" for item in data
+
+] # Embed Chunk Heading + Text + Summary Together
+
+# Embed more than 128 documents with a for loop
+
+batch\_size = 128
+
+result = [
+
+self.client.embed(texts[i : i + batch\_size], model="voyage-2").embeddings
+
+for i in range(0, len(texts), batch\_size)
+
+]
+
+# Flatten the embeddings
+
+self.embeddings = [embedding for batch in result for embedding in batch]
+
+self.metadata = data # Store the entire item as metadata
+
+self.save\_db()
+
+# Save the vector database to disk
+
+print("Vector database loaded and saved.")
+
+def search(self, query, k=3, similarity\_threshold=0.75):
+
+query\_embedding = None
+
+if query in self.query\_cache:
+
+query\_embedding = self.query\_cache[query]
+
+else:
+
+query\_embedding = self.client.embed([query], model="voyage-2").embeddings[0]
+
+self.query\_cache[query] = query\_embedding
+
+if not self.embeddings:
+
+raise ValueError("No data loaded in the vector database.")
+
+similarities = np.dot(self.embeddings, query\_embedding)
+
+top\_indices = np.argsort(similarities)[::-1]
+
+top\_examples = []
+
+for idx in top\_indices:
+
+if similarities[idx] >= similarity\_threshold:
+
+example = {
+
+"metadata": self.metadata[idx],
+
+"similarity": similarities[idx],
+
+}
+
+top\_examples.append(example)
+
+if len(top\_examples) >= k:
+
+break
+
+self.save\_db()
+
+return top\_examples
+
+def save\_db(self):
+
+data = {
+
+"embeddings": self.embeddings,
+
+"metadata": self.metadata,
+
+"query\_cache": json.dumps(self.query\_cache),
+
+}
+
+# Ensure the directory exists
+
+os.makedirs(os.path.dirname(self.db\_path), exist\_ok=True)
+
+with open(self.db\_path, "wb") as file:
+
+pickle.dump(data, file)
+
+def load\_db(self):
+
+if not os.path.exists(self.db\_path):
+
+raise ValueError(
+
+"Vector database file not found. Use load\_data to create a new database."
+
+)
+
+with open(self.db\_path, "rb") as file:
+
+data = pickle.load(file)
+
+self.embeddings = data["embeddings"]
+
+self.metadata = data["metadata"]
+
+self.query\_cache = json.loads(data["query\_cache"])
+
+#  Enhanced Retrieval Using Summary-Indexed Embeddings
 
 In this section, we implement the retrieval process using our new summary-indexed vector database. This approach leverages the enhanced embeddings we created, which incorporate document summaries along with the original content.
 
@@ -2032,96 +2409,157 @@ Key aspects of this updated retrieval process:
 
 By including summaries in both the embedding and retrieval phases, we aim to provide the LLM with a more comprehensive and focused context. This could potentially lead to more accurate and relevant answers, as the LLM has access to both a concise overview (the summary) and the detailed information (the full text) for each relevant document chunk.
 
-python
+
 
-```
-def retrieve_level_two(query, db):
-    results = db.search(query, k=3)
-    context = ""
-    for result in results:
-        chunk = result["metadata"]
-        context += f"\n <document> \n {chunk['chunk_heading']}\n\nText\n {chunk['text']} \n\nSummary: \n {chunk['summary']} \n </document> \n"  # show model all 3 items
-    return results, context
+def retrieve\_level\_two(query, db):
 
-def answer_query_level_two(query, db):
-    documents, context = retrieve_base(query, db)
-    prompt = f"""
-    You have been tasked with helping us to answer the following query:
-    <query>
-    {query}
-    </query>
-    You have access to the following documents which are meant to provide context as you answer the query:
-    <documents>
-    {context}
-    </documents>
-    Please remain faithful to the underlying context, and only deviate from it if you are 100% sure that you know the answer already.
-    Answer the question now, and avoid providing preamble such as 'Here is the answer', etc
-    """
-    response = client.messages.create(
-        model="claude-haiku-4-5",
-        max_tokens=2500,
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0,
-    )
-    return response.content[0].text
-```
+results = db.search(query, k=3)
 
-python
+context = ""
 
-```
+for result in results:
+
+chunk = result["metadata"]
+
+context += f"\n <document> \n {chunk['chunk\_heading']}\n\nText\n {chunk['text']} \n\nSummary: \n {chunk['summary']} \n </document> \n" # show model all 3 items
+
+return results, context
+
+def answer\_query\_level\_two(query, db):
+
+documents, context = retrieve\_base(query, db)
+
+prompt = f"""
+
+You have been tasked with helping us to answer the following query:
+
+<query>
+
+{query}
+
+</query>
+
+You have access to the following documents which are meant to provide context as you answer the query:
+
+<documents>
+
+{context}
+
+</documents>
+
+Please remain faithful to the underlying context, and only deviate from it if you are 100% sure that you know the answer already.
+
+Answer the question now, and avoid providing preamble such as 'Here is the answer', etc
+
+"""
+
+response = client.messages.create(
+
+model="claude-haiku-4-5",
+
+max\_tokens=2500,
+
+messages=[{"role": "user", "content": prompt}],
+
+temperature=0,
+
+)
+
+return response.content[0].text
+
+
+
 # Initialize the SummaryIndexedVectorDB
-level_two_db = SummaryIndexedVectorDB("anthropic_docs_v2")
-level_two_db.load_data("data/anthropic_summary_indexed_docs.json")
+
+level\_two\_db = SummaryIndexedVectorDB("anthropic\_docs\_v2")
+
+level\_two\_db.load\_data("data/anthropic\_summary\_indexed\_docs.json")
 
 import pandas as pd
 
 # Run the evaluations
-avg_precision, avg_recall, avg_mrr, f1, precisions, recalls, mrrs = evaluate_retrieval(
-    retrieve_level_two, eval_data, level_two_db
+
+avg\_precision, avg\_recall, avg\_mrr, f1, precisions, recalls, mrrs = evaluate\_retrieval(
+
+retrieve\_level\_two, eval\_data, level\_two\_db
+
 )
-e2e_accuracy, e2e_results = evaluate_end_to_end(answer_query_level_two, level_two_db, eval_data)
+
+e2e\_accuracy, e2e\_results = evaluate\_end\_to\_end(answer\_query\_level\_two, level\_two\_db, eval\_data)
 
 # Create a DataFrame
+
 df = pd.DataFrame(
-    {
-        "question": [item["question"] for item in eval_data],
-        "retrieval_precision": precisions,
-        "retrieval_recall": recalls,
-        "retrieval_mrr": mrrs,
-        "e2e_correct": e2e_results,
-    }
+
+{
+
+"question": [item["question"] for item in eval\_data],
+
+"retrieval\_precision": precisions,
+
+"retrieval\_recall": recalls,
+
+"retrieval\_mrr": mrrs,
+
+"e2e\_correct": e2e\_results,
+
+}
+
 )
 
 # Save to CSV
-df.to_csv("evaluation/csvs/evaluation_results_detailed_level_two.csv", index=False)
-print("Detailed results saved to evaluation_results_detailed.csv")
+
+df.to\_csv("evaluation/csvs/evaluation\_results\_detailed\_level\_two.csv", index=False)
+
+print("Detailed results saved to evaluation\_results\_detailed.csv")
 
 # Print the results
-print(f"Average Precision: {avg_precision:.4f}")
-print(f"Average Recall: {avg_recall:.4f}")
-print(f"Average MRR: {avg_mrr:.4f}")
+
+print(f"Average Precision: {avg\_precision:.4f}")
+
+print(f"Average Recall: {avg\_recall:.4f}")
+
+print(f"Average MRR: {avg\_mrr:.4f}")
+
 print(f"Average F1: {f1:.4f}")
-print(f"End-to-End Accuracy: {e2e_accuracy:.4f}")
+
+print(f"End-to-End Accuracy: {e2e\_accuracy:.4f}")
 
 # Save the results to a file
-with open("evaluation/json_results/evaluation_results_level_two.json", "w") as f:
-    json.dump(
-        {
-            "name": "Summary Indexing",
-            "average_precision": avg_precision,
-            "average_recall": avg_recall,
-            "average_f1": f1,
-            "average_mrr": avg_mrr,
-            "end_to_end_accuracy": e2e_accuracy,
-        },
-        f,
-        indent=2,
-    )
+
+with open("evaluation/json\_results/evaluation\_results\_level\_two.json", "w") as f:
+
+json.dump(
+
+{
+
+"name": "Summary Indexing",
+
+"average\_precision": avg\_precision,
+
+"average\_recall": avg\_recall,
+
+"average\_f1": f1,
+
+"average\_mrr": avg\_mrr,
+
+"end\_to\_end\_accuracy": e2e\_accuracy,
+
+},
+
+f,
+
+indent=2,
+
+)
 
 print(
-    "Evaluation complete. Results saved to evaluation_results_level_two.json, evaluation_results_detailed_level_two.csv"
+
+"Evaluation complete. Results saved to evaluation\_results\_level\_two.json, evaluation\_results\_detailed\_level\_two.csv"
+
 )
-```
+
+
 
 ```
 Loading vector database from disk.
@@ -3179,18 +3617,17 @@ End-to-End Accuracy: 0.7900
 Evaluation complete. Results saved to evaluation_results_level_two.json, evaluation_results_detailed_level_two.csv
 ```
 
-## Evaluating This Method vs Basic RAG
+##  Evaluating This Method vs Basic RAG
 
-python
+
 
-```
 # visualizing our performance
-plot_performance("evaluation/json_results", ["Basic RAG", "Summary Indexing"])
-```
+
+plot\_performance("evaluation/json\_results", ["Basic RAG", "Summary Indexing"])
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/capabilities-retrieval-augmented-generation-guide/capabilities-retrieval-augmented-generation-guide_cell28_out0_6664dc9b.png)
 
-## Level 3 - Re-Ranking with Claude
+##  Level 3 - Re-Ranking with Claude
 
 In this final enhancement to our retrieval system, we introduce a reranking step to further improve the relevance of the retrieved documents. This approach leverages Claude's power to better understand the context and nuances of both the query and the retrieved documents.
 
@@ -3218,177 +3655,291 @@ Our evaluations show significant improvements:
 
 These improvements demonstrate the effectiveness of incorporating AI-powered reranking in our retrieval process.
 
-python
+
 
-```
-def rerank_results(query: str, results: list[dict], k: int = 5) -> list[dict]:
-    # Prepare the summaries with their indices
-    summaries = []
-    print(len(results))
+def rerank\_results(query: str, results: list[dict], k: int = 5) -> list[dict]:
 
-    for i, result in enumerate(results):
-        summary = f"[{i}] Document Summary: {result['metadata']['summary']}"
-        summaries.append(summary)
-    joined_summaries = "\n\n".join(summaries)
+# Prepare the summaries with their indices
 
-    prompt = f"""
-    Query: {query}
-    You are about to be given a group of documents, each preceded by its index number in square brackets. Your task is to select the only {k} most relevant documents from the list to help us answer the query.
+summaries = []
 
-    <documents>
-    {joined_summaries}
-    </documents>
+print(len(results))
 
-    Output only the indices of {k} most relevant documents in order of relevance, separated by commas, enclosed in XML tags here:
-    <relevant_indices>put the numbers of your indices here, seeparted by commas</relevant_indices>
-    """
-    try:
-        response = client.messages.create(
-            model="claude-haiku-4-5",
-            max_tokens=50,
-            messages=[
-                {"role": "user", "content": prompt},
-                {"role": "assistant", "content": "<relevant_indices>"},
-            ],
-            temperature=0,
-            stop_sequences=["</relevant_indices>"],
-        )
+for i, result in enumerate(results):
 
-        # Extract the indices from the response
-        response_text = response.content[0].text.strip()
-        indices_str = response_text
-        relevant_indices = []
-        for idx in indices_str.split(","):
-            try:
-                relevant_indices.append(int(idx.strip()))
-            except ValueError:
-                continue  # Skip invalid indices
-        print(indices_str)
-        print(relevant_indices)
-        # If we didn't get enough valid indices, fall back to the top k by original order
-        if len(relevant_indices) == 0:
-            relevant_indices = list(range(min(k, len(results))))
+summary = f"[{i}] Document Summary: {result['metadata']['summary']}"
 
-        # Ensure we don't have out-of-range indices
-        relevant_indices = [idx for idx in relevant_indices if idx < len(results)]
+summaries.append(summary)
 
-        # Return the reranked results
-        reranked_results = [results[idx] for idx in relevant_indices[:k]]
-        # Assign descending relevance scores
-        for i, result in enumerate(reranked_results):
-            result["relevance_score"] = (
-                100 - i
-            )  # Highest score is 100, decreasing by 1 for each rank
+joined\_summaries = "\n\n".join(summaries)
 
-        return reranked_results
+prompt = f"""
 
-    except Exception as e:
-        print(f"An error occurred during reranking: {str(e)}")
-        # Fall back to returning the top k results without reranking
-        return results[:k]
+Query: {query}
 
-def retrieve_advanced(
-    query: str, db: SummaryIndexedVectorDB, k: int = 3, initial_k: int = 20
+You are about to be given a group of documents, each preceded by its index number in square brackets. Your task is to select the only {k} most relevant documents from the list to help us answer the query.
+
+<documents>
+
+{joined\_summaries}
+
+</documents>
+
+Output only the indices of {k} most relevant documents in order of relevance, separated by commas, enclosed in XML tags here:
+
+<relevant\_indices>put the numbers of your indices here, seeparted by commas</relevant\_indices>
+
+"""
+
+try:
+
+response = client.messages.create(
+
+model="claude-haiku-4-5",
+
+max\_tokens=50,
+
+messages=[
+
+{"role": "user", "content": prompt},
+
+{"role": "assistant", "content": "<relevant\_indices>"},
+
+],
+
+temperature=0,
+
+stop\_sequences=["</relevant\_indices>"],
+
+)
+
+# Extract the indices from the response
+
+response\_text = response.content[0].text.strip()
+
+indices\_str = response\_text
+
+relevant\_indices = []
+
+for idx in indices\_str.split(","):
+
+try:
+
+relevant\_indices.append(int(idx.strip()))
+
+except ValueError:
+
+continue # Skip invalid indices
+
+print(indices\_str)
+
+print(relevant\_indices)
+
+# If we didn't get enough valid indices, fall back to the top k by original order
+
+if len(relevant\_indices) == 0:
+
+relevant\_indices = list(range(min(k, len(results))))
+
+# Ensure we don't have out-of-range indices
+
+relevant\_indices = [idx for idx in relevant\_indices if idx < len(results)]
+
+# Return the reranked results
+
+reranked\_results = [results[idx] for idx in relevant\_indices[:k]]
+
+# Assign descending relevance scores
+
+for i, result in enumerate(reranked\_results):
+
+result["relevance\_score"] = (
+
+100 - i
+
+) # Highest score is 100, decreasing by 1 for each rank
+
+return reranked\_results
+
+except Exception as e:
+
+print(f"An error occurred during reranking: {str(e)}")
+
+# Fall back to returning the top k results without reranking
+
+return results[:k]
+
+def retrieve\_advanced(
+
+query: str, db: SummaryIndexedVectorDB, k: int = 3, initial\_k: int = 20
+
 ) -> tuple[list[dict], str]:
-    # Step 1: Get initial results
-    initial_results = db.search(query, k=initial_k)
 
-    # Step 2: Re-rank results
-    reranked_results = rerank_results(query, initial_results, k=k)
+# Step 1: Get initial results
 
-    # Step 3: Generate new context string from re-ranked results
-    new_context = ""
-    for result in reranked_results:
-        chunk = result["metadata"]
-        new_context += (
-            f"\n <document> \n {chunk['chunk_heading']}\n\n{chunk['text']} \n </document> \n"
-        )
+initial\_results = db.search(query, k=initial\_k)
 
-    return reranked_results, new_context
+# Step 2: Re-rank results
 
-# The answer_query_advanced function remains unchanged
-def answer_query_advanced(query: str, db: SummaryIndexedVectorDB):
-    documents, context = retrieve_advanced(query, db)
-    prompt = f"""
-    You have been tasked with helping us to answer the following query:
-    <query>
-    {query}
-    </query>
-    You have access to the following documents which are meant to provide context as you answer the query:
-    <documents>
-    {context}
-    </documents>
-    Please remain faithful to the underlying context, and only deviate from it if you are 100% sure that you know the answer already.
-    Answer the question now, and avoid providing preamble such as 'Here is the answer', etc
-    """
-    response = client.messages.create(
-        model="claude-haiku-4-5",
-        max_tokens=2500,
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0,
-    )
-    return response.content[0].text
-```
+reranked\_results = rerank\_results(query, initial\_results, k=k)
 
-## Evaluation
+# Step 3: Generate new context string from re-ranked results
 
-python
+new\_context = ""
 
-```
+for result in reranked\_results:
+
+chunk = result["metadata"]
+
+new\_context += (
+
+f"\n <document> \n {chunk['chunk\_heading']}\n\n{chunk['text']} \n </document> \n"
+
+)
+
+return reranked\_results, new\_context
+
+# The answer\_query\_advanced function remains unchanged
+
+def answer\_query\_advanced(query: str, db: SummaryIndexedVectorDB):
+
+documents, context = retrieve\_advanced(query, db)
+
+prompt = f"""
+
+You have been tasked with helping us to answer the following query:
+
+<query>
+
+{query}
+
+</query>
+
+You have access to the following documents which are meant to provide context as you answer the query:
+
+<documents>
+
+{context}
+
+</documents>
+
+Please remain faithful to the underlying context, and only deviate from it if you are 100% sure that you know the answer already.
+
+Answer the question now, and avoid providing preamble such as 'Here is the answer', etc
+
+"""
+
+response = client.messages.create(
+
+model="claude-haiku-4-5",
+
+max\_tokens=2500,
+
+messages=[{"role": "user", "content": prompt}],
+
+temperature=0,
+
+)
+
+return response.content[0].text
+
+##  Evaluation
+
+
+
 # Initialize the SummaryIndexedVectorDB
-level_three_db = SummaryIndexedVectorDB("anthropic_docs_v3")
-level_three_db.load_data("data/anthropic_summary_indexed_docs.json")
+
+level\_three\_db = SummaryIndexedVectorDB("anthropic\_docs\_v3")
+
+level\_three\_db.load\_data("data/anthropic\_summary\_indexed\_docs.json")
 
 import pandas as pd
 
 # Run the evaluations
-avg_precision, avg_recall, avg_mrr, f1, precisions, recalls, mrrs = evaluate_retrieval(
-    retrieve_advanced, eval_data, level_three_db
+
+avg\_precision, avg\_recall, avg\_mrr, f1, precisions, recalls, mrrs = evaluate\_retrieval(
+
+retrieve\_advanced, eval\_data, level\_three\_db
+
 )
-e2e_accuracy, e2e_results = evaluate_end_to_end(answer_query_advanced, level_two_db, eval_data)
+
+e2e\_accuracy, e2e\_results = evaluate\_end\_to\_end(answer\_query\_advanced, level\_two\_db, eval\_data)
 
 # Create a DataFrame
+
 df = pd.DataFrame(
-    {
-        "question": [item["question"] for item in eval_data],
-        "retrieval_precision": precisions,
-        "retrieval_recall": recalls,
-        "retrieval_mrr": mrrs,
-        "e2e_correct": e2e_results,
-    }
+
+{
+
+"question": [item["question"] for item in eval\_data],
+
+"retrieval\_precision": precisions,
+
+"retrieval\_recall": recalls,
+
+"retrieval\_mrr": mrrs,
+
+"e2e\_correct": e2e\_results,
+
+}
+
 )
 
 # Save to CSV
-df.to_csv("evaluation/csvs/evaluation_results_detailed_level_three.csv", index=False)
-print("Detailed results saved to evaluation_results_detailed_level_three.csv")
+
+df.to\_csv("evaluation/csvs/evaluation\_results\_detailed\_level\_three.csv", index=False)
+
+print("Detailed results saved to evaluation\_results\_detailed\_level\_three.csv")
 
 # Plot the results
+
 # Print the results
-print(f"Average Precision: {avg_precision:.4f}")
-print(f"Average Recall: {avg_recall:.4f}")
+
+print(f"Average Precision: {avg\_precision:.4f}")
+
+print(f"Average Recall: {avg\_recall:.4f}")
+
 print(f"Average F1: {f1:.4f}")
-print(f"Average Mean Reciprocal Rank: {avg_mrr:4f}")
-print(f"End-to-End Accuracy: {e2e_accuracy:.4f}")
+
+print(f"Average Mean Reciprocal Rank: {avg\_mrr:4f}")
+
+print(f"End-to-End Accuracy: {e2e\_accuracy:.4f}")
 
 # Save the results to a file
-with open("evaluation/json_results/evaluation_results_level_three.json", "w") as f:
-    json.dump(
-        {
-            "name": "Summary Indexing + Re-Ranking",
-            "average_precision": avg_precision,
-            "average_recall": avg_recall,
-            "average_f1": f1,
-            "average_mrr": avg_mrr,
-            "end_to_end_accuracy": e2e_accuracy,
-        },
-        f,
-        indent=2,
-    )
+
+with open("evaluation/json\_results/evaluation\_results\_level\_three.json", "w") as f:
+
+json.dump(
+
+{
+
+"name": "Summary Indexing + Re-Ranking",
+
+"average\_precision": avg\_precision,
+
+"average\_recall": avg\_recall,
+
+"average\_f1": f1,
+
+"average\_mrr": avg\_mrr,
+
+"end\_to\_end\_accuracy": e2e\_accuracy,
+
+},
+
+f,
+
+indent=2,
+
+)
 
 print(
-    "Evaluation complete. Results saved to evaluation_results_level_three.json, evaluation_results_detailed_level_three.csv, and evaluation_results_level_three.png"
+
+"Evaluation complete. Results saved to evaluation\_results\_level\_three.json, evaluation\_results\_detailed\_level\_three.csv, and evaluation\_results\_level\_three.png"
+
 )
-```
+
+
 
 ```
 Loading vector database from disk.
@@ -5344,20 +5895,23 @@ End-to-End Accuracy: 0.8100
 Evaluation complete. Results saved to evaluation_results_level_three.json, evaluation_results_detailed_level_three.csv, and evaluation_results_level_three.png
 ```
 
-python
+
 
-```
 # visualizing our performance
-plot_performance(
-    "evaluation/json_results",
-    ["Basic RAG", "Summary Indexing", "Summary Indexing + Re-Ranking"],
-    colors=["skyblue", "lightgreen", "salmon"],
+
+plot\_performance(
+
+"evaluation/json\_results",
+
+["Basic RAG", "Summary Indexing", "Summary Indexing + Re-Ranking"],
+
+colors=["skyblue", "lightgreen", "salmon"],
+
 )
-```
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/capabilities-retrieval-augmented-generation-guide/capabilities-retrieval-augmented-generation-guide_cell33_out0_f2d710f1.png)
 
-## Evaluation - Going Deeper with Promptfoo
+##  Evaluation - Going Deeper with Promptfoo
 
 This guide has illustrated the importance of measuring prompt performance empirically when prompt engineering. You can read more about our empirical methodology to prompt engineering here. Using a Jupyter Notebook is a great way to start prompt engineering but as your datasets grow larger and your prompts more numerous it is important to leverage tooling that will scale with you.
 
@@ -5367,60 +5921,83 @@ Promptfoo makes it very easy to build automated test suites that compare differe
 
 As an example, you can run the below cell to see the average performance of Haiku vs 3.5 Sonnet across all of our test cases.
 
-python
+
 
-```
 import json
 
 import numpy as np
+
 import pandas as pd
 
 # Load the JSON file
-with open("data/end_to_end_results.json") as f:
-    data = json.load(f)
+
+with open("data/end\_to\_end\_results.json") as f:
+
+data = json.load(f)
 
 # Extract the results
+
 results = data["results"]["results"]
 
 # Create a DataFrame
+
 df = pd.DataFrame(results)
 
 # Extract provider, prompt, and score information
+
 df["provider"] = df["provider"].apply(lambda x: x["label"] if isinstance(x, dict) else x)
+
 df["prompt"] = df["prompt"].apply(lambda x: x["label"] if isinstance(x, dict) else x)
 
 # Function to safely extract scores
-def extract_score(x):
-    if isinstance(x, dict) and "score" in x:
-        return x["score"] * 100  # Convert to percentage
-    return np.nan
 
-df["score"] = df["gradingResult"].apply(extract_score)
+def extract\_score(x):
+
+if isinstance(x, dict) and "score" in x:
+
+return x["score"] \* 100 # Convert to percentage
+
+return np.nan
+
+df["score"] = df["gradingResult"].apply(extract\_score)
 
 # Group by provider and prompt, then calculate mean scores
+
 result = df.groupby(["provider", "prompt"])["score"].mean().unstack()
 
 # Fill NaN values with 0
+
 result = result.fillna(0)
 
 # Calculate the average score across all prompts for each provider
+
 result["Average"] = result.mean(axis=1)
 
 # Sort the result by the average score
-result = result.sort_values(by="Average", ascending=False)
+
+result = result.sort\_values(by="Average", ascending=False)
 
 # Round the results to 2 decimal places
+
 result = result.round(2)
+
 # Calculate overall statistics
-overall_average = result["Average"].mean()
-overall_std = result["Average"].std()
-best_provider = result["Average"].idxmax()
-worst_provider = result["Average"].idxmin()
+
+overall\_average = result["Average"].mean()
+
+overall\_std = result["Average"].std()
+
+best\_provider = result["Average"].idxmax()
+
+worst\_provider = result["Average"].idxmin()
 
 print("\nOverall Statistics:")
-print(f"Best Performing Provider: {best_provider} ({result.loc[best_provider, 'Average']:.2f}%)")
-print(f"Worst Performing Provider: {worst_provider} ({result.loc[worst_provider, 'Average']:.2f}%)")
-```
+
+print(f"Best Performing Provider: {best\_provider} ({result.loc[best\_provider, 'Average']:.2f}%)")
+
+print(f"Worst Performing Provider: {worst\_provider} ({result.loc[worst\_provider, 'Average']:.2f}%)")
+
+
 
 ```
 Overall Statistics:

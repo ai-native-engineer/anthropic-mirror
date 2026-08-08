@@ -156,6 +156,102 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
+
+Aug 7, 2026
+
+Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+Claude Code
+
+Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+August 7, 2026
+
+[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
+
+Aug 7, 2026
+
+Running auto mode in production
+
+Claude Code
+
+Running auto mode in production
+
+August 7, 2026
+
+[Running auto mode in production](https://claude.com/blog/auto-mode-in-production)Running auto mode in production
+
+[Running auto mode in production](#)Running auto mode in production
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
+
+Aug 6, 2026
+
+Millennium and Anthropic are building a digital risk analyst with Claude
+
+Enterprise AI
+
+Millennium and Anthropic are building a digital risk analyst with Claude
+
+August 6, 2026
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22651dd05046d0fdb0b_39c40393e610cc0a5e65f50ad12ff5ada273f792-1000x1000.svg)
+
+Aug 6, 2026
+
+Run Claude Code sessions on your own compute
+
+Product announcements
+
+Run Claude Code sessions on your own compute
+
+August 6, 2026
+
+[Run Claude Code sessions on your own compute](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)Run Claude Code sessions on your own compute
+
+[Run Claude Code sessions on your own compute](#)Run Claude Code sessions on your own compute
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
+
+Aug 5, 2026
+
+Inference hooks: inline data loss prevention for Claude Enterprise
+
+Enterprise AI
+
+Inference hooks: inline data loss prevention for Claude Enterprise
+
+August 5, 2026
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+Aug 4, 2026
+
+A guide to cost visibility and control in Claude
+
+Enterprise AI
+
+A guide to cost visibility and control in Claude
+
+August 4, 2026
+
+[A guide to cost visibility and control in Claude](https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude)A guide to cost visibility and control in Claude
+
+[A guide to cost visibility and control in Claude](#)A guide to cost visibility and control in Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
 
 Jul 28, 2026
@@ -300,102 +396,6 @@ July 21, 2026
 
 [How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
-
-Jul 21, 2026
-
-How Datadog built a “universal machine tool” for Claude Code
-
-Claude Code
-
-How Datadog built a “universal machine tool” for Claude Code
-
-July 21, 2026
-
-[How Datadog built a “universal machine tool” for Claude Code](https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
-
-Jul 20, 2026
-
-Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-Enterprise AI
-
-Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-July 20, 2026
-
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
-
-Jul 17, 2026
-
-Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-Enterprise AI
-
-Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-July 17, 2026
-
-[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](https://claude.com/blog/working-at-the-frontier-cursor)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](#)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Jul 17, 2026
-
-Zero risk isn't the job: a CISO's guide to agentic AI
-
-Enterprise AI
-
-Zero risk isn't the job: a CISO's guide to agentic AI
-
-July 17, 2026
-
-[Zero risk isn't the job: a CISO's guide to agentic AI](https://claude.com/blog/ciso-guide-to-agentic-ai)Zero risk isn't the job: a CISO's guide to agentic AI
-
-[Zero risk isn't the job: a CISO's guide to agentic AI](#)Zero risk isn't the job: a CISO's guide to agentic AI
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
-
-Jul 16, 2026
-
-How Anthropic runs large-scale code migrations with Claude Code
-
-Claude Code
-
-How Anthropic runs large-scale code migrations with Claude Code
-
-July 16, 2026
-
-[How Anthropic runs large-scale code migrations with Claude Code](https://claude.com/blog/ai-code-migration)How Anthropic runs large-scale code migrations with Claude Code
-
-[How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d227246bc2b5a3cc3626_9f6a378a1e3592cf8d27447457409ba12284faef-1000x1000.svg)
-
-Jul 16, 2026
-
-Working with Claude Fable 5 in Claude Cowork
-
-Enterprise AI
-
-Working with Claude Fable 5 in Claude Cowork
-
-July 16, 2026
-
-[Working with Claude Fable 5 in Claude Cowork](https://claude.com/blog/working-with-claude-fable-5-in-claude-cowork)Working with Claude Fable 5 in Claude Cowork
-
-[Working with Claude Fable 5 in Claude Cowork](#)Working with Claude Fable 5 in Claude Cowork
-
 [View more](https://claude.com/blog?b7eea976_page=2)
 
 1 / 14
@@ -405,6 +405,102 @@ Category
 Product
 
 Usecase
+
+### Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+August 7, 2026
+
+[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+### Running auto mode in production
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+August 7, 2026
+
+[Running auto mode in production](https://claude.com/blog/auto-mode-in-production)Running auto mode in production
+
+[Running auto mode in production](#)Running auto mode in production
+
+### Millennium and Anthropic are building a digital risk analyst with Claude
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 6, 2026
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+
+### Run Claude Code sessions on your own compute
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 6, 2026
+
+[Run Claude Code sessions on your own compute](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)Run Claude Code sessions on your own compute
+
+[Run Claude Code sessions on your own compute](#)Run Claude Code sessions on your own compute
+
+### Inference hooks: inline data loss prevention for Claude Enterprise
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 5, 2026
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
+
+[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
+
+### A guide to cost visibility and control in Claude
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 4, 2026
+
+[A guide to cost visibility and control in Claude](https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude)A guide to cost visibility and control in Claude
+
+[A guide to cost visibility and control in Claude](#)A guide to cost visibility and control in Claude
 
 ### Bringing MCP 2026-07-28 to Claude
 
@@ -549,102 +645,6 @@ July 21, 2026
 [How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
 
 [How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
-
-### How Datadog built a “universal machine tool” for Claude Code
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 21, 2026
-
-[How Datadog built a “universal machine tool” for Claude Code](https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
-
-### Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 20, 2026
-
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-### Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 17, 2026
-
-[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](https://claude.com/blog/working-at-the-frontier-cursor)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](#)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-### Zero risk isn't the job: a CISO's guide to agentic AI
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 17, 2026
-
-[Zero risk isn't the job: a CISO's guide to agentic AI](https://claude.com/blog/ciso-guide-to-agentic-ai)Zero risk isn't the job: a CISO's guide to agentic AI
-
-[Zero risk isn't the job: a CISO's guide to agentic AI](#)Zero risk isn't the job: a CISO's guide to agentic AI
-
-### How Anthropic runs large-scale code migrations with Claude Code
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 16, 2026
-
-[How Anthropic runs large-scale code migrations with Claude Code](https://claude.com/blog/ai-code-migration)How Anthropic runs large-scale code migrations with Claude Code
-
-[How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
-
-### Working with Claude Fable 5 in Claude Cowork
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 16, 2026
-
-[Working with Claude Fable 5 in Claude Cowork](https://claude.com/blog/working-with-claude-fable-5-in-claude-cowork)Working with Claude Fable 5 in Claude Cowork
-
-[Working with Claude Fable 5 in Claude Cowork](#)Working with Claude Fable 5 in Claude Cowork
 
 [View more](https://claude.com/blog?d7430fcd_page=2)
 

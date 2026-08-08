@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link -->
 
-# Open the Claude mobile app with a link
-
-May 6, 2026
-
 The Claude mobile apps for iOS and Android respond to the `claude://` URL scheme. Third-party apps, shortcuts, and web pages can use these links to open the Code tab, jump to an existing session, or prefill the new-session composer. All parameter values must be URL-encoded.
 
 These links require Claude Code access on your account. If you don't have access to Claude Code, the links won't work.

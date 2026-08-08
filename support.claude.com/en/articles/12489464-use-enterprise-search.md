@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12489464-use-enterprise-search -->
 
-# Use enterprise search
-
-April 27, 2026
-
 Enterprise search capabilities are available for users on Team and Enterprise plans.
 
 Enterprise search adds a dedicated project for searching across your organization's knowledge sources with optimized instructions and seamless connector integrations.
@@ -19,6 +15,8 @@ We’ve added a pre-configured “Ask Your Org” **[project](https://support.cl
   + Users need to authenticate with the connected apps before they can start using them.
 * **Optimized instructions:** Specialized system prompts maintained by Anthropic for effective searches.
 * **Unified access:** Search across multiple data sources (Slack, Microsoft 365, and more) in one place.
+
+---
 
 ## Get started
 
@@ -76,6 +74,8 @@ After initial setup, you can enable additional connectors in your search project
 3. Enable or disable specific connectors.
 4. Changes apply to new conversations in the project.
 
+---
+
 ## How does enterprise search work?
 
 When you ask a question within your organization’s dedicated project, Claude searches across all your connected data sources to generate comprehensive, well-cited responses.
@@ -129,6 +129,8 @@ Enterprise search is particularly valuable for:
 * "Find discussions and documents related to [employee]'s Q3 projects"
 * "Summarize team contributions to the Platform initiative"
 
+---
+
 ## Privacy and permissions
 
 * **Permission-aware:** You only see search results from data you have permission to access in the original systems.
@@ -145,6 +147,8 @@ Enterprise search is particularly valuable for:
 **Combine multiple sources:** "Compile information from SharePoint documents, Slack discussions, and meeting notes about our hiring process."
 
 **Break complex queries into steps:** For thorough research, ask Claude to search one source at a time, then synthesize findings.
+
+---
 
 ## Troubleshooting
 
@@ -173,7 +177,7 @@ Enterprise search is particularly valuable for:
 
 ### Connected tools aren't working
 
-* Revisit **[Settings > Connectors](http://claude.ai/settings/connectors)** to verify authentication status.
+* Revisit **[Settings > Connectors](https://claude.ai/settings/connectors)** to verify authentication status.
 * Try disconnecting and reconnecting the problematic connector.
 * Check if the connector was recently disabled at the organization level.
 
@@ -197,16 +201,18 @@ If a connector fails:
 
 1. The dedicated project will search remaining connected tools.
 2. You'll see a notice about the failed connector.
-3. Try reconnecting the tool through **[Settings > Connectors](http://claude.ai/settings/connectors)**.
+3. Try reconnecting the tool through **[Settings > Connectors](https://claude.ai/settings/connectors)**.
 4. Contact an organization owner if the issue persists.
 
 ##
+
+---
 
 ## Frequently asked questions
 
 ### Can I add my own custom connectors to the search project?
 
-Yes. You can add connectors available through **[Settings > Connectors](http://claude.ai/settings/connectors)**, and you can also add custom connectors if permitted by your organization. The guided onboarding recommends a few connectors, but you're not limited to those.
+Yes. You can add connectors available through **[Settings > Connectors](https://claude.ai/settings/connectors)**, and you can also add custom connectors if permitted by your organization. The guided onboarding recommends a few connectors, but you're not limited to those.
 
 For more information, refer to **[Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)**.
 
@@ -256,4 +262,8 @@ No. Conversations within your search project are private to you unless you choos
 
 Search results are retained with their associated chats. You can delete search data by deleting the associated conversation. Enterprise organizations may have custom data retention policies that apply to all conversations, including those within the search project. Check with your organization owner for details.
 
-[Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)[Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)[Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)[Get started with Claude in Slack](https://support.claude.com/en/articles/11506255-get-started-with-claude-in-slack)[Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
+* [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
+* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+* [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
+* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)

@@ -44,7 +44,7 @@ Claude comes in four versions. Think of them as different tools designed for dif
 
 **Sonnet** is the daily driver. Sonnet 5 brings strong reasoning to the kind of work you do every day — coding, writing, analysis, research, and complex problem-solving. It's responsive enough for real-time collaboration and capable enough that most problems won't outgrow it. It also handles computer use, vision tasks, and document and spreadsheet creation well — making it a versatile default across a wide range of work. If you're not sure which model to pick, start here.
 
-**Opus** is a large reasoning specialist. Opus 4.8 is exceptional for specialized complex tasks requiring advanced reasoning. It's built for problems that genuinely need deep thinking over time. It uses more of your rate limit, so you want to reserve it for tasks that really need it. Opus is available on [Pro plans](https://claude.com/pricing) and above.
+**Opus** is a large reasoning specialist. Opus 5 is exceptional for specialized complex tasks requiring advanced reasoning. It's built for problems that genuinely need deep thinking over time. It uses more of your rate limit, so you want to reserve it for tasks that really need it. Opus is available on [Pro plans](https://claude.com/pricing) and above.
 
 **Fable** is the go-to for your largest, most important projects. Fable 5 is our newest and most capable model, built for long, complex tasks. It can work through tasks more autonomously with fewer mid-task check-ins — describe the outcome you want, and it plans the steps and checks its own work along the way. It takes time to think through problems before answering, so responses take longer, and it uses the most of your rate limit. Fable is available on paid plans. You can select it from the model picker when a task needs it.
 
@@ -113,6 +113,14 @@ Spend a few minutes running your go-to tasks across models. If you're on the fre
 
 ## Related tutorials
 
+[How to choose between voice mode and dictation](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)How to choose between voice mode and dictation
+
+How to choose between voice mode and dictation
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/how-to-choose-between-voice-mode-and-dictation)Tutorial
+
 [Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
 
 Delegating and scheduling tasks in Claude Cowork
@@ -136,11 +144,3 @@ Best practices for using @Claude
 Tutorial
 
 [Tutorial](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Tutorial
-
-[Using Claude Cowork for legal: answer fast questions on past decisions](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
-
-Using Claude Cowork for legal: answer fast questions on past decisions
-
-Tutorial
-
-[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial

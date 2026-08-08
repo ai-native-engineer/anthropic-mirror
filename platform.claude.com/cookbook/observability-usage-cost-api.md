@@ -1,10 +1,10 @@
 <!-- source: https://platform.claude.com/cookbook/observability-usage-cost-api -->
 
-# Usage & Cost Admin API Cookbook
+#  Usage & Cost Admin API Cookbook
 
 **A practical guide to programmatically accessing your Claude API usage and cost data**
 
-### What You Can Do
+###  What You Can Do
 
 **Usage Tracking:**
 
@@ -25,96 +25,139 @@
 * **Cache Analysis**: Measure and improve cache efficiency
 * **Financial Reporting**: Generate executive summaries and budget reports
 
-### API Overview
+###  API Overview
 
 Two main endpoints:
 
 1. **Messages Usage API**: Token-level usage data with flexible grouping
 2. **Cost API**: Financial data in USD with service breakdowns
 
-### Prerequisites & Security
+###  Prerequisites & Security
 
-* **Admin API Key**: Get from [Claude Console](https://console.anthropic.com/settings/admin-keys) (format: `sk-ant-admin...`)
+* **Admin API Key**: Get from [Claude Console(opens in new tab)](https://console.anthropic.com/settings/admin-keys) (format: `sk-ant-admin...`)
 * **Security**: Store keys in environment variables, rotate regularly, never commit to version control
 
-python
+
 
-```
 import os
+
 from datetime import datetime, time, timedelta
+
 from typing import Any
 
 import requests
 
 class AnthropicAdminAPI:
-    """Secure wrapper for Anthropic Admin API endpoints."""
 
-    def __init__(self, api_key: str | None = None):
-        self.api_key = api_key or os.getenv("ANTHROPIC_ADMIN_API_KEY")
-        if not self.api_key:
-            raise ValueError(
-                "Admin API key required. Set ANTHROPIC_ADMIN_API_KEY environment variable."
-            )
+"""Secure wrapper for Anthropic Admin API endpoints."""
 
-        if not self.api_key.startswith("sk-ant-admin"):
-            raise ValueError("Invalid Admin API key format.")
+def \_\_init\_\_(self, api\_key: str | None = None):
 
-        self.base_url = "https://api.anthropic.com/v1/organizations"
-        self.headers = {
-            "anthropic-version": "2023-06-01",
-            "x-api-key": self.api_key,
-            "Content-Type": "application/json",
-        }
+self.api\_key = api\_key or os.getenv("ANTHROPIC\_ADMIN\_API\_KEY")
 
-    def _make_request(self, endpoint: str, params: dict[str, Any]) -> dict[str, Any]:
-        """Make authenticated request with basic error handling."""
-        url = f"{self.base_url}/{endpoint}"
+if not self.api\_key:
 
-        try:
-            response = requests.get(url, headers=self.headers, params=params, timeout=30)
-            response.raise_for_status()
-            return response.json()
-        except requests.exceptions.HTTPError as e:
-            if response.status_code == 401:
-                raise ValueError("Invalid API key or insufficient permissions") from e
-            elif response.status_code == 429:
-                raise requests.exceptions.RequestException(
-                    "Rate limit exceeded - try again later"
-                ) from e
-            else:
-                raise requests.exceptions.RequestException(f"API error: {e}") from e
+raise ValueError(
+
+"Admin API key required. Set ANTHROPIC\_ADMIN\_API\_KEY environment variable."
+
+)
+
+if not self.api\_key.startswith("sk-ant-admin"):
+
+raise ValueError("Invalid Admin API key format.")
+
+self.base\_url = "https://api.anthropic.com/v1/organizations"
+
+self.headers = {
+
+"anthropic-version": "2023-06-01",
+
+"x-api-key": self.api\_key,
+
+"Content-Type": "application/json",
+
+}
+
+def \_make\_request(self, endpoint: str, params: dict[str, Any]) -> dict[str, Any]:
+
+"""Make authenticated request with basic error handling."""
+
+url = f"{self.base\_url}/{endpoint}"
+
+try:
+
+response = requests.get(url, headers=self.headers, params=params, timeout=30)
+
+response.raise\_for\_status()
+
+return response.json()
+
+except requests.exceptions.HTTPError as e:
+
+if response.status\_code == 401:
+
+raise ValueError("Invalid API key or insufficient permissions") from e
+
+elif response.status\_code == 429:
+
+raise requests.exceptions.RequestException(
+
+"Rate limit exceeded - try again later"
+
+) from e
+
+else:
+
+raise requests.exceptions.RequestException(f"API error: {e}") from e
 
 # Test connection
-def test_connection():
-    try:
-        client = AnthropicAdminAPI()
 
-        # Simple test query - snap to start of day to align with bucket boundaries
-        params = {
-            "starting_at": (
-                datetime.combine(datetime.utcnow(), time.min) - timedelta(days=1)
-            ).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "ending_at": datetime.combine(datetime.utcnow(), time.min).strftime(
-                "%Y-%m-%dT%H:%M:%SZ"
-            ),
-            "bucket_width": "1d",
-            "limit": 1,
-        }
+def test\_connection():
 
-        client._make_request("usage_report/messages", params)
-        print("✅ Connection successful!")
-        return client
+try:
 
-    except Exception as e:
-        print(f"❌ Connection failed: {e}")
-        return None
+client = AnthropicAdminAPI()
 
-client = test_connection()
-```
+# Simple test query - snap to start of day to align with bucket boundaries
 
-## Basic Usage & Cost Tracking
+params = {
 
-### Understanding Usage Data
+"starting\_at": (
+
+datetime.combine(datetime.utcnow(), time.min) - timedelta(days=1)
+
+).strftime("%Y-%m-%dT%H:%M:%SZ"),
+
+"ending\_at": datetime.combine(datetime.utcnow(), time.min).strftime(
+
+"%Y-%m-%dT%H:%M:%SZ"
+
+),
+
+"bucket\_width": "1d",
+
+"limit": 1,
+
+}
+
+client.\_make\_request("usage\_report/messages", params)
+
+print("✅ Connection successful!")
+
+return client
+
+except Exception as e:
+
+print(f"❌ Connection failed: {e}")
+
+return None
+
+client = test\_connection()
+
+##  Basic Usage & Cost Tracking
+
+###  Understanding Usage Data
 
 The Messages Usage API provides token consumption in **time buckets** - fixed intervals containing aggregated usage.
 
@@ -125,96 +168,149 @@ The Messages Usage API provides token consumption in **time buckets** - fixed in
 * **cache\_creation**: Tokens cached for reuse
 * **cache\_read\_input\_tokens**: Previously cached tokens reused
 
-### Basic Usage Query
+###  Basic Usage Query
 
-python
+
 
-```
-def get_daily_usage(client, days_back=7):
-    """Get usage data for the last N days."""
-    end_time = datetime.combine(datetime.utcnow(), time.min)
-    start_time = end_time - timedelta(days=days_back)
+def get\_daily\_usage(client, days\_back=7):
 
-    params = {
-        "starting_at": start_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "ending_at": end_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "bucket_width": "1d",
-        "limit": days_back,
-    }
+"""Get usage data for the last N days."""
 
-    return client._make_request("usage_report/messages", params)
+end\_time = datetime.combine(datetime.utcnow(), time.min)
 
-def analyze_usage_data(response):
-    """Process and display usage data."""
-    if not response or not response.get("data"):
-        print("No usage data found.")
-        return
+start\_time = end\_time - timedelta(days=days\_back)
 
-    total_uncached_input = total_output = total_cache_creation = 0
-    total_cache_reads = total_web_searches = 0
-    daily_data = []
+params = {
 
-    for bucket in response["data"]:
-        date = bucket["starting_at"][:10]
+"starting\_at": start\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
 
-        # Sum all results in bucket
-        bucket_uncached = bucket_output = bucket_cache_creation = 0
-        bucket_cache_reads = bucket_web_searches = 0
+"ending\_at": end\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
 
-        for result in bucket["results"]:
-            bucket_uncached += result.get("uncached_input_tokens", 0)
-            bucket_output += result.get("output_tokens", 0)
+"bucket\_width": "1d",
 
-            cache_creation = result.get("cache_creation", {})
-            bucket_cache_creation += cache_creation.get(
-                "ephemeral_1h_input_tokens", 0
-            ) + cache_creation.get("ephemeral_5m_input_tokens", 0)
-            bucket_cache_reads += result.get("cache_read_input_tokens", 0)
+"limit": days\_back,
 
-            server_tools = result.get("server_tool_use", {})
-            bucket_web_searches += server_tools.get("web_search_requests", 0)
+}
 
-        daily_data.append(
-            {
-                "date": date,
-                "uncached_input_tokens": bucket_uncached,
-                "output_tokens": bucket_output,
-                "cache_creation": bucket_cache_creation,
-                "cache_reads": bucket_cache_reads,
-                "web_searches": bucket_web_searches,
-                "total_tokens": bucket_uncached + bucket_output,
-            }
-        )
+return client.\_make\_request("usage\_report/messages", params)
 
-        # Add to totals
-        total_uncached_input += bucket_uncached
-        total_output += bucket_output
-        total_cache_creation += bucket_cache_creation
-        total_cache_reads += bucket_cache_reads
-        total_web_searches += bucket_web_searches
+def analyze\_usage\_data(response):
 
-    # Calculate cache efficiency
-    total_input_tokens = total_uncached_input + total_cache_creation + total_cache_reads
-    cache_efficiency = (
-        (total_cache_reads / total_input_tokens * 100) if total_input_tokens > 0 else 0
-    )
+"""Process and display usage data."""
 
-    # Display summary
-    print("📊 Usage Summary:")
-    print(f"Uncached input tokens: {total_uncached_input:,}")
-    print(f"Output tokens: {total_output:,}")
-    print(f"Cache creation: {total_cache_creation:,}")
-    print(f"Cache reads: {total_cache_reads:,}")
-    print(f"Cache efficiency: {cache_efficiency:.1f}%")
-    print(f"Web searches: {total_web_searches:,}")
+if not response or not response.get("data"):
 
-    return daily_data
+print("No usage data found.")
+
+return
+
+total\_uncached\_input = total\_output = total\_cache\_creation = 0
+
+total\_cache\_reads = total\_web\_searches = 0
+
+daily\_data = []
+
+for bucket in response["data"]:
+
+date = bucket["starting\_at"][:10]
+
+# Sum all results in bucket
+
+bucket\_uncached = bucket\_output = bucket\_cache\_creation = 0
+
+bucket\_cache\_reads = bucket\_web\_searches = 0
+
+for result in bucket["results"]:
+
+bucket\_uncached += result.get("uncached\_input\_tokens", 0)
+
+bucket\_output += result.get("output\_tokens", 0)
+
+cache\_creation = result.get("cache\_creation", {})
+
+bucket\_cache\_creation += cache\_creation.get(
+
+"ephemeral\_1h\_input\_tokens", 0
+
+) + cache\_creation.get("ephemeral\_5m\_input\_tokens", 0)
+
+bucket\_cache\_reads += result.get("cache\_read\_input\_tokens", 0)
+
+server\_tools = result.get("server\_tool\_use", {})
+
+bucket\_web\_searches += server\_tools.get("web\_search\_requests", 0)
+
+daily\_data.append(
+
+{
+
+"date": date,
+
+"uncached\_input\_tokens": bucket\_uncached,
+
+"output\_tokens": bucket\_output,
+
+"cache\_creation": bucket\_cache\_creation,
+
+"cache\_reads": bucket\_cache\_reads,
+
+"web\_searches": bucket\_web\_searches,
+
+"total\_tokens": bucket\_uncached + bucket\_output,
+
+}
+
+)
+
+# Add to totals
+
+total\_uncached\_input += bucket\_uncached
+
+total\_output += bucket\_output
+
+total\_cache\_creation += bucket\_cache\_creation
+
+total\_cache\_reads += bucket\_cache\_reads
+
+total\_web\_searches += bucket\_web\_searches
+
+# Calculate cache efficiency
+
+total\_input\_tokens = total\_uncached\_input + total\_cache\_creation + total\_cache\_reads
+
+cache\_efficiency = (
+
+(total\_cache\_reads / total\_input\_tokens \* 100) if total\_input\_tokens > 0 else 0
+
+)
+
+# Display summary
+
+print("📊 Usage Summary:")
+
+print(f"Uncached input tokens: {total\_uncached\_input:,}")
+
+print(f"Output tokens: {total\_output:,}")
+
+print(f"Cache creation: {total\_cache\_creation:,}")
+
+print(f"Cache reads: {total\_cache\_reads:,}")
+
+print(f"Cache efficiency: {cache\_efficiency:.1f}%")
+
+print(f"Web searches: {total\_web\_searches:,}")
+
+return daily\_data
 
 # Example usage
+
 if client:
-    usage_response = get_daily_usage(client, days_back=7)
-    daily_usage = analyze_usage_data(usage_response)
-```
+
+usage\_response = get\_daily\_usage(client, days\_back=7)
+
+daily\_usage = analyze\_usage\_data(usage\_response)
+
+
 
 ```
 📊 Usage Summary:
@@ -226,74 +322,109 @@ Cache efficiency: 0.0%
 Web searches: 0
 ```
 
-## Basic Cost Tracking
+##  Basic Cost Tracking
 
 Note: Priority Tier costs use a different billing model and will never appear in the cost endpoint. You can track Priority Tier usage in the usage endpoint, but not costs.
 
-python
+
 
-```
-def get_daily_costs(client, days_back=7):
-    """Get cost data for the last N days."""
-    end_time = datetime.combine(datetime.utcnow(), time.min)
-    start_time = end_time - timedelta(days=days_back)
+def get\_daily\_costs(client, days\_back=7):
 
-    params = {
-        "starting_at": start_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "ending_at": end_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "bucket_width": "1d",  # Only 1d supported for cost API
-        "limit": min(days_back, 31),  # Max 31 days per request
-    }
+"""Get cost data for the last N days."""
 
-    return client._make_request("cost_report", params)
+end\_time = datetime.combine(datetime.utcnow(), time.min)
 
-def analyze_cost_data(response):
-    """Process and display cost data."""
-    if not response or not response.get("data"):
-        print("No cost data found.")
-        return
+start\_time = end\_time - timedelta(days=days\_back)
 
-    total_cost_minor_units = 0
-    daily_costs = []
+params = {
 
-    for bucket in response["data"]:
-        date = bucket["starting_at"][:10]
+"starting\_at": start\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
 
-        # Sum all costs in this bucket
-        bucket_cost = 0
-        for result in bucket["results"]:
-            # Convert string amounts to float if needed
-            amount = result.get("amount", 0)
-            if isinstance(amount, str):
-                try:
-                    amount = float(amount)
-                except (ValueError, TypeError):
-                    amount = 0
-            bucket_cost += amount
+"ending\_at": end\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
 
-        daily_costs.append(
-            {
-                "date": date,
-                "cost_minor_units": bucket_cost,
-                "cost_usd": bucket_cost / 100,  # Convert to dollars
-            }
-        )
+"bucket\_width": "1d", # Only 1d supported for cost API
 
-        total_cost_minor_units += bucket_cost
+"limit": min(days\_back, 31), # Max 31 days per request
 
-    total_cost_usd = total_cost_minor_units / 100
+}
 
-    print("💰 Cost Summary:")
-    print(f"Total cost: ${total_cost_usd:.4f}")
-    print(f"Average daily cost: ${total_cost_usd / len(daily_costs):.4f}")
+return client.\_make\_request("cost\_report", params)
 
-    return daily_costs
+def analyze\_cost\_data(response):
+
+"""Process and display cost data."""
+
+if not response or not response.get("data"):
+
+print("No cost data found.")
+
+return
+
+total\_cost\_minor\_units = 0
+
+daily\_costs = []
+
+for bucket in response["data"]:
+
+date = bucket["starting\_at"][:10]
+
+# Sum all costs in this bucket
+
+bucket\_cost = 0
+
+for result in bucket["results"]:
+
+# Convert string amounts to float if needed
+
+amount = result.get("amount", 0)
+
+if isinstance(amount, str):
+
+try:
+
+amount = float(amount)
+
+except (ValueError, TypeError):
+
+amount = 0
+
+bucket\_cost += amount
+
+daily\_costs.append(
+
+{
+
+"date": date,
+
+"cost\_minor\_units": bucket\_cost,
+
+"cost\_usd": bucket\_cost / 100, # Convert to dollars
+
+}
+
+)
+
+total\_cost\_minor\_units += bucket\_cost
+
+total\_cost\_usd = total\_cost\_minor\_units / 100
+
+print("💰 Cost Summary:")
+
+print(f"Total cost: ${total\_cost\_usd:.4f}")
+
+print(f"Average daily cost: ${total\_cost\_usd / len(daily\_costs):.4f}")
+
+return daily\_costs
 
 # Example usage
+
 if client:
-    cost_response = get_daily_costs(client, days_back=7)
-    daily_costs = analyze_cost_data(cost_response)
-```
+
+cost\_response = get\_daily\_costs(client, days\_back=7)
+
+daily\_costs = analyze\_cost\_data(cost\_response)
+
+
 
 ```
 💰 Cost Summary:
@@ -301,9 +432,9 @@ Total cost: $83.7574
 Average daily cost: $11.9653
 ```
 
-## Grouping, Filtering & Pagination
+##  Grouping, Filtering & Pagination
 
-### Time Granularity Options
+###  Time Granularity Options
 
 **Usage API** supports three granularities:
 
@@ -315,100 +446,157 @@ Average daily cost: $11.9653
 
 * `1d` (1 day): Only option available, max 31 buckets per request
 
-### Grouping and Filtering
+###  Grouping and Filtering
 
-python
+
 
-```
-def get_usage_by_model(client, days_back=7):
-    """Get usage data grouped by model, handling pagination automatically."""
-    end_time = datetime.combine(datetime.utcnow(), time.min)
-    start_time = end_time - timedelta(days=days_back)
+def get\_usage\_by\_model(client, days\_back=7):
 
-    params = {
-        "starting_at": start_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "ending_at": end_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "group_by[]": ["model"],
-        "bucket_width": "1d",
-    }
+"""Get usage data grouped by model, handling pagination automatically."""
 
-    # Aggregate across all pages of data
-    model_usage = {}
-    page_count = 0
-    max_pages = 10  # Reasonable limit to avoid infinite loops
+end\_time = datetime.combine(datetime.utcnow(), time.min)
 
-    try:
-        next_page = None
+start\_time = end\_time - timedelta(days=days\_back)
 
-        while page_count < max_pages:
-            current_params = params.copy()
-            if next_page:
-                current_params["page"] = next_page
+params = {
 
-            response = client._make_request("usage_report/messages", current_params)
-            page_count += 1
+"starting\_at": start\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
 
-            # Process this page's data
-            for bucket in response.get("data", []):
-                for result in bucket.get("results", []):
-                    model = result.get("model", "Unknown")
-                    uncached = result.get("uncached_input_tokens", 0)
-                    output = result.get("output_tokens", 0)
-                    cache_creation = result.get("cache_creation", {})
-                    cache_creation_tokens = cache_creation.get(
-                        "ephemeral_1h_input_tokens", 0
-                    ) + cache_creation.get("ephemeral_5m_input_tokens", 0)
-                    cache_reads = result.get("cache_read_input_tokens", 0)
-                    tokens = uncached + output + cache_creation_tokens + cache_reads
+"ending\_at": end\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
 
-                    if model not in model_usage:
-                        model_usage[model] = 0
-                    model_usage[model] += tokens
+"group\_by[]": ["model"],
 
-            # Check if there's more data
-            if not response.get("has_more", False):
-                break
+"bucket\_width": "1d",
 
-            next_page = response.get("next_page")
-            if not next_page:
-                break
+}
 
-    except Exception as e:
-        print(f"❌ Error retrieving usage data: {e}")
-        return {}
+# Aggregate across all pages of data
 
-    # Display results
-    print("📊 Usage by Model:")
-    if not model_usage:
-        print(f"  No usage data found in the last {days_back} days")
-        print("  💡 Try increasing the time range or check if you have recent API usage")
-    else:
-        for model, tokens in sorted(model_usage.items(), key=lambda x: x[1], reverse=True):
-            print(f"  {model}: {tokens:,} tokens")
+model\_usage = {}
 
-    return model_usage
+page\_count = 0
 
-def filter_usage_example(client):
-    """Example of filtering usage data."""
-    params = {
-        "starting_at": (datetime.combine(datetime.utcnow(), time.min) - timedelta(days=7)).strftime(
-            "%Y-%m-%dT%H:%M:%SZ"
-        ),
-        "ending_at": datetime.combine(datetime.utcnow(), time.min).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "models[]": ["claude-sonnet-4-6"],  # Filter to specific model
-        "service_tiers[]": ["standard"],  # Filter to standard tier
-        "bucket_width": "1d",
-    }
+max\_pages = 10 # Reasonable limit to avoid infinite loops
 
-    response = client._make_request("usage_report/messages", params)
-    print(f"Found {len(response.get('data', []))} days of filtered usage data")
-    return response
+try:
+
+next\_page = None
+
+while page\_count < max\_pages:
+
+current\_params = params.copy()
+
+if next\_page:
+
+current\_params["page"] = next\_page
+
+response = client.\_make\_request("usage\_report/messages", current\_params)
+
+page\_count += 1
+
+# Process this page's data
+
+for bucket in response.get("data", []):
+
+for result in bucket.get("results", []):
+
+model = result.get("model", "Unknown")
+
+uncached = result.get("uncached\_input\_tokens", 0)
+
+output = result.get("output\_tokens", 0)
+
+cache\_creation = result.get("cache\_creation", {})
+
+cache\_creation\_tokens = cache\_creation.get(
+
+"ephemeral\_1h\_input\_tokens", 0
+
+) + cache\_creation.get("ephemeral\_5m\_input\_tokens", 0)
+
+cache\_reads = result.get("cache\_read\_input\_tokens", 0)
+
+tokens = uncached + output + cache\_creation\_tokens + cache\_reads
+
+if model not in model\_usage:
+
+model\_usage[model] = 0
+
+model\_usage[model] += tokens
+
+# Check if there's more data
+
+if not response.get("has\_more", False):
+
+break
+
+next\_page = response.get("next\_page")
+
+if not next\_page:
+
+break
+
+except Exception as e:
+
+print(f"❌ Error retrieving usage data: {e}")
+
+return {}
+
+# Display results
+
+print("📊 Usage by Model:")
+
+if not model\_usage:
+
+print(f" No usage data found in the last {days\_back} days")
+
+print(" 💡 Try increasing the time range or check if you have recent API usage")
+
+else:
+
+for model, tokens in sorted(model\_usage.items(), key=lambda x: x[1], reverse=True):
+
+print(f" {model}: {tokens:,} tokens")
+
+return model\_usage
+
+def filter\_usage\_example(client):
+
+"""Example of filtering usage data."""
+
+params = {
+
+"starting\_at": (datetime.combine(datetime.utcnow(), time.min) - timedelta(days=7)).strftime(
+
+"%Y-%m-%dT%H:%M:%SZ"
+
+),
+
+"ending\_at": datetime.combine(datetime.utcnow(), time.min).strftime("%Y-%m-%dT%H:%M:%SZ"),
+
+"models[]": ["claude-sonnet-4-6"], # Filter to specific model
+
+"service\_tiers[]": ["standard"], # Filter to standard tier
+
+"bucket\_width": "1d",
+
+}
+
+response = client.\_make\_request("usage\_report/messages", params)
+
+print(f"Found {len(response.get('data', []))} days of filtered usage data")
+
+return response
 
 # Example usage
+
 if client:
-    model_usage = get_usage_by_model(client, days_back=14)
-    filtered_usage = filter_usage_example(client)
-```
+
+model\_usage = get\_usage\_by\_model(client, days\_back=14)
+
+filtered\_usage = filter\_usage\_example(client)
+
+
 
 ```
 📊 Usage by Model:
@@ -421,84 +609,123 @@ if client:
 Found 7 days of filtered usage data
 ```
 
-### Pagination for Large Datasets
+###  Pagination for Large Datasets
 
-python
+
 
-```
-def fetch_all_usage_data(client, params, max_pages=10):
-    """Fetch all paginated usage data."""
-    all_data = []
-    page_count = 0
-    next_page = None
+def fetch\_all\_usage\_data(client, params, max\_pages=10):
 
-    print("📥 Fetching paginated data...")
+"""Fetch all paginated usage data."""
 
-    while page_count < max_pages:
-        current_params = params.copy()
-        if next_page:
-            current_params["page"] = next_page
+all\_data = []
 
-        try:
-            response = client._make_request("usage_report/messages", current_params)
+page\_count = 0
 
-            if not response or not response.get("data"):
-                break
+next\_page = None
 
-            page_data = response["data"]
-            all_data.extend(page_data)
-            page_count += 1
+print("📥 Fetching paginated data...")
 
-            print(f"  Page {page_count}: {len(page_data)} time buckets")
+while page\_count < max\_pages:
 
-            if not response.get("has_more", False):
-                print(f"✅ Complete: Retrieved all data in {page_count} pages")
-                break
+current\_params = params.copy()
 
-            next_page = response.get("next_page")
-            if not next_page:
-                break
+if next\_page:
 
-        except Exception as e:
-            print(f"❌ Error on page {page_count + 1}: {e}")
-            break
+current\_params["page"] = next\_page
 
-    print(f"📊 Total retrieved: {len(all_data)} time buckets")
-    return all_data
+try:
 
-def large_dataset_example(client, days_back=3):
-    """Example of handling a large dataset with pagination."""
-    # Use recent time range to ensure we have data
-    start_time = datetime.combine(datetime.utcnow(), time.min) - timedelta(days=days_back)
-    end_time = datetime.combine(datetime.utcnow(), time.min)
+response = client.\_make\_request("usage\_report/messages", current\_params)
 
-    params = {
-        "starting_at": start_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "ending_at": end_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "bucket_width": "1h",  # Hourly data for more buckets
-        "group_by[]": ["model"],
-        "limit": 24,  # One day per page
-    }
+if not response or not response.get("data"):
 
-    all_buckets = fetch_all_usage_data(client, params, max_pages=5)
+break
 
-    # Process the large dataset
-    if all_buckets:
-        total_tokens = sum(
-            sum(
-                result.get("uncached_input_tokens", 0) + result.get("output_tokens", 0)
-                for result in bucket["results"]
-            )
-            for bucket in all_buckets
-        )
-        print(f"📈 Total tokens across all data: {total_tokens:,}")
+page\_data = response["data"]
 
-    return all_buckets
+all\_data.extend(page\_data)
+
+page\_count += 1
+
+print(f" Page {page\_count}: {len(page\_data)} time buckets")
+
+if not response.get("has\_more", False):
+
+print(f"✅ Complete: Retrieved all data in {page\_count} pages")
+
+break
+
+next\_page = response.get("next\_page")
+
+if not next\_page:
+
+break
+
+except Exception as e:
+
+print(f"❌ Error on page {page\_count + 1}: {e}")
+
+break
+
+print(f"📊 Total retrieved: {len(all\_data)} time buckets")
+
+return all\_data
+
+def large\_dataset\_example(client, days\_back=3):
+
+"""Example of handling a large dataset with pagination."""
+
+# Use recent time range to ensure we have data
+
+start\_time = datetime.combine(datetime.utcnow(), time.min) - timedelta(days=days\_back)
+
+end\_time = datetime.combine(datetime.utcnow(), time.min)
+
+params = {
+
+"starting\_at": start\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
+
+"ending\_at": end\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
+
+"bucket\_width": "1h", # Hourly data for more buckets
+
+"group\_by[]": ["model"],
+
+"limit": 24, # One day per page
+
+}
+
+all\_buckets = fetch\_all\_usage\_data(client, params, max\_pages=5)
+
+# Process the large dataset
+
+if all\_buckets:
+
+total\_tokens = sum(
+
+sum(
+
+result.get("uncached\_input\_tokens", 0) + result.get("output\_tokens", 0)
+
+for result in bucket["results"]
+
+)
+
+for bucket in all\_buckets
+
+)
+
+print(f"📈 Total tokens across all data: {total\_tokens:,}")
+
+return all\_buckets
 
 # Example usage - use shorter time range to find recent data
+
 if client:
-    large_dataset = large_dataset_example(client, days_back=3)
-```
+
+large\_dataset = large\_dataset\_example(client, days\_back=3)
+
+
 
 ```
 📥 Fetching paginated data...
@@ -510,176 +737,278 @@ if client:
 📈 Total tokens across all data: 1,336,287
 ```
 
-## Simple Data Export
+##  Simple Data Export
 
-### CSV Export for External Analysis
+###  CSV Export for External Analysis
 
-python
+
 
-```
 import csv
 
-def export_usage_to_csv(client, output_file="usage_data.csv", days_back=30):
-    """Export usage data to CSV for external analysis."""
+def export\_usage\_to\_csv(client, output\_file="usage\_data.csv", days\_back=30):
 
-    end_time = datetime.combine(datetime.utcnow(), time.min)
-    start_time = end_time - timedelta(days=days_back)
+"""Export usage data to CSV for external analysis."""
 
-    params = {
-        "starting_at": start_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "ending_at": end_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "group_by[]": ["model", "service_tier", "workspace_id"],
-        "bucket_width": "1d",
-    }
+end\_time = datetime.combine(datetime.utcnow(), time.min)
 
-    try:
-        # Collect all data across pages
-        rows = []
-        page_count = 0
-        max_pages = 20  # Allow more pages for export
-        next_page = None
+start\_time = end\_time - timedelta(days=days\_back)
 
-        while page_count < max_pages:
-            current_params = params.copy()
-            if next_page:
-                current_params["page"] = next_page
+params = {
 
-            response = client._make_request("usage_report/messages", current_params)
-            page_count += 1
+"starting\_at": start\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
 
-            # Process this page's data
-            for bucket in response.get("data", []):
-                date = bucket["starting_at"][:10]
-                for result in bucket["results"]:
-                    rows.append(
-                        {
-                            "date": date,
-                            "model": result.get("model", ""),
-                            "service_tier": result.get("service_tier", ""),
-                            "workspace_id": result.get("workspace_id", ""),
-                            "uncached_input_tokens": result.get("uncached_input_tokens", 0),
-                            "output_tokens": result.get("output_tokens", 0),
-                            "cache_creation_tokens": (
-                                result.get("cache_creation", {}).get("ephemeral_1h_input_tokens", 0)
-                                + result.get("cache_creation", {}).get(
-                                    "ephemeral_5m_input_tokens", 0
-                                )
-                            ),
-                            "cache_read_tokens": result.get("cache_read_input_tokens", 0),
-                            "web_search_requests": result.get("server_tool_use", {}).get(
-                                "web_search_requests", 0
-                            ),
-                        }
-                    )
+"ending\_at": end\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
 
-            # Check if there's more data
-            if not response.get("has_more", False):
-                break
+"group\_by[]": ["model", "service\_tier", "workspace\_id"],
 
-            next_page = response.get("next_page")
-            if not next_page:
-                break
+"bucket\_width": "1d",
 
-        # Write CSV
-        if rows:
-            with open(output_file, "w", newline="") as csvfile:
-                writer = csv.DictWriter(csvfile, fieldnames=rows[0].keys())
-                writer.writeheader()
-                writer.writerows(rows)
+}
 
-            print(f"✅ Exported {len(rows)} rows to {output_file}")
-        else:
-            print(f"No usage data to export for the last {days_back} days")
-            print("💡 Try increasing days_back or check if you have recent API usage")
+try:
 
-    except Exception as e:
-        print(f"❌ Export failed: {e}")
+# Collect all data across pages
 
-def export_costs_to_csv(client, output_file="cost_data.csv", days_back=30):
-    """Export cost data to CSV."""
+rows = []
 
-    end_time = datetime.combine(datetime.utcnow(), time.min)
-    start_time = end_time - timedelta(days=days_back)
+page\_count = 0
 
-    params = {
-        "starting_at": start_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "ending_at": end_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "group_by[]": ["workspace_id", "description"],
-    }
+max\_pages = 20 # Allow more pages for export
 
-    try:
-        # Collect all data across pages
-        rows = []
-        page_count = 0
-        max_pages = 20
-        next_page = None
+next\_page = None
 
-        while page_count < max_pages:
-            current_params = params.copy()
-            if next_page:
-                current_params["page"] = next_page
+while page\_count < max\_pages:
 
-            response = client._make_request("cost_report", current_params)
-            page_count += 1
+current\_params = params.copy()
 
-            # Process this page's data
-            for bucket in response.get("data", []):
-                date = bucket["starting_at"][:10]
-                for result in bucket["results"]:
-                    # Handle both string and numeric amounts
-                    amount = result.get("amount", 0)
-                    if isinstance(amount, str):
-                        try:
-                            amount = float(amount)
-                        except (ValueError, TypeError):
-                            amount = 0
+if next\_page:
 
-                    rows.append(
-                        {
-                            "date": date,
-                            "workspace_id": result.get(
-                                "workspace_id", ""
-                            ),  # null for default workspace
-                            "description": result.get("description", ""),
-                            "currency": result.get("currency", "USD"),
-                            "amount_usd": amount / 100,
-                        }
-                    )
+current\_params["page"] = next\_page
 
-            # Check if there's more data
-            if not response.get("has_more", False):
-                break
+response = client.\_make\_request("usage\_report/messages", current\_params)
 
-            next_page = response.get("next_page")
-            if not next_page:
-                break
+page\_count += 1
 
-        if rows:
-            with open(output_file, "w", newline="") as csvfile:
-                writer = csv.DictWriter(csvfile, fieldnames=rows[0].keys())
-                writer.writeheader()
-                writer.writerows(rows)
+# Process this page's data
 
-            print(f"✅ Exported {len(rows)} cost records to {output_file}")
-        else:
-            print(f"No cost data to export for the last {days_back} days")
-            print("💡 Try increasing days_back or check if you have recent API usage")
+for bucket in response.get("data", []):
 
-    except Exception as e:
-        print(f"❌ Cost export failed: {e}")
+date = bucket["starting\_at"][:10]
+
+for result in bucket["results"]:
+
+rows.append(
+
+{
+
+"date": date,
+
+"model": result.get("model", ""),
+
+"service\_tier": result.get("service\_tier", ""),
+
+"workspace\_id": result.get("workspace\_id", ""),
+
+"uncached\_input\_tokens": result.get("uncached\_input\_tokens", 0),
+
+"output\_tokens": result.get("output\_tokens", 0),
+
+"cache\_creation\_tokens": (
+
+result.get("cache\_creation", {}).get("ephemeral\_1h\_input\_tokens", 0)
+
++ result.get("cache\_creation", {}).get(
+
+"ephemeral\_5m\_input\_tokens", 0
+
+)
+
+),
+
+"cache\_read\_tokens": result.get("cache\_read\_input\_tokens", 0),
+
+"web\_search\_requests": result.get("server\_tool\_use", {}).get(
+
+"web\_search\_requests", 0
+
+),
+
+}
+
+)
+
+# Check if there's more data
+
+if not response.get("has\_more", False):
+
+break
+
+next\_page = response.get("next\_page")
+
+if not next\_page:
+
+break
+
+# Write CSV
+
+if rows:
+
+with open(output\_file, "w", newline="") as csvfile:
+
+writer = csv.DictWriter(csvfile, fieldnames=rows[0].keys())
+
+writer.writeheader()
+
+writer.writerows(rows)
+
+print(f"✅ Exported {len(rows)} rows to {output\_file}")
+
+else:
+
+print(f"No usage data to export for the last {days\_back} days")
+
+print("💡 Try increasing days\_back or check if you have recent API usage")
+
+except Exception as e:
+
+print(f"❌ Export failed: {e}")
+
+def export\_costs\_to\_csv(client, output\_file="cost\_data.csv", days\_back=30):
+
+"""Export cost data to CSV."""
+
+end\_time = datetime.combine(datetime.utcnow(), time.min)
+
+start\_time = end\_time - timedelta(days=days\_back)
+
+params = {
+
+"starting\_at": start\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
+
+"ending\_at": end\_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
+
+"group\_by[]": ["workspace\_id", "description"],
+
+}
+
+try:
+
+# Collect all data across pages
+
+rows = []
+
+page\_count = 0
+
+max\_pages = 20
+
+next\_page = None
+
+while page\_count < max\_pages:
+
+current\_params = params.copy()
+
+if next\_page:
+
+current\_params["page"] = next\_page
+
+response = client.\_make\_request("cost\_report", current\_params)
+
+page\_count += 1
+
+# Process this page's data
+
+for bucket in response.get("data", []):
+
+date = bucket["starting\_at"][:10]
+
+for result in bucket["results"]:
+
+# Handle both string and numeric amounts
+
+amount = result.get("amount", 0)
+
+if isinstance(amount, str):
+
+try:
+
+amount = float(amount)
+
+except (ValueError, TypeError):
+
+amount = 0
+
+rows.append(
+
+{
+
+"date": date,
+
+"workspace\_id": result.get(
+
+"workspace\_id", ""
+
+), # null for default workspace
+
+"description": result.get("description", ""),
+
+"currency": result.get("currency", "USD"),
+
+"amount\_usd": amount / 100,
+
+}
+
+)
+
+# Check if there's more data
+
+if not response.get("has\_more", False):
+
+break
+
+next\_page = response.get("next\_page")
+
+if not next\_page:
+
+break
+
+if rows:
+
+with open(output\_file, "w", newline="") as csvfile:
+
+writer = csv.DictWriter(csvfile, fieldnames=rows[0].keys())
+
+writer.writeheader()
+
+writer.writerows(rows)
+
+print(f"✅ Exported {len(rows)} cost records to {output\_file}")
+
+else:
+
+print(f"No cost data to export for the last {days\_back} days")
+
+print("💡 Try increasing days\_back or check if you have recent API usage")
+
+except Exception as e:
+
+print(f"❌ Cost export failed: {e}")
 
 # Example usage
+
 if client:
-    export_usage_to_csv(client, "my_usage_data.csv", days_back=14)
-    export_costs_to_csv(client, "my_cost_data.csv", days_back=14)
-```
+
+export\_usage\_to\_csv(client, "my\_usage\_data.csv", days\_back=14)
+
+export\_costs\_to\_csv(client, "my\_cost\_data.csv", days\_back=14)
+
+
 
 ```
 ✅ Exported 36 rows to my_usage_data.csv
 ✅ Exported 72 cost records to my_cost_data.csv
 ```
 
-## Wrapping Up
+##  Wrapping Up
 
 This cookbook covers the essential patterns for working with the Usage & Cost Admin API:
 
@@ -690,14 +1019,14 @@ This cookbook covers the essential patterns for working with the Usage & Cost Ad
 * **Common gotchas** to avoid issues
 * **Simple CSV export** for external tools
 
-### Next Steps
+###  Next Steps
 
-* Check the [official API documentation](https://docs.claude.com) for the latest field definitions
+* Check the [official API documentation(opens in new tab)](https://docs.claude.com) for the latest field definitions
 * Test your integration with small date ranges first
 * Consider data retention needs for your use case
 * Monitor for new API features that may enhance your analysis
 
-### Important Notes
+###  Important Notes
 
 * Field names and available options may evolve as the API matures
 * Always handle unknown values gracefully in production code

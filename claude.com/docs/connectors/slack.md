@@ -59,8 +59,8 @@ You must install Claude in Slack before enabling and using the Slack connector.
 
 ###  Enabling the connector
 
-**For Owners**: Navigate to **Admin settings > Connectors** and enable the Slack connector.
-**For Individual Users**: Go to **Settings > Connectors**, find Slack, and click “Connect.”
+**For Owners**: Navigate to **Organization settings > Connectors** and enable the Slack connector.
+**For Individual Users**: Go to **Customize > Connectors**, find Slack, and click “Connect.”
 
 ##  Managing connections
 
@@ -73,7 +73,7 @@ You must install Claude in Slack before enabling and using the Slack connector.
 ###  Disconnecting
 
 **Claude app**: Go to Claude’s Home tab and click the red “Disconnect” button.
-**Slack connector**: Access [claude.ai/settings/connectors](https://claude.ai/settings/connectors), find Slack, and select “Disconnect.”
+**Slack connector**: Go to [claude.ai/customize/connectors](https://claude.ai/customize/connectors), find Slack, and select “Disconnect.”
 
 Disconnecting removes your account connection and deletes past conversations within 30 days.
 

@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions -->
 
-# Claude Console roles and permissions
-
-May 20, 2026
-
 The Claude Console uses a role-based access system with six distinct roles: User, Claude Code User, Limited Developer, Developer, Billing, and Admin. Each role has specific permissions and capabilities designed to help teams manage their API access securely.
 
 ## Role types and permissions

@@ -2,7 +2,7 @@
 
 # Use Claude for Microsoft 365 with third-party platforms
 
-May 7, 2026
+Updated today
 
 If your organization uses AWS Bedrock, Google Cloud Vertex AI, or an LLM gateway to access Claude, you can use the Claude for Excel, Claude for PowerPoint, Claude for Word, and Claude for Outlook add-ins without a Claude account. The add-in connects through your organization's infrastructure, so your prompts and responses stay within your existing trust boundary.
 
@@ -200,7 +200,7 @@ After deploying the add-in, your users can connect by following the steps below.
 2. On the sign-in screen, select "Enterprise gateway."
 3. Enter the **Gateway URL** and **API token** your IT team provided.
 
-   * **Gateway URL**: The HTTPS base URL of your LLM proxy (for example, <https://llm-gateway.yourcompany.com>).
+   * **Gateway URL**: The HTTPS base URL of your LLM proxy (for example, `https://llm-gateway.yourcompany.com`).
    * **API token**: The bearer token your proxy expects. The add-in sends this in the Authorization: Bearer <token> header with every request.
 4. The add-in checks the connection by sending a test request to the gateway. If it succeeds, you'll see the main app experience.
 
@@ -227,7 +227,7 @@ The Office add-ins support the same three API formats as Claude Code. Set `gatew
 
 ### CORS requirements
 
-The add-in's taskpane loads from [`https://pivot.claude.ai`](https://pivot.claude.ai). Every request to your gateway is therefore cross-origin, and the browser will silently discard any response that lacks CORS headers.
+The add-in's taskpane loads from `https://pivot.claude.ai`. Every request to your gateway is therefore cross-origin, and the browser will silently discard any response that lacks CORS headers.
 
 Your gateway must return `Access-Control-Allow-Origin: https://pivot.claude.ai` (or `*`) on every response: GET, POST, OPTIONS, and all error responses. Setting it only on the OPTIONS preflight is not sufficient. For the preflight, return `Access-Control-Allow-Headers: *`.
 
@@ -251,7 +251,7 @@ The endpoints your gateway must expose depend on which API format it speaks. Set
 | POST /model/{model-id}/invoke | Send a message and receive a complete response. |
 | POST /model/{model-id}/invoke-with-response-stream | Send a message and receive a streaming response. |
 
-Native Bedrock InvokeModel pass-through. `gateway_url` must point at the pass-through prefix (for example, [`https://litellm.example.com/bedrock`](https://litellm.example.com/bedrock)).
+Native Bedrock InvokeModel pass-through. `gateway_url` must point at the pass-through prefix (for example, `https://litellm.example.com/bedrock`).
 
 **gateway\_api\_format: vertex**
 
@@ -261,7 +261,7 @@ Native Bedrock InvokeModel pass-through. `gateway_url` must point at the pass-th
 | POST /projects/{project}/locations/{region}/publishers/anthropic/models/{model-id}:rawPredict | Send a message and receive a complete response. |
 | POST /projects/{project}/locations/{region}/publishers/anthropic/models/{model-id}:streamRawPredict | Send a message and receive a streaming response. |
 
-Native Vertex pass-through. `gateway_url` must include the API-version segment (for example, [`https://litellm.example.com/vertex_ai/v1`](https://litellm.example.com/vertex_ai/v1)). Also requires `gcp_project_id` and `gcp_region` so the add-in can build the path.
+Native Vertex pass-through. `gateway_url` must include the API-version segment (for example, `https://litellm.example.com/vertex_ai/v1`). Also requires `gcp_project_id` and `gcp_region` so the add-in can build the path.
 
 ### Required header
 
@@ -398,13 +398,13 @@ If your team needs these features, talk to your Claude admin about which sign-in
 
 ### Add MCP connectors to third-party add-ins
 
-MCP connectors are now supported in Claude for Excel, PowerPoint, and Word. As an administrator, you can set the MCP gateway in the add-in manifest following the documentation here: **[MCP servers](https://github.com/anthropics/financial-services-plugins/blob/main/claude-in-office/commands/manifest.md#mcp-servers)**. If you prefer to use the bootstrap endpoint, you can configure MCP connectors following the documentation here: **[`mcp_servers`](https://github.com/anthropics/financial-services-plugins/blob/main/claude-in-office/commands/bootstrap.md#mcp_servers)**.
+MCP connectors are now supported in Claude for Excel, PowerPoint, and Word. As an administrator, you can set the MCP gateway in the add-in manifest following the documentation here: **[Generate add-in manifest](https://github.com/anthropics/financial-services/blob/main/claude-for-msft-365-install/commands/manifest.md)**. If you prefer to use the bootstrap endpoint, you can configure MCP connectors following the documentation here: **[`mcp_servers`](https://github.com/anthropics/financial-services/blob/main/claude-for-msft-365-install/commands/bootstrap.md#mcp_servers)**.
 
 ### Add Skills to third-party add-ins
 
 Skills are now supported in Claude for Excel, PowerPoint, and Word. The Anthropic financial services skills are available by default. Additional Skills may be added by administrators or manually by individuals.
 
-Administrators can add skills using the bootstrap endpoint, following the documentation here: **[`skills`](https://github.com/anthropics/financial-services-plugins/blob/main/claude-in-office/commands/bootstrap.md#skills)**.
+Administrators can add skills using the bootstrap endpoint, following the documentation here: **[`skills`](https://github.com/anthropics/financial-services/blob/main/claude-for-msft-365-install/commands/bootstrap.md#skills)**.
 
 Individuals can manually upload local skills (either as a .zip, .skill, or SKILL.md file) and manage them individually. Skills are uploaded by selecting the "+" button, then Skills → "Upload Skills."
 
@@ -428,7 +428,7 @@ The token is valid but lacks the right permissions. For Bedrock, verify the IAM 
 
 ### 404 Not found
 
-The add-in couldn't reach the expected API path. For gateways, verify the URL is the base URL (for example, [https://litellm-server:4000)—don't](https://litellm-server:4000)%E2%80%94don't) include /v1/messages in the URL field.
+The add-in couldn't reach the expected API path. For gateways, verify the URL is the base URL (for example, `https://litellm-server:4000`)—don't include /v1/messages in the URL field.
 
 ### 500 or other server errors
 
@@ -446,8 +446,8 @@ Verify that your gateway supports Server-Sent Events (SSE) pass-through. Some pr
 
 Connectors, skills, file uploads, and Working Across Apps aren't available through third-party platforms yet. If you need these, ask your admin about signing in with a Claude account instead.
 
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Use Claude in Microsoft Foundry](https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
-* [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)

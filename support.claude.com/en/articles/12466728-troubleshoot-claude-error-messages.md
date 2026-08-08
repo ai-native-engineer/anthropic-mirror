@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12466728-troubleshoot-claude-error-messages -->
 
-# Troubleshoot Claude error messages
-
-May 18, 2026
-
 This article explains common error messages and warnings you may encounter when using Claude and provides guidance on how to address them.
 
 ## Usage limit warnings and errors
@@ -56,7 +52,7 @@ Capacity issues will not appear on our status page because they represent normal
 
 Service incidents are disruptions where Claude is unavailable or significantly degraded for all or most users. These represent actual technical problems with our systems. To check for confirmed incidents, visit status.claude.com, where you'll find real-time updates on scope, impact, and resolution progress for any active incidents.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1785803400&signature=fad80f6bbf74dff75f6ed25b6ed8d8e485675b74079891e4797a036f870603ea&req=dSciFc53m4NbXvMW1HO4za4BXqor0rHA7y68oYp%2BYg8mC9vDbHXpD4djCwFq%0Agnt49Rkd06Cd0v7YExY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1785803400&signature=fad80f6bbf74dff75f6ed25b6ed8d8e485675b74079891e4797a036f870603ea&req=dSciFc53m4NbXvMW1HO4za4BXqor0rHA7y68oYp%2BYg8mC9vDbHXpD4djCwFq%0Agnt49Rkd06Cd0v7YExY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1786167000&signature=2e9f0148cc5a75dfb59904a296ac55b3f04fecd658237e8f1644ec03483ea616&req=dSciFc53m4NbXvMW1HO4za4BXqki1LXE7y68oYp%2BYg8sZj0NJcUL4Y%2BnCN3r%0ANx7BK%2B8wDemml1kJ8tk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1786167000&signature=2e9f0148cc5a75dfb59904a296ac55b3f04fecd658237e8f1644ec03483ea616&req=dSciFc53m4NbXvMW1HO4za4BXqki1LXE7y68oYp%2BYg8sZj0NJcUL4Y%2BnCN3r%0ANx7BK%2B8wDemml1kJ8tk%3D%0A)
 
 * [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)

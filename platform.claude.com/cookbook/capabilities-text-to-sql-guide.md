@@ -1,14 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/capabilities-text-to-sql-guide -->
 
-# Text to SQL with Claude
+#  Text to SQL with Claude
 
-## Introduction
+##  Introduction
 
 Text to SQL is a natural language processing task that converts human-readable text queries into structured SQL queries. This lets users interact with databases using natural language.
 
 Claude can understand context, interpret complex queries, and generate accurate SQL statements. This guide focuses on using Claude to build a robust Text to SQL system.
 
-## Why is Text to SQL Useful?
+##  Why is Text to SQL Useful?
 
 Text to SQL is valuable for several reasons:
 
@@ -17,7 +17,7 @@ Text to SQL is valuable for several reasons:
 3. **Integration**: It enables more intuitive interfaces for database interactions in applications and chatbots.
 4. **Complex Query Generation**: LLMs can generate complex SQL queries involving multiple joins, subqueries, and aggregations, which can be time-consuming for humans to write.
 
-## What This Guide Covers
+##  What This Guide Covers
 
 This guide will walk you through building a Text to SQL system using LLMs. We'll cover:
 
@@ -29,7 +29,7 @@ This guide will walk you through building a Text to SQL system using LLMs. We'll
 
 By the end of this guide, you'll understand how to implement and refine Text to SQL tasks using Claude, and have a framework for applying these techniques to your own projects.
 
-## Table of Contents
+##  Table of Contents
 
 1. [Introduction](#introduction)
 2. [Setup](#setup)
@@ -41,176 +41,293 @@ By the end of this guide, you'll understand how to implement and refine Text to 
 8. [Evaluations](#evaluations)
 9. [Further Exploration & Next Steps](#further-exploration--next-steps)
 
-## Setup
+##  Setup
 
 Let's set up our environment and create a test SQLite database with two tables: `employees` and `departments`. We'll use this database throughout our guide.
 
-python
+
 
-```
 %pip install -q anthropic pandas voyageai matplotlib seaborn
-```
+
+
 
 ```
 Note: you may need to restart the kernel to use updated packages.
 ```
 
-python
+
 
-```
 import os
+
 import sqlite3
 
 import pandas as pd
+
 from anthropic import Anthropic
+
 from IPython.display import display
 
 # Set your Claude API key
-os.environ["ANTHROPIC_API_KEY"] = "YOUR_ANTHROPIC_API_KEY"
-os.environ["VOYAGE_API_KEY"] = "YOUR_VOYAGE_API_KEY"
+
+os.environ["ANTHROPIC\_API\_KEY"] = "YOUR\_ANTHROPIC\_API\_KEY"
+
+os.environ["VOYAGE\_API\_KEY"] = "YOUR\_VOYAGE\_API\_KEY"
 
 # Initialize the Anthropic client
+
 client = Anthropic()
-MODEL_NAME = "claude-sonnet-4-6"
+
+MODEL\_NAME = "claude-sonnet-4-6"
 
 # Filepath to the SQLite database
-DATABASE_PATH = "data/data.db"
-```
 
-### Create a Test Database
+DATABASE\_PATH = "data/data.db"
 
-python
+###  Create a Test Database
 
-```
+
+
 import random
+
 from datetime import datetime, timedelta
 
-if not os.path.exists(DATABASE_PATH):
-    print("Database does not exist. Creating and populating...")
-    # Create a new SQLite database and tables
-    with sqlite3.connect(DATABASE_PATH) as conn:
-        cursor = conn.cursor()
+if not os.path.exists(DATABASE\_PATH):
 
-        cursor.executescript("""
-        CREATE TABLE IF NOT EXISTS departments (
-            id INTEGER PRIMARY KEY,
-            name TEXT NOT NULL,
-            location TEXT
-        );
-        CREATE TABLE IF NOT EXISTS employees (
-            id INTEGER PRIMARY KEY,
-            name TEXT NOT NULL,
-            age INTEGER,
-            department_id INTEGER,
-            salary REAL,
-            hire_date DATE,
-            FOREIGN KEY (department_id) REFERENCES departments (id)
-        );
-        """)
+print("Database does not exist. Creating and populating...")
 
-        # Insert sample data
-        cursor.executemany(
-            "INSERT INTO departments VALUES (?,?,?)",
-            [
-                (1, "HR", "New York"),
-                (2, "Engineering", "San Francisco"),
-                (3, "Marketing", "Chicago"),
-                (4, "Sales", "Los Angeles"),
-                (5, "Finance", "Boston"),
-                (6, "Customer Support", "Dallas"),
-                (7, "Research", "Seattle"),
-                (8, "Legal", "Washington D.C."),
-                (9, "Product", "Austin"),
-                (10, "Operations", "Denver"),
-            ],
-        )
+# Create a new SQLite database and tables
 
-        first_names = [
-            "John",
-            "Jane",
-            "Bob",
-            "Alice",
-            "Charlie",
-            "Diana",
-            "Edward",
-            "Fiona",
-            "George",
-            "Hannah",
-            "Ian",
-            "Julia",
-            "Kevin",
-            "Laura",
-            "Michael",
-            "Nora",
-            "Oliver",
-            "Patricia",
-            "Quentin",
-            "Rachel",
-            "Steve",
-            "Tina",
-            "Ulysses",
-            "Victoria",
-            "William",
-            "Xena",
-            "Yannick",
-            "Zoe",
-        ]
-        last_names = [
-            "Smith",
-            "Johnson",
-            "Williams",
-            "Jones",
-            "Brown",
-            "Davis",
-            "Miller",
-            "Wilson",
-            "Moore",
-            "Taylor",
-            "Anderson",
-            "Thomas",
-            "Jackson",
-            "White",
-            "Harris",
-            "Martin",
-            "Thompson",
-            "Garcia",
-            "Martinez",
-            "Robinson",
-            "Clark",
-            "Rodriguez",
-            "Lewis",
-            "Lee",
-            "Walker",
-            "Hall",
-            "Allen",
-            "Young",
-            "King",
-        ]
+with sqlite3.connect(DATABASE\_PATH) as conn:
 
-        employees_data = []
-        for i in range(1, 201):  # Generate 200 employees
-            name = f"{random.choice(first_names)} {random.choice(last_names)}"
-            age = random.randint(22, 65)
-            department_id = random.randint(1, 10)
-            salary = round(random.uniform(40000, 200000), 2)
-            hire_date = (datetime.now() - timedelta(days=random.randint(0, 3650))).strftime(
-                "%Y-%m-%d"
-            )
-            employees_data.append((i, name, age, department_id, salary, hire_date))
+cursor = conn.cursor()
 
-        cursor.executemany("INSERT INTO employees VALUES (?,?,?,?,?,?)", employees_data)
+cursor.executescript("""
 
-    print("Database created and populated successfully.")
+CREATE TABLE IF NOT EXISTS departments (
+
+id INTEGER PRIMARY KEY,
+
+name TEXT NOT NULL,
+
+location TEXT
+
+);
+
+CREATE TABLE IF NOT EXISTS employees (
+
+id INTEGER PRIMARY KEY,
+
+name TEXT NOT NULL,
+
+age INTEGER,
+
+department\_id INTEGER,
+
+salary REAL,
+
+hire\_date DATE,
+
+FOREIGN KEY (department\_id) REFERENCES departments (id)
+
+);
+
+""")
+
+# Insert sample data
+
+cursor.executemany(
+
+"INSERT INTO departments VALUES (?,?,?)",
+
+[
+
+(1, "HR", "New York"),
+
+(2, "Engineering", "San Francisco"),
+
+(3, "Marketing", "Chicago"),
+
+(4, "Sales", "Los Angeles"),
+
+(5, "Finance", "Boston"),
+
+(6, "Customer Support", "Dallas"),
+
+(7, "Research", "Seattle"),
+
+(8, "Legal", "Washington D.C."),
+
+(9, "Product", "Austin"),
+
+(10, "Operations", "Denver"),
+
+],
+
+)
+
+first\_names = [
+
+"John",
+
+"Jane",
+
+"Bob",
+
+"Alice",
+
+"Charlie",
+
+"Diana",
+
+"Edward",
+
+"Fiona",
+
+"George",
+
+"Hannah",
+
+"Ian",
+
+"Julia",
+
+"Kevin",
+
+"Laura",
+
+"Michael",
+
+"Nora",
+
+"Oliver",
+
+"Patricia",
+
+"Quentin",
+
+"Rachel",
+
+"Steve",
+
+"Tina",
+
+"Ulysses",
+
+"Victoria",
+
+"William",
+
+"Xena",
+
+"Yannick",
+
+"Zoe",
+
+]
+
+last\_names = [
+
+"Smith",
+
+"Johnson",
+
+"Williams",
+
+"Jones",
+
+"Brown",
+
+"Davis",
+
+"Miller",
+
+"Wilson",
+
+"Moore",
+
+"Taylor",
+
+"Anderson",
+
+"Thomas",
+
+"Jackson",
+
+"White",
+
+"Harris",
+
+"Martin",
+
+"Thompson",
+
+"Garcia",
+
+"Martinez",
+
+"Robinson",
+
+"Clark",
+
+"Rodriguez",
+
+"Lewis",
+
+"Lee",
+
+"Walker",
+
+"Hall",
+
+"Allen",
+
+"Young",
+
+"King",
+
+]
+
+employees\_data = []
+
+for i in range(1, 201): # Generate 200 employees
+
+name = f"{random.choice(first\_names)} {random.choice(last\_names)}"
+
+age = random.randint(22, 65)
+
+department\_id = random.randint(1, 10)
+
+salary = round(random.uniform(40000, 200000), 2)
+
+hire\_date = (datetime.now() - timedelta(days=random.randint(0, 3650))).strftime(
+
+"%Y-%m-%d"
+
+)
+
+employees\_data.append((i, name, age, department\_id, salary, hire\_date))
+
+cursor.executemany("INSERT INTO employees VALUES (?,?,?,?,?,?)", employees\_data)
+
+print("Database created and populated successfully.")
+
 else:
-    print("Database already exists. Skipping creation and population.")
+
+print("Database already exists. Skipping creation and population.")
 
 # Display table contents
-with sqlite3.connect(DATABASE_PATH) as conn:
-    for table in ["departments", "employees"]:
-        df = pd.read_sql_query(f"SELECT * FROM {table}", conn)
-        print(f"\n{table.capitalize()} table:")
-        display(df)
-```
+
+with sqlite3.connect(DATABASE\_PATH) as conn:
+
+for table in ["departments", "employees"]:
+
+df = pd.read\_sql\_query(f"SELECT \* FROM {table}", conn)
+
+print(f"\n{table.capitalize()} table:")
+
+display(df)
+
+
 
 ```
 Database already exists. Skipping creation and population.
@@ -247,7 +364,7 @@ Employees table:
 [200 rows x 6 columns]
 ```
 
-## Creating a Basic Text to SQL Prompt
+##  Creating a Basic Text to SQL Prompt
 
 Now that we have our database set up, let's create a basic prompt for Text to SQL conversion. A good prompt should include:
 
@@ -255,35 +372,47 @@ Now that we have our database set up, let's create a basic prompt for Text to SQ
 2. The user's query
 3. The database's schema, so Claude knows how to translate the user's query
 
-python
+
 
-```
-def get_schema_info(db_path):
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+def get\_schema\_info(db\_path):
 
-    schema_info = []
+conn = sqlite3.connect(db\_path)
 
-    # Get all tables
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-    tables = cursor.fetchall()
+cursor = conn.cursor()
 
-    for (table_name,) in tables:
-        # Get columns for this table
-        cursor.execute(f"PRAGMA table_info({table_name})")
-        columns = cursor.fetchall()
+schema\_info = []
 
-        table_info = f"Table: {table_name}\n"
-        table_info += "\n".join(f"  - {col[1]} ({col[2]})" for col in columns)
-        schema_info.append(table_info)
+# Get all tables
 
-    conn.close()
-    return "\n\n".join(schema_info)
+cursor.execute("SELECT name FROM sqlite\_master WHERE type='table';")
+
+tables = cursor.fetchall()
+
+for (table\_name,) in tables:
+
+# Get columns for this table
+
+cursor.execute(f"PRAGMA table\_info({table\_name})")
+
+columns = cursor.fetchall()
+
+table\_info = f"Table: {table\_name}\n"
+
+table\_info += "\n".join(f" - {col[1]} ({col[2]})" for col in columns)
+
+schema\_info.append(table\_info)
+
+conn.close()
+
+return "\n\n".join(schema\_info)
 
 # Get the schema info
-schema = get_schema_info(DATABASE_PATH)
+
+schema = get\_schema\_info(DATABASE\_PATH)
+
 print(schema)
-```
+
+
 
 ```
 Table: departments
@@ -302,31 +431,43 @@ Table: employees
 
 Now that we have our schema information, let's create a basic prompt:
 
-python
+
 
-```
-def generate_prompt(schema, query):
-    return f"""
-        You are an AI assistant that converts natural language queries into SQL.
-        Given the following SQL database schema:
+def generate\_prompt(schema, query):
 
-        <schema>
-        {schema}
-        </schema>
+return f"""
 
-        Convert the following natural language query into SQL:
-        <query>
-        {query}
-        </query>
+You are an AI assistant that converts natural language queries into SQL.
 
-        Provide only the SQL query in your response, enclosed within <sql> tags.
-    """
+Given the following SQL database schema:
+
+<schema>
+
+{schema}
+
+</schema>
+
+Convert the following natural language query into SQL:
+
+<query>
+
+{query}
+
+</query>
+
+Provide only the SQL query in your response, enclosed within <sql> tags.
+
+"""
 
 # Test the prompt
-user_query = "What are the names of all employees in the Engineering department?"
-prompt = generate_prompt(schema, user_query)
+
+user\_query = "What are the names of all employees in the Engineering department?"
+
+prompt = generate\_prompt(schema, user\_query)
+
 print(prompt)
-```
+
+
 
 ```
 You are an AI assistant that converts natural language queries into SQL.
@@ -357,24 +498,35 @@ Table: employees
 
 Now let's use this prompt with the Claude API to generate SQL:
 
-python
+
 
-```
-def generate_sql(prompt):
-    response = client.messages.create(
-        model=MODEL_NAME,
-        max_tokens=1000,
-        temperature=0,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return response.content[0].text.strip()
+def generate\_sql(prompt):
+
+response = client.messages.create(
+
+model=MODEL\_NAME,
+
+max\_tokens=1000,
+
+temperature=0,
+
+messages=[{"role": "user", "content": prompt}],
+
+)
+
+return response.content[0].text.strip()
 
 # Generate SQL
-result = generate_sql(prompt)
+
+result = generate\_sql(prompt)
+
 sql = result.split("<sql>")[1].split("</sql>")[0].strip()
+
 print("Generated SQL:")
+
 print(sql)
-```
+
+
 
 ```
 Generated SQL:
@@ -386,19 +538,25 @@ WHERE d.name = 'Engineering';
 
 Let's test our generated SQL by running it against our database:
 
-python
+
 
-```
-def run_sql(sql):
-    conn = sqlite3.connect(DATABASE_PATH)
-    result = pd.read_sql_query(sql, conn)
-    conn.close()
-    return result
+def run\_sql(sql):
 
-result = run_sql(sql)
+conn = sqlite3.connect(DATABASE\_PATH)
+
+result = pd.read\_sql\_query(sql, conn)
+
+conn.close()
+
+return result
+
+result = run\_sql(sql)
+
 print("Query result:")
+
 display(result)
-```
+
+
 
 ```
 Query result:
@@ -426,57 +584,79 @@ Query result:
 19    Yannick Harris
 ```
 
-## Improving the Prompt with Examples
+##  Improving the Prompt with Examples
 
 Our basic prompt works, but we can make it more effective by including examples. This technique, called few-shot learning, helps the model understand the task better by providing concrete examples of input-output pairs.
 
 Let's modify our `generate_prompt` function to include some examples:
 
-python
+
 
-```
-def generate_prompt_with_examples(schema, query):
-    examples = """
-        Example 1:
-        <query>List all employees in the HR department.</<query>
-        <output>SELECT e.name FROM employees e JOIN departments d ON e.department_id = d.id WHERE d.name = 'HR';</output>
+def generate\_prompt\_with\_examples(schema, query):
 
-        Example 2:
-        User: What is the average salary of employees in the Engineering department?
-        SQL: SELECT AVG(e.salary) FROM employees e JOIN departments d ON e.department_id = d.id WHERE d.name = 'Engineering';
+examples = """
 
-        Example 3:
-        User: Who is the oldest employee?
-        SQL: SELECT name, age FROM employees ORDER BY age DESC LIMIT 1;
-    """
+Example 1:
 
-    return f"""
-        You are an AI assistant that converts natural language queries into SQL.
-        Given the following SQL database schema:
+<query>List all employees in the HR department.</<query>
 
-        <schema>
-        {schema}
-        </schema>
+<output>SELECT e.name FROM employees e JOIN departments d ON e.department\_id = d.id WHERE d.name = 'HR';</output>
 
-        Here are some examples of natural language queries and their corresponding SQL:
+Example 2:
 
-        <examples>
-        {examples}
-        </examples>
+User: What is the average salary of employees in the Engineering department?
 
-        Now, convert the following natural language query into SQL:
-        <query>
-        {query}
-        </query>
+SQL: SELECT AVG(e.salary) FROM employees e JOIN departments d ON e.department\_id = d.id WHERE d.name = 'Engineering';
 
-        Provide only the SQL query in your response, enclosed within <sql> tags.
-    """
+Example 3:
+
+User: Who is the oldest employee?
+
+SQL: SELECT name, age FROM employees ORDER BY age DESC LIMIT 1;
+
+"""
+
+return f"""
+
+You are an AI assistant that converts natural language queries into SQL.
+
+Given the following SQL database schema:
+
+<schema>
+
+{schema}
+
+</schema>
+
+Here are some examples of natural language queries and their corresponding SQL:
+
+<examples>
+
+{examples}
+
+</examples>
+
+Now, convert the following natural language query into SQL:
+
+<query>
+
+{query}
+
+</query>
+
+Provide only the SQL query in your response, enclosed within <sql> tags.
+
+"""
 
 # Test the new prompt
-user_query = "What are the names and salaries of employees in the Marketing department?"
-prompt = generate_prompt_with_examples(schema, user_query)
+
+user\_query = "What are the names and salaries of employees in the Marketing department?"
+
+prompt = generate\_prompt\_with\_examples(schema, user\_query)
+
 print(prompt)
-```
+
+
 
 ```
 You are an AI assistant that converts natural language queries into SQL.
@@ -525,20 +705,27 @@ Table: employees
 
 Now let's use this improved prompt to generate SQL:
 
-python
+
 
-```
 # Generate SQL using the improved prompt
-result = generate_sql(prompt)
+
+result = generate\_sql(prompt)
+
 sql = result.split("<sql>")[1].split("</sql>")[0].strip()
+
 print("Generated SQL:")
+
 print(sql)
 
 # Run the generated SQL
-result = run_sql(sql)
+
+result = run\_sql(sql)
+
 print("\nQuery result:")
+
 display(result)
-```
+
+
 
 ```
 Generated SQL:
@@ -578,67 +765,101 @@ By including examples in our prompt, we've given the model a better understandin
 
 In the next section, we'll explore how to handle more complex queries and improve the model's reasoning process using chain-of-thought prompting.
 
-## Using Chain-of-Thought Prompting
+##  Using Chain-of-Thought Prompting
 
 Chain-of-thought prompting encourages the model to break down complex problems into steps. For Text to SQL tasks, this can help with more complex queries that require multiple operations or careful consideration of the database schema.
 
 Let's modify our prompt to incorporate chain-of-thought reasoning using XML tags:
 
-python
+
 
-```
-def generate_prompt_with_cot(schema, query):
-    examples = """
-    <example>
-    <query>List all employees in the HR department.</query>
-    <thought_process>
-    1. We need to join the employees and departments tables.
-    2. We'll match employees.department_id with departments.id.
-    3. We'll filter for the HR department.
-    4. We only need to return the employee names.
-    </thought_process>
-    <sql>SELECT e.name FROM employees e JOIN departments d ON e.department_id = d.id WHERE d.name = 'HR';</sql>
-    </example>
+def generate\_prompt\_with\_cot(schema, query):
 
-    <example>
-    <query>What is the average salary of employees hired in 2022?</query>
-    <thought_process>
-    1. We need to work with the employees table.
-    2. We need to filter for employees hired in 2022.
-    3. We'll use the YEAR function to extract the year from the hire_date.
-    4. We'll calculate the average of the salary column for the filtered rows.
-    </thought_process>
-    <sql>SELECT AVG(salary) FROM employees WHERE YEAR(hire_date) = 2022;</sql>
-    </example>
-    """
+examples = """
 
-    return f"""You are an AI assistant that converts natural language queries into SQL.
-    Given the following SQL database schema:
+<example>
 
-    <schema>
-    {schema}
-    </schema>
+<query>List all employees in the HR department.</query>
 
-    Here are some examples of natural language queries, thought processes, and their corresponding SQL:
+<thought\_process>
 
-    <examples>
-    {examples}
-    </examples>
+1. We need to join the employees and departments tables.
 
-    Now, convert the following natural language query into SQL:
-    <query>
-    {query}
-    </query>
+2. We'll match employees.department\_id with departments.id.
 
-    Within <thought_process> tags, explain your thought process for creating the SQL query.
-    Then, within <sql> tags, provide your output SQL query.
-    """
+3. We'll filter for the HR department.
+
+4. We only need to return the employee names.
+
+</thought\_process>
+
+<sql>SELECT e.name FROM employees e JOIN departments d ON e.department\_id = d.id WHERE d.name = 'HR';</sql>
+
+</example>
+
+<example>
+
+<query>What is the average salary of employees hired in 2022?</query>
+
+<thought\_process>
+
+1. We need to work with the employees table.
+
+2. We need to filter for employees hired in 2022.
+
+3. We'll use the YEAR function to extract the year from the hire\_date.
+
+4. We'll calculate the average of the salary column for the filtered rows.
+
+</thought\_process>
+
+<sql>SELECT AVG(salary) FROM employees WHERE YEAR(hire\_date) = 2022;</sql>
+
+</example>
+
+"""
+
+return f"""You are an AI assistant that converts natural language queries into SQL.
+
+Given the following SQL database schema:
+
+<schema>
+
+{schema}
+
+</schema>
+
+Here are some examples of natural language queries, thought processes, and their corresponding SQL:
+
+<examples>
+
+{examples}
+
+</examples>
+
+Now, convert the following natural language query into SQL:
+
+<query>
+
+{query}
+
+</query>
+
+Within <thought\_process> tags, explain your thought process for creating the SQL query.
+
+Then, within <sql> tags, provide your output SQL query.
+
+"""
 
 # Test the new prompt
-user_query = "What are the names and hire dates of employees in the Engineering department, ordered by their salary?"
-prompt = generate_prompt_with_cot(schema, user_query)
+
+user\_query = "What are the names and hire dates of employees in the Engineering department, ordered by their salary?"
+
+prompt = generate\_prompt\_with\_cot(schema, user\_query)
+
 print(prompt)
-```
+
+
 
 ```
 You are an AI assistant that converts natural language queries into SQL.
@@ -698,29 +919,39 @@ Table: employees
 
 Now let's use this chain-of-thought prompt with XML tags to generate SQL:
 
-python
+
 
-```
 # Generate SQL using the chain-of-thought prompt
-result = generate_sql(prompt)
+
+result = generate\_sql(prompt)
+
 print("Raw response from Claude:")
+
 print(result)
 
 # Extract thought process and SQL query
-thought_process = result.split("<thought_process>")[1].split("</thought_process>")[0].strip()
+
+thought\_process = result.split("<thought\_process>")[1].split("</thought\_process>")[0].strip()
+
 sql = result.split("<sql>")[1].split("</sql>")[0].strip()
 
 print("\nThought Process:")
-print(thought_process)
+
+print(thought\_process)
 
 print("\nGenerated SQL:")
+
 print(sql)
 
 # Run the generated SQL
-query_result = run_sql(sql)
+
+query\_result = run\_sql(sql)
+
 print("\nQuery result:")
-display(query_result)
-```
+
+display(query\_result)
+
+
 
 ```
 Raw response from Claude:
@@ -785,102 +1016,167 @@ Query result:
 19      Steve Taylor  2020-01-26
 ```
 
-## Implementing RAG for Complex Database Schemas
+##  Implementing RAG for Complex Database Schemas
 
 As databases grow larger and more complex, providing the entire schema in each prompt becomes impractical. Retrieval Augmented Generation (RAG) can helps manage this complexity by dynamically retrieving the most relevant schema information based on the user's query.
 
 First, lets build a simple VectorDB class that leverages the embedding models created by VoyageAI:
 
-python
+
 
-```
 import json
+
 import os
+
 import pickle
+
 import sqlite3
 
 import numpy as np
+
 import voyageai
 
 class VectorDB:
-    def __init__(self, db_path="./data/vector_db.pkl"):
-        self.client = voyageai.Client(api_key=os.getenv("VOYAGE_API_KEY"))
-        self.db_path = db_path
-        self.load_db()
 
-    def load_db(self):
-        if os.path.exists(self.db_path):
-            with open(self.db_path, "rb") as file:
-                data = pickle.load(file)
-            self.embeddings, self.metadata, self.query_cache = (
-                data["embeddings"],
-                data["metadata"],
-                json.loads(data["query_cache"]),
-            )
-        else:
-            self.embeddings, self.metadata, self.query_cache = [], [], {}
+def \_\_init\_\_(self, db\_path="./data/vector\_db.pkl"):
 
-    def load_data(self, data):
-        if not self.embeddings:
-            texts = [item["text"] for item in data]
-            self.embeddings = [
-                emb
-                for batch in range(0, len(texts), 128)
-                for emb in self.client.embed(
-                    texts[batch : batch + 128], model="voyage-2"
-                ).embeddings
-            ]
-            self.metadata = [item["metadata"] for item in data]  # Store only the inner metadata
-            self.save_db()
+self.client = voyageai.Client(api\_key=os.getenv("VOYAGE\_API\_KEY"))
 
-    def search(self, query, k=5, similarity_threshold=0.3):
-        if query not in self.query_cache:
-            self.query_cache[query] = self.client.embed([query], model="voyage-2").embeddings[0]
-            self.save_db()
+self.db\_path = db\_path
 
-        similarities = np.dot(self.embeddings, self.query_cache[query])
-        top_indices = np.argsort(similarities)[::-1]
+self.load\_db()
 
-        return [
-            {"metadata": self.metadata[i], "similarity": similarities[i]}
-            for i in top_indices
-            if similarities[i] >= similarity_threshold
-        ][:k]
+def load\_db(self):
 
-    def save_db(self):
-        with open(self.db_path, "wb") as file:
-            pickle.dump(
-                {
-                    "embeddings": self.embeddings,
-                    "metadata": self.metadata,
-                    "query_cache": json.dumps(self.query_cache),
-                },
-                file,
-            )
+if os.path.exists(self.db\_path):
+
+with open(self.db\_path, "rb") as file:
+
+data = pickle.load(file)
+
+self.embeddings, self.metadata, self.query\_cache = (
+
+data["embeddings"],
+
+data["metadata"],
+
+json.loads(data["query\_cache"]),
+
+)
+
+else:
+
+self.embeddings, self.metadata, self.query\_cache = [], [], {}
+
+def load\_data(self, data):
+
+if not self.embeddings:
+
+texts = [item["text"] for item in data]
+
+self.embeddings = [
+
+emb
+
+for batch in range(0, len(texts), 128)
+
+for emb in self.client.embed(
+
+texts[batch : batch + 128], model="voyage-2"
+
+).embeddings
+
+]
+
+self.metadata = [item["metadata"] for item in data] # Store only the inner metadata
+
+self.save\_db()
+
+def search(self, query, k=5, similarity\_threshold=0.3):
+
+if query not in self.query\_cache:
+
+self.query\_cache[query] = self.client.embed([query], model="voyage-2").embeddings[0]
+
+self.save\_db()
+
+similarities = np.dot(self.embeddings, self.query\_cache[query])
+
+top\_indices = np.argsort(similarities)[::-1]
+
+return [
+
+{"metadata": self.metadata[i], "similarity": similarities[i]}
+
+for i in top\_indices
+
+if similarities[i] >= similarity\_threshold
+
+][:k]
+
+def save\_db(self):
+
+with open(self.db\_path, "wb") as file:
+
+pickle.dump(
+
+{
+
+"embeddings": self.embeddings,
+
+"metadata": self.metadata,
+
+"query\_cache": json.dumps(self.query\_cache),
+
+},
+
+file,
+
+)
 
 # Initialize and load schema data
+
 vectordb = VectorDB()
+
 if not vectordb.embeddings:
-    with sqlite3.connect(DATABASE_PATH) as conn:
-        cursor = conn.cursor()
-        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-        schema_data = [
-            {
-                "text": f"Table: {table[0]}, Column: {col[1]}, Type: {col[2]}",
-                "metadata": {"table": table[0], "column": col[1], "type": col[2]},
-            }
-            for table in cursor.fetchall()
-            for col in cursor.execute(f"PRAGMA table_info({table[0]})").fetchall()
-        ]
-    vectordb.load_data(schema_data)
+
+with sqlite3.connect(DATABASE\_PATH) as conn:
+
+cursor = conn.cursor()
+
+cursor.execute("SELECT name FROM sqlite\_master WHERE type='table';")
+
+schema\_data = [
+
+{
+
+"text": f"Table: {table[0]}, Column: {col[1]}, Type: {col[2]}",
+
+"metadata": {"table": table[0], "column": col[1], "type": col[2]},
+
+}
+
+for table in cursor.fetchall()
+
+for col in cursor.execute(f"PRAGMA table\_info({table[0]})").fetchall()
+
+]
+
+vectordb.load\_data(schema\_data)
 
 # Test the search functionality
-test_query = "What is the average salary of employees in each department?"
-results = vectordb.search(test_query)
+
+test\_query = "What is the average salary of employees in each department?"
+
+results = vectordb.search(test\_query)
+
 print("Search results:")
+
 for result in results:
-    print(f"Similarity: {result['similarity']}, Metadata: {result['metadata']}")
-```
+
+print(f"Similarity: {result['similarity']}, Metadata: {result['metadata']}")
+
+
 
 ```
 Search results:
@@ -893,40 +1189,59 @@ Similarity: 0.6666317064533499, Metadata: {'table': 'departments', 'column': 'lo
 
 Now, let's update our prompt generation function to use RAG:
 
-python
+
 
-```
-def generate_prompt_with_rag(query):
-    relevant_schema = vectordb.search(query, k=10, similarity_threshold=0.3)
-    schema_info = "\n".join(
-        [
-            f"Table: {item['metadata']['table']}, Column: {item['metadata']['column']}, Type: {item['metadata']['type']}"
-            for item in relevant_schema
-        ]
-    )
+def generate\_prompt\_with\_rag(query):
 
-    return generate_prompt_with_cot(schema_info, query)
+relevant\_schema = vectordb.search(query, k=10, similarity\_threshold=0.3)
+
+schema\_info = "\n".join(
+
+[
+
+f"Table: {item['metadata']['table']}, Column: {item['metadata']['column']}, Type: {item['metadata']['type']}"
+
+for item in relevant\_schema
+
+]
+
+)
+
+return generate\_prompt\_with\_cot(schema\_info, query)
 
 # Test the RAG-based prompt
-user_query = "What is the average salary of employees in each department?"
-prompt = generate_prompt_with_rag(user_query)
+
+user\_query = "What is the average salary of employees in each department?"
+
+prompt = generate\_prompt\_with\_rag(user\_query)
+
 print("Generated prompt:")
+
 print(prompt)
 
 # Generate and execute SQL
-result = generate_sql(prompt)
+
+result = generate\_sql(prompt)
+
 print("\nGenerated result:")
+
 print(result)
 
 # Extract and run the SQL query
+
 sql = result.split("<sql>")[1].split("</sql>")[0].strip()
+
 print("\nExtracted SQL:")
+
 print(sql)
 
-query_result = run_sql(sql)
+query\_result = run\_sql(sql)
+
 print("\nQuery result:")
-display(query_result)
-```
+
+display(query\_result)
+
+
 
 ```
 Generated prompt:
@@ -1019,7 +1334,7 @@ Query result:
 9             Sales   136531.167826
 ```
 
-## Implementing Query Self-Improvement
+##  Implementing Query Self-Improvement
 
 Here, we'll build a self-improvement loop with Claude. This lets Claude execute the SQL it generates, analyze the results or errors, and improve the query if necessary.
 
@@ -1033,58 +1348,89 @@ In practice, you might want to adjust the `max_attempts` value based on your spe
 
 Let's start by creating a function that tries to execute the SQL and provides feedback:
 
-python
+
 
-```
-def execute_sql_with_feedback(sql):
-    try:
-        result = run_sql(sql)
-        return True, result, "Query executed successfully."
-    except Exception as e:
-        return False, None, str(e)
+def execute\_sql\_with\_feedback(sql):
 
-def generate_prompt_with_self_improvement(query, max_attempts=3):
-    feedback = None
-    sql = None
+try:
 
-    for attempt in range(max_attempts):
-        if attempt == 0:
-            prompt = generate_prompt_with_rag(query)
-        else:
-            prompt = f"""
-            The previous SQL query resulted in this error: {feedback}
-            Analyze the error and provide an improved SQL query.
-            Original query: {sql}
-            Explain your changes in <thought_process> tags and provide the corrected SQL in <sql> tags.
-            """
+result = run\_sql(sql)
 
-        response = generate_sql(prompt)
-        sql = response.split("<sql>")[1].split("</sql>")[0].strip()
+return True, result, "Query executed successfully."
 
-        print(f"\nAttempt {attempt + 1}:")
+except Exception as e:
 
-        success, result, feedback = execute_sql_with_feedback(sql)
-        if success:
-            print("SQL executed successfully!")
-            return sql, result
-        else:
-            print("SQL failed to execute")
+return False, None, str(e)
 
-    print("Maximum attempts reached. Could not generate a valid SQL query.")
-    return None, None
+def generate\_prompt\_with\_self\_improvement(query, max\_attempts=3):
+
+feedback = None
+
+sql = None
+
+for attempt in range(max\_attempts):
+
+if attempt == 0:
+
+prompt = generate\_prompt\_with\_rag(query)
+
+else:
+
+prompt = f"""
+
+The previous SQL query resulted in this error: {feedback}
+
+Analyze the error and provide an improved SQL query.
+
+Original query: {sql}
+
+Explain your changes in <thought\_process> tags and provide the corrected SQL in <sql> tags.
+
+"""
+
+response = generate\_sql(prompt)
+
+sql = response.split("<sql>")[1].split("</sql>")[0].strip()
+
+print(f"\nAttempt {attempt + 1}:")
+
+success, result, feedback = execute\_sql\_with\_feedback(sql)
+
+if success:
+
+print("SQL executed successfully!")
+
+return sql, result
+
+else:
+
+print("SQL failed to execute")
+
+print("Maximum attempts reached. Could not generate a valid SQL query.")
+
+return None, None
 
 # Test the self-improving SQL generation
-user_query = "For each department, show the ratio of the highest paid employee's salary to the lowest paid employee's salary, but only for departments where this ratio is greater than 3"
-final_sql, result = generate_prompt_with_self_improvement(user_query)
 
-if final_sql:
-    print("\nFinal SQL query:")
-    print(final_sql)
-    print("\nQuery result:")
-    display(result)
+user\_query = "For each department, show the ratio of the highest paid employee's salary to the lowest paid employee's salary, but only for departments where this ratio is greater than 3"
+
+final\_sql, result = generate\_prompt\_with\_self\_improvement(user\_query)
+
+if final\_sql:
+
+print("\nFinal SQL query:")
+
+print(final\_sql)
+
+print("\nQuery result:")
+
+display(result)
+
 else:
-    print("Failed to generate a valid SQL query.")
-```
+
+print("Failed to generate a valid SQL query.")
+
+
 
 ```
 Attempt 1:
@@ -1119,11 +1465,11 @@ Query result:
 
 This self-improvement loop makes our Text to SQL system far more reliable for real-world applications.
 
-## Evaluations
+##  Evaluations
 
 Evaluating Text to SQL systems isn't always straightforward. A SQL query might be written correctly but not give the right answer, or it might work but not be the best way to get the result. Some queries are simple and easy to generate, while others are very complex.
 
-Here, we'll explore building an evaluation framework using [Promptfoo](https://promptfoo.dev), an open source LLM evaluation toolkit. To get started,check out `./evaluation/README.md`.
+Here, we'll explore building an evaluation framework using [Promptfoo(opens in new tab)](https://promptfoo.dev), an open source LLM evaluation toolkit. To get started,check out `./evaluation/README.md`.
 
 The tests in our framework vary in difficulty and evaluate the system across several dimensions:
 
@@ -1133,84 +1479,127 @@ The tests in our framework vary in difficulty and evaluate the system across sev
 4. **Result Correctness**: We execute the generated SQL against a test database and compare the results with expected outcomes. This ensures that the query not only looks correct but also produces the right data.
 5. **Handling Complex Queries**: We test the system's ability to handle increasingly complex queries, including multi-table joins, subqueries, window functions, and complex aggregations.
 
-### Results
+###  Results
 
 We'll use the code below to visualize our results. You can see that Claude 3.5 Sonnet more consistently passes our assertions using the techniques we covered, but it may incur slightly higher latency, cost, or token usage than Claude 3 Haiku.
 
 You can create and use evaluations like this one to make the appropriate tradeoffs based on your use case.
 
-python
+
 
-```
 import matplotlib.pyplot as plt
+
 import numpy as np
 
 # Data
+
 models = [
-    "3H Basic",
-    "3H Few-Shot",
-    "3H CoT+Few-Shot",
-    "3H RAG+Few-Shot+CoT",
-    "3.5S Basic",
-    "3.5S Few-Shot",
-    "3.5S CoT+Few-Shot",
-    "3.5S RAG+Few-Shot+CoT",
+
+"3H Basic",
+
+"3H Few-Shot",
+
+"3H CoT+Few-Shot",
+
+"3H RAG+Few-Shot+CoT",
+
+"3.5S Basic",
+
+"3.5S Few-Shot",
+
+"3.5S CoT+Few-Shot",
+
+"3.5S RAG+Few-Shot+CoT",
+
 ]
-pass_rates = [83.3, 77.8, 88.9, 88.9, 88.9, 94.4, 100, 100]
-avg_latencies = [1561, 1758, 2187, 2564, 1887, 2297, 3900, 4614]
-avg_tokens = [383, 572, 765, 1001, 309, 496, 765, 984]
+
+pass\_rates = [83.3, 77.8, 88.9, 88.9, 88.9, 94.4, 100, 100]
+
+avg\_latencies = [1561, 1758, 2187, 2564, 1887, 2297, 3900, 4614]
+
+avg\_tokens = [383, 572, 765, 1001, 309, 496, 765, 984]
+
 costs = [0.0023, 0.0027, 0.0034, 0.0044, 0.020, 0.024, 0.041, 0.050]
 
 # Normalize the data
-max_latency = max(avg_latencies)
-max_tokens = max(avg_tokens)
-max_cost = max(costs)
-norm_latencies = [latency / max_latency * 100 for latency in avg_latencies]
-norm_tokens = [t / max_tokens * 100 for t in avg_tokens]
-norm_costs = [c / max_cost * 100 for c in costs]
+
+max\_latency = max(avg\_latencies)
+
+max\_tokens = max(avg\_tokens)
+
+max\_cost = max(costs)
+
+norm\_latencies = [latency / max\_latency \* 100 for latency in avg\_latencies]
+
+norm\_tokens = [t / max\_tokens \* 100 for t in avg\_tokens]
+
+norm\_costs = [c / max\_cost \* 100 for c in costs]
 
 # Set up the plot
+
 x = np.arange(len(models))
+
 width = 0.2
 
 fig, ax = plt.subplots(figsize=(15, 8))
 
 # Create the bars
-ax.bar(x - 1.5 * width, pass_rates, width, label="Pass Rate (%)", color="green")
-ax.bar(x - 0.5 * width, norm_latencies, width, label="Avg. Latency (normalized)", color="blue")
-ax.bar(x + 0.5 * width, norm_tokens, width, label="Avg. Tokens (normalized)", color="orange")
-ax.bar(x + 1.5 * width, norm_costs, width, label="Cost (normalized)", color="red")
+
+ax.bar(x - 1.5 \* width, pass\_rates, width, label="Pass Rate (%)", color="green")
+
+ax.bar(x - 0.5 \* width, norm\_latencies, width, label="Avg. Latency (normalized)", color="blue")
+
+ax.bar(x + 0.5 \* width, norm\_tokens, width, label="Avg. Tokens (normalized)", color="orange")
+
+ax.bar(x + 1.5 \* width, norm\_costs, width, label="Cost (normalized)", color="red")
 
 # Customize the plot
-ax.set_ylabel("Percentage / Normalized Value")
-ax.set_title("Comparison of Model Performance")
-ax.set_xticks(x)
-ax.set_xticklabels(models, rotation=45, ha="right")
+
+ax.set\_ylabel("Percentage / Normalized Value")
+
+ax.set\_title("Comparison of Model Performance")
+
+ax.set\_xticks(x)
+
+ax.set\_xticklabels(models, rotation=45, ha="right")
+
 ax.legend()
 
 # Add value labels on the bars
-def add_labels(rects):
-    for rect in rects:
-        height = rect.get_height()
-        ax.annotate(
-            f"{height:.1f}",
-            xy=(rect.get_x() + rect.get_width() / 2, height),
-            xytext=(0, 3),  # 3 points vertical offset
-            textcoords="offset points",
-            ha="center",
-            va="bottom",
-            rotation=90,
-        )
 
-add_labels(ax.containers[0])  # Only add labels for pass rates
+def add\_labels(rects):
 
-plt.tight_layout()
+for rect in rects:
+
+height = rect.get\_height()
+
+ax.annotate(
+
+f"{height:.1f}",
+
+xy=(rect.get\_x() + rect.get\_width() / 2, height),
+
+xytext=(0, 3), # 3 points vertical offset
+
+textcoords="offset points",
+
+ha="center",
+
+va="bottom",
+
+rotation=90,
+
+)
+
+add\_labels(ax.containers[0]) # Only add labels for pass rates
+
+plt.tight\_layout()
+
 plt.show()
-```
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/capabilities-text-to-sql-guide/capabilities-text-to-sql-guide_cell32_out0_3c2ce8b6.png)
 
-### Running Promptfoo
+###  Running Promptfoo
 
 You can run an evaluation with the command `promptfoo eval`. You can render the eval results via the command `promptfoo view`. Here's a preview of what the results look like:
 
@@ -1218,11 +1607,11 @@ You can run an evaluation with the command `promptfoo eval`. You can render the 
 ![image-5.png](attachment:image-5.png)
 ![image.png](attachment:image.png)
 
-## Further Exploration & Next Steps
+##  Further Exploration & Next Steps
 
 This guide covers the basics of building a Text-to-SQL system with Claude. Here are some directions to explore that can help improve your solution:
 
-### Refining Retrieval Performance
+###  Refining Retrieval Performance
 
 As databases grow, it's important to make sure your RAG system finds the most relevant and current information:
 
@@ -1231,20 +1620,25 @@ As databases grow, it's important to make sure your RAG system finds the most re
 3. **Regular updates**: Set up a system to update your vector database when schemas change, keeping it current with your database.
 4. **Context-aware embeddings**: Try embedding table relationships and usage patterns, along with their names, to improve search relevance.
 
-### Adding More Context to Prompts
+###  Adding More Context to Prompts
 
 Giving Claude more information about your data structure and content in prompts, in addition to database schemas, can help it generate better queries:
 
 1. **Data samples**: Include a few rows of actual data for each relevant table in your prompts. For example:
 
-```
-<data_sample>
+
+
+<data\_sample>
+
 Sample data for employees table:
-id | name         | age | department_id | salary  | hire_date
-1  | John Doe     | 35  | 2             | 75000.0 | 2020-01-15
-2  | Jane Smith   | 28  | 3             | 65000.0 | 2021-03-01
-</data_sample>
-```
+
+id | name | age | department\_id | salary | hire\_date
+
+1 | John Doe | 35 | 2 | 75000.0 | 2020-01-15
+
+2 | Jane Smith | 28 | 3 | 65000.0 | 2021-03-01
+
+</data\_sample>
 
 1. **Column statistics**: Add useful facts about each column, such as:
 

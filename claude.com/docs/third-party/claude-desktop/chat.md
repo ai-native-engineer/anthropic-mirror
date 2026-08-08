@@ -8,22 +8,22 @@
 
 [Skip to main content](#content-area)
 
-The Chat tab in Claude Desktop on third-party (3P) is a conversational surface for quick questions and drafting. Unlike the [Cowork](https://claude.com/docs/cowork/overview) and [Code](https://claude.com/docs/third-party/claude-desktop/code) tabs, which run agentic sessions with access to folders you grant and a code-execution environment, a Chat conversation runs with a deliberately small tool surface: it can search and fetch the web under your admin configuration, read files attached to the conversation, and write files into a scratch space of its own, and nothing else on the machine. The Chat tab is off by default and is enabled with a single configuration key.
+Chat in Claude Desktop on third-party (3P) is a conversational surface for quick questions and drafting. Unlike [Cowork](https://claude.com/docs/cowork/overview) and [Code](https://claude.com/docs/third-party/claude-desktop/code), which run agentic sessions with access to folders you grant and a code-execution environment, a Chat conversation runs with a deliberately small tool surface: it can search and fetch the web under your admin configuration, read files attached to the conversation, and write files into a scratch space of its own, and nothing else on the machine. Chat is off by default and is enabled with a single configuration key.
 Like everything else in 3P mode, Chat conversations run against your configured inference provider, and conversation history lives on the user’s device. See [User identity and local data](https://claude.com/docs/third-party/claude-desktop/data-storage#chat-conversations) for exactly what is written where and what can leave the device.
 
 ##  What a Chat conversation can reach
 
 | Capability | Scope |
 | --- | --- |
-| Web search | Same options and rules as the other tabs; depends on your provider or a configured search server. See [Web search](https://claude.com/docs/third-party/claude-desktop/web-tools#web-search). |
+| Web search | Same options and rules as Cowork and Code sessions; depends on your provider or a configured search server. See [Web search](https://claude.com/docs/third-party/claude-desktop/web-tools#web-search). |
 | Web fetch | Runs in the app on the device, never inside a sandbox. Every fetch is checked against `coworkEgressAllowedHosts`; with no allowlist configured, fetch is disabled. See [Web fetch](https://claude.com/docs/third-party/claude-desktop/web-tools#web-fetch). |
 | Attached files | Read-only access to files the user attaches to the conversation. Each attachment is copied or hard-linked into the conversation’s local uploads directory; Claude cannot reach anything else on disk. |
 | Scratch directory | A per-conversation working directory where Claude can create and edit files (documents, data files, HTML artifacts) and offer them to the user for download or preview. |
-| Managed MCP servers | The servers you provision via [`managedMcpServers`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) are available in Chat with the same approval model as the other tabs: a tool’s `toolPolicy` of `"allow"` pre-approves it, `"blocked"` blocks it, and `"ask"` requires user approval on every call. A tool with no policy asks the user, who can allow it once or grant standing approval, as in the other tabs. |
+| Managed MCP servers | The servers you provision via [`managedMcpServers`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) are available in Chat with the same approval model as Cowork sessions: a tool’s `toolPolicy` of `"allow"` pre-approves it, `"blocked"` blocks it, and `"ask"` requires user approval on every call. A tool with no policy asks the user, who can allow it once or grant standing approval, as in Cowork. |
 | Clarifying questions | Claude can present multiple-choice questions to the user (the `AskUserQuestion` tool). |
 | Code execution | Off by default. When you enable [advanced file analysis](#advanced-file-analysis), Claude can additionally run code in an offline local sandbox against attached files. |
 
-`disabledBuiltinTools` and `builtinToolPolicy` apply in Chat the same way they do in the other tabs. For example, adding `"WebFetch"` removes web fetch from Chat conversations too.
+`disabledBuiltinTools` and `builtinToolPolicy` apply in Chat the same way they do in Cowork and Code sessions. For example, adding `"WebFetch"` removes web fetch from Chat conversations too.
 
 ##  What a Chat conversation cannot do
 
@@ -57,11 +57,15 @@ Advanced file analysis uses the same shell tool as Cowork’s sandbox, so adding
 
 | Key | Default | Effect |
 | --- | --- | --- |
-| [`chatTabEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#chattabenabled) | off | Shows the Chat tab. Chat is opt-in: the tab appears only when this key is explicitly `true`. |
-| [`chatAdvancedFileAnalysisEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#chatadvancedfileanalysisenabled) | off | Allows code execution on attached files in the offline sandbox, as described above. Has no effect unless the Chat tab is enabled. |
+| [`chatTabEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#chattabenabled) | off | Makes Chat available. Chat is opt-in: it appears in the app only when this key is explicitly `true`. |
+| [`chatAdvancedFileAnalysisEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#chatadvancedfileanalysisenabled) | off | Allows code execution on attached files in the offline sandbox, as described above. Has no effect unless Chat is enabled. |
 
-Enforcement of `chatTabEnabled` happens in the app’s main process: when the key is unset or `false`, the tab is hidden, and the app additionally refuses to start or continue a Chat conversation, including conversations created before an admin turned the key off.
-The rule that at least one surface must stay enabled counts the Chat tab only when `chatTabEnabled` is explicitly `true`: a configuration that disables the Cowork and Code tabs without enabling Chat re-enables the Cowork tab with a validation warning, rather than leaving users with an empty app. With `chatTabEnabled` set to `true`, a chat-only configuration is valid.
+When `chatTabEnabled` is `true`, Claude Desktop presents Chat and Cowork together as **Home** in its sidebar, next to **Code**. From Home, the user chooses **Chat** or **Cowork** in the message box, and the sidebar lists chats and tasks together. When the key is unset or `false`, the sidebar shows **Cowork** in place of Home and the message box offers no choice. If [`coworkTabEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#coworktabenabled) is `false` while Chat is enabled, the message box offers Chat only.
+
+This layout applies to Claude Desktop 1.26832.0 and later. Earlier versions show **Chat** (when enabled), **Cowork**, and **Code** as separate tabs, controlled by the same keys.
+
+Enforcement of `chatTabEnabled` happens in the app’s main process: when the key is unset or `false`, Chat does not appear in the app, and the app additionally refuses to start or continue a Chat conversation, including conversations created before an admin turned the key off.
+The rule that at least one surface must stay enabled counts Chat only when `chatTabEnabled` is explicitly `true`: a configuration that disables Cowork and Code without enabling Chat re-enables Cowork with a validation warning, rather than leaving users with an empty app. With `chatTabEnabled` set to `true`, a chat-only configuration is valid.
 
 ##  Where Chat data lives
 

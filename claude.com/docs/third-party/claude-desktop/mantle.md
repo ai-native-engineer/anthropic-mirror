@@ -58,9 +58,9 @@ Mantle reuses the `inferenceBedrock*` key names. Only `inferenceBedrockRegion`, 
 | AWS SSO region `inferenceBedrockSsoRegion` | `string` | MDM + Bootstrap | — | IAM Identity Center home region. |
 | AWS SSO account ID `inferenceBedrockSsoAccountId` | `string` | MDM + Bootstrap | — | 12-digit AWS account ID assigned to users in IAM Identity Center. |
 | AWS SSO role name `inferenceBedrockSsoRoleName` | `string` | MDM + Bootstrap | — | IAM Identity Center permission-set name granting bedrock:InvokeModel\* on the account above. |
-| AWS profile name `inferenceBedrockProfile` | `string` | MDM only | — | AWS named profile to use for Bedrock inference credentials. |
-| AWS config directory `inferenceBedrockAwsDir` | `string` | MDM only | — | Folder with AWS config/credentials. Defaults to ~/.aws when no bearer token is set. |
-| AWS CLI path `inferenceBedrockAwsCliPath` | `string` | MDM only | — | Absolute path to the aws executable. Leave unset to find it on PATH. |
+| AWS profile name `inferenceBedrockProfile` | `string` | MDM + Bootstrap | — | AWS named profile to use for Bedrock inference credentials. |
+| AWS config directory `inferenceBedrockAwsDir` | `string` | MDM + Bootstrap | — | Folder with AWS config/credentials. Defaults to ~/.aws when no bearer token is set. |
+| AWS CLI path `inferenceBedrockAwsCliPath` | `string` | MDM + Bootstrap | — | Absolute path to the aws executable. Leave unset to find it on PATH. |
 
 inferenceBedrockServiceTier details
 

@@ -1,7 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion -->
 
-# Holiday 2025 Usage Promotion
-
 We’re giving Pro and Max subscribers a holiday gift—2x usage limits from December 25 through December 31. During this period, your plan’s usage limits will be doubled, giving you more room to explore Claude’s capabilities as you plan for the new year.
 
 ## Who is eligible?
@@ -35,4 +33,8 @@ After the promotional period ends, your usage limits will return to their standa
 
 Additional usage is available from December 25, 2025 at 12:00 AM UTC through December 31, 2025 at 11:59 PM UTC. The increased usage limits apply to the Claude web app, Claude Code, and Claude in Chrome only. This promotion cannot be combined with other offers or promotions. Available to individual Pro, Max 5x, and Max 20x subscribers only. Team and Enterprise plans are not eligible.
 
-[What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)[How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)[Claude 4 Invite Contest](https://support.claude.com/en/articles/11408405-claude-4-invite-contest)[Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)[Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)
+* [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+* [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
+* [Claude 4 Invite Contest](https://support.claude.com/en/articles/11408405-claude-4-invite-contest)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)

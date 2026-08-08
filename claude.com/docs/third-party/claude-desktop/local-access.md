@@ -29,6 +29,16 @@ The allowlist controls what users can **attach**. Within an attached folder, the
 ##  Network drives on Windows
 
 Users can attach a mapped network drive (for example, `Z:\`) as a workspace folder through the folder picker. Raw UNC paths (`\\server\share`) are not supported; map the share to a drive letter first.
-The agent can read, write, and search files on the network drive with its file tools. Shell commands, however, run in an isolated sandbox that cannot reach network shares. If a task needs to run a script or build against files on the network drive, ask the agent to copy the relevant files to a local folder first.
+What the agent can do on the network drive depends on whether the drive was mapped and reachable when the sandbox started:
+
+* **Mapped and reachable at sandbox start:** the sandbox mounts the attached folder alongside local folders. File tools and shell commands both work.
+* **Mapped later, or unreachable at sandbox start:** file tools still work, but shell commands cannot reach the drive. Copy the relevant files to a local folder before running a script or build against them.
+
+The sandbox can stay running between sessions. A drive the user maps while the sandbox is already up falls into the second case until the sandbox next restarts.
 The agent cannot attach a network-drive path on its own; only the user can, through the folder picker. This is a security boundary.
 On macOS, network mounts under `/Volumes/` are currently treated as local folders.
+
+##  WSL
+
+You do not need Windows Subsystem for Linux (WSL) to run Claude Desktop or Cowork. On Windows, Cowork’s sandbox runs on the operating system’s built-in virtualization, which the [readiness check](https://claude.com/docs/third-party/claude-desktop/installation#check-device-readiness) verifies. Install the macOS or Windows package (see [System requirements](https://claude.com/docs/third-party/claude-desktop/installation#system-requirements)); there is no installation path inside WSL. Run the Windows app and work with WSL files from there.
+Windows exposes a WSL distribution’s filesystem as a UNC path (`\\wsl$\<distro>` or `\\wsl.localhost\<distro>`). Like any other raw UNC path, these cannot be attached as workspace folders directly. To attach files that live inside WSL as a workspace folder, map the share to a drive letter and attach the mapped drive, or copy the files to a local Windows folder. [Network drives on Windows](#network-drives-on-windows) describes what the agent can do on a mapped drive.

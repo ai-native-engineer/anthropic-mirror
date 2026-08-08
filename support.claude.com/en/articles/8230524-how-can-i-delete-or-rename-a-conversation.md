@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8230524-how-can-i-delete-or-rename-a-conversation -->
 
-# How can I delete or rename a conversation?
-
-March 16, 2026
-
 *This article is about our consumer products (e.g. Claude Free, Claude Pro). For our commercial products (e.g. Claude for Work, Claude API), see [here](https://privacy.claude.com/en/articles/11117329-how-can-i-delete-or-rename-a-conversation).*
 
 ## Deleting and renaming individual conversations
@@ -14,7 +10,7 @@ To delete or rename an individual conversation:
 2. Click on the name of the conversation at the top of the screen.
 3. Select either "Delete" or "Rename" from the options that appear:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1621955348/4844057e0f0847b580b95bc01625/Screenshot+2025-07-15+at+11_43_18%E2%80%AFAM.png?expires=1785803400&signature=d51774fcaf71b269d50769d8f7f5637f37c2e099ebeda6c8f3698eff2557d829&req=dSYlF8B7mIJbUfMW1HO4zVBo5Ob%2FbYNet5RK2C3E1Tf%2BDCR%2FjcdC9ysWdGZO%0AEYKsBu4utiSqSSgS51o%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1621955348/4844057e0f0847b580b95bc01625/Screenshot+2025-07-15+at+11_43_18%E2%80%AFAM.png?expires=1785803400&signature=d51774fcaf71b269d50769d8f7f5637f37c2e099ebeda6c8f3698eff2557d829&req=dSYlF8B7mIJbUfMW1HO4zVBo5Ob%2FbYNet5RK2C3E1Tf%2BDCR%2FjcdC9ysWdGZO%0AEYKsBu4utiSqSSgS51o%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1621955348/4844057e0f0847b580b95bc01625/Screenshot+2025-07-15+at+11_43_18%E2%80%AFAM.png?expires=1786167000&signature=e8ebc8b8aac2b4f3f94c647b4cd025873f2ee56e2ff5fc27d00c7da1689b0fca&req=dSYlF8B7mIJbUfMW1HO4zVBo5OX2a4dat5RK2C3E1Te65gKKBfI1mn4qbyV%2F%0ASL%2Bo716BvVHEiBaYTMk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1621955348/4844057e0f0847b580b95bc01625/Screenshot+2025-07-15+at+11_43_18%E2%80%AFAM.png?expires=1786167000&signature=e8ebc8b8aac2b4f3f94c647b4cd025873f2ee56e2ff5fc27d00c7da1689b0fca&req=dSYlF8B7mIJbUfMW1HO4zVBo5OX2a4dat5RK2C3E1Te65gKKBfI1mn4qbyV%2F%0ASL%2Bo716BvVHEiBaYTMk%3D%0A)
 
 ## Deleting conversations in bulk
 

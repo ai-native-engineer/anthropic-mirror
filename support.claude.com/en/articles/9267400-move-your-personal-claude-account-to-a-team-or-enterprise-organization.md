@@ -1,10 +1,8 @@
 <!-- source: https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization -->
 
-# Move your personal Claude account to a Team or Enterprise organization
-
-Updated over a week ago
-
 If you're using Claude with a personal account (Free, Pro, or Max) tied to your work email, you may be able to move that account into your organization's Team or Enterprise workspace. There are two paths: you can start a migration yourself (Team and Enterprise) or your admin can claim accounts on your domain (Enterprise only).
+
+---
 
 ## What moves when you migrate
 
@@ -40,6 +38,8 @@ Both paths move the same content for each person.
 2. Save a copy of anything you've published as an artifact, since published artifacts won't be available afterward.
 3. Share any content you've sent out as a public link another way, because those links will break.
 4. Make a note of the apps you've connected so you can reconnect them.
+
+---
 
 ## Voluntary migration
 
@@ -81,6 +81,8 @@ Owning the Team organization doesn't change where you start the migration. If yo
 
 If you subscribed to the Pro or Max plan through the Apple App Store, **Keep both accounts** is your only option. Apple doesn't allow third-party cancellation of App Store subscriptions, so we can't auto-cancel your iOS plan as part of the migration. If you'd rather move your work into the Team, **[cancel your iOS subscription](https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription#h_54384c9962)** through your Apple ID settings first, then start the migration from the reminder banner or **[Settings > Account](https://claude.ai/settings/account)**.
 
+---
+
 ## Domain claiming
 
 Domain claiming is supported on Claude Enterprise plans only.
@@ -89,13 +91,17 @@ Enterprise admins can claim all existing personal accounts on their organization
 
 For the full walkthrough of your options, deadlines, and what happens to your subscription, see **[Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)**.
 
+---
+
 ## Manage personal and organization accounts
 
 You may have both a personal account and an organization account tied to the same email address. You can switch between them by clicking your initials or name in the lower left corner of the screen.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1785803400&signature=239ebce60d120063a866d5fcbb84ee130844e9a062e6521ff691a35434a376a1&req=diMmFMh3noJbXvMW1HO4zXhPndU%2ByBxlufhmlOXMdYbnnKVmKPiMaPQQE7Pr%0Ay2PuXoiEbe5UrfaZD7s%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1785803400&signature=239ebce60d120063a866d5fcbb84ee130844e9a062e6521ff691a35434a376a1&req=diMmFMh3noJbXvMW1HO4zXhPndU%2ByBxlufhmlOXMdYbnnKVmKPiMaPQQE7Pr%0Ay2PuXoiEbe5UrfaZD7s%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1786167000&signature=4f9bfce35282e3cb9f86471c5ae28fdfd487d46d9e35435d99bc562496cbb571&req=diMmFMh3noJbXvMW1HO4zXhPndY3zhhhufhmlOXMdYbWsOQ6Wexb0ENjk8dj%0A4FXTJmdEldT49fwUnog%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1786167000&signature=4f9bfce35282e3cb9f86471c5ae28fdfd487d46d9e35435d99bc562496cbb571&req=diMmFMh3noJbXvMW1HO4zXhPndY3zhhhufhmlOXMdYbWsOQ6Wexb0ENjk8dj%0A4FXTJmdEldT49fwUnog%3D%0A)
 
 A blue checkmark shows which account you're currently using. Click the other account to switch to it and access its separate conversations and projects.
+
+---
 
 ## Discontinue your personal account manually
 

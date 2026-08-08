@@ -1,15 +1,11 @@
 <!-- source: https://support.claude.com/en/articles/10504844-manage-user-feedback-settings-on-team-and-enterprise-plans -->
 
-# Manage user feedback settings on Team and Enterprise plans
-
-March 16, 2026
-
 As a Primary Owner or Owner of a Team or Enterprise plan, you can manage the ability for members of your organization to submit feedback to Anthropic via thumbs up / thumbs down.
 
 1. Navigate to **[Organization settings > Data and Privacy](https://claude.ai/admin-settings/data-privacy-controls).**
 2. Use the toggle to change the **Rate chats** setting for your organization:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2058292603/75752add0bed6a9f3ab217f01708/CleanShot%2B2026-02-12%2Bat%2B08_55_14-402x.png?expires=1785803400&signature=262a493f25e53b3e2278d24c9d22b69bd370f42fbbcc37e3c12bc12cbde2fb02&req=diAiHst3n4dfWvMW1HO4zYGm8iIUEKvI085gFtEpvcTHKV%2BDf5HbwkCnpC5T%0AjDYFP31pFCDR5VVZFeg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2058292603/75752add0bed6a9f3ab217f01708/CleanShot%2B2026-02-12%2Bat%2B08_55_14-402x.png?expires=1785803400&signature=262a493f25e53b3e2278d24c9d22b69bd370f42fbbcc37e3c12bc12cbde2fb02&req=diAiHst3n4dfWvMW1HO4zYGm8iIUEKvI085gFtEpvcTHKV%2BDf5HbwkCnpC5T%0AjDYFP31pFCDR5VVZFeg%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2058292603/75752add0bed6a9f3ab217f01708/CleanShot%2B2026-02-12%2Bat%2B08_55_14-402x.png?expires=1786167000&signature=df7f0125d06cb0a3bcec5af28c3d128ecd9e660240550e9dba2db2e40f85a809&req=diAiHst3n4dfWvMW1HO4zYGm8iEdFq%2FM085gFtEpvcTSu0CIdQBRcFX%2F8GTz%0AVAN0kTw5jtg2xPehYQM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2058292603/75752add0bed6a9f3ab217f01708/CleanShot%2B2026-02-12%2Bat%2B08_55_14-402x.png?expires=1786167000&signature=df7f0125d06cb0a3bcec5af28c3d128ecd9e660240550e9dba2db2e40f85a809&req=diAiHst3n4dfWvMW1HO4zYGm8iEdFq%2FM085gFtEpvcTSu0CIdQBRcFX%2F8GTz%0AVAN0kTw5jtg2xPehYQM%3D%0A)
 
 More information on how Anthropic collects, uses, and stores feedback data can be found in our Privacy Center: **[How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)**
 

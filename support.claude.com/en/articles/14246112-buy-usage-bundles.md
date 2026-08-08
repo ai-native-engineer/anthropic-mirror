@@ -1,14 +1,12 @@
 <!-- source: https://support.claude.com/en/articles/14246112-buy-usage-bundles -->
 
-# Buy usage bundles
-
-May 18, 2026
-
 You can pre-purchase usage credits in bundles and save up to 30% compared to standard usage credit rates. Larger bundles come with bigger discounts, and your balance works across Claude, Claude Code, Claude Cowork, and third-party products.
 
 Usage bundles are available on Pro, Max, and Team plans.
 
 ##
+
+---
 
 ## Where your balance works
 
@@ -31,6 +29,8 @@ On Team plans, Owners and Primary Owners can purchase up to $3000 worth of disco
 
 Price and plans are subject to change at Anthropic's discretion.
 
+---
+
 ## How to buy usage bundles
 
 You'll need usage credits enabled before you can purchase bundles. If you haven't set up usage credits yet, see the relevant guide for your plan:
@@ -46,6 +46,8 @@ Once usage credits are enabled:
 4. Confirm your purchase. The discount is applied automatically at checkout.
 
 Your bundle balance appears in your usage dashboard and draws down as you use Claude beyond your plan's included limits.
+
+---
 
 ## Frequently asked questions
 
@@ -63,6 +65,6 @@ No. Your plan's included usage works the same as before. Bundle credits only app
 
 * [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
 * [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
-* [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 * [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)
 * [Claude Fable 5 on your plan](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan)

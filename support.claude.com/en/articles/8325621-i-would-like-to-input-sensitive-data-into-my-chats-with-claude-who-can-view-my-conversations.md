@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/8325621-i-would-like-to-input-sensitive-data-into-my-chats-with-claude-who-can-view-my-conversations -->
 
-# I would like to input sensitive data into my chats with Claude. Who can view my conversations?
-
-May 22, 2026
-
 *This article is about our consumer products (e.g. Claude Free, Pro, Max (and when using Claude Code with those accounts)).*
 
 ## How we protect your data when you help improve Claude
@@ -34,4 +30,8 @@ While we have these protections in place, we also recommend being thoughtful abo
 
 You can adjust your privacy and model improvement settings at any time by following the steps here: **[How do I change my model improvement privacy settings?](https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings)** Learn more about your privacy settings and controls in our **[Privacy Center](https://privacy.claude.com/en/collections/10672568-privacy-settings-controls)**.
 
-[Who owns and manages the data of my team?](https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)[Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)[Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)[Using incognito chats](https://support.claude.com/en/articles/12260368-using-incognito-chats)[Using Claude in Chrome safely](https://support.claude.com/en/articles/12902428-using-claude-in-chrome-safely)
+* [Who owns and manages the data of my team?](https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
+* [Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
+* [Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)
+* [Use incognito chats](https://support.claude.com/en/articles/12260368-use-incognito-chats)
+* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)

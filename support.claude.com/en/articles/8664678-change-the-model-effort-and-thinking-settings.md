@@ -1,10 +1,8 @@
 <!-- source: https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings -->
 
-# Change the model, effort, and thinking settings
-
-Updated over a week ago
-
 The model menu next to the send button controls three settings: which Claude model you're chatting with, how much effort it puts into each response, and whether it uses extended thinking. This article explains how to change each one and when to use them.
+
+---
 
 ## Change the model
 
@@ -16,6 +14,8 @@ The model menu next to the send button controls three settings: which Claude mod
 If you're on an Enterprise plan and a model or effort level you expect is missing, your administrator may have turned it off for your role.
 
 **Note:** You can change the model, effort level, or thinking setting at any point in a conversation. Changes apply starting with Claude's next response.
+
+---
 
 ## Choose an effort level
 
@@ -37,6 +37,8 @@ Each model has a recommended effort level, marked as "Default" in the menu:
 * **Max** is the most thorough option, best for tasks requiring the deepest possible reasoning and most thorough analysis.
 
 Learn more about **[how usage and length limits work](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)**.
+
+---
 
 ## Use extended thinking
 

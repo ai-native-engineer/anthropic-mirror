@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise -->
 
-# Restrict verified-domain connectors to your Enterprise
-
-Updated over a week ago
-
 This article explains how to prevent Claude accounts outside your Enterprise organization from connecting certain services, like Gmail and Slack, using an email address on your verified domains. Use the **Restrict verified-domain connectors to your enterprise** setting to keep company data from reaching personal Claude accounts through connectors.
 
 This setting is available to Owners, Primary Owners, and custom roles with the Identity & Access permission set to Manage on the Enterprise plan. Your Enterprise organization needs at least one verified domain.
@@ -40,6 +36,8 @@ When the setting is off, they can sign in to Claude with their personal account 
 
 When the setting is on, they can't connect their work Gmail from their personal account. They can still connect it from their work account. That keeps company information inside your organization's controls.
 
+---
+
 ## Prerequisites
 
 Before you can turn on this setting, your Enterprise organization must verify your domain.
@@ -51,6 +49,8 @@ Before you can turn on this setting, your Enterprise organization must verify yo
 3. Toggle on "Restrict verified-domain connectors to your enterprise."
 
 You can turn off this setting at any time. It's separate from domain capture, which can't be reversed once enabled.
+
+---
 
 ## What people see when a connection is restricted
 
@@ -65,15 +65,13 @@ If someone tries to make a connection that’s restricted, the connection fails 
 * **It doesn't disconnect existing connections.** The restriction applies only to new connection attempts. Connections made before you turned on the setting stay connected.
 * **It doesn't notify admins.** Only the person attempting the connection sees the message if it fails.
 
+---
+
 ## Frequently asked questions
 
 ### How is this different from domain claiming?
 
 Domain claiming moves existing personal Claude accounts on your domain into your Enterprise workspace. This setting leaves Claude accounts where they are, and makes it so that only Claude accounts in your Enterprise organization can connect supported connectors using an email address on your verified domains. Learn more about **[claiming and migrating accounts on your domain](https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain)**.
-
-### Is this the same as the Claude in Slack setting, "Restrict to your verified domains"?
-
-No. That setting applies only to Claude in Slack. This setting covers the connectors listed in **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**.
 
 ### What should someone do if their connection is blocked?
 

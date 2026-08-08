@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/12512180-use-skills-in-claude -->
 
-# Use skills in Claude
-
-Updated over 2 weeks ago
-
 Skills are available for users on Free, Pro, Max, Team, and Enterprise plans. This feature requires **[code execution to be enabled](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_1c99382190)**. Skills are also available in beta for Claude Code users and for all API users using the code execution tool.
 
 Skills extend Claude's capabilities by giving it access to specialized knowledge and workflows. This guide shows you how to enable, discover, and use skills in Claude.
@@ -15,6 +11,8 @@ Skills extend Claude's capabilities by giving it access to specialized knowledge
 **For Team plans:** This feature is enabled by default at the organization level. Once enabled, individual members can toggle on example skills and upload their own in **[Customize > Skills](https://claude.ai/customize/skills)**.
 
 **For Max, Pro, and Free plans:** You can enable example skills and upload your own in **[Customize > Skills](https://claude.ai/customize/skills)**.
+
+---
 
 ## How to enable skills
 
@@ -53,6 +51,8 @@ You can also create and upload your own skills to teach Claude your specific wor
 7. Your skill will appear in your skills list and can be toggled on or off.
 
 **Note:** Custom skills you upload are private to your individual account. If you’re on a Team or Enterprise plan and want to share skills with your organization, see **[Provision skills for your organization](https://support.claude.com/en/articles/13119606-managing-skills-as-an-admin#h_4dea113421)**.
+
+---
 
 ## Share a skill
 
@@ -96,6 +96,8 @@ You can toggle the skill off again at any time, or delete it from your list enti
 
 Skills you install from the directory can be toggled off, which removes them from your sidebar. They remain in the directory so you can re-enable them later. For more on browsing the directory, see **[Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)**.
 
+---
+
 ## Use skills in Microsoft 365 add-ins
 
 Skills you've enabled in your Claude settings are also available in the Claude for Excel, PowerPoint, Word, and Outlook add-ins. Claude applies relevant skills automatically while you work—you don't need to invoke them separately.
@@ -106,6 +108,8 @@ Skills you've enabled in your Claude settings are also available in the Claude f
 * Or describe your task naturally—Claude recognizes when a skill applies and uses it.
 
 Claude adapts skills to the surface it’s in. A research skill may produce a Word document in Cowork, but detailed data breakdowns in Excel. Some skills may work better on one surface than others. If you let Claude work across apps, Claude can orchestrate another app to apply the skill. If you build a skill with a specific Excel or PowerPoint template, Claude for Excel and Powerpoint can load that template exactly into the current open file.
+
+---
 
 ## Manage your skills
 
@@ -131,16 +135,20 @@ To remove a custom skill you've uploaded:
 3. Use the toggle in the upper right corner to disable the skill.
 4. To delete the custom skill entirely, click the "..." button next to the toggle, then select "Delete":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785803400&signature=01fd16fb6cbf42471b47f38dad0936e6b66cfce774ff604bd56097322c81e289&req=diEnE8p3nINYWvMW1HO4zSOgDy4gwuWpH%2BdCnFXB0uiFtQz08q98YVS8vKMM%0AJWz8%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785803400&signature=01fd16fb6cbf42471b47f38dad0936e6b66cfce774ff604bd56097322c81e289&req=diEnE8p3nINYWvMW1HO4zSOgDy4gwuWpH%2BdCnFXB0uiFtQz08q98YVS8vKMM%0AJWz8%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1786167000&signature=1815c9103f2702bffbac5218c27924a7752890458d566e780a6f9c0a463d3b58&req=diEnE8p3nINYWvMW1HO4zSOgDy0pxOGtH%2BdCnFXB0ui%2BIcud2uMPA9AQwtCB%0Aaibb%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1786167000&signature=1815c9103f2702bffbac5218c27924a7752890458d566e780a6f9c0a463d3b58&req=diEnE8p3nINYWvMW1HO4zSOgDy0pxOGtH%2BdCnFXB0ui%2BIcud2uMPA9AQwtCB%0Aaibb%0A)
 5. Click "Delete" in the confirmation prompt.
 
 If you change your mind, you can add the skill again by re-uploading the file.
+
+---
 
 ## Privacy and security details
 
 For Team and Enterprise plans, organization owners can provision skills for all users through organization settings, and individuals can share skills with colleagues or organization-wide if an owner has enabled sharing. On all other plans, each person uploads skills to their own account.
 
 Note that skills may include, or instruct Claude to install, third-party packages and software for Claude to use when completing a task. See **[our guidance on Claude's container environment](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_0ee9d698a1)** for details on Claude's container environment and **[the API documentation](https://docs.claude.com/en/docs/agents-and-tools/tool-use/code-execution-tool#containers)** for API's container environment.
+
+**Note:** If you're on the Enterprise plan and your organization has skill scanning turned on, each third-party skill you upload or edit is checked for malicious content before it can run. Most scans finish in about one to two minutes. If a skill is blocked, you can't use it until you fix what was flagged and upload it again. Learn more about **[skill and plugin scanning](https://support.claude.com/en/articles/15927065)**.
 
 ### What are the primary risks of using skills?
 
@@ -149,6 +157,8 @@ The most significant risks are prompt injection, which allows Claude to be manip
 **Important:** Only install skills only from trusted sources.
 
 When installing a skill from a less-trusted source—including one shared by a colleague—review it before enabling. Start by reading the contents of the files bundled in the skill to understand what it does, paying particular attention to code dependencies and bundled resources like images or scripts. Similarly, pay attention to instructions or code within the skill that instruct Claude to connect to potentially untrusted external network sources.
+
+---
 
 ## Troubleshooting
 
@@ -180,6 +190,8 @@ If skills appear greyed out, code execution may be disabled at the organization 
 
 Skill sharing for Team and Enterprise plans is off by default. An organization owner must enable peer-to-peer or peer-to-org sharing before you can share skills. Contact your organization owner if you'd like sharing enabled.
 
+---
+
 ## Best practices
 
 **Start simple.** Begin with Anthropic's pre-built skills to understand how they work before creating custom skills.
@@ -190,6 +202,8 @@ Skill sharing for Team and Enterprise plans is off by default. An organization o
 
 **Organize by purpose.** Create separate skills for different purposes rather than a single skill that’s meant to do everything.
 
+---
+
 ## Learn more about using skills
 
 For more information and video demonstrations, refer to **[Teach Claude your way of working using skills](https://claude.com/resources/tutorials/teach-claude-your-way-of-working-using-skills).**
@@ -197,5 +211,5 @@ For more information and video demonstrations, refer to **[Teach Claude your way
 * [Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)
 * [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
 * [Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)
-* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
+* [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
 * [Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)

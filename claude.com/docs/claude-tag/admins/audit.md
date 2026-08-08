@@ -15,7 +15,7 @@ You must be an Admin or Owner in your Claude organization to open the Audit page
 Claude Tag activity is auditable in four places:
 
 * **[The Audit page](#what-the-audit-view-lists)** in admin settings, with tabs for scheduled work, memory, and (if enabled) network events
-* **Memory files on each scope** (open the scope’s settings dialog in the **Claude Tag’s access** section), where you can review what Claude has saved
+* **Memory files on each scope** (select the scope in the **Claude Tag’s access** section, then choose **View memory files** from its **⋯** menu), where you can review what Claude has saved
 * **[Attribution on each action](#trace-an-action-to-its-source)** Claude takes in a connected tool
 * **[The audit logs of each connected service](#trace-an-action-to-its-source)**, where its actions appear under the service account you provisioned
 

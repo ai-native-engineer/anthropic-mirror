@@ -85,3 +85,7 @@ You can confirm the restriction is working before rolling it out broadly.
 To confirm a block, temporarily set the proxy’s allowlist to a tenant ID you do not own (any validly formatted ID works), then sign in to your own tenant from a browser that routes through the proxy. You should see the **This account isn’t permitted from this network** refusal page. A direct API request in the same configuration should return HTTP 403 with the error code `tenant_restriction_violation`.
 To confirm normal access, set the proxy’s allowlist to your real tenant ID and repeat the request. It should succeed.
 To confirm the appliance is overwriting rather than appending, have the test client send its own `Anthropic-Allowed-Tenant-Ids` header with your real tenant ID while the proxy’s allowlist is set to an ID you do not own. The request should still return 403 (the proxy’s value wins), not 400 (two headers reached the server) or 200 (the client’s value reached the server).
+
+##  Things to know
+
+* Personal Claude accounts use `claude.ai`, which is a separate host from the Claude for Government service. A personal account cannot sign in to Claude for Government, and a Claude for Government account cannot sign in to `claude.ai`. The header-based restriction on this page applies only to Claude for Government traffic; it does not govern access to `claude.ai`.

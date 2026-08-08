@@ -1,12 +1,10 @@
 <!-- source: https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization -->
 
-# Set a default model for your organization
-
-Updated over 3 weeks ago
-
 This guide explains how to choose the Claude model that new conversations start on across your organization. You can set one default for your whole organization, or set different defaults for specific custom roles.
 
-Default model settings are available for Enterprise plan organizations. Primary Owners, Owners, and members whose custom role grants the Identity & Access permission can manage them in **[Organization settings > Models](http://claude.ai/admin-settings/models)**.
+Default model settings are available for Enterprise plan organizations. Primary Owners, Owners, and members whose custom role grants the Identity & Access permission can manage them in **[Organization settings > Models](https://claude.ai/admin-settings/models)**.
+
+---
 
 ## How default models work
 
@@ -29,11 +27,13 @@ For member-facing CLI instructions, see **[Claude Code model configuration](http
 
 For member-facing instructions on switching models, see **[Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)**.
 
+---
+
 ## Set the organization default model
 
 The organization default applies to every member. To set it:
 
-1. Navigate to **[Organization settings > Models](http://claude.ai/admin-settings/models)**.
+1. Navigate to **[Organization settings > Models](https://claude.ai/admin-settings/models)**.
 2. Under **Default model**, select an option:
 
    1. “Use Anthropic’s recommended default”: Anthropic’s recommended model that updates automatically when new models are released.
@@ -41,13 +41,15 @@ The organization default applies to every member. To set it:
 3. If you select “Choose a specific model,” choose a model from the list.
 4. Click “Save changes.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1785803400&signature=d5f535f8c634e26b7a41a230c2da67c62ca276dd283c780ca32d37c83406154a&req=diUmEs58n4BcUPMW1HO4zelOdzdILUtDfdGVZ664dGHM9LrYk%2BBDN1laNBk4%0A4pYpChsiaCPx8a%2FoyEk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1785803400&signature=d5f535f8c634e26b7a41a230c2da67c62ca276dd283c780ca32d37c83406154a&req=diUmEs58n4BcUPMW1HO4zelOdzdILUtDfdGVZ664dGHM9LrYk%2BBDN1laNBk4%0A4pYpChsiaCPx8a%2FoyEk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1786212000&signature=75ed323ec1425636ed68e36088dbc887297a6f5d70e3a70ab3781ca65f2b6b03&req=diUmEs58n4BcUPMW3nq%2Bga5jDn%2BYFspCeQKMkc502AUixR4lUKTUERAFfAd2%0An3xX0q3SYboJWPL0jrbogwXPFjM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1786212000&signature=75ed323ec1425636ed68e36088dbc887297a6f5d70e3a70ab3781ca65f2b6b03&req=diUmEs58n4BcUPMW3nq%2Bga5jDn%2BYFspCeQKMkc502AUixR4lUKTUERAFfAd2%0An3xX0q3SYboJWPL0jrbogwXPFjM%3D%0A)
+
+---
 
 ## Set a default model for a custom role
 
 Custom role defaults let you set different starting models for different teams. For example, you can keep most of your organization on the recommended default while a specific group starts on a different model.
 
-1. Navigate to **[Organization settings > Roles](http://claude.ai/admin-settings/roles)**.
+1. Navigate to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)**.
 2. Click the role you want to edit, or create a new role.
 3. Select the **Models** tab, then under **Default model**, select a model. Roles are set to “None selected” unless you choose a specific model. Only models the role has access to can be selected.
 4. Click “Save role” to save your changes.
@@ -60,16 +62,18 @@ If a member belongs to multiple groups whose custom roles set different default 
 
 For details on creating roles and assigning them to groups, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.
 
+---
+
 ## Default model and Claude Code managed settings
 
-If your organization also configures Claude Code through `managed-settings.json`, the model setting there takes precedence. When model is set in managed settings, Claude Code CLI and IDE start on that model and ignore the default you set in **[Organization settings > Models](http://claude.ai/admin-settings/models)**.
+If your organization also configures Claude Code through `managed-settings.json`, the model setting there takes precedence. When model is set in managed settings, Claude Code CLI and IDE start on that model and ignore the default you set in **[Organization settings > Models](https://claude.ai/admin-settings/models)**.
 
 If `managed-settings.json` specifies `availableModels` that doesn't contain the default model, Claude CLI bypasses `availableModels` and starts on the selected default model unless `enforceAvailableModels` is set.
 
-Managed settings apply only to Claude Code CLI and IDE, not to Claude Code on web or desktop. For consistent behavior across all Claude Code surfaces, we recommend setting the default here alone. For more on managed settings, see **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.
+Managed settings for models apply only to Claude Code CLI and IDE, not to Claude Code on web or desktop. For consistent behavior across all Claude Code surfaces, we recommend setting the default here alone. For more on managed settings, see **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.
 
 * [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
-* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Enable US-only inference for your organization](https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization)
 * [Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)
+* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)

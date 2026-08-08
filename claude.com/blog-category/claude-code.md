@@ -16,6 +16,54 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
+
+Aug 7, 2026
+
+Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+Claude Code
+
+Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+August 7, 2026
+
+[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
+
+Aug 7, 2026
+
+Running auto mode in production
+
+Claude Code
+
+Running auto mode in production
+
+August 7, 2026
+
+[Running auto mode in production](https://claude.com/blog/auto-mode-in-production)Running auto mode in production
+
+[Running auto mode in production](#)Running auto mode in production
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
+
+Aug 6, 2026
+
+Millennium and Anthropic are building a digital risk analyst with Claude
+
+Enterprise AI
+
+Millennium and Anthropic are building a digital risk analyst with Claude
+
+August 6, 2026
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
 Jul 24, 2026
@@ -208,54 +256,6 @@ June 24, 2026
 
 [Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](#)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
-
-Jun 18, 2026
-
-Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents
-
-Claude Code
-
-Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents
-
-June 18, 2026
-
-[Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents](https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more)Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents
-
-[Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents](#)Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6909386cc7ad3ed2a7ec8eed_Object-ThoughtBubble.svg)
-
-Jun 17, 2026
-
-Meet the winners of our Claude Opus 4.8 Build Day hackathon
-
-Claude Code
-
-Meet the winners of our Claude Opus 4.8 Build Day hackathon
-
-June 17, 2026
-
-[Meet the winners of our Claude Opus 4.8 Build Day hackathon](https://claude.com/blog/meet-the-winners-of-our-claude-opus-4-8-build-day-hackathon)Meet the winners of our Claude Opus 4.8 Build Day hackathon
-
-[Meet the winners of our Claude Opus 4.8 Build Day hackathon](#)Meet the winners of our Claude Opus 4.8 Build Day hackathon
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
-
-Jun 15, 2026
-
-Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-Claude Code
-
-Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-June 15, 2026
-
-[Meet the winners of the Built with Opus 4.7 Claude Code hackathon](https://claude.com/blog/meet-the-winners-of-built-with-opus-4-7-claude-code-hackathon)Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-[Meet the winners of the Built with Opus 4.7 Claude Code hackathon](#)Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
 [View more](https://claude.com/blog-category/claude-code?1e959936_page=2)
 
 Category
@@ -263,6 +263,54 @@ Category
 Product
 
 Usecase
+
+### Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+August 7, 2026
+
+[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+
+### Running auto mode in production
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+August 7, 2026
+
+[Running auto mode in production](https://claude.com/blog/auto-mode-in-production)Running auto mode in production
+
+[Running auto mode in production](#)Running auto mode in production
+
+### Millennium and Anthropic are building a digital risk analyst with Claude
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 6, 2026
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+
+[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
 ### The new rules of context engineering for Claude 5 generation models
 
@@ -456,57 +504,9 @@ June 24, 2026
 
 [Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](#)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
 
-### Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-June 18, 2026
-
-[Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents](https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more)Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents
-
-[Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents](#)Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents
-
-### Meet the winners of our Claude Opus 4.8 Build Day hackathon
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-June 17, 2026
-
-[Meet the winners of our Claude Opus 4.8 Build Day hackathon](https://claude.com/blog/meet-the-winners-of-our-claude-opus-4-8-build-day-hackathon)Meet the winners of our Claude Opus 4.8 Build Day hackathon
-
-[Meet the winners of our Claude Opus 4.8 Build Day hackathon](#)Meet the winners of our Claude Opus 4.8 Build Day hackathon
-
-### Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-June 15, 2026
-
-[Meet the winners of the Built with Opus 4.7 Claude Code hackathon](https://claude.com/blog/meet-the-winners-of-built-with-opus-4-7-claude-code-hackathon)Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-[Meet the winners of the Built with Opus 4.7 Claude Code hackathon](#)Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
 [View more](https://claude.com/blog-category/claude-code?2f226f2c_page=2)
 
-1 / 4
+1 / 5
 
 No posts for those filters
 

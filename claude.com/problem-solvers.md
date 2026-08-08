@@ -54,7 +54,7 @@ Read customer story
 
 [](https://assets.claude.ai/brand/videos/startup-founders/legora-supercut-2.webm)
 
-“We're thinking a lot about how to build the boats on top of that rising tide so that our system gets better with every new model released.”
+“We’re thinking a lot about how to build the boats on top of that rising tide so that our system gets better with every new model released.”
 
 Max Junestrand
 
@@ -150,7 +150,7 @@ Read customer story
 
 [](https://assets.claude.ai/brand/videos/startup-founders/genspark-thumbnail.webm)
 
-“With every other model, we had to predefine every step. Anthropic's model changed everything about how we build.”
+“With every other model, we had to predefine every step. Anthropic’s model changed everything about how we build.”
 
 Kay Zhu
 

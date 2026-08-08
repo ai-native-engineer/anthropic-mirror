@@ -1,9 +1,5 @@
 <!-- source: https://support.claude.com/en/articles/15183774-connect-to-microsoft-365 -->
 
-# Connect to Microsoft 365
-
-Updated over a month ago
-
 Connecting Microsoft 365 lets Claude search and analyze content across SharePoint, OneDrive, Outlook, and Teams in your work account. If your admin has enabled write tools, Claude can also draft and send emails, manage calendar events, and create and update files. Ask Claude for what you need, and it pulls the right information or takes the action.
 
 The Microsoft 365 connector is available on all Claude plans: Free, Pro, Max, Team, and Enterprise.
@@ -18,7 +14,7 @@ You'll need a work Microsoft 365 account tied to a Microsoft Entra tenant. Perso
 
 Once your admin has finished setup:
 
-1. Navigate to **[Customize > Connectors](http://claude.ai/customize/connectors)**.
+1. Navigate to **[Customize > Connectors](https://claude.ai/customize/connectors)**.
 2. Find **Microsoft 365** in the list and click “Connect.”
 3. Sign in with your Microsoft 365 credentials when prompted.
 
@@ -79,7 +75,7 @@ When Claude sends an email, it includes a message header identifying it as agent
 
 You can selectively turn off specific tools within Microsoft 365—for example, you might keep document search on but turn off email access. To do this:
 
-1. Navigate to **[Customize > Connectors](http://claude.ai/customize/connectors)**.
+1. Navigate to **[Customize > Connectors](https://claude.ai/customize/connectors)**.
 2. Click on “Microsoft 365.”
 3. Toggle the tool on or off under **Tool permissions**.
 
@@ -95,7 +91,7 @@ You can also enable or disable Microsoft 365 in a specific conversation.
 
 Disconnecting removes Claude's access to your Microsoft 365 data. Reconnecting later doesn't require admin reapproval as long as your admin's consent is still active.
 
-1. Navigate to **[Customize > Connectors](http://claude.ai/customize/connectors)**.
+1. Navigate to **[Customize > Connectors](https://claude.ai/customize/connectors)**.
 2. Find Microsoft 365 in your connected services.
 3. Click “Disconnect.”
 
@@ -109,6 +105,8 @@ Microsoft 365 stays under your control once connected. A few things to keep in m
 * **You can disconnect any time.** Use the steps above to remove Claude's access.
 
 For the full list of permissions the integration requests, see **[Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-)** or the **[Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-)**.
+
+---
 
 ## Troubleshooting
 
@@ -136,6 +134,8 @@ For the full list of permissions the integration requests, see **[Set up the Mic
 * Use exact phrases for better matching.
 * Break complex questions into simpler, more focused ones.
 * Double-check spelling of names, projects, or technical terms.
+
+---
 
 ## Frequently asked questions
 
@@ -186,6 +186,6 @@ You'll see an error indicating that an administrator must grant app permissions 
 
 * [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
 * [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
-* [Work across Microsoft 365 apps](https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps)
-* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
+* [Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)

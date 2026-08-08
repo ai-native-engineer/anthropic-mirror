@@ -93,7 +93,7 @@ No per-device preparation is required. The sign-in experience uses **your organi
 
 ####  How it works
 
-When all four `inferenceBedrockSso*` keys are set, the app shows a **Sign in with AWS** page the first time a user opens the Cowork tab. Clicking the button starts an OAuth device-authorization flow with your IAM Identity Center’s OIDC endpoint and opens the AWS access portal in the system browser. The app displays a short verification code so the user can confirm that the browser prompt matches the app that requested it. Identity Center redirects the user to whichever identity provider you have configured (Entra ID, Okta, Google Workspace, or the Identity Center built-in directory).
+When all four `inferenceBedrockSso*` keys are set, the app shows a **Sign in with AWS** page at first launch. Clicking the button starts an OAuth device-authorization flow with your IAM Identity Center’s OIDC endpoint and opens the AWS access portal in the system browser. The app displays a short verification code so the user can confirm that the browser prompt matches the app that requested it. Identity Center redirects the user to whichever identity provider you have configured (Entra ID, Okta, Google Workspace, or the Identity Center built-in directory).
 On success, the app stores the IAM Identity Center access token and refresh token encrypted with the operating system’s secure storage (Keychain on macOS, DPAPI on Windows), dismisses the sign-in page, and shows Cowork.
 At the start of each Cowork session, the app exchanges the stored token with IAM Identity Center for short-lived AWS credentials scoped to the configured account and permission set, and passes them into the session sandbox as `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN`. This is the same credential shape that `aws sso login` produces, obtained without the AWS CLI.
 If the stored token expires or is revoked, the app shows a **Sign in again** prompt; clicking it reopens the AWS access portal in the browser. If you deploy a different `inferenceBedrockSsoStartUrl`, the app finds no stored token for the new URL and shows the sign-in page on next launch.
@@ -172,9 +172,9 @@ The full set of `inferenceBedrock*` keys is below. Set `inferenceProvider` to `b
 | AWS SSO region `inferenceBedrockSsoRegion` | `string` | MDM + Bootstrap | — | IAM Identity Center home region. |
 | AWS SSO account ID `inferenceBedrockSsoAccountId` | `string` | MDM + Bootstrap | — | 12-digit AWS account ID assigned to users in IAM Identity Center. |
 | AWS SSO role name `inferenceBedrockSsoRoleName` | `string` | MDM + Bootstrap | — | IAM Identity Center permission-set name granting bedrock:InvokeModel\* on the account above. |
-| AWS profile name `inferenceBedrockProfile` | `string` | MDM only | — | AWS named profile to use for Bedrock inference credentials. |
-| AWS config directory `inferenceBedrockAwsDir` | `string` | MDM only | — | Folder with AWS config/credentials. Defaults to ~/.aws when no bearer token is set. |
-| AWS CLI path `inferenceBedrockAwsCliPath` | `string` | MDM only | — | Absolute path to the aws executable. Leave unset to find it on PATH. |
+| AWS profile name `inferenceBedrockProfile` | `string` | MDM + Bootstrap | — | AWS named profile to use for Bedrock inference credentials. |
+| AWS config directory `inferenceBedrockAwsDir` | `string` | MDM + Bootstrap | — | Folder with AWS config/credentials. Defaults to ~/.aws when no bearer token is set. |
+| AWS CLI path `inferenceBedrockAwsCliPath` | `string` | MDM + Bootstrap | — | Absolute path to the aws executable. Leave unset to find it on PATH. |
 
 inferenceBedrockServiceTier details
 

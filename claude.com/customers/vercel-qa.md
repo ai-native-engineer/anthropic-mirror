@@ -184,6 +184,14 @@ Video caption
 
 ## Related stories
 
+[Wondr Health scales trusted health coaching with Claude](https://claude.com/customers/wondr-health)Wondr Health scales trusted health coaching with Claude
+
+Wondr Health scales trusted health coaching with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/wondr-health)Customer story
+
 [How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
 
 How Notability built a study tool that improves with every Claude release
@@ -207,11 +215,3 @@ Box builds document creation into its AI agent with Claude
 Customer story
 
 [Customer story](https://claude.com/customers/box)Customer story
-
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/juno)Customer story
