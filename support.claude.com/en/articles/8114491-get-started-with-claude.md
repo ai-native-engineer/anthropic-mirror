@@ -33,7 +33,7 @@ You use **prompts** to communicate with Claude. The best approach is to speak to
 
 Type your prompt into the chat interface and click the submit button to start a conversation with Claude. You can click the "+" button in the lower left or type "/" to view additional options and commands:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1786184100&signature=1153807c51343e59ba7d75eec6a6b2fb7b2d2b31f64787a7f715a69eafeedd03&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SnLvIOA9crMELaMZPxNmdQZyddQ5hSBIbej%0Aupb1vMYOCmlWbzgRlXQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1786184100&signature=1153807c51343e59ba7d75eec6a6b2fb7b2d2b31f64787a7f715a69eafeedd03&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SnLvIOA9crMELaMZPxNmdQZyddQ5hSBIbej%0Aupb1vMYOCmlWbzgRlXQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1786269600&signature=17c90ef3b69b36ab6f351dc374a603ba178981c533182dfe775d87ef48bed418&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SnIso6H9crMELaMZPwObst8NZmzq76%2FT%2FyE%0AbQvuJp0gSc%2BCw7hc6aQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1786269600&signature=17c90ef3b69b36ab6f351dc374a603ba178981c533182dfe775d87ef48bed418&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SnIso6H9crMELaMZPwObst8NZmzq76%2FT%2FyE%0AbQvuJp0gSc%2BCw7hc6aQ%3D%0A)
 
 ---
 

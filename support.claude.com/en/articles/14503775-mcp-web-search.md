@@ -4,7 +4,7 @@ The Web Search connector gives Claude the ability to search the public internet 
 
 For questions about web search in commercial Claude, see **[Enabling and using web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1786185000&signature=0497d36aa0fdff2d0d54f7ec591c40702cfc077db7f02e4fb953a260602ed09a&req=diIiEMh8nYZZWvMW1HO4zQvFLLRShcH4M%2Fw5SJgC29FwpUZBE560y1uxn7pI%0A81mXRIBFSymcv%2B9xbpM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1786185000&signature=0497d36aa0fdff2d0d54f7ec591c40702cfc077db7f02e4fb953a260602ed09a&req=diIiEMh8nYZZWvMW1HO4zQvFLLRShcH4M%2Fw5SJgC29FwpUZBE560y1uxn7pI%0A81mXRIBFSymcv%2B9xbpM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1786268700&signature=f79150420e3fb5f726483cd1022caa036a6419a4c3a5c74f3cf5e40789b3d90e&req=diIiEMh8nYZZWvMW1HO4zQvFLLRRi8z%2FM%2Fw5SJgC29Gd%2B4%2FRZ%2BmgnpP77Auh%0Af6ehZt9EELFt%2FRY38ME%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1786268700&signature=f79150420e3fb5f726483cd1022caa036a6419a4c3a5c74f3cf5e40789b3d90e&req=diIiEMh8nYZZWvMW1HO4zQvFLLRRi8z%2FM%2Fw5SJgC29Gd%2B4%2FRZ%2BmgnpP77Auh%0Af6ehZt9EELFt%2FRY38ME%3D%0A)
 
 ## How Web Search differs for Claude for Government
 

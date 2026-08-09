@@ -41,7 +41,7 @@ The organization default applies to every member. To set it:
 3. If you select “Choose a specific model,” choose a model from the list.
 4. Click “Save changes.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1786212000&signature=75ed323ec1425636ed68e36088dbc887297a6f5d70e3a70ab3781ca65f2b6b03&req=diUmEs58n4BcUPMW3nq%2Bga5jDn%2BYFspCeQKMkc502AUixR4lUKTUERAFfAd2%0An3xX0q3SYboJWPL0jrbogwXPFjM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1786212000&signature=75ed323ec1425636ed68e36088dbc887297a6f5d70e3a70ab3781ca65f2b6b03&req=diUmEs58n4BcUPMW3nq%2Bga5jDn%2BYFspCeQKMkc502AUixR4lUKTUERAFfAd2%0An3xX0q3SYboJWPL0jrbogwXPFjM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1786269600&signature=ce5b8d26030c3a9d423e0b3550881031314f80c733dfa990e1a66cb8d61b2c02&req=diUmEs58n4BcUPMW1HO4zelOdzRCK0FBfdGVZ664dGF3DdTYJEb6mu39GIM1%0AT4km89DwLE%2BoYajRnek%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1786269600&signature=ce5b8d26030c3a9d423e0b3550881031314f80c733dfa990e1a66cb8d61b2c02&req=diUmEs58n4BcUPMW1HO4zelOdzRCK0FBfdGVZ664dGF3DdTYJEb6mu39GIM1%0AT4km89DwLE%2BoYajRnek%3D%0A)
 
 ---
 
@@ -72,8 +72,8 @@ If `managed-settings.json` specifies `availableModels` that doesn't contain the 
 
 Managed settings for models apply only to Claude Code CLI and IDE, not to Claude Code on web or desktop. For consistent behavior across all Claude Code surfaces, we recommend setting the default here alone. For more on managed settings, see **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.
 
-* [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
+* [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
+* [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
 * [Enable US-only inference for your organization](https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization)
 * [Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)
-* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)

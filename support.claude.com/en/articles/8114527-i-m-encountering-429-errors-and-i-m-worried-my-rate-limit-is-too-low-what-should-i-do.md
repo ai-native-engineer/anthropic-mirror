@@ -7,7 +7,7 @@ If you're seeing 429 errors, you can request higher limits in the Console once y
 Refer to the **[Rate limits page in our Claude Platform Docs](https://docs.claude.com/en/api/rate-limits)** for more information. For custom limits, **[contact our Sales team](https://claude.com/contact-sales)**.
 
 * [Our approach to rate limits for the Claude API](https://support.claude.com/en/articles/8243635-our-approach-to-rate-limits-for-the-claude-api)
-* [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
 * [How can I get higher rate limits on the Claude API?](https://support.claude.com/en/articles/10366389-how-can-i-get-higher-rate-limits-on-the-claude-api)
 * [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 * [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)

@@ -826,9 +826,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5209661008)
 
 ## Marketing & Brand
 
-12 Open Roles
+11 Open Roles
 
-12 Open Roles
+11 Open Roles
 
 [Art Director, Claude
 
@@ -846,11 +846,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5258583008)[Customer Prog
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5251699008)[Enterprise Community Lead
-
-San Francisco, CA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5231468008)[Field Marketing Manager, Public Sector
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5251699008)[Field Marketing Manager, Public Sector
 
 San Francisco, CA | Washington, DC
 

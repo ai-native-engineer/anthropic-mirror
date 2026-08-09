@@ -5,8 +5,20 @@
 # Run Claude Code sessions on your own compute
 
   [Product announcements](https://claude.com/blog/category/announcements)
+* Product
+
+  [Claude Code](https://claude.com/product/claude-code)
+* Date
 
   August 6, 2026
+* Reading time
+
+  5
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/blog/run-claude-code-sessions-on-your-own-compute
 
@@ -27,6 +39,16 @@ We saw organizations in our preview program adopt self-hosted environments for a
 “Self-hosted environments let us integrate Claude Code into our existing development workflows while maintaining our security and operational controls. This setup means Claude can generate PRs, help fix CI issues, and respond to developer workflow events, with compute that can scale based on demand. Claude understands our codebase, making it a strong fit for how our engineering teams build.”
 
 George Jacob, Senior Engineering Manager
+
+[Prev](#)Prev
+
+0/5
+
+[Next](#)Next
+
+eBook
+
+##
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -57,11 +79,21 @@ Plan on a platform, developer experience, or developer productivity team owning 
 
 See the [documentation](https://code.claude.com/docs/en/self-hosted-environments) to learn more. Share feedback via [GitHub](https://github.com/anthropics/claude-code/issues) or through your Anthropic account team.
 
+FAQ
+
+No items found.
+
+## Related posts
+
+Explore more product news and best practices for teams building with Claude.
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
 
 Aug 5, 2026
 
 ### Inference hooks: inline data loss prevention for Claude Enterprise
+
+Enterprise AI
 
 [Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
 
@@ -97,6 +129,28 @@ Jun 18, 2026
 
 ### Centrally manage authorization for MCP connectors
 
+Enterprise AI
+
 [Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
 
 [Centrally manage authorization for MCP connectors](https://claude.com/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
+
+## Transform how your organization operates with Claude
+
+See pricing
+
+[See pricing](https://claude.com/pricing#api)See pricing
+
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
+
+Get the developer newsletter
+
+Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Thank you! You’re subscribed.
+
+Sorry, there was a problem with your submission, please try again later.
+
+Claude Code

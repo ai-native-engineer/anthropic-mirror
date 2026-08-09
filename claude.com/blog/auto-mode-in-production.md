@@ -7,8 +7,20 @@
 How the teams at Nuro, Gusto, and Garner Health use auto mode to balance speed and safety at production scale.
 
   [Claude Code](https://claude.com/blog/category/claude-code)
+* Product
+
+  [Claude Code](https://claude.com/product/claude-code)
+* Date
 
   August 7, 2026
+* Reading time
+
+  5
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/blog/auto-mode-in-production
 * Author(s)
@@ -83,9 +95,29 @@ His advice for other enterprises rolling it out? Lean in and build the right con
 
 ***Get started with*** [***auto mode***](https://code.claude.com/docs/en/auto-mode-config) **in Claude Code.**
 
+No items found.
+
+[Prev](#)Prev
+
+0/5
+
+[Next](#)Next
+
+eBook
+
+##
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+FAQ
+
+No items found.
+
+## Related posts
+
+Explore more product news and best practices for teams building with Claude.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
 
@@ -93,13 +125,19 @@ Aug 7, 2026
 
 ### Auto mode is now the default in Claude Code for Pro, Max, and Team plans
 
+Claude Code
+
 [Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
 
 [Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
 
+Aug 6, 2026
+
 ### Millennium and Anthropic are building a digital risk analyst with Claude
+
+Enterprise AI
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
@@ -111,6 +149,8 @@ Jul 24, 2026
 
 ### Claude models explained: choosing the best model for your use case
 
+Enterprise AI
+
 [Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
@@ -121,8 +161,30 @@ Jul 22, 2026
 
 ### Building verification loops in Claude Code with skills
 
+Claude Code
+
 [Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
 
 [Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
+
+## Transform how your organization operates with Claude
+
+See pricing
+
+[See pricing](https://claude.com/pricing#api)See pricing
+
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
+
+Get the developer newsletter
+
+Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Thank you! You’re subscribed.
+
+Sorry, there was a problem with your submission, please try again later.
+
+Claude Code
 
 Coding

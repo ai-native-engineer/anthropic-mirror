@@ -8,7 +8,7 @@ Jun 5, 2024
 
 [Claude](https://www.anthropic.com/claude) is now available in Canada. Starting today, people and businesses across the country will be able to access Claude via:
 
-* [Claude.ai](http://claude.ai/redirect/website.v1.2d33db19-17b2-40cd-9de0-0699019f117f): the web-based version of our next-generation AI assistant.
+* [Claude.ai](http://claude.ai/redirect/website.v1.e1cf0118-8d42-42d2-8919-e89a138a46c7): the web-based version of our next-generation AI assistant.
 * The [Claude iOS app](https://apps.apple.com/app/claude/id6473753684): the free mobile app available in the Apple App Store that offers the same intuitive experience as mobile web.
 * The [Claude API](https://www.anthropic.com/api): an interface that allows developers to integrate Anthropic’s state-of-the-art AI models into their own applications, websites, or services.
 * The [Claude Team plan](https://www.anthropic.com/news/team-plan-and-ios): a secure workspace for teams to collaborate that offers increased usage for members.

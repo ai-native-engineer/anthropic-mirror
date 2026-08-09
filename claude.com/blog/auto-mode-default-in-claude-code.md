@@ -7,8 +7,20 @@
 Claude Code will soon run auto mode by default for Pro, Max, and Team plans, enabling longer-running autonomous work, and catching more dangerous commands than manual review in our testing.
 
   [Claude Code](https://claude.com/blog/category/claude-code)
+* Product
+
+  [Claude Code](https://claude.com/product/claude-code)
+* Date
 
   August 7, 2026
+* Reading time
+
+  5
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/blog/auto-mode-default-in-claude-code
 
@@ -136,6 +148,16 @@ Martin Emde, Software Engineer
 
 Evan Magnussen, Platform Engineering Manager
 
+[Prev](#)Prev
+
+0/5
+
+[Next](#)Next
+
+eBook
+
+##
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
@@ -160,11 +182,21 @@ Finally, while we believe auto mode reduces risk for most users, it relies on cl
 
 1 We evaluated Claude Code v2.1.205 and Codex v0.144.5. OpenAI released a new version of Auto-review last week that could change the results.
 
+FAQ
+
+No items found.
+
+## Related posts
+
+Explore more product news and best practices for teams building with Claude.
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
 
 Aug 7, 2026
 
 ### Running auto mode in production
+
+Claude Code
 
 [Running auto mode in production](#)Running auto mode in production
 
@@ -172,7 +204,11 @@ Aug 7, 2026
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
 
+Aug 6, 2026
+
 ### Millennium and Anthropic are building a digital risk analyst with Claude
+
+Enterprise AI
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
@@ -184,6 +220,8 @@ Jul 24, 2026
 
 ### Claude models explained: choosing the best model for your use case
 
+Enterprise AI
+
 [Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
@@ -194,6 +232,28 @@ Jul 22, 2026
 
 ### Building verification loops in Claude Code with skills
 
+Claude Code
+
 [Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
 
 [Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
+
+## Transform how your organization operates with Claude
+
+See pricing
+
+[See pricing](https://claude.com/pricing#api)See pricing
+
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
+
+Get the developer newsletter
+
+Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Thank you! You’re subscribed.
+
+Sorry, there was a problem with your submission, please try again later.
+
+Claude Code

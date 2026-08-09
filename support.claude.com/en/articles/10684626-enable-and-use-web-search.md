@@ -17,7 +17,7 @@ Web search expands Claude's knowledge with real-time data, helping you make bett
 
 An Owner or Primary Owner must first enable web search for the entire workspace. This can be found in **[Admin settings > Capabilities](https://claude.ai/admin-settings/capabilities)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1786184100&signature=f210c142517a99887a6fa7b0282028d2c4e389d6e7457b5cc96155ba2d58e93e&req=diAkFMl9n4deXfMW1HO4zetvyrS7EMpRUJIbgsqS2%2BMmKZOXpamADkKvuI%2Bu%0AA3Q%2BqDF1AKmolCc7s%2BQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1786184100&signature=f210c142517a99887a6fa7b0282028d2c4e389d6e7457b5cc96155ba2d58e93e&req=diAkFMl9n4deXfMW1HO4zetvyrS7EMpRUJIbgsqS2%2BMmKZOXpamADkKvuI%2Bu%0AA3Q%2BqDF1AKmolCc7s%2BQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1786269600&signature=9b16d3927804cd8c9e04ce91034cb06d2c8cee9cb7ebb822f24c41e3d8b3481d&req=diAkFMl9n4deXfMW1HO4zetvyrS4HsdWUJIbgsqS2%2BOVY9q%2BQVH7WYQfGfHK%0A44uO0nanY9oGeZqOadc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1786269600&signature=9b16d3927804cd8c9e04ce91034cb06d2c8cee9cb7ebb822f24c41e3d8b3481d&req=diAkFMl9n4deXfMW1HO4zetvyrS4HsdWUJIbgsqS2%2BOVY9q%2BQVH7WYQfGfHK%0A44uO0nanY9oGeZqOadc%3D%0A)
 
 Once this is enabled at the workspace level, any member of the organization can switch it on while starting a chat by clicking the “+” button in the lower left corner of the chat window and selecting “Web search." Users can toggle this off for chats that don’t require web search capabilities.
 
@@ -113,5 +113,5 @@ You can re-enable it anytime you need current information.
 * [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
-* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
+* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)

@@ -144,7 +144,7 @@ To set global instructions:
 2. Click "Edit" next to **Global instructions**.
 3. Type your instructions in the text box and click "Save":
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1786184100&signature=e80a8dabf3864e1eb5165bc1288bdbb2709710aec737501b093431306b097703&req=diUlE8B8m4lYXfMW1HO4zcDl6t7tPlWx8iWjaktE9406BoUNeNsVz2%2BM9RRQ%0Ao3nwNXf4fTiJKoOsKz8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1786184100&signature=e80a8dabf3864e1eb5165bc1288bdbb2709710aec737501b093431306b097703&req=diUlE8B8m4lYXfMW1HO4zcDl6t7tPlWx8iWjaktE9406BoUNeNsVz2%2BM9RRQ%0Ao3nwNXf4fTiJKoOsKz8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1786269600&signature=507742710040de6371906f19c5103e635c8b60a879f51dff3ae39812b5e46c2c&req=diUlE8B8m4lYXfMW1HO4zcDl6t7uMFi28iWjaktE940rbpA5QqG60%2FtHjiyP%0A8WLSkwwmFGKkvmDUdiA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1786269600&signature=507742710040de6371906f19c5103e635c8b60a879f51dff3ae39812b5e46c2c&req=diUlE8B8m4lYXfMW1HO4zcDl6t7uMFi28iWjaktE940rbpA5QqG60%2FtHjiyP%0A8WLSkwwmFGKkvmDUdiA%3D%0A)
 
 ### Folder instructions
 
