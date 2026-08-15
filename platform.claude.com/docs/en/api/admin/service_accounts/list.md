@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/service_accounts/list -->
 
+---
+title: List Service Accounts
+url: https://platform.claude.com/docs/en/api/admin/service_accounts/list
+---
+
 ## List Service Accounts
 
 **get** `/v1/organizations/service_accounts`
@@ -40,11 +45,11 @@ archived service accounts.
 
     Tagged ID of the service account.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     If set, this service account is archived.
 
-  - `archived_by_actor_id: string`
+  - `archived_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
 
@@ -52,11 +57,11 @@ archived service accounts.
 
     When this service account was created.
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that created this service account.
 
-  - `description: string`
+  - `description: string or null`
 
     Optional free-text description.
 
@@ -64,13 +69,13 @@ archived service accounts.
 
     Admin-chosen slug identifier.
 
-  - `organization_role: "developer" or "admin"`
+  - `organization_role: "admin" or "developer"`
 
     Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
 
-    - `"developer"`
-
     - `"admin"`
+
+    - `"developer"`
 
   - `type: "service_account"`
 
@@ -80,11 +85,11 @@ archived service accounts.
 
     When this service account was last updated.
 
-  - `updated_by_actor_id: string`
+  - `updated_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
 
-- `next_page: string`
+- `next_page: string or null`
 
   Opaque cursor for the next page, or null if no more results.
 
@@ -109,7 +114,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts \
       "created_by_actor_id": "created_by_actor_id",
       "description": "description",
       "name": "ci-deploy-bot",
-      "organization_role": "developer",
+      "organization_role": "admin",
       "type": "service_account",
       "updated_at": "2024-10-30T23:58:27.427722Z",
       "updated_by_actor_id": "updated_by_actor_id"

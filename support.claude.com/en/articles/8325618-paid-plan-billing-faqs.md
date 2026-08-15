@@ -39,7 +39,7 @@ There's no separate option to remove a card, and updating to a new card replaces
 
 If you want to use a name other than the one tied to your payment method, check the "Use a different name on invoices" box when adding or updating your payment method in **[Settings > Billing](https://claude.ai/settings/billing)**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1786268700&signature=336a66fb442519139659b766a4441e152c45a4d89589568547784d1c731be4f6&req=dSklFMh6nIZXXPMW1HO4zVXW8GupbTvLQoNvNFTb5ceq7UBsNtIBj6fDo4ts%0AwUHi7n24dUCuDClr1LY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1786268700&signature=336a66fb442519139659b766a4441e152c45a4d89589568547784d1c731be4f6&req=dSklFMh6nIZXXPMW1HO4zVXW8GupbTvLQoNvNFTb5ceq7UBsNtIBj6fDo4ts%0AwUHi7n24dUCuDClr1LY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1786753800&signature=763dfb28487661b55626c09933ec765bcdca883f54bf4cce3dd51577e05f538e&req=dSklFMh6nIZXXPMW1HO4zVXW8GusbjDEQoNvNFTb5ceN0QfKn30A5qQu1bEz%0ADB%2BLRq2Zptz8lGzheUk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1786753800&signature=763dfb28487661b55626c09933ec765bcdca883f54bf4cce3dd51577e05f538e&req=dSklFMh6nIZXXPMW1HO4zVXW8GusbjDEQoNvNFTb5ceN0QfKn30A5qQu1bEz%0ADB%2BLRq2Zptz8lGzheUk%3D%0A)
 
 ## How can I edit a paid invoice?
 
@@ -62,6 +62,6 @@ If you've paid for a Pro or Max plan but are not seeing this reflected in your a
 
 * [Cancel your Pro or Max subscription](https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription)
 * [Add or update your paid Claude account’s tax or VAT ID](https://support.claude.com/en/articles/9889408-add-or-update-your-paid-claude-account-s-tax-or-vat-id)
+* [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 * [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
-* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
 * [Understanding your billing address and tax calculation](https://support.claude.com/en/articles/12997130-understanding-your-billing-address-and-tax-calculation)

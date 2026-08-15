@@ -28,6 +28,82 @@ Model
 
 Features
 
+![Process batches of vendors with Cowork](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984df6e834e02e0a82f279f_Screenshot%202026-02-05%20at%2010.20.18%E2%80%AFAM.png)
+
+Process batches of vendors with Cowork
+
+Onboard several vendors in one session — with Cowork, Claude can read a folder of vendor files, adds each to your tracker, generates their contracts, and fills multiple intake forms in your browser.
+
+Anthropic
+
+Professional
+
+Author
+
+Anthropic
+
+Category
+
+Professional
+
+Model
+
+Sonnet 4.5
+
+Features
+
+Cowork
+
+Read use case
+
+[Read use case](https://claude.com/resources/use-cases/process-batches-of-vendors-with-cowork)Read use case
+
+Claude Cowork
+
+[Process batches of vendors with Cowork](https://claude.com/resources/use-cases/process-batches-of-vendors-with-cowork)Process batches of vendors with Cowork
+
+[Text Link](https://claude.com/resources/use-cases/process-batches-of-vendors-with-cowork)
+
+![Thoughtful gift giving with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694593a68178099a5c9e9814_stocking-stuffers.png)
+
+Thoughtful gift giving with Claude
+
+Turn last-minute gift panic into thoughtful, personalized presents. Claude can suggest items, search your notes for forgotten hints, find specific products you can buy locally, and help you coordinate the actual shopping.
+
+Anthropic
+
+Personal
+
+Author
+
+Anthropic
+
+Category
+
+Personal
+
+Model
+
+Opus 4.5
+
+Features
+
+Web Search
+
+Connectors
+
+Extended Thinking
+
+Read use case
+
+[Read use case](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Read use case
+
+Claude.ai
+
+[Thoughtful gift giving with Claude](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
+
+[Text Link](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)
+
 ![Adapt a standard textbook page to every reading level](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0f28373d7c9dfb19a5768_textbook.png)
 
 Adapt a standard textbook page to every reading level
@@ -497,78 +573,6 @@ Claude.ai
 [See budget futures side by side, in chat with Claude](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
 
 [Text Link](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)
-
-![See why donor retention beats acquisition, in chat with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28c20b40356d5f9c3e410_Screenshot%202026-03-12%20at%202.49.17%E2%80%AFAM.png)
-
-See why donor retention beats acquisition, in chat with Claude
-
-Claude builds a five-year donor projection with sliders for retention and acquisition. Drag either one and the curve redraws, and it becomes clear fairly quickly why a modest retention bump does more than doubling the acquisition spend.
-
-Anthropic
-
-Nonprofits
-
-Author
-
-Anthropic
-
-Category
-
-Nonprofits
-
-Model
-
-Sonnet 4.6
-
-Features
-
-Custom visuals
-
-Read use case
-
-[Read use case](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)Read use case
-
-Claude.ai
-
-[See why donor retention beats acquisition, in chat with Claude](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
-
-[Text Link](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)
-
-![Map your lit review mid-conversation to surface the underlying debate](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28b698ef6b19644650a2a_Screenshot%202026-03-12%20at%202.46.06%E2%80%AFAM.png)
-
-Map your lit review mid-conversation to surface the underlying debate
-
-Claude reads your stack of papers and draws the argument structure inline — clusters by claim, tension lines where camps disagree, blind spots per group. A reading of the debate you test against your own, as you work through the set.
-
-Anthropic
-
-Education
-
-Author
-
-Anthropic
-
-Category
-
-Education
-
-Model
-
-Sonnet 4.6
-
-Features
-
-Custom visuals
-
-Read use case
-
-[Read use case](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Read use case
-
-Claude.ai
-
-[Map your lit review mid-conversation to surface the underlying debate](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Map your lit review mid-conversation to surface the underlying debate
-
-[Text Link](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)
 
 [View more](https://claude.com/resources/use-cases?8adb0641_page=2)
 

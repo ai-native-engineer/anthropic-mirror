@@ -12,7 +12,7 @@ Analyze U.S. fixed income trade and reference data
   [Claude](https://claude.ai/directory/78e4dd7b-229c-4ca6-a469-b12d6bbef434)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
 * Made by
 
-  [Intercontinental Exchange, Inc.](https://www.ice.com)
+  [Intercontinental Exchange, Inc.](https://www.ice.com/fixed-income-data-services/access-and-delivery/mcp-connector)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -23,7 +23,7 @@ Analyze U.S. fixed income trade and reference data
   Read
 * More
 
-  [Documentation](https://www.ice.com/ieoauoau)[Privacy Policy](https://www.ice.com/privacy-security-center)[Support](mailto:idsclientsupport@ice.com)
+  [Documentation](https://www.ice.com/fixed-income-data-services/access-and-delivery/mcp-connector)[Privacy Policy](https://www.ice.com/privacy-security-center)[Support](mailto:idsclientsupport@ice.com)
 
 Query real-time and historical bond trades across corporate, agency and securitized products reported to FINRA TRACE, and municipal bond trades reported to MSRB RTRS. Look up bond reference data including coupon details and maturity dates.
 

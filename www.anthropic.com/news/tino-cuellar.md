@@ -18,6 +18,6 @@ Tino has served as a Trustee of Anthropic's Long-Term Benefit Trust since Januar
 
 Tino arrives at a pivotal moment for Anthropic's work with governments around the world. The questions AI raises for economies, for security, and for communities absorbing rapid change are being debated by leaders everywhere. Ensuring AI’s trajectory is shaped by democratic societies and its benefits reach people broadly is a critical priority. Tino will help steer this work while finding common cause with heads of state and policy leaders on the questions and possibilities AI is raising for communities everywhere.
 
-### Our position on open-weights models
+### Investigating three real-world incidents in our cybersecurity evaluations
 
-[Read more](https://www.anthropic.com/news/position-open-weights-models)
+[Read more](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals)

@@ -41,7 +41,7 @@ Try in Claude
 
 ## Describe the task
 
-The best gifts show you've been paying attention. Claude helps you think through gift ideas that actually fit each person, not just generic suggestions by category. From there, you can search your notes and messages for hints you've forgotten, use web search to find specific products locally, and use Claude for Chrome to buy, book pickup, and coordinate with others.
+The best gifts show you've been paying attention. Claude helps you think through gift ideas that actually fit each person, not just generic suggestions by category. From there, you can search your notes and messages for hints you've forgotten, use web search to find specific products locally, and use Claude in Chrome to buy, book pickup, and coordinate with others.
 
 I always forget stocking stuffers until the last minute and end up panic-buying junk. This year I want to fill stockings with small things people will actually use or enjoy. Help me think through good stocking stuffer ideas for my family that I can find locally this week:
 

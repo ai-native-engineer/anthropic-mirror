@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/groups/members/list -->
 
+---
+title: List Compliance Group Members
+url: https://platform.claude.com/docs/en/api/compliance/groups/members/list
+---
+
 ## List Compliance Group Members
 
 **get** `/v1/compliance/groups/{group_id}/members`
@@ -32,7 +37,7 @@ List Compliance Group Members
 
   List of group members
 
-  - `created_at: string`
+  - `created_at: string or null`
 
     Membership creation timestamp (ISO 8601)
 
@@ -40,7 +45,7 @@ List Compliance Group Members
 
     Member email address
 
-  - `updated_at: string`
+  - `updated_at: string or null`
 
     Membership last-updated timestamp (ISO 8601)
 
@@ -52,7 +57,7 @@ List Compliance Group Members
 
   Whether more records exist beyond the current result set
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token to retrieve the next page. Use this as the 'page' parameter in your next request
 
@@ -69,13 +74,13 @@ curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID/members \
 {
   "data": [
     {
-      "created_at": "created_at",
-      "email": "email",
-      "updated_at": "updated_at",
-      "user_id": "user_id"
+      "created_at": "2025-03-12T18:22:41.123456",
+      "email": "jane.doe@example.com",
+      "updated_at": "2025-03-14T09:05:17.456789",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
     }
   ],
   "has_more": true,
-  "next_page": "next_page"
+  "next_page": "cGFnZV90b2tlbl9leGFtcGxlXzE3MzQ1Njc4OTA="
 }
 ```

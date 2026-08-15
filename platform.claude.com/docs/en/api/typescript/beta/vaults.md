@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/vaults -->
 
+---
+title: Vaults
+url: https://platform.claude.com/docs/en/api/typescript/beta/vaults
+---
+
 # Vaults
 
 ## Create Vault
@@ -28,7 +33,7 @@ Create Vault
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -80,11 +85,21 @@ Create Vault
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -123,13 +138,15 @@ Create Vault
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
-const betaManagedAgentsVault = await client.beta.vaults.create({ display_name: 'Example vault' });
+const betaManagedAgentsVault = await client.beta.vaults.create({
+  display_name: "Example vault"
+});
 
 console.log(betaManagedAgentsVault.id);
 ```
@@ -180,7 +197,7 @@ List Vaults
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -232,11 +249,21 @@ List Vaults
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -275,10 +302,10 @@ List Vaults
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
@@ -328,7 +355,7 @@ Get Vault
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -380,11 +407,21 @@ Get Vault
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -423,13 +460,15 @@ Get Vault
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
-const betaManagedAgentsVault = await client.beta.vaults.retrieve('vlt_011CZkZDLs7fYzm1hXNPeRjv');
+const betaManagedAgentsVault = await client.beta.vaults.retrieve(
+  "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+);
 
 console.log(betaManagedAgentsVault.id);
 ```
@@ -478,7 +517,7 @@ Update Vault
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -530,11 +569,21 @@ Update Vault
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -573,13 +622,13 @@ Update Vault
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
-const betaManagedAgentsVault = await client.beta.vaults.update('vlt_011CZkZDLs7fYzm1hXNPeRjv');
+const betaManagedAgentsVault = await client.beta.vaults.update("vlt_011CZkZDLs7fYzm1hXNPeRjv");
 
 console.log(betaManagedAgentsVault.id);
 ```
@@ -620,7 +669,7 @@ Delete Vault
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -672,11 +721,21 @@ Delete Vault
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -695,14 +754,14 @@ Delete Vault
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 const betaManagedAgentsDeletedVault = await client.beta.vaults.delete(
-  'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+  "vlt_011CZkZDLs7fYzm1hXNPeRjv"
 );
 
 console.log(betaManagedAgentsDeletedVault.id);
@@ -737,7 +796,7 @@ Archive Vault
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -789,11 +848,21 @@ Archive Vault
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -832,13 +901,15 @@ Archive Vault
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
-const betaManagedAgentsVault = await client.beta.vaults.archive('vlt_011CZkZDLs7fYzm1hXNPeRjv');
+const betaManagedAgentsVault = await client.beta.vaults.archive(
+  "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+);
 
 console.log(betaManagedAgentsVault.id);
 ```
@@ -1065,6 +1136,18 @@ Create Credential
 
         - `"environment_variable"`
 
+      - `injection_location?: BetaManagedAgentsInjectionLocationParams`
+
+        Where in the outbound request the secret value may be substituted.
+
+        - `body?: boolean`
+
+          Substitute when the placeholder appears in the request body.
+
+        - `header?: boolean`
+
+          Substitute when the placeholder appears in a request header value.
+
   - `display_name?: string | null`
 
     Body param: Human-readable name for the credential. Up to 255 characters.
@@ -1079,7 +1162,7 @@ Create Credential
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -1131,11 +1214,21 @@ Create Credential
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -1235,6 +1328,18 @@ Create Credential
 
       Environment variable credential details. The secret value is never returned.
 
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
         Outbound hosts the secret value is substituted on.
@@ -1294,21 +1399,21 @@ Create Credential
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 const betaManagedAgentsCredential = await client.beta.vaults.credentials.create(
-  'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+  "vlt_011CZkZDLs7fYzm1hXNPeRjv",
   {
     auth: {
-      token: 'bearer_exampletoken',
-      mcp_server_url: 'https://example-server.modelcontextprotocol.io/sse',
-      type: 'static_bearer',
-    },
-  },
+      token: "bearer_exampletoken",
+      mcp_server_url: "https://example-server.modelcontextprotocol.io/sse",
+      type: "static_bearer"
+    }
+  }
 );
 
 console.log(betaManagedAgentsCredential.id);
@@ -1367,7 +1472,7 @@ List Credentials
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -1419,11 +1524,21 @@ List Credentials
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -1523,6 +1638,18 @@ List Credentials
 
       Environment variable credential details. The secret value is never returned.
 
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
         Outbound hosts the secret value is substituted on.
@@ -1582,15 +1709,15 @@ List Credentials
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
 for await (const betaManagedAgentsCredential of client.beta.vaults.credentials.list(
-  'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+  "vlt_011CZkZDLs7fYzm1hXNPeRjv"
 )) {
   console.log(betaManagedAgentsCredential.id);
 }
@@ -1646,7 +1773,7 @@ Get Credential
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -1698,11 +1825,21 @@ Get Credential
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -1802,6 +1939,18 @@ Get Credential
 
       Environment variable credential details. The secret value is never returned.
 
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
         Outbound hosts the secret value is substituted on.
@@ -1861,15 +2010,15 @@ Get Credential
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 const betaManagedAgentsCredential = await client.beta.vaults.credentials.retrieve(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
-  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+  "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  { vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv" }
 );
 
 console.log(betaManagedAgentsCredential.id);
@@ -1994,6 +2143,18 @@ Update Credential
 
         - `"environment_variable"`
 
+      - `injection_location?: BetaManagedAgentsInjectionLocationUpdateParams`
+
+        Updated injection location.
+
+        - `body?: boolean`
+
+          Substitute when the placeholder appears in the request body.
+
+        - `header?: boolean`
+
+          Substitute when the placeholder appears in a request header value.
+
       - `networking?: BetaManagedAgentsCredentialNetworkingParams | null`
 
         Updated networking scope. Full replacement.
@@ -2036,7 +2197,7 @@ Update Credential
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -2088,11 +2249,21 @@ Update Credential
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -2192,6 +2363,18 @@ Update Credential
 
       Environment variable credential details. The secret value is never returned.
 
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
         Outbound hosts the secret value is substituted on.
@@ -2251,15 +2434,15 @@ Update Credential
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 const betaManagedAgentsCredential = await client.beta.vaults.credentials.update(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
-  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+  "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  { vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv" }
 );
 
 console.log(betaManagedAgentsCredential.id);
@@ -2310,7 +2493,7 @@ Delete Credential
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -2362,11 +2545,21 @@ Delete Credential
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -2385,15 +2578,15 @@ Delete Credential
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 const betaManagedAgentsDeletedCredential = await client.beta.vaults.credentials.delete(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
-  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+  "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  { vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv" }
 );
 
 console.log(betaManagedAgentsDeletedCredential.id);
@@ -2432,7 +2625,7 @@ Archive Credential
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -2484,11 +2677,21 @@ Archive Credential
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -2588,6 +2791,18 @@ Archive Credential
 
       Environment variable credential details. The secret value is never returned.
 
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
         Outbound hosts the secret value is substituted on.
@@ -2647,15 +2862,15 @@ Archive Credential
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 const betaManagedAgentsCredential = await client.beta.vaults.credentials.archive(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
-  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+  "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  { vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv" }
 );
 
 console.log(betaManagedAgentsCredential.id);
@@ -2706,7 +2921,7 @@ Validate Credential
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -2758,11 +2973,21 @@ Validate Credential
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -2851,16 +3076,16 @@ Validate Credential
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
-const betaManagedAgentsCredentialValidation = await client.beta.vaults.credentials.mcpOAuthValidate(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
-  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
-);
+const betaManagedAgentsCredentialValidation =
+  await client.beta.vaults.credentials.mcpOAuthValidate("vcrd_011CZkZEMt8gZan2iYOQfSkw", {
+    vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  });
 
 console.log(betaManagedAgentsCredentialValidation.credential_id);
 ```
@@ -2995,6 +3220,18 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
     - `BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -3194,6 +3431,18 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 
   Environment variable credential details. The secret value is never returned.
 
+  - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+    Where in the outbound request the secret value is substituted.
+
+    - `body: boolean`
+
+      Whether the placeholder is substituted in the request body.
+
+    - `header: boolean`
+
+      Whether the placeholder is substituted in request header values.
+
   - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
     Outbound hosts the secret value is substituted on.
@@ -3268,6 +3517,18 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 
     - `"environment_variable"`
 
+  - `injection_location?: BetaManagedAgentsInjectionLocationParams`
+
+    Where in the outbound request the secret value may be substituted.
+
+    - `body?: boolean`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header?: boolean`
+
+      Substitute when the placeholder appears in a request header value.
+
 ### Beta Managed Agents Environment Variable Update Params
 
 - `BetaManagedAgentsEnvironmentVariableUpdateParams`
@@ -3277,6 +3538,18 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `type: "environment_variable"`
 
     - `"environment_variable"`
+
+  - `injection_location?: BetaManagedAgentsInjectionLocationUpdateParams`
+
+    Updated injection location.
+
+    - `body?: boolean`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header?: boolean`
+
+      Substitute when the placeholder appears in a request header value.
 
   - `networking?: BetaManagedAgentsCredentialNetworkingParams | null`
 
@@ -3305,6 +3578,48 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `secret_value?: string | null`
 
     Updated secret value.
+
+### Beta Managed Agents Injection Location Params
+
+- `BetaManagedAgentsInjectionLocationParams`
+
+  Where in the outbound request the secret value may be substituted.
+
+  - `body?: boolean`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header?: boolean`
+
+    Substitute when the placeholder appears in a request header value.
+
+### Beta Managed Agents Injection Location Response
+
+- `BetaManagedAgentsInjectionLocationResponse`
+
+  Where in the outbound request the secret value is substituted.
+
+  - `body: boolean`
+
+    Whether the placeholder is substituted in the request body.
+
+  - `header: boolean`
+
+    Whether the placeholder is substituted in request header values.
+
+### Beta Managed Agents Injection Location Update Params
+
+- `BetaManagedAgentsInjectionLocationUpdateParams`
+
+  Updated injection location.
+
+  - `body?: boolean`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header?: boolean`
+
+    Substitute when the placeholder appears in a request header value.
 
 ### Beta Managed Agents Limited Credential Networking Params
 

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/add -->
 
+---
+title: Add Session Resource
+url: https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/add
+---
+
 ## Add Session Resource
 
 `client.beta.sessions.resources.add(stringsessionID, ResourceAddParamsparams, RequestOptionsoptions?): BetaManagedAgentsFileResource`
@@ -34,7 +39,7 @@ Add Session Resource
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -86,11 +91,21 @@ Add Session Resource
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -117,15 +132,15 @@ Add Session Resource
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 const betaManagedAgentsFileResource = await client.beta.sessions.resources.add(
-  'sesn_011CZkZAtmR3yMPDzynEDxu7',
-  { file_id: 'file_011CNha8iCJcU1wXNR6q4V8w', type: 'file' },
+  "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  { file_id: "file_011CNha8iCJcU1wXNR6q4V8w", type: "file" }
 );
 
 console.log(betaManagedAgentsFileResource.id);

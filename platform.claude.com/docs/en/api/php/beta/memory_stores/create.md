@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/memory_stores/create -->
 
+---
+title: Create a memory store
+url: https://platform.claude.com/docs/en/api/php/beta/memory_stores/create
+---
+
 ## Create a memory store
 
 `$client->beta->memoryStores->create(string name, ?string description, ?array<string,string> metadata, ?list<AnthropicBeta> betas): BetaManagedAgentsMemoryStore`
@@ -73,7 +78,7 @@ $betaManagedAgentsMemoryStore = $client->beta->memoryStores->create(
   name: 'x',
   description: 'description',
   metadata: ['foo' => 'string'],
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaManagedAgentsMemoryStore);

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/deployment_runs/retrieve -->
 
+---
+title: Get Deployment Run
+url: https://platform.claude.com/docs/en/api/python/beta/deployment_runs/retrieve
+---
+
 ## Get Deployment Run
 
 `beta.deployment_runs.retrieve(strdeployment_run_id, DeploymentRunRetrieveParams**kwargs)  -> BetaManagedAgentsDeploymentRun`
@@ -18,7 +23,7 @@ Get Deployment Run
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -83,6 +88,8 @@ Get Deployment Run
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

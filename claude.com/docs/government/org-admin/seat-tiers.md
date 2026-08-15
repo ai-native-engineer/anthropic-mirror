@@ -34,7 +34,7 @@ Click **New seat tier** and fill in the form.
 
 An organization may create up to 50 self-managed tiers.
 
-The **New seat tier** button only appears if your tenant has allowed organizations to manage their own seat tiers. This permission is controlled by the **Permit organizations to manage their own seat tiers** setting on the tenant’s Config page. If you don’t see the button, ask a tenant administrator.
+The **New seat tier** button only appears if your tenant has allowed organizations to manage their own seat tiers. This permission is controlled by the **Let organizations manage their own seat tiers** setting on the tenant’s Config page. If you don’t see the button, ask a tenant administrator.
 
 ##  Viewing and editing a tier
 

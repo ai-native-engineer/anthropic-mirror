@@ -30,11 +30,11 @@ What came up again and again in these calls is that there is a lot of variance i
 
 Do you only use one session or two sessions that you keep open in a terminal? Do you start a new session with every prompt? When do you use [compact](https://platform.claude.com/docs/en/build-with-claude/compaction), rewind or [subagents](https://code.claude.com/docs/en/sub-agents)? What causes a bad compact or bad session?
 
-There’s a surprising amount of detail here that can really shape your experience with [Claude Code](https://code.claude.com/docs/en/overview) and almost all of it comes from [managing your context window](https://code.claude.com/docs/en/how-claude-code-works).
+There’s a surprising amount of detail here that can really shape your experience with [Claude Code](https://claude.com/product/claude-code) and almost all of it comes from [managing your context window](https://code.claude.com/docs/en/how-claude-code-works).
 
 ## **A quick primer on context, compaction and context rot**
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e02238a3e7e9532cb643de_image6.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e02238a3e7e9532cb643de_image6.png)
 
 The context window is everything the model can "see" at once when generating its next response. It includes your system prompt, the conversation so far, every tool call and its output, and every file that's been read. Claude Code has a context window of one million tokens.
 
@@ -42,7 +42,7 @@ Unfortunately, using context has a slight impact on performance, which is often 
 
 Context windows are a hard cutoff, so when you’re nearing the end of the context window, the task you’ve been working on is automatically summarized into a smaller description and the model continues the work in a new context window. We call this compaction. You can also trigger compaction yourself.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e02297f13357d9b32d8312_image5.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e02297f13357d9b32d8312_image5.png)
 
 ## **Every turn as a branching point**
 
@@ -56,7 +56,7 @@ Say you've just asked Claude to do something and it's finished—you’ve now go
 
 While the most natural course is just to continue, the other four options exist to help manage your context.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e022cf45e7f9c9d025756d_image3.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e022cf45e7f9c9d025756d_image3.png)
 
 ## **When to start a new session**
 
@@ -68,7 +68,7 @@ Sometimes you may do related tasks where some of the context is still necessary,
 
 ## **Rewinding instead of correcting**
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0234c97977d4944bea810_image4.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0234c97977d4944bea810_image4.png)
 
 In Claude Code, double-tapping Esc (or running `/rewind`) lets you jump back to any previous message and re-prompt from there. The messages after that point are dropped from the context.
 
@@ -82,7 +82,7 @@ Once a session gets long, you have two ways to shed extraneous context: `/compac
 
 **Compact** asks the model to summarize the conversation so far, then replaces the history with that summary. It's lossy, but you didn't have to write anything yourself and Claude might be more thorough in including important learnings or files. You can also steer it by passing instructions (`/compact focus on the auth refactor, drop the test debugging`).
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e02427049669efd6bb7604_image1.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e02427049669efd6bb7604_image1.png)
 
 With `/clear`*you* write down what matters ("we're refactoring the auth middleware, the constraint is X, the files that matter are A and B, we've ruled out approach Y") and start clean. It's more work, but the resulting context is what you decided was relevant.
 
@@ -102,7 +102,7 @@ This is particularly difficult, because due to context rot, the model is at its 
 
 When Claude spawns a subagent via the Agent tool, that subagent gets its own fresh context window. It can do as much work as it needs to, and then synthesize its results so only the final report comes back to the parent.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0241044643c5402b312a9_image2.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0241044643c5402b312a9_image2.png)
 
 The mental test we use at Anthropic: *will I need this tool output again, or just the conclusion?*
 
@@ -128,7 +128,7 @@ We look forward to seeing what you build.
 
 ‍
 
-*Get started with* [*Claude Code*](https://code.claude.com/docs/en/overview) *today.*
+*Get started with* [*Claude Code*](https://claude.com/product/claude-code) *today.*
 
 ***About the author:*** *Thariq Shihipar is a member of technical staff at Anthropic, working on Claude Code.*
 
@@ -158,53 +158,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f63175f636cba4641_c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
 
-Aug 7, 2026
+Aug 14, 2026
 
-### Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-Claude Code
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
-
-Aug 7, 2026
-
-### Running auto mode in production
+### Maximizing the value of your Claude Code sessions
 
 Claude Code
 
-[Running auto mode in production](#)Running auto mode in production
+[Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
 
-[Running auto mode in production](https://claude.com/blog/auto-mode-in-production)Running auto mode in production
+[Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2287f90c57df4c9dd97_c1ef4c0b6882dfe985555b52999d370ea88a3c50-1000x1000.svg)
 
-Aug 6, 2026
+Mar 19, 2026
 
-### Millennium and Anthropic are building a digital risk analyst with Claude
+### Product management on the AI exponential
 
-Enterprise AI
+Claude Code
 
-[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+[Product management on the AI exponential](#) Product management on the AI exponential
 
-[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+[Product management on the AI exponential](https://claude.com/blog/product-management-on-the-ai-exponential) Product management on the AI exponential
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
 
-Jul 24, 2026
+May 20, 2026
 
-### Claude models explained: choosing the best model for your use case
+### Using Claude Code: The unreasonable effectiveness of HTML
 
-Enterprise AI
+Claude Code
 
-[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+[Using Claude Code: The unreasonable effectiveness of HTML](#)Using Claude Code: The unreasonable effectiveness of HTML
 
-[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+[Using Claude Code: The unreasonable effectiveness of HTML](https://claude.com/blog/using-claude-code-the-unreasonable-effectiveness-of-html)Using Claude Code: The unreasonable effectiveness of HTML
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+May 12, 2026
+
+### How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+
+Claude Code
+
+[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](#)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+
+[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](https://claude.com/blog/how-anthropic-uses-claude-cybersecurity)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
 
 ## Transform how your organization operates with Claude
 

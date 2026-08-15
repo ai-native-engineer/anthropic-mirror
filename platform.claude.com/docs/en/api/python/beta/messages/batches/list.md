@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/messages/batches/list -->
 
+---
+title: List Message Batches
+url: https://platform.claude.com/docs/en/api/python/beta/messages/batches/list
+---
+
 ## List Message Batches
 
 `beta.messages.batches.list(BatchListParams**kwargs)  -> SyncPage[BetaMessageBatch]`
@@ -32,7 +37,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -97,6 +102,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

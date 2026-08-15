@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/vaults/update -->
 
+---
+title: Update Vault
+url: https://platform.claude.com/docs/en/api/beta/vaults/update
+---
+
 ## Update Vault
 
 **post** `/v1/vaults/{vault_id}`
@@ -18,7 +23,7 @@ Update Vault
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -70,19 +75,29 @@ Update Vault
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
-- `display_name: optional string`
+- `display_name: optional string or null`
 
   Updated human-readable name for the vault. 1-255 characters.
 
-- `metadata: optional map[string]`
+- `metadata: optional map[string] or null`
 
   Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
 
@@ -96,7 +111,7 @@ Update Vault
 
     Unique identifier for the vault.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 

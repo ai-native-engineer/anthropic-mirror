@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/messages/batches/results -->
 
+---
+title: Retrieve Message Batch results
+url: https://platform.claude.com/docs/en/api/php/messages/batches/results
+---
+
 ## Retrieve Message Batch results
 
 `$client->messages->batches->results(string messageBatchID): MessageBatchIndividualResponse`
@@ -10,7 +15,7 @@ Streams the results of a Message Batch as a `.jsonl` file.
 
 Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 

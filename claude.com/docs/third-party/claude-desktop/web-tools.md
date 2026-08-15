@@ -49,11 +49,11 @@ Google Cloud’s Agent Platform grounding and Microsoft Foundry execute search i
 ####  Built-in web search
 
 Add the bundled `websearch` server to [`managedMcpServers`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers). Search runs in the desktop app itself, so it works on every inference provider, including Amazon Bedrock.
-You can add it from the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration): under **Connectors & extensions**, add a **Web search** server, choose the search provider, and supply the vendor key as a header or through a headers helper script.
+You can add it from the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration): under **Connectors**, add a **Web search** server, choose the search provider, and supply the vendor key as a header or through a headers helper script.
 
 ![Web search server card in the in-app configuration window with fields for name, tool policy, headers, and headers helper script, and a search provider menu offering brave, tavily, exa, and custom.](https://mintcdn.com/claude-ai/iVbkJluVpijKTo5a/images/third-party/config-window-web-search.png?fit=max&auto=format&n=iVbkJluVpijKTo5a&q=85&s=19cf4844972d9fd47addec8690db09c8)
 
-The Web search server in the Connectors & extensions section of the in-app configuration window, with the search provider menu open.
+The Web search server in the Connectors section of the in-app configuration window, with the search provider menu open.
 
 In the exported configuration, set `provider` to a hosted search vendor (`brave`, `tavily`, or `exa`) for the lowest setup, or to `custom` with `customUrl` to point at a search server you run.
 Hosted vendor:

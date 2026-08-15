@@ -1,133 +1,137 @@
 <!-- source: https://www.anthropic.com/legal/non-user-privacy-policy -->
 
-Anthropic is an AI safety and research company, building reliable, interpretable, and steerable AI systems.
+## 비이용자 개인정보 처리방침
 
-We’ve prepared this policy (“**Policy**”) to explain how our large language models are ‘trained’ and how personal data may be used as part of the training process. We’ve also included information about the ways in which personal data of individuals who are not registered users of our services may incidentally be processed as part of our services, and the privacy rights such individuals may enjoy with respect to their personal data.
+**시행일: 2026년 7월 8일**
 
-To understand how we collect and use information from registered users of our services, please see our [Privacy Policy](https://www.anthropic.com/legal/privacy).
+Anthropic은 신뢰할 수 있고, 해석가능 하며 제어할 수 있는 AI 시스템을 구축하는 AI 안전, 연구 회사입니다.
 
-## 1. What Claude Is
+당사는 당사의 대규모 언어 모델이 어떻게 ‘학습’되는지, 그리고 개인정보가 학습 과정에서 어떻게 이용될 수 있는지에 대하여 설명하기 위해 본 처리방침(“본 방침”)**을** 작성하였습니다. 또한 당사 서비스의 등록된 이용자가 아닌 개인의 개인정보가 당사 서비스의 일부로 우연히 처리될 수 있는 방식과 해당 개인이 그의 개인정보와 관련하여 누릴 수 있는 개인정보 보호에 관한 권리에 대한 정보도 포함하였습니다.
 
-Claude is a content-based generative AI system used by many people around the world to assist with a wide range of tasks. These include improving writing, providing coding assistance, offering strategic advice, conducting business analysis, summarizing documents, and helping with various daily activities. Claude is available to individuals, developers, and businesses around the world.
+당사 서비스에 등록된 이용자로부터 정보를 수집하고 이용하는 방법에 대해 알아보려면 당사 [개인정보 처리방침](https://www.anthropic.com/legal/privacy)을 참고하시기 바랍니다.
 
-## 2. How Our Models are Trained
+### 1. Claude란?
 
-Large language models such as Claude are ‘trained’ on a variety of content such as text, images and multimedia so that they can learn the patterns and connections between words and/or content. This training is essential so that the model performs effectively and safely.
+Claude는 전 세계 많은 사람들이 다양한 작업을 지원하기 위해 이용하는 콘텐츠 기반 생성형 AI 시스템입니다. 여기에는 작문 향상, 코딩 지원 제공, 전략적 조언 제공, 비즈니스 분석 수행, 문서 요약 및 다양한 일상 활동 지원이 포함됩니다. Claude는 전 세계의 개인, 개발자 및 기업이 이용할 수 있습니다.
 
-Training our models involves a number of separate stages, but broadly these fall into two steps: (1) pre-training and (2) post-training.
+### 2. 모델 학습 방법
 
-“Pre-training” involves the analysis of content in order for the model to understand the fundamentals of language – that is, syntax, the patterns and connections between words – as well as basic facts about the world. To understand the full diversity of language, the model is trained on large amounts of content (including text) that is converted into “tokens” (short chunks of text often just a few characters long, like common words, parts of longer words, or even punctuation marks). The model processes this content and builds a complex network of relationships between tokens. At the end of pre-training, the model can predict the most likely next word in a sequence based on the words that come before it, much like a sophisticated autocomplete feature.
+Claude와 같은 대규모 언어 모델은 텍스트, 이미지 및 멀티미디어와 같은 다양한 콘텐츠를 ‘학습’하여 단어 및/또는 콘텐츠 간의 패턴과 연결을 학습할 수 있습니다. 이러한 학습은 모델이 효과적이고 안전하게 수행되도록 하는 데 필수적입니다.
 
-Models do not store text like a database, nor do they simply “mash-up” or “collage” existing content. Models identify general patterns in text in order to help people create new content, and they do not have access to or pull from the original training data once the models have been trained.
+모델 학습은 여러 개의 개별 단계로 이루어져 있지만, 크게 (1) 사전 학습과 (2) 사후 학습의 두 단계로 나눌 수 있습니다.
 
-“Post-training” helps make the model more useful, effective, and safe, by integrating human feedback. The model generates multiple responses to a given prompt, which are then evaluated by human reviewers based on criteria such as quality, helpfulness, safety, and accuracy. This reinforcement learning feedback loop helps align the model's outputs with human expectations and values, gradually improving a model’s ability to provide relevant and appropriate responses. In addition, further “fine-tuning” that provides the model with the examples of appropriate outputs (e.g., specific to a particular domain or use case) helps improve the model.
+“사전 학습”에는 모델이 언어의 기본 사항(즉, 구문, 단어 간의 패턴 및 연결)과 세계에 대한 기본 사실을 이해하기 위한 콘텐츠 분석이 포함됩니다. 언어의 다양성을 완전히 이해하기 위해 모델은 “토큰”(일반적인 단어, 긴 단어의 일부 또는 문장 부호와 같이 몇 글자 길이에 불과한 짧은 텍스트 덩어리)으로 변환되는 대량의 콘텐츠(텍스트 포함)를 학습합니다. 모델은 이 콘텐츠를 처리하고 토큰 간의 복잡한 관계 네트워크를 구축합니다. 사전 학습이 끝나면 모델은 정교한 자동 완성 기능처럼 앞에 오는 단어를 기반으로 시퀀스에서 가장 가능성이 높은 다음 단어를 예측할 수 있습니다.
 
-We’ve described the stages of model training in more detail in Section 4 below.
+모델은 데이터베이스처럼 텍스트를 저장하지 않으며 기존 콘텐츠를 단순히 “매시업(mash-up)” 하거나 “콜라주(collage)”하지도 않습니다. 모델은 사람들이 새로운 콘텐츠를 생성하는 것을 지원하기 위해 텍스트의 일반적인 패턴을 식별하며, 모델이 학습된 후에는 원래 학습 데이터에 접근하거나 이를 가져올 수 없습니다.
 
-## 3. Collection of Personal Data
+“사후 학습”은 사람의 피드백을 통합하여 모델을 더 유용하고 효과적이며 안전하게 만드는 데 도움이 됩니다. 모델은 주어진 프롬프트에 대해 여러 응답을 생성한 다음 품질, 유용성, 안전성 및 정확성과 같은 기준에 따라 인간 검토자에 의해 평가됩니다. 이러한 강화 학습 피드백 루프는 모델의 출력을 인간의 기대 및 가치에 맞춰 조정하는 데 도움이 되며, 관련성 있고 적절한 응답을 제공하는 모델의 능력을 점진적으로 향상시킵니다. 또한 모델에 적절한 출력의 예(예: 특정 도메인 또는 이용 사례에 대한 출력)를 제공하는 추가 “미세 조정”은 모델을 개선하는 데 도움이 됩니다.
 
-Anthropic may obtain personal data from the following sources in order to train our models:
+모델 학습 단계별 상세 설명은 본 방침 제4조에 기재되어 있습니다.
 
-* Publicly available information via the Internet. Our automated tool, ClaudeBot, collects content from web pages that are freely available to anyone browsing the internet. Online material is broad and varied - for example, websites, publicly shared documents, programming languages, and content such as image or video. We take steps to minimize the privacy impact on individuals as part of our data collection practices. For example, ClaudeBot does not access password protected pages or bypass CAPTCHA controls, and it respects ‘Do Not Crawl’ signals (robots.txt). For more information on how we collect publicly available data, see <https://anthropic.com/crawl>.
-* Third Party Datasets that we purchase, are made openly available, or that we obtain through agreements with third party organizations. These may include, for example, material that third parties have gathered and made openly available, physical texts, or non-public datasets obtained from businesses.
-* User inputs and outputs submitted as feedback, flagged for violating our [Usage Policy](https://anthropic.com/legal/aup), or where the user has opted into the use of inputs and outputs for model training.
-* Data we generate internally.
+### 3. 개인정보 수집
 
-When we gather this material, we are not looking for information about particular individuals, but some of it will incidentally contain personal information; for example, names, contact information, and work or biographical details.
+Anthropic은 모델을 학습시키기 위해 다음과 같은 출처에서 개인정보를 얻을 수 있습니다.
 
-We only use personal data included in our training data to help our models learn about language and how to understand and respond to it. We do not use such personal data to contact people, build profiles about them, to try to sell or market anything to them, or to sell the information itself to any third party.
+* 인터넷을 통해 공개적으로 이용 가능한 정보.당사의 자동화 도구인 ClaudeBot은 인터넷을 이용하는 누구나 자유롭게 접근할 수 있는 웹페이지에서 콘텐츠를 수집합니다. 온라인상의 자료는 폭넓고 다양하며, 그 예로는 웹사이트, 공개적으로 공유된 문서, 프로그래밍 언어, 그리고 이미지나 동영상과 같은 콘텐츠 등이 있습니다. 당사는 정보 수집 관행의 일환으로 개인에 대한 개인정보 보호 관련 영향을 최소화하기 위한 조치를 취합니다. 예를 들어, ClaudeBot은 비밀번호로 보호된 페이지에 접근하거나 CAPTCHA 제어를 우회하지 않으며, **‘**크롤링 금지**’** 신호(robots.txt)를 존중합니다. 공개적으로 이용 가능한 정보를 수집하는 방법에 대한 자세한 내용은 <https://anthropic.com/crawl> 를 참고하시기 바랍니다.
+* 당사가 구매하거나, 공개적으로 이용 가능하거나, 제3자 기관과의 계약을 통해 얻은 제3자 데이터 세트. 여기에는 예를 들어 제3자가 수집하여 공개적으로 제공한 자료, 인쇄물, 또는 기업으로부터 확보한 비공개 데이터 세트 등이 포함될 수 있습니다.
+* 피드백으로 제출되거나, 당사의 이용정책([Usage Policy](https://www.anthropic.com/legal/aup)) 위반으로 표시(flagged)되거나, 또는 이용자가 입력 및 출력의 모델 학습 활용에 명시적으로 동의한 경우, 이용자의 입력값 및 출력값.
+* 당사가 내부적으로 생성한 데이터.
 
-Anthropic may also obtain personal data from our third-party partners, such as in content returned by web search providers, when we are developing or delivering product features like web search.
+당사가 이러한 자료를 수집할 때 특정 개인에 관한 정보를 찾으려는 것은 아니지만, 자료의 일부에 이름, 연락처, 직업 또는 신상 정보와 같은 개인정보가 우연히 포함될 수 있습니다.
 
-## 4. How personal information is used at each stage of training our models
+학습 데이터에 포함된 개인정보는 모델이 언어에 대해 학습하고 언어를 이해하고 응답하는 방법을 학습하는 데 도움이 되는 경우에만 이용됩니다. 당사는 이러한 개인정보를 이용하여 사람들에게 연락하거나, 그들에 대한 프로필을 구축하거나, 그들에게 무언가를 판매 또는 마케팅하려고 시도하거나, 정보 자체를 제3자에게 판매하지 않습니다.
 
-Training our models can involve a number of separate stages, described below. Any of the personal information described in Section 3 may be used for these purposes.
+당사는 또한 당사가 웹 검색과 같은 제품 기능을 개발하거나 제공하는 과정에서, 웹 검색 제공업체가 반환하는 콘텐츠 등 제3자 파트너로부터 개인정보를 수집할 수 있습니다.
 
-**Gathering and filtering training material.** We collect a diverse range of content such as text, images and multimedia. We describe the sources for this data in more detail in [Section 3]. When we gather this material, we are not looking for information about particular individuals, but some of it will incidentally contain personal information; for example, names, contact information, and work or biographical details.
+### 4. 모델 학습 단계별 개인정보 이용 방식
 
-**Pre-training.** Data is prepared for pre-training. This process can include deduplicating portions that appear repeatedly, converting the remaining characters to tokens, and randomizing certain sequences. These techniques can help reduce the likelihood of a trained model reproducing content it was trained on. We train the base model so it learns the patterns of language and basic facts about the world (Section 2 explains how this works in more detail).
+모델 학습은 아래에 설명된 여러 개별 단계로 구성됩니다. 본 방침 제3조에서 설명한 개인정보는 어느 것이든 이러한 목적을 위해 이용될 수 있습니다.
 
-**Making the model helpful and safe**. We then refine the trained model so that it follows instructions, gives useful answers and avoids harmful ones. We do this using carefully prepared examples, feedback and ratings from people, and by training the model to follow certain principles, for example by using [Constitutional AI](https://www.anthropic.com/news/claude-new-constitution).
+**학습 자료의 수집 및 선별.** 당사는 텍스트, 이미지, 멀티미디어 등 다양한 콘텐츠를 수집합니다. 이러한 데이터의 출처에 관해서는 본 방침 제3조에서 보다 자세히 설명하고 있습니다. 당사가 이러한 자료를 수집할 때 특정 개인에 관한 정보를 찾으려는 것은 아니지만, 자료의 일부에 이름, 연락처, 직업 또는 신상 정보와 같은 개인정보가 우연히 포함될 수 있습니다.
 
-**Safety testing and safety tools.** We build internal tools that spot harmful or policy-violating content, deliberately stress-test the model, and test each model against fixed sets of questions to measure how well and how safely it performs.
+**사전 학습.** 데이터는 사전 학습을 위해 준비됩니다. 이 과정에는 반복적으로 나타나는 부분을 중복 제거하고, 남은 문자를 토큰으로 변환하며, 특정 시퀀스를 무작위화하는 작업이 포함될 수 있습니다. 이러한 작업들은 학습된 모델이 학습에 이용된 콘텐츠를 그대로 재현할 가능성을 낮추는 데 도움이 됩니다. 당사는 기본 모델(base model)이 언어 패턴과 세계에 대한 기본 사실을 학습하도록 합니다(모델 학습 방법에 관한 보다 자세한 설명은 본 방침 제2조 참고).
 
-**Research and publishing what we learn.** A core part of Anthropic's mission is to make AI safer for everyone, not just our own products but the field as a whole. We carry out research into how AI models operate and behave - for example, what makes them more or less likely to produce harmful, biased or inaccurate responses, which safety and alignment techniques are effective, and how AI is being used by and impacting society - and we publish our findings so that others can learn from and build on them.
+**유용하고 안전한 모델 만들기.** 그런 다음, 당사는 학습된 모델이 지시를 따르고 유용한 답변을 제공하며 유해한 답변을 피하도록 개선하는 작업을 합니다. 이를 위해 당사는 신중하게 준비된 예시, 사용자 피드백 및 평가를 활용하고, 헌법 AI([Constitutional AI](https://www.anthropic.com/news/claude-new-constitution))와 같은 특정 원칙을 따르도록 모델을 학습시킵니다.
 
-The models we build through these stages are general-purpose models used for tasks like conversation, writing, coding, analysis and answering questions. We use techniques such as [Constitutional AI to train our models to be aligned with human values.](https://www.anthropic.com/news/claude-new-constitution) Claude’s constitution includes individual privacy and freedom from undue surveillance, prevention and protection from harm, and individual wellbeing as values Claude may need to weigh up when determining how to respond to a given request.
+**안전성 테스트 및 안전 도구.** 당사는 유해하거나 정책에 위반되는 콘텐츠를 식별하는 자체 도구를 구축하고, 모델에 대한 의도적인 부하 테스트를 수행하며, 각 모델을 정해진 질문 세트로 테스트하여 모델이 얼마나 안전하고 효율적으로 작동하는지 측정합니다.
 
-We make the finished models available through Claude.ai, our developer tools and our business products. We do not use personal information in our training material to contact people, build profiles about them, or sell that information to anyone. The same training material may be used at more than one of the stages above, and we may use it again to train newer versions of our models over time.
+**연구 및 연구 성과 공개.** Anthropic의 핵심 사명은 자사 제품뿐만 아니라 AI 분야 전반에 걸쳐 모든 사람을 위해 AI를 더 안전하게 만드는 것입니다. 당사는 유해하거나 편향되거나 부정확한 답변을 생성할 가능성을 높이거나 낮추는 요인, 안전성 향상 및 정렬을 위한 효과적인 기법, AI 활용 방식 및 AI가 사회에 미치는 영향 등과 같은 AI 모델의 작동 방식 및 행동 양식을 연구하고, 그 연구 성과를 공개하여 다른 사람들이 이를 통해 배우고 발전시킬 수 있도록 합니다.
 
-## 5. Your Rights and Choices
+당사가 이러한 단계를 거쳐 구축하는 모델은 대화, 작문, 코딩, 분석 및 질문 답변과 같은 작업에 이용되는 범용 모델입니다. 당사는 헌법 AI([Constitutional AI](https://www.anthropic.com/news/claude-new-constitution))와 같은 기법을 활용하여 모델을 인간의 가치관에 부합하도록 학습시킵니다. Claude의 헌법에는 개인의 사생활 보호 및 부당한 감시로부터의 자유, 위해 예방 및 보호, 그리고 개인의 행복이 포함되며, Claude는 주어진 요청에 어떻게 응답할지 결정할 때 이러한 가치들을 고려해야 합니다.
 
-Depending on where you live and the laws that apply in your country of residence, you may enjoy certain rights regarding your personal data, as described further below. We make all reasonable efforts to respond to such rights. However, please be aware that these rights are limited, and that the process by which we may need to action your requests regarding our training dataset are complex. We may also decline a request if we have a lawful reason for doing so. That said, we strive to prioritize the protection of personal data and comply with all applicable privacy laws.
+당사는 완성된 모델을 Claude.ai, 개발자 도구 및 비즈니스 제품을 통해 제공합니다. 당사는 학습 자료에 포함된 개인정보를 이용하여 사람들에게 연락하거나, 그들에 대한 프로필을 구축하거나, 제3자에게 해당 정보를 판매하지 않습니다. 동일한 학습 자료가 위 단계들 중 여러 단계에서 이용될 수 있으며, 당사가 향후 모델의 새로운 버전을 학습시키는 데에도 다시 이용될 수 있습니다.
 
-To exercise your rights, you or an authorized agent may submit a request by [contacting us](mailto:privacy@anthropic.com). After we receive your request, we may verify it by requesting information sufficient to confirm your identity. Where a third-party representative submits a request on behalf of a data subject, we require evidence of authorization to act on behalf of the data subject.
+### 5. 귀하의 권리 및 선택권
 
-We will respond to your request within the period required by the data protection law that applies to you. For example, where the EU GDPR or UK GDPR applies, we will respond within one calendar month of receiving a verifiable request, and where your request is complex or you have made a number of requests, we may extend that period by up to a further two months. Where another law applies to you and sets a different period, we will respond within that period. Anthropic will not discriminate based on the exercising of privacy rights you may have. Set out below is a summary of the rights which you may enjoy, depending on the laws that apply in your country of residence.
+귀하의 거주지 및 귀하의 거주 국가에 적용되는 법률에 따라 귀하는 아래 규정된 바와 같이 개인정보와 관련하여 특정 권리를 갖습니다. 당사는 이러한 권리 요청에 대응하기 위해 노력합니다. 단, 이러한 권리는 제한적이며 당사 학습 데이터 세트와 관련한 귀하의 요청을 처리하는데 필요할 수 있는 절차가 복잡할 수 있다는 점에 유의하시기 바랍니다. 또한 당사는 합법적인 이유가 있는 경우 요청을 거부할 수 있습니다. 그러나, 당사는 개인정보 보호를 우선시하고 모든 관련 개인정보 보호법을 준수하기 위해 노력합니다.
 
-* Right to know: the right to know what personal data Anthropic processes about you, including the categories of personal data, the categories of sources from which it is collected, the business or commercial purposes for collection, and the categories of third parties to whom we disclose it.
-* Access & data portability: the right to request a copy of the personal data Anthropic processes about you, subject to certain exceptions and conditions. In certain cases, and subject to applicable law, you have the right to port your information.
-* Deletion: the right to request that we delete personal data collected from you, subject to certain exceptions.
-* Correction: the right to request that we correct inaccurate personal data Anthropic retains about you, subject to certain exceptions. Please note that we cannot guarantee the factual accuracy of Outputs. If Outputs contain factually inaccurate personal data relating to you, you can submit a correction request and we will make a reasonable effort to correct this information—but due to the technical complexity of large language models, it may not always be possible for us to do so.
-* Objection: the right to object to processing of your personal data, including profiling conducted on grounds of public or legitimate interest. In places where such a right applies, we will no longer process the personal data in case of such objection unless we demonstrate compelling legitimate grounds for the processing which override your interests, rights, and freedoms, or for the establishment, exercise or defense of legal claims.
-* Restriction: the right to restrict our processing of your personal data in certain circumstances.
-* Automated decision-making: Anthropic does not engage in decision making based solely on automated processing or profiling in a manner which produces a legal effect (i.e., impacts your legal rights) or significantly affects you in a similar way (e.g., significantly affects your financial circumstances or ability to access essential goods or services).
-* Sale & targeted Anthropic marketing of its products and services. Anthropic does not “sell” your personal data as that term is defined by applicable laws and regulations.
+귀하의 권리를 행사하기 위해서 귀하 또는 귀하로부터 권한을 위임받은 대리인은 [여기](mailto:privacy@anthropic.com)로 당사에 연락하여 요청을 제출할 수 있습니다. 당사는 귀하의 요청을 받은 후 귀하의 신원을 확인하기에 충분한 정보를 요청하여 해당 요청을 검증할 수 있습니다. 제3자 대리인이 정보주체를 대신하여 요청을 제출하는 경우, 당사는 정보주체를 대리할 권한에 대한 증빙 자료를 요구합니다.
 
-For more information on submitting requests relating to data used in our training process, see [here](https://privacy.claude.com/en/articles/15865314-privacy-rights-requests-relating-to-anthropic-s-training-data).
+당사는 귀하에게 적용되는 개인정보 보호법에서 요구하는 기간 내에 귀하의 요청에 응답합니다. 예를 들어, EU GDPR 또는 영국 GDPR이 적용되는 경우, 당사는 검증 가능한 요청을 접수한 날로부터 1개월 이내에 응답하며, 귀하의 요청 내용이 복잡하거나 귀하가 여러 건의 요청을 한 경우에는 당사는 그 기간을 최대 2개월까지 추가로 연장할 수 있습니다. 귀하에게 이와 다른 기간이 정해져 있는 다른 법률이 적용되는 경우, 당사는 해당 기간 내에 응답합니다. Anthropic은 귀하가 보유할 수 있는 개인정보 보호에 관한 권리를 행사하였다는 이유로 차별하지 않습니다. 귀하의 거주 국가에 적용되는 법률에 따라 귀하가 누릴 수 있는 권리의 요약내용은 아래와 같습니다.
 
-Set out below are additional details in relation to our legal bases for processing your personal data, how we disclose your personal data, how we may transfer your personal data to different regions, how we retain your personal data, and various contact details in case you wish to contact us or a supervisory body.
+* 알 권리: 개인정보의 범주, 개인정보가 수집되는 출처의 범주, 사업 또는 상업적인 수집 목적 및 당사가 개인정보를 공개하는 제3자의 범주 등 귀하에 대하여 Anthropic이 어떠한 개인정보를 처리하는지에 대하여 알 권리.
+* 접근 및 정보이전권: 특정 예외사항 및 조건을 준수하여 Anthropic이 귀하에 대하여 처리하는 개인정보의 사본을 요청할 권리. 일부 경우에 관련 법에 따라 귀하는 귀하의 정보를 이전할 수 있는 권리를 갖습니다.
+* 삭제: 일부 예외사항을 조건으로 하여 당사가 귀하로부터 수집한 개인정보를 삭제할 것을 요청할 권리.
+* 수정: 특정 예외사항을 조건으로 하여 Anthropic이 귀하에 대하여 보유하고 있는 부정확한 개인정보를 정정할 것을 요청할 권리. 당사는 출력의 사실적 정확성을 보장할 수 없다는 점에 유의하시기 바랍니다. 출력에 사실적으로 부정확한 귀하에 대한 개인정보가 포함되어 있는 경우, 귀하는 정정을 요청할 수 있으며 당사는 해당 정보를 정정하기 위해 합리적인 노력을 할 것이나 대규모 언어 모델의 기술적 복잡성으로 인하여 정정이 항상 가능하지는 않을 수 있습니다.
+* 거부: 공익 또는 정당한 이익을 근거로 하여 수행되는 프로파일링(profiling) 등 귀하의 개인정보 처리에 대하여 거부할 수 있는 권리. 이러한 권리가 적용되는 경우 당사는 귀하의 이익, 권리 및 자유에 우선하는 처리 또는 법적 청구의 성립, 행사 또는 방어에 대한 설득력 있는 적법한 근거를 입증하지 않는 한 거부를 하는 경우 개인정보를 더 이상 처리하지 않을 것입니다
+* 제한: 경우에 따라 귀하의 개인정보 처리를 제한할 수 있는 권리.
+* 자동 의사결정: Anthropic은 법적 효과를 발생시키거나(즉, 귀하의 법적 권리에 영향을 미침) 이와 유사한 방식으로 귀하에게 중대하게 영향을 미치는 방식(예: 귀하의 재정상황 또는 필수 제품 또는 서비스에 대한 접근 능력에 중대하게 영향을 미침)으로 자동화된 처리 또는 프로파일링에만 근거하여 의사결정을 내리지 않습니다.
+* Anthropic 제품 및 서비스에 대한 판매 및 맞춤형 광고: Anthropic은 관련 법 및 규정에 용어 “판매”가 정의된 바에 따라 귀하의 개인 정보를 “판매”하지 않습니다.
 
-## 6. Uses of Personal Data and Legal Bases
+학습 과정에 사용된 데이터 관련 요청 제출에 대한 보다 자세한 내용은 [여기](https://privacy.claude.com/ko/articles/15865314-anthropic%EC%9D%98-%ED%95%99%EC%8A%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4-%EB%B3%B4%ED%98%B8-%EA%B6%8C%EB%A6%AC-%EC%9A%94%EC%B2%AD)를 참고하시기 바랍니다.
 
-We will only use your personal data in accordance with applicable laws. We use your personal data for the following purposes and rely upon the following legal bases to do so:
+아래에는 귀하의 개인정보를 처리하기 위한 당사의 법적 근거, 당사가 귀하의 개인정보를 공개하는 방법, 귀하의 개인정보를 다른 지역으로 이전하는 방법, 당사가 귀하의 개인정보를 보관하는 방법 및 귀하가 당사 또는 감독 기관에 연락하고자 하는 경우 다양한 연락처 세부 정보와 관련된 추가적인 세부 정보가 규정되어 있습니다.
 
-| Purpose | Legal Basis |
+### 6. 개인정보의 이용 및 법적 근거
+
+당사는 관련 법률에 따라서만 귀하의 개인정보를 이용합니다. 당사는 다음과 같은 목적으로 다음과 같은 법적 근거에 따라 귀하의 개인정보를 이용합니다.
+
+| **목적** | **법적 근거** |
 | --- | --- |
-| To improve our services and conduct research, including to develop and improve our AI models (as described in more detail in section 4) | * Legitimate interests  It is in our legitimate interests to train and improve our AI models. This enables us to provide more accurate and helpful services to our users over time. Our AI models also offer significant societal benefits to the wider public such as supporting scientific and medical research, facilitating education, creating content, promoting software development, improving customer service and enhancing workplace productivity. Our research also benefits the AI industry and society: it investigates the safety, inner workings, and societal impact of AI models so that artificial intelligence has a positive impact on society as it becomes increasingly advanced and capable |
-| To prevent and investigate fraud, abuse, and violations of our [Usage Policy](https://anthropic.com/legal/aup), unlawful or criminal activity, unauthorized access to or use of personal data or Anthropic systems and networks, to protect our rights and the rights of others, and to meet legal, governmental and institutional policy obligations | * Legal obligation * Legitimate interests  It is in our legitimate interests to protect our business, and we also have a duty to cooperate with authorities. |
-| To provide, maintain and facilitate any products and services | * Legitimate interests  It is in our and our users’ legitimate intereststo expand our product features and deliver services that enhance platform functionality and user experience. |
+| 당사의 서비스 개선 및 연구 수행(AI 모델의 개발 및 개선 포함, 보다 자세한 설명은 본 방침 제4조 참고) | * 정당한 이익  AI 모델을 학습하고 개선하는 것은 당사의 정당한 이익입니다. 이를 통해 시간이 지남에 따라 이용자에게 보다 정확하고 유용한 서비스를 제공할 수 있습니다. 또한 당사의 AI 모델은 광범위한 대중에게 과학 및 의학 연구 지원, 교육 촉진, 콘텐츠 생성, 소프트웨어 개발 촉진, 고객 서비스 개선 및 직장 생산성 향상 등 상당한 사회적 혜택을 제공합니다. 당사의 연구는 AI 산업과 사회에도 기여합니다. 당사는 AI 모델의 안전성, 내부 작동 원리, 사회적 영향을 조사함으로써, 인공지능이 점점 더 발전하고 고도화됨에 따라 사회에 긍정적인 영향을 미칠 수 있도록 노력합니다. |
+| 사기, 남용, 당사의 이용정책([Usage Policy](https://anthropic.com/legal/aup)) 위반, 불법 또는 범죄 행위, 개인정보나 당사의 시스템· 네트워크에 대한 무단 접근 또는 이용에 대한 방지 및 조사. 당사 및 타인의 권리 보호. 법률·정부· 기관의 정책상 의무 준수 | * 정당한 이익 * 법적의무  당사의 사업을 보호하는 것은 당사의 정당한 이익이며, 당사는 또한 당국과 협력할 의무가 있습니다. |
+| 제품 및 서비스의 제공·유지·지원 | * 정당한 이익  당사가 제품 기능을 확장하고 플랫폼의 기능성과 이용자 경험을 향상시키는 서비스를 제공하는 것은 당사 및 이용자의 정당한 이익입니다. |
 
-Use of Personal Data
+### 7. 당사의 개인정보 공개 방식
 
-## 7. How We Disclose Personal Data
+Anthropic은 본 방침에 설명된 목적을 위해 아래 범주에 해당하는 제3자에게 개인정보를 공개합니다.
 
-Anthropic will disclose personal data to the following categories of third parties for the purposes explained in this Policy:
+* 계열사. Anthropic은 계열사 및 관계회사, 즉 Anthropic을 지배하거나, Anthropic에 의해 지배되거나, Anthropic과 공동 지배하에 있는 법인 간에 개인정보를 공개합니다. 당사의 계열사는 본 방침에 부합하는 방식으로만 당사가 공유하는 개인정보를 이용합니다.
+* 서비스 제공업체 및 사업 파트너. Anthropic은 업계 표준 준수, 연구, 감사 및 정보 처리 등의 다양한 사업 목적을 위해 개인정보를 서비스 제공업체 및 사업 협력업체에게 공개할 수 있습니다. 이러한 당사자는 당사의 지침에 따라 당사가 공유하는 개인정보에만 접근하거나 이를 처리 또는 저장합니다.
 
-* Affiliates. Anthropic discloses personal data between and among its affiliates and related entities, meaning an entity that controls, is controlled by, or is under common control with Anthropic. Our affiliates will only use any personal data that we share in a manner consistent with this Policy.
-* Service providers & business partners. Anthropic may disclose personal data with service providers and business partners for a variety of business purposes, including ensuring compliance with industry standards, research, auditing, and data processing. These parties will only access, process or store personal data that we share with them in accordance with our instructions.
+또한 Anthropic은 아래 경우에 개인정보를 공개할 수 있습니다.
 
-Anthropic may also disclose personal data in the following circumstances:
+* 중요한 회사 이벤트의 일환으로. Anthropic이 합병, 기업간 거래(corporate transaction), 파산 또는 사업 자산 양도를 수반하는 기타 상황에 개입되어 있는 경우, Anthropic은 기업간 거래의 일환으로 귀하의 개인정보를 공개합니다.
+* 규제 또는 법적 요건에 따라, 안전, 타인의 권리를 위해 그리고 당사의 권리 또는 당사의 약관을 시행하기 위해. 당사는 정부 당국, 법 집행기관 또는 그 밖의 제3자에게 개인정보를 제공할 수 있으며, 이는 당사가 이용할 수 있는 정보에 근거하여 다음 각 호의 목적을 위해 그 공개가 합리적으로 필요하다고 선의로 판단되는 경우에 한합니다. (i) 법적·세무적·회계적 목적을 포함하여 관련 법률, 규정 또는 법적 절차를 준수하거나, 집행 가능한 정부의 요청에 응하기 위한 경우, (ii) 사람 또는 재산에 대한 중대한 위해를 방지하기 위한 경우, (iii) 사기 또는 그 밖의 불법 행위를 탐지, 예방하거나 그 밖의 방법으로 대응하기 위한 경우, 또는 (iv) 당사의 약관을 집행하거나 Anthropic, 당사 이용자 또는 타인의 권리, 재산, 보안 또는 안전을 보호하기 위한 경우.
 
-* As part of a significant corporate event. If Anthropic is involved in a merger, corporate transaction, bankruptcy, or other situation involving the transfer of business assets, Anthropic will disclose your personal data as part of these corporate transactions.
-* Pursuant to regulatory or legal requirements, safety, rights of others, and to enforce our rights or our terms. We may share personal data with government authorities, law enforcement, or other third parties where, based on the information available to us, we have a good-faith belief that disclosure is reasonably necessary to (i) comply with applicable law, regulation or legal process, including for legal, tax or accounting purposes, or in response to an enforceable governmental request; (ii) prevent serious harm to any person or to property; (iii) detect, prevent, or otherwise address fraud or other illegal activity; or (iv) enforce our terms, or protect the rights, property, security, or safety of Anthropic, our users, or others.
+### 8. 정보 이전
 
-## 8. Data Transfers
+Anthropic은 글로벌 기업입니다. 귀하의 개인정보는 본 방침 제3조에 명시된 목적을 위해 미국 내 당사 서버 또는 유럽경제지역(“EEA”) 및 영국 이외의 국가로 이전됩니다. 사업장 위치를 포함한 Anthropic 그룹 계열사에 대한 보다 자세한 내용은 트러스트 센터([Trust Center](https://trust.anthropic.com/faq?search=Which+Anthropic+affiliates%2Fentities+may+have+access+to+customer+data%3F))에서 확인할 수 있습니다.
 
-Anthropic is a global company, and your personal data is transferred to our servers in the US, or to other countries outside the European Economic Area (“EEA”) and the UK, for the purposes outlined in section 3. You can find more details about Anthropic’s group companies, including their locations, in our [Trust Centre](https://trust.anthropic.com/faq?search=Which+Anthropic+affiliates%2Fentities+may+have+access+to+customer+data%3F).
+정보가 EEA 또는 영국 이외의 국가로 이전되는 경우, 당사는 아래 항목에 의존함으로써 적절한 수준의 정보보호를 받도록 합니다.
 
-Where information is transferred outside the EEA or the UK, we ensure it benefits from an adequate level of data protection by relying on:
+* 적정성 결정.이는 유럽위원회가 일반정보보호규정(GDPR) 제45조에 따라 EEA 이외의 국가에서 적절한 수준의 정보보호를 제공한다고 인정하는 경우에 내리는 결정(또는 다른 법률에 따라 내린 동등한 결정)입니다. 당사는 “개인정보 수집”에 기재된 바에 따라 적절성 결정을 받은 일부 국가로 귀하의 정보를 이전하며, EU 적정성 결정 국가는 [여기](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en)에, 영국 적정성 결정 국가는 [여기](https://www.gov.uk/government/publications/uk-approach-to-international-data-transfers/international-data-transfers-building-trust-delivering-growth-and-firing-up-innovation#uk-adequacy)에 기재되어 있습니다.
+* 표준계약 조항.유럽위원회는 EEA 국가에 소재한 회사가 EEA 이외의 국가로 정보를 이전하는 것을 허용하는 GDPR 제46조에 따른 계약 조항을 승인했습니다. 이러한 조항(및 영국 및 스위스에 대하여 승인된 이와 동등한 조항)을 표준계약 조항이라 합니다. 당사는 표준계약 조항에 따라 적정성 결정을 받지 못한 국가의 일부 계열사 및 제3자에게 “개인정보 수집”에 명시된 정보를 이전합니다.
 
-* Adequacy decisions. These are decisions from the European Commission under Article 45 GDPR (or equivalent decisions under other laws) where they recognize that a country outside of the EEA offers an adequate level of data protection. We transfer your information as described in “Collection of personal data” to some countries with adequacy decisions, such as the countries with EU adequacy decisions listed [here](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en) and countries with UK adequacy decisions listed [here](https://www.gov.uk/government/publications/uk-approach-to-international-data-transfers/international-data-transfers-building-trust-delivering-growth-and-firing-up-innovation#uk-adequacy); or
-* Standard contractual clauses. The European Commission has approved contractual clauses under Article 46 GDPR that allows companies in the EEA to transfer data outside the EEA. These (and their approved equivalent for the UK and Switzerland) are called standard contractual clauses. We rely on standard contractual clauses to transfer information as described in “Collection of personal data” to certain affiliates and third parties in countries without an adequacy decision.
+경우에 따라 당사는 관련 정보보호법에 규정된 완화조항(derogations)에 따라 제3국으로 정보를 이전합니다. 국제 이전 또는 당사가 적용하는 보호조치에 관하여 문의사항이 있으시면 [여기](mailto:privacy@anthropic.com)로 당사에 문의하실 수 있습니다.
 
-In certain situations, we rely on derogations provided for under applicable data protection law to transfer information to a third country. If you have questions about international transfers or the safeguards we apply, you can [contact us](mailto:privacy@anthropic.com).
+### 9. 정보 보유 기간 및 정보 수명주기
 
-## 9. Data Retention and Data Lifecycle
+Anthropic은 본 방침에 규정되어 있는 목적 및 기준에 따라 합리적으로 필요한 기간동안 귀하의 개인정보를 보유합니다. 당사는 다음과 같은 요소들을 고려하여 정보의 보유 기간을 결정합니다: 당사 모델(향후 버전 포함)의 학습, 테스트, 유지 및 개선을 위해 필요한 기간, 해당 정보를 기반으로 학습된 모델의 서비스 또는 지원 기간, 모델 작동 양상을 조사, 재현 또는 설명하는 데 필요한 기간, 데이터 제공 기관과 합의된 제한 사항, 그리고 당사의 기타 법적 및 규제적 의무 사항
 
-Anthropic retains your personal data for as long as reasonably necessary for the purposes and criteria outlined in this Policy. We decide how long to keep information based on factors such as: how long it remains necessary for training, testing, maintaining and improving our models, including future versions; how long the models trained on it remain in service or supported; how long we need it to investigate, reproduce or explain a model's behavior; any limits agreed with the organizations we obtain data from; and our other legal and regulatory obligations.
+수집된 개인정보가 더 이상 필요하지 않은 경우 당사 및 당사 서비스 제공업체는 관련 법률에서 허용하거나 요구하는 바에 따라 개인정보를 파기, 삭제하거나 익명 형식으로 전환하는데 필요한 절차를 수행합니다.
 
-When the personal data collected is no longer required by us, we and our service providers will perform the necessary procedures for destroying, deleting, erasing, or converting it into an anonymous form as permitted or required under applicable laws.
+### 10. 연락처
 
-## 10. Contact Information
+귀하가 유럽경제지역(EEA), 영국 또는 스위스(“**유럽지역**”)에 거주하는 경우, 귀하의 개인정보를 담당하는 처리자는 Anthropic Ireland, Limited입니다. 귀하가 유럽지역 이외의 국가에 거주하는 경우 귀하의 개인정보를 담당하는 처리자는 Anthropic PBC입니다.
 
-If you live in the European Economic Area (EEA), UK or Switzerland (the “European Region”), the data controller responsible for your personal data is Anthropic Ireland, Limited. If you live outside the European Region, the data controller responsible for your personal data is Anthropic PBC.
+본 방침에 대하여 문의사항이 있으시거나 귀하의 개인정보와 관련하여 문의사항, 불만 또는 요청이 있으신 경우 아래로 연락주시기 바랍니다.
 
-If you have any questions about this Policy, or have any questions, complaints or requests regarding your personal data, you can contact us as described below:
+* Anthropic PBC 등록 주소: 548 Market St, PMB 90375, San Francisco, CA 94104 (United States)
+* Anthropic Ireland, Limited 등록 주소: 6th Floor, South Bank House, Barrow Street. Dublin 4, D04 TR29 (Ireland)
 
-* Anthropic PBC with a registered address at 548 Market St, PMB 90375, San Francisco, CA 94104 (United States).
-* Anthropic Ireland, Limited with a registered address at 6th Floor, South Bank House, Barrow Street. Dublin 4, D04 TR29 (Ireland).
+[privacy@anthropic.com](mailto:privacy@anthropic.com) 으로 당사에 이메일을 보내주시거나 [dpo@anthropic.com](mailto:dpo@anthropic.com) 으로 당사 정보보호책임자에게 연락을 하실 수 있습니다.
 
-You can email us at privacy@anthropic.com and contact our Data Protection Officer at dpo@anthropic.com.
+대다수 국가 법률에 따라 귀하는 귀하의 거주지 또는 근무지에 소재한 감독 당국에 이의를 제기할 권리를 갖는다는 점에 유의하시기 바랍니다. EU 감독 당국의 전체 연락처는 [여기에서](https://edpb.europa.eu/about-edpb/about-edpb/members_en) 확인할 수 있습니다. 귀하가 영국에서 거주 또는 근무하는 경우, 귀하는 영국의 정보위원회사무국([UK Information Commissioner’s Office](https://ico.org.uk/make-a-complaint/))에 이의를 제기할 권리를 갖고 귀하가 브라질에 거주하는 경우 브라질 정보보호당국([Brazilian Data Protection Authority (ANPD)](https://www.gov.br/anpd/pt-br/canais_atendimento/cidadao-titular-de-dados/denuncia-peticao-de-titular))에 이의를 제기할 권리를 갖습니다. 귀하가 호주에 거주하는 경우, 귀하는 [호주](https://www.oaic.gov.au/privacy/privacy-complaints/lodge-a-privacy-complaint-with-us) [정보위원회(Office of the Australian Information Commissioner)](https://www.oaic.gov.au/privacy/privacy-complaints/lodge-a-privacy-complaint-with-us)에 이의를 제기할 권리를 갖습니다.
 
-Please note that under many countries' laws, you have the right to lodge a complaint with the supervisory authority in the place in which you live or work. A full list of EU supervisory authorities’ contact details is available [here](https://edpb.europa.eu/about-edpb/about-edpb/members_en). If you live or work in the UK, you have the right to lodge a complaint with the [UK Information Commissioner’s Office](https://ico.org.uk/make-a-complaint/). If you live in Brazil, you have the right to lodge a complaint with the [Brazilian Data Protection Authority (ANPD)](https://www.gov.br/anpd/pt-br/canais_atendimento/cidadao-titular-de-dados/denuncia-peticao-de-titular). If you live in Australia, you have the right to lodge a complaint with the [Office of the Australian Information Commissioner](https://www.oaic.gov.au/privacy/privacy-complaints/lodge-a-privacy-complaint-with-us).
+Non-User Privacy Policy \ Anthropic

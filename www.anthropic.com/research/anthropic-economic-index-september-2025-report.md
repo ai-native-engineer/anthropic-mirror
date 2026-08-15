@@ -319,7 +319,7 @@ The geographic patterns of AI adoption—where it is used, for which tasks, and 
 
 Whether frontier AI capabilities make us more productive, reshape labor markets, and accelerate growth will depend on when and how firms choose to deploy AI. Even when businesses recognize the potential of AI, profitably adopting it may require costly restructuring of production processes, training new workers, and other sunk-cost investments to facilitate effective deployment.**1**
 
-To understand business adoption patterns of AI, we turn to a new data source: Anthropic's first-party (1P) API customers—again relying on [privacy-preserving methods](https://www.anthropic.com/research/clio).**2** Our API allows customers to integrate Claude directly into their own products and applications, and charges by the token used, rather than a flat subscription fee. This represents a fundamentally different product experience to [Claude.ai](http://claude.ai/redirect/website.v1.fedd9fa3-d21c-43a5-beb5-e6a1afcd2f3a), which we focused on in the previous two chapters.
+To understand business adoption patterns of AI, we turn to a new data source: Anthropic's first-party (1P) API customers—again relying on [privacy-preserving methods](https://www.anthropic.com/research/clio).**2** Our API allows customers to integrate Claude directly into their own products and applications, and charges by the token used, rather than a flat subscription fee. This represents a fundamentally different product experience to [Claude.ai](http://claude.ai/redirect/website.v1.809739fe-748f-4ccc-9874-fff57c5b6206), which we focused on in the previous two chapters.
 
 Institutional inertia, alongside fixed costs of adoption, suggests that early examples of enterprise use of AI is likely to be concentrated among specialized tasks where deployment is easy, capabilities are robust, and the economic benefits from adoption are high.
 
@@ -537,18 +537,20 @@ url = {www.anthropic.com/research/anthropic-economic-index-september-2025-report
 
 Copy
 
-### Discovering cryptographic weaknesses with Claude
+### Patterns and problems in emerging multiagent systems
 
-cryptographic algorithms. The first attack significantly weakens HAWK, a digital signature scheme that was built for a future world where quantum computers are able to break existing standards. The second identifies a new way to attack round-reduced AES, the most widely used symmetric cipher.
+Here, we identify a few examples of behavioral tendencies in current frontier models and show how they can produce unexpected systemic failures, in hopes of starting a conversation about mitigating these risks.
 
-[Read more](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
+[Read more](https://www.anthropic.com/research/multiagent-systems)
 
-### Project Pilot: Can AI control a drone?
+### Reviewing the evidence on worker retraining programs
 
-Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
+We're sharing a review of the evidence on worker retraining programs, coauthored by independent researcher David Roodman and Anthropic's Maxim Massenkoff.
 
-[Read more](https://www.anthropic.com/research/project-pilot)
+[Read more](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)
 
-### How Canada uses Claude: Findings from the Anthropic Economic Index
+### Learning more about Claude's mathematical capabilities
 
-[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
+An unreleased research version of Claude has made strides on a problem related to the Riemann hypothesis. It improved a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the hypothesis, increasing it from 41.6% to 67.2%.
+
+[Read more](https://www.anthropic.com/research/riemann-zeta)

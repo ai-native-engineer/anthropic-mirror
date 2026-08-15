@@ -24,7 +24,7 @@ A practical guide to Claude Code subagents: when they help, how to direct them, 
 
   https://claude.com/blog/subagents-in-claude-code
 
-[Claude Code](https://code.claude.com/docs/en/overview) handles complex, multi-step projects well, but long sessions accumulate weight. Every file read, every tangent explored, every half-finished thought stays in the context window, slowing responses and driving up token costs.
+[Claude Code](https://claude.com/product/claude-code) handles complex, multi-step projects well, but long sessions accumulate weight. Every file read, every tangent explored, every half-finished thought stays in the context window, slowing responses and driving up token costs.
 
 Consider building a new feature in a large TypeScript monorepo. The main work is the implementation, but side tasks keep appearing: trace how an existing service handles auth, find the shared util for date formatting, check whether the design system already has a component close to what you need. None of these need the full project context, and running them inside the main session adds noise. What if you could run them in parallel?
 
@@ -113,16 +113,6 @@ Being explicit matters. Specify the scope, request parallel execution when tasks
 
 Here's an effective prompt structure:
 
-```
-Use subagents to explore this codebase in parallel:
-
-1. Find all API endpoints and summarize their purposes
-2. Identify the database schema and relationships
-3. Map out the authentication flow
-
-Return a summary of each, not the full file contents.
-```
-
 This prompt works because it clearly defines three independent tasks, explicitly requests parallel execution, and specifies the output format. Claude understands the intent and spawns appropriate subagents.
 
 Tips for effective conversational invocation include:
@@ -143,28 +133,6 @@ Claude then delegates to it automatically whenever a task matches its descriptio
 Custom subagents live as markdown files in `.claude/agents/` (project-level, shared with the team) or `~/.claude/agents/` (user-level, available across all projects). Each one gets its own system prompt, tool permissions, and optionally its own model.
 
 The easiest way to create one is the /agents command, which walks through setup interactively and can generate a first draft from a description. The file can also be written by hand, for example:
-
-```
----
-name: security-reviewer
-description: Reviews code changes for security vulnerabilities,
-  injection risks, auth issues, and sensitive data exposure.
-  Use proactively before commits touching auth, payments, or user data.
-tools: Read, Grep, Glob
-model: sonnet
----
-
-You are a security-focused code reviewer. Analyze the provided
-changes for:
-- SQL injection, XSS, and command injection risks
-- Authentication and authorization gaps
-- Sensitive data in logs, errors, or responses
-- Insecure dependencies or configurations
-
-Return a prioritized list of findings with file:line references
-and a recommended fix for each. Be critical. If you find nothing,
-say so explicitly rather than inventing issues.
-```
 
 With this in place, Claude routes matching work to the subagent automatically. It can also be invoked by name: "Have the security-reviewer look at the staged changes."
 
@@ -190,18 +158,6 @@ CLAUDE.md is a good fit for subagent instructions when:
 
 Here’s an example of a simple CLAUDE.md file that triggers a subagent given specific conditions:
 
-```
-## Code review standards
-
-When asked to review code, ALWAYS use a subagent with READ-ONLY access
-(Glob, Grep, Read only). The review should ALWAYS check for:
-- Security vulnerabilities
-- Performance issues
-- Adherence to project patterns in /docs/architecture.md
-
-Return findings as a prioritized list with file:line references.
-```
-
 With the above CLAUDE.md file, every code review request automatically uses the defined pattern, eliminating the need to specify it each time.
 
 For more on CLAUDE.md files, see [Customizing Claude Code for your codebase: setting up a CLAUDE.md file](https://preview.claude.ai/chat/link) and our Claude Code [CLAUDE.md](http://claude.md) [file docs](https://code.claude.com/docs/en/memory#claude-md-files).
@@ -219,29 +175,6 @@ Skills fit well when:
 * Standardizing how certain tasks are performed across the team matters
 
 Here’s an example of a deep-review skill for comprehensive code review:
-
-```
-# .claude/skills/deep-review/SKILL.md
-
----
-name: deep-review
-description: Comprehensive code review that checks security,
-  performance, and style in parallel. Use when reviewing staged
-  changes before a commit or PR.
----
-
-Run three parallel subagent reviews on the staged changes:
-
-1. Security review - check for vulnerabilities, injection risks,
-   authentication issues, and sensitive data exposure
-2. Performance review - check for N+1 queries, unnecessary iterations,
-   memory leaks, and blocking operations
-3. Style review - check for consistency with project patterns
-   documented in /docs/style-guide.md
-
-Synthesize findings into a single summary with priority-ranked issues.
-Each issue should include the file, line number, and recommended fix.
-```
 
 In the code snippet above, /deep-review triggers a three-part subagent analysis on demand. Because the description mentions reviewing staged changes before commits, Claude can also reach for this skill automatically when that context comes up.
 
@@ -261,45 +194,7 @@ Hooks are the right tool when:
 
 Here is an example of a Stop hook that blocks Claude from ending its turn until a test is passed:
 
-```
-{
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/check-tests.sh"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
 And the script at `.claude/hooks/check-tests.sh`:
-
-```
-#!/bin/bash
-INPUT=$(cat)
-STOP_HOOK_ACTIVE=$(echo "$INPUT" | jq -r '.stop_hook_active // false')
-
-# Don't loop forever — if we already blocked once this turn, let it through
-if [ "$STOP_HOOK_ACTIVE" = "true" ]; then
-  exit 0
-fi
-
-if ! npm test --silent > /dev/null 2>&1; then
-  jq -n '{
-    decision: "block",
-    reason: "Tests are failing. Run `npm test` to see the failures and fix them before finishing."
-  }'
-  exit 0
-fi
-
-exit 0
-```
 
 When Claude finishes its turn, the Stop event fires. The script runs the test suite—if tests fail, it returns JSON with `decision: "block"` and a `reason`. Claude Code reads that, doesn't let Claude stop, and feeds the reason back into the conversation as instruction to keep working. The `stop_hook_active` guard at the top prevents infinite loops: if Claude is already continuing because of a previous stop-hook block, the script lets it exit.
 
@@ -315,30 +210,11 @@ The following patterns demonstrate subagent direction applied to common scenario
 
 When adding a feature to unfamiliar code, delegating research to a subagent first keeps the implementation discussion informed rather than exploratory, for example:
 
-```
-Before I implement user notifications, use a subagent to research:
-- How are emails currently sent in this codebase?
-- What notification patterns already exist?
-- Where should new notification logic live based on the current architecture?
-
-Summarize findings, then we'll plan the implementation together.
-```
-
 A synthesized summary arrives instead of twenty files of raw context, and the implementation discussion starts from a solid foundation.
 
 ### Parallel modifications
 
 When the same pattern needs updating across multiple files, parallel subagents finish faster and maintain focus, for example:
-
-```
-Use parallel subagents to update the error handling in these files:
-- src/api/users.ts
-- src/api/orders.ts
-- src/api/products.ts
-
-Each should follow the pattern established in src/api/auth.ts.
-Work on all three simultaneously.
-```
 
 Three subagents working in parallel complete in roughly the time one would take. Each focuses on its file without context from the others creating confusion or inconsistency.
 
@@ -346,28 +222,11 @@ Three subagents working in parallel complete in roughly the time one would take.
 
 After implementing something complex, verification from a subagent that hasn't been influenced by the implementation journey catches what familiarity obscures, for example:
 
-```
-Use a fresh subagent with read-only access to review my implementation of the payment flow. It should not see our previous discussion. I want an unbiased review.
-
-Check for: security vulnerabilities, unhandled edge cases, and error handling gaps. Be critical.
-```
-
 The review subagent evaluates the code without knowing what tradeoffs were considered, what approaches were rejected, or what assumptions were made. This outside perspective surfaces issues the main conversation might miss.
 
 ### Pipeline workflow
 
 For multi-stage tasks, chaining subagents with explicit handoffs between phases keeps each stage focused, for example:
-
-```
-Let's build this feature as a pipeline:
-
-1. First subagent: Design the API contract and write it to docs/api-spec.md
-2. Second subagent: Implement the backend endpoints based on that spec
-3. Third subagent: Write integration tests for the implementation
-
-Each stage should complete before the next begins. Use the output
-files as the handoff mechanism between stages.
-```
 
 Using a pipeline workflow, each stage in the task receives focused context. The design subagent isn't distracted by implementation concerns, the implementation subagent works from a clean spec, and the testing subagent evaluates the result independently.
 
@@ -435,53 +294,53 @@ Developer docs
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f63175f636cba4641_c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
 
-Aug 7, 2026
+Aug 14, 2026
 
-### Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-Claude Code
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
-
-Aug 7, 2026
-
-### Running auto mode in production
+### Maximizing the value of your Claude Code sessions
 
 Claude Code
 
-[Running auto mode in production](#)Running auto mode in production
+[Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
 
-[Running auto mode in production](https://claude.com/blog/auto-mode-in-production)Running auto mode in production
+[Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2287f90c57df4c9dd97_c1ef4c0b6882dfe985555b52999d370ea88a3c50-1000x1000.svg)
 
-Aug 6, 2026
+Mar 19, 2026
 
-### Millennium and Anthropic are building a digital risk analyst with Claude
+### Product management on the AI exponential
 
-Enterprise AI
+Claude Code
 
-[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+[Product management on the AI exponential](#) Product management on the AI exponential
 
-[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+[Product management on the AI exponential](https://claude.com/blog/product-management-on-the-ai-exponential) Product management on the AI exponential
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
 
-Jul 24, 2026
+May 20, 2026
 
-### Claude models explained: choosing the best model for your use case
+### Using Claude Code: The unreasonable effectiveness of HTML
 
-Enterprise AI
+Claude Code
 
-[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+[Using Claude Code: The unreasonable effectiveness of HTML](#)Using Claude Code: The unreasonable effectiveness of HTML
 
-[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+[Using Claude Code: The unreasonable effectiveness of HTML](https://claude.com/blog/using-claude-code-the-unreasonable-effectiveness-of-html)Using Claude Code: The unreasonable effectiveness of HTML
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+May 12, 2026
+
+### How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+
+Claude Code
+
+[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](#)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+
+[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](https://claude.com/blog/how-anthropic-uses-claude-cybersecurity)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
 
 ## Transform how your organization operates with Claude
 

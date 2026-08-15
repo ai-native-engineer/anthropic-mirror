@@ -47,7 +47,7 @@ When you exit an interactive worktree session, Claude checks the worktree for wo
 * **The worktree is clean**: for an unnamed session, Claude removes the worktree and its branch automatically. A [named](/docs/en/sessions#name-your-sessions) session prompts you first so you can keep the worktree for later
 * **The worktree has work in it**: Claude prompts you to keep or remove the worktree. Keeping preserves the directory and branch so you can return later. Removing deletes the worktree directory and its branch, along with all the work in them
 
-Non-interactive runs with `-p` have no exit prompt, so Claude doesn't clean up their worktrees. Remove them with `git worktree remove`.
+Non-interactive runs with `-p` have no exit prompt, so Claude doesn't clean up their worktrees, and Claude Code leaves the lock it took on each one at creation in place until a later session's [stale-lock sweep](#clean-up-subagent-and-background-session-worktrees) releases it. To remove one, run `git worktree remove`; if git refuses because the worktree is locked, run `git worktree unlock` on it first.
 
 On Windows, removing a worktree doesn't delete files outside it. If a folder inside the worktree is really a link to somewhere else, such as an NTFS junction or a directory symlink, Claude Code deletes only the link and keeps the folder it points to. Before v2.1.205, removing a worktree with a link nested in a subdirectory could delete the folder it pointed to.
 
@@ -71,13 +71,20 @@ When Claude enters or exits a worktree that Claude Code created with git, the tr
 
 ## How Claude Code enforces isolation
 
-While a session is isolated in a worktree, whether you started it with `--worktree`, Claude entered one with `EnterWorktree`, or you resumed a worktree session, Claude Code blocks the tool calls listed below when they would reach the main checkout. The same enforcement covers every subagent Claude spawns from the isolated session, and it applies whether the session is interactive or runs in the [background](/docs/en/agent-view#how-file-edits-are-isolated). [Subagents that run in their own worktree](#isolate-subagents-with-worktrees) carry the same checks; their version history is under [Write subagent files](/docs/en/sub-agents#write-subagent-files). Claude Code applies three checks:
+While a session is isolated in a worktree, Claude Code blocks the tool calls the checks below define. The same rules apply whether you started the session with `--worktree`, Claude entered a worktree with `EnterWorktree`, or you resumed a worktree session.
+
+The same enforcement covers every subagent Claude spawns from the isolated session. It applies whether the session is interactive or runs in the [background](/docs/en/agent-view#how-file-edits-are-isolated). [Subagents that run in their own worktree](#isolate-subagents-with-worktrees) carry the same checks. Their version history is under [Write subagent files](/docs/en/sub-agents#write-subagent-files).
+
+Claude Code applies four checks:
 
 * **File edits**: Claude Code blocks an `Edit`, `Write`, or `NotebookEdit` that targets a path in the main checkout.
 * **Command working directory**: Claude Code blocks a Bash, PowerShell, or Monitor command whose working directory resolves to the main checkout, or whose working directory it can't verify stays outside it.
-* **Git redirects**: Claude Code blocks a Bash or Monitor command that redirects git into the main checkout, whether through `git -C`, `--git-dir`, a `GIT_DIR` or `GIT_WORK_TREE` variable, or a `cd` into the main checkout before running git. Claude Code also blocks a command it can't verify stays inside the worktree. For PowerShell commands, Claude Code applies only the working-directory check.
+* **Git redirects**: Claude Code blocks a Bash or Monitor command that redirects git into the main checkout. The redirect can come through `git -C`, `--git-dir`, a `GIT_DIR` or `GIT_WORK_TREE` variable, or a `cd` into the main checkout before running git.
+* **Command shape**: Claude Code blocks a Bash or Monitor command it can't verify stays inside the worktree. The block applies even when the command runs no git at all. Claude Code refuses shell constructs it can't statically trace, such as brace expansion and heredocs with unquoted delimiters. It tells Claude to break the command into plain, separate commands. You can't turn this check off.
 
-The checks apply to the repository you launched Claude Code from, including the main checkout a linked worktree is linked from. Claude sees each refusal as a tool error that names the worktree and says how to proceed.
+The checks apply to the repository you launched Claude Code from. They also cover the main checkout a linked worktree is linked from. For PowerShell commands, Claude Code applies only the working-directory check.
+
+Claude sees each refusal as a tool error that names the worktree and says how to proceed.
 
 ## Isolate subagents with worktrees
 
@@ -102,7 +109,7 @@ Subagent worktrees use the same [base branch](#choose-the-base-branch) as `--wor
 
 ### Clean up subagent and background-session worktrees
 
-A periodic sweep removes worktrees that Claude created for subagents and [background sessions](/docs/en/agent-view#how-file-edits-are-isolated) once they are older than your [`cleanupPeriodDays`](/docs/en/settings#available-settings) setting. The sweep skips a worktree that still holds work: changed or untracked files, or unpushed commits. It never removes worktrees you create with `--worktree`.
+A periodic sweep removes worktrees that Claude created for subagents and [background sessions](/docs/en/agent-view#how-file-edits-are-isolated) once they are older than your [`cleanupPeriodDays`](/docs/en/settings#available-settings) setting, following the [retention sweep rules](/docs/en/claude-directory#cleaned-up-automatically). The sweep skips a worktree that still holds work: changed or untracked files, or unpushed commits. It never removes worktrees you create with `--worktree`.
 
 While an agent is running, Claude runs `git worktree lock` on its worktree so that concurrent cleanup cannot remove it. The lock is released when the agent finishes.
 
@@ -255,7 +262,7 @@ Claude Code reports the errors below when it creates a worktree, enters one at s
 
 ### Claude Code can't enter the worktree at startup
 
-When Claude Code can't enter the worktree directory at startup, it prints an error naming the path and exits with code 1. This can happen when a [`WorktreeCreate` hook](/docs/en/hooks#worktreecreate) prints something other than the directory it created, or when the directory was deleted after it was set up. Before v2.1.205, this crashed the session, and with `-p` it stalled for about 30 seconds before exiting with code 0.
+When Claude Code can't enter the worktree directory at startup, it prints an error naming the path and exits with code 1. This can happen when a [`WorktreeCreate` hook](/docs/en/hooks#worktreecreate) prints something other than the directory it created, or when the directory was deleted after it was set up.
 
 ### Worktree creation fails on a symlinked path
 

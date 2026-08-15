@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/memory_stores/memories/create -->
 
+---
+title: Create a memory
+url: https://platform.claude.com/docs/en/api/beta/memory_stores/memories/create
+---
+
 ## Create a memory
 
 **post** `/v1/memory_stores/{memory_store_id}/memories`
@@ -28,7 +33,7 @@ Create a memory
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -80,15 +85,25 @@ Create a memory
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
-- `content: string`
+- `content: string or null`
 
   UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
 
@@ -138,7 +153,7 @@ Create a memory
 
     A timestamp in RFC 3339 format
 
-  - `content: optional string`
+  - `content: optional string or null`
 
     The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
@@ -148,7 +163,7 @@ Create a memory
 curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
     -d '{
           "content": "content",

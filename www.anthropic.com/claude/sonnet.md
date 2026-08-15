@@ -49,7 +49,7 @@ Anyone can chat with Claude using Sonnet 5 on Claude.ai, available on web, iOS, 
 
 For developers interested in building agents, Sonnet 5 is available on the Claude Platform natively, and on Amazon Web Services, Google Cloud, and Microsoft Foundry.
 
-Sonnet 5 is available today at an introductory price of $2 per million input tokens and $10 per million output tokens through August 31, 2026, then moves to standard pricing at $3 per million input tokens and $15 per million output tokens, with up to 90% cost savings with [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) and 50% cost savings with [batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing#pricing). To learn more, check out our [pricing page](https://claude.com/pricing#api). To get started, simply use claude-sonnet-5 via the [Claude API](https://platform.claude.com/docs/en/about-claude/models/overview).
+Sonnet 5 is available today at $2 per million input tokens and $10 per million output tokens, with up to 90% cost savings with [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) and 50% cost savings with [batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing#pricing). To learn more, check out our [pricing page](https://claude.com/pricing#api). To get started, simply use `claude-sonnet-5` via the [Claude API](https://platform.claude.com/docs/en/about-claude/models/overview).
 
 For workloads that need to run in the US, US-only inference is available at 1.1x pricing for input and output tokens. [Learn more](https://platform.claude.com/docs/en/build-with-claude/data-residency).
 
@@ -127,7 +127,7 @@ We’ve conducted extensive testing and evaluation of Sonnet 5, working with ext
 
 > At Pace, our computer-use agents run insurance workflows—submission intake, FNOL, loss runs—on the systems our operations teams already use. Claude Sonnet 5 consistently takes the right action and does it quickly, which is what real insurance work demands.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/46e6cdbfd088390aa90810e50cc5b7623da4e286-60x64.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/bf162513ba017e72d4e07b0cd7683b86c4c5bc88-60x64.svg)
 
 > For enterprise teams managing high-volume, complex workloads, Claude Sonnet 5 represents a genuine step forward — strong performance where it counts, with the speed and cost profile that makes scaling practical. On several complex tasks it exceeds the current frontier, while delivering fast responses at low costs. For enterprises running at scale, that's a real operational win.
 

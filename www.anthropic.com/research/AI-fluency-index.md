@@ -46,7 +46,7 @@ On average, conversations with iteration and refinement exhibit 2.67 additional 
 
 ### **When creating outputs, users become more directive but less evaluative**
 
-12.3% of conversations in our sample involved [artifacts](https://claude.ai/redirect/website.v1.e1cf0118-8d42-42d2-8919-e89a138a46c7/catalog/artifacts), including code, documents, interactive tools, and other outputs. In these conversations, people collaborated with AI quite differently.
+12.3% of conversations in our sample involved [artifacts](https://claude.ai/redirect/website.v1.c4bd1222-453a-4fb2-9979-37bccf1fcfee/catalog/artifacts), including code, documents, interactive tools, and other outputs. In these conversations, people collaborated with AI quite differently.
 
 Specifically, we found substantially higher rates of behaviors that fall within the broader themes of “description” and “delegation.” For instance, these conversations are more likely to see users clarify their goal (+14.7pp), specify a format (+14.5pp), provide examples (+13.4pp), and iterate (+9.7pp) compared to non-artifact conversations. In other words, they’re doing more to direct AI at the outset of their work.
 
@@ -72,7 +72,7 @@ Developing your own AI fluency
 
 This research comes with important caveats:
 
-* **Sample limitations:** Our sample reflects Claude.ai users who engaged in multi-turn conversations during a single week in January 2026. Since we think this is still relatively early on in the diffusion of AI tools, these users likely skew towards early adopters who are already comfortable with AI—i.e., who may not represent the broader population. Our sample should be understood as providing a baseline for *this* population, not as a universal benchmark. Because the data comes from a single week, it is also unable to capture any seasonal or longitudinal effects. And because it’s focused on [Claude.ai](http://claude.ai/redirect/website.v1.e1cf0118-8d42-42d2-8919-e89a138a46c7), we don’t capture how users interact with other AI platforms.
+* **Sample limitations:** Our sample reflects Claude.ai users who engaged in multi-turn conversations during a single week in January 2026. Since we think this is still relatively early on in the diffusion of AI tools, these users likely skew towards early adopters who are already comfortable with AI—i.e., who may not represent the broader population. Our sample should be understood as providing a baseline for *this* population, not as a universal benchmark. Because the data comes from a single week, it is also unable to capture any seasonal or longitudinal effects. And because it’s focused on [Claude.ai](http://claude.ai/redirect/website.v1.c4bd1222-453a-4fb2-9979-37bccf1fcfee), we don’t capture how users interact with other AI platforms.
 * **Partial framework coverage:** In this study, we only assessed the 11 of the 24 behavioral indicators that are directly observable in conversations on Claude.ai. All behaviors related to the responsible and ethical use of AI outputs occur outside of these conversations, and are not captured.
 * **Binary classification:** For each conversation in our sample, we classify each behavior as either present or absent. But this likely misses significant nuance—like arguable or partial demonstrations of behaviors, or overlapping signals between them.
 * **Implicit behaviors:** Users might demonstrate fluency behaviors mentally (such as fact-checking Claude’s claims against their own knowledge) without expressing these behaviors in conversation. This seems especially relevant for our data on artifacts—users might be evaluating Claude’s outputs through testing and practical use, rather than through conversation-visible behaviors.
@@ -84,7 +84,7 @@ This study offers us a baseline that we can use to assess how AI fluency is chan
 
 In future work, we plan to extend our analysis in several directions. First, we plan to conduct “cohort analyses,” comparing new users to experienced ones in order to understand how familiarity with AI is correlated with fluency development. Second, we plan to use qualitative research methods to assess the behaviors that aren’t directly observable in Claude.ai conversations. And third, we aim to explore the *causal* questions that this work raises—like whether encouraging iterative conversations leads to greater critical evaluation, or whether there are other interventions that could encourage this more effectively.
 
-In addition, we’d like to explore AI fluency behaviors in Claude Code, a platform mostly used by software developers. In preparation for this study, we conducted some initial analysis that found consistency between Claude Code conversations and ones in [Claude.ai](http://claude.ai/redirect/website.v1.e1cf0118-8d42-42d2-8919-e89a138a46c7). But this is still preliminary, and Claude Code’s very different user base and functionality implies that more substantial research is necessary.
+In addition, we’d like to explore AI fluency behaviors in Claude Code, a platform mostly used by software developers. In preparation for this study, we conducted some initial analysis that found consistency between Claude Code conversations and ones in [Claude.ai](http://claude.ai/redirect/website.v1.c4bd1222-453a-4fb2-9979-37bccf1fcfee). But this is still preliminary, and Claude Code’s very different user base and functionality implies that more substantial research is necessary.
 
 We expect that the nature of AI fluency will develop and evolve substantially over time. With this and future research, we’re aiming to make that development visible, measurable, and actionable.
 
@@ -114,18 +114,20 @@ Kristen Swanson designed the research, led the analysis, and wrote this report. 
 
 2 Behavioral indicators were calculated across a one-week sample (January 20–26, 2025) and held stable day-to-day, with most behaviors varying by only 1–5 percentage points. Saturday rates were slightly lower for some behaviors (e.g., iteration and refinement was 81.4% for Saturday compared to a weekday peak of 87.9%), suggesting modest differences in casual versus purposeful use, but no day showed meaningful structural deviation. Rates were also consistent across six languages (English, French, Spanish, Chinese, Japanese, and German), with most behaviors varying by 3 percentage points or fewer across language groups. Together, these findings suggest that the behavioral patterns captured here reflect consistent habits in how people engage with AI, rather than being artifacts of timing, day of week, or linguistic and cultural context.
 
-### Discovering cryptographic weaknesses with Claude
+### Patterns and problems in emerging multiagent systems
 
-cryptographic algorithms. The first attack significantly weakens HAWK, a digital signature scheme that was built for a future world where quantum computers are able to break existing standards. The second identifies a new way to attack round-reduced AES, the most widely used symmetric cipher.
+Here, we identify a few examples of behavioral tendencies in current frontier models and show how they can produce unexpected systemic failures, in hopes of starting a conversation about mitigating these risks.
 
-[Read more](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
+[Read more](https://www.anthropic.com/research/multiagent-systems)
 
-### Project Pilot: Can AI control a drone?
+### Reviewing the evidence on worker retraining programs
 
-Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
+We're sharing a review of the evidence on worker retraining programs, coauthored by independent researcher David Roodman and Anthropic's Maxim Massenkoff.
 
-[Read more](https://www.anthropic.com/research/project-pilot)
+[Read more](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)
 
-### How Canada uses Claude: Findings from the Anthropic Economic Index
+### Learning more about Claude's mathematical capabilities
 
-[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
+An unreleased research version of Claude has made strides on a problem related to the Riemann hypothesis. It improved a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the hypothesis, increasing it from 41.6% to 67.2%.
+
+[Read more](https://www.anthropic.com/research/riemann-zeta)

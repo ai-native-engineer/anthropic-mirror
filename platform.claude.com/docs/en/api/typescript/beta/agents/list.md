@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/agents/list -->
 
+---
+title: List Agents
+url: https://platform.claude.com/docs/en/api/typescript/beta/agents/list
+---
+
 ## List Agents
 
 `client.beta.agents.list(AgentListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsAgent>`
@@ -38,7 +43,7 @@ List Agents
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -90,11 +95,21 @@ List Agents
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -136,23 +151,31 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-fable-5" | "claude-opus-4-8" | "claude-opus-4-7" | 8 more`
+      - `"claude-sonnet-5" | "claude-fable-5" | "claude-opus-5" | 10 more`
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -168,11 +191,11 @@ List Agents
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -183,6 +206,54 @@ List Agents
           High-performance model for agents and coding
 
       - `(string & {})`
+
+    - `effort?: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `inference_geo?: string`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
     - `speed?: "standard" | "fast"`
 
@@ -196,17 +267,33 @@ List Agents
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `agents: Array<BetaManagedAgentsAgentReference>`
+    - `agents: Array<BetaManagedAgentsAgentReference | BetaManagedAgentsAdvisor>`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `id: string`
+      - `BetaManagedAgentsAgentReference`
 
-      - `type: "agent"`
+        A resolved agent reference with a concrete version.
 
-        - `"agent"`
+        - `id: string`
 
-      - `version: number`
+        - `type: "agent"`
+
+          - `"agent"`
+
+        - `version: number`
+
+      - `BetaManagedAgentsAdvisor`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: string`
+
+          The advisor model id.
+
+        - `type: "advisor"`
+
+          - `"advisor"`
 
     - `type: "coordinator"`
 
@@ -395,10 +482,10 @@ List Agents
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
@@ -429,6 +516,10 @@ for await (const betaManagedAgentsAgent of client.beta.agents.list()) {
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
+        "inference_geo": "inference_geo",
         "speed": "standard"
       },
       "multiagent": {

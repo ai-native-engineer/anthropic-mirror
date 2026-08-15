@@ -101,7 +101,7 @@ Anthropic maintains an allowlist of tenant and client IDs that may call the conn
 
 Configure Claude Desktop
 
-In the Claude Desktop [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration), open **Connectors & extensions**, select **Add server → Microsoft 365**, and enter the values below.
+In the Claude Desktop [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration), open **Connectors**, select **Add server → Microsoft 365**, and enter the values below.
 
 | Field | Value |
 | --- | --- |
@@ -151,7 +151,7 @@ The errors below are the ones most commonly seen during setup. Each maps to a sp
 
 ##  Local connector
 
-Claude Desktop includes a built-in copy of the Microsoft 365 server. As an alternative to the remote connector, you can configure the app to run that server as a local process on each user’s machine: the user signs in to Microsoft Entra on the device, and the server calls Microsoft Graph directly from the device. No Microsoft 365 data or tokens pass through Anthropic’s infrastructure. The local connector is in beta, and the in-app configuration window marks it with a **Beta** pill.
+Claude Desktop includes a built-in copy of the Microsoft 365 server. As an alternative to the remote connector, you can configure the app to run that server as a local process on each user’s machine: the user signs in to Microsoft Entra on the device, and the server calls Microsoft Graph directly from the device. No Microsoft 365 data or tokens pass through Anthropic’s infrastructure.
 Choose the local connector when your data-residency requirements do not allow Microsoft 365 content to transit infrastructure outside your control, when your tenant enforces device-based Conditional Access policies (such as *Require compliant device*) that the remote connector’s server-side token exchange cannot satisfy, or when you want to avoid the allowlisting step. The [comparison table](#choose-a-connector) above summarizes the differences.
 
 ###  Set up the local connector
@@ -172,7 +172,7 @@ Do not reuse the desktop client app you registered for the remote connector. Tha
 
 Configure Claude Desktop
 
-In the Claude Desktop [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration), open **Connectors & extensions**, select **Add server**, and choose **Microsoft 365** under the **Built-in** group. Enter the values below, then select **Test connection** to verify that the server starts and lists its tools, and select **Save**.
+In the Claude Desktop [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration), open **Connectors**, select **Add server**, and choose **Microsoft 365** under the **Built-in** group. Enter the values below, then select **Test connection** to verify that the server starts and lists its tools, and select **Save**.
 
 | Field | Value |
 | --- | --- |
@@ -294,16 +294,18 @@ If the broker rejects the app’s sign-in request, or a brokered attempt fails w
 
 Requirements for brokered sign-in on macOS
 
+Brokered sign-in on macOS requires Claude Desktop version 1.19367.0 or later.
+
 * The Mac is enrolled in an MDM (Intune, Jamf, or similar), registered in Entra ID, and marked compliant. For non-Intune MDMs, use the partner device-compliance integration that reports compliance to Intune and Entra.
 * **Intune Company Portal** is installed; it provides the broker.
 * An **Extensible SSO** configuration profile of type **Redirect**, pointed at the Microsoft Enterprise SSO plug-in, is deployed through MDM. The broker is unavailable without it.
 * The broker redirect URI is registered on the local-mode app under **Mobile and desktop applications** (it appears under the **iOS / macOS** section after saving):
 
 ```
-msauth.com.anthropic.claudefordesktop.helper://auth
+msauth.com.anthropic.claudefordesktop://auth
 ```
 
-If the broker rejects the app’s sign-in request, or a brokered attempt fails with an error the broker cannot recover from, the connector falls back to the system browser automatically and stays on the browser flow until Claude Desktop restarts. A user canceling the broker dialog does not trigger the fallback. On tenants that require a compliant device, tool calls then fail with `AADSTS53003`, unless the browser itself is signed in through the device’s SSO integration; fix the broker requirement that caused the fallback (most often a missing broker redirect URI or SSO profile) and restart the app. A fallback is recorded in the connector’s log file as a `local_auth_broker_fallback` event.
+If the app registration also lists `msauth.com.anthropic.claudefordesktop.helper://auth`, remove that entry. Claude Desktop does not use it.If the broker rejects the app’s sign-in request, or a brokered attempt fails with an error the broker cannot recover from, the connector falls back to the system browser automatically and stays on the browser flow until Claude Desktop restarts. A user canceling the broker dialog does not trigger the fallback. On tenants that require a compliant device, tool calls then fail with `AADSTS53003`, unless the browser itself is signed in through the device’s SSO integration; fix the broker requirement that caused the fallback (most often a missing broker redirect URI or SSO profile) and restart the app. A fallback is recorded in the connector’s log file as a `local_auth_broker_fallback` event.
 
 ###  Token storage and sign-out
 
@@ -317,9 +319,9 @@ Selecting **Disconnect** next to the connector signs the user out and deletes it
 | **Test connection** reports that the built-in server is not included | The installed Claude Desktop version predates the built-in connector | Upgrade Claude Desktop |
 | **Microsoft 365** is missing from the **Add server** options | The installed Claude Desktop version predates the built-in connector | Upgrade Claude Desktop, or author the JSON entry directly |
 | Connector missing from settings | The entry was rejected during configuration parsing: an unrecognized scope name in `scope`, a missing `tenantId` or `clientId`, or a `url`, `transport`, or `command` field mixed into the entry | Check the app’s main log for a line naming the dropped entry |
-| Sign-in opens the browser on a managed device where the broker was expected | macOS: Company Portal is not installed, the SSO configuration profile is not deployed, or the broker redirect URI is not registered. Windows: Claude Desktop is older than 1.13576.0, the device is not Entra-joined or Entra-registered, or the broker redirect URI is not registered | Re-check the brokered sign-in requirements above |
-| `AADSTS50011` redirect mismatch | The `http://localhost` redirect URI is missing, or was registered under *Web* instead of *Mobile and desktop applications* | Re-check step 1.2 |
-| `AADSTS900971` no reply address provided | The macOS broker redirect URI is not registered on the local-mode app | Register `msauth.com.anthropic.claudefordesktop.helper://auth` as described in step 1.2 (after you save, it appears under the **iOS / macOS** section) |
+| Sign-in opens the browser on a managed device where the broker was expected | macOS: Claude Desktop is older than 1.19367.0, Company Portal is not installed, the SSO configuration profile is not deployed, or the broker redirect URI is not registered. Windows: Claude Desktop is older than 1.13576.0, the device is not Entra-joined or Entra-registered, or the broker redirect URI is not registered | Re-check the brokered sign-in requirements above |
+| `AADSTS50011` redirect mismatch | The redirect URI named in the error message (`http://localhost` for browser sign-in, or the platform’s broker redirect URI for brokered sign-in) is missing from the local-mode app registration, was entered with a different value, or was added under *Web* instead of *Mobile and desktop applications* | Add or correct that URI under *Mobile and desktop applications* (step 1.2, or the brokered sign-in requirements above) |
+| `AADSTS900971` no reply address provided | The macOS broker redirect URI is not registered on the local-mode app | Register `msauth.com.anthropic.claudefordesktop://auth` as described in step 1.2 (after you save, it appears under the **iOS / macOS** section) |
 | `AADSTS65001` admin consent required | Graph delegated permissions were not admin-consented | Re-check step 1.4 |
 | `AADSTS53003` blocked by Conditional Access | A device-compliance policy is evaluating a sign-in that carries no device claim | Meet the brokered sign-in requirements for the platform, then restart Claude Desktop |
 | `AADSTS7000218` request body must contain client\_assertion or client\_secret | **Allow public client flows** is set to No on the local-mode app registration, so brokered token requests are classified as confidential | Set **Allow public client flows** to **Yes** (step 1.3) |

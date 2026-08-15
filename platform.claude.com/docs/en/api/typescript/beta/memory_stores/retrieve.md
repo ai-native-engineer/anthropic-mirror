@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/memory_stores/retrieve -->
 
+---
+title: Retrieve a memory store
+url: https://platform.claude.com/docs/en/api/typescript/beta/memory_stores/retrieve
+---
+
 ## Retrieve a memory store
 
 `client.beta.memoryStores.retrieve(stringmemoryStoreID, MemoryStoreRetrieveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
@@ -20,7 +25,7 @@ Retrieve a memory store
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -72,11 +77,21 @@ Retrieve a memory store
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -119,13 +134,15 @@ Retrieve a memory store
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
-const betaManagedAgentsMemoryStore = await client.beta.memoryStores.retrieve('memory_store_id');
+const betaManagedAgentsMemoryStore = await client.beta.memoryStores.retrieve(
+  "memory_store_id"
+);
 
 console.log(betaManagedAgentsMemoryStore.id);
 ```

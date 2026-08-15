@@ -817,6 +817,22 @@ About 90 minutes
 
 ## Related tutorials
 
+[Can you trust what AI tells you?](https://claude.com/resources/tutorials/can-you-trust-what-ai-tells-you)Can you trust what AI tells you?
+
+Can you trust what AI tells you?
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/can-you-trust-what-ai-tells-you)Tutorial
+
+[What happens when you talk to AI?](https://claude.com/resources/tutorials/what-happens-when-you-talk-to-ai)What happens when you talk to AI?
+
+What happens when you talk to AI?
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/what-happens-when-you-talk-to-ai)Tutorial
+
 [How AI gets its character](https://claude.com/resources/tutorials/how-ai-gets-its-character)How AI gets its character
 
 How AI gets its character
@@ -832,19 +848,3 @@ Understanding knowledge gaps in AI models
 Tutorial
 
 [Tutorial](https://claude.com/resources/tutorials/understanding-knowledge-gaps-in-ai-models)Tutorial
-
-[Why does bias exist in AI models?](https://claude.com/resources/tutorials/why-does-bias-exist-in-ai-models)Why does bias exist in AI models?
-
-Why does bias exist in AI models?
-
-Tutorial
-
-[Tutorial](https://claude.com/resources/tutorials/why-does-bias-exist-in-ai-models)Tutorial
-
-[The 4 Ds of AI Fluency — Behavioral Indicators](https://claude.com/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)The 4 Ds of AI Fluency — Behavioral Indicators
-
-The 4 Ds of AI Fluency — Behavioral Indicators
-
-Tutorial
-
-[Tutorial](https://claude.com/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)Tutorial

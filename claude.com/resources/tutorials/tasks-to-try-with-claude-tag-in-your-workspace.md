@@ -6,6 +6,8 @@ A catalog of tasks to try handing to @Claude once it's in your workspace, each w
 
   Professional
 * Product
+
+  Claude Tag
 * Reading time
 
   Watch time
@@ -23,7 +25,7 @@ A catalog of tasks to try handing to @Claude once it's in your workspace, each w
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3ab2da4e9a585023120337_what-customers-keep-asking-for%20(2).png)
 
-Tag [@Claude](https://claude.com/blog/agent-identity-access-model) in a thread and tell it what you want. It reads what it needs (the messages and files in that channel, plus any tools your team has connected), does the task, and posts the result in the same thread. Claude tags you back, so you stay in the conversation: read what it sent, reply with a change, or hand the thread to a teammate. Tagging is how most tasks start, though once Claude is active in a channel it can also [pitch in on its own](https://claude.com/docs/claude-tag/users/when-claude-responds) when it sees a way to help.
+Tag [@Claude](https://claude.com/product/tag) in a thread and tell it what you want. It reads what it needs (the messages and files in that channel, plus any tools your team has connected), does the task, and posts the result in the same thread. Claude tags you back, so you stay in the conversation: read what it sent, reply with a change, or hand the thread to a teammate. Tagging is how most tasks start, though once Claude is active in a channel it can also [pitch in on its own](https://claude.com/docs/claude-tag/users/when-claude-responds) when it sees a way to help.
 
 Most questions are answered in a few seconds. Bigger tasks, like drafting a doc or fixing a bug, take longer; Claude lets you know it's on it right away, often with a quick reaction, then works in the background and shows you its progress, so you're not sitting and waiting on it.
 

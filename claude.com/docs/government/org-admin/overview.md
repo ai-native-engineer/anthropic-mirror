@@ -30,7 +30,7 @@ You can reach the organization admin portal if your role in the organization is 
 
 The portal header shows your organization’s name, and a navigation bar below it gives you access to each admin page.
 
-If the account your organization draws from crosses a warning threshold, a banner appears just below the navigation on every page of this portal. The banner tells you the percentage of credits used and stays in place until more credits are added to the account. It escalates in color and wording if usage crosses a higher threshold. Every owner sees the banner, including when the Billing tab is hidden, so that you always know when your organization is running low.
+If the account your organization draws from crosses a warning threshold, a banner appears just below the navigation on every page of this portal. When your organization manages the account or is the only one using it, the banner tells you the percentage of credits used. When the account is shared with other organizations and yours does not manage it, the banner instead says credits are running low and points you to your tenant administrators. The banner stays in place until more credits are added to the account, and it escalates in color and wording if usage crosses a higher threshold. Every owner sees the banner, including when the Billing tab is hidden, so that you always know when your organization is running low.
 
 > **For owners and tenant administrators:** You can reach the user view from the **Switch to user view** link in the page footer. If you are also a tenant administrator, the footer additionally offers **Switch to tenant view**.
 
@@ -58,7 +58,7 @@ The navigation groups the pages into three sections.
 
 | Page | What it’s for |
 | --- | --- |
-| [Config](https://claude.com/docs/government/org-admin/configuration) | Adjust product settings such as telemetry, the desktop banner, and product availability for everyone in your organization. |
+| [Config](https://claude.com/docs/government/org-admin/configuration) | Adjust product settings such as telemetry, the Claude Desktop banner, and product availability for everyone in your organization. |
 | [Readiness](https://claude.com/docs/government/org-admin/readiness) | See what is blocking users from using Claude and where each item is resolved. |
 
 The **Billing** tab only appears when the billing account is active and your own organization is active on it. If you don’t see it, contact your tenant administrators about credits or spend caps.

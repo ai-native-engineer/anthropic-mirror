@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/workspaces/members -->
 
+---
+title: Members
+url: https://platform.claude.com/docs/en/api/admin/workspaces/members
+---
+
 # Members
 
 ## Create Workspace Member
@@ -20,17 +25,17 @@ Create Workspace Member
 
   ID of the User.
 
-- `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or "workspace_admin"`
+- `workspace_role: "workspace_admin" or "workspace_developer" or "workspace_restricted_developer" or "workspace_user"`
 
   Role of the new Workspace Member. Cannot be "workspace_billing".
 
-  - `"workspace_user"`
+  - `"workspace_admin"`
 
   - `"workspace_developer"`
 
   - `"workspace_restricted_developer"`
 
-  - `"workspace_admin"`
+  - `"workspace_user"`
 
 ### Returns
 
@@ -52,19 +57,19 @@ Create Workspace Member
 
     ID of the Workspace.
 
-  - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+  - `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
     Role of the Workspace Member.
 
-    - `"workspace_user"`
+    - `"workspace_admin"`
+
+    - `"workspace_billing"`
 
     - `"workspace_developer"`
 
     - `"workspace_restricted_developer"`
 
-    - `"workspace_admin"`
-
-    - `"workspace_billing"`
+    - `"workspace_user"`
 
 ### Example
 
@@ -75,7 +80,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
-          "workspace_role": "workspace_user"
+          "workspace_role": "workspace_admin"
         }'
 ```
 
@@ -126,19 +131,19 @@ Get Workspace Member
 
     ID of the Workspace.
 
-  - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+  - `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
     Role of the Workspace Member.
 
-    - `"workspace_user"`
+    - `"workspace_admin"`
+
+    - `"workspace_billing"`
 
     - `"workspace_developer"`
 
     - `"workspace_restricted_developer"`
 
-    - `"workspace_admin"`
-
-    - `"workspace_billing"`
+    - `"workspace_user"`
 
 ### Example
 
@@ -207,21 +212,21 @@ List Workspace Members
 
     ID of the Workspace.
 
-  - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+  - `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
     Role of the Workspace Member.
-
-    - `"workspace_user"`
-
-    - `"workspace_developer"`
-
-    - `"workspace_restricted_developer"`
 
     - `"workspace_admin"`
 
     - `"workspace_billing"`
 
-- `first_id: string`
+    - `"workspace_developer"`
+
+    - `"workspace_restricted_developer"`
+
+    - `"workspace_user"`
+
+- `first_id: string or null`
 
   First ID in the `data` list. Can be used as the `before_id` for the previous page.
 
@@ -229,7 +234,7 @@ List Workspace Members
 
   Indicates if there are more results in the requested page direction.
 
-- `last_id: string`
+- `last_id: string or null`
 
   Last ID in the `data` list. Can be used as the `after_id` for the next page.
 
@@ -277,19 +282,19 @@ Update Workspace Member
 
 ### Body Parameters
 
-- `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+- `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
   New workspace role for the User.
 
-  - `"workspace_user"`
+  - `"workspace_admin"`
+
+  - `"workspace_billing"`
 
   - `"workspace_developer"`
 
   - `"workspace_restricted_developer"`
 
-  - `"workspace_admin"`
-
-  - `"workspace_billing"`
+  - `"workspace_user"`
 
 ### Returns
 
@@ -311,19 +316,19 @@ Update Workspace Member
 
     ID of the Workspace.
 
-  - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+  - `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
     Role of the Workspace Member.
 
-    - `"workspace_user"`
+    - `"workspace_admin"`
+
+    - `"workspace_billing"`
 
     - `"workspace_developer"`
 
     - `"workspace_restricted_developer"`
 
-    - `"workspace_admin"`
-
-    - `"workspace_billing"`
+    - `"workspace_user"`
 
 ### Example
 
@@ -333,7 +338,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
-          "workspace_role": "workspace_user"
+          "workspace_role": "workspace_admin"
         }'
 ```
 
@@ -423,19 +428,19 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
 
     ID of the Workspace.
 
-  - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+  - `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
     Role of the Workspace Member.
 
-    - `"workspace_user"`
+    - `"workspace_admin"`
+
+    - `"workspace_billing"`
 
     - `"workspace_developer"`
 
     - `"workspace_restricted_developer"`
 
-    - `"workspace_admin"`
-
-    - `"workspace_billing"`
+    - `"workspace_user"`
 
 ### Member Delete Response
 

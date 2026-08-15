@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/retrieve -->
 
+---
+title: Retrieve a memory version
+url: https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/retrieve
+---
+
 ## Retrieve a memory version
 
 **get** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}`
@@ -30,7 +35,7 @@ Retrieve a memory version
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -82,11 +87,21 @@ Retrieve a memory version
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -124,15 +139,15 @@ Retrieve a memory version
 
     - `"memory_version"`
 
-  - `content: optional string`
+  - `content: optional string or null`
 
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
 
-  - `content_sha256: optional string`
+  - `content_sha256: optional string or null`
 
     Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
 
-  - `content_size_bytes: optional number`
+  - `content_size_bytes: optional number or null`
 
     Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
 
@@ -176,11 +191,11 @@ Retrieve a memory version
 
         ID of the user who performed the write (a `user_...` value).
 
-  - `path: optional string`
+  - `path: optional string or null`
 
     The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
 
-  - `redacted_at: optional string`
+  - `redacted_at: optional string or null`
 
     A timestamp in RFC 3339 format
 
@@ -193,7 +208,7 @@ Retrieve a memory version
 ```http
 curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memory_versions/$MEMORY_VERSION_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 

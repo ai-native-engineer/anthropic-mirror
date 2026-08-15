@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/service_accounts -->
 
+---
+title: Service Accounts
+url: https://platform.claude.com/docs/en/api/admin/service_accounts
+---
+
 # Service Accounts
 
 ## Create Service Account
@@ -31,17 +36,17 @@ workload may only create `developer`-role service accounts.
 
   Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
-- `description: optional string`
+- `description: optional string or null`
 
   Optional free-text description.
 
-- `organization_role: optional "developer" or "admin"`
+- `organization_role: optional "admin" or "developer"`
 
   Org-level role. Defaults to `developer`.
 
-  - `"developer"`
-
   - `"admin"`
+
+  - `"developer"`
 
 ### Returns
 
@@ -56,11 +61,11 @@ workload may only create `developer`-role service accounts.
 
     Tagged ID of the service account.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     If set, this service account is archived.
 
-  - `archived_by_actor_id: string`
+  - `archived_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
 
@@ -68,11 +73,11 @@ workload may only create `developer`-role service accounts.
 
     When this service account was created.
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that created this service account.
 
-  - `description: string`
+  - `description: string or null`
 
     Optional free-text description.
 
@@ -80,13 +85,13 @@ workload may only create `developer`-role service accounts.
 
     Admin-chosen slug identifier.
 
-  - `organization_role: "developer" or "admin"`
+  - `organization_role: "admin" or "developer"`
 
     Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
 
-    - `"developer"`
-
     - `"admin"`
+
+    - `"developer"`
 
   - `type: "service_account"`
 
@@ -96,7 +101,7 @@ workload may only create `developer`-role service accounts.
 
     When this service account was last updated.
 
-  - `updated_by_actor_id: string`
+  - `updated_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
 
@@ -123,7 +128,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts \
   "created_by_actor_id": "created_by_actor_id",
   "description": "description",
   "name": "ci-deploy-bot",
-  "organization_role": "developer",
+  "organization_role": "admin",
   "type": "service_account",
   "updated_at": "2024-10-30T23:58:27.427722Z",
   "updated_by_actor_id": "updated_by_actor_id"
@@ -163,11 +168,11 @@ Retrieve a service account by its ID (`svac_...`).
 
     Tagged ID of the service account.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     If set, this service account is archived.
 
-  - `archived_by_actor_id: string`
+  - `archived_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
 
@@ -175,11 +180,11 @@ Retrieve a service account by its ID (`svac_...`).
 
     When this service account was created.
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that created this service account.
 
-  - `description: string`
+  - `description: string or null`
 
     Optional free-text description.
 
@@ -187,13 +192,13 @@ Retrieve a service account by its ID (`svac_...`).
 
     Admin-chosen slug identifier.
 
-  - `organization_role: "developer" or "admin"`
+  - `organization_role: "admin" or "developer"`
 
     Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
 
-    - `"developer"`
-
     - `"admin"`
+
+    - `"developer"`
 
   - `type: "service_account"`
 
@@ -203,7 +208,7 @@ Retrieve a service account by its ID (`svac_...`).
 
     When this service account was last updated.
 
-  - `updated_by_actor_id: string`
+  - `updated_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
 
@@ -226,7 +231,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
   "created_by_actor_id": "created_by_actor_id",
   "description": "description",
   "name": "ci-deploy-bot",
-  "organization_role": "developer",
+  "organization_role": "admin",
   "type": "service_account",
   "updated_at": "2024-10-30T23:58:27.427722Z",
   "updated_by_actor_id": "updated_by_actor_id"
@@ -273,11 +278,11 @@ archived service accounts.
 
     Tagged ID of the service account.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     If set, this service account is archived.
 
-  - `archived_by_actor_id: string`
+  - `archived_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
 
@@ -285,11 +290,11 @@ archived service accounts.
 
     When this service account was created.
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that created this service account.
 
-  - `description: string`
+  - `description: string or null`
 
     Optional free-text description.
 
@@ -297,13 +302,13 @@ archived service accounts.
 
     Admin-chosen slug identifier.
 
-  - `organization_role: "developer" or "admin"`
+  - `organization_role: "admin" or "developer"`
 
     Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
 
-    - `"developer"`
-
     - `"admin"`
+
+    - `"developer"`
 
   - `type: "service_account"`
 
@@ -313,11 +318,11 @@ archived service accounts.
 
     When this service account was last updated.
 
-  - `updated_by_actor_id: string`
+  - `updated_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
 
-- `next_page: string`
+- `next_page: string or null`
 
   Opaque cursor for the next page, or null if no more results.
 
@@ -342,7 +347,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts \
       "created_by_actor_id": "created_by_actor_id",
       "description": "description",
       "name": "ci-deploy-bot",
-      "organization_role": "developer",
+      "organization_role": "admin",
       "type": "service_account",
       "updated_at": "2024-10-30T23:58:27.427722Z",
       "updated_by_actor_id": "updated_by_actor_id"
@@ -380,17 +385,17 @@ API keys are not accepted.
 
 ### Body Parameters
 
-- `description: optional string`
+- `description: optional string or null`
 
   Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
 
-- `organization_role: optional "developer" or "admin"`
+- `organization_role: optional "admin" or "developer" or null`
 
   Replaces the org-level role. Omit or send `null` to leave unchanged.
 
-  - `"developer"`
-
   - `"admin"`
+
+  - `"developer"`
 
 ### Returns
 
@@ -405,11 +410,11 @@ API keys are not accepted.
 
     Tagged ID of the service account.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     If set, this service account is archived.
 
-  - `archived_by_actor_id: string`
+  - `archived_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
 
@@ -417,11 +422,11 @@ API keys are not accepted.
 
     When this service account was created.
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that created this service account.
 
-  - `description: string`
+  - `description: string or null`
 
     Optional free-text description.
 
@@ -429,13 +434,13 @@ API keys are not accepted.
 
     Admin-chosen slug identifier.
 
-  - `organization_role: "developer" or "admin"`
+  - `organization_role: "admin" or "developer"`
 
     Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
 
-    - `"developer"`
-
     - `"admin"`
+
+    - `"developer"`
 
   - `type: "service_account"`
 
@@ -445,7 +450,7 @@ API keys are not accepted.
 
     When this service account was last updated.
 
-  - `updated_by_actor_id: string`
+  - `updated_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
 
@@ -470,7 +475,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
   "created_by_actor_id": "created_by_actor_id",
   "description": "description",
   "name": "ci-deploy-bot",
-  "organization_role": "developer",
+  "organization_role": "admin",
   "type": "service_account",
   "updated_at": "2024-10-30T23:58:27.427722Z",
   "updated_by_actor_id": "updated_by_actor_id"
@@ -518,11 +523,11 @@ accepted.
 
     Tagged ID of the service account.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     If set, this service account is archived.
 
-  - `archived_by_actor_id: string`
+  - `archived_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
 
@@ -530,11 +535,11 @@ accepted.
 
     When this service account was created.
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that created this service account.
 
-  - `description: string`
+  - `description: string or null`
 
     Optional free-text description.
 
@@ -542,13 +547,13 @@ accepted.
 
     Admin-chosen slug identifier.
 
-  - `organization_role: "developer" or "admin"`
+  - `organization_role: "admin" or "developer"`
 
     Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
 
-    - `"developer"`
-
     - `"admin"`
+
+    - `"developer"`
 
   - `type: "service_account"`
 
@@ -558,7 +563,7 @@ accepted.
 
     When this service account was last updated.
 
-  - `updated_by_actor_id: string`
+  - `updated_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
 
@@ -582,7 +587,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
   "created_by_actor_id": "created_by_actor_id",
   "description": "description",
   "name": "ci-deploy-bot",
-  "organization_role": "developer",
+  "organization_role": "admin",
   "type": "service_account",
   "updated_at": "2024-10-30T23:58:27.427722Z",
   "updated_by_actor_id": "updated_by_actor_id"
@@ -604,11 +609,11 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
     Tagged ID of the service account.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     If set, this service account is archived.
 
-  - `archived_by_actor_id: string`
+  - `archived_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
 
@@ -616,11 +621,11 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
     When this service account was created.
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that created this service account.
 
-  - `description: string`
+  - `description: string or null`
 
     Optional free-text description.
 
@@ -628,13 +633,13 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
     Admin-chosen slug identifier.
 
-  - `organization_role: "developer" or "admin"`
+  - `organization_role: "admin" or "developer"`
 
     Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
 
-    - `"developer"`
-
     - `"admin"`
+
+    - `"developer"`
 
   - `type: "service_account"`
 
@@ -644,7 +649,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
     When this service account was last updated.
 
-  - `updated_by_actor_id: string`
+  - `updated_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
 
@@ -684,25 +689,25 @@ are not accepted.
 
   Tagged workspace ID to add the service account to.
 
-- `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or "workspace_admin"`
+- `workspace_role: "workspace_admin" or "workspace_developer" or "workspace_restricted_developer" or "workspace_user"`
 
   Role to assign to the service account in this workspace.
 
-  - `"workspace_user"`
+  - `"workspace_admin"`
 
   - `"workspace_developer"`
 
   - `"workspace_restricted_developer"`
 
-  - `"workspace_admin"`
+  - `"workspace_user"`
 
 ### Returns
 
-- `created_by_actor_id: string`
+- `created_by_actor_id: string or null`
 
   Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
 
-- `implicit: boolean`
+- `implicit: boolean or null`
 
   True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role workspace_user and cannot be removed.
 
@@ -718,19 +723,19 @@ are not accepted.
 
   Tagged workspace ID (`wrkspc_...`).
 
-- `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+- `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
   Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
 
-  - `"workspace_user"`
+  - `"workspace_admin"`
+
+  - `"workspace_billing"`
 
   - `"workspace_developer"`
 
   - `"workspace_restricted_developer"`
 
-  - `"workspace_admin"`
-
-  - `"workspace_billing"`
+  - `"workspace_user"`
 
 ### Example
 
@@ -741,7 +746,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "workspace_id": "workspace_id",
-          "workspace_role": "workspace_user"
+          "workspace_role": "workspace_admin"
         }'
 ```
 
@@ -754,7 +759,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
   "service_account_id": "service_account_id",
   "type": "service_account_workspace_member",
   "workspace_id": "workspace_id",
-  "workspace_role": "workspace_user"
+  "workspace_role": "workspace_admin"
 }
 ```
 
@@ -802,11 +807,11 @@ empty list.
 
 - `data: array of object { created_by_actor_id, implicit, service_account_id, 3 more }`
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
 
-  - `implicit: boolean`
+  - `implicit: boolean or null`
 
     True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role workspace_user and cannot be removed.
 
@@ -822,21 +827,21 @@ empty list.
 
     Tagged workspace ID (`wrkspc_...`).
 
-  - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+  - `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
     Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
-
-    - `"workspace_user"`
-
-    - `"workspace_developer"`
-
-    - `"workspace_restricted_developer"`
 
     - `"workspace_admin"`
 
     - `"workspace_billing"`
 
-- `next_page: string`
+    - `"workspace_developer"`
+
+    - `"workspace_restricted_developer"`
+
+    - `"workspace_user"`
+
+- `next_page: string or null`
 
   Opaque cursor for the next page, or null if no more results.
 
@@ -859,7 +864,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
       "service_account_id": "service_account_id",
       "type": "service_account_workspace_member",
       "workspace_id": "workspace_id",
-      "workspace_role": "workspace_user"
+      "workspace_role": "workspace_admin"
     }
   ],
   "next_page": "next_page"
@@ -938,11 +943,11 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
 - `WorkspaceCreateResponse object { created_by_actor_id, implicit, service_account_id, 3 more }`
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
 
-  - `implicit: boolean`
+  - `implicit: boolean or null`
 
     True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role workspace_user and cannot be removed.
 
@@ -958,29 +963,29 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
     Tagged workspace ID (`wrkspc_...`).
 
-  - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+  - `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
     Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
 
-    - `"workspace_user"`
+    - `"workspace_admin"`
+
+    - `"workspace_billing"`
 
     - `"workspace_developer"`
 
     - `"workspace_restricted_developer"`
 
-    - `"workspace_admin"`
-
-    - `"workspace_billing"`
+    - `"workspace_user"`
 
 ### Workspace List Response
 
 - `WorkspaceListResponse object { created_by_actor_id, implicit, service_account_id, 3 more }`
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
 
-  - `implicit: boolean`
+  - `implicit: boolean or null`
 
     True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role workspace_user and cannot be removed.
 
@@ -996,19 +1001,19 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
     Tagged workspace ID (`wrkspc_...`).
 
-  - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+  - `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
     Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
 
-    - `"workspace_user"`
+    - `"workspace_admin"`
+
+    - `"workspace_billing"`
 
     - `"workspace_developer"`
 
     - `"workspace_restricted_developer"`
 
-    - `"workspace_admin"`
-
-    - `"workspace_billing"`
+    - `"workspace_user"`
 
 ### Workspace Delete Response
 

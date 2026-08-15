@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/rbac_groups/members/list -->
 
+---
+title: List RBAC Group Members
+url: https://platform.claude.com/docs/en/api/admin/rbac_groups/members/list
+---
+
 ## List RBAC Group Members
 
 **get** `/v1/organizations/rbac_groups/{group_id}/members`
@@ -66,7 +71,7 @@ The RBAC Groups API is in beta and available to Claude Enterprise organizations 
 
   Indicates if there are more results in the requested page direction.
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token to provide in as `page` in the subsequent request to retrieve the next page of data.
 

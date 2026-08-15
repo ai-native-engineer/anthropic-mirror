@@ -36,7 +36,7 @@ The terminal install prompts for a scope. Choose user scope to write the plugin 
 If the install fails, match the message Claude Code reports:
 
 * `Marketplace "claude-plugins-official" not found`: add the marketplace with `/plugin marketplace add anthropics/claude-plugins-official`, then retry the install.
-* The plugin is not found in the marketplace: check the plugin name. Claude Code [refreshes a stale marketplace catalog and retries](/docs/en/discover-plugins#install-plugins) before reporting this, so if you turned off [marketplace auto-update](/docs/en/discover-plugins#configure-auto-updates), refresh manually with `/plugin marketplace update claude-plugins-official` and retry the install.
+* The plugin is [not found in the marketplace](/docs/en/discover-plugins#install-plugins): check the plugin name.
 
 Check the install summary. If it reports `Run /reload-plugins to activate.`, apply the pending change without a restart:
 
@@ -226,8 +226,6 @@ The plugin is one layer in a defense-in-depth approach. It catches issues earlie
 | On demand, deep scan   | [Claude Security plugin](/docs/en/claude-security)             | Multi-agent vulnerability scan of a repository or diff, with independently reviewed findings and patches |
 | On pull request        | [Code Review](/docs/en/code-review), Team and Enterprise plans | Multi-agent correctness and security review with full codebase context                                   |
 | In CI                  | Your existing static analysis and dependency scanners     | Language-specific rules, supply-chain checks, and policy enforcement the plugin does not attempt         |
-
-Each later stage catches what earlier ones miss. The plugin's value is reducing the volume that reaches them, not eliminating the need for them.
 
 To find security issues in code you already have, rather than in changes Claude is writing, ask Claude in a session to review a specific file or directory for vulnerabilities, or use the [Claude Security plugin](/docs/en/claude-security) for a deeper multi-agent scan of the whole repository; [`/security-review`](/docs/en/commands#all-commands) covers only the changes on your current branch. Either way, the review reads the source code in your checkout, not a running site or deployed service.
 

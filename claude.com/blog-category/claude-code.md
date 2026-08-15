@@ -16,6 +16,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f63175f636cba4641_c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
+
+Aug 14, 2026
+
+Maximizing the value of your Claude Code sessions
+
+Claude Code
+
+Maximizing the value of your Claude Code sessions
+
+August 14, 2026
+
+[Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
+
+[Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
 
 Aug 7, 2026
@@ -240,22 +256,6 @@ June 30, 2026
 
 [Loop engineering: Getting started with loops](#)Loop engineering: Getting started with loops
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225588ad176f7c4aafd_abc884c723daea810d2e986455358281a2f94102-1000x1000.svg)
-
-Jun 24, 2026
-
-Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-Claude Code
-
-Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-June 24, 2026
-
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](https://claude.com/blog/agent-identity-access-model)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](#)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
 [View more](https://claude.com/blog-category/claude-code?1e959936_page=2)
 
 Category
@@ -263,6 +263,22 @@ Category
 Product
 
 Usecase
+
+### Maximizing the value of your Claude Code sessions
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+August 14, 2026
+
+[Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
+
+[Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
 
 ### Auto mode is now the default in Claude Code for Pro, Max, and Team plans
 
@@ -487,22 +503,6 @@ June 30, 2026
 [Loop engineering: Getting started with loops](https://claude.com/blog/getting-started-with-loops)Loop engineering: Getting started with loops
 
 [Loop engineering: Getting started with loops](#)Loop engineering: Getting started with loops
-
-### Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-June 24, 2026
-
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](https://claude.com/blog/agent-identity-access-model)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](#)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
 
 [View more](https://claude.com/blog-category/claude-code?2f226f2c_page=2)
 

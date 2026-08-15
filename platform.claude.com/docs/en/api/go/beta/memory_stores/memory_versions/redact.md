@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/memory_stores/memory_versions/redact -->
 
+---
+title: Redact a memory version
+url: https://platform.claude.com/docs/en/api/go/beta/memory_stores/memory_versions/redact
+---
+
 ## Redact a memory version
 
 `client.Beta.MemoryStores.MemoryVersions.Redact(ctx, memoryVersionID, params) (*BetaManagedAgentsMemoryVersion, error)`
@@ -89,6 +94,8 @@ Redact a memory version
       - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

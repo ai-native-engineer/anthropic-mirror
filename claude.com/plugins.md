@@ -730,7 +730,7 @@ Claude Code
 
 This is some text inside of a div block.
 
-[### postman
+[### Postman
 
 Full API lifecycle management for Claude Code. Sync collections, generate client code, discover APIs, run tests, crea...
 

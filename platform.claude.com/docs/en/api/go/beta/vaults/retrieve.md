@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/vaults/retrieve -->
 
+---
+title: Get Vault
+url: https://platform.claude.com/docs/en/api/go/beta/vaults/retrieve
+---
+
 ## Get Vault
 
 `client.Beta.Vaults.Get(ctx, vaultID, query) (*BetaManagedAgentsVault, error)`
@@ -85,6 +90,8 @@ Get Vault
       - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

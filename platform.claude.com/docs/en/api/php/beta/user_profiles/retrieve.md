@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/user_profiles/retrieve -->
 
+---
+title: Get User Profile
+url: https://platform.claude.com/docs/en/api/php/beta/user_profiles/retrieve
+---
+
 ## Get User Profile
 
 `$client->beta->userProfiles->retrieve(string userProfileID, ?list<AnthropicBeta> betas): BetaUserProfile`
@@ -66,7 +71,8 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaUserProfile = $client->beta->userProfiles->retrieve(
-  'uprof_011CZkZCu8hGbp5mYRQgUmz9', betas: ['message-batches-2024-09-24']
+  'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaUserProfile);

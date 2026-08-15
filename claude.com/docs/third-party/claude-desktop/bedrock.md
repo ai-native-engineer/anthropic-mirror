@@ -105,7 +105,7 @@ The sign-in flow and token refresh reach the IAM Identity Center endpoints for t
 * `oidc.<sso-region>.amazonaws.com`
 * `portal.sso.<sso-region>.amazonaws.com`
 
-These hosts are included automatically in the **Egress Requirements** section of the in-app configuration window when the SSO keys are set, so if you built your firewall allowlist from that output, no additional changes are needed. The browser step also reaches your AWS access portal (`*.awsapps.com`) and, if federated, your external identity provider.
+These hosts are included automatically in the **Egress** section of the in-app configuration window when the SSO keys are set, so if you built your firewall allowlist from that output, no additional changes are needed. The browser step also reaches your AWS access portal (`*.awsapps.com`) and, if federated, your external identity provider.
 
 ####  Notes and limitations
 

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/agents/create -->
 
+---
+title: Create Agent
+url: https://platform.claude.com/docs/en/api/beta/agents/create
+---
+
 ## Create Agent
 
 **post** `/v1/agents`
@@ -14,7 +19,7 @@ Create Agent
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -66,11 +71,21 @@ Create Agent
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
@@ -78,33 +93,41 @@ Create Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control
 
-  - `BetaManagedAgentsModel = "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+  - `BetaManagedAgentsModel = "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `"claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more`
+    - `"claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -120,11 +143,11 @@ Create Agent
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -136,7 +159,7 @@ Create Agent
 
     - `string`
 
-  - `BetaManagedAgentsModelConfigParams object { id, speed }`
+  - `BetaManagedAgentsModelConfigParams object { id, effort, inference_geo, speed }`
 
     An object that defines additional configuration control over model use
 
@@ -146,7 +169,69 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `speed: optional "standard" or "fast"`
+    - `effort: optional "low" or "medium" or "high" or 2 more or BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or 3 more or null`
+
+      How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+      - `BetaManagedAgentsEffortLevel = "low" or "medium" or "high" or 2 more`
+
+        How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+        - `"low"`
+
+        - `"medium"`
+
+        - `"high"`
+
+        - `"xhigh"`
+
+        - `"max"`
+
+      - `BetaManagedAgentsEffortLow object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `BetaManagedAgentsEffortMedium object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `BetaManagedAgentsEffortHigh object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `BetaManagedAgentsEffortXhigh object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `BetaManagedAgentsEffortMax object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `inference_geo: optional string or null`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo. On update, `model` is whole-object replacement — omitting inference_geo clears it.
+
+    - `speed: optional "standard" or "fast" or null`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
@@ -158,7 +243,7 @@ Create Agent
 
   Human-readable name for the agent.
 
-- `description: optional string`
+- `description: optional string or null`
 
   Description of what the agent does.
 
@@ -182,7 +267,7 @@ Create Agent
 
   Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
 
-- `multiagent: optional BetaManagedAgentsMultiagentParams`
+- `multiagent: optional BetaManagedAgentsMultiagentParams or null`
 
   A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
 
@@ -216,6 +301,18 @@ Create Agent
 
         - `"self"`
 
+    - `BetaManagedAgentsAdvisorParams object { model, type }`
+
+      Platform advisor roster entry: a model the session's primary thread may consult mid-turn. At most one per roster; the entry occupies the roster name `anthropic.advisor`.
+
+      - `model: string`
+
+        A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
+
+      - `type: "advisor"`
+
+        - `"advisor"`
+
   - `type: "coordinator"`
 
     - `"coordinator"`
@@ -236,7 +333,7 @@ Create Agent
 
       - `"anthropic"`
 
-    - `version: optional string`
+    - `version: optional string or null`
 
       Version to pin. Defaults to latest if omitted.
 
@@ -252,11 +349,11 @@ Create Agent
 
       - `"custom"`
 
-    - `version: optional string`
+    - `version: optional string or null`
 
       Version to pin. Defaults to latest if omitted.
 
-- `system: optional string`
+- `system: optional string or null`
 
   System prompt for the agent.
 
@@ -296,11 +393,11 @@ Create Agent
 
         - `"web_search"`
 
-      - `enabled: optional boolean`
+      - `enabled: optional boolean or null`
 
         Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-      - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+      - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
 
         Permission policy for tool execution.
 
@@ -320,15 +417,15 @@ Create Agent
 
             - `"always_ask"`
 
-    - `default_config: optional BetaManagedAgentsAgentToolsetDefaultConfigParams`
+    - `default_config: optional BetaManagedAgentsAgentToolsetDefaultConfigParams or null`
 
       Default configuration for all tools in a toolset.
 
-      - `enabled: optional boolean`
+      - `enabled: optional boolean or null`
 
         Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
 
-      - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+      - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
 
         Permission policy for tool execution.
 
@@ -360,11 +457,11 @@ Create Agent
 
         Name of the MCP tool to configure. 1-128 characters.
 
-      - `enabled: optional boolean`
+      - `enabled: optional boolean or null`
 
         Whether this tool is enabled. Overrides the `default_config` setting.
 
-      - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+      - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
 
         Permission policy for tool execution.
 
@@ -376,15 +473,15 @@ Create Agent
 
           Tool calls require user confirmation before execution.
 
-    - `default_config: optional BetaManagedAgentsMCPToolsetDefaultConfigParams`
+    - `default_config: optional BetaManagedAgentsMCPToolsetDefaultConfigParams or null`
 
       Default configuration for all tools from an MCP server.
 
-      - `enabled: optional boolean`
+      - `enabled: optional boolean or null`
 
         Whether tools are enabled by default. Defaults to true if not specified.
 
-      - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+      - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
 
         Permission policy for tool execution.
 
@@ -402,7 +499,7 @@ Create Agent
 
     - `description: string`
 
-      Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+      Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
     - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
@@ -412,9 +509,9 @@ Create Agent
 
         - `"object"`
 
-      - `properties: optional map[unknown]`
+      - `properties: optional map[unknown] or null`
 
-      - `required: optional array of string`
+      - `required: optional array of string or null`
 
     - `name: string`
 
@@ -432,7 +529,7 @@ Create Agent
 
   - `id: string`
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -440,7 +537,7 @@ Create Agent
 
     A timestamp in RFC 3339 format
 
-  - `description: string`
+  - `description: string or null`
 
   - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
@@ -464,27 +561,35 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more`
+      - `"claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -500,11 +605,11 @@ Create Agent
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -516,6 +621,54 @@ Create Agent
 
       - `string`
 
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `BetaManagedAgentsEffortLow object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `BetaManagedAgentsEffortMedium object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `BetaManagedAgentsEffortHigh object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `BetaManagedAgentsEffortXhigh object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `BetaManagedAgentsEffortMax object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `inference_geo: optional string`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
     - `speed: optional "standard" or "fast"`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
@@ -524,21 +677,37 @@ Create Agent
 
       - `"fast"`
 
-  - `multiagent: BetaManagedAgentsMultiagent`
+  - `multiagent: BetaManagedAgentsMultiagent or null`
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `agents: array of BetaManagedAgentsAgentReference`
+    - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `id: string`
+      - `BetaManagedAgentsAgentReference object { id, type, version }`
 
-      - `type: "agent"`
+        A resolved agent reference with a concrete version.
 
-        - `"agent"`
+        - `id: string`
 
-      - `version: number`
+        - `type: "agent"`
+
+          - `"agent"`
+
+        - `version: number`
+
+      - `BetaManagedAgentsAdvisor object { model, type }`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: string`
+
+          The advisor model id.
+
+        - `type: "advisor"`
+
+          - `"advisor"`
 
     - `type: "coordinator"`
 
@@ -572,7 +741,7 @@ Create Agent
 
       - `version: string`
 
-  - `system: string`
+  - `system: string or null`
 
   - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
 
@@ -702,9 +871,9 @@ Create Agent
 
           - `"object"`
 
-        - `properties: optional map[unknown]`
+        - `properties: optional map[unknown] or null`
 
-        - `required: optional array of string`
+        - `required: optional array of string or null`
 
       - `name: string`
 
@@ -732,20 +901,20 @@ curl https://api.anthropic.com/v1/agents \
     -H 'anthropic-version: 2023-06-01' \
     -H 'anthropic-beta: managed-agents-2026-04-01' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d "{
-          \"model\": \"claude-sonnet-4-6\",
-          \"name\": \"My First Agent\",
-          \"description\": \"A general-purpose starter agent.\",
-          \"metadata\": {
-            \"foo\": \"bar\"
+    -d '{
+          "model": "claude-sonnet-4-6",
+          "name": "My First Agent",
+          "description": "A general-purpose starter agent.",
+          "metadata": {
+            "foo": "bar"
           },
-          \"system\": \"You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.\",
-          \"tools\": [
+          "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user'\''s task end to end.",
+          "tools": [
             {
-              \"type\": \"agent_toolset_20260401\"
+              "type": "agent_toolset_20260401"
             }
           ]
-        }"
+        }'
 ```
 
 #### Response
@@ -768,6 +937,10 @@ curl https://api.anthropic.com/v1/agents \
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
+    "inference_geo": "inference_geo",
     "speed": "standard"
   },
   "multiagent": {

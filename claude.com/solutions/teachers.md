@@ -475,13 +475,13 @@ Learn more
 
 [Learn more](https://claude.com/product/design)Learn more
 
-### Claude for Chrome
+### Claude in Chrome
 
 Research anything without copying and pasting: Claude reads pages on the web in Chrome, pulls the information you need, and compiles it while you work on something else.
 
 Learn more
 
-[Learn more](https://claude.com/claude-for-chrome)Learn more
+[Learn more](https://claude.com/claude-in-chrome)Learn more
 
 ### Claude Skills
 

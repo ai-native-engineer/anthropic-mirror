@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/workspaces/members/create -->
 
+---
+title: Create Workspace Member
+url: https://platform.claude.com/docs/en/api/admin/workspaces/members/create
+---
+
 ## Create Workspace Member
 
 **post** `/v1/organizations/workspaces/{workspace_id}/members`
@@ -18,17 +23,17 @@ Create Workspace Member
 
   ID of the User.
 
-- `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or "workspace_admin"`
+- `workspace_role: "workspace_admin" or "workspace_developer" or "workspace_restricted_developer" or "workspace_user"`
 
   Role of the new Workspace Member. Cannot be "workspace_billing".
 
-  - `"workspace_user"`
+  - `"workspace_admin"`
 
   - `"workspace_developer"`
 
   - `"workspace_restricted_developer"`
 
-  - `"workspace_admin"`
+  - `"workspace_user"`
 
 ### Returns
 
@@ -50,19 +55,19 @@ Create Workspace Member
 
     ID of the Workspace.
 
-  - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+  - `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
     Role of the Workspace Member.
 
-    - `"workspace_user"`
+    - `"workspace_admin"`
+
+    - `"workspace_billing"`
 
     - `"workspace_developer"`
 
     - `"workspace_restricted_developer"`
 
-    - `"workspace_admin"`
-
-    - `"workspace_billing"`
+    - `"workspace_user"`
 
 ### Example
 
@@ -73,7 +78,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
-          "workspace_role": "workspace_user"
+          "workspace_role": "workspace_admin"
         }'
 ```
 

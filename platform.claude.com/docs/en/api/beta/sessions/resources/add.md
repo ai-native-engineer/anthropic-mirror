@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/sessions/resources/add -->
 
+---
+title: Add Session Resource
+url: https://platform.claude.com/docs/en/api/beta/sessions/resources/add
+---
+
 ## Add Session Resource
 
 **post** `/v1/sessions/{session_id}/resources`
@@ -18,7 +23,7 @@ Add Session Resource
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -70,11 +75,21 @@ Add Session Resource
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
@@ -86,7 +101,7 @@ Add Session Resource
 
   - `"file"`
 
-- `mount_path: optional string`
+- `mount_path: optional string or null`
 
   Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
 

@@ -116,7 +116,7 @@ The key is giving Claude boundaries (what tools it can use, what data it can acc
 
 *Check out our best practices for preparing your security program for AI-accelerated offense.*
 
-*Get started with* [*Claude Code*](https://www.anthropic.com/claude-code) *today. Stay tuned for more stories in the "How Anthropic uses Claude" series.*
+*Get started with* [*Claude Code*](https://claude.com/product/claude-code) *today. Stay tuned for more stories in the "How Anthropic uses Claude" series.*
 
 *\*These results were generated using Claude Sonnet and Opus models.*
 
@@ -144,53 +144,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f63175f636cba4641_c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
 
-Aug 7, 2026
+Aug 14, 2026
 
-### Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-Claude Code
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
-
-Aug 7, 2026
-
-### Running auto mode in production
+### Maximizing the value of your Claude Code sessions
 
 Claude Code
 
-[Running auto mode in production](#)Running auto mode in production
+[Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
 
-[Running auto mode in production](https://claude.com/blog/auto-mode-in-production)Running auto mode in production
+[Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2287f90c57df4c9dd97_c1ef4c0b6882dfe985555b52999d370ea88a3c50-1000x1000.svg)
 
-Aug 6, 2026
+Mar 19, 2026
 
-### Millennium and Anthropic are building a digital risk analyst with Claude
+### Product management on the AI exponential
 
-Enterprise AI
+Claude Code
 
-[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+[Product management on the AI exponential](#) Product management on the AI exponential
 
-[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+[Product management on the AI exponential](https://claude.com/blog/product-management-on-the-ai-exponential) Product management on the AI exponential
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
 
-Jul 24, 2026
+May 20, 2026
 
-### Claude models explained: choosing the best model for your use case
+### Using Claude Code: The unreasonable effectiveness of HTML
 
-Enterprise AI
+Claude Code
 
-[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+[Using Claude Code: The unreasonable effectiveness of HTML](#)Using Claude Code: The unreasonable effectiveness of HTML
 
-[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+[Using Claude Code: The unreasonable effectiveness of HTML](https://claude.com/blog/using-claude-code-the-unreasonable-effectiveness-of-html)Using Claude Code: The unreasonable effectiveness of HTML
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Apr 29, 2026
+
+### Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
+
+Agents
+
+[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](#)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
+
+[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](https://claude.com/blog/claude-api-skill)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
 
 ## Transform how your organization operates with Claude
 

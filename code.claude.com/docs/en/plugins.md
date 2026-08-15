@@ -64,12 +64,12 @@ This quickstart walks you through creating a plugin with a custom skill. You'll 
     }
     ```
 
-    | Field         | Purpose                                                                                                                                                                                      |
-    | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `name`        | Unique identifier and skill namespace. Skills are prefixed with this (e.g., `/my-first-plugin:hello`).                                                                                       |
-    | `description` | Shown in the plugin manager when browsing or installing plugins.                                                                                                                             |
-    | `version`     | Optional. If set, users only receive updates when you bump this field. If omitted, the version comes from the next source in [version management](/docs/en/plugins-reference#version-management). |
-    | `author`      | Optional. Helpful for attribution.                                                                                                                                                           |
+    | Field         | Purpose                                                                                                                                                                                                                                                                                                                                    |
+    | :------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `name`        | Unique identifier and skill namespace. Skills are prefixed with this (e.g., `/my-first-plugin:hello`).                                                                                                                                                                                                                                     |
+    | `description` | Shown in the plugin manager when browsing or installing plugins.                                                                                                                                                                                                                                                                           |
+    | `version`     | Optional. If set, users only receive updates when you bump this field, except for a [`command` source](/docs/en/plugin-marketplaces#command-sources); see [version management](/docs/en/plugins-reference#version-management). If omitted, the version comes from the next source in [version management](/docs/en/plugins-reference#version-management). |
+    | `author`      | Optional. Helpful for attribution.                                                                                                                                                                                                                                                                                                         |
 
     For additional fields like `homepage`, `repository`, and `license`, see the [full manifest schema](/docs/en/plugins-reference#plugin-manifest-schema).
   </Step>
@@ -182,10 +182,6 @@ You've created a plugin with a skill, but plugins can include much more: custom 
 | `settings.json`   | Plugin root | Default [settings](/docs/en/settings) applied when the plugin is enabled            |
 
 A plugin that ships exactly one skill can place `SKILL.md` directly at the plugin root instead of creating a `skills/` directory. Claude Code loads it as a single skill and uses the frontmatter `name` field for the invocation name. Use the `skills/` layout for plugins that may grow to more than one skill.
-
-<Note>
-  **Next steps**: Ready to add more features? Jump to [Develop more complex plugins](#develop-more-complex-plugins) to add agents, hooks, MCP servers, and LSP servers. For complete technical specifications of all plugin components, see [Plugins reference](/docs/en/plugins-reference).
-</Note>
 
 ## Develop more complex plugins
 

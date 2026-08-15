@@ -11,7 +11,7 @@ When creating a project on a Team or Enterprise plan, you can choose between two
 * **Public:** Everyone in your organization can view and use the project.
 * **Private:** Only invited members can view and use the project.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370991/2b6b16e5deff094e073a5b4bb0ea/63197103-24c0-41e5-aebd-9b8f431837bb?expires=1786268700&signature=d0be370f2fee75c72ca40553149e932cde640bf8bda49824b87f7211d1a7f9a4&req=dScjFsp5nYhWWPMW1HO4zd3a2VomIoagHK95%2FTFaPynQS%2FCJALsYIyAUrn6b%0A22zF6X20pi6ZdvmrFOE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370991/2b6b16e5deff094e073a5b4bb0ea/63197103-24c0-41e5-aebd-9b8f431837bb?expires=1786268700&signature=d0be370f2fee75c72ca40553149e932cde640bf8bda49824b87f7211d1a7f9a4&req=dScjFsp5nYhWWPMW1HO4zd3a2VomIoagHK95%2FTFaPynQS%2FCJALsYIyAUrn6b%0A22zF6X20pi6ZdvmrFOE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370991/2b6b16e5deff094e073a5b4bb0ea/63197103-24c0-41e5-aebd-9b8f431837bb?expires=1786795200&signature=df1aa6a662bb5d2f198abfb43ffae1dec3db0d8401cb76056da9a9351af98cd9&req=dScjFsp5nYhWWPMW3nq%2BgeZJIc%2BBN8s71WEWc7sTq%2BmOKBISuCP3KqSh1kWS%0ABjNoptKfk20rR4kFb3FOul9O2zE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370991/2b6b16e5deff094e073a5b4bb0ea/63197103-24c0-41e5-aebd-9b8f431837bb?expires=1786795200&signature=df1aa6a662bb5d2f198abfb43ffae1dec3db0d8401cb76056da9a9351af98cd9&req=dScjFsp5nYhWWPMW3nq%2BgeZJIc%2BBN8s71WEWc7sTq%2BmOKBISuCP3KqSh1kWS%0ABjNoptKfk20rR4kFb3FOul9O2zE%3D%0A)
 
 ## What are public projects?
 
@@ -21,11 +21,11 @@ If you choose to share a project with the rest of your organization upon creatio
 
 Yes, you can switch the visibility of a project you created as public to private at any time by opening the project and clicking the “Share” button to the right of the project name:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370987/5d5db997e6b42e627ffa62fddf75/4823906b-9535-4a19-b89e-a1003f1e6e68?expires=1786268700&signature=57cde7b03c828c9ba32c40401921c837f77f6ec44aaa30100c024904b26ae913&req=dScjFsp5nYhXXvMW1HO4zUiDoi%2F1hw4uE8Kp5wh0MSBxi4jaAtjiJAGrQffz%0AWjweYaNXCvN%2Fu8VPv9k%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370987/5d5db997e6b42e627ffa62fddf75/4823906b-9535-4a19-b89e-a1003f1e6e68?expires=1786268700&signature=57cde7b03c828c9ba32c40401921c837f77f6ec44aaa30100c024904b26ae913&req=dScjFsp5nYhXXvMW1HO4zUiDoi%2F1hw4uE8Kp5wh0MSBxi4jaAtjiJAGrQffz%0AWjweYaNXCvN%2Fu8VPv9k%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370987/5d5db997e6b42e627ffa62fddf75/4823906b-9535-4a19-b89e-a1003f1e6e68?expires=1786795200&signature=e0709c0c77f805f9f6114d1cf92a9dd7922e3af32d81f9a455915b5b9f23fb90&req=dScjFsp5nYhXXvMW3nq%2BgauQysBNV8SOzUd7xHMI3oRUAxhS4cTvgXPF%2FSZO%0APFkxLjrcJFvhpv71EO9IpwGs9jo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370987/5d5db997e6b42e627ffa62fddf75/4823906b-9535-4a19-b89e-a1003f1e6e68?expires=1786795200&signature=e0709c0c77f805f9f6114d1cf92a9dd7922e3af32d81f9a455915b5b9f23fb90&req=dScjFsp5nYhXXvMW3nq%2BgauQysBNV8SOzUd7xHMI3oRUAxhS4cTvgXPF%2FSZO%0APFkxLjrcJFvhpv71EO9IpwGs9jo%3D%0A)
 
 Click “Everyone at [your organization]” under **General access** and select “Only people invited” to change the project from public to private:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370988/386407facbf3e73d2f5538623a18/69d8ffcd-e1ca-470f-a219-5b88704e41f2?expires=1786268700&signature=e9807d2e2bc1b23793d95cf4aff35bffb38a0bc02caa8aa63be2f69ad950a5b1&req=dScjFsp5nYhXUfMW1HO4zckCIfRgZCqjl3XeGelDRW0SPcFXKBFZrDQiG6Kb%0AQOoAOU0RcjnSRMj5yNM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370988/386407facbf3e73d2f5538623a18/69d8ffcd-e1ca-470f-a219-5b88704e41f2?expires=1786268700&signature=e9807d2e2bc1b23793d95cf4aff35bffb38a0bc02caa8aa63be2f69ad950a5b1&req=dScjFsp5nYhXUfMW1HO4zckCIfRgZCqjl3XeGelDRW0SPcFXKBFZrDQiG6Kb%0AQOoAOU0RcjnSRMj5yNM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370988/386407facbf3e73d2f5538623a18/69d8ffcd-e1ca-470f-a219-5b88704e41f2?expires=1786795200&signature=37bb3196881000192f1c0a268799e00baf2352e93475024f837c5641d4bc5732&req=dScjFsp5nYhXUfMW3nq%2BgR4SCqCCdr2BQaVU7vfwvzSz0dyLbwyzQuo%2BmiNu%0A7XlMd7hKwaxsG0CnYAXmVXfHzEE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370988/386407facbf3e73d2f5538623a18/69d8ffcd-e1ca-470f-a219-5b88704e41f2?expires=1786795200&signature=37bb3196881000192f1c0a268799e00baf2352e93475024f837c5641d4bc5732&req=dScjFsp5nYhXUfMW3nq%2BgR4SCqCCdr2BQaVU7vfwvzSz0dyLbwyzQuo%2BmiNu%0A7XlMd7hKwaxsG0CnYAXmVXfHzEE%3D%0A)
 
 ## What are private projects?
 
@@ -35,11 +35,11 @@ Choosing “Only people invited” keeps your project private so that you are th
 
 Yes, you can switch the visibility of a project you created as private to public at any time by opening the project and clicking the “Share” button to the right of the project name:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370989/f829dcd8bdd88e944322f678323f/9d25eff1-6df3-40be-82eb-ba7fe09187e8?expires=1786268700&signature=f55543899dc27fbd560bd2efa6dd55f851910a3de127cb3da005eccea0f40d58&req=dScjFsp5nYhXUPMW1HO4zaSEGlWeTLAK2JrJefVtywnZATPevC6qr4%2FG%2FQYN%0AnLYdl7VjtcrgBQiXyPw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370989/f829dcd8bdd88e944322f678323f/9d25eff1-6df3-40be-82eb-ba7fe09187e8?expires=1786268700&signature=f55543899dc27fbd560bd2efa6dd55f851910a3de127cb3da005eccea0f40d58&req=dScjFsp5nYhXUPMW1HO4zaSEGlWeTLAK2JrJefVtywnZATPevC6qr4%2FG%2FQYN%0AnLYdl7VjtcrgBQiXyPw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370989/f829dcd8bdd88e944322f678323f/9d25eff1-6df3-40be-82eb-ba7fe09187e8?expires=1786795200&signature=087dd528b54074f6a5b10349540346437f72011ca2777b981cdf6702db72d44f&req=dScjFsp5nYhXUPMW3nq%2BgUpONNyv4ciG%2FtM665d8ozYjKU15hA4h%2B1p5GU8S%0AhNmZCQu2lFzFq4FxQk8VVnVWnwg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370989/f829dcd8bdd88e944322f678323f/9d25eff1-6df3-40be-82eb-ba7fe09187e8?expires=1786795200&signature=087dd528b54074f6a5b10349540346437f72011ca2777b981cdf6702db72d44f&req=dScjFsp5nYhXUPMW3nq%2BgUpONNyv4ciG%2FtM665d8ozYjKU15hA4h%2B1p5GU8S%0AhNmZCQu2lFzFq4FxQk8VVnVWnwg%3D%0A)
 
 Click “Only people invited” under General access and select “Everyone at [your organization]” to change the project from private to public:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370990/d173fbc6f030780d30c6d7b8e204/7e47b9d1-89fe-4607-8b5b-f7b06e7ad0d6?expires=1786268700&signature=55c48963f3eb91b74846a246443f7ca2d453f10f9a7550e0ad1c5e3f13e621da&req=dScjFsp5nYhWWfMW1HO4zT7Q0865uwQRAmYRPrgMBZkxQBlvuFJ3zLDDfBVr%0AEqJD4hZiWshxkqULjww%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370990/d173fbc6f030780d30c6d7b8e204/7e47b9d1-89fe-4607-8b5b-f7b06e7ad0d6?expires=1786268700&signature=55c48963f3eb91b74846a246443f7ca2d453f10f9a7550e0ad1c5e3f13e621da&req=dScjFsp5nYhWWfMW1HO4zT7Q0865uwQRAmYRPrgMBZkxQBlvuFJ3zLDDfBVr%0AEqJD4hZiWshxkqULjww%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370990/d173fbc6f030780d30c6d7b8e204/7e47b9d1-89fe-4607-8b5b-f7b06e7ad0d6?expires=1786795200&signature=aca4e3e736992473333a5c8ef73ea54fc3fa5bd93d72a37288b426f3438d672b&req=dScjFsp5nYhWWfMW3nq%2BgTfr6qmRN1RVWgf62YaZuU9Ztv%2FhoFL03Zj7ROjd%0Aqb5J3GIdv4L2dBnldV7tG8rHXc8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370990/d173fbc6f030780d30c6d7b8e204/7e47b9d1-89fe-4607-8b5b-f7b06e7ad0d6?expires=1786795200&signature=aca4e3e736992473333a5c8ef73ea54fc3fa5bd93d72a37288b426f3438d672b&req=dScjFsp5nYhWWfMW3nq%2BgTfr6qmRN1RVWgf62YaZuU9Ztv%2FhoFL03Zj7ROjd%0Aqb5J3GIdv4L2dBnldV7tG8rHXc8%3D%0A)
 
 ## Add and remove access to private projects
 
@@ -71,7 +71,7 @@ Sharing a project with a group is currently in beta for Enterprise plans.
 
 On Enterprise plans, you can share a project with a group instead of adding each member individually. Access follows group membership, so members who join the group later get access automatically, and members who leave lose it.
 
-Before you can share with a group, an admin needs to turn on **Share projects with this group** in the group's visibility settings. See **[Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)**.
+Before you can share with a group, an admin needs to turn on **Share resources with this group** in the group's visibility settings. See **[Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)**.
 
 1. Click the "Share" button to the right of the project name.
 2. Type the group name in the **Add people or groups** field.

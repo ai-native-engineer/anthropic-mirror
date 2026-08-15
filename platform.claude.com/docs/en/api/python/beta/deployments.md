@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/deployments -->
 
+---
+title: Deployments
+url: https://platform.claude.com/docs/en/api/python/beta/deployments
+---
+
 # Deployments
 
 ## Create Deployment
@@ -192,6 +197,14 @@ Create Deployment
 
           The title of the document.
 
+      - `class BetaManagedAgentsRedactedBlock: …`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+        - `type: Literal["redacted"]`
+
+          - `"redacted"`
+
     - `type: Literal["user.message"]`
 
       - `"user.message"`
@@ -263,6 +276,28 @@ Create Deployment
 - `name: str`
 
   Human-readable name for the deployment.
+
+- `budget: Optional[BetaManagedAgentsBudgetLimitParam]`
+
+  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+  - `max_list_cost: BetaMonetaryAmount`
+
+    A monetary amount in a specific currency.
+
+    - `amount: str`
+
+      Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+    - `currency: BetaCurrency`
+
+      Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+      - `"USD"`
+
+  - `type: Literal["limit"]`
+
+    - `"limit"`
 
 - `description: Optional[str]`
 
@@ -386,7 +421,7 @@ Create Deployment
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -451,6 +486,8 @@ Create Deployment
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -643,6 +680,14 @@ Create Deployment
           - `title: Optional[str]`
 
             The title of the document.
+
+        - `class BetaManagedAgentsRedactedBlock: …`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: Literal["redacted"]`
+
+            - `"redacted"`
 
       - `type: Literal["user.message"]`
 
@@ -983,6 +1028,28 @@ Create Deployment
   - `vault_ids: List[str]`
 
     Vault IDs supplying stored credentials for sessions created from this deployment.
+
+  - `budget: Optional[BetaManagedAgentsBudgetLimit]`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: str`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `type: Literal["limit"]`
+
+      - `"limit"`
 
 ### Example
 
@@ -1070,7 +1137,14 @@ print(beta_managed_agents_deployment.id)
   "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
     "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ]
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
 }
 ```
 
@@ -1122,7 +1196,7 @@ List Deployments
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -1187,6 +1261,8 @@ List Deployments
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -1379,6 +1455,14 @@ List Deployments
           - `title: Optional[str]`
 
             The title of the document.
+
+        - `class BetaManagedAgentsRedactedBlock: …`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: Literal["redacted"]`
+
+            - `"redacted"`
 
       - `type: Literal["user.message"]`
 
@@ -1719,6 +1803,28 @@ List Deployments
   - `vault_ids: List[str]`
 
     Vault IDs supplying stored credentials for sessions created from this deployment.
+
+  - `budget: Optional[BetaManagedAgentsBudgetLimit]`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: str`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `type: Literal["limit"]`
+
+      - `"limit"`
 
 ### Example
 
@@ -1794,7 +1900,14 @@ print(page.id)
       "updated_at": "2026-03-15T10:00:00Z",
       "vault_ids": [
         "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-      ]
+      ],
+      "budget": {
+        "max_list_cost": {
+          "amount": "2500",
+          "currency": "USD"
+        },
+        "type": "limit"
+      }
     }
   ],
   "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
@@ -1819,7 +1932,7 @@ Get Deployment
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -1884,6 +1997,8 @@ Get Deployment
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -2076,6 +2191,14 @@ Get Deployment
           - `title: Optional[str]`
 
             The title of the document.
+
+        - `class BetaManagedAgentsRedactedBlock: …`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: Literal["redacted"]`
+
+            - `"redacted"`
 
       - `type: Literal["user.message"]`
 
@@ -2417,6 +2540,28 @@ Get Deployment
 
     Vault IDs supplying stored credentials for sessions created from this deployment.
 
+  - `budget: Optional[BetaManagedAgentsBudgetLimit]`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: str`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `type: Literal["limit"]`
+
+      - `"limit"`
+
 ### Example
 
 ```python
@@ -2490,7 +2635,14 @@ print(beta_managed_agents_deployment.id)
   "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
     "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ]
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
 }
 ```
 
@@ -2527,6 +2679,28 @@ Update Deployment
     - `version: Optional[int]`
 
       The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+- `budget: Optional[BetaManagedAgentsBudgetLimitParam]`
+
+  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+  - `max_list_cost: BetaMonetaryAmount`
+
+    A monetary amount in a specific currency.
+
+    - `amount: str`
+
+      Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+    - `currency: BetaCurrency`
+
+      Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+      - `"USD"`
+
+  - `type: Literal["limit"]`
+
+    - `"limit"`
 
 - `description: Optional[str]`
 
@@ -2689,6 +2863,14 @@ Update Deployment
         - `title: Optional[str]`
 
           The title of the document.
+
+      - `class BetaManagedAgentsRedactedBlock: …`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+        - `type: Literal["redacted"]`
+
+          - `"redacted"`
 
     - `type: Literal["user.message"]`
 
@@ -2880,7 +3062,7 @@ Update Deployment
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -2945,6 +3127,8 @@ Update Deployment
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -3137,6 +3321,14 @@ Update Deployment
           - `title: Optional[str]`
 
             The title of the document.
+
+        - `class BetaManagedAgentsRedactedBlock: …`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: Literal["redacted"]`
+
+            - `"redacted"`
 
       - `type: Literal["user.message"]`
 
@@ -3477,6 +3669,28 @@ Update Deployment
   - `vault_ids: List[str]`
 
     Vault IDs supplying stored credentials for sessions created from this deployment.
+
+  - `budget: Optional[BetaManagedAgentsBudgetLimit]`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: str`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `type: Literal["limit"]`
+
+      - `"limit"`
 
 ### Example
 
@@ -3551,7 +3765,14 @@ print(beta_managed_agents_deployment.id)
   "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
     "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ]
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
 }
 ```
 
@@ -3573,7 +3794,7 @@ Archive Deployment
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -3638,6 +3859,8 @@ Archive Deployment
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -3830,6 +4053,14 @@ Archive Deployment
           - `title: Optional[str]`
 
             The title of the document.
+
+        - `class BetaManagedAgentsRedactedBlock: …`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: Literal["redacted"]`
+
+            - `"redacted"`
 
       - `type: Literal["user.message"]`
 
@@ -4171,6 +4402,28 @@ Archive Deployment
 
     Vault IDs supplying stored credentials for sessions created from this deployment.
 
+  - `budget: Optional[BetaManagedAgentsBudgetLimit]`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: str`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `type: Literal["limit"]`
+
+      - `"limit"`
+
 ### Example
 
 ```python
@@ -4244,7 +4497,14 @@ print(beta_managed_agents_deployment.id)
   "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
     "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ]
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
 }
 ```
 
@@ -4266,7 +4526,7 @@ Run Deployment Now
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -4331,6 +4591,8 @@ Run Deployment Now
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -4650,7 +4912,7 @@ Pause Deployment
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -4715,6 +4977,8 @@ Pause Deployment
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -4907,6 +5171,14 @@ Pause Deployment
           - `title: Optional[str]`
 
             The title of the document.
+
+        - `class BetaManagedAgentsRedactedBlock: …`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: Literal["redacted"]`
+
+            - `"redacted"`
 
       - `type: Literal["user.message"]`
 
@@ -5247,6 +5519,28 @@ Pause Deployment
   - `vault_ids: List[str]`
 
     Vault IDs supplying stored credentials for sessions created from this deployment.
+
+  - `budget: Optional[BetaManagedAgentsBudgetLimit]`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: str`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `type: Literal["limit"]`
+
+      - `"limit"`
 
 ### Example
 
@@ -5321,7 +5615,14 @@ print(beta_managed_agents_deployment.id)
   "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
     "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ]
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
 }
 ```
 
@@ -5343,7 +5644,7 @@ Unpause Deployment
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -5408,6 +5709,8 @@ Unpause Deployment
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -5600,6 +5903,14 @@ Unpause Deployment
           - `title: Optional[str]`
 
             The title of the document.
+
+        - `class BetaManagedAgentsRedactedBlock: …`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: Literal["redacted"]`
+
+            - `"redacted"`
 
       - `type: Literal["user.message"]`
 
@@ -5941,6 +6252,28 @@ Unpause Deployment
 
     Vault IDs supplying stored credentials for sessions created from this deployment.
 
+  - `budget: Optional[BetaManagedAgentsBudgetLimit]`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: str`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `type: Literal["limit"]`
+
+      - `"limit"`
+
 ### Example
 
 ```python
@@ -6014,7 +6347,14 @@ print(beta_managed_agents_deployment.id)
   "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
     "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ]
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
 }
 ```
 
@@ -6266,6 +6606,14 @@ print(beta_managed_agents_deployment.id)
 
             The title of the document.
 
+        - `class BetaManagedAgentsRedactedBlock: …`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: Literal["redacted"]`
+
+            - `"redacted"`
+
       - `type: Literal["user.message"]`
 
         - `"user.message"`
@@ -6606,6 +6954,28 @@ print(beta_managed_agents_deployment.id)
 
     Vault IDs supplying stored credentials for sessions created from this deployment.
 
+  - `budget: Optional[BetaManagedAgentsBudgetLimit]`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: str`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `type: Literal["limit"]`
+
+      - `"limit"`
+
 ### Beta Managed Agents Deployment Initial Event
 
 - `BetaManagedAgentsDeploymentInitialEvent`
@@ -6761,6 +7131,14 @@ print(beta_managed_agents_deployment.id)
         - `title: Optional[str]`
 
           The title of the document.
+
+      - `class BetaManagedAgentsRedactedBlock: …`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+        - `type: Literal["redacted"]`
+
+          - `"redacted"`
 
     - `type: Literal["user.message"]`
 
@@ -6985,6 +7363,14 @@ print(beta_managed_agents_deployment.id)
         - `title: Optional[str]`
 
           The title of the document.
+
+      - `class BetaManagedAgentsRedactedBlock: …`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+        - `type: Literal["redacted"]`
+
+          - `"redacted"`
 
     - `type: Literal["user.message"]`
 
@@ -7539,6 +7925,14 @@ print(beta_managed_agents_deployment.id)
       - `title: Optional[str]`
 
         The title of the document.
+
+    - `class BetaManagedAgentsRedactedBlock: …`
+
+      Placeholder for content withheld by Anthropic model policy.
+
+      - `type: Literal["redacted"]`
+
+        - `"redacted"`
 
   - `type: Literal["user.message"]`
 

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/vaults/credentials/create -->
 
+---
+title: Create Credential
+url: https://platform.claude.com/docs/en/api/java/beta/vaults/credentials/create
+---
+
 ## Create Credential
 
 `BetaManagedAgentsCredential beta().vaults().credentials().create(CredentialCreateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
@@ -68,11 +73,21 @@ Create Credential
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
   - `Auth auth`
 
@@ -214,6 +229,18 @@ Create Credential
 
         - `ENVIRONMENT_VARIABLE("environment_variable")`
 
+      - `Optional<BetaManagedAgentsInjectionLocationParams> injectionLocation`
+
+        Where in the outbound request the secret value may be substituted.
+
+        - `Optional<Boolean> body`
+
+          Substitute when the placeholder appears in the request body.
+
+        - `Optional<Boolean> header`
+
+          Substitute when the placeholder appears in a request header value.
+
   - `Optional<String> displayName`
 
     Human-readable name for the credential. Up to 255 characters.
@@ -319,6 +346,18 @@ Create Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `BetaManagedAgentsInjectionLocationResponse injectionLocation`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `boolean body`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `boolean header`
+
+          Whether the placeholder is substituted in request header values.
 
       - `Networking networking`
 

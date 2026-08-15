@@ -1,10 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/users/list -->
 
+---
+title: List Users
+url: https://platform.claude.com/docs/en/api/admin/users/list
+---
+
 ## List Users
 
 **get** `/v1/organizations/users`
 
-List Users
+For Claude Enterprise organizations, this endpoint's availability is in beta.
 
 ### Query Parameters
 
@@ -26,6 +31,12 @@ List Users
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
+- `roles: optional array of string`
+
+  Filter to items whose `role` equals one of the supplied values. Repeatable; values are OR'ed together.
+
+  Accepted values depend on the organization type: Console and API organizations accept `user`, `developer`, `billing`, `admin`, and `claude_code_user`; Claude Enterprise organizations (beta) accept `user`, `owner`, `primary_owner`, `membership_admin`, and `managed`.
+
 ### Returns
 
 - `data: array of User`
@@ -46,19 +57,27 @@ List Users
 
     Name of the User.
 
-  - `role: "user" or "developer" or "billing" or 2 more`
+  - `role: "admin" or "billing" or "claude_code_user" or 6 more`
 
     Organization role of the User.
 
-    - `"user"`
-
-    - `"developer"`
+    - `"admin"`
 
     - `"billing"`
 
-    - `"admin"`
-
     - `"claude_code_user"`
+
+    - `"developer"`
+
+    - `"managed"`
+
+    - `"membership_admin"`
+
+    - `"owner"`
+
+    - `"primary_owner"`
+
+    - `"user"`
 
   - `type: "user"`
 
@@ -68,7 +87,7 @@ List Users
 
     - `"user"`
 
-- `first_id: string`
+- `first_id: string or null`
 
   First ID in the `data` list. Can be used as the `before_id` for the previous page.
 
@@ -76,7 +95,7 @@ List Users
 
   Indicates if there are more results in the requested page direction.
 
-- `last_id: string`
+- `last_id: string or null`
 
   Last ID in the `data` list. Can be used as the `after_id` for the next page.
 

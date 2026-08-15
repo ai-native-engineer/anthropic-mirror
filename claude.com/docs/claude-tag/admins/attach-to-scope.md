@@ -38,7 +38,9 @@ Each paired workspace already has a scope; bind a bundle in the scope’s **Acce
 
 ###  Attach to a channel
 
-Add channel scopes under a workspace for channels that need access beyond the workspace baseline:
+Channels Claude was added to appear on the **Slack** tab automatically, each as a scope under its workspace. To give one of these channels access beyond the workspace baseline, select its row and bind bundles in the scope’s **Access bundles** section. A channel row shows the name an admin gave the scope, the channel’s name in Slack, or the raw channel ID.
+To find a channel, use the **Search channels** field. It matches channel names and channel IDs (pasting a channel link copied from Slack also works), and searching a workspace’s name shows that workspace’s channels.
+A channel that doesn’t appear in the list yet needs a scope created for it:
 
 1. On [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), find the workspace on the **Slack** tab under **Claude Tag’s access** and select **Add channel**.
 2. Paste the channel’s ID into the **Channel ID** field. Channel IDs start with `C`, or with `G` for some older private channels. Copy the ID from the channel’s details in Slack.

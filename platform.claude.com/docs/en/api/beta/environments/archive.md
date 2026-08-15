@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/environments/archive -->
 
+---
+title: Archive Environment
+url: https://platform.claude.com/docs/en/api/beta/environments/archive
+---
+
 ## Archive Environment
 
 **post** `/v1/environments/{environment_id}/archive`
@@ -18,7 +23,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -70,11 +75,21 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -86,7 +101,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     Environment identifier (e.g., 'env_...')
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     RFC 3339 timestamp when environment was archived, or null if not archived
 

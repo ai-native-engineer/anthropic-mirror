@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/models/list -->
 
+---
+title: List Models
+url: https://platform.claude.com/docs/en/api/php/beta/models/list
+---
+
 ## List Models
 
 `$client->beta->models->list(?string afterID, ?string beforeID, ?int limit, ?list<AnthropicBeta> betas): Page<BetaModelInfo>`
@@ -81,7 +86,7 @@ $page = $client->beta->models->list(
   afterID: 'after_id',
   beforeID: 'before_id',
   limit: 1,
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($page);

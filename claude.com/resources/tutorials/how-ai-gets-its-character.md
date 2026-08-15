@@ -29,6 +29,22 @@ An AI assistant's personality — how wordy, polite, or agreeable it is — isn'
 
 ## Related tutorials
 
+[Can you trust what AI tells you?](https://claude.com/resources/tutorials/can-you-trust-what-ai-tells-you)Can you trust what AI tells you?
+
+Can you trust what AI tells you?
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/can-you-trust-what-ai-tells-you)Tutorial
+
+[What happens when you talk to AI?](https://claude.com/resources/tutorials/what-happens-when-you-talk-to-ai)What happens when you talk to AI?
+
+What happens when you talk to AI?
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/what-happens-when-you-talk-to-ai)Tutorial
+
 [Understanding knowledge gaps in AI models](https://claude.com/resources/tutorials/understanding-knowledge-gaps-in-ai-models)Understanding knowledge gaps in AI models
 
 Understanding knowledge gaps in AI models
@@ -44,19 +60,3 @@ Why does bias exist in AI models?
 Tutorial
 
 [Tutorial](https://claude.com/resources/tutorials/why-does-bias-exist-in-ai-models)Tutorial
-
-[The four properties of AI](https://claude.com/resources/tutorials/the-4-properties-of-ai) The four properties of AI
-
-The four properties of AI
-
-Tutorial
-
-[Tutorial](https://claude.com/resources/tutorials/the-4-properties-of-ai)Tutorial
-
-[The 4 Ds of AI Fluency — Behavioral Indicators](https://claude.com/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)The 4 Ds of AI Fluency — Behavioral Indicators
-
-The 4 Ds of AI Fluency — Behavioral Indicators
-
-Tutorial
-
-[Tutorial](https://claude.com/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)Tutorial

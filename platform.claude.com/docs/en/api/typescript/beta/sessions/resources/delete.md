@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/delete -->
 
+---
+title: Delete Session Resource
+url: https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/delete
+---
+
 ## Delete Session Resource
 
 `client.beta.sessions.resources.delete(stringresourceID, ResourceDeleteParamsparams, RequestOptionsoptions?): BetaManagedAgentsDeleteSessionResource`
@@ -24,7 +29,7 @@ Delete Session Resource
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -76,11 +81,21 @@ Delete Session Resource
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -97,15 +112,15 @@ Delete Session Resource
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 const betaManagedAgentsDeleteSessionResource = await client.beta.sessions.resources.delete(
-  'sesrsc_011CZkZBJq5dWxk9fVLNcPht',
-  { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
+  "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  { session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7" }
 );
 
 console.log(betaManagedAgentsDeleteSessionResource.id);

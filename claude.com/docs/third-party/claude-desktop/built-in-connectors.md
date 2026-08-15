@@ -15,11 +15,11 @@ A built-in entry names the bundled server in a `server` field, in place of the `
 
 | Server | `server` value | What Claude can reach | Setup guide |
 | --- | --- | --- | --- |
-| Microsoft 365 (beta) | `microsoft365` | Outlook mail and calendar, OneDrive, SharePoint, and Teams, through Microsoft Graph | [Connect to Microsoft 365, local connector](https://claude.com/docs/third-party/claude-desktop/connectors-m365#local-connector) |
+| Microsoft 365 | `microsoft365` | Outlook mail and calendar, OneDrive, SharePoint, and Teams, through Microsoft Graph | [Connect to Microsoft 365, local connector](https://claude.com/docs/third-party/claude-desktop/connectors-m365#local-connector) |
 | Web search | `websearch` | Web search through Brave, Tavily, Exa, or a search endpoint you host | [Built-in web search](https://claude.com/docs/third-party/claude-desktop/web-tools#built-in-web-search) |
 | GitHub (beta) | `github` | Repositories, issues, pull requests, and other GitHub data, on github.com or GitHub Enterprise Server | [Connect to GitHub, local connector](https://claude.com/docs/third-party/claude-desktop/connectors-github#local-connector) |
 
-Each guide covers its server in full, including how the built-in server compares with the remote alternative where one exists. The Microsoft 365 and GitHub built-in servers are in beta, and the **Add server** menu marks each with a **Beta** pill.
+Each guide covers its server in full, including how the built-in server compares with the remote alternative where one exists. The GitHub built-in server is in beta, and the **Add server** menu marks it with a **Beta** pill.
 
 In the in-app configuration window, the **Add server** menu lists built-in servers separately from remote templates. A remote template (Box, or the Microsoft 365 remote connector) only pre-fills the form for a server that runs outside the app. The servers on this page are the ones bundled inside the app.
 

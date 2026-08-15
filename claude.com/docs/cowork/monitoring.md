@@ -59,6 +59,8 @@ All events include these attributes:
 | `workspace.host_paths` | Host workspace directories selected in the desktop app (string array) |
 | `terminal.type` | Terminal type (`non-interactive` for Cowork) |
 
+The account attributes — `organization.id`, `user.account_uuid`, `user.account_id`, and `user.email` — are populated from the user’s Anthropic account, so they appear on first-party deployments only. On [third-party deployments](https://claude.com/docs/third-party/claude-desktop/overview) there is no Anthropic account and these attributes are absent; instead, the export carries the signed-in user’s identity as the `enduser.id` resource attribute, described under [User attribution](https://claude.com/docs/third-party/claude-desktop/telemetry#user-attribution). The `process.owner` resource attribute (the operating-system login name) is standard OpenTelemetry process metadata and is present on all deployments.
+
 ###  User prompt event
 
 Logged when a user submits a prompt.
@@ -194,6 +196,8 @@ All events are exported with the following resource attributes:
 | `host.arch` | Host architecture (e.g., `arm64`) |
 | `os.type` | Operating system type (e.g., `darwin`) |
 | `os.version` | Operating system version string |
+| `enduser.id` | The signed-in user’s identity, on third-party deployments only. Controlled by the [`endUserAttribution`](https://claude.com/docs/third-party/claude-desktop/configuration#enduserattribution) setting; see [User attribution](https://claude.com/docs/third-party/claude-desktop/telemetry#user-attribution). |
+| `process.owner` | Operating-system login name |
 
 ##  Security and privacy
 
@@ -201,4 +205,5 @@ All events are exported with the following resource attributes:
 * User prompt content is included only when you enable `userPrompts` in [`otlpContentCapture`](https://claude.com/docs/third-party/claude-desktop/telemetry#content-capture)
 * On Claude desktop app version 1.17377 or later, model response text is included when you enable `assistantResponses` in `otlpContentCapture`, and also whenever user prompt content is included
 * The `tool_input` attribute (file paths, URLs, search patterns, and other arguments) is included only when you enable `toolDetails` in `otlpContentCapture`
-* `user.email` is always included in event attributes, so configure your telemetry backend to filter or redact it if this is a concern
+* On first-party deployments, `user.email` is always included in event attributes, so configure your telemetry backend to filter or redact it if this is a concern
+* On third-party deployments, `user.email` is absent; the export identifies users with the `enduser.id` resource attribute, controlled by the [`endUserAttribution`](https://claude.com/docs/third-party/claude-desktop/configuration#enduserattribution) setting

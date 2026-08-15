@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/memory_stores/memories/create -->
 
+---
+title: Create a memory
+url: https://platform.claude.com/docs/en/api/python/beta/memory_stores/memories/create
+---
+
 ## Create a memory
 
 `beta.memory_stores.memories.create(strmemory_store_id, MemoryCreateParams**kwargs)  -> BetaManagedAgentsMemory`
@@ -34,7 +39,7 @@ Create a memory
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -99,6 +104,8 @@ Create a memory
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

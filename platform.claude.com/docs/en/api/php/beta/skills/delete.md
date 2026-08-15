@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/skills/delete -->
 
+---
+title: Delete Skill
+url: https://platform.claude.com/docs/en/api/php/beta/skills/delete
+---
+
 ## Delete Skill
 
 `$client->beta->skills->delete(string skillID, ?list<AnthropicBeta> betas): SkillDeleteResponse`
@@ -46,7 +51,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $skill = $client->beta->skills->delete(
-  'skill_id', betas: ['message-batches-2024-09-24']
+  'skill_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
 );
 
 var_dump($skill);

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/memory_stores/delete -->
 
+---
+title: Delete a memory store
+url: https://platform.claude.com/docs/en/api/php/beta/memory_stores/delete
+---
+
 ## Delete a memory store
 
 `$client->beta->memoryStores->delete(string memoryStoreID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeletedMemoryStore`
@@ -36,7 +41,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsDeletedMemoryStore = $client->beta->memoryStores->delete(
-  'memory_store_id', betas: ['message-batches-2024-09-24']
+  'memory_store_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
 );
 
 var_dump($betaManagedAgentsDeletedMemoryStore);

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/agents/retrieve -->
 
+---
+title: Get Agent
+url: https://platform.claude.com/docs/en/api/go/beta/agents/retrieve
+---
+
 ## Get Agent
 
 `client.Beta.Agents.Get(ctx, agentID, params) (*BetaManagedAgentsAgent, error)`
@@ -89,6 +94,8 @@ Get Agent
       - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -234,6 +241,10 @@ Get Agent
 
           - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
+    - `InferenceGeo string`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
     - `Speed BetaManagedAgentsModelConfigSpeed`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
@@ -246,17 +257,33 @@ Get Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `Agents []BetaManagedAgentsAgentReference`
+    - `Agents []BetaManagedAgentsMultiagentAgentUnion`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `ID string`
+      - `type BetaManagedAgentsAgentReference struct{…}`
 
-      - `Type BetaManagedAgentsAgentReferenceType`
+        A resolved agent reference with a concrete version.
 
-        - `const BetaManagedAgentsAgentReferenceTypeAgent BetaManagedAgentsAgentReferenceType = "agent"`
+        - `ID string`
 
-      - `Version int64`
+        - `Type BetaManagedAgentsAgentReferenceType`
+
+          - `const BetaManagedAgentsAgentReferenceTypeAgent BetaManagedAgentsAgentReferenceType = "agent"`
+
+        - `Version int64`
+
+      - `type BetaManagedAgentsAdvisor struct{…}`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `Model string`
+
+          The advisor model id.
+
+        - `Type BetaManagedAgentsAdvisorType`
+
+          - `const BetaManagedAgentsAdvisorTypeAdvisor BetaManagedAgentsAdvisorType = "advisor"`
 
     - `Type BetaManagedAgentsMultiagentType`
 
@@ -494,6 +521,7 @@ func main() {
     "effort": {
       "type": "low"
     },
+    "inference_geo": "inference_geo",
     "speed": "standard"
   },
   "multiagent": {

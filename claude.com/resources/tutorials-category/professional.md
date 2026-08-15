@@ -28,6 +28,98 @@ Product
 
 Features
 
+![Prototype AI-Powered Apps with Claude artifacts](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6940b225e985988bfe061f44_Screenshot%202025-06-25%20at%209.37.16%E2%80%AFAM%201.png)
+
+Prototype AI-Powered Apps with Claude artifacts
+
+Professional
+
+Author
+
+Professional
+
+Author
+
+Claude.ai
+
+Author
+
+Artifacts
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/prototype-ai-powered-apps-with-claude-artifacts)Read use case
+
+[Prototype AI-Powered Apps with Claude artifacts](https://claude.com/resources/tutorials/prototype-ai-powered-apps-with-claude-artifacts)Prototype AI-Powered Apps with Claude artifacts
+
+[Text Link](https://claude.com/resources/tutorials/prototype-ai-powered-apps-with-claude-artifacts)
+
+Professional
+
+![Tasks to try with @Claude in your workspace](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3ab2da4e9a585023120337_what-customers-keep-asking-for%20(2).png)
+
+Tasks to try with @Claude in your workspace
+
+Professional
+
+Author
+
+Professional
+
+Author
+
+Claude Tag
+
+Author
+
+No items found.
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Read use case
+
+[Tasks to try with @Claude in your workspace](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
+
+[Text Link](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)
+
+Professional
+
+![Customize Claude Cowork](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f20fbd94c0c5ae1f42dcfc_Screenshot%202026-04-29%20at%207.03.33%E2%80%AFAM.png)
+
+Customize Claude Cowork
+
+Professional
+
+Author
+
+Professional
+
+Author
+
+Claude Cowork
+
+Author
+
+Cowork
+
+Connectors
+
+Projects
+
+Skills
+
+Browser Use
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/customize-claude-cowork)Read use case
+
+[Customize Claude Cowork](https://claude.com/resources/tutorials/customize-claude-cowork)Customize Claude Cowork
+
+[Text Link](https://claude.com/resources/tutorials/customize-claude-cowork)
+
+Professional
+
 ![How to choose between voice mode and dictation](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a72171367d5fac36c73e896_Screenshot%202026-08-04%20at%209.44.51%E2%80%AFAM.png)
 
 How to choose between voice mode and dictation
@@ -246,6 +338,8 @@ Professional
 
 Author
 
+Claude Tag
+
 Author
 
 No items found.
@@ -257,68 +351,6 @@ Read use case
 [Best practices for using @Claude](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
 
 [Text Link](https://claude.com/resources/tutorials/best-practices-using-claude-tag)
-
-Professional
-
-![Tasks to try with @Claude in your workspace](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3ab2da4e9a585023120337_what-customers-keep-asking-for%20(2).png)
-
-Tasks to try with @Claude in your workspace
-
-Professional
-
-Author
-
-Professional
-
-Author
-
-Author
-
-No items found.
-
-Read use case
-
-[Read use case](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Read use case
-
-[Tasks to try with @Claude in your workspace](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
-
-[Text Link](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)
-
-Professional
-
-![Customize Claude Cowork](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f20fbd94c0c5ae1f42dcfc_Screenshot%202026-04-29%20at%207.03.33%E2%80%AFAM.png)
-
-Customize Claude Cowork
-
-Professional
-
-Author
-
-Professional
-
-Author
-
-Claude Cowork
-
-Author
-
-Cowork
-
-Connectors
-
-Projects
-
-Skills
-
-Browser Use
-
-Read use case
-
-[Read use case](https://claude.com/resources/tutorials/customize-claude-cowork)Read use case
-
-[Customize Claude Cowork](https://claude.com/resources/tutorials/customize-claude-cowork)Customize Claude Cowork
-
-[Text Link](https://claude.com/resources/tutorials/customize-claude-cowork)
 
 Professional
 
@@ -447,38 +479,6 @@ Professional
 Engineering
 
 Marketing
-
-![Using Claude Design for presentations and slide decks](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e1cbe330a0642ef57ca30c_Screenshot%202026-04-16%20at%2010.57.47%E2%80%AFPM.png)
-
-Using Claude Design for presentations and slide decks
-
-Professional
-
-Author
-
-Professional
-
-Author
-
-Claude Design
-
-Author
-
-No items found.
-
-Read use case
-
-[Read use case](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Read use case
-
-[Using Claude Design for presentations and slide decks](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Using Claude Design for presentations and slide decks
-
-[Text Link](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)
-
-Marketing
-
-Professional
-
-Sales
 
 [View more](https://claude.com/resources/tutorials-category/professional?5a5b91bc_page=2)
 

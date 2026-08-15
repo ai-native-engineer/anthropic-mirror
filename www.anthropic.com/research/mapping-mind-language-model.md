@@ -24,7 +24,7 @@ There was both an engineering challenge (the raw sizes of the models involved re
 
 As for the scientific risk, the proof is in the pudding.
 
-We successfully extracted millions of features from the middle layer of Claude 3.0 Sonnet, (a member of our current, state-of-the-art model family, currently available on [claude.ai](https://claude.ai/redirect/website.v1.14ce6d0c-59f6-488a-8d47-d48847884321)), providing a rough conceptual map of its internal states halfway through its computation. This is the first ever detailed look inside a modern, production-grade large language model.
+We successfully extracted millions of features from the middle layer of Claude 3.0 Sonnet, (a member of our current, state-of-the-art model family, currently available on [claude.ai](https://claude.ai/redirect/website.v1.4194b2fa-e484-44a8-8c46-2c149c792e8f)), providing a rough conceptual map of its internal states halfway through its computation. This is the first ever detailed look inside a modern, production-grade large language model.
 
 Whereas the features we found in the toy language model were rather superficial, the features we found in Sonnet have a depth, breadth, and abstraction reflecting Sonnet's advanced capabilities.
 
@@ -85,18 +85,20 @@ For full details, please read our paper, "[Scaling Monosemanticity: Extracting I
 
 [Mapping the Mind of a Large Language Model](https://cdn.sanity.io/files/4zrzovbb/website/e2ae0c997653dfd8a7cf23d06f5f06fd84ccfd58.pdf)
 
-### Discovering cryptographic weaknesses with Claude
+### Patterns and problems in emerging multiagent systems
 
-cryptographic algorithms. The first attack significantly weakens HAWK, a digital signature scheme that was built for a future world where quantum computers are able to break existing standards. The second identifies a new way to attack round-reduced AES, the most widely used symmetric cipher.
+Here, we identify a few examples of behavioral tendencies in current frontier models and show how they can produce unexpected systemic failures, in hopes of starting a conversation about mitigating these risks.
 
-[Read more](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
+[Read more](https://www.anthropic.com/research/multiagent-systems)
 
-### Project Pilot: Can AI control a drone?
+### Reviewing the evidence on worker retraining programs
 
-Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
+We're sharing a review of the evidence on worker retraining programs, coauthored by independent researcher David Roodman and Anthropic's Maxim Massenkoff.
 
-[Read more](https://www.anthropic.com/research/project-pilot)
+[Read more](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)
 
-### How Canada uses Claude: Findings from the Anthropic Economic Index
+### Learning more about Claude's mathematical capabilities
 
-[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
+An unreleased research version of Claude has made strides on a problem related to the Riemann hypothesis. It improved a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the hypothesis, increasing it from 41.6% to 67.2%.
+
+[Read more](https://www.anthropic.com/research/riemann-zeta)

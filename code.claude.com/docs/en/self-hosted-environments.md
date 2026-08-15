@@ -41,7 +41,7 @@ Check these before planning a rollout:
 * **Plans**: public beta for Team and Enterprise organizations. Self-hosted environments are off by default; an [Owner or admin](/docs/en/cloud-environments#organization-shared-environments) turns on **Allow self-hosted environments** on the [**Cloud environments** admin page](https://claude.ai/admin-settings/cloud-environments), which requires [Claude Code on the web](/docs/en/claude-code-on-the-web) to be enabled for the organization.
 * **Zero Data Retention**: unavailable for organizations with [Zero Data Retention](/docs/en/zero-data-retention) enabled.
 * **Model inference**: sessions use the Anthropic API, and inference can't be routed through [Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry](/docs/en/third-party-integrations), or an [LLM gateway](/docs/en/llm-gateway).
-* **Surfaces**: sessions started from [Claude Code on the web](/docs/en/claude-code-on-the-web), the mobile and desktop apps, [scheduled routines](/docs/en/routines), and the terminal, with [`claude --cloud`](/docs/en/claude-code-on-the-web#from-terminal-to-web) or a scripted [`--environment` dispatch](/docs/en/self-hosted-environments-testing#run-the-test-loop), can run in self-hosted environments. [Claude Tag](https://claude.com/docs/claude-tag/overview), [Claude Security](/docs/en/claude-security), and [Code Review](/docs/en/code-review) sessions don't route to them yet; support for those surfaces follows separately.
+* **Surfaces**: sessions started from [Claude Code on the web](/docs/en/claude-code-on-the-web), the mobile and desktop apps, [scheduled routines](/docs/en/routines), and the terminal, with [`claude --cloud`](/docs/en/claude-code-on-the-web#from-terminal-to-web) or an [`--environment` dispatch](/docs/en/self-hosted-environments-testing#run-the-test-loop), can run in self-hosted environments. [Claude Tag](https://claude.com/docs/claude-tag/overview), [Claude Security](/docs/en/claude-security), and [Code Review](/docs/en/code-review) sessions don't route to them yet. Support for those surfaces follows separately.
 * **Repositories**: sessions check out repositories from GitHub; see [GitHub authentication options](/docs/en/claude-code-on-the-web#github-authentication-options).
 * **Billing**: sessions in a self-hosted environment consume your organization's Claude Code usage the same way sessions in Anthropic-hosted environments do.
 
@@ -95,7 +95,9 @@ This lifecycle isolates each user's checked-out code without requiring the runne
 A kill that delivers `SIGTERM` needs no flag: the runner drains as [Shutdown timing](/docs/en/self-hosted-environments-deploy#shutdown-timing) describes. If your infrastructure instead destroys hosts at a known wall-clock time without a signal, or with a grace period too short to drain, such as a sandbox lifetime cap or spot-instance reclamation, pass `--retire-at <epoch-seconds>` set to a few minutes before that time. At the retire time:
 
 1. The runner stops taking new work.
-2. The runner releases each active session through the same release path the [`--release-idle-session-min`](/docs/en/self-hosted-environments-reference#runner-cli-flags) flag uses, so the session resumes on a fresh runner when the user sends their next message. A session that's mid-turn is released as soon as that turn finishes; a session whose finished turn left background tasks running gets up to 60 seconds of grace before releasing anyway.
+2. The runner releases each active session through the same release path the [`--release-idle-session-min`](/docs/en/self-hosted-environments-reference#runner-cli-flags) flag uses, so the session resumes on a fresh runner when the user sends their next message. When the runner releases each session depends on its state:
+   * The runner releases a session that's mid-turn as soon as that turn finishes.
+   * When a turn finishes and leaves background tasks running, the runner waits up to 60 seconds for them, then releases the session even if they're still running. If the tasks have finished but the follow-up turn that reads their results hasn't run yet, the runner keeps the session until that turn finishes, and waits no longer than [`SELF_HOSTED_RUNNER_BG_RESULT_GRACE_MS`](/docs/en/self-hosted-environments-reference#environment-variable-only-settings) for that turn to start.
 3. The runner exits 0 once all its sessions are released.
 
 A turn that outlives the kill is still lost; [Shutdown timing](/docs/en/self-hosted-environments-deploy#shutdown-timing) covers sizing the margin. Without `--retire-at`, a signal-less host kill is indistinguishable from a crash: the control plane records a lost worker rather than a clean release, and the session requeues to another runner.
@@ -117,7 +119,7 @@ Corporate egress proxies are supported. The runner and the optional [autoscaling
 
 Repository checkouts, build artifacts, secrets, and any files a session creates or modifies stay on the machines you provision. The conversation itself, including prompts, responses, and tool results, goes to `api.anthropic.com` for model inference, and Anthropic stores the session transcript so you can resume the session from another [supported surface](#availability-and-limitations).
 
-Session orchestration, queueing, and the claude.ai interface remain Anthropic-hosted: a self-hosted environment moves session execution into your network, not the control plane.
+A self-hosted environment moves session execution into your network. The control plane remains Anthropic-hosted: session orchestration, queueing, and the claude.ai interface continue to run on Anthropic's infrastructure.
 
 ## Get started
 

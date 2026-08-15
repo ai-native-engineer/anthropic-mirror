@@ -3,6 +3,216 @@
 
 <!-- chunk-start -->
 
+          - `class BetaToolSearchToolResultBlock:`
+
+            - `Content content`
+
+              - `class BetaToolSearchToolResultError:`
+
+                - `ErrorCode errorCode`
+
+                  - `INVALID_TOOL_INPUT("invalid_tool_input")`
+
+                  - `UNAVAILABLE("unavailable")`
+
+                  - `TOO_MANY_REQUESTS("too_many_requests")`
+
+                  - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
+
+                - `Optional<String> errorMessage`
+
+                - `JsonValue; type "tool_search_tool_result_error"constant`
+
+                  - `TOOL_SEARCH_TOOL_RESULT_ERROR("tool_search_tool_result_error")`
+
+              - `class BetaToolSearchToolSearchResultBlock:`
+
+                - `List<BetaToolReferenceBlock> toolReferences`
+
+                  - `String toolName`
+
+                  - `JsonValue; type "tool_reference"constant`
+
+                    - `TOOL_REFERENCE("tool_reference")`
+
+                - `JsonValue; type "tool_search_tool_search_result"constant`
+
+                  - `TOOL_SEARCH_TOOL_SEARCH_RESULT("tool_search_tool_search_result")`
+
+            - `String toolUseId`
+
+            - `JsonValue; type "tool_search_tool_result"constant`
+
+              - `TOOL_SEARCH_TOOL_RESULT("tool_search_tool_result")`
+
+          - `class BetaMcpToolUseBlock:`
+
+            - `String id`
+
+            - `Input input`
+
+            - `String name`
+
+              The name of the MCP tool
+
+            - `String serverName`
+
+              The name of the MCP server
+
+            - `JsonValue; type "mcp_tool_use"constant`
+
+              - `MCP_TOOL_USE("mcp_tool_use")`
+
+          - `class BetaMcpToolResultBlock:`
+
+            - `Content content`
+
+              - `String`
+
+              - `List<BetaTextBlock>`
+
+                - `Optional<List<BetaTextCitation>> citations`
+
+                  Citations supporting the text block.
+
+                  The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+                - `String text`
+
+                - `JsonValue; type "text"constant`
+
+            - `boolean isError`
+
+            - `String toolUseId`
+
+            - `JsonValue; type "mcp_tool_result"constant`
+
+              - `MCP_TOOL_RESULT("mcp_tool_result")`
+
+          - `class BetaContainerUploadBlock:`
+
+            Response model for a file uploaded to the container.
+
+            - `String fileId`
+
+            - `JsonValue; type "container_upload"constant`
+
+              - `CONTAINER_UPLOAD("container_upload")`
+
+          - `class BetaCompactionBlock:`
+
+            A compaction block returned when autocompact is triggered.
+
+            When content is None, it indicates the compaction failed to produce a valid
+            summary (e.g., malformed output from the model). Clients may round-trip
+            compaction blocks with null content; the server treats them as no-ops.
+
+            - `Optional<String> content`
+
+              Summary of compacted content, or null if compaction failed
+
+            - `Optional<String> encryptedContent`
+
+              Opaque metadata from prior compaction, to be round-tripped verbatim
+
+            - `JsonValue; type "compaction"constant`
+
+              - `COMPACTION("compaction")`
+
+          - `class BetaFallbackBlock:`
+
+            Marks the point in `content` where one model's output gives way to the next.
+
+            One block appears per hop where a preceding model actually ran this turn and
+            declined. A turn where no preceding model ran and declined has no such
+            boundary and carries no block — the signal for whether a fallback model
+            served the response is the presence of a `fallback_message` entry in
+            `usage.iterations`, not this block.
+
+            The block is treated like a server-tool content block for streaming: it
+            arrives via the standard `content_block_start` / `content_block_stop`
+            pair and carries no deltas.
+
+            - `BetaFallbackInfo from`
+
+              The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+              - `Model model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+                  High-performance model for coding and agents
+
+                - `CLAUDE_FABLE_5("claude-fable-5")`
+
+                  Next generation of intelligence for the hardest knowledge work and coding problems
+
+                - `CLAUDE_MYTHOS_5("claude-mythos-5")`
+
+                  Most capable model for cybersecurity and biology research
+
+                - `CLAUDE_OPUS_5("claude-opus-5")`
+
+                  Powerful intelligence for long-running agents and coding
+
+                - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
+
+                  Powerful intelligence for long-running agents and coding
+
+                - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
+
+                  Powerful intelligence for long-running agents and coding
+
+                - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+                  New class of intelligence, strongest in coding and cybersecurity
+
+                - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
+
+                  Powerful intelligence for long-running agents and coding
+
+                - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
+
+                  Best combination of speed and intelligence
+
+                - `CLAUDE_HAIKU_4_5("claude-haiku-4-5")`
+
+                  Fastest model with near-frontier intelligence
+
+                - `CLAUDE_HAIKU_4_5_20251001("claude-haiku-4-5-20251001")`
+
+                  Fastest model with near-frontier intelligence
+
+                - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
+
+                  Powerful intelligence for long-running agents and coding
+
+                - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
+
+                  Powerful intelligence for long-running agents and coding
+
+                - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+                  High-performance model for agents and coding
+
+                - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                  High-performance model for agents and coding
+
+            - `BetaFallbackInfo to`
+
+              The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+            - `BetaFallbackRefusalTrigger trigger`
+
+              What caused the `from` model to hand over at this hop.
+
+              - `Optional<Category> category`
+
                 The policy category that triggered a refusal.
 
                 - `CYBER("cyber")`
@@ -1159,7 +1369,15 @@ public final class Main {
 
             - `String signature`
 
+              A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+              This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
             - `String thinking`
+
+              The text of Claude's thinking process for this block.
 
             - `JsonValue; type "thinking"constant`
 
@@ -1168,6 +1386,12 @@ public final class Main {
           - `class BetaRedactedThinkingBlock:`
 
             - `String data`
+
+              The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+              Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
             - `JsonValue; type "redacted_thinking"constant`
 
@@ -1870,14 +2094,6 @@ public final class Main {
                 - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
                   High-performance model for agents and coding
-
-                - `CLAUDE_OPUS_4_1("claude-opus-4-1")`
-
-                  Powerful intelligence for long-running agents and coding
-
-                - `CLAUDE_OPUS_4_1_20250805("claude-opus-4-1-20250805")`
-
-                  Powerful intelligence for long-running agents and coding
 
             - `BetaFallbackInfo to`
 
@@ -2831,7 +3047,15 @@ public final class Main {
 
           - `String signature`
 
+            A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+            This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+            See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
           - `String thinking`
+
+            The text of Claude's thinking process for this block.
 
           - `JsonValue; type "thinking"constant`
 
@@ -2840,6 +3064,12 @@ public final class Main {
         - `class BetaRedactedThinkingBlock:`
 
           - `String data`
+
+            The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+            Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+            See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
           - `JsonValue; type "redacted_thinking"constant`
 
@@ -3542,14 +3772,6 @@ public final class Main {
               - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
                 High-performance model for agents and coding
-
-              - `CLAUDE_OPUS_4_1("claude-opus-4-1")`
-
-                Powerful intelligence for long-running agents and coding
-
-              - `CLAUDE_OPUS_4_1_20250805("claude-opus-4-1-20250805")`
-
-                Powerful intelligence for long-running agents and coding
 
           - `BetaFallbackInfo to`
 
@@ -4465,7 +4687,15 @@ public final class Main {
 
         - `String signature`
 
+          A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+          This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+          See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
         - `String thinking`
+
+          The text of Claude's thinking process for this block.
 
         - `JsonValue; type "thinking"constant`
 
@@ -4474,6 +4704,12 @@ public final class Main {
       - `class BetaRedactedThinkingBlock:`
 
         - `String data`
+
+          The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+          Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+          See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
         - `JsonValue; type "redacted_thinking"constant`
 
@@ -5176,14 +5412,6 @@ public final class Main {
             - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
               High-performance model for agents and coding
-
-            - `CLAUDE_OPUS_4_1("claude-opus-4-1")`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `CLAUDE_OPUS_4_1_20250805("claude-opus-4-1-20250805")`
-
-              Powerful intelligence for long-running agents and coding
 
         - `BetaFallbackInfo to`
 

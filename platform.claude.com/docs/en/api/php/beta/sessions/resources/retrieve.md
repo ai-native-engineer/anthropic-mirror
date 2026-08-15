@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/sessions/resources/retrieve -->
 
+---
+title: Get Session Resource
+url: https://platform.claude.com/docs/en/api/php/beta/sessions/resources/retrieve
+---
+
 ## Get Session Resource
 
 `$client->beta->sessions->resources->retrieve(string resourceID, string sessionID, ?list<AnthropicBeta> betas): ResourceGetResponse`
@@ -100,7 +105,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $resource = $client->beta->sessions->resources->retrieve(
   'sesrsc_011CZkZBJq5dWxk9fVLNcPht',
   sessionID: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($resource);

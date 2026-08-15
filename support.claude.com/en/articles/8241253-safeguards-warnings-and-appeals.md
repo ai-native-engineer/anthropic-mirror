@@ -34,10 +34,10 @@ Click "Request a review" on the affected organization to ask our Safeguards team
 
 As part of our safety process, we warn users if we believe their prompts are violating our **[Usage Policy](https://www.anthropic.com/legal/aup)**. For API customers, these warnings are linked to ongoing thresholds of violative behavior across their entire API account.
 
-If you believe we’ve made a mistake in issuing you a warning, please email **[[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#0e7b7d6b7c7d6f686b7a774e6f607a667c617e676d206d6163)** with the details of your situation and your account information.
+If you believe we’ve made a mistake in issuing you a warning, please email **[[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#5a2f293f28293b3c3f2e231a3b342e3228352a333974393537)** with the details of your situation and your account information.
 
 * [API Safeguards Tools](https://support.claude.com/en/articles/9199617-api-safeguards-tools)
 * [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)
+* [Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
-* [Identity verification on Claude](https://support.claude.com/en/articles/14328960-identity-verification-on-claude)
 * [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)

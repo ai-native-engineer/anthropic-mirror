@@ -3,6 +3,121 @@
 
 <!-- chunk-start -->
 
+    - `const BetaWebSearchTool20260318AllowedCallerCodeExecution20260120 BetaWebSearchTool20260318AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaWebSearchTool20260318AllowedCallerCodeExecution20260521 BetaWebSearchTool20260318AllowedCaller = "code_execution_20260521"`
+
+  - `AllowedDomains []string`
+
+    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+  - `BlockedDomains []string`
+
+    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `MaxUses int64`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `const BetaWebSearchTool20260318ResponseInclusionFull BetaWebSearchTool20260318ResponseInclusion = "full"`
+
+    - `const BetaWebSearchTool20260318ResponseInclusionExcluded BetaWebSearchTool20260318ResponseInclusion = "excluded"`
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `UserLocation BetaUserLocation`
+
+    Parameters for the user's location. Used to provide more relevant search results.
+
+    - `Type Approximate`
+
+      - `const ApproximateApproximate Approximate = "approximate"`
+
+    - `City string`
+
+      The city of the user.
+
+    - `Country string`
+
+      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+    - `Region string`
+
+      The region of the user.
+
+    - `Timezone string`
+
+      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+### Beta Web Search Tool Request Error
+
+- `type BetaWebSearchToolRequestError struct{…}`
+
+  - `ErrorCode BetaWebSearchToolResultErrorCode`
+
+    - `const BetaWebSearchToolResultErrorCodeInvalidToolInput BetaWebSearchToolResultErrorCode = "invalid_tool_input"`
+
+    - `const BetaWebSearchToolResultErrorCodeUnavailable BetaWebSearchToolResultErrorCode = "unavailable"`
+
+    - `const BetaWebSearchToolResultErrorCodeMaxUsesExceeded BetaWebSearchToolResultErrorCode = "max_uses_exceeded"`
+
+    - `const BetaWebSearchToolResultErrorCodeTooManyRequests BetaWebSearchToolResultErrorCode = "too_many_requests"`
+
+    - `const BetaWebSearchToolResultErrorCodeQueryTooLong BetaWebSearchToolResultErrorCode = "query_too_long"`
+
+    - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
+
+  - `Type WebSearchToolResultError`
+
+    - `const WebSearchToolResultErrorWebSearchToolResultError WebSearchToolResultError = "web_search_tool_result_error"`
+
+### Beta Web Search Tool Result Block
+
+- `type BetaWebSearchToolResultBlock struct{…}`
+
+  - `Content BetaWebSearchToolResultBlockContentUnion`
+
+    - `type BetaWebSearchToolResultError struct{…}`
+
+      - `ErrorCode BetaWebSearchToolResultErrorCode`
+
+        - `const BetaWebSearchToolResultErrorCodeInvalidToolInput BetaWebSearchToolResultErrorCode = "invalid_tool_input"`
+
+        - `const BetaWebSearchToolResultErrorCodeUnavailable BetaWebSearchToolResultErrorCode = "unavailable"`
+
         - `const BetaWebSearchToolResultErrorCodeMaxUsesExceeded BetaWebSearchToolResultErrorCode = "max_uses_exceeded"`
 
         - `const BetaWebSearchToolResultErrorCodeTooManyRequests BetaWebSearchToolResultErrorCode = "too_many_requests"`
@@ -668,7 +783,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Signature string`
 
+                The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
+
+                Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
+
               - `Thinking string`
+
+                The `thinking` text of this block as returned by the API.
 
               - `Type Thinking`
 
@@ -677,6 +798,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type BetaRedactedThinkingBlockParamResp struct{…}`
 
               - `Data string`
+
+                The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
               - `Type RedactedThinking`
 
@@ -1573,14 +1696,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                     - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
 
                       High-performance model for agents and coding
-
-                    - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-                      Powerful intelligence for long-running agents and coding
-
-                    - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-                      Powerful intelligence for long-running agents and coding
 
                   - `string`
 
@@ -3485,6 +3600,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
   - `UserProfileID param.Field[string]`
 
     Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
@@ -3733,6 +3850,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
 ### Returns
 
 - `type BetaMessageBatch struct{…}`
@@ -3975,6 +4094,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
 ### Returns
 
 - `type BetaMessageBatch struct{…}`
@@ -4212,6 +4333,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
 ### Returns
 
 - `type BetaMessageBatch struct{…}`
@@ -4446,6 +4569,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
 ### Returns
 
 - `type BetaDeletedMessageBatch struct{…}`
@@ -4591,6 +4716,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
       - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -4809,7 +4936,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Signature string`
 
+              A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+              This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
             - `Thinking string`
+
+              The text of Claude's thinking process for this block.
 
             - `Type Thinking`
 
@@ -4818,6 +4953,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `type BetaRedactedThinkingBlock struct{…}`
 
             - `Data string`
+
+              The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+              Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
             - `Type RedactedThinking`
 
@@ -5526,14 +5667,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
 
                     High-performance model for agents and coding
-
-                  - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-                    Powerful intelligence for long-running agents and coding
 
                 - `string`
 
@@ -6713,7 +6846,15 @@ func main() {
 
             - `Signature string`
 
+              A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+              This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
             - `Thinking string`
+
+              The text of Claude's thinking process for this block.
 
             - `Type Thinking`
 
@@ -6722,6 +6863,12 @@ func main() {
           - `type BetaRedactedThinkingBlock struct{…}`
 
             - `Data string`
+
+              The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+              Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
             - `Type RedactedThinking`
 
@@ -7430,14 +7577,6 @@ func main() {
                   - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
 
                     High-performance model for agents and coding
-
-                  - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-                    Powerful intelligence for long-running agents and coding
 
                 - `string`
 
@@ -8393,7 +8532,15 @@ func main() {
 
           - `Signature string`
 
+            A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+            This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+            See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
           - `Thinking string`
+
+            The text of Claude's thinking process for this block.
 
           - `Type Thinking`
 
@@ -8402,6 +8549,12 @@ func main() {
         - `type BetaRedactedThinkingBlock struct{…}`
 
           - `Data string`
+
+            The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+            Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+            See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
           - `Type RedactedThinking`
 
@@ -9110,14 +9263,6 @@ func main() {
                 - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
 
                   High-performance model for agents and coding
-
-                - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-                  Powerful intelligence for long-running agents and coding
-
-                - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-                  Powerful intelligence for long-running agents and coding
 
               - `string`
 
@@ -10035,7 +10180,15 @@ func main() {
 
         - `Signature string`
 
+          A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+          This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+          See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
         - `Thinking string`
+
+          The text of Claude's thinking process for this block.
 
         - `Type Thinking`
 
@@ -10044,6 +10197,12 @@ func main() {
       - `type BetaRedactedThinkingBlock struct{…}`
 
         - `Data string`
+
+          The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+          Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+          See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
         - `Type RedactedThinking`
 
@@ -10752,14 +10911,6 @@ func main() {
               - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
 
                 High-performance model for agents and coding
-
-              - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-                Powerful intelligence for long-running agents and coding
-
-              - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-                Powerful intelligence for long-running agents and coding
 
             - `string`
 

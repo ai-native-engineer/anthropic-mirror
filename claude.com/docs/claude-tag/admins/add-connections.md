@@ -29,7 +29,7 @@ If you’re in [setup](https://claude.com/docs/claude-tag/admins/setup-overview)
 
 Open the admin page
 
-Go to [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag). Under **Claude Tag’s access**, the **Slack** tab shows your scopes (the organization-wide **Slack** row, then each workspace). The **Slack** row opens as **Default Slack access**.
+Go to [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag). Under **Claude Tag’s access**, the **Slack** tab shows your scopes (the organization-wide **Slack** row, each workspace, and any channels under them). The **Slack** row opens as **Default Slack access**.
 
 2
 

@@ -183,6 +183,14 @@ Claude helps healthcare organizations move faster without sacrificing accuracy, 
 
 ## Related stories
 
+[League cuts product development cycle times in half with Claude](https://claude.com/customers/league) League cuts product development cycle times in half with Claude
+
+League cuts product development cycle times in half with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/league)Customer story
+
 [How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
 
 How can a medical lab keep patients at the center of its work while the caseload keeps growing?
@@ -206,11 +214,3 @@ A conversation with Seth Hain about Epic’s internal AI adoption
 Customer story
 
 [Customer story](https://claude.com/customers/epic-systems)Customer story
-
-[Carta Healthcare cuts clinical data processing time by 66% with Claude](https://claude.com/customers/carta-healthcare)Carta Healthcare cuts clinical data processing time by 66% with Claude
-
-Carta Healthcare cuts clinical data processing time by 66% with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/carta-healthcare)Customer story

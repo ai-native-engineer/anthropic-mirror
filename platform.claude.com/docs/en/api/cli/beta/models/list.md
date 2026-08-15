@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/models/list -->
 
+---
+title: List Models
+url: https://platform.claude.com/docs/en/api/cli/beta/models/list
+---
+
 ## List Models
 
 `$ ant beta:models list`

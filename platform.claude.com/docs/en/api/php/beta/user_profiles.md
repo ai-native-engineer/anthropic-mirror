@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/user_profiles -->
 
+---
+title: User Profiles
+url: https://platform.claude.com/docs/en/api/php/beta/user_profiles
+---
+
 # User Profiles
 
 ## Create User Profile
@@ -86,7 +91,7 @@ $betaUserProfile = $client->beta->userProfiles->create(
   metadata: [],
   name: 'x',
   relationship: 'external',
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaUserProfile);
@@ -188,7 +193,10 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $page = $client->beta->userProfiles->list(
-  limit: 0, order: 'asc', page: 'page', betas: ['message-batches-2024-09-24']
+  limit: 0,
+  order: 'asc',
+  page: 'page',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($page);
@@ -285,7 +293,8 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaUserProfile = $client->beta->userProfiles->retrieve(
-  'uprof_011CZkZCu8hGbp5mYRQgUmz9', betas: ['message-batches-2024-09-24']
+  'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaUserProfile);
@@ -398,7 +407,7 @@ $betaUserProfile = $client->beta->userProfiles->update(
   metadata: ['foo' => 'string'],
   name: 'x',
   relationship: 'external',
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaUserProfile);
@@ -469,7 +478,8 @@ $betaUserProfileEnrollmentURL = $client
   ->beta
   ->userProfiles
   ->createEnrollmentURL(
-  'uprof_011CZkZCu8hGbp5mYRQgUmz9', betas: ['message-batches-2024-09-24']
+  'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaUserProfileEnrollmentURL);

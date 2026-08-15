@@ -1,19 +1,19 @@
 <!-- source: https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/php -->
 
-# PHP SDK
-
-Install and configure the Anthropic PHP SDK with value objects and builder patterns
-
+---
+title: PHP SDK
+url: https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/php
+description: Install and configure the Anthropic PHP SDK with value objects and builder patterns
 ---
 
-The Anthropic PHP library provides convenient access to the Anthropic REST API from any PHP 8.1.0+ application.
+The Anthropic PHP library provides convenient access to the Claude API from any PHP 8.1.0+ application.
 
 <Info>
-The PHP SDK is currently in beta. APIs might change between versions.
+  The PHP SDK is currently in beta. APIs might change between versions.
 </Info>
 
 <Info>
-For API feature documentation with code examples, see the [API reference](/docs/en/api/overview). This page covers PHP-specific SDK features and configuration.
+  For API feature documentation with code examples, see the [API reference](https://platform.claude.com/docs/en/api/overview). This page covers PHP-specific SDK features and configuration.
 </Info>
 
 ## Installation
@@ -32,23 +32,20 @@ PHP 8.1.0 or higher.
 
 This library uses named parameters to specify optional arguments. Parameters with a default value must be set by name.
 
-```php hidelines={1..4}
-<?php
-
-use Anthropic\Client;
-
+```php
 $client = new Client();
 
 $message = $client->messages->create(
   maxTokens: 1024,
   messages: [['role' => 'user', 'content' => 'Hello, Claude']],
-  model: 'claude-opus-4-8',
+  model: 'claude-opus-5',
 );
 
-echo $message->content[0]->text;
+$textBlock = array_find($message->content, static fn ($block): bool => $block->type === 'text');
+echo $textBlock->text;
 ```
 
-For authentication options including Workload Identity Federation, see [Authentication](/docs/en/manage-claude/authentication).
+For authentication options including Workload Identity Federation, see [Authentication](https://platform.claude.com/docs/en/manage-claude/authentication).
 
 ## Value objects
 
@@ -60,17 +57,13 @@ However, builders are also provided `(new Base64ImageSource)->withData("U3RhaW5s
 
 The SDK provides support for streaming responses using Server-Sent Events (SSE).
 
-```php hidelines={1..4}
-<?php
-
-use Anthropic\Client;
-
+```php
 $client = new Client();
 
 $stream = $client->messages->createStream(
   maxTokens: 1024,
   messages: [['role' => 'user', 'content' => 'Hello, Claude']],
-  model: 'claude-opus-4-8',
+  model: 'claude-opus-5',
 );
 
 foreach ($stream as $event) {
@@ -80,7 +73,7 @@ foreach ($stream as $event) {
 
 Streaming requires an HTTP client that returns the response body incrementally. When Guzzle is the discovered PSR-18 client, the SDK configures it for streaming automatically. With a buffering client, the `foreach` loop yields every event at once when the response completes instead of incrementally; if you observe that symptom, install Guzzle or supply a streaming-capable PSR-18 client through the `streamingTransporter` request option:
 
-```php nocheck
+```php
 $client = new Anthropic\Client(
   requestOptions: Anthropic\RequestOptions::with(streamingTransporter: $myStreamingClient),
 );
@@ -90,21 +83,18 @@ $client = new Anthropic\Client(
 
 When the library is unable to connect to the API, or if the API returns a non-success status code (that is, a 4xx or 5xx response), a subclass of `Anthropic\Core\Exceptions\APIException` is thrown:
 
-```php hidelines={2..3,7..9}
+```php
 <?php
-use Anthropic\Client;
-
+// ...
 use Anthropic\Core\Exceptions\APIConnectionException;
 use Anthropic\Core\Exceptions\APIStatusException;
 use Anthropic\Core\Exceptions\RateLimitException;
-
-$client = new Client();
-
+// ...
 try {
   $message = $client->messages->create(
     maxTokens: 1024,
     messages: [['role' => 'user', 'content' => 'Hello, Claude']],
-    model: 'claude-opus-4-8',
+    model: 'claude-opus-5',
   );
 } catch (APIConnectionException $e) {
   echo "The server could not be reached", PHP_EOL;
@@ -141,12 +131,9 @@ Connection errors (for example, because of a network connectivity problem), 408 
 
 You can use the `maxRetries` option to configure or disable this:
 
-```php hidelines={1..3,5}
-<?php
-
-use Anthropic\Client;
+```php
 use Anthropic\RequestOptions;
-
+// ...
 // Configure the default for all requests:
 $client = new Client(requestOptions: RequestOptions::with(maxRetries: 0));
 
@@ -154,7 +141,7 @@ $client = new Client(requestOptions: RequestOptions::with(maxRetries: 0));
 $result = $client->messages->create(
   maxTokens: 1024,
   messages: [['role' => 'user', 'content' => 'Hello, Claude']],
-  model: 'claude-opus-4-8',
+  model: 'claude-opus-5',
   requestOptions: RequestOptions::with(maxRetries: 5),
 );
 ```
@@ -165,11 +152,7 @@ List methods in the Claude API are paginated.
 
 This library provides auto-paginating iterators with each list response, so you do not have to request successive pages manually:
 
-```php hidelines={1..4}
-<?php
-
-use Anthropic\Client;
-
+```php
 $client = new Client();
 
 $page = $client->beta->messages->batches->list(limit: 20);
@@ -191,21 +174,18 @@ foreach ($page->pagingEachItem() as $item) {
 You can send undocumented parameters to any endpoint, and read undocumented response properties, as follows:
 
 <Note>
-The `extra*` parameters of the same name override the documented parameters.
+  The `extra*` parameters of the same name override the documented parameters.
 </Note>
 
-```php hidelines={2..3,5..7}
+```php
 <?php
-use Anthropic\Client;
-
+// ...
 use Anthropic\RequestOptions;
-
-$client = new Client();
-
+// ...
 $message = $client->messages->create(
   maxTokens: 1024,
   messages: [['role' => 'user', 'content' => 'Hello, Claude']],
-  model: 'claude-opus-4-8',
+  model: 'claude-opus-5',
   requestOptions: RequestOptions::with(
     extraQueryParams: ['my_query_parameter' => 'value'],
     extraBodyParams: ['my_body_parameter' => 'value'],
@@ -222,9 +202,7 @@ If you want to explicitly send an extra parameter, you can do so with the `extra
 
 To make requests to undocumented endpoints while retaining the benefit of authentication, retries, and other client features, you can make requests using `client->request`, as follows:
 
-```php hidelines={1..2} nocheck
-<?php
-use Anthropic\Client;
+```php
 $client = new Client();
 
 $response = $client->request(
@@ -239,21 +217,22 @@ $response = $client->request(
 ## Platform integrations
 
 <Note>
-For detailed platform setup guides with code examples, see:
-- [Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock)
-- [Amazon Bedrock (legacy)](/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy)
-- [Google Cloud](/docs/en/build-with-claude/claude-on-vertex-ai)
-- [Microsoft Foundry](/docs/en/build-with-claude/claude-in-microsoft-foundry)
-- [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws)
+  For detailed platform setup guides with code examples, see:
+
+  * [Amazon Bedrock](https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock)
+  * [Amazon Bedrock (Opus 4.6 and earlier)](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy)
+  * [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws)
+  * [Google Cloud](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)
+  * [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
 </Note>
 
 The PHP SDK supports the following platforms:
 
-- **Bedrock:** `Anthropic\Bedrock\MantleClient`. Use `new MantleClient(awsRegion: ...)`.
-- **Bedrock (legacy):** `Anthropic\Bedrock\Client`. Use `::fromEnvironment()` or `::withCredentials()`.
-- **Agent Platform:** `Anthropic\Vertex\Client`. Use `::fromEnvironment()`.
-- **Foundry:** `Anthropic\Foundry\Client`. Use `::withCredentials()`.
-- **Claude Platform on AWS:** `Anthropic\Aws\Client` (requires `aws/aws-sdk-php` as a soft dependency). Use `new Anthropic\Aws\Client(workspaceId: ...)` or set `ANTHROPIC_AWS_WORKSPACE_ID`. Available in beta.
+* **Agent Platform:** `Anthropic\Vertex\Client`. Use `::fromEnvironment()`.
+* **Bedrock:** `Anthropic\Bedrock\MantleClient`. Use `new MantleClient(awsRegion: ...)`.
+* **Bedrock (legacy):** `Anthropic\Bedrock\Client`. Use `::fromEnvironment()` or `::withCredentials()`.
+* **Claude Platform on AWS:** `Anthropic\Aws\Client` (requires `aws/aws-sdk-php` as a soft dependency). Use `new Anthropic\Aws\Client(workspaceId: ...)` or set `ANTHROPIC_AWS_WORKSPACE_ID`. Available in beta.
+* **Foundry:** `Anthropic\Foundry\Client`. Use `::withCredentials()`.
 
 Use `MantleClient` for new projects; `Anthropic\Bedrock\Client` remains for existing applications using the Bedrock `InvokeModel` API.
 
@@ -265,7 +244,7 @@ This package considers improvements to the (non-runtime) PHPDoc type definitions
 
 ## Additional resources
 
-- [GitHub repository](https://github.com/anthropics/anthropic-sdk-php)
-- [Packagist](https://packagist.org/packages/anthropic-ai/sdk)
-- [API reference](/docs/en/api/overview)
-- [Streaming Messages](/docs/en/build-with-claude/streaming)
+* [GitHub repository](https://github.com/anthropics/anthropic-sdk-php)
+* [Packagist](https://packagist.org/packages/anthropic-ai/sdk)
+* [API reference](https://platform.claude.com/docs/en/api/overview)
+* [Streaming Messages](https://platform.claude.com/docs/en/build-with-claude/streaming)

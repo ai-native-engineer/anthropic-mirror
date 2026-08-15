@@ -42,6 +42,7 @@ Each custom role can grant or restrict access to the following capabilities:
 | Create skills | Ability to create or upload custom skills. |
 | Share skills with org members | Ability to share skills with specific people in your organization. |
 | Share skills with the full organization | Ability to share skills with everyone in your organization at once. |
+| Share skills with groups | Ability to share skills with a group in your organization. |
 | Skill and plugin security scanning (beta) | Ability to run a scan on skills and plugins when they’re uploaded to catch possible security concerns. |
 | Claude Code | Access to Claude Code. |
 | Fast mode | Access to faster model options for Claude Code. |
@@ -307,7 +308,7 @@ When a capability is restricted, here’s what members see. For connector and to
 | Member's roles don't grant any product access | The member lands on their settings page when they sign in, with no products available to use. |
 
 * [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
-* [Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)
 * [Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-permissions-on-enterprise-plans)
 * [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)

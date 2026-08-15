@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/memory_stores/list -->
 
+---
+title: List memory stores
+url: https://platform.claude.com/docs/en/api/beta/memory_stores/list
+---
+
 ## List memory stores
 
 **get** `/v1/memory_stores`
@@ -36,7 +41,7 @@ List memory stores
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -88,11 +93,21 @@ List memory stores
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -120,7 +135,7 @@ List memory stores
 
     A timestamp in RFC 3339 format
 
-  - `archived_at: optional string`
+  - `archived_at: optional string or null`
 
     A timestamp in RFC 3339 format
 
@@ -132,7 +147,7 @@ List memory stores
 
     Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
-- `next_page: optional string`
+- `next_page: optional string or null`
 
   Opaque cursor for the next page (a `page_...` value). Pass as `page` on the next request. `null` when there are no more results.
 
@@ -141,7 +156,7 @@ List memory stores
 ```http
 curl https://api.anthropic.com/v1/memory_stores \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 

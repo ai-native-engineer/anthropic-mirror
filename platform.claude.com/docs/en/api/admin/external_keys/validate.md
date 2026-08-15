@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/external_keys/validate -->
 
+---
+title: Validate External Key
+url: https://platform.claude.com/docs/en/api/admin/external_keys/validate
+---
+
 ## Validate External Key
 
 **post** `/v1/organizations/external_keys/{external_key_id}/validate`
@@ -15,21 +20,21 @@ message if it failed or timed out.
 
 - `external_key_id: string`
 
-  ID of the External Key to validate.
+  ID of the External Key.
 
 ### Returns
 
-- `error: string`
+- `error: string or null`
 
   Error message when status is `failure`. Null otherwise.
 
-- `status: "success" or "failure"`
+- `status: "failure" or "success"`
 
   `success` — encrypt/decrypt roundtrip succeeded. `failure` — the roundtrip failed or timed out; see `error`.
 
-  - `"success"`
-
   - `"failure"`
+
+  - `"success"`
 
 - `type: "external_key_validation"`
 

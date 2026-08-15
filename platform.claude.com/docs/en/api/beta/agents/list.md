@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/agents/list -->
 
+---
+title: List Agents
+url: https://platform.claude.com/docs/en/api/beta/agents/list
+---
+
 ## List Agents
 
 **get** `/v1/agents`
@@ -36,7 +41,7 @@ List Agents
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -88,11 +93,21 @@ List Agents
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -102,7 +117,7 @@ List Agents
 
   - `id: string`
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -110,7 +125,7 @@ List Agents
 
     A timestamp in RFC 3339 format
 
-  - `description: string`
+  - `description: string or null`
 
   - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
@@ -134,27 +149,35 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more`
+      - `"claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -170,11 +193,11 @@ List Agents
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -186,6 +209,54 @@ List Agents
 
       - `string`
 
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `BetaManagedAgentsEffortLow object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `BetaManagedAgentsEffortMedium object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `BetaManagedAgentsEffortHigh object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `BetaManagedAgentsEffortXhigh object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `BetaManagedAgentsEffortMax object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `inference_geo: optional string`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
     - `speed: optional "standard" or "fast"`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
@@ -194,21 +265,37 @@ List Agents
 
       - `"fast"`
 
-  - `multiagent: BetaManagedAgentsMultiagent`
+  - `multiagent: BetaManagedAgentsMultiagent or null`
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `agents: array of BetaManagedAgentsAgentReference`
+    - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `id: string`
+      - `BetaManagedAgentsAgentReference object { id, type, version }`
 
-      - `type: "agent"`
+        A resolved agent reference with a concrete version.
 
-        - `"agent"`
+        - `id: string`
 
-      - `version: number`
+        - `type: "agent"`
+
+          - `"agent"`
+
+        - `version: number`
+
+      - `BetaManagedAgentsAdvisor object { model, type }`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: string`
+
+          The advisor model id.
+
+        - `type: "advisor"`
+
+          - `"advisor"`
 
     - `type: "coordinator"`
 
@@ -242,7 +329,7 @@ List Agents
 
       - `version: string`
 
-  - `system: string`
+  - `system: string or null`
 
   - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
 
@@ -372,9 +459,9 @@ List Agents
 
           - `"object"`
 
-        - `properties: optional map[unknown]`
+        - `properties: optional map[unknown] or null`
 
-        - `required: optional array of string`
+        - `required: optional array of string or null`
 
       - `name: string`
 
@@ -394,7 +481,7 @@ List Agents
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
 
-- `next_page: optional string`
+- `next_page: optional string or null`
 
   Opaque cursor for the next page. Null when no more results.
 
@@ -429,6 +516,10 @@ curl https://api.anthropic.com/v1/agents \
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
+        "inference_geo": "inference_geo",
         "speed": "standard"
       },
       "multiagent": {

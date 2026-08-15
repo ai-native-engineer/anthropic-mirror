@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/agents/versions/list -->
 
+---
+title: List Agent Versions
+url: https://platform.claude.com/docs/en/api/php/beta/agents/versions/list
+---
+
 ## List Agent Versions
 
 `$client->beta->agents->versions->list(string agentID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaManagedAgentsAgent>`
@@ -83,7 +88,7 @@ $page = $client->beta->agents->versions->list(
   'agent_011CZkYpogX7uDKUyvBTophP',
   limit: 0,
   page: 'page',
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($page);
@@ -111,6 +116,10 @@ var_dump($page);
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
+        "inference_geo": "inference_geo",
         "speed": "standard"
       },
       "multiagent": {

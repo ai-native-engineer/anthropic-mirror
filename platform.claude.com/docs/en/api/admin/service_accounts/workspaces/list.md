@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/service_accounts/workspaces/list -->
 
+---
+title: List Workspaces For Service Account
+url: https://platform.claude.com/docs/en/api/admin/service_accounts/workspaces/list
+---
+
 ## List Workspaces For Service Account
 
 **get** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
@@ -44,11 +49,11 @@ empty list.
 
 - `data: array of object { created_by_actor_id, implicit, service_account_id, 3 more }`
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
 
-  - `implicit: boolean`
+  - `implicit: boolean or null`
 
     True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role workspace_user and cannot be removed.
 
@@ -64,21 +69,21 @@ empty list.
 
     Tagged workspace ID (`wrkspc_...`).
 
-  - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+  - `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
     Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
-
-    - `"workspace_user"`
-
-    - `"workspace_developer"`
-
-    - `"workspace_restricted_developer"`
 
     - `"workspace_admin"`
 
     - `"workspace_billing"`
 
-- `next_page: string`
+    - `"workspace_developer"`
+
+    - `"workspace_restricted_developer"`
+
+    - `"workspace_user"`
+
+- `next_page: string or null`
 
   Opaque cursor for the next page, or null if no more results.
 
@@ -101,7 +106,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
       "service_account_id": "service_account_id",
       "type": "service_account_workspace_member",
       "workspace_id": "workspace_id",
-      "workspace_role": "workspace_user"
+      "workspace_role": "workspace_admin"
     }
   ],
   "next_page": "next_page"

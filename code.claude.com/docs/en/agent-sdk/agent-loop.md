@@ -184,7 +184,7 @@ When either limit is hit, the SDK returns a `ResultMessage` with a corresponding
 
 The budget cap covers [subagents](/docs/en/agent-sdk/subagents): their spend counts toward the total. Once spend reaches the cap, spawning another subagent fails with `Budget limit reached`, and Claude Code stops any background subagents still running. The cap-enforcement behaviors require Claude Code v2.1.217 or later.
 
-With [streaming input](/docs/en/agent-sdk/streaming-vs-single-mode), a message you send while a turn is still running stays queued when that turn ends at the max-turns limit, and it starts its own turn with its own max-turns limit. Before v2.1.205, a message that arrived on the turn's final iteration could be consumed into the ending turn and lost without ever reaching the model.
+With [streaming input](/docs/en/agent-sdk/streaming-vs-single-mode), a message you send while a turn is still running stays queued when that turn ends at the max-turns limit, and it starts its own turn with its own max-turns limit.
 
 ### Effort level
 
@@ -253,7 +253,7 @@ You can customize compaction behavior in several ways:
 
 * **Summarization instructions in CLAUDE.md:** The compactor reads your CLAUDE.md like any other context, so you can include a section telling it what to preserve when summarizing. The section header is free-form (not a magic string); the compactor matches on intent.
 * **`PreCompact` hook:** Run custom logic before compaction occurs, for example to archive the full transcript. The hook receives a `trigger` field (`manual` or `auto`). See [hooks](/docs/en/agent-sdk/hooks).
-* **Manual compaction:** Send `/compact` as a prompt string to trigger compaction on demand. Commands sent this way are SDK inputs, not CLI-only shortcuts. See [commands in the SDK](/docs/en/agent-sdk/slash-commands).
+* **Manual compaction:** Send `/compact` as a prompt string to trigger compaction on demand. Commands sent this way are ordinary SDK inputs. See [commands in the SDK](/docs/en/agent-sdk/slash-commands).
 
 <Accordion title="Example: Summarization instructions in CLAUDE.md">
   Add a section to your project's CLAUDE.md telling the compactor what to preserve. The header name isn't special; use any clear label.
@@ -286,7 +286,7 @@ Each interaction with the SDK creates or continues a session. Capture the sessio
 
 When you resume, the full context from previous turns is restored: files that were read, analysis that was performed, and actions that were taken. You can also fork a session to branch into a different approach without modifying the original.
 
-See [Session management](/docs/en/agent-sdk/sessions) for the full guide on resume, continue, and fork patterns. To resume sessions across stateless containers or serverless hosts, pass a [`session_store` / `sessionStore` adapter](/docs/en/agent-sdk/session-storage) so transcripts are mirrored to your own backend and any host can resume them. The Claude Code subprocess still writes to local disk first; point `CLAUDE_CONFIG_DIR` at a temp directory in `options.env` if the local copy needs to be ephemeral.
+See [Session management](/docs/en/agent-sdk/sessions) for the full guide on resume, continue, and fork patterns. To resume sessions across stateless containers or serverless hosts, pass a [`session_store` / `sessionStore` adapter](/docs/en/agent-sdk/session-storage) so the SDK mirrors transcripts to your own backend and another host can resume them. The Claude Code subprocess still writes to local disk first. See [Dual-write architecture](/docs/en/agent-sdk/session-storage#dual-write-architecture) for which copy outlives a fresh session versus a run resumed from the store, and how to keep the local copy ephemeral.
 
 <Note>
   In Python, `ClaudeSDKClient` handles session IDs automatically across multiple calls. See the [Python SDK reference](/docs/en/agent-sdk/python#choosing-between-query-and-claudesdkclient) for details.
@@ -304,16 +304,25 @@ When the loop ends, the `ResultMessage` tells you what happened and gives you th
 | `error_during_execution`              | An error interrupted the loop (for example, an API failure or cancelled request)                                                                                                        |             No            |
 | `error_max_structured_output_retries` | No valid structured output was produced within the configured retry limit: every attempt failed validation, or a model fallback retracted the completed output with no successful retry |             No            |
 
-The `result` field (the final text output) is only present on the `success` variant, so always check the subtype before reading it. All result subtypes carry `total_cost_usd`, `usage`, `num_turns`, and `session_id` so you can track cost and resume even after errors. In Python, `total_cost_usd` and `usage` are typed as optional and may be `None` on some error paths, so guard before formatting them. See [Tracking costs and usage](/docs/en/agent-sdk/cost-tracking) for details on interpreting the `usage` fields.
+The `result` field holds the final text output and is only present on the `success` variant, so always check the subtype before reading it.
+
+All result subtypes carry `total_cost_usd`, `usage`, `num_turns`, and `session_id` so you can track cost and resume even after errors. Two things to guard for:
+
+* After a session crash, the final result is an `error_during_execution` whose cost fields may be zeroed and whose `stop_reason` is `null`, and the process exits after emitting it. See [Recover totals after a session crash](/docs/en/agent-sdk/cost-tracking#recover-totals-after-a-session-crash).
+* In Python, `total_cost_usd`, `usage`, and `model_usage` are typed as optional, so check that they aren't `None` before you read them.
+
+The `usage` field covers only the main agent loop. Use `modelUsage`, or `model_usage` in Python, for whole-tree token and cost accounting. See [Tracking costs and usage](/docs/en/agent-sdk/cost-tracking) for details on interpreting the `usage` fields.
 
 <Note>
   When a query ends on an error result:
 
   * A single-shot `query()` call yields the final result message, then raises an error that includes the failure text, such as `Reached maximum number of turns`. The raise is intentional — wrap the loop in a try block if your code needs to continue past it. The underlying Claude Code process also exits with a nonzero code.
-  * A streaming input session stays alive, and you can keep sending messages.
+  * A streaming input session stays alive, and you can keep sending messages, except after a session crash, which emits a final `error_during_execution` result and exits the process.
 </Note>
 
-The result also includes a `stop_reason` field (`string | null` in TypeScript, `str | None` in Python) indicating why the model stopped generating on its final turn. Common values are `end_turn` (model finished normally), `max_tokens` (hit the output token limit), and `refusal` (the model declined the request). On error result subtypes, `stop_reason` carries the value from the last assistant response before the loop ended. To detect refusals, check `stop_reason === "refusal"` (TypeScript) or `stop_reason == "refusal"` (Python). See [`SDKResultMessage`](/docs/en/agent-sdk/typescript#sdkresultmessage) (TypeScript) or [`ResultMessage`](/docs/en/agent-sdk/python#resultmessage) (Python) for the full type.
+The result also includes a `stop_reason` field (`string | null` in TypeScript, `str | None` in Python) indicating why the model stopped generating on its final turn. Common values are `end_turn` (model finished normally), `max_tokens` (hit the output token limit), and `refusal` (the model declined the request). On error results that the loop produced, `stop_reason` carries the value from the last assistant response before the loop ended; the result Claude Code synthesizes after a session crash carries `null`.
+
+To detect refusals, check `stop_reason === "refusal"` (TypeScript) or `stop_reason == "refusal"` (Python). See [`SDKResultMessage`](/docs/en/agent-sdk/typescript#sdkresultmessage) (TypeScript) or [`ResultMessage`](/docs/en/agent-sdk/python#resultmessage) (Python) for the full type.
 
 ## Hooks
 

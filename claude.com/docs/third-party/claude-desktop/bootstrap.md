@@ -336,7 +336,7 @@ When you supply `bootstrapOidc`, your configuration server and gateway are indep
 | Use bootstrap config `bootstrapEnabled` | `boolean` | MDM only | `true` | Fetch and apply the URL above at launch. Turn off to keep the URL saved but skip the fetch. Defaults to `true`. |
 | Bootstrap config URL `bootstrapUrl` | `string` | MDM only | — | HTTPS endpoint that returns a per-user JSON config overlay. Values from the response override local settings and become read-only. |
 | Bootstrap OIDC parameters `bootstrapOidc` | `object` | MDM only | — | When set, the bootstrap request sends a Bearer token from a browser sign-in (authorization-code-with-PKCE). |
-| Trust bootstrap-delivered settings `trustBootstrapDelivery` | `boolean` | MDM only | `false` | Skip the per-user consent prompt for sign-in targets, helper scripts, and connectors the bootstrap server delivers. Defaults to `false`. Previously named `trustBootstrapLocalExec`. |
+| Trust bootstrap-delivered settings `trustBootstrapDelivery` | `boolean` | MDM only | `false` | Skip the per-user consent prompt for sign-in targets, inference endpoints, helper scripts, and connectors the bootstrap server delivers. Defaults to `false`. Previously named `trustBootstrapLocalExec`. |
 
 bootstrapOidc details
 
@@ -344,12 +344,12 @@ Set this to use a separate identity provider (Microsoft Entra ID, Okta, Ping, or
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `clientId` | `string` | — |  |
-| `issuer` | `string` | — |  |
-| `authorizationUrl` | `string` | — |  |
-| `tokenUrl` | `string` | — |  |
+| `clientId` | `string` | — | OAuth client ID of the desktop app registration at your identity provider (public client, PKCE). |
+| `issuer` | `string` | — | HTTPS issuer with OIDC discovery. Set this, or set the authorization and token URLs instead. |
+| `authorizationUrl` | `string` | — | HTTPS authorization endpoint. Used with the token URL when no issuer is set. |
+| `tokenUrl` | `string` | — | HTTPS token endpoint. Used with the authorization URL when no issuer is set. |
 | `scopes` | `string` | — | Space-separated; the token’s audience must match what your bootstrap server validates. |
-| `redirectPort` | `integer` | — |  |
+| `redirectPort` | `integer` | — | Fixed loopback port for the sign-in redirect (<http://127.0.0.1:PORT/callback>). Leave unset to use a free port each time. |
 | `additionalRedirectReferrerHosts` | `string` | — | Space-separated hostnames also accepted as the referrer of the sign-in callback. Only needed when the IdP completes sign-in from a different host. |
 
 No `inferenceProvider` is needed in the MDM profile when using bootstrap; the response supplies it.

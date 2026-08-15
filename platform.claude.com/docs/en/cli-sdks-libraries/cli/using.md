@@ -1,18 +1,18 @@
 <!-- source: https://platform.claude.com/docs/en/cli-sdks-libraries/cli/using -->
 
-# Using the CLI
-
-Command structure, output formats, GJSON transforms, request bodies, and debugging for the ant CLI.
-
+---
+title: Using the CLI
+url: https://platform.claude.com/docs/en/cli-sdks-libraries/cli/using
+description: Command structure, output formats, GJSON transforms, request bodies, and debugging for the ant CLI.
 ---
 
-This page covers the `ant` CLI's input and output mechanics that apply across every endpoint. For installing and authenticating, see the [Quickstart](/docs/en/cli-sdks-libraries/cli/quickstart). For chaining commands and version-controlling resources, see [CLI scripting and automation](/docs/en/cli-sdks-libraries/cli/scripting).
+This page covers the `ant` CLI's input and output mechanics that apply across every endpoint. For installing and authenticating, see the [Quickstart](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart). For chaining commands and version-controlling resources, see [CLI scripting and automation](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/scripting).
 
 ## Command structure
 
 Commands follow a `resource action` pattern. Nested resources use colons:
 
-```text
+```text wrap
 ant <resource>[:<subresource>] <action> [flags]
 ```
 
@@ -22,36 +22,36 @@ Resources in beta (including agents, sessions, deployments, environments, and sk
 
 ```bash
 ant models list
-ant messages create --model claude-opus-4-8 --max-tokens 1024 ...
+ant messages create --model claude-opus-5 --max-tokens 1024 ...
 ant beta:agents retrieve --agent-id agent_01...
 ant beta:sessions:events list --session-id session_01...
 ```
 
 ### Global flags
 
-| Flag | Description |
-| --- | --- |
-| `--profile` | Named profile to use for this invocation (equivalent to setting `ANTHROPIC_PROFILE`). See [Switch between workspaces](/docs/en/cli-sdks-libraries/cli/authentication#switch-between-workspaces). |
-| `--format` | Output format: `auto`, `json`, `jsonl`, `yaml`, `pretty`, `raw`, `explore` |
-| `--transform` | Filter or reshape the response with a [GJSON path](#transform-output-with-gjson) |
-| `-r`, `--raw-output` | Print string results without surrounding quotes, like `jq -r` |
-| `--base-url` | Override the API base URL |
-| `--debug` | Print full HTTP request and response to stderr |
-| `--format-error`, `--transform-error` | Same as `--format` and `--transform` but applied to [error responses](/docs/en/cli-sdks-libraries/cli/scripting#inspect-errors) |
+| Flag                                  | Description                                                                                                                                                                                                                 |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--profile`                           | Named profile to use for this invocation (equivalent to setting `ANTHROPIC_PROFILE`). See [Switch between workspaces](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/authentication#switch-between-workspaces). |
+| `--format`                            | Output format: `auto`, `json`, `jsonl`, `yaml`, `pretty`, `raw`, `explore`                                                                                                                                                  |
+| `--transform`                         | Filter or reshape the response with a [GJSON path](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/using#transform-output-with-gjson)                                                                            |
+| `-r`, `--raw-output`                  | Print string results without surrounding quotes, like `jq -r`                                                                                                                                                               |
+| `--base-url`                          | Override the API base URL                                                                                                                                                                                                   |
+| `--debug`                             | Print full HTTP request and response to stderr                                                                                                                                                                              |
+| `--format-error`, `--transform-error` | Same as `--format` and `--transform` but applied to [error responses](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/scripting#inspect-errors)                                                                  |
 
 ## Output formats
 
-`auto` pretty-prints JSON and is the default for commands that create or modify resources. List and retrieve commands default to the [interactive explorer](#interactive-explorer) when writing to a terminal, and to pretty-printed JSON when piped. Override either default with `--format`:
+`auto` pretty-prints JSON and is the default for commands that create or modify resources. List and retrieve commands default to the [interactive explorer](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/using#interactive-explorer) when writing to a terminal, and to pretty-printed JSON when piped. Override either default with `--format`:
 
 ```bash
-ant models retrieve --model-id claude-opus-4-8 --format yaml
+ant models retrieve --model-id claude-opus-5 --format yaml
 ```
 
 ```yaml Output
 type: model
-id: claude-opus-4-8
-display_name: Claude Opus 4.8
-created_at: "2026-02-04T00:00:00Z"
+id: claude-opus-5
+display_name: Claude Opus 5
+created_at: "2026-07-24T00:00:00Z"
 ...
 ```
 
@@ -76,9 +76,9 @@ ant beta:agents list \
 ```
 
 ```jsonl Output
-{"id": "agent_011CYm1BLqPX...", "name": "Docs CLI Test Agent", "model": "claude-sonnet-4-6"}
-{"id": "agent_011CYkVwfaEt...", "name": "Coffee Making Assistant", "model": "claude-sonnet-4-6"}
-{"id": "agent_011CYixHhtUP...", "name": "Coding Assistant", "model": "claude-opus-4-5"}
+{"id": "agent_011CYm1BLqPX...", "name": "Docs CLI Test Agent", "model": "claude-opus-5"}
+{"id": "agent_011CYkVwfaEt...", "name": "Coffee Making Assistant", "model": "claude-opus-5"}
+{"id": "agent_011CYixHhtUP...", "name": "Coding Assistant", "model": "claude-opus-5"}
 ```
 
 ### Extract a scalar
@@ -88,23 +88,23 @@ To capture a single field as an unquoted string (for example, the ID of a newly 
 ```bash
 AGENT_ID=$(ant beta:agents create \
   --name "My Agent" \
-  --model '{id: claude-sonnet-4-6}' \
+  --model '{id: claude-opus-5}' \
   --transform id --raw-output)
 
 printf '%s\n' "$AGENT_ID"
 ```
 
-```text Output
+```text Output wrap
 agent_011CYm1BLqPXpQRk5khsSXrs
 ```
 
 <Note>
-`--raw-output` is distinct from `--format raw`. `--raw-output` strips JSON quotes from string results, like `jq -r`. `--format raw` prints the response body's raw JSON bytes without auto-paginating; on list endpoints it applies `--transform` to the pagination envelope rather than to each item.
+  `--raw-output` is distinct from `--format raw`. `--raw-output` strips JSON quotes from string results, like `jq -r`. `--format raw` prints the response body's raw JSON bytes without auto-paginating; on list endpoints it applies `--transform` to the pagination envelope rather than to each item.
 </Note>
 
 ## Passing request bodies
 
-The right input mechanism depends on the shape of the data: use **flags** for scalar fields and short structured values, pipe a **stdin** document for nested or multi-line bodies, and use **`@file` references** to pull file contents into any string or binary field.
+The right input mechanism depends on the shape of the data: use **flags** for scalar fields and short structured values, pipe a **stdin** document for nested or multiline bodies, and use **`@file` references** to pull file contents into any string or binary field.
 
 ### Flags
 
@@ -122,26 +122,26 @@ Repeatable flags build arrays. Each `--tool` or `--event` appends one element:
 ```bash
 ant beta:agents create \
   --name "Research Agent" \
-  --model '{id: claude-opus-4-8}' \
+  --model '{id: claude-opus-5}' \
   --tool '{type: agent_toolset_20260401}' \
   --tool '{type: custom, name: search_docs, input_schema: {type: object, properties: {query: {type: string}}}}'
 ```
 
 ### Stdin
 
-Pipe a JSON or YAML document to stdin to supply the full request body. Fields from stdin are merged with flags, with flags taking precedence. Here `version` is the optimistic-locking token returned by an earlier `retrieve`, and `$AGENT_ID` was captured as in [Extract a scalar](#extract-a-scalar):
+Pipe a JSON or YAML document to stdin to supply the full request body. Fields from stdin are merged with flags, with flags taking precedence. Here `version` is the optimistic-locking token returned by an earlier `retrieve`, and `$AGENT_ID` was captured as in [Extract a scalar](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/using#extract-a-scalar):
 
 ```bash
 echo '{"description": "Updated test agent.", "version": 1}' | \
   ant beta:agents update --agent-id "$AGENT_ID"
 ```
 
-Heredocs work the same way and are convenient for multi-line YAML. Quote the delimiter (as in `<<'YAML'`) to disable variable expansion inside the body.
+Heredocs work the same way and are convenient for multiline YAML. Quote the delimiter (as in `<<'YAML'`) to disable variable expansion inside the body.
 
 ```bash
 ant beta:agents create <<'YAML'
 name: Research Agent
-model: claude-opus-4-8
+model: claude-opus-5
 system: |
   You are a research assistant. Cite sources for every claim.
 tools:
@@ -161,7 +161,7 @@ To inline a file's contents into a string-valued field, prefix the path with `@`
 
 ```bash
 ant beta:agents create \
-  --name "Researcher" --model '{id: claude-sonnet-4-6}' \
+  --name "Researcher" --model '{id: claude-opus-5}' \
   --system @./prompts/researcher.txt
 ```
 
@@ -169,13 +169,13 @@ Inside structured flag values, wrap the path in quotes. To send a PDF to the Mes
 
 ```bash
 ant messages create \
-  --model claude-opus-4-8 \
+  --model claude-opus-5 \
   --max-tokens 1024 \
   --message '{role: user, content: [
     {type: document, source: {type: base64, media_type: application/pdf, data: "@./scan.pdf"}},
     {type: text, text: "Extract the text from this scanned document."}
   ]}' \
-  --transform 'content.0.text' --raw-output
+  --transform 'content.#(type=="text").text' --raw-output
 ```
 
 The CLI detects the file type and encodes binary files as base64 automatically. To force a specific encoding use `@file://` for plain text or `@data://` for base64. Escape a literal leading `@` with a backslash (`\@username`).
@@ -188,7 +188,7 @@ Add `--debug` to any command to print the exact HTTP request and response (heade
 ant --debug beta:agents list
 ```
 
-```text Output
+```text Output wrap
 GET /v1/agents?beta=true HTTP/1.1
 Host: api.anthropic.com
 Anthropic-Beta: managed-agents-2026-04-01
@@ -199,18 +199,20 @@ X-Api-Key: <REDACTED>
 
 ## Available resources
 
-Every API resource the CLI exposes is documented in the [API reference](/docs/en/api/cli/messages/create). For a local listing, run `ant --help`, and append `--help` to any subcommand for its flags and parameters.
+Every API resource the CLI exposes is documented in the [API reference](https://platform.claude.com/docs/en/api/cli/messages/create). For a local listing, run `ant --help`, and append `--help` to any subcommand for its flags and parameters.
 
 ## Next steps
 
 <CardGroup cols={3}>
-  <Card title="CLI scripting and automation" icon="code" href="/docs/en/cli-sdks-libraries/cli/scripting">
+  <Card title="CLI scripting and automation" icon="code" href="https://platform.claude.com/docs/en/cli-sdks-libraries/cli/scripting">
     Version-control API resources, scripting patterns, and use from Claude Code
   </Card>
-  <Card title="API reference" icon="book" href="/docs/en/api/cli/messages/create">
+
+  <Card title="API reference" icon="book" href="https://platform.claude.com/docs/en/api/cli/messages/create">
     Endpoint-specific parameters, request fields, and response schemas
   </Card>
-  <Card title="CLI authentication options" icon="lock" href="/docs/en/cli-sdks-libraries/cli/authentication">
+
+  <Card title="CLI authentication options" icon="lock" href="https://platform.claude.com/docs/en/cli-sdks-libraries/cli/authentication">
     API keys, headless hosts, multiple workspaces, and named profiles
   </Card>
 </CardGroup>

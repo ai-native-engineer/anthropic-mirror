@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/sessions/resources/retrieve -->
 
+---
+title: Get Session Resource
+url: https://platform.claude.com/docs/en/api/beta/sessions/resources/retrieve
+---
+
 ## Get Session Resource
 
 **get** `/v1/sessions/{session_id}/resources/{resource_id}`
@@ -20,7 +25,7 @@ Get Session Resource
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -72,11 +77,21 @@ Get Session Resource
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -100,7 +115,7 @@ Get Session Resource
 
   - `url: string`
 
-  - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+  - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout or null`
 
     - `BetaManagedAgentsBranchCheckout object { name, type }`
 
@@ -154,7 +169,7 @@ Get Session Resource
 
     - `"memory_store"`
 
-  - `access: optional "read_write" or "read_only"`
+  - `access: optional "read_write" or "read_only" or null`
 
     Access mode for an attached memory store.
 
@@ -166,15 +181,15 @@ Get Session Resource
 
     Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
 
-  - `instructions: optional string`
+  - `instructions: optional string or null`
 
     Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
-  - `mount_path: optional string`
+  - `mount_path: optional string or null`
 
     Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
 
-  - `name: optional string`
+  - `name: optional string or null`
 
     Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
 

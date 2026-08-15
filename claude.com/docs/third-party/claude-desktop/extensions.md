@@ -22,11 +22,11 @@ Admins can disable the user layer entirely; see [Controlling user extensions](#c
 ##  Managed MCP servers (admin)
 
 Use the `managedMcpServers` configuration key to deploy MCP servers (remote HTTP/SSE or local stdio command) to every device. These appear in the user’s connector list automatically, can’t be removed by the user, and support per-tool policy locks (`allow` / `ask` / `blocked`). The same key also activates the servers bundled inside the app (Microsoft 365, web search, and GitHub); see [Built-in connectors](https://claude.com/docs/third-party/claude-desktop/built-in-connectors).
-The **Connectors & extensions** section of the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration) provides a form for each server: name, per-tool policy, headers or a headers helper script, transport, and URL.
+The **Connectors** section of the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration) provides a form for each server: name, per-tool policy, headers or a headers helper script, transport, and URL.
 
 ![In-app configuration window showing a managed MCP server named sentry, with fields for name, tool policy, headers, headers helper script, Streamable HTTP transport, and URL.](https://mintcdn.com/claude-ai/JnLDSb03Rtghdgpj/images/third-party/config-window-managed-mcp.png?fit=max&auto=format&n=JnLDSb03Rtghdgpj&q=85&s=294cce4e42a951fc5479c36676c3b3b5)
 
-A managed MCP server in the Connectors & extensions section of the in-app configuration window.
+A managed MCP server in the Connectors section of the in-app configuration window.
 
 In the exported configuration, each server is one entry in the `managedMcpServers` array:
 
@@ -48,7 +48,8 @@ In the exported configuration, each server is one entry in the `managedMcpServer
 ```
 
 See the [`managedMcpServers` schema](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) in the configuration reference for every field, including static headers, OAuth, and the headers-helper executable for short-lived tokens.
-In the in-app configuration window, each server you add under **Connectors & extensions** has a **Test this connection** button that runs a live MCP `initialize` and `tools/list` against the server using the headers or OAuth settings you’ve entered, then shows the round-trip latency, the discovered tool list, or the error returned. Use it to validate reachability and credentials before exporting the configuration.
+For a server whose OAuth sign-in goes to Microsoft Entra ID, you can run that sign-in through the [OS identity broker](https://claude.com/docs/third-party/claude-desktop/entra-broker) instead of the system browser by setting `authFlow` to `broker` inside the entry’s `oauth` object, alongside `tenantId`, `clientId`, and `scope`. On a device where the broker is unavailable, sign-in for that server falls back to the system browser, so keep the loopback redirect URI registered as well if any devices lack the broker.
+In the in-app configuration window, each server you add under **Connectors** has a **Test this connection** button that runs a live MCP `initialize` and `tools/list` against the server using the headers or OAuth settings you’ve entered, then shows the round-trip latency, the discovered tool list, or the error returned. Use it to validate reachability and credentials before exporting the configuration.
 
 ###  Short-lived credentials with a headers helper
 
@@ -121,13 +122,13 @@ The marketplace `name` must match `^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$` and must 
 
 ###  Configure the marketplace
 
-You can add marketplaces directly in the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration): in the **Plugins & skills** section, click **Add marketplace** and choose **Blank**, **GitHub repo**, or **Git URL**. The form validates the entry against the repository and exports the encoded JSON for you.
+You can add marketplaces directly in the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration): in the **Plugins** section, click **Add marketplace** and choose **Blank**, **GitHub repo**, or **Git URL**. The form validates the entry against the repository and exports the encoded JSON for you.
 
-![In-app configuration window Plugins & skills section showing the plugin marketplaces card with an open Add marketplace menu offering Blank, GitHub repo, and Git URL, above the organization plugins folder path with two loaded plugins.](https://mintcdn.com/claude-ai/JnLDSb03Rtghdgpj/images/third-party/config-window-plugin-marketplaces.png?fit=max&auto=format&n=JnLDSb03Rtghdgpj&q=85&s=a9bdd6d5bdbf22716340aedf1cc2d16b)
+![In-app configuration window Plugins section showing the plugin marketplaces card with an open Add marketplace menu offering Blank, GitHub repo, and Git URL, above the organization plugins folder path with two loaded plugins.](https://mintcdn.com/claude-ai/JnLDSb03Rtghdgpj/images/third-party/config-window-plugin-marketplaces.png?fit=max&auto=format&n=JnLDSb03Rtghdgpj&q=85&s=a9bdd6d5bdbf22716340aedf1cc2d16b)
 
-The Plugins & skills section of the in-app configuration window, with the Add marketplace menu and the organization plugins folder.
+The Plugins section of the in-app configuration window, with the Add marketplace menu and the organization plugins folder.
 
-To write the configuration by hand instead, add the repository to the [`allowedPluginMarketplaces`](https://claude.com/docs/third-party/claude-desktop/configuration) configuration key. The key is read from an MDM profile, local configuration, or the [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap) response. In an MDM profile the value is a JSON array encoded as a string (see [Value types](https://claude.com/docs/third-party/claude-desktop/configuration#value-types)); writing a native plist array instead of a string is the most common reason the Organization tab does not appear. In a local configuration file or the bootstrap response the value is a native JSON array.
+To write the configuration by hand instead, add the repository to the [`allowedPluginMarketplaces`](https://claude.com/docs/third-party/claude-desktop/configuration) configuration key. The key is read from an MDM profile, local configuration, or the [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap) response. In an MDM profile the value is a JSON array encoded as a string (see [Value types](https://claude.com/docs/third-party/claude-desktop/configuration#value-types)). In a local configuration file or the bootstrap response the value is a native JSON array.
 
 .mobileconfig (macOS)
 
@@ -266,23 +267,22 @@ Unless restricted by an admin, end users can add their own extensions through th
 
 * **Plugins:** install plugins (which can bundle skills, hooks, slash commands, and sub-agents) from the Plugins settings page
 * **Skills:** create and upload their own [skills](https://claude.com/docs/skills/overview), including by asking Claude to save one in a conversation
-* **Connectors:** install local desktop extensions (`.mcpb`) from the Connectors settings page
-* **Local MCP servers:** add local MCP server processes from **Settings → Developer**, when enabled by the admin
+* **Local MCP servers:** add local MCP server processes from **Settings → Developer**
 
-End users cannot add remote MCP servers; remote servers are available only via admin-provisioned `managedMcpServers` or organization plugins. User-added extensions are stored in the user’s [local data directory](https://claude.com/docs/third-party/claude-desktop/data-storage) and apply only to that device.
+End users cannot add remote MCP servers or install desktop extension files (`.mcpb`) themselves. Remote servers are available only via admin-provisioned `managedMcpServers` or organization plugins. User-added extensions are stored in the user’s [local data directory](https://claude.com/docs/third-party/claude-desktop/data-storage) and apply only to that device.
 
 ##  Controlling user extensions
 
 Admins can restrict or disable each user-extension surface independently via managed configuration:
 
-| Key | Effect when `false` |
-| --- | --- |
-| `isLocalDevMcpEnabled` | Users cannot add their own local MCP servers from **Settings → Developer**. |
-| `isDesktopExtensionEnabled` | Users cannot install local `.mcpb` desktop extensions. |
-| `isDesktopExtensionSignatureRequired` | (When `true`) Unsigned `.mcpb` extensions are rejected. |
-| `skillCreationEnabled` | Users cannot create or upload skills in the app. Claude does not offer to create or update skills in conversations. |
+| Key | Default | Effect when `false` |
+| --- | --- | --- |
+| `isLocalDevMcpEnabled` | `true` | Users cannot add their own local MCP servers from **Settings → Developer**. |
+| `isDesktopExtensionEnabled` | `false` | Desktop extensions (`.mcpb`) bundled in plugins are not loaded. Set to `true` to allow them. |
+| `isDesktopExtensionSignatureRequired` | `false` | (When `true`) Unsigned `.mcpb` extensions are rejected. |
+| `skillCreationEnabled` | `true` | Users cannot create or upload skills in the app. Claude does not offer to create or update skills in conversations. |
 
-Setting the first two to `false` restricts MCP servers and connectors to those delivered through `managedMcpServers` and `org-plugins/`. Setting [`skillCreationEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#skillcreationenabled) to `false` turns off skill creation and upload in the app. Skills already on the device keep working, as do skills from [organization plugins](#organization-plugins-admin). Users can still install plugins regardless of these settings. See the [Locked down profile](https://claude.com/docs/third-party/claude-desktop/configuration#recommended-security-profiles) for a complete example.
+Setting `isLocalDevMcpEnabled` to `false` and leaving `isDesktopExtensionEnabled` at `false` restricts MCP servers and connectors to those delivered through `managedMcpServers` and `org-plugins/`. Setting [`skillCreationEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#skillcreationenabled) to `false` turns off skill creation and upload in the app. Skills already on the device keep working, as do skills from [organization plugins](#organization-plugins-admin). Users can still install plugins regardless of these settings. See the [Locked down profile](https://claude.com/docs/third-party/claude-desktop/configuration#recommended-security-profiles) for a complete example.
 
 ##  Related topics
 

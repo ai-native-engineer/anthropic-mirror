@@ -25,7 +25,7 @@ The set up that makes Claude Cowork specific to your work or team.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f20fbd94c0c5ae1f42dcfc_Screenshot%202026-04-29%20at%207.03.33%E2%80%AFAM.png)
 
-[Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) runs full tasks across your files and tools. Customizing it once means every task after that starts with your systems connected and your team's process already in place. For the quickstart, see [Get started in Cowork in three steps](https://claude.com/resources/tutorials/get-started-in-claude-cowork-in-three-steps).
+[Claude Cowork](https://claude.com/product/cowork) runs full tasks across your files and tools. Customizing it once means every task after that starts with your systems connected and your team's process already in place. For the quickstart, see [Get started in Cowork in three steps](https://claude.com/resources/tutorials/get-started-in-claude-cowork-in-three-steps).
 
 ## Level 1: Your context and tools
 

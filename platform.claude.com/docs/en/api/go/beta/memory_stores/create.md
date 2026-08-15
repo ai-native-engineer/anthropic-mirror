@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/memory_stores/create -->
 
+---
+title: Create a memory store
+url: https://platform.claude.com/docs/en/api/go/beta/memory_stores/create
+---
+
 ## Create a memory store
 
 `client.Beta.MemoryStores.New(ctx, params) (*BetaManagedAgentsMemoryStore, error)`
@@ -95,6 +100,8 @@ Create a memory store
       - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

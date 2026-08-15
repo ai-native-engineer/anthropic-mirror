@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/skills/retrieve -->
 
+---
+title: Get Skill
+url: https://platform.claude.com/docs/en/api/cli/beta/skills/retrieve
+---
+
 ## Get Skill
 
 `$ ant beta:skills retrieve`

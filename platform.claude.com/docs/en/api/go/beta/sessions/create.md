@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/sessions/create -->
 
+---
+title: Create Session
+url: https://platform.claude.com/docs/en/api/go/beta/sessions/create
+---
+
 ## Create Session
 
 `client.Beta.Sessions.New(ctx, params) (*BetaManagedAgentsSession, error)`
@@ -192,6 +197,10 @@ Create Session
 
                 - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
+          - `InferenceGeo string`
+
+            Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo. On update, `model` is whole-object replacement — omitting inference_geo clears it.
+
           - `Speed BetaManagedAgentsModelConfigParamsSpeed`
 
             Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
@@ -382,7 +391,7 @@ Create Session
 
           - `Description string`
 
-            Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
+            Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
           - `InputSchema BetaManagedAgentsCustomToolInputSchema`
 
@@ -411,6 +420,10 @@ Create Session
   - `EnvironmentID param.Field[string]`
 
     Body param: ID of the `environment` defining the container configuration for this session.
+
+  - `Budget param.Field[BetaManagedAgentsBudgetLimit]`
+
+    Body param: A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
   - `InitialEvents param.Field[[]BetaSessionNewParamsInitialEventUnion]`
 
@@ -565,6 +578,14 @@ Create Session
           - `Title string`
 
             The title of the document.
+
+        - `type BetaManagedAgentsRedactedBlockParam struct{…}`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `Type BetaManagedAgentsRedactedBlockType`
+
+            - `const BetaManagedAgentsRedactedBlockTypeRedacted BetaManagedAgentsRedactedBlockType = "redacted"`
 
       - `Type BetaManagedAgentsUserMessageEventParamsType`
 
@@ -786,6 +807,8 @@ Create Session
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
 ### Returns
 
 - `type BetaManagedAgentsSession struct{…}`
@@ -926,6 +949,10 @@ Create Session
 
             - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
+      - `InferenceGeo string`
+
+        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
@@ -938,199 +965,215 @@ Create Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
-      - `Agents []BetaManagedAgentsSessionThreadAgent`
+      - `Agents []BetaManagedAgentsSessionMultiagentCoordinatorAgentUnion`
 
         Full `agent` definitions the coordinator may spawn as session threads.
 
-        - `ID string`
+        - `type BetaManagedAgentsSessionThreadAgent struct{…}`
 
-        - `Description string`
+          Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
-        - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
+          - `ID string`
 
-          - `Name string`
+          - `Description string`
 
-          - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-          - `URL string`
-
-        - `Model BetaManagedAgentsModelConfig`
-
-          Model identifier and configuration.
-
-        - `Name string`
-
-        - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
-
-          - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-            A resolved Anthropic-managed skill.
-
-            - `SkillID string`
-
-            - `Type BetaManagedAgentsAnthropicSkillType`
-
-              - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
-
-            - `Version string`
-
-          - `type BetaManagedAgentsCustomSkill struct{…}`
-
-            A resolved user-created custom skill.
-
-            - `SkillID string`
-
-            - `Type BetaManagedAgentsCustomSkillType`
-
-              - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
-
-            - `Version string`
-
-        - `System string`
-
-        - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
-
-          - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-            - `Configs []BetaManagedAgentsAgentToolConfig`
-
-              - `Enabled bool`
-
-              - `Name BetaManagedAgentsAgentToolConfigName`
-
-                Built-in agent tool identifier.
-
-                - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
-
-                - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
-
-                - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
-
-                - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
-
-                - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
-
-                - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
-
-                - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
-
-                - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
-
-              - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
-
-                Permission policy for tool execution.
-
-                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                  - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                    - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
-
-                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                  Tool calls require user confirmation before execution.
-
-                  - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                    - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
-            - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
-
-              Resolved default configuration for agent tools.
-
-              - `Enabled bool`
-
-              - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
-
-                Permission policy for tool execution.
-
-                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                  Tool calls require user confirmation before execution.
-
-            - `Type BetaManagedAgentsAgentToolset20260401Type`
-
-              - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
-
-          - `type BetaManagedAgentsMCPToolset struct{…}`
-
-            - `Configs []BetaManagedAgentsMCPToolConfig`
-
-              - `Enabled bool`
-
-              - `Name string`
-
-              - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
-
-                Permission policy for tool execution.
-
-                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                  Tool calls require user confirmation before execution.
-
-            - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
-
-              Resolved default configuration for all tools from an MCP server.
-
-              - `Enabled bool`
-
-              - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
-
-                Permission policy for tool execution.
-
-                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                  Tool calls require user confirmation before execution.
-
-            - `MCPServerName string`
-
-            - `Type BetaManagedAgentsMCPToolsetType`
-
-              - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
-
-          - `type BetaManagedAgentsCustomTool struct{…}`
-
-            A custom tool as returned in API responses.
-
-            - `Description string`
-
-            - `InputSchema BetaManagedAgentsCustomToolInputSchema`
-
-              JSON Schema for custom tool input parameters.
-
-              - `Type Object`
-
-                - `const ObjectObject Object = "object"`
-
-              - `Properties map[string, any]`
-
-              - `Required []string`
+          - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
 
             - `Name string`
 
-            - `Type BetaManagedAgentsCustomToolType`
+            - `Type BetaManagedAgentsMCPServerURLDefinitionType`
 
-              - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
+            - `URL string`
 
-        - `Type BetaManagedAgentsSessionThreadAgentType`
+          - `Model BetaManagedAgentsModelConfig`
 
-          - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
+            Model identifier and configuration.
 
-        - `Version int64`
+          - `Name string`
+
+          - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
+
+            - `type BetaManagedAgentsAnthropicSkill struct{…}`
+
+              A resolved Anthropic-managed skill.
+
+              - `SkillID string`
+
+              - `Type BetaManagedAgentsAnthropicSkillType`
+
+                - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
+
+              - `Version string`
+
+            - `type BetaManagedAgentsCustomSkill struct{…}`
+
+              A resolved user-created custom skill.
+
+              - `SkillID string`
+
+              - `Type BetaManagedAgentsCustomSkillType`
+
+                - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
+
+              - `Version string`
+
+          - `System string`
+
+          - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
+
+            - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
+
+              - `Configs []BetaManagedAgentsAgentToolConfig`
+
+                - `Enabled bool`
+
+                - `Name BetaManagedAgentsAgentToolConfigName`
+
+                  Built-in agent tool identifier.
+
+                  - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
+
+                  - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
+
+                  - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
+
+                  - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
+
+                  - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
+
+                  - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
+
+                  - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
+
+                  - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
+
+                - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
+
+                  Permission policy for tool execution.
+
+                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                    - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+
+                      - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
+
+                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                    Tool calls require user confirmation before execution.
+
+                    - `Type BetaManagedAgentsAlwaysAskPolicyType`
+
+                      - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
+
+              - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                Resolved default configuration for agent tools.
+
+                - `Enabled bool`
+
+                - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
+
+                  Permission policy for tool execution.
+
+                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                    Tool calls require user confirmation before execution.
+
+              - `Type BetaManagedAgentsAgentToolset20260401Type`
+
+                - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
+
+            - `type BetaManagedAgentsMCPToolset struct{…}`
+
+              - `Configs []BetaManagedAgentsMCPToolConfig`
+
+                - `Enabled bool`
+
+                - `Name string`
+
+                - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
+
+                  Permission policy for tool execution.
+
+                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                    Tool calls require user confirmation before execution.
+
+              - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+
+                - `Enabled bool`
+
+                - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
+
+                  Permission policy for tool execution.
+
+                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                    Tool calls require user confirmation before execution.
+
+              - `MCPServerName string`
+
+              - `Type BetaManagedAgentsMCPToolsetType`
+
+                - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
+
+            - `type BetaManagedAgentsCustomTool struct{…}`
+
+              A custom tool as returned in API responses.
+
+              - `Description string`
+
+              - `InputSchema BetaManagedAgentsCustomToolInputSchema`
+
+                JSON Schema for custom tool input parameters.
+
+                - `Type Object`
+
+                  - `const ObjectObject Object = "object"`
+
+                - `Properties map[string, any]`
+
+                - `Required []string`
+
+              - `Name string`
+
+              - `Type BetaManagedAgentsCustomToolType`
+
+                - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
+
+          - `Type BetaManagedAgentsSessionThreadAgentType`
+
+            - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
+
+          - `Version int64`
+
+        - `type BetaManagedAgentsAdvisor struct{…}`
+
+          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+          - `Model string`
+
+            The advisor model id.
+
+          - `Type BetaManagedAgentsAdvisorType`
+
+            - `const BetaManagedAgentsAdvisorTypeAdvisor BetaManagedAgentsAdvisorType = "advisor"`
 
       - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
 
@@ -1169,6 +1212,28 @@ Create Session
   - `ArchivedAt Time`
 
     A timestamp in RFC 3339 format
+
+  - `Budget BetaManagedAgentsBudgetLimit`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `MaxListCost BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `Amount string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `Currency BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `const BetaCurrencyUsd BetaCurrency = "USD"`
+
+    - `Type BetaManagedAgentsBudgetLimitType`
+
+      - `const BetaManagedAgentsBudgetLimitTypeLimit BetaManagedAgentsBudgetLimitType = "limit"`
 
   - `CreatedAt Time`
 
@@ -1348,6 +1413,10 @@ Create Session
 
     Cumulative token usage for a session across all turns.
 
+    - `ActiveSeconds float64`
+
+      Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
+
     - `CacheCreation BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
@@ -1368,9 +1437,25 @@ Create Session
 
       Total input tokens consumed across all turns.
 
+    - `ListCost BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
     - `OutputTokens int64`
 
       Total output tokens generated across all turns.
+
+    - `ServerToolUse BetaManagedAgentsServerToolUsage`
+
+      Cumulative count of server-executed tool invocations, broken down by tool.
+
+      - `WebFetchRequests int64`
+
+        Number of server-executed web fetch requests.
+
+      - `WebSearchRequests int64`
+
+        Number of server-executed web search requests.
 
   - `VaultIDs []string`
 
@@ -1430,6 +1515,7 @@ func main() {
       "effort": {
         "type": "low"
       },
+      "inference_geo": "inference_geo",
       "speed": "standard"
     },
     "multiagent": {
@@ -1449,6 +1535,7 @@ func main() {
             "effort": {
               "type": "low"
             },
+            "inference_geo": "inference_geo",
             "speed": "standard"
           },
           "name": "Researcher",
@@ -1524,6 +1611,13 @@ func main() {
     "version": 1
   },
   "archived_at": null,
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  },
   "created_at": "2026-03-15T10:00:00Z",
   "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "metadata": {},
@@ -1569,13 +1663,22 @@ func main() {
   "type": "session",
   "updated_at": "2026-03-15T10:00:00Z",
   "usage": {
+    "active_seconds": 0,
     "cache_creation": {
       "ephemeral_1h_input_tokens": 0,
       "ephemeral_5m_input_tokens": 0
     },
     "cache_read_input_tokens": 0,
     "input_tokens": 0,
-    "output_tokens": 0
+    "list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "output_tokens": 0,
+    "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 3
+    }
   },
   "vault_ids": [
     "vlt_011CZkZDLs7fYzm1hXNPeRjv"

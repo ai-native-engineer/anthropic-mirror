@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/memory_stores/memories -->
 
+---
+title: Memories
+url: https://platform.claude.com/docs/en/api/php/beta/memory_stores/memories
+---
+
 # Memories
 
 ## Create a memory
@@ -86,7 +91,7 @@ $betaManagedAgentsMemory = $client->beta->memoryStores->memories->create(
   content: 'content',
   path: 'xx',
   view: ManagedAgentsMemoryView::BASIC,
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaManagedAgentsMemory);
@@ -111,7 +116,7 @@ var_dump($betaManagedAgentsMemory);
 
 ## List memories
 
-`$client->beta->memoryStores->memories->list(string memoryStoreID, ?int depth, ?int limit, ?Order order, ?string orderBy, ?string page, ?string pathPrefix, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsMemoryListItem>`
+`$client->beta->memoryStores->memories->list(string memoryStoreID, ?int depth, ?int limit, ?string page, ?string pathPrefix, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsMemoryListItem>`
 
 **get** `/v1/memory_stores/{memory_store_id}/memories`
 
@@ -123,31 +128,23 @@ List memories
 
 - `depth?:optional int`
 
-  Query parameter for depth
+  `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
 
 - `limit?:optional int`
 
-  Query parameter for limit
-
-- `order?:optional Order`
-
-  Query parameter for order
-
-- `orderBy?:optional string`
-
-  Query parameter for order_by
+  Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
 
 - `page?:optional string`
 
-  Query parameter for page
+  Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
 - `pathPrefix?:optional string`
 
-  Optional path prefix filter (raw string-prefix match; include a trailing slash for directory-scoped lists). This value appears in request URLs. Do not include secrets or personally identifiable information.
+  Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -218,12 +215,10 @@ $page = $client->beta->memoryStores->memories->list(
   'memory_store_id',
   depth: 0,
   limit: 0,
-  order: 'asc',
-  orderBy: 'order_by',
   page: 'page',
   pathPrefix: 'path_prefix',
   view: ManagedAgentsMemoryView::BASIC,
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($page);
@@ -328,7 +323,7 @@ $betaManagedAgentsMemory = $client->beta->memoryStores->memories->retrieve(
   'memory_id',
   memoryStoreID: 'memory_store_id',
   view: ManagedAgentsMemoryView::BASIC,
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaManagedAgentsMemory);
@@ -445,7 +440,7 @@ $betaManagedAgentsMemory = $client->beta->memoryStores->memories->update(
   precondition: [
     'type' => 'content_sha256', 'contentSha256' => 'content_sha256'
   ],
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaManagedAgentsMemory);
@@ -513,7 +508,7 @@ $betaManagedAgentsDeletedMemory = $client->beta->memoryStores->memories->delete(
   'memory_id',
   memoryStoreID: 'memory_store_id',
   expectedContentSha256: 'expected_content_sha256',
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaManagedAgentsDeletedMemory);

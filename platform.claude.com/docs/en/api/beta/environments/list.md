@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/environments/list -->
 
+---
+title: List Environments
+url: https://platform.claude.com/docs/en/api/beta/environments/list
+---
+
 ## List Environments
 
 **get** `/v1/environments`
@@ -28,7 +33,7 @@ List environments with pagination support.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -80,11 +85,21 @@ List environments with pagination support.
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -96,7 +111,7 @@ List environments with pagination support.
 
     Environment identifier (e.g., 'env_...')
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     RFC 3339 timestamp when environment was archived, or null if not archived
 
@@ -228,7 +243,7 @@ List environments with pagination support.
 
     - `"account"`
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token for fetching the next page of results. If `null`, there are no more results available. Pass this value to the `page` parameter in the next request.
 

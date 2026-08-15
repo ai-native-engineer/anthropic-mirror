@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/environments/work/poll -->
 
+---
+title: Poll for Work
+url: https://platform.claude.com/docs/en/api/python/beta/environments/work/poll
+---
+
 ## Poll for Work
 
 `beta.environments.work.poll(strenvironment_id, WorkPollParams**kwargs)  -> BetaSelfHostedWork`
@@ -28,7 +33,7 @@ Long poll for work items in the queue.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -93,6 +98,8 @@ Long poll for work items in the queue.
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 - `anthropic_worker_id: Optional[str]`
 

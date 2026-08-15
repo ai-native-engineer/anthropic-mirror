@@ -174,6 +174,30 @@ Customer stories
 
 Inside the startups and founders using Claude. See what they shipped, and what it gave back.
 
+[View story](https://claude.com/customers/vega-security)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7cd9b3a32e0823cc2246db_logo_vega-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7cd9b694804d6ccb090f8f_logo_vega-dark-mode.svg)
+
+Vega's cyber defense platform returns 67% of analysts' time with Claude
+
+Vega Security
+
+Startup
+
+AWS
+
+North America
+
+August 12, 2026
+
+Claude Agent SDK
+
+Claude Platform
+
+Cybersecurity
+
+Claude Agent SDK
+
 [View story](https://claude.com/customers/wondr-health)View story
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7554a1ec915407cc422bfa_logo_wondrhealth-light-mode%201.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7554a6949ac0de1b799cd2_logo_wondrhealth-dark-mode.png)
@@ -188,7 +212,7 @@ AWS
 
 North America
 
-August 14, 2026
+August 7, 2026
 
 Claude Platform
 
@@ -277,30 +301,6 @@ North America
 June 25, 2026
 
 Cybersecurity
-
-Claude Platform
-
-[View story](https://claude.com/customers/juno)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a30dd3770a64a8d0590bd78_logo_juno2-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a30dd3ac6c210dba5fe16c6_logo_juno2-dark-mode.svg)
-
-Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Juno
-
-Startup
-
-North America
-
-June 16, 2026
-
-Claude Platform
-
-Claude Code
-
-Claude Cowork
-
-Software
 
 Claude Platform
 

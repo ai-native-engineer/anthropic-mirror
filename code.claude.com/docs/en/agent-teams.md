@@ -59,6 +59,10 @@ Agent teams are disabled by default. Enable them by setting the `CLAUDE_CODE_EXP
 }
 ```
 
+Enabling agent teams also changes ordinary delegation. Claude may [name a subagent](/docs/en/sub-agents#subagent-names) on its own, and while agent teams are enabled, a subagent that Claude names launches as a teammate, so teams can form even when you didn't ask for one. For more, see [How Claude starts agent teams](#how-claude-starts-agent-teams); to turn the behavior off, see [Claude spawns teammates instead of subagents](#claude-spawns-teammates-instead-of-subagents).
+
+Spawning teammates also requires an interactive session. In [non-interactive mode](/docs/en/headless) with the `-p` flag, including Agent SDK sessions, Claude doesn't spawn teammates, and a subagent that Claude names runs as an ordinary [subagent](/docs/en/sub-agents) even with agent teams enabled.
+
 ## Start your first agent team
 
 After enabling agent teams, describe the task and the teammates you want in natural language. Claude spawns them and coordinates work based on your prompt.
@@ -206,12 +210,9 @@ This section covers the architecture and mechanics behind agent teams. If you wa
 
 ### How Claude starts agent teams
 
-An agent team forms when the first teammate is spawned, with the main session acting as the lead. There are two ways teammates get spawned:
+To start a team, ask Claude for teammates. Claude launches a teammate when it calls the [Agent tool](/docs/en/tools-reference) with a [`name`](/docs/en/sub-agents#subagent-names) while agent teams are enabled, and Claude Code doesn't ask you to confirm. Claude also names ordinary subagents on its own so it can message them later, and while agent teams are enabled, a named subagent launches as a teammate, so teams can form even when you didn't ask for one.
 
-* **You request teammates**: give Claude a task that benefits from parallel work and explicitly ask for teammates. Claude spawns them based on your instructions.
-* **Claude proposes teammates**: if Claude determines your task would benefit from parallel work, it may suggest spawning teammates. You confirm before it proceeds.
-
-In both cases, you stay in control. Claude won't spawn teammates without your approval.
+If you want subagents instead, [turn agent teams off](#claude-spawns-teammates-instead-of-subagents).
 
 ### Architecture
 
@@ -224,9 +225,9 @@ An agent team consists of:
 | **Task list** | Shared list of work items that teammates claim and complete             |
 | **Mailbox**   | Messaging system for communication between agents                       |
 
-See [Choose a display mode](#choose-a-display-mode) for display configuration options. Teammate messages arrive at the lead automatically.
-
 Each agent's mailbox is a JSON file at `~/.claude/teams/{team-name}/inboxes/{agent-name}.json`. Claude Code validates every entry when it reads a mailbox file. Entries that don't match the message format are reported as errors and removed from the file; the valid messages are still delivered. Before v2.1.207, a single malformed mailbox entry caused a repeated error every second and blocked delivery for that mailbox until you deleted the file manually.
+
+Claude Code reports a message as sent only when the write to the recipient's mailbox file succeeds, whether the message is plain text or a structured protocol message such as a plan approval or shutdown request. When the write fails, for example because the disk is full or the mailbox directory isn't writable, the sending agent receives an error and nothing is sent. See [Failed to write to a teammate's inbox](/docs/en/errors#failed-to-write-to-a-teammate-inbox) for the error messages and recovery steps.
 
 Claude Code manages task dependencies automatically: when a teammate completes a task that other tasks depend on, it unblocks the dependent tasks without any action from you.
 
@@ -235,7 +236,7 @@ Teams and tasks are stored locally under a session-derived name. The name is `se
 * **Team config**: `~/.claude/teams/{team-name}/config.json`
 * **Task list**: `~/.claude/tasks/{team-name}/`
 
-Claude Code generates both of these automatically at session startup and updates them as teammates join, go idle, or leave. The team config directory is removed when the session ends. The task list directory persists locally and is never uploaded, so resumed sessions keep their tasks. Retention is governed by the same [`cleanupPeriodDays`](/docs/en/settings#available-settings) you already control for session transcripts.
+Claude Code generates both of these automatically at session startup and updates them as teammates join, go idle, or leave. The team config directory is removed when the session ends. The task list directory persists locally and is never uploaded, so resumed sessions keep their tasks. Retention is governed by the same [`cleanupPeriodDays`](/docs/en/settings#available-settings) you already control for session transcripts, following the [retention sweep rules](/docs/en/claude-directory#cleaned-up-automatically).
 
 The team config holds runtime state such as session IDs and tmux pane IDs, so don't edit it by hand or pre-author it: your changes are overwritten on the next state update.
 
@@ -283,7 +284,7 @@ Each teammate has its own context window. When spawned, a teammate loads the sam
 **How teammates share information:**
 
 * **Automatic message delivery**: when teammates send messages, they're delivered automatically to recipients. The lead doesn't need to poll for updates.
-* **Idle notifications**: when a teammate finishes and stops, it automatically notifies the lead. As of v2.1.198, a teammate whose turn ends on an API error notifies the lead that it failed and includes the error text, instead of appearing to finish normally.
+* **Idle notifications**: when a teammate finishes and stops, it automatically notifies the lead. The notification doesn't carry the teammate's output; a teammate shares results by messaging the lead or updating the shared task list. As of v2.1.198, a teammate whose turn ends on an API error notifies the lead that it failed and includes the error text, instead of appearing to finish normally.
 * **Shared task list**: all agents can see task status and claim available work.
 * **Teammate messaging**: send a message to one specific teammate by name. To reach everyone, send one message per recipient.
 
@@ -396,6 +397,32 @@ If teammates aren't appearing after you ask Claude to spawn them:
   ```
 * For iTerm2, verify the `it2` CLI is installed and the Python API is enabled in iTerm2 preferences.
 
+### Claude spawns teammates instead of subagents
+
+While agent teams are enabled, a subagent that Claude names in the lead's session launches as a teammate. Claude [can name subagents on its own](#how-claude-starts-agent-teams), so this can happen during delegation you never framed as team work. Subagents and teammates report back differently:
+
+* **Subagents**: Claude receives the subagent's result when it completes.
+* **Teammates**: the [idle notification](#context-and-communication) reports that the teammate stopped, without its output.
+
+An orchestration flow that waits on subagent results can stall. To make named subagents launch as subagents again, turn agent teams off by setting `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` to `0`:
+
+```json settings.json theme={null}
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "0"
+  }
+}
+```
+
+You don't need to start a new session: Claude Code reapplies settings-file `env` values to the running session when you save, and rereads the variable each time Claude spawns a subagent, so the next subagent Claude names launches as a subagent.
+
+Setting the variable to `0` in your user `settings.json` overrides a shell export. Other settings sources can still enable agent teams:
+
+* **Higher-precedence settings files**: project settings, local settings, and a `--settings` payload apply after user settings, so an `env` entry that sets the variable to `1` in any of them wins. See [Settings precedence](/docs/en/settings#settings-precedence).
+* **Managed settings**: [managed settings](/docs/en/server-managed-settings) apply after every other source. If your organization enables agent teams there, ask your administrator to change the managed value.
+
+After the change, Claude may still name subagents, and the name keeps working as a [`SendMessage` address](/docs/en/sub-agents#resume-subagents). Claude receives each subagent's result when it completes.
+
 ### Too many permission prompts
 
 Teammate permission requests bubble up to the lead, which can create friction. Pre-approve common operations in your [permission settings](/docs/en/permissions) before spawning teammates to reduce interruptions.
@@ -407,7 +434,7 @@ Teammates may stop after encountering errors instead of recovering. Check their 
 * Give them additional instructions directly
 * Spawn a replacement teammate to continue the work
 
-As of v2.1.198, a message from the lead or another teammate wakes an in-process teammate that is waiting to retry a failed API request, so it retries immediately instead of waiting for the full retry delay.
+A message from the lead or another teammate wakes an in-process teammate that is waiting to retry a failed API request, so it retries immediately instead of waiting for the full retry delay.
 
 The lead can stop early too, deciding the team is finished before all tasks are actually complete. If that happens, tell it to keep going.
 
@@ -433,10 +460,6 @@ Agent teams are experimental. Current limitations to be aware of:
 * **Lead is fixed**: the main session is the lead for its lifetime. You can't promote a teammate to lead or transfer leadership.
 * **Permissions set at spawn**: all teammates start with the lead's permission mode. You can change individual teammate modes after spawning, but you can't set per-teammate modes at spawn time.
 * **Split panes require tmux or iTerm2**: the default in-process mode works in any terminal. Split-pane mode isn't supported in VS Code's integrated terminal, Windows Terminal, or Ghostty.
-
-<Tip>
-  **`CLAUDE.md` works normally**: teammates read `CLAUDE.md` files from their working directory. Use this to provide project-specific guidance to all teammates.
-</Tip>
 
 ## Next steps
 

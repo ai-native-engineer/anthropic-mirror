@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/models -->
 
+---
+title: Models
+url: https://platform.claude.com/docs/en/api/php/beta/models
+---
+
 # Models
 
 ## List Models
@@ -83,7 +88,7 @@ $page = $client->beta->models->list(
   afterID: 'after_id',
   beforeID: 'before_id',
   limit: 1,
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($page);
@@ -241,7 +246,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaModelInfo = $client->beta->models->retrieve(
-  'model_id', betas: ['message-batches-2024-09-24']
+  'model_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
 );
 
 var_dump($betaModelInfo);

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/agents/archive -->
 
+---
+title: Archive Agent
+url: https://platform.claude.com/docs/en/api/ruby/beta/agents/archive
+---
+
 ## Archive Agent
 
 `beta.agents.archive(agent_id, **kwargs) -> BetaManagedAgentsAgent`
@@ -18,7 +23,7 @@ Archive Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -70,11 +75,21 @@ Archive Agent
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+    - `:"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -116,27 +131,35 @@ Archive Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `:"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -152,11 +175,11 @@ Archive Agent
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -167,6 +190,54 @@ Archive Agent
           High-performance model for agents and coding
 
       - `String = String`
+
+    - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
+
+    - `inference_geo: String`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
     - `speed: :standard | :fast`
 
@@ -180,17 +251,33 @@ Archive Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `agents: Array[BetaManagedAgentsAgentReference]`
+    - `agents: Array[BetaManagedAgentsAgentReference | BetaManagedAgentsAdvisor]`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `id: String`
+      - `class BetaManagedAgentsAgentReference`
 
-      - `type: :agent`
+        A resolved agent reference with a concrete version.
 
-        - `:agent`
+        - `id: String`
 
-      - `version: Integer`
+        - `type: :agent`
+
+          - `:agent`
+
+        - `version: Integer`
+
+      - `class BetaManagedAgentsAdvisor`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: String`
+
+          The advisor model id.
+
+        - `type: :advisor`
+
+          - `:advisor`
 
     - `type: :coordinator`
 
@@ -408,6 +495,10 @@ puts(beta_managed_agents_agent)
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
+    "inference_geo": "inference_geo",
     "speed": "standard"
   },
   "multiagent": {

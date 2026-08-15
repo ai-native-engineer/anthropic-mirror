@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/files -->
 
+---
+title: Files
+url: https://platform.claude.com/docs/en/api/php/beta/files
+---
+
 # Files
 
 ## Upload File
@@ -71,7 +76,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $fileMetadata = $client->beta->files->upload(
   file: FileParam::fromString('Example data', filename: uniqid('file-upload-', true)),
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($fileMetadata);
@@ -181,7 +186,7 @@ $page = $client->beta->files->list(
   beforeID: 'before_id',
   limit: 1,
   scopeID: 'scope_id',
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($page);
@@ -244,7 +249,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $response = $client->beta->files->download(
-  'file_id', betas: ['message-batches-2024-09-24']
+  'file_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
 );
 
 var_dump($response);
@@ -318,7 +323,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $fileMetadata = $client->beta->files->retrieveMetadata(
-  'file_id', betas: ['message-batches-2024-09-24']
+  'file_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
 );
 
 var_dump($fileMetadata);
@@ -384,7 +389,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $deletedFile = $client->beta->files->delete(
-  'file_id', betas: ['message-batches-2024-09-24']
+  'file_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
 );
 
 var_dump($deletedFile);

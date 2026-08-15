@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/rbac_groups -->
 
+---
+title: RBAC Groups
+url: https://platform.claude.com/docs/en/api/admin/rbac_groups
+---
+
 # RBAC Groups
 
 ## List RBAC Groups
@@ -46,7 +51,7 @@ The RBAC Groups API is in beta and available to Claude Enterprise organizations 
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
-  - `roles: array of string`
+  - `roles: array of string or null`
 
     RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
 
@@ -74,7 +79,7 @@ The RBAC Groups API is in beta and available to Claude Enterprise organizations 
 
   Indicates if there are more results in the requested page direction.
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token to provide in as `page` in the subsequent request to retrieve the next page of data.
 
@@ -146,7 +151,7 @@ The RBAC Groups API is in beta and available to Claude Enterprise organizations 
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
-  - `roles: array of string`
+  - `roles: array of string or null`
 
     RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
 
@@ -232,7 +237,7 @@ The RBAC Groups API is in beta and available to Claude Enterprise organizations 
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
-  - `roles: array of string`
+  - `roles: array of string or null`
 
     RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
 
@@ -308,7 +313,7 @@ The RBAC Groups API is in beta and available to Claude Enterprise organizations 
 
 ### Body Parameters
 
-- `name: optional string`
+- `name: optional string or null`
 
   Name of the RBAC Group. Not uniqueness-enforced.
 
@@ -328,7 +333,7 @@ The RBAC Groups API is in beta and available to Claude Enterprise organizations 
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
-  - `roles: array of string`
+  - `roles: array of string or null`
 
     RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
 
@@ -454,7 +459,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID \
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
-  - `roles: array of string`
+  - `roles: array of string or null`
 
     RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
 
@@ -562,7 +567,7 @@ The RBAC Groups API is in beta and available to Claude Enterprise organizations 
 
   Indicates if there are more results in the requested page direction.
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token to provide in as `page` in the subsequent request to retrieve the next page of data.
 

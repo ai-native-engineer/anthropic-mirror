@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/files/delete -->
 
+---
+title: Delete File
+url: https://platform.claude.com/docs/en/api/cli/beta/files/delete
+---
+
 ## Delete File
 
 `$ ant beta:files delete`

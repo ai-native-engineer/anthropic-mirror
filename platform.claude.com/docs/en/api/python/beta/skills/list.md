@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/skills/list -->
 
+---
+title: List Skills
+url: https://platform.claude.com/docs/en/api/python/beta/skills/list
+---
+
 ## List Skills
 
 `beta.skills.list(SkillListParams**kwargs)  -> SyncPageCursor[SkillListResponse]`
@@ -37,7 +42,7 @@ List Skills
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -102,6 +107,8 @@ List Skills
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

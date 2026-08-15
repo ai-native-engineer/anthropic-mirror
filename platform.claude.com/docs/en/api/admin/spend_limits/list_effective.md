@@ -1,14 +1,19 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/spend_limits/list_effective -->
 
+---
+title: List Effective Spend Limits
+url: https://platform.claude.com/docs/en/api/admin/spend_limits/list_effective
+---
+
 ## List Effective Spend Limits
 
 **get** `/v1/organizations/spend_limits/effective`
 
 List each member's effective spend limit and period-to-date spend.
 
-Returns one row per (member, period) the member resolves a cap for, with
-the `source` scope the cap was inherited from. Paginates by member, so a
-member's periods never split across pages.
+Returns one row per (member, period) the member resolves a spend limit
+for, with the `source` scope the spend limit was inherited from.
+Paginates by member, so a member's periods never split across pages.
 
 ### Query Parameters
 
@@ -32,9 +37,9 @@ member's periods never split across pages.
 
     - `deleted: boolean`
 
-    - `email_address: string`
+    - `email_address: string or null`
 
-    - `name: string`
+    - `name: string or null`
 
     - `type: "user_actor"`
 
@@ -42,19 +47,25 @@ member's periods never split across pages.
 
     - `user_id: string`
 
-  - `amount: string`
+  - `amount: string or null`
+
+    Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
 
   - `currency: string`
 
-  - `period: "monthly" or "daily" or "weekly"`
+    ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
 
-    - `"monthly"`
+  - `period: "daily" or "monthly" or "weekly"`
 
     - `"daily"`
+
+    - `"monthly"`
 
     - `"weekly"`
 
   - `period_to_date_spend: string`
+
+    The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
 
   - `scope: object { type, user_id }`
 
@@ -106,7 +117,7 @@ member's periods never split across pages.
 
   - `spend_limit_id: string`
 
-- `next_page: string`
+- `next_page: string or null`
 
 ### Example
 
@@ -129,10 +140,10 @@ curl https://api.anthropic.com/v1/organizations/spend_limits/effective \
         "type": "user_actor",
         "user_id": "user_id"
       },
-      "amount": "amount",
-      "currency": "currency",
+      "amount": "50000",
+      "currency": "USD",
       "period": "monthly",
-      "period_to_date_spend": "period_to_date_spend",
+      "period_to_date_spend": "12050.5",
       "scope": {
         "type": "user",
         "user_id": "user_id"

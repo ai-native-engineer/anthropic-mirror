@@ -4,7 +4,7 @@
 
 Anticipating and securing against emerging threats that accompany increasingly powerful models
 
-Last updated Jul 8, 2026
+Last updated Aug 14, 2026
 
 Related:
 
@@ -37,6 +37,16 @@ See the PDF](https://www-cdn.anthropic.com/b7a5629e40b391b2adfb4cc8c0888ac9d6bfd
 * [Version 2.1](https://www-cdn.anthropic.com/17310f6d70ae5627f55313ed067afc1a762a4068.pdf) (effective March 31, 2025)
 * [Version 2.0](https://www-cdn.anthropic.com/616dee633636e5bd309cb73aed8622e80fe47839.pdf) (effective October 15, 2024)
 * [Version 1.0](https://www-cdn.anthropic.com/1adf000c8f675958c2ee23805d91aaade1cd4613/responsible-scaling-policy.pdf) (effective September 19, 2023)
+
+## Risk Reports
+
+* [Redacted Risk Report August 2026](https://anthropic.com/aug-2026-risk-report)
+* [Redacted Risk Report February 2026](https://anthropic.com/feb-2026-risk-report)
+
+## August 14, 2026
+
+We shared our [August 2026 Risk Report](https://www.anthropic.com/aug-2026-risk-report). Our Risk Reports aim to provide a direct, candid, and informative description of how we see the risks of our
+systems and our state of preparedness for them (particularly the catastrophic risks addressed in our Responsible Scaling Policy). It covers the risks of Anthropic's models and actions between our previous February 2026 risk report and the report's coverage date of July 15, as well as our mitigations for those risks and our forward-looking plans in each category.
 
 ## July 8, 2026
 

@@ -189,14 +189,15 @@ general_settings:
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `clientId` | `string` | — |  |
-| `issuer` | `string` | — |  |
-| `authorizationUrl` | `string` | — |  |
-| `tokenUrl` | `string` | — |  |
+| `clientId` | `string` | — | OAuth client ID of the desktop app registration at your identity provider (public client, PKCE). |
+| `issuer` | `string` | — | HTTPS issuer with OIDC discovery. Set this, or set the authorization and token URLs instead. |
+| `authorizationUrl` | `string` | — | HTTPS authorization endpoint. Used with the token URL when no issuer is set. |
+| `tokenUrl` | `string` | — | HTTPS token endpoint. Used with the authorization URL when no issuer is set. |
 | `bearerTokenType` | `enum` | `id_token` | Which token to send as the gateway bearer. Use access token for gateways that validate as an OAuth resource server. One of: `id_token`, `access_token`. |
-| `scopes` | `string` | — |  |
+| `scopes` | `string` | — | Space-separated scopes. Required in access-token mode: set the gateway’s API scope. offline\_access is appended automatically unless disabled below. |
 | `appendOfflineAccess` | `boolean` | `true` | Automatically append offline\_access to scopes so the IdP returns a refresh token for silent refresh. |
-| `redirectPort` | `integer` | — |  |
+| `resource` | `string` | — | Absolute URL identifying the gateway as the access-token audience. Sent as the RFC 8707 resource parameter when set; leave unset for Microsoft Entra ID. |
+| `redirectPort` | `integer` | — | Fixed loopback port for the sign-in redirect (<http://127.0.0.1:PORT/callback>). Leave unset to use a free port each time. |
 | `additionalRedirectReferrerHosts` | `string` | — | Space-separated hostnames also accepted as the referrer of the sign-in callback. Only needed when the IdP completes sign-in from a different host. |
 
 To send additional HTTP headers on every inference request (tenant routing, org IDs, and similar), set [`inferenceCustomHeaders`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencecustomheaders). It applies to all providers, not just gateways.
@@ -209,6 +210,7 @@ Single sign-on is enabled by setting `inferenceCredentialKind` to `interactive` 
 | --- | --- | --- | --- |
 | Credential kind | `inferenceCredentialKind` | Yes — must be `interactive` | Selects sign-in instead of an API key. |
 | Gateway SSO IdP (OIDC) | `inferenceGatewayOidc` | Yes | A **single JSON object** describing the identity provider (fields below). The resulting token is sent to the gateway as the bearer credential. |
+| Sign-in flow | `inferenceGatewayOidcAuthFlow` | No | `browser` (the default) runs the sign-in in the system browser. `broker` runs it through the [OS identity broker](https://claude.com/docs/third-party/claude-desktop/entra-broker) on Windows and macOS, which requires `issuer` to be a Microsoft Entra ID issuer (`https://login.microsoftonline.com/TENANT_ID/v2.0`) and needs no loopback redirect. |
 
 The `inferenceGatewayOidc` value is one JSON object with these fields:
 
@@ -260,7 +262,7 @@ Setting `toolSearchEnabled` causes sessions to send experimental `anthropic-beta
 
 ##  Troubleshoot
 
-**`gateway SSO: server does not advertise device_authorization_endpoint`** — The app could not read your `inferenceGatewayOidc` value, so it fell back to treating the gateway itself as the sign-in server. Almost always this means the value is not a valid JSON string (for example, separate dotted keys, or a plist `<dict>` instead of a `<string>`). Re-export from the in-app configuration window, or copy the `.mobileconfig` snippet above.
+**`gateway SSO: server does not advertise device_authorization_endpoint`** — The app could not read your `inferenceGatewayOidc` value, so it fell back to treating the gateway itself as the sign-in server. Almost always this means the value is missing or not valid JSON, for example because it was written as separate dotted keys instead of one `inferenceGatewayOidc` value. Re-export from the in-app configuration window, or copy the `.mobileconfig` snippet above.
 **`OIDC discovery failed (HTTP 404)` or `(HTTP 405)`** — The `issuer` value is not the issuer base URL. Most often the metadata URI (ending in `/.well-known/openid-configuration`) was pasted instead, which doubles the path. Remove that suffix so `issuer` is just `https://YOUR_ORG.okta.com` (or the equivalent for your provider).
 **`no credential configured for provider "gateway": set inferenceCredentialKind or one of the credential fields`** — `inferenceCredentialKind: "interactive"` is not present in the pushed configuration.
 **Browser shows “Connected” but the app reports the sign-in failed, or `Token exchange failed (HTTP 401)`** — The browser step succeeded, but the identity provider rejected the follow-up token request. This usually means the IdP application is registered as a confidential (Web) client, which expects a client secret. Claude is a public PKCE client and doesn’t send one. Register a public/native client instead: **Native Application** in Okta, or the **Mobile and desktop applications** platform in Entra ID. Application type generally can’t be changed after creation, so you may need to create a new one.

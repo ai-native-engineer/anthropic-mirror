@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/user_profiles/update -->
 
+---
+title: Update User Profile
+url: https://platform.claude.com/docs/en/api/go/beta/user_profiles/update
+---
+
 ## Update User Profile
 
 `client.Beta.UserProfiles.Update(ctx, userProfileID, params) (*BetaUserProfile, error)`
@@ -107,6 +112,8 @@ Update User Profile
       - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

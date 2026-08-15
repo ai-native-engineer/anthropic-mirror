@@ -19,8 +19,6 @@ You can create subagents in three ways:
 
 This guide focuses on the programmatic approach, which is recommended for SDK applications.
 
-When you define subagents, Claude determines whether to invoke them based on each subagent's `description` field. Write clear descriptions that explain when to use the subagent, and Claude automatically delegates appropriate tasks. You can also explicitly request a subagent by name in your prompt, for example "Use the code-reviewer agent to...".
-
 ## Benefits of using subagents
 
 ### Context isolation
@@ -180,16 +178,9 @@ In the Python SDK, multi-word field names such as `disallowedTools` and `mcpServ
 Two subagent behaviors changed in Claude Code v2.1.198:
 
 * Subagents run in the background by default. An Agent tool call that omits the [`run_in_background`](/docs/en/agent-sdk/typescript) input launches a background subagent, and Claude sets `run_in_background: false` when it needs the result before continuing. Before v2.1.198, omitting `run_in_background` ran the subagent synchronously. Set the `background` field to `true` to force background execution for a specific agent regardless of what Claude requests.
-* A subagent inherits the main session's extended thinking configuration. On earlier versions, extended thinking is disabled inside subagents regardless of the main session's setting.
+* A subagent inherits the main session's extended thinking configuration.
 
-<Note>
-  By default, subagents can spawn subagents of their own, up to three layers below the main conversation. To change the limit, set [`CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH`](/docs/en/env-vars) to the number of subagent layers you want below your main conversation, or `1` to turn nesting off; see [nested subagents](/docs/en/sub-agents#let-subagents-spawn-their-own-subagents).
-
-  Earlier versions used different defaults:
-
-  * **v2.1.172 through v2.1.216**: subagents could nest by default, up to five layers deep, and the limit couldn't be changed.
-  * **v2.1.217 through v2.1.218**: the limit defaulted to one, so a subagent couldn't spawn its own unless you raised it; v2.1.219 raised the default to three.
-</Note>
+Subagents can also spawn subagents of their own. To limit how deep that nesting goes, how many subagents run at once, and how much a query spends, see [Cap subagent depth, concurrency, and spend](#cap-subagent-depth-concurrency-and-spend).
 
 ### Filesystem-based definition (alternative)
 
@@ -223,9 +214,7 @@ A subagent that has the [`SendMessage`](/docs/en/tools-reference) tool starts wi
   For a control-tag or permission-configuration match, Claude Code prepends a `[harness: ...]` marker line naming the matched patterns; a turn-marker match doesn't add the marker line. Those are the only modifications the scan makes: it never removes or rewords the subagent's text.
 </Note>
 
-An API error that ends the subagent early, such as a rate limit, is never delivered as its result. If a rate limit, overload, or server error cuts off a foreground subagent that already produced text output, the Agent tool returns that partial output with a note that the subagent didn't finish. A subagent that produced nothing, or whose only output was tool calls with no text, fails with an error message, `Agent terminated early due to an API error`, followed by the error detail. See [API errors in subagents](/docs/en/sub-agents#api-errors-in-subagents) for the foreground and background behavior.
-
-This partial-output handling requires Claude Code v2.1.199 or later. In v2.1.199, a rate limit, overload, or server error left the tool-calls-only shape with an empty partial result containing only the cutoff note.
+An API error that ends the subagent early, such as a rate limit, is never delivered as its result. See [API errors in subagents](/docs/en/sub-agents#api-errors-in-subagents) for the foreground and background behavior.
 
 ## Invoke subagents
 
@@ -544,11 +533,7 @@ The example below defines a custom `endpoint-finder` agent. The first query runs
   ```
 </CodeGroup>
 
-Subagent transcripts persist independently of the main conversation:
-
-* **Main conversation compaction**: when the main conversation compacts, subagent transcripts are unaffected. They're stored in separate files.
-* **Session persistence**: subagent transcripts persist within their session. You can resume a subagent after restarting Claude Code by resuming the same session.
-* **Automatic cleanup**: Claude Code deletes subagent transcripts after the `cleanupPeriodDays` retention period, 30 days by default.
+Subagent transcripts are stored in separate files and persist independently of the main conversation. See [resume subagents in Claude Code](/docs/en/sub-agents#resume-subagents) for compaction behavior and the `cleanupPeriodDays` cleanup period.
 
 ## Tool restrictions
 
@@ -619,6 +604,97 @@ This example creates a read-only analysis agent that can examine code but can't 
 | Test execution     | `Bash`, `Read`, `Grep`                  | Can run commands and analyze output                                |
 | Code modification  | `Read`, `Edit`, `Write`, `Grep`, `Glob` | Full read/write access without command execution                   |
 | Full access        | All tools                               | Inherits the tools available to subagents (omit the `tools` field) |
+
+## Cap subagent depth, concurrency, and spend
+
+<Note>
+  This section describes TypeScript SDK v0.3.219 and Python SDK v0.2.127 and later, the releases that bundle Claude Code v2.1.219 or later. On earlier releases, some of these limits are missing or default differently, so upgrade before you rely on them to bound a run. The [environment variable reference](/docs/en/env-vars) and [turns and budget](/docs/en/agent-sdk/agent-loop#turns-and-budget) record the Claude Code version that added each variable and the spend cap's subagent enforcement.
+</Note>
+
+Once you include `Agent` in `allowedTools`, Claude decides on its own when to spawn a subagent and how many to spawn. Each subagent makes its own API requests, which count toward the query's `total_cost_usd`, and a subagent can spawn subagents of its own, so one prompt can grow into a tree of agents.
+
+You can cap that growth in three ways: how deeply subagents nest, how many run at once, and how much the whole query spends. Set the depth and concurrency limits as environment variables through the [`env`](/docs/en/agent-sdk/typescript#options) option, and the spend limit as a query option:
+
+| Limit       | Set it with                                              | Default                                                                                                | What Claude Code does at the limit                                                                                                                                                                                                                                                                       |
+| :---------- | :------------------------------------------------------- | :----------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Depth       | [`CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH`](/docs/en/env-vars)   | `3` layers of subagents below your main agent. `1` stops your subagents from spawning any of their own | Leaves a subagent at the bottom layer unable to spawn, so it does its delegated work itself. See [nested subagents](/docs/en/sub-agents#let-subagents-spawn-their-own-subagents)                                                                                                                              |
+| Concurrency | [`CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`](/docs/en/env-vars)   | `20` subagents running at once, counting every subagent Claude spawns with the Agent tool              | Refuses to spawn another subagent, returning `Concurrent subagent limit reached`, until the running count drops below the limit. Sessions with [ultracode](/docs/en/model-config#adjust-effort-level) active are never refused. See the [concurrent subagent limit](/docs/en/sub-agents#concurrent-subagent-limit) |
+| Spend       | `maxBudgetUsd` in TypeScript, `max_budget_usd` in Python | No limit. Compared against `total_cost_usd`, so subagent requests count                                | Enforces the cap in three ways: refuses to spawn more subagents, returning `Budget limit reached`, stops background subagents that are still running, and ends the query with the `error_max_budget_usd` result subtype. See [turns and budget](/docs/en/agent-sdk/agent-loop#turns-and-budget)               |
+
+The two SDKs treat the `env` option differently: the TypeScript SDK replaces the subprocess environment with it, so spread `process.env` into it to keep variables like `PATH`, while the Python SDK merges it into the inherited environment. This example turns nesting off, allows at most five subagents at a time, and stops the query once the estimated spend reaches \$5:
+
+<CodeGroup>
+  ```python Python theme={null}
+  import asyncio
+  from claude_agent_sdk import query, ClaudeAgentOptions, ResultMessage
+
+  async def main():
+      try:
+          async for message in query(
+              prompt="Audit every service in this repo for unhandled promise rejections",
+              options=ClaudeAgentOptions(
+                  allowed_tools=["Read", "Grep", "Glob", "Agent"],
+                  # env is merged on top of the inherited environment
+                  env={
+                      "CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH": "1",
+                      "CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS": "5",
+                  },
+                  max_budget_usd=5.0,
+              ),
+          ):
+              if isinstance(message, ResultMessage):
+                  print(f"{message.subtype}: ${message.total_cost_usd}")
+      except Exception as error:
+          # A single-shot query() raises after yielding an error result,
+          # so the budget-capped result has already been printed above.
+          print(f"Session ended with an error: {error}")
+
+  asyncio.run(main())
+  ```
+
+  ```typescript TypeScript theme={null}
+  import { query } from "@anthropic-ai/claude-agent-sdk";
+
+  try {
+    for await (const message of query({
+      prompt: "Audit every service in this repo for unhandled promise rejections",
+      options: {
+        allowedTools: ["Read", "Grep", "Glob", "Agent"],
+        // env replaces the subprocess environment, so spread process.env to keep PATH
+        env: {
+          ...process.env,
+          CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH: "1",
+          CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS: "5",
+        },
+        maxBudgetUsd: 5,
+      },
+    })) {
+      if (message.type === "result") {
+        console.log(`${message.subtype}: $${message.total_cost_usd}`);
+      }
+    }
+  } catch (error) {
+    // A single-shot query() throws after yielding an error result,
+    // so the budget-capped result has already been logged above.
+    console.error(`Session ended with an error: ${error}`);
+  }
+  ```
+</CodeGroup>
+
+What you see depends on which limit, if any, the query reaches:
+
+* **Under the spend cap**: you see `success` and the estimated cost.
+* **At the spend cap**: you see `error_max_budget_usd` with a cost at or above `5`, and then your error handler runs.
+* **At the concurrency limit**: you see a `tool_result` block in the message stream carrying `Concurrent subagent limit reached`. Claude receives the same block as the Agent tool's result.
+
+### Run Opus 5 with subagents
+
+Claude Opus 5 delegates to subagents more readily than earlier models, so the [depth, concurrency, and spend limits](#cap-subagent-depth-concurrency-and-spend) matter most on queries that run Opus 5. The [Opus 5 prompting guide](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5#controlling-subagent-spawning) has a delegation instruction you can add to any prompt. Whether Claude Code adds an instruction of its own depends on which [system prompt](/docs/en/agent-sdk/modifying-system-prompts#how-system-prompts-work) you use:
+
+* **`claude_code` preset**: when the model is Opus 5, Claude Code adds a line to its system prompt telling Claude not to call the Agent tool unless it's asked to. The Agent tool stays available.
+* **A custom prompt, or no `systemPrompt`**: Claude Code doesn't build its system prompt, so that line is absent. Add the prompting guide's delegation instruction to your own prompt.
+
+Either instruction only steers Claude, so set the limits as well. Claude Code enforces them however Claude decides to delegate.
 
 ## Scale up with dynamic workflows
 

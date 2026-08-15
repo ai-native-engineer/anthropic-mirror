@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/update -->
 
+---
+title: Update User Profile
+url: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/update
+---
+
 ## Update User Profile
 
 `$ ant beta:user-profiles update`

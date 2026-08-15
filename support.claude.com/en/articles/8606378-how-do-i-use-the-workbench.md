@@ -60,15 +60,15 @@ Code examples in our documentation include an "Open in Workbench" option, which 
 
 Workbench (legacy) allows you to create and test prompts within your Claude Console account. You can enter your prompt into the "Human" dialogue box and click "Run" to test Claude's output. Click on the + icon in the upper left to create a new prompt, or click on the bulleted list icon to see prompts you've tested in the past:
 
-[![](https://downloads.intercomcdn.com/i/o/888021849/31a22a0dc4d1fc4b605cc8ee/Screenshot+2023-11-19+at+4.21.51+PM.png?expires=1786269600&signature=cbd57e5adf65a4901abb296cf546e5b2114c84d0ec46ef638d9b7248282c2f7d&req=fCgvFst%2FlYVWFb4f3HP0gKWhcjkK20BbOkmmaOsi7IDYiE%2BaHJFa1M4RK4oy%0A5RSG2OvH2etvlAW4jg%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888021849/31a22a0dc4d1fc4b605cc8ee/Screenshot+2023-11-19+at+4.21.51+PM.png?expires=1786269600&signature=cbd57e5adf65a4901abb296cf546e5b2114c84d0ec46ef638d9b7248282c2f7d&req=fCgvFst%2FlYVWFb4f3HP0gKWhcjkK20BbOkmmaOsi7IDYiE%2BaHJFa1M4RK4oy%0A5RSG2OvH2etvlAW4jg%3D%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/888021849/31a22a0dc4d1fc4b605cc8ee/Screenshot+2023-11-19+at+4.21.51+PM.png?expires=1786753800&signature=1071da95bad8bf142bae4e690e35fe922ec66c06ada3e7dc0a06f2ee1f8cd86a&req=fCgvFst%2FlYVWFb4f3HP0gKWhcjwJ0U5bOkmmaOsi7IAhBLIBVq9vGqLIr11c%0Ag0iQaXXf2iOz9YHnEA%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888021849/31a22a0dc4d1fc4b605cc8ee/Screenshot+2023-11-19+at+4.21.51+PM.png?expires=1786753800&signature=1071da95bad8bf142bae4e690e35fe922ec66c06ada3e7dc0a06f2ee1f8cd86a&req=fCgvFst%2FlYVWFb4f3HP0gKWhcjwJ0U5bOkmmaOsi7IAhBLIBVq9vGqLIr11c%0Ag0iQaXXf2iOz9YHnEA%3D%3D%0A)
 
 Workbench (legacy) also allows you to configure several settings when prompting Claude. You can click on the slider icon to review your model settings. This allows you to select the model, temperature, and max tokens to sample:
 
-[![](https://downloads.intercomcdn.com/i/o/888023061/61e26396355f6f6cd506d7e4/Screenshot+2023-11-19+at+4.09.28+PM.png?expires=1786269600&signature=6c673f66b14644fd14af62f83c9674682816000eac739c63e6d2ecbd1245e1f3&req=fCgvFst9nYdeFb4f3HP0gN55X9DWMIK3DUq7%2BRvcmSNu5oQDQkvP%2FBPJnW%2F1%0ALIargGNFwXFpZlCJLQ%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888023061/61e26396355f6f6cd506d7e4/Screenshot+2023-11-19+at+4.09.28+PM.png?expires=1786269600&signature=6c673f66b14644fd14af62f83c9674682816000eac739c63e6d2ecbd1245e1f3&req=fCgvFst9nYdeFb4f3HP0gN55X9DWMIK3DUq7%2BRvcmSNu5oQDQkvP%2FBPJnW%2F1%0ALIargGNFwXFpZlCJLQ%3D%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/888023061/61e26396355f6f6cd506d7e4/Screenshot+2023-11-19+at+4.09.28+PM.png?expires=1786753800&signature=f9f6356993b9652ee2e1284f83ab53164cd3eee49b83009e32e19a6141eb5cc0&req=fCgvFst9nYdeFb4f3HP0gN55X9XVOoy3DUq7%2BRvcmSOZcQLsP5ond79qp7DU%0AMrhpNh6tlVKjkFupOA%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888023061/61e26396355f6f6cd506d7e4/Screenshot+2023-11-19+at+4.09.28+PM.png?expires=1786753800&signature=f9f6356993b9652ee2e1284f83ab53164cd3eee49b83009e32e19a6141eb5cc0&req=fCgvFst9nYdeFb4f3HP0gN55X9XVOoy3DUq7%2BRvcmSOZcQLsP5ond79qp7DU%0AMrhpNh6tlVKjkFupOA%3D%3D%0A)
 
 After crafting your prompt, click on the "Get code" button to generate a sample using our Python and Typescript SDKs:
 
-[![](https://downloads.intercomcdn.com/i/o/888023545/b12afe07f16f079daff7587d/Screenshot+2023-11-19+at+4.28.27+PM.png?expires=1786269600&signature=73e94bd743ea1ed567292ed6310536f844c3f719b2c1b5e9e8750c3910a48cab&req=fCgvFst9mIVaFb4f3HP0gEZTsjqY6%2BLrRWixPJbjiQd8AVr5WnKZMuE6qZY%2F%0A31%2BFAOymizLRASzBWA%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888023545/b12afe07f16f079daff7587d/Screenshot+2023-11-19+at+4.28.27+PM.png?expires=1786269600&signature=73e94bd743ea1ed567292ed6310536f844c3f719b2c1b5e9e8750c3910a48cab&req=fCgvFst9mIVaFb4f3HP0gEZTsjqY6%2BLrRWixPJbjiQd8AVr5WnKZMuE6qZY%2F%0A31%2BFAOymizLRASzBWA%3D%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/888023545/b12afe07f16f079daff7587d/Screenshot+2023-11-19+at+4.28.27+PM.png?expires=1786753800&signature=600a7266fe9f585d4a6641d05d26769a2019d144506d9564dc2274f4957c14a6&req=fCgvFst9mIVaFb4f3HP0gEZTsj%2Bb4ezrRWixPJbjiQcEGmpo2%2Fi%2BZ12snCHa%0A%2FokWaLm8CnQlHVNohA%3D%3D%0A)](https://downloads.intercomcdn.com/i/o/888023545/b12afe07f16f079daff7587d/Screenshot+2023-11-19+at+4.28.27+PM.png?expires=1786753800&signature=600a7266fe9f585d4a6641d05d26769a2019d144506d9564dc2274f4957c14a6&req=fCgvFst9mIVaFb4f3HP0gEZTsj%2Bb4ezrRWixPJbjiQcEGmpo2%2Fi%2BZ12snCHa%0A%2FokWaLm8CnQlHVNohA%3D%3D%0A)
 
 ## How can I access my previous work and prompt history in Workbench (legacy)?
 
@@ -80,7 +80,7 @@ You can access your previous Workbench prompts on your Console account by follow
 
 3. Click the "List prompts" button on the upper left corner of the page, next to the "+" button to create a new prompt:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1945992985/45a8969fb6cec956bd44fb5c4ba7/CleanShot+2026-01-15+at+12_07_22%402x.png?expires=1786269600&signature=ad528c96cbbb27e21af7232a9304ff8b4730b22d532cbb44e61bbd0967c76c45&req=dSkjE8B3n4hXXPMW1HO4zQQ9sFcLMXq%2BTyGSpkcb8MXAAQ2fQ%2FCaDq11WB0A%0AQhqQcJcFEofJfYZkkbs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1945992985/45a8969fb6cec956bd44fb5c4ba7/CleanShot+2026-01-15+at+12_07_22%402x.png?expires=1786269600&signature=ad528c96cbbb27e21af7232a9304ff8b4730b22d532cbb44e61bbd0967c76c45&req=dSkjE8B3n4hXXPMW1HO4zQQ9sFcLMXq%2BTyGSpkcb8MXAAQ2fQ%2FCaDq11WB0A%0AQhqQcJcFEofJfYZkkbs%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1945992985/45a8969fb6cec956bd44fb5c4ba7/CleanShot+2026-01-15+at+12_07_22%402x.png?expires=1786753800&signature=f930f9fe6f396d3efa5bbd739aa15fc607a4c643e9fd19f2f5ef25f24d3ff362&req=dSkjE8B3n4hXXPMW1HO4zQQ9sFcOMnCwTyGSpkcb8MXYxBCEkGDEyadsVJEQ%0Aa1fnM5pGBQ0dvtPYdQg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1945992985/45a8969fb6cec956bd44fb5c4ba7/CleanShot+2026-01-15+at+12_07_22%402x.png?expires=1786753800&signature=f930f9fe6f396d3efa5bbd739aa15fc607a4c643e9fd19f2f5ef25f24d3ff362&req=dSkjE8B3n4hXXPMW1HO4zQQ9sFcOMnCwTyGSpkcb8MXYxBCEkGDEyadsVJEQ%0Aa1fnM5pGBQ0dvtPYdQg%3D%0A)
 
 4. A list of your previously-saved prompts will appear.
 
@@ -132,6 +132,6 @@ No. The refreshed version of Workbench doesn't save prompts or conversations, so
 
 * [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
 * [How can I access the Claude API?](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api)
-* [I created a Claude Console organization - how do I start using the Claude API?](https://support.claude.com/en/articles/8114531-i-created-a-claude-console-organization-how-do-i-start-using-the-claude-api)
 * [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
+* [How Claude marks AI-generated content](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)

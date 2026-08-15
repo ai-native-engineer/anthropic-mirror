@@ -9,7 +9,7 @@
 [Skip to main content](#content-area)
 
 The Connectors Directory is a catalog of [MCP](https://claude.com/docs/connectors/building/mcp) servers that work across all Claude products — Claude.ai, Claude Desktop, Claude Mobile, Claude Code, and Cowork.
-The directory contains both verified connectors and community connectors. Verified connectors are reviewed by Anthropic for security, reliability, and compatibility. Community connectors pass Anthropic’s automated checks but are not reviewed in depth by Anthropic. The label reflects how much review a connector has had, not how it works: verified and community connectors work the same way once connected. See [connector verification](https://claude.com/docs/connectors/verification) to learn what each label means.
+The directory contains both verified connectors and community connectors. Verified connectors have been tested by Anthropic for quality and compatibility and met the Software Directory Policy requirements at the time of review, though verification is not a security audit. Anthropic screens community connectors before listing but does not review them in depth. The label reflects the level of review each connector received, not how it works: once connected, a community connector has the same capabilities and access as any connector you grant. See [connector verification](https://claude.com/docs/connectors/verification) to learn what each label means.
 
 All connectors in the directory are subject to the [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy) and the [Anthropic Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms).
 

@@ -1,7 +1,8 @@
 # anthropic-ai (YouTube)
 
-영상 171개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 172개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [How Icelanders are thinking about AI](anthropic-ai/260810-how-icelanders-are-thinking-about-ai.md) — 2026-08-10
 - [The different levels of how Claude thinks](anthropic-ai/260706-the-different-levels-of-how-claude-thinks.md) — 2026-07-06
 - [Introducing Claude Fable 5](anthropic-ai/260609-introducing-claude-fable-5.md) — 2026-06-09
 - [Translating Claude’s thoughts into language](anthropic-ai/260507-translating-claude-s-thoughts-into-language.md) — 2026-05-07

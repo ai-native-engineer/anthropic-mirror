@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memory_versions -->
 
+---
+title: Memory Versions
+url: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memory_versions
+---
+
 # Memory Versions
 
 ## List memory versions

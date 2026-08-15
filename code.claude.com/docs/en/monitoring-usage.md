@@ -4,7 +4,7 @@
 
 > Learn how to enable and configure OpenTelemetry for Claude Code.
 
-Track Claude Code usage, costs, and tool activity across your organization by exporting telemetry data through OpenTelemetry (OTel). Claude Code exports metrics as time series data via the standard metrics protocol, events via the logs/events protocol, and optionally distributed traces via the [traces protocol](#traces-beta). Configure your metrics, logs, and traces backends to match your monitoring requirements.
+Track Claude Code usage, costs, and tool activity across your organization by exporting telemetry data through OpenTelemetry (OTel). Claude Code exports metrics as time series data via the standard metrics protocol, events via the logs/events protocol, and optionally distributed traces via the [traces protocol](#traces-beta).
 
 ## Quick start
 
@@ -25,7 +25,7 @@ export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
 # 4. Set authentication (if required)
 export OTEL_EXPORTER_OTLP_HEADERS="Authorization=Bearer your-token"
 
-# 5. For debugging: reduce export intervals
+# 5. For debugging: reduce export intervals, and reset them for production use
 export OTEL_METRIC_EXPORT_INTERVAL=10000  # 10 seconds (default: 60000ms)
 export OTEL_LOGS_EXPORT_INTERVAL=5000     # 5 seconds (default: 5000ms)
 
@@ -33,17 +33,13 @@ export OTEL_LOGS_EXPORT_INTERVAL=5000     # 5 seconds (default: 5000ms)
 claude
 ```
 
-<Note>
-  The default export intervals are 60 seconds for metrics and 5 seconds for logs. During setup, you may want to use shorter intervals for debugging purposes. Remember to reset these for production use.
-</Note>
-
 To verify a setup that exports metrics, check your backend for the `claude_code.session.count` metric, which Claude Code emits when a session starts. To verify a logs-only setup, submit a prompt and check for the `claude_code.user_prompt` event. If nothing arrives, run `claude --debug` and check the debug log for OTel export errors.
 
 For full configuration options, see the [OpenTelemetry specification](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/exporter.md#configuration-options).
 
 ## Administrator configuration
 
-Administrators can configure OpenTelemetry settings for all users through the [managed settings file](/docs/en/settings#settings-files). This allows for centralized control of telemetry settings across an organization. See the [settings precedence](/docs/en/settings#settings-precedence) for more information about how settings are applied.
+Administrators can configure OpenTelemetry settings for all users through the [managed settings file](/docs/en/settings#settings-files). See the [settings precedence](/docs/en/settings#settings-precedence) for more information about how settings are applied.
 
 Example managed settings configuration:
 
@@ -60,10 +56,6 @@ Example managed settings configuration:
 }
 ```
 
-<Note>
-  Managed settings can be distributed via MDM (Mobile Device Management) or other device management solutions. Environment variables defined in the managed settings file have high precedence and can't be overridden by users.
-</Note>
-
 Claude Code doesn't pass `OTEL_*` environment variables to the subprocesses it spawns, including the Bash tool, hooks, MCP servers, and language servers. An OpenTelemetry-instrumented application that you run through the Bash tool doesn't inherit Claude Code's exporter endpoint or headers, so set those variables directly in the command if that application needs to export its own telemetry.
 
 ### How managed settings lock the OTLP destination
@@ -73,7 +65,7 @@ When you set an `OTEL_EXPORTER_OTLP_*` variable in managed settings, Claude Code
 * **Endpoints**: when you set `OTEL_EXPORTER_OTLP_ENDPOINT`, Claude Code removes every developer-set per-signal endpoint. Developers can't point one signal at a different collector, so you don't need to also set the per-signal endpoint variables in managed settings.
 * **Protocols**: when you set `OTEL_EXPORTER_OTLP_PROTOCOL`, Claude Code removes every developer-set per-signal protocol.
 * **Credentials**: when you set `OTEL_EXPORTER_OTLP_HEADERS`, `OTEL_EXPORTER_OTLP_CLIENT_KEY`, or `OTEL_EXPORTER_OTLP_CLIENT_CERTIFICATE`, Claude Code removes the developer-set per-signal versions of that variable, plus every developer-set endpoint variable, generic or per-signal, since those credentials would otherwise reach a collector the managed settings didn't choose.
-* **Exporter selectors**: `OTEL_METRICS_EXPORTER`, `OTEL_LOGS_EXPORTER`, and the beta `OTEL_TRACES_EXPORTER` follow normal per-key precedence. A developer's setting can still disable a signal or switch it to the console exporter, so set the selectors in managed settings too if you need them locked. Across [admin sources](/docs/en/settings#settings-precedence), `OTEL_LOGS_EXPORTER` follows the [telemetry unit](/docs/en/server-managed-settings#per-key-exceptions-across-managed-sources) while the other two selectors merge per key. Requires Claude Code v2.1.223 or later.
+* **Exporter selectors**: `OTEL_METRICS_EXPORTER`, `OTEL_LOGS_EXPORTER`, and the beta `OTEL_TRACES_EXPORTER` follow normal per-key precedence. A developer's setting can still disable a signal or switch it to the console exporter, so set the selectors in managed settings too if you need them locked. Across [admin sources](/docs/en/settings#precedence-within-the-managed-tier), `OTEL_LOGS_EXPORTER` follows the [telemetry unit](/docs/en/server-managed-settings#per-key-exceptions-across-managed-sources) while the other two selectors merge per key. Requires Claude Code v2.1.223 or later.
 
 Claude Code doesn't remove per-signal variables that you set in managed settings itself, so you can route one signal to a different collector by setting its variable there, as the [SIEM example](#send-events-to-a-siem) does. If you set a per-signal credential there, Claude Code removes the developer-set endpoint for that signal.
 
@@ -85,7 +77,7 @@ Before v2.1.217, every variable followed per-key settings precedence independent
 
 ### Common configuration variables
 
-These variables configure exporters, endpoints, and export behavior for all deployments. A per-signal variable overrides its generic counterpart. On machines with managed settings, see [How managed settings lock the OTLP destination](#how-managed-settings-lock-the-otlp-destination) for what Claude Code removes.
+These variables configure exporters, endpoints, and export behavior for all deployments. If you set a per-signal endpoint or protocol variable, such as `OTEL_EXPORTER_OTLP_METRICS_ENDPOINT`, Claude Code uses it instead of the generic variable for that signal. If you set a per-signal headers variable, such as `OTEL_EXPORTER_OTLP_METRICS_HEADERS`, Claude Code merges it with the generic `OTEL_EXPORTER_OTLP_HEADERS` for that signal. On machines with managed settings, see [How managed settings lock the OTLP destination](#how-managed-settings-lock-the-otlp-destination) for what Claude Code removes.
 
 | Environment Variable                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Example Values                                                                                                                                                 |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -99,6 +91,8 @@ These variables configure exporters, endpoints, and export behavior for all depl
 | `OTEL_EXPORTER_OTLP_LOGS_PROTOCOL`                  | Protocol for logs, overrides general setting                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `grpc`, `http/json`, `http/protobuf`                                                                                                                           |
 | `OTEL_EXPORTER_OTLP_LOGS_ENDPOINT`                  | OTLP logs endpoint, overrides general setting                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `http://localhost:4318/v1/logs`                                                                                                                                |
 | `OTEL_EXPORTER_OTLP_HEADERS`                        | Authentication headers for OTLP                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `Authorization=Bearer token`                                                                                                                                   |
+| `OTEL_EXPORTER_OTLP_METRICS_HEADERS`                | Authentication headers for metrics, merged with the general headers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `Authorization=Bearer token`                                                                                                                                   |
+| `OTEL_EXPORTER_OTLP_LOGS_HEADERS`                   | Authentication headers for logs, merged with the general headers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `Authorization=Bearer token`                                                                                                                                   |
 | `OTEL_METRIC_EXPORT_INTERVAL`                       | Export interval in milliseconds (default: 60000)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `5000`, `60000`                                                                                                                                                |
 | `OTEL_LOGS_EXPORT_INTERVAL`                         | Logs export interval in milliseconds (default: 5000)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `1000`, `10000`                                                                                                                                                |
 | `OTEL_LOG_USER_PROMPTS`                             | Enable logging of user prompt content (default: disabled)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `1` to enable                                                                                                                                                  |
@@ -135,13 +129,13 @@ The following environment variables control which attributes are included in met
 | `OTEL_METRICS_INCLUDE_ENTRYPOINT`          | Include app.entrypoint attribute in metrics                                     | `false`       | `true`             |
 | `OTEL_METRICS_INCLUDE_RESOURCE_ATTRIBUTES` | Include keys from `OTEL_RESOURCE_ATTRIBUTES` as attributes on metric datapoints | `true`        | `false`            |
 
-These variables help control the cardinality of metrics, which affects storage requirements and query performance in your metrics backend. Lower cardinality generally means better performance and lower storage costs but less granular data for analysis.
+Lower cardinality generally means better performance and lower storage costs but less granular data for analysis.
 
 ### Traces (beta)
 
 Distributed tracing exports spans that link each user prompt to the API requests and tool executions it triggers, so you can view a full request as a single trace in your tracing backend.
 
-Tracing is off by default. To enable it, set both `CLAUDE_CODE_ENABLE_TELEMETRY=1` and `CLAUDE_CODE_ENHANCED_TELEMETRY_BETA=1`, then set `OTEL_TRACES_EXPORTER` to choose where spans are sent. Traces reuse the [common OTLP configuration](#common-configuration-variables) for endpoint, protocol, headers, and [mTLS](#mtls-authentication). On machines with managed settings, Claude Code [may remove developer-set](#how-managed-settings-lock-the-otlp-destination) `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` and `OTEL_EXPORTER_OTLP_TRACES_PROTOCOL` variables at startup.
+Tracing is off by default. To enable it, set both `CLAUDE_CODE_ENABLE_TELEMETRY=1` and `CLAUDE_CODE_ENHANCED_TELEMETRY_BETA=1`, then set `OTEL_TRACES_EXPORTER` to choose where spans are sent. Traces reuse the [common OTLP configuration](#common-configuration-variables) for endpoint, protocol, headers, and [mTLS](#mtls-authentication). On machines with managed settings, Claude Code [may remove developer-set per-signal credentials and endpoints](#how-managed-settings-lock-the-otlp-destination) at startup.
 
 | Environment Variable                  | Description                                                                       | Example Values                       |
 | ------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------ |
@@ -149,6 +143,7 @@ Tracing is off by default. To enable it, set both `CLAUDE_CODE_ENABLE_TELEMETRY=
 | `OTEL_TRACES_EXPORTER`                | Traces exporter types, comma-separated. Use `none` to disable                     | `console`, `otlp`, `none`            |
 | `OTEL_EXPORTER_OTLP_TRACES_PROTOCOL`  | Protocol for traces, overrides `OTEL_EXPORTER_OTLP_PROTOCOL`                      | `grpc`, `http/json`, `http/protobuf` |
 | `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT`  | OTLP traces endpoint, overrides `OTEL_EXPORTER_OTLP_ENDPOINT`                     | `http://localhost:4318/v1/traces`    |
+| `OTEL_EXPORTER_OTLP_TRACES_HEADERS`   | Authentication headers for traces, merged with `OTEL_EXPORTER_OTLP_HEADERS`       | `Authorization=Bearer token`         |
 | `OTEL_TRACES_EXPORT_INTERVAL`         | Span batch export interval in milliseconds (default: 5000)                        | `1000`, `10000`                      |
 
 Spans redact user prompt text, tool input details, and tool content by default. Set `OTEL_LOG_USER_PROMPTS=1`, `OTEL_LOG_TOOL_DETAILS=1`, and `OTEL_LOG_TOOL_CONTENT=1` to include them.
@@ -289,7 +284,7 @@ This span is emitted only when detailed beta tracing is active, which requires `
 
 ### Dynamic headers
 
-For enterprise environments that require dynamic authentication, you can configure a script to generate headers dynamically. Dynamic headers apply only to the `http/protobuf` and `http/json` protocols. The `grpc` exporter uses only the static `OTEL_EXPORTER_OTLP_HEADERS` value.
+For enterprise environments that require dynamic authentication, you can configure a script to generate headers dynamically. Dynamic headers apply only to the `http/protobuf` and `http/json` protocols. With the `grpc` protocol, Claude Code uses only the static headers variables, `OTEL_EXPORTER_OTLP_HEADERS` and its per-signal variants.
 
 #### Settings configuration
 
@@ -394,6 +389,8 @@ For Prometheus, scraped from `http://localhost:9464/metrics`:
 export CLAUDE_CODE_ENABLE_TELEMETRY=1
 export OTEL_METRICS_EXPORTER=prometheus
 ```
+
+On a [self-hosted environment](/docs/en/self-hosted-environments-reference#pass-through-session-child-metrics), the session binds port 9464 only at the runner's default capacity of one. At higher capacity, the runner re-exposes session counters and gauges on its own `/metrics` endpoint instead.
 
 To send metrics to multiple exporters:
 
@@ -592,10 +589,6 @@ For message-level reconstruction, each event class carries a key that matches a 
 * `request_id` on the API events, persisted as `requestId` on the transcript's assistant entries
 * `tool_use_id` on `tool_result` and `tool_decision` events
 
-<Note>
-  `prompt.id` is intentionally excluded from metrics because each prompt generates a unique ID, which would create an ever-growing number of time series. Use it for event-level analysis and audit trails only.
-</Note>
-
 #### User prompt event
 
 Logged when a user submits a prompt.
@@ -684,7 +677,7 @@ Logged for each API request to Claude.
 * `cache_read_tokens`: Number of tokens read from cache
 * `cache_creation_tokens`: Number of tokens used for cache creation
 * `request_id`: Anthropic API request ID from the response's `request-id` header, such as `"req_011..."`. Present only when the API returns one.
-* `client_request_id`: Client-generated UUID sent as the `x-client-request-id` request header. Matches the same attribute on the `llm_request` trace span. Absent on third-party provider backends and when the request was retried through the non-streaming fallback. Requires Claude Code v2.1.214 or later
+* `client_request_id`: Client-generated UUID sent as the `x-client-request-id` request header; see the [event correlation attributes](#event-correlation-attributes) table for when it's present. Requires Claude Code v2.1.214 or later
 * `speed`: `"fast"` or `"normal"`, indicating whether fast mode was active
 * `query_source`: Subsystem that issued the request, such as `"repl_main_thread"`, `"compact"`, or a subagent name
 * `effort`: [Effort level](/docs/en/model-config#adjust-effort-level) applied to the request: `"low"`, `"medium"`, `"high"`, `"xhigh"`, or `"max"`. Absent when the model doesn't support effort.
@@ -708,7 +701,7 @@ Logged when an API request to Claude fails.
 * `duration_ms`: Request duration in milliseconds
 * `attempt`: Total number of attempts made, including the initial request (`1` means no retries occurred)
 * `request_id`: Anthropic API request ID from the response's `request-id` header, such as `"req_011..."`. Present only when the API returns one.
-* `client_request_id`: Client-generated UUID sent as the `x-client-request-id` request header. Available even when a failure such as a timeout or connection error never produced a server `request_id`. Absent on third-party provider backends and when the request was retried through the non-streaming fallback. Requires Claude Code v2.1.214 or later
+* `client_request_id`: Client-generated UUID sent as the `x-client-request-id` request header. Available even when a failure such as a timeout or connection error never produced a server `request_id`; see the [event correlation attributes](#event-correlation-attributes) table for when it's present. Requires Claude Code v2.1.214 or later
 * `speed`: `"fast"` or `"normal"`, indicating whether fast mode was active
 * `query_source`: Subsystem that issued the request, such as `"repl_main_thread"`, `"compact"`, or a subagent name
 * `effort`: [Effort level](/docs/en/model-config#adjust-effort-level) applied to the request. Absent when the model doesn't support effort.
@@ -957,7 +950,7 @@ Logged when Claude Code resolves an `@`-mention in a prompt. Not every mention e
 * `event.name`: `"at_mention"`
 * `event.timestamp`: ISO 8601 timestamp
 * `event.sequence`: monotonically increasing counter for ordering events within a session
-* `mention_type`: Type of mention (`"file"`, `"directory"`, `"agent"`, `"mcp_resource"`)
+* `mention_type`: Type of mention (`"file"`, `"directory"`, `"agent"`, `"mcp_resource"`, `"peer"`). The `"peer"` value means you mentioned [one of your other Claude Code sessions](/docs/en/cross-session-messaging). Requires Claude Code v2.1.232 or later
 * `success`: Whether the mention resolved successfully (`"true"` or `"false"`)
 
 #### API retries exhausted event
@@ -1080,6 +1073,30 @@ Logged when conversation compaction completes.
 * `error`: Error message when compaction failed
 * `precompute_reuse`: Only set when `trigger` is `"manual"`. Auto-compaction can prepare a summary in the background before the context window fills, and this attribute records whether `/compact` reused that prepared summary. `"hit"` means it was reused; `"miss_custom_instructions"`, `"miss_hook"`, and `"miss_not_ready"` give the reason a fresh summary was computed instead. Requires Claude Code v2.1.153 or later
 
+#### Subagent completed event
+
+Logged when a [subagent](/docs/en/sub-agents) finishes and returns its result to the conversation that started it. Use it to roll up tool use and run time by subagent type; for token or cost rollups, use the [token counter](#token-counter) and [cost counter](#cost-counter) filtered to `query_source` `"subagent"`, since this event's `total_tokens` covers only the final request. The `"subagent"` category also counts requests from agent-based hooks, which emit no subagent event.
+
+**Event Name**: `claude_code.subagent_completed`
+
+**Attributes**:
+
+* All [standard attributes](#standard-attributes)
+* `event.name`: `"subagent_completed"`
+* `event.timestamp`: ISO 8601 timestamp
+* `event.sequence`: monotonically increasing counter for ordering events within a session
+* `agent_type`: The subagent type. Built-in agent names and agents from official-marketplace plugins appear verbatim; other agent names are replaced with `"custom"` unless `OTEL_LOG_TOOL_DETAILS=1` is set
+* `agent.source`: Where the agent definition came from: `built-in`, `plugin`, or the settings source that defined a custom agent, such as `userSettings` or `projectSettings`
+* `is_built_in`: Whether the subagent is a built-in agent type
+* `is_async`: Whether the subagent ran in the [background](/docs/en/sub-agents#run-subagents-in-foreground-or-background)
+* `total_tokens`: The token footprint of the subagent's final API request: that one request's input, cache creation, cache read, and output tokens, roughly the subagent's context size at completion. Not a sum across the run
+* `total_tool_uses`: Number of tool calls the subagent made across the whole run
+* `duration_ms`: Run time in milliseconds
+* `model`: The model the subagent was resolved to run
+* `final_model`: The model that produced the subagent's final response, which differs from `model` after a mid-run switch such as a fallback. Requires Claude Code v2.1.212 or later
+* `model_swapped`: Whether more than one model served the subagent's requests. Requires Claude Code v2.1.212 or later
+* `plugin_id_hash`, `plugin.name`: Present for plugin-provided agents. Official-marketplace plugin names appear verbatim; other plugin names are replaced with `"third-party"` unless `OTEL_LOG_TOOL_DETAILS=1` is set
+
 #### Feedback survey event
 
 Logged when a session quality survey is shown or answered. See [Session quality surveys](/docs/en/data-usage#session-quality-surveys) for what the surveys collect and how to control them.
@@ -1097,6 +1114,36 @@ Logged when a session quality survey is shown or answered. See [Session quality 
 * `survey_type`: Which survey produced the event. `"session"` is the "How is Claude doing?" rating prompt
 * `response`: The user's selection on `responded` events
 * `enabled_via_override`: `true` when [`CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL`](/docs/en/env-vars) is set. Emitted as a boolean, not a string. Present on `session` survey events. Filter on this attribute to confirm the override is applied across a fleet
+
+#### Retention sweep event
+
+Logged once per run of the retention cleanup sweep, which deletes [session transcripts and other application data](/docs/en/claude-directory#cleaned-up-automatically) older than the [`cleanupPeriodDays`](/docs/en/settings#available-settings) setting. Claude Code runs the sweep in the background at most once per session, and a run that deletes nothing still emits the event. If Claude Code ran the sweep in any session on the same machine in the last 24 hours, it delays this session's sweep by at least 10 minutes, so a session that exits sooner emits nothing. When you run `claude -p` with `--bare`, Claude Code doesn't run the sweep and emits nothing.
+
+Like every OTel event on this page, it goes only to the telemetry backend you configure. Requires Claude Code v2.1.227 or later.
+
+When Claude Code can't safely determine the retention period, it pauses the sweep and emits the event with `result` set to `"skipped"` and a `skip_reason`. When [managed settings](/docs/en/server-managed-settings) set `cleanupPeriodDays`, the managed value pins the retention period and the sweep runs even when a settings file in a lower-priority scope is broken or invalid; a managed settings file that itself can't be read or parsed still pauses the sweep. The deletion counter attributes are present only when `result` is `"complete"`.
+
+**Event Name**: `claude_code.retention_sweep`
+
+**Attributes**:
+
+* All [standard attributes](#standard-attributes)
+* `event.name`: `"retention_sweep"`
+* `event.timestamp`: ISO 8601 timestamp
+* `event.sequence`: monotonically increasing counter for ordering events within a session
+* `result`: `"complete"` when the sweep ran, `"skipped"` when Claude Code paused it
+* `period_days`: The `cleanupPeriodDays` value from merged settings, in days, or `30` when no source sets it. On skipped events, the value the sweep would have used, computed from the settings sources Claude Code could read
+* `used_default`: `"true"` when no readable settings source sets `cleanupPeriodDays`, `"false"` otherwise. On complete events, `"true"` means the 30-day default applied
+* `skip_reason`: Why Claude Code paused the sweep. Present only when `result` is `"skipped"`:
+  * `"user_source_disabled"`: User settings are excluded, for example by the [`--setting-sources`](/docs/en/cli-reference#cli-flags) flag or the SDK's [`settingSources`](/docs/en/agent-sdk/typescript#options) option, and no enabled source provides `cleanupPeriodDays`
+  * `"settings_unknowable"`: A settings file couldn't be read or parsed, so `cleanupPeriodDays` may be set to a value Claude Code can't see
+  * `"settings_invalid_key_set"`: Settings have validation errors and `cleanupPeriodDays` is explicitly set, so falling back to the default could delete files the setting was meant to keep
+* `transcripts_deleted`: Number of session transcripts, the top-level `~/.claude/projects/*/*.jsonl` files, that the sweep deleted
+* `session_files_deleted`: Number of artifacts the session-files sweep deleted: transcripts plus per-session companion files such as sidecars, recordings, and tool results
+* `artifacts_deleted`: Total items the sweep deleted across the data directories it covers, including the session files. Some sweeps count a whole removed directory tree as one item and a few cleanup passes don't contribute to the counter, so treat the value as a floor rather than an exact file count
+* `files_retained_fresh`: Files inspected and left in place because they're still within the retention period. Only per-file sweeps count these, so the value is a floor; a nonzero value is the normal steady state
+* `files_past_cutoff`: Files older than the retention period that the sweep failed to delete, for example because of a permission error or a file held open. A value above zero means files outlived the configured retention period; zero isn't proof that none did, because a failed removal of a whole directory counts toward `error_count` instead
+* `error_count`: Number of errors the sweep encountered while listing or deleting files
 
 ## Interpret metrics and events data
 

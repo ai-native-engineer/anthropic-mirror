@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/skills/versions/list -->
 
+---
+title: List Skill Versions
+url: https://platform.claude.com/docs/en/api/php/beta/skills/versions/list
+---
+
 ## List Skill Versions
 
 `$client->beta->skills->versions->list(string skillID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<VersionListResponse>`
@@ -88,7 +93,10 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $page = $client->beta->skills->versions->list(
-  'skill_id', limit: 0, page: 'page', betas: ['message-batches-2024-09-24']
+  'skill_id',
+  limit: 0,
+  page: 'page',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($page);

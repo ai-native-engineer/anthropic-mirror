@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/agents/list -->
 
+---
+title: List Agents
+url: https://platform.claude.com/docs/en/api/python/beta/agents/list
+---
+
 ## List Agents
 
 `beta.agents.list(AgentListParams**kwargs)  -> SyncPageCursor[BetaManagedAgentsAgent]`
@@ -36,7 +41,7 @@ List Agents
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -101,6 +106,8 @@ List Agents
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -260,6 +267,10 @@ List Agents
 
           - `"max"`
 
+    - `inference_geo: Optional[str]`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
     - `speed: Optional[Literal["standard", "fast"]]`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
@@ -272,17 +283,33 @@ List Agents
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `agents: List[BetaManagedAgentsAgentReference]`
+    - `agents: List[Agent]`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `id: str`
+      - `class BetaManagedAgentsAgentReference: …`
 
-      - `type: Literal["agent"]`
+        A resolved agent reference with a concrete version.
 
-        - `"agent"`
+        - `id: str`
 
-      - `version: int`
+        - `type: Literal["agent"]`
+
+          - `"agent"`
+
+        - `version: int`
+
+      - `class BetaManagedAgentsAdvisor: …`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: str`
+
+          The advisor model id.
+
+        - `type: Literal["advisor"]`
+
+          - `"advisor"`
 
     - `type: Literal["coordinator"]`
 
@@ -509,6 +536,7 @@ print(page.id)
         "effort": {
           "type": "low"
         },
+        "inference_geo": "inference_geo",
         "speed": "standard"
       },
       "multiagent": {

@@ -10,7 +10,7 @@
 
 > **Who this is for:** Tenant administrators and organization owners who set product behavior for the people they manage.
 
-The **Config** page in the admin portal is where you set product behavior such as the session timeout, desktop banner, product availability, and telemetry for the people you manage. The same page appears at both the tenant and the organization level, with the same list of settings, and this page explains how the two levels fit together. For the settings themselves, see [Available settings](https://claude.com/docs/government/config/settings).
+The **Config** page in the admin portal is where you set product behavior such as the session timeout, Claude Desktop banner, product availability, and telemetry for the people you manage. The same page appears at both the tenant and the organization level, with the same list of settings, and this page explains how the two levels fit together. For the settings themselves, see [Available settings](https://claude.com/docs/government/config/settings).
 
 ##  How settings are applied
 
@@ -33,7 +33,7 @@ Settings that may contain secrets, such as telemetry headers, are never echoed b
 
 ##  When changes take effect
 
-Settings that govern the admin portal, such as whether organizations may manage seat tiers, apply immediately. Settings that govern the Claude applications themselves, such as the desktop banner, product availability, and telemetry endpoint, are delivered to each member’s application the next time it refreshes its configuration, which happens when the application is launched or the member signs in. You do not need to push anything, but members who are currently running the application may need to restart it to pick up a change. Lowering the session idle timeout is the one case that applies to new sign-ins only.
+Settings that govern the admin portal, such as whether organizations may manage seat tiers, apply immediately. Settings that govern the Claude applications themselves, such as the Claude Desktop banner, product availability, and telemetry endpoint, are delivered to each member’s application the next time it refreshes its configuration, which happens when the application is launched or the member signs in. You do not need to push anything, but members who are currently running the application may need to restart it to pick up a change. Lowering the session idle timeout applies to new sign-ins only, and so does raising or removing the maximum session length. Lowering the maximum session length, or setting one for the first time, also reaches members who are already signed in, taking up to one idle timeout period to do so, as described under [Maximum session length](https://claude.com/docs/government/config/settings#maximum-session-length).
 
 ##  Working with the list
 
@@ -81,7 +81,7 @@ Two settings, **Organization instructions** and **Organization Analytics connect
 
 The Config page shows the same list of settings at both levels, and almost all of them can be set at either level. The genuine differences are:
 
-* **Two settings can be set only by a tenant administrator.** [Permit organizations to manage their own seat tiers](https://claude.com/docs/government/config/settings#permit-organizations-to-manage-their-own-seat-tiers) and [Compliance API](https://claude.com/docs/government/config/settings#compliance-api) appear on both pages, but are always read-only at the organization level.
+* **Two settings can be set only by a tenant administrator.** [Let organizations manage their own seat tiers](https://claude.com/docs/government/config/settings#let-organizations-manage-their-own-seat-tiers) and [Compliance API](https://claude.com/docs/government/config/settings#compliance-api) appear on both pages, but are always read-only at the organization level.
 * **Preview impact appears only at the tenant level.** See [Previewing impact](#previewing-impact) above.
 * **Group priority is set at the tenant level.** Organization owners see the priority order for reference but cannot change it.
 * **Tenant administrators can open any organization’s Config page** and act on that organization’s behalf. Organization owners see only their own organization.

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memory_versions/redact -->
 
+---
+title: Redact a memory version
+url: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memory_versions/redact
+---
+
 ## Redact a memory version
 
 `$ ant beta:memory-stores:memory-versions redact`

@@ -6,6 +6,8 @@ How to work with @Claude across your org: setting up where it has context, writi
 
   Professional
 * Product
+
+  Claude Tag
 * Reading time
 
   Watch time

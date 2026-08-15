@@ -110,7 +110,7 @@ In a channel under the bundle’s scope, in a new thread, ask Claude to make a s
 @Claude can you reach api.example.com? Try a GET on /health.
 ```
 
-Check the service’s own audit log to confirm the call landed under your service account.
+Check the service’s own audit log to confirm the call landed under your service account. New threads pick up the connection on their own; in an existing thread, ask Claude to use the service by name.
 
 ##  Related resources
 

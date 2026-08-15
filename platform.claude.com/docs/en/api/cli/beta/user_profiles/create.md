@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/create -->
 
+---
+title: Create User Profile
+url: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/create
+---
+
 ## Create User Profile
 
 `$ ant beta:user-profiles create`

@@ -29,7 +29,7 @@ Go to Organization settings > Claude Science.
 Turn on the Enable for your organization toggle. The setup wizard opens.
 Complete each step of the wizard, then select Enable Claude Science.
 Members with access can [download Claude Science](https://claude.com/product/claude-science) and sign in with their claude.ai account.
-You need an Owner or Primary Owner role to turn Claude Science on or off.
+You need an Owner or Primary Owner role to turn Claude Science on or off. If you have the Admin role, you can add members and assign seats, but you can’t turn on Claude Science. Ask an Owner or Primary Owner to turn it on.
 
 ###  Reviewing role access
 
@@ -46,14 +46,17 @@ By continuing, you authorize your team to let Claude use the optional enabled re
 
 ##  Who gets access after you enable
 
-Turning on the organization toggle controls whether Claude Science is accessible to your organization at all. Seat entitlement then controls which members can use Claude Science:
+Turning on the organization toggle controls whether Claude Science is accessible to your organization at all. Adding members or assigning seats doesn’t turn it on. Once it’s on, roles control which members can use it:
 Built-in roles include the Claude Science entitlement, so those members can download and sign in immediately.
 Custom roles (Enterprise plans only) need the Claude Science capability added. Members on a custom role without the capability see the app as unavailable even after you enable it for the organization.
+A custom role whose Capability access setting is All capabilities already includes Claude Science. The All generally available setting excludes beta capabilities such as Claude Science, so for those roles also select the Claude Science capability.
 This is the same pattern as other Claude apps you enable per organization.
 
 ##  What members see
 
 Once Claude Science is enabled and a member’s role includes the entitlement, they can download the app from claude.com/product/claude-science and sign in with their claude.ai account.
+If the organization toggle is off, claude.ai stops members at sign-in with a message such as “Claude Science has not been enabled for your account. Contact your organization administrator.” On Enterprise plans, members whose custom role doesn’t include the capability are stopped the same way.
+Members who belong to more than one organization on claude.ai, such as a personal account alongside yours, need to choose your organization when claude.ai asks which one to connect. Before they select Authorize, they can also select Switch organization on the authorization screen to change that choice. A member who connects a Free personal account instead sees “Claude Science requires a Pro or Max subscription.” and can select Switch account to sign in again and choose your organization.
 
 ##  HIPAA organizations
 

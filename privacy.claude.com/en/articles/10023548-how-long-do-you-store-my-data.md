@@ -52,5 +52,5 @@ For more information about our privacy practices, please see our [Trust Center](
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
-* [What personal data is collected when using dictation on the Claude mobile apps?](https://privacy.claude.com/en/articles/10067979-what-personal-data-is-collected-when-using-dictation-on-the-claude-mobile-apps)
+* [What Personal data is collected when using dictation on the Claude Mobile Apps?](https://privacy.claude.com/en/articles/10067984-what-personal-data-is-collected-when-using-dictation-on-the-claude-mobile-apps)
 * [How do I change my model improvement privacy settings?](https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings)

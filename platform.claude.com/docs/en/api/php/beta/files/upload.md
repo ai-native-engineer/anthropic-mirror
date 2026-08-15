@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/files/upload -->
 
+---
+title: Upload File
+url: https://platform.claude.com/docs/en/api/php/beta/files/upload
+---
+
 ## Upload File
 
 `$client->beta->files->upload(string file, ?list<AnthropicBeta> betas): FileMetadata`
@@ -69,7 +74,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $fileMetadata = $client->beta->files->upload(
   file: FileParam::fromString('Example data', filename: uniqid('file-upload-', true)),
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($fileMetadata);

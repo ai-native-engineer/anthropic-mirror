@@ -158,6 +158,14 @@ Co-founder and CEO, Artemis
 
 ## Related stories
 
+[Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega-security)Vega's cyber defense platform returns 67% of analysts' time with Claude
+
+Vega's cyber defense platform returns 67% of analysts' time with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/vega-security)Customer story
+
 [Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)Cyera on making Claude Cowork the front door to 40 tools
 
 Cyera on making Claude Cowork the front door to 40 tools
@@ -181,11 +189,3 @@ Kai delivers preemptive exposure management with Claude
 Customer story
 
 [Customer story](https://claude.com/customers/kai)Customer story
-
-[Cogent resolves security threats 97% faster with Claude](https://claude.com/customers/cogent)Cogent resolves security threats 97% faster with Claude
-
-Cogent resolves security threats 97% faster with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/cogent)Customer story

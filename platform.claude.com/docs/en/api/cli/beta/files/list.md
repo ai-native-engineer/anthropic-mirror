@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/files/list -->
 
+---
+title: List Files
+url: https://platform.claude.com/docs/en/api/cli/beta/files/list
+---
+
 ## List Files
 
 `$ ant beta:files list`

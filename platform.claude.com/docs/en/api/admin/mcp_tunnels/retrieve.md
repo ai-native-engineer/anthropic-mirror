@@ -1,8 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/mcp_tunnels/retrieve -->
 
+---
+title: Get Tunnel
+url: https://platform.claude.com/docs/en/api/admin/mcp_tunnels/retrieve
+---
+
 ## Get Tunnel
 
 **get** `/v1/organizations/tunnels/{tunnel_id}`
+
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Retrieve a single tunnel in the caller's organization by ID.
 
@@ -26,7 +33,7 @@ Retrieve a single tunnel in the caller's organization by ID.
 
   ID of the Tunnel.
 
-- `archived_at: string`
+- `archived_at: string or null`
 
   RFC 3339 datetime string indicating when the Tunnel was archived, or
   `null` if it is not archived.
@@ -35,7 +42,7 @@ Retrieve a single tunnel in the caller's organization by ID.
 
   RFC 3339 datetime string indicating when the Tunnel was created.
 
-- `display_name: string`
+- `display_name: string or null`
 
   Human-readable name for the Tunnel (1–255 characters), or `null` if unset.
 
@@ -51,7 +58,7 @@ Retrieve a single tunnel in the caller's organization by ID.
 
   - `"tunnel"`
 
-- `workspace_id: string`
+- `workspace_id: string or null`
 
   ID of the Workspace this Tunnel belongs to, or `null` for the default
   Workspace. Immutable after creation.

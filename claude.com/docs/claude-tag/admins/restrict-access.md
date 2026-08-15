@@ -85,7 +85,7 @@ Set the **Claude Tag version** on [**Default Slack access**](https://claude.com/
 
 Switch the chosen channels back on
 
-Set each chosen channel’s version to **New**. A channel’s own setting wins over the **Off** above it, so Claude responds in the chosen channels and nowhere else. A channel that doesn’t appear in the **Claude Tag’s access** section yet needs a scope first; create one with **Add channel** as described in [Attach to a channel](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-to-a-channel), and the version control is on the new scope’s panel.
+Set each chosen channel’s version to **New**. A channel’s own setting wins over the **Off** above it, so Claude responds in the chosen channels and nowhere else. Channels Claude was added to already appear in the **Claude Tag’s access** section, and the version control is on each channel scope’s panel; use **Search channels** to find each one. For a channel that isn’t listed, create a scope with **Add channel** as described in [Attach to a channel](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-to-a-channel).
 
 If someone invites the app into another channel afterward, Claude stays silent there. Mentioning `@Claude` in that channel gets a notice that Claude is disabled in the channel, not a reply.
 DMs, guest channels, and shared channels sit outside the version setting:

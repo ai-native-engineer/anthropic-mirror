@@ -200,7 +200,7 @@ The official marketplace has plugins for TypeScript, Python, Go, Rust, and other
 If the install fails, match the message Claude Code reports:
 
 * `Marketplace "claude-plugins-official" not found`: add the marketplace with `/plugin marketplace add anthropics/claude-plugins-official`, then retry the install.
-* The plugin is not found in the marketplace: check the plugin name. Claude Code [refreshes a stale marketplace catalog and retries](/docs/en/discover-plugins#install-plugins) before reporting this, so if you turned off [marketplace auto-update](/docs/en/discover-plugins#configure-auto-updates), refresh manually with `/plugin marketplace update claude-plugins-official` and retry the install.
+* The plugin is [not found in the marketplace](/docs/en/discover-plugins#install-plugins): check the plugin name.
 
 To enable a plugin for everyone in the repository rather than installing it yourself, add it to the [`enabledPlugins` project setting](/docs/en/settings#plugin-settings).
 
@@ -390,7 +390,7 @@ See [server-managed or endpoint-managed settings](/docs/en/server-managed-settin
 
 ### Recommend the right plugin at session start
 
-Once conventions live in plugins, a teammate starting Claude in an unfamiliar part of the tree has no signal about which plugin that area's owners maintain. A [`SessionStart` hook](/docs/en/hooks#sessionstart) can close that gap, since anything the hook prints to stdout is added to Claude's context before the first prompt.
+Once conventions live in plugins, a teammate starting Claude in an unfamiliar part of the tree has no signal about which plugin that area's owners maintain. A [`SessionStart` hook](/docs/en/hooks#sessionstart) can close that gap, since Claude Code adds plain text the hook prints to stdout to Claude's context before the first prompt.
 
 For example, you can write a script that reads the launch directory from the [hook input](/docs/en/hooks#common-input-fields), looks it up in a path-to-plugin map committed to the repository, and prints the recommendation for Claude to relay in its first reply. See [Automate actions with hooks](/docs/en/hooks-guide) to write and register the hook.
 

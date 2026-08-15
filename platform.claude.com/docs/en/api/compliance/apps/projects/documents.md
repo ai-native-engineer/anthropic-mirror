@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/apps/projects/documents -->
 
+---
+title: Documents
+url: https://platform.claude.com/docs/en/api/compliance/apps/projects/documents
+---
+
 # Documents
 
 ## Get project document content
@@ -36,13 +41,13 @@ Get detailed information for a specific project document.
 
   Document filename
 
-- `user: object { id, email_address }`
+- `user: object { id, email_address }  or null`
 
   The user who created a project or project document.
 
   Fields that reference this type are null when the creator's account has
-  been deleted or the creator is no longer a member of any organization
-  under the parent organization.
+  been deleted or the creator is no longer a member of an organization the
+  key may read.
 
   - `id: string`
 
@@ -63,13 +68,13 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
 ```json
 {
-  "id": "id",
-  "content": "content",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "filename": "filename",
+  "id": "claude_proj_doc_01Qr8StUvWxYzAbCdEfGhJjK",
+  "content": "# Design notes\n\n- Item one\n- Item two\n",
+  "created_at": "2025-03-12T18:22:41.123456Z",
+  "filename": "design-notes.txt",
   "user": {
-    "id": "id",
-    "email_address": "email_address"
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "email_address": "jane.doe@example.com"
   }
 }
 ```
@@ -127,13 +132,13 @@ consumer can dedupe or match hashes without downloading every document.
 
   Size in bytes of the document content (UTF-8 encoded)
 
-- `user: object { id, email_address }`
+- `user: object { id, email_address }  or null`
 
   The user who created a project or project document.
 
   Fields that reference this type are null when the creator's account has
-  been deleted or the creator is no longer a member of any organization
-  under the parent organization.
+  been deleted or the creator is no longer a member of an organization the
+  key may read.
 
   - `id: string`
 
@@ -162,8 +167,8 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
   "mime_type": "text/plain",
   "size_bytes": 0,
   "user": {
-    "id": "id",
-    "email_address": "email_address"
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "email_address": "jane.doe@example.com"
   }
 }
 ```
@@ -239,13 +244,13 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
     Document filename
 
-  - `user: object { id, email_address }`
+  - `user: object { id, email_address }  or null`
 
     The user who created a project or project document.
 
     Fields that reference this type are null when the creator's account has
-    been deleted or the creator is no longer a member of any organization
-    under the parent organization.
+    been deleted or the creator is no longer a member of an organization the
+    key may read.
 
     - `id: string`
 
@@ -294,13 +299,13 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
     Size in bytes of the document content (UTF-8 encoded)
 
-  - `user: object { id, email_address }`
+  - `user: object { id, email_address }  or null`
 
     The user who created a project or project document.
 
     Fields that reference this type are null when the creator's account has
-    been deleted or the creator is no longer a member of any organization
-    under the parent organization.
+    been deleted or the creator is no longer a member of an organization the
+    key may read.
 
     - `id: string`
 

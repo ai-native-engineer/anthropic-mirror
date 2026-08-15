@@ -570,11 +570,11 @@ The grader prompt is straightforward:
 
 Your task is to evaluate whether a given response arrived at the correct answer.
 
-Question: <question>\{question}</question>
+Question: <question>{question}</question>
 
-Correct answer (type: \{answer\_type}): <correct\_answer>\{answer}</correct\_answer>
+Correct answer (type: {answer\_type}): <correct\_answer>{answer}</correct\_answer>
 
-Response to evaluate: <response>\{response}</response>
+Response to evaluate: <response>{response}</response>
 
 For each expected answer item, indicate whether it appears in the response.
 

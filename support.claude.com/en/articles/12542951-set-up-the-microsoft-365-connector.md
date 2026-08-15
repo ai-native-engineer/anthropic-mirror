@@ -162,11 +162,13 @@ During authentication, the integration requests the following permissions:
 * `Mail.Read`: Read email messages
 * `Mail.ReadBasic`: Read email metadata (sender, subject, date)
 * `Mail.Read.Shared`: Read emails in mailboxes the user has access to
+
+  + **Note:** Shared mailbox access is included through the `Mail.Read.Shared` permission. Users can search shared mailboxes they have delegate access to in Microsoft 365, including full access and folder-level delegation. No setup is needed beyond standard admin consent and the delegate permissions already configured in Microsoft 365.
 * `MailboxFolder.Read`: Read mailbox folder structure
 * `MailboxItem.Read`: Read items in mailbox
 * `MailboxSettings.Read`: Read mailbox settings, like the user's timezone
 
-**Note:** Shared mailbox access is included through the `Mail.Read.Shared` permission. Members can search shared mailboxes they have delegate access to in Microsoft 365, including full access and folder-level delegation. No setup is needed beyond standard admin consent and the delegate permissions already configured in Microsoft 365.
+**Note:** Email search covers each user's primary mailbox, including its Archive folder, and any shared mailboxes they can access. It doesn't cover the separate Online Archive mailbox (also called the In-Place Archive), so messages that a retention policy has moved there won't appear in results.
 
 **Calendar**
 
@@ -260,8 +262,8 @@ Yes. When enterprise search is enabled, it can query Microsoft 365 alongside oth
 
 Only after an Entra admin grants write scopes. With write tools on, Claude can send email, manage drafts and calendar events, update mailbox settings, and create and update files in OneDrive and SharePoint, always within each member's existing Microsoft 365 permissions. Without them, the integration is read-only. Claude can't post Teams messages or change Teams settings or permissions in either case, since there are no tools allowing this.
 
-* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)

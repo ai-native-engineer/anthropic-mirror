@@ -1,167 +1,173 @@
 <!-- source: https://www.anthropic.com/legal/consumer-terms -->
 
-**Welcome to Anthropic! Before you access our services, please read these Terms of Service.**
+## 고객 서비스 약관
 
-These Terms of Service (“**Terms**”) govern your use of Claude.ai, Claude Pro, and other products and services that we may offer for individuals, along with any associated apps, software, and websites (together, our “**Services**”). These Terms are a contract between you and Anthropic, PBC ("**Anthropic**") (and not our Providers), and they include our [Acceptable Use Policy](https://anthropic.com/aup). By accessing our Services, you agree to these Terms.
+시행일 2025년 10월 8일
 
-Please read our [Privacy Policy](https://anthropic.com/privacy), which describes how we collect and use personal information.
+참조: 본 서비스 약관은 2025년 9월 28일 또는 귀하가 당사 서비스 내에서 업데이트된 본 약관에 동의한 날 중 더 빠른 날부터 효력이 발생합니다.
 
-**Please note: Our [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms) govern your use of any Anthropic API key, the [Anthropic Console](https://console.anthropic.com/), or any other Anthropic offerings that reference the Commercial Terms of Service. For clarity, this does not include Claude.ai or Claude Pro use for individuals or entities.**
+Anthropic에 오신 것을 환영합니다! 당사 서비스에 접속하기 전에 본 서비스 약관을 읽어 보시기 바랍니다.
 
-## 1. Who we are.
+본 서비스 약관(**“본 약관”**)은 귀하의 Claude.ai, Claude Pro 및 당사가 개인에게 제공할 수 있는 기타 상품 및 서비스의 사용을 비롯하여 이와 관련된 앱, 소프트웨어 및 웹사이트(총칭하여 **“당사 서비스”**)의 사용을 규율합니다. 본 약관은 귀하와 Anthropic, PBC(“Anthropic” 또는 “당사”) (당사의 제공업체들은 미포함)간의 계약이며 본 약관에는 당사의 [허용가능한 사용정책(Acceptable Use Policy](https://anthropic.com/aup))이 포함되어 있습니다. 귀하가 당사 서비스에 접속하는 것은 본 약관에 동의한 것으로 간주됩니다.
 
-Anthropic is an AI safety and research company working to build reliable, interpretable, and steerable AI systems. We conduct frontier research, develop and apply a variety of safety techniques, and deploy the resulting systems via a set of partnerships and products.
+당사의 개인정보 수집 및 사용 방안을 규정하고 있는 당사의 [개인정보 처리방침](https://anthropic.com/privacy)을 읽어 보시기 바랍니다.
 
-## 2. Account creation and access.
+주의: 당사의 [상업 서비스 약관](https://www.anthropic.com/legal/commercial-terms)(Commercial Terms of Service)은 귀하의 Anthropic API 키, [Anthropic 콘솔(Console](https://console.anthropic.com/)), 또는 상업 서비스 약관에 언급된(reference) 당사가 제공하는 다른 서비스(offerings)의 사용을 규율합니다. 이를 명확히 하기 위하여, 해당 상업 서비스 약관에는 개인 또는 법인에 대한 Claude.ai 또는 Claude Pro 사용에 대한 내용은 포함되어 있지 않습니다.
 
-**Minimum age.** You must be at least 18 years old or the minimum age required to consent to use the Services in your location, whichever is higher.
+## 1. 회사 소개
 
-**Your Anthropic Account.** To access our Services, we may ask you to create an Account. You agree to provide correct, current, and complete Account information and allow us to use it to communicate with you about our Services. Our communications to you using your Account information will satisfy any requirements for legal notices.
+Anthropic은 신뢰할 수 있고, 해석 가능하며 제어할 수 있는 AI 시스템을 구축하기 위해 노력하는 AI 안전 및 연구 회사입니다. 당사는 선도적인 연구를 수행하고 다양한 안전 기술을 개발 및 적용하고 일련의 파트너십 및 제품을 통해 결과 시스템을 배포합니다.
 
-You may not share your Account login information, Anthropic API key, or Account credentials with anyone else. You also may not make your Account available to anyone else. You are responsible for all activity occurring under your Account, and you agree to notify us immediately if you become aware of any unauthorized access to your Account by sending an email to [support@anthropic.com](mailto:support@anthropic.com).
+## 2. 계정 생성 및 접속
 
-You may close your Account at any time by contacting us at [support@anthropic.com](mailto:support@anthropic.com).
+최소 연령. 귀하는 18세 이상 또는 귀하의 지역에서 당사 서비스 이용에 대한 동의에 요구되는 최소 연령 중 더 높은 연령 이상이어야 합니다.
 
-**Business Domains.** If you use an email address owned by your employer or another organization, your Account may be linked to the organization's Anthropic enterprise account, and the organization’s administrator may be able to monitor and control the Account, including having access to Materials (defined below). We will provide notice to you before linking your Account to an organization's enterprise account. However, if the organization is responsible for notifying you or has already informed you that it may monitor and control your Account, we may not provide additional notice.
+귀하의 Anthropic 계정. 당사 서비스에 대한 접속을 위해 당사는 귀하에게 계정을 생성할 것을 요청할 수 있습니다. 귀하는 정확하고 최신의 완전한 계정 정보를 제공하고 당사가 당사 서비스에 대하여 귀사와 연락하기 위해 해당 계정 정보를 사용하는 것을 허용한다는데 동의합니다. 귀하의 계정 정보를 이용하여 이루어지는 귀하에 대한 당사의 연락은 법적 고지에 대한 요건을 충족합니다.
 
-**Evaluation and Additional Services.** In some cases, we may permit you to evaluate our Services for a limited time or with limited functionality. Use of our Services for evaluation purposes are for your personal, non-commercial use only.
+귀하는 귀하의 계정 로그인 정보, Anthropic API 키 또는 계정 자격증명(credentials)을 타인과 공유하거나 귀하의 계정을 타인에게 제공할 수 없습니다. 귀하는 귀하의 계정에서 발생하는 모든 활동에 대하여 책임을 지며 귀하의 계정이 무단 접속된 경우 [support@anthropic.com](mailto:support@anthropic.com)으로 즉시 이메일을 송부하여 당사에 통지한다는데 동의합니다.
 
-You may need to accept additional terms to use certain Services. These additional terms will supplement our Terms for those Services and may change your rights or obligations for those Services, including your obligations to pay fees.
+귀하는 [support@anthropic.com](mailto:support@anthropic.com)으로 당사에 연락하여 언제든지 귀하의 계정을 폐쇄할 수 있습니다.
 
-## 3. Use of our Services.
+비즈니스 도메인. 귀하가 귀하의 고용주 또는 다른 단체가 소유하는 이메일 주소를 사용하는 경우, 귀하의 계정은 해당 단체의 Anthropic 기업 계정에 연동될 수 있으며 해당 단체의 관리자는 자료(아래에 정의되어 있음)에 대한 접근 권한을 포함하여 귀하의 계정을 모니터링 및 통제할 수 있습니다. 당사는 귀하의 계정을 단체의 기업 계정에 연동시키기 전에 귀하에게 통지합니다. 단, 해당 단체가 귀하에게 통지할 책임이 있거나 귀하의 계정을 모니터링 및 제어할 수 있음을 이미 귀하에게 통지한 경우, 당사는 추가적인 통지를 제공하지 않을 수 있습니다.
 
-You may access and use our Services only in compliance with our Terms, including our [Acceptable Use Policy](https://anthropic.com/aup), the policy governing [the countries and regions Anthropic currently supports](https://www.anthropic.com/supported-countries) ("Supported Regions Policy"), and any guidelines or supplemental terms we may post on the Services (the “**Permitted Use**”). You are responsible for all activity under the account through which you access the Services.
+평가 및 추가 서비스. 당사는 일부 경우에서 귀하가 제한된 시간 동안 또는 제한된 기능으로 당사 서비스를 평가하도록 허용할 수 있습니다. 평가 목적을 위해 당사 서비스를 이용하는 것은 귀하의 개인적이며 비상업적인 용도로만 허용됩니다.
 
-You may not access or use, or help another person to access or use, our Services in the following ways:
+귀하는 당사의 특정 서비스를 이용하기 위해서 추가적인 약관을 수락해야 할 수 있습니다. 이러한 추가적인 약관은 해당 서비스에 대한 당사의 약관을 보충하며 귀하의 수수료 지급 의무를 포함한 해당 서비스에 대한 귀하의 권리 또는 의무를 변경할 수 있습니다.
 
-1. In any manner that violates any applicable law or regulation—including, without limitation, any laws about exporting data or software to and from the United States or other countries.
-2. To develop any products or services that compete with our Services, including to develop or train any artificial intelligence or machine learning algorithms or models or resell the Services.
-3. To decompile, reverse engineer, disassemble, or otherwise reduce our Services to human-readable form, except when these restrictions are prohibited by applicable law.
-4. To crawl, scrape, or otherwise harvest data or information from our Services other than as permitted under these Terms.
-5. To use our Services, the Materials, or the Actions to obtain unauthorized access to any system or information, or to deceive any person.
-6. To infringe, misappropriate, or violate intellectual property or other legal rights (including the rights of publicity or privacy).
-7. Except when you are accessing our Services via an Anthropic API Key or where we otherwise explicitly permit it, to access the Services through automated or non-human means, whether through a bot, script, or otherwise.
-8. To engage in any other conduct that restricts or inhibits any person from using or enjoying our Services, or that we reasonably believe exposes us—or any of our users, affiliates, or any other third party—to any liability, damages, or detriment of any type, including reputational harms.
-9. To rely upon the Services, the Materials, or the Actions to buy or sell securities or to provide or receive advice about securities, commodities, derivatives, or other financial products or services, as Anthropic is not a broker-dealer or a registered investment adviser under the securities laws of the United States or any other jurisdiction.
+## 3. 당사 서비스 사용.
 
-You also must not abuse, harm, interfere with, or disrupt our Services, including, for example, introducing viruses or malware, spamming or DDoSing Services, or bypassing any of our systems or protective measures.
+귀하는 당사의 서비스에 접속하고 이를 이용함에 있어, 당사의 약관, [허용가능한 사용정책](https://www.anthropic.com/legal/aup), [현재 Anthropic이 지원하는 국가 및 지역](https://www.anthropic.com/supported-countries)을 규율하는 정책(**“지원 지역 정책”**) 및 당사가 당사 서비스에 대하여 게시할 수 있는 기타 지침 또는 보충 약관을 준수하는 범위 내에서만 가능합니다(**“허용된 사용”**). 귀하는 귀하가 서비스를 이용하는 계정을 통해 이루어진 모든 활동에 대하여 책임을 집니다.
 
-## 4. Inputs, Outputs, Actions, and Materials.
+귀하는 아래의 방식으로 당사 서비스에 접속 또는 이를 사용하거나 타인이 그러하도록 도움을 줄 수 없습니다.
 
-**Generally.** You may be allowed to interact with our Services in a variety of formats (we call these “**Inputs**”). Our Services may generate responses (we call these “**Outputs**”), or enable the Services to take actions on your behalf, such as software manipulation, data processing, and system interactions (we call these **"Actions"**), based on your Inputs. Inputs and Outputs collectively are “**Materials**.”
+1. 미국 또는 다른 국가로의 또는 미국 또는 다른 국가로부터의 데이터 또는 소프트웨어 이전에 대한 법률을 포함하나 이에 국한되지 않는 관련 법령을 위반
+2. 인공 지능 또는 기계 학습 알고리즘 또는 모델을 개발 또는 훈련하는 것을 포함하여 당사 서비스와 경쟁하는 상품 또는 서비스 개발
+3. 다음의 제한이 관련 법률에 의해 금지되지 않은 한 당사 서비스를 역분석(decompile), 역설계(reverse engineer), 역변환(disassemble) 또는 사람이 판독가능한 형태로 축소
+4. 본 약관에서 허용된 경우를 제외하고 당사 서비스에서 데이터 또는 정보를 크롤링(crawl), 스크래핑(scrape) 또는 다른 방식으로 수집
+5. 당사 서비스, 자료 또는 실행을 사용하여 시스템 또는 정보에 무단 접속하거나 타인을 속이는 행위
+6. 지식재산권 또는 기타 법적 권리(초상사용권 또는 개인정보보호권(the rights of publicity or privacy)포함)를 침해, 유용 또는 위반
+7. 귀하가 Anthropic API 키를 통해 당사 서비스에 접속하거나 당사가 이를 명시적으로 허용하는 경우를 제외하고 봇(bot), 스크립트(script) 또는 기타 방식을 통해 자동화된 또는 비인간적인 방식을 통해 당사 서비스에 접속
+8. 제3자가 당사 서비스를 사용하거나 누리는 것을 제한 또는 방해하는 기타 행위에 개입하거나 당사가 합리적으로 판단하기에 당사 또는 그 사용자, 계열사 또는 기타 제3자를 평판 손상을 포함한 모든 유형의 책임, 손해 또는 손실에 노출시키는 행위에 개입.
+9. 당사 서비스, 자료 또는 실행을 신뢰하여 증권을 매매하거나, 증권·상품·파생상품 또는 기타 금용상품이나 금융서비스에 관한 조언을 제공하거나 제공받기 위한 목적으로 이용하는 행위. 당사는 미국 또는 다른 어떠한 국가의 관련 법상 브로커-딜러(broker-dealer)나 등록된 투자자문업자가 아닙니다.
 
-**Rights and Responsibilities.** You are responsible for all Inputs you submit to our Services and all Actions. By submitting Inputs to our Services, you represent and warrant that you have all rights, licenses, and permissions that are necessary for us to process the Inputs under our Terms and to provide the Services to you, including for example, to integrate with third-party services, to share Materials with others at your direction, and to take Actions. You also represent and warrant that your submitting Inputs to us or directing Claude to take Actions will not violate our Terms, our [Acceptable Use Policy](https://anthropic.com/aup), or any laws or regulations applicable to those Inputs or Actions. As between you and Anthropic, and to the extent permitted by applicable law, you retain any right, title, and interest that you have in the Inputs you submit. Subject to your compliance with our Terms, we assign to you all of our right, title, and interest—if any—in Outputs.
+귀하는 또한 바이러스 또는 악성 소프트웨어(malware)를 도입하거나 스팸 메일을 보내거나 디도스 공격을 하거나 당사 시스템 또는 보호 조치를 우회하는 등의 방식으로 당사 서비스를 남용하거나 손해를 입히거나 방해하거나 중단시켜서는 안 됩니다.
 
-**Reliance on Outputs and Actions.** Artificial intelligence and large language models are frontier technologies that are still improving in accuracy, reliability and safety. When you use our Services, you acknowledge and agree:
+## 4. 프롬프트, 산출물, 실행 및 자료.
 
-1. Outputs may not always be accurate and may contain material inaccuracies even if they appear accurate because of their level of detail or specificity.
-2. Actions may not be error free or operate as you intended.
-3. You should not rely on any Outputs or Actions without independently confirming their accuracy.
-4. The Services and any Outputs may not reflect correct, current, or complete information.
-5. Outputs may contain content that is inconsistent with Anthropic’s views.
+일반. 귀하는 다양한 형식으로 당사 서비스와 상호 작용할 수 있습니다(당사는 이를 **“프롬프트”**라 합니다). 당사 서비스는 귀하의 프롬프트를 기준으로 응답을 생성(당사는 이를 **“산출물”**이라 합니다)하거나 귀하를 대신하여 실행하도록 당사 서비스를 활용(당사는 이를 **“실행”**이라 합니다)하게 할 수 있습니다. 프롬프트 및 산출물을 총칭하여 “자료”라 합니다.
 
-**Our use of Materials.** We may use Materials to provide, maintain, and improve the Services and to develop other products and services, including training our models, unless you opt out of training through your account settings. Even if you opt out, we will use Materials for model training when: (1) you provide Feedback to us regarding any Materials, or (2) your Materials are flagged for safety review to improve our ability to detect harmful content, enforce our policies, or advance our safety research.
+권리 및 책임. 귀하는 귀하가 당사 서비스에 제출한 모든 프롬프트 및 실행에 대하여 책임이 있습니다. 당사 서비스에 프롬프트를 제출함으로써 귀하는, 예를 들어 제3자 서비스와 결합하는 것, 귀하의 지시에 따라 다른 사람과 자료를 공유하는 것 또는 실행하는 것을 포함하여, 당사의 약관에 따라 당사가 프롬프트를 처리, 하는데 필요한 일체의 권리, 라이선스 및 허가를 귀하가 취득하였음을 진술 및 보증합니다. 귀하는 또한 귀하가 당사에 프롬프트를 제출하는 것 또는 Claude에게 실행하도록 지시하는 것은 당사 약관, [허용가능한 사용정책](https://www.anthropic.com/legal/aup) 또는 해당 프롬프트 또는 실행에 적용되는 법령을 위반하지 않을 것이라는 점을 진술 및 보장합니다. 귀하 및 Anthropic 간에 관련 법에서 허용하는 범위 내에서 귀하는 귀하가 제출한 프롬프트에 대하여 귀하가 가진 권리, 소유권 및 이권을 보유합니다. 귀하가 당사 약관을 준수한다는 점을 조건으로 하여 당사는 귀하에게 산출물에 대한 당사의 모든 권리, 소유권 및 이권(존재하는 경우)을 양도합니다.
 
-## 5. Feedback
+산출물 및 실행에 대한 신뢰. 인공 지능 및 대규모 언어 모델은 정확성, 신뢰성 및 안전성 측면에서 여전히 발전하고 있는 최첨단 기술입니다. 귀하는 당사 서비스를 사용함으로써 아래의 내용을 인정하고 이에 동의하는 것으로 간주됩니다.
 
-We appreciate feedback, including ideas and suggestions for improvement or rating an Output in response to an Input (“**Feedback**”). If you rate an Output in response to an Input—for example, by using the thumbs up/thumbs down icon—we will store the related conversation as part of your Feedback. You have no obligation to give us Feedback, but if you do, you agree that we may use the Feedback however we choose without any obligation or other payment to you.
+1. 산출물은 항상 정확하지 않을 수 있으며 산출물의 상세성 또는 전문성 수준(level of detail or specificity)으로 인하여 정확해 보일지라도 중대한 오류를 포함할 수 있습니다.
+2. 실행은 오류가 있을 수 있으며, 귀하 의도대로 작동하지 않을 수 있습니다.
+3. 귀하는 산출물 또는 실행의 정확성을 자체적으로 확인하지 않고 산출물 또는 실행을 신뢰하지 않도록 합니다.
+4. 서비스 및 산출물은 정확하고 최신의 또는 안전한 정보를 반영하지 않을 수 있습니다.
+5. 산출물은 Anthropic의 입장과 일치하지 않는 내용을 포함할 수 있습니다.
 
-## 6. Subscriptions, fees and payment.
+당사의 자료 사용. 당사는 귀하가 계정 설정을 통해 학습을 거부(opt-out)하지 않는 한, 당사 서비스를 제공, 유지관리 및 개선하고 다른 상품 및 서비스를 개발(모델 학습을 포함함)하기 위해 자료를 사용할 수 있습니다. 다만, 귀하가 거부하더라도, 다음의 경우에는 모델 학습을 위하여 자료를 사용할 수 있습니다: (1) 귀하가 당사에 자료와 관련한 피드백을 제공하는 경우, 또는 (2) 귀하의 자료가 안전성 검토 대상으로 지정되어, 당사가 유해한 콘텐츠를 탐지하고 정책을 집행하며 안전성 연구를 발전시키는 능력을 향상시키기 위해 필요한 경우.
 
-**Fees and billing.** You may be required to pay us fees to access or use our Services or certain features of our Services. You are responsible for paying any applicable fees listed for the Services on the [Model Pricing Page](https://www.anthropic.com/pricing) unless otherwise communicated to you by Anthropic in writing.
+## 5. 피드백
 
-If you purchase access to our Services or features of our Services, you must provide complete and accurate billing information (“**Payment Method**”). You agree that we may charge the Payment Method for any applicable fees listed on our Services and any applicable tax. If the fees for these Services or features are specified to be recurring or based on usage, you agree that we may charge these fees and applicable taxes to the Payment Method on a periodic basis.
+귀하가 프롬프트에 대한 산출물을 개선하기 위한 아이디어 및 제안을 보내주시거나 산출물을 평가해주시면 감사하겠습니다(“피드백”). 예를 들어 귀하가 좋아요/싫어요 아이콘을 사용하여 프롬프트에 대한 산출물을 평가하는 경우, 당사는 관련 대화(conversation)를 귀하의 피드백의 일부로 저장합니다. 귀하가 피드백을 제공할 의무는 없으나 피드백을 제공하는 경우 귀하는 당사가 귀하에게 어떠한 의무를 부담하거나 지급을 하지 않고 당사가 선택한 방식으로 피드백을 사용할 수 있다는데 동의하는 것으로 간주됩니다.
 
-If you purchase access to our Services through a distributor (e.g. an app store) (**“App Distributor”**), then you will make payment to the App Distributor, and the App Distributor’s terms in relation to payment methods, billing, and refunds will apply instead of these Terms.
+## 6. 구독, 수수료 및 결제
 
-Except as expressly provided in these Terms or where required by law, all payments are non-refundable. Please check your order carefully before confirming it, and see below for additional information about recurring charges for our subscriptions.
+수수료 및 청구. 귀하는 당사 서비스 또는 당사 서비스의 특정 기능에 접속하거나 이를 사용하기 위해 당사에 수수료를 지급해야 할 수 있습니다. 귀하는 당사 서비스에 적용되는 수수료를 **[모델 요금 페이지](https://www.anthropic.com/pricing)(Model Pricing Page)**에 기재된 바와 같이 납부할 책임이 있으며, 이는 당사가 귀하에게 서면으로 달리 통지하지 않는 한 적용됩니다.
 
-**Additional fees.** We may increase fees for our Services. If we charge additional fees in connection with our Services, we will give you an opportunity to review and accept the additional fees before you are charged. Also, additional fees may apply for additional Services or features of the Services that we may make available. If you do not accept any such additional fees, we may discontinue your access to the Services or features.
+귀하가 당사 서비스 또는 당사 서비스의 기능에 대한 접속 권한을 구매하는 경우, 귀하는 완전하고 정확한 청구 정보(“결제 수단”)를 제공해야 합니다. 귀하는 당사 서비스에 기재된 관련 수수료 및 세금을 결제 수단을 통해 청구할 수 있다는데 동의합니다. 해당 서비스 또는 기능에 대한 수수료가 반복적으로 발생하거나 사용량에 따라 결정되는 경우 당사는 해당 수수료 또는 세금을 결제 수단을 통해 정기적으로 청구할 수 있다는데 동의합니다.
 
-You agree that we will not be held liable for any errors caused by third-party payment processors used to process fees paid by you to us.
+귀하가 배급업체(예: 앱 스토어, **“앱 배급업체”**)를 통해 당사 서비스 접속 권한을 구매하는 경우, 귀하는 앱 배급업체에게 대금을 지급하게 되며, 결제 수단, 청구 및 환불에 관한 사항에는 본 약관이 아닌 앱 배급업체의 약관이 적용됩니다.
 
-**Subscriptions.** To access Claude Pro and other subscription services we may make available to individuals, you must sign up for a subscription with us (a “**Subscription**”), first by creating an Account, and then following the subscription procedure on our Services. When you sign up for a Subscription, you agree to these Terms.
+본 약관에 명시적으로 규정되어 있거나 법에서 요구하는 경우를 제외하고 모든 결제는 환불되지 않습니다. 주문을 확정하기 전에 면밀히 확인하시고 당사 구독에 부과되는 정기 요금(recurring charges)에 대한 상세 정보는 아래를 참조하시기 바랍니다.
 
-1. **Subscription content, features, and services.** The content, features, and other services provided as part of your Subscription, and the duration of your Subscription, will be described in the order process. We may change the content, features, and other services from time to time, and we do not guarantee that any particular piece of content, feature, or other service will always be available through the Services.
-2. **Subscription term and automatic renewal.** If you sign up for a paid Subscription, we or the App Distributor will automatically charge your Payment Method on each agreed-upon periodic renewal date until you cancel. If your Subscription has a minimum term (the “**Initial Term**”), we will let you know during the order process. Your Subscription will last for the Initial Term and will automatically renew, and your Payment Method will be charged, at the end of the Initial Term for an additional term equal in duration to the Initial Term and will continue to renew and incur charges for additional terms equal in duration to the Initial Term (each such additional term, a “**Renewal Term**”) until you cancel.
-3. **Subscription cancellation.** If you subscribed via our website, you may cancel your Subscription for any reason by using a method we may provide to you through our products—for example, for Claude Pro, in your customer portal—or by notifying us at [support@anthropic.com](mailto:support@anthropic.com). If you subscribed via an app, you’ll need to cancel via the App Distributor according to the App Distributor’s terms. Learn more [here](https://support.anthropic.com/en/articles/8325617-how-do-i-cancel-my-claude-pro-subscription). To avoid renewal and charges for the next Renewal Term, cancel your subscription at least 24 hours before the last day of the Initial Term or any Renewal Term. For example, if you subscribe on January 25th for a Subscription with a one-month Initial Term, you must cancel the Subscription per the instructions by February 23rd (24 hours before February 24th) to avoid renewal and charges for the next Renewal Term. In the event of a cancellation, your fees will not be refunded, but your access to the Services will continue through the end of the Initial Term or any Renewal Term for which you previously paid fees.
-4. **Additional cancellation rights.** If you are a resident of Brazil, Mexico, South Korea, or Taiwan, you have a legal right to change your mind and cancel the Subscription within 7 days of entering into the Subscription without giving a reason.
-   1. To exercise the right to cancel in the 7-day cancellation period, you must inform us of your decision to cancel the Subscription by making a clear statement to us of such decision before the cancellation period has expired. The easiest way to do this is by cancelling your subscription in the customer portal, or you may contact us at support@anthropic.com. You may also use the model cancellation form in Appendix 1 of these Terms, but it is not obligatory. For further details on how to cancel, please see support.anthropic.com. We will acknowledge your cancellation, e.g., through our online customer portal or console.
-   2. If you cancel the Subscription under Section 6(4)(a), we will reimburse you all payments received from you for the cancelled Subscription. We will make the reimbursement without undue delay, and not later than 14 days after the day on which we are informed about your decision to cancel the Subscription. We will make the reimbursement using the same means of payment as you used for the initial transaction; you will not incur any fees as a result of the reimbursement.
-   3. If you would like to use the Services during the 7-day cancellation period, you may do so. If you have used the Services during the 7-day cancellation period, and wish to cancel the Subscription, you can still do so by following the process in Section (4)(a) above, but we may retain an amount which is in proportion to what has been provided until you have communicated us your withdrawal from these Terms, in comparison with the full coverage of the Subscription.
-   4. The 7-day cancellation period will not reset if you change subscription tiers or cancel and then resubscribe, as you have already had an opportunity to test the Services.
-5. **Subscription fees.** You will pay the fees, either to us or to the App Distributor, for the Initial Term and each subsequent Renewal Term up front, at the start of that Initial Term or Renewal Term, as applicable. We have the right to make changes to the fees applicable to your Subscription from time to time, although we will not make any change to the fees applicable to your Subscription during the current Initial Term or Renewal Term, as applicable. If these changes result in an increase in the fees payable by you, we will inform you at least 30 days in advance of the change. You agree to the increase in fees payable by you unless you cancel the Subscription, as described in the paragraph (Subscription cancellation) immediately above, before the Renewal Term to which the increase in fees will apply.
+추가 수수료. 당사는 당사 서비스에 대한 수수료를 인상할 수 있습니다. 당사가 당사 서비스와 관련하여 추가 수수료를 부과하는 경우 당사는 귀하에게 수수료를 청구하기 전에 추가 수수료를 검토한 후 수락할 기회를 제공합니다. 또한, 당사가 제공할 수 있는 추가 서비스 또는 서비스 기능에 대하여 추가 수수료가 적용될 수 있습니다. 귀하가 추가 수수료를 수락하지 않는 경우 당사는 해당 서비스 또는 기능에 대한 귀하의 접속을 중단할 수 있습니다.
 
-## 7. Third-party services and links
+귀하는 귀하가 당사에 지급한 수수료를 처리하는데 사용되는 제3자 결제 처리업체에 의해 발생한 오류에 대하여 당사가 책임을 부담하지 않는다는데 동의합니다.
 
-Our Services may use or be used in connection with third-party content ("**Third-Party Content**"), services, or integrations. We do not control or accept responsibility for any loss or damage that may arise from your use of any Third-Party Content, services, and integrations, for which we make no representations or warranties. Your use of any Third-Party Content, services, and integrations is at your own risk and subject to any terms, conditions, or policies (including privacy policies) applicable to such third-party content, services, and integrations.
+구독. 귀하가 Claude Pro 및 당사가 개인에게 제공할 수 있는 다른 구독 서비스에 접속하기 위해서는 우선 계정을 생성하고 당사 서비스에 대한 구독 절차에 따라 당사에 구독을 신청해야 합니다(**“구독”**). 귀하가 구독을 신청함으로써 본 약관에 동의한 것으로 간주됩니다.
 
-## 8. Content Moderation
+1. 구독 콘텐츠, 기능 및 서비스. 귀하의 구독의 일부로서 제공된 콘텐츠, 기능 및 기타 서비스 및 귀하의 구독 기간은 주문 절차에 설명되어 있습니다. 당사는 콘텐츠, 기능 및 기타 서비스를 수시로 변경할 수 있으며 콘텐츠, 기능 또는 기타 서비스의 특정 부분이 당사 서비스를 통해 항상 제공될 것이라는 점을 보장하지 않습니다.
+2. 구독 기간 및 자동 갱신. 귀하가 유료 구독을 신청하는 경우 당사는 귀하가 구독을 취소할 때까지 매 합의된 정기 갱신일에 귀하의 결제 수단을 통해 요금이 자동적으로 청구됩니다. 귀하의 구독에 최소 기간(“최초 기간”)이 설정되어 있는 경우, 당사는 주문 절차 과정에서 이를 귀하에게 고지합니다. 귀하의 구독은 최초 기간 동안 지속하여 자동적으로 갱신되며 최초 기간 말일에 최초 기간과 동일한 기간의 추가 기간에 대하여 귀하의 결제 수단을 통해 요금이 청구되며 귀하가 취소할 때까지 최초 기간과 동일한 기간의 추가 기간(각 추가 기간을 “갱신 기간”)동안 갱신되며 해당 기간에 대하여 요금이 청구됩니다.
+3. 구독 취소. 귀하는 당사 제품을 통해 당사가 귀하에게 제공할 수 있는 방식(예, Claude Pro의 경우 고객 포털에서)을 사용하거나 [support@anthropic.com](mailto:support@anthropic.com)로 당사에 통지하여 사유를 불문하고 귀하의 구독을 취소할 수 있습니다. 앱을 통해 구독한 경우, 앱 배급업체의 약관에 따라 해당 앱 배급업체를 통해 구독을 해지하여야 합니다. 자세한 내용은 [**여기**](https://support.anthropic.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription)에서 확인할 수 있습니다. 다음 갱신 기간에 대한 갱신 및 요금이 발생하지 않도록 하기 위해서는 최초 기간 또는 갱신 기간의 말일 최소 24시간 이전에 구독을 취소해야 합니다. 예를 들어, 귀하가 1월 25일에 최초 기간을 1개월로 하는 구독을 신청한 경우, 다음 갱신 기간에 대한 갱신 및 요금이 발생하지 않도록 하기 위해서는 2월 23일(2월 24일 24시간 전)까지 지침에 따라 구독을 취소해야 합니다. 구독을 취소하는 경우 귀하의 수수료는 반환되지 않으나 당사 서비스에 대한 귀하의 접속 권한은 귀하가 이전에 수수료를 지급한 최초 기간 또는 갱신 기간의 말일까지 유효합니다.
+4. 추가적인 취소 권리. 귀하가 브라질, 멕시코, 대한민국 또는 대만의 거주자인 경우, 귀하는 정당한 사유를 제시할 필요 없이 구독 계약 체결일로부터 7일 이내에 구독을 철회하고 해지할 법적 권리를 가집니다.
+   1. 7일 해지 기간 내에 구독 해지권을 행사하기 위해서는, 해지 기간 만료 전에 구독을 해지하고자 하는 귀하의 명확한 의사 표시를 당사에 전달해야 합니다. 이를 위한 가장 쉬운 방법은 고객 포털을 통해 구독을 해지하는 것이며, 또는 [support@anthropic.com](mailto:support@anthropic.com)로 직접 문의할 수도 있습니다. 또한, 본 약관의 부록 1에 있는 표준 해지 양식을 사용할 수도 있으나 이는 의무 사항은 아닙니다. 구체적인 해지 방법은 support.anthropic.com을 참조하시기 바랍니다. 당사는 귀하의 해지 요청을 접수하면, 예컨대 온라인 고객 포털 또는 콘솔을 통해 이를 확인해 드립니다.
+   2. 귀하가 제6(4)(a)항에 따라 구독을 해지한 경우, 당사는 해지된 구독과 관련하여 귀하로부터 수령한 모든 대금을 환불합니다. 환불은 지체 없이, 그리고 늦어도 당사가 귀하의 해지 결정을 통지받은 날로부터 14일 이내에 이루어집니다. 환불은 귀하가 최초 거래 시 사용한 결제 수단과 동일한 방법으로 진행되며, 귀하는 환불 과정에서 어떠한 수수료도 부담하지 않습니다.
+   3. 귀하는 7일 해지 기간 중에도 당사 서비스를 이용할 수 있습니다. 다만, 해당 기간 중 서비스를 이용한 후 구독 해지를 원하시는 경우, 위 제6(4)(a)항에 따른 절차를 통해 여전히 해지할 수 있으나, 당사는 귀하가 철회 의사를 통지하기 전까지 제공된 당사 서비스 이용분에 비례하는 금액을 전체 구독 금액에서 공제할 수 있습니다.
+   4. 구독 등급을 변경하거나 구독을 해지 후 재구독하더라도 7일 해지 기간은 새로 부여되지 않습니다. 이는 이미 귀하에게 당사 서비스를 체험할 기회가 제공되었기 때문입니다.
+5. 구독 수수료. 귀하는 최초 기간 및 후속하는 각 갱신 기간에 대하여 해당 최초 기간 또는 해당하는 경우 갱신 기간의 시작 시점에 당사 또는 앱 판매업체(App Distributor)에게 수수료를 선불로 지급해야 합니다. 당사는 귀하의 구독에 적용되는 수수료를 수시로 변경할 권리를 갖지만 현재 최초 기간 또는 갱신 기간 동안에는 귀하의 구독에 적용되는 수수료를 변경하지 않습니다. 이러한 변경으로 인하여 귀하가 지급해야 하는 수수료가 인상되는 경우 당사는 변경 최소 30일 이전에 변경사항을 귀하에 고지할 것입니다. 요금 인상이 적용되는 갱신 기간 이전에 위 직전 항(구독 취소)에 명시된 바에 따라 귀하가 구독을 취소하지 않는 한 귀하는 귀하가 지급해야 할 수수료 인상에 동의하는 것으로 간주됩니다.
 
-Third-Party Content is the responsibility of the person or entity that provides it to our Services. Anthropic is under no obligation to host or serve Third-Party Content. Third-Party Content may appear in Inputs or Outputs and become part of Materials. If you see any Third-Party Content you believe does not comply with these Terms, including by violating the Acceptable Use Policy or the law, you can [report](https://docs.google.com/forms/d/e/1FAIpQLSeDGdVzv9XYm0eNaI88Aqm8fXO63UhbvFB9_4t-8CMlfUPewQ/viewform) it to us.
+## 7. 제3자 서비스 및 링크
 
-If we become aware that any Third-Party Content (1) infringes another’s copyright or any other intellectual property or related or neighboring right, (2) is in breach of these Terms or our Acceptable Use Policy, or (3) may cause harm to Anthropic, our users, or third parties, we reserve the right to remove or take down some or all of such Third-Party Content using, where appropriate, algorithmic and human review.
+당사 서비스는 제3자 콘텐츠, 서비스 또는 통합(integrations)을 사용하거나 이와 연계하여 사용될 수 있습니다. 당사는 당사가 진술 또는 보장을 하지 않은 제3자 콘텐츠, 서비스 및 통합을 귀하가 사용하는 것을 통제하거나 그러한 사용으로 인해 발생할 수 있는 손실 또는 손해에 대하여 책임을 부담하지 않습니다. 귀하는 제3자 콘텐츠, 서비스 및 통합을 사용하는데 대하여 책임을 지며 해당 제3자 콘텐츠, 서비스 및 통합에 적용되는 약관, 조건 또는 정책(개인정보보호정책 포함)을 준수해야 합니다.
 
-You can learn more about our monitoring and enforcement, including how to appeal an account suspension or termination, in our [T&S Support Center](https://support.anthropic.com/en/collections/4078535-trust-safety).
+## 8. 콘텐츠 조정
 
-## 9. Software
+제3자 콘텐츠는 당사 서비스에 제3자 콘텐츠를 제공하는 개인 또는 단체의 책임입니다. Anthropic은 제3자 콘텐츠를 호스팅하거나 제공할 의무가 없습니다. 제3자 콘텐츠는 프롬프트 또는 산출물에 표시되고 자료의 일부가 될 수 있습니다. 만약 귀하가 허용되는 이용 정책 또는 법률을 위반하는 등 본 약관을 준수하지 않는다고 판단되는 제3자 콘텐츠를 발견한 경우, 이를 당사에 신고할 수 있습니다.
 
-We may offer manual or automatic updates to our software including our apps (“**Anthropic Software**”), without advance notice to you. Anthropic Software may include open source software. In the event of any conflict between these Terms and any other Anthropic or third-party terms applicable to any portion of Anthropic Software, such as open-source license terms, such other terms will control as to that portion of the Anthropic Software and to the extent of the conflict.
+당사는 제3자 콘텐츠가 (1) 타인의 저작권 또는 기타 지적재산권 또는 관련 또는 인접권을 침해하거나, (2) 본 약관 또는 당사의 허용가능한 사용정책을 위반하거나, (3) Anthropic, 당사 사용자 또는 제3자에게 피해를 줄 수 있음을 알게 되는 경우, 당사는 적절하게 알고리즘 및 인간 검토를 사용하여 해당 제3자 콘텐츠의 일부 또는 전부를 제거하거나 폐기할 수 있는 권리를 보유합니다.
 
-## 10. Ownership of the Services
+계정 정지 또는 해지에 대한 이의 제기 방법을 비롯하여 당사의 모니터링 및 집행에 대한 자세한 내용은 당사의 [T&S 지원 센터](https://support.anthropic.com/en/collections/4078535-safeguards)에서 확인하실 수 있습니다.
 
-The Services are owned, operated, and provided by us and our affiliates, licensors, distributors, and service providers (collectively “**Providers**”). We and our Providers retain all of our respective rights, title, and interest, including intellectual property rights, in and to the Services. Other than the rights of access and use expressly granted in our Terms, our Terms do not grant you any right, title, or interest in or to our Services.
+## 9. 소프트웨어
 
-## 11. Disclaimer of warranties, limitations of liability, and indemnity
+당사는 귀하에게 사전에 통지하지 않고 당사 앱을 포함한 당사 소프트웨어(“Anthropic 소프트웨어”)에 대한 수동 또는 자동 업데이트를 제공할 수 있습니다. Anthropic 소프트웨어는 오픈 소스 소프트웨어를 포함할 수 있습니다. 본 약관과 오픈 소스 라이선스 약관 등 Anthropic 소프트웨어의 일부에 적용되는 기타 Anthropic 또는 제3자 약관이 상충하는 경우 해당 Anthropic 소프트웨어 부분 및 상충하는 범위(to the extent of the conflict)에 대하여 다른 약관이 우선합니다.
 
-Our team works hard to provide great services, and we’re continuously working on improvements. However, there are certain aspects we can’t guarantee. We are using ALL CAPS to explain this, to make sure that you see it.
+## 10. 서비스 소유권
 
-YOUR USE OF THE SERVICES, MATERIALS, AND ACTIONS IS SOLELY AT YOUR OWN RISK. THE SERVICES, OUTPUTS, AND ACTIONS ARE PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS AND, TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, ARE PROVIDED WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY. WE AND OUR PROVIDERS EXPRESSLY DISCLAIM ANY AND ALL WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, TITLE, MERCHANTABILITY, ACCURACY, AVAILABILITY, RELIABILITY, SECURITY, PRIVACY, COMPATIBILITY, NON-INFRINGEMENT, AND ANY WARRANTY IMPLIED BY COURSE OF DEALING, COURSE OF PERFORMANCE, OR TRADE USAGE.
+당사 서비스는 당사 및 당사 계열사, 라이센서, 판매업체(distributors) 및 서비스 제공업체들(총칭하여 “제공업체들”)에 의해 소유, 운영 및 제공됩니다. 당사 및 당사 제공업체들은 당사 서비스에 대한 지식재산권을 포함한 각자의 모든 권리, 소유권 및 이권을 보유합니다. 본 약관에서 명시적으로 부여된 접속 및 사용 권한을 제외하고 당사 약관에서는 당사 서비스에 대한 어떠한 권리, 소유권 또는 이권을 귀하에게 부여하지 않습니다.
 
-TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, IN NO EVENT WILL WE, OUR PROVIDERS, OR OUR OR THEIR RESPECTIVE AFFILIATES, INVESTORS, DIRECTORS, OFFICERS, EMPLOYEES, AGENTS, SUCCESSORS OR ASSIGNS (COLLECTIVELY, THE “ANTHROPIC PARTIES”), BE LIABLE FOR ANY DIRECT, INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR OTHER DAMAGES ARISING OUT OF OR IN ANY WAY RELATED TO THE SERVICES, THE MATERIALS, THE ACTIONS, OR THESE TERMS, WHETHER BASED IN CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR OTHER THEORY, EVEN IF ANY ANTHROPIC PARTIES HAVE BEEN ADVISED OF THE POSSIBILITY OF DAMAGES, AND EVEN IF THE DAMAGES ARE FORESEEABLE.
+## 11. 보증의 부인, 책임 제한 및 면책
 
-TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, THE ANTHROPIC PARTIES’ TOTAL AGGREGATE LIABILITY TO YOU FOR ALL DAMAGES, LOSSES AND CAUSES OF ACTION ARISING OUT OF OR IN ANY WAY RELATED TO THE SERVICES, THE MATERIALS, THE ACTIONS, OR THESE TERMS, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE, WILL NOT EXCEED THE GREATER OF THE AMOUNT YOU PAID TO US FOR ACCESS TO OR USE OF THE SERVICES (IF ANY) IN THE SIX MONTHS PRECEDING THE DATE SUCH DAMAGES, LOSSES, AND CAUSES OF ACTION FIRST AROSE, AND $100. THE FOREGOING LIMITATIONS ARE ESSENTIAL TO THESE TERMS, AND WE WOULD NOT OFFER THE SERVICES TO YOU UNDER THESE TERMS WITHOUT THESE LIMITATIONS.
+당사는 훌륭한 서비스를 제공하기 위해 노력하고 있으며 지속적으로 개선 작업을 하고 있습니다. 단, 당사가 보증할 수 없는 부분도 있습니다. 당사는 귀하가 이를 명확히 알 수 있도록 밑줄을 표시하였습니다.
 
-YOU AGREE TO INDEMNIFY AND HOLD HARMLESS THE ANTHROPIC PARTIES FROM AND AGAINST ANY AND ALL LIABILITIES, CLAIMS, DAMAGES, EXPENSES (INCLUDING REASONABLE ATTORNEYS’ FEES AND COSTS), AND OTHER LOSSES ARISING OUT OF OR RELATED TO YOUR BREACH OR ALLEGED BREACH OF THESE TERMS; YOUR ACCESS TO, USE OF, OR ALLEGED USE OF THE SERVICES, THE MATERIALS, OR THE ACTIONS; YOUR FEEDBACK; ANY PRODUCTS OR SERVICES THAT YOU DEVELOP, OFFER, OR OTHERWISE MAKE AVAILABLE USING OR OTHERWISE IN CONNECTION WITH THE SERVICES; YOUR VIOLATION OF APPLICABLE LAW OR ANY THIRD-PARTY RIGHT; AND ANY ACTUAL OR ALLEGED FRAUD, INTENTIONAL MISCONDUCT, GROSS NEGLIGENCE, OR CRIMINAL ACTS COMMITTED BY YOU OR YOUR EMPLOYEES OR AGENTS. WE RESERVE THE RIGHT TO ENGAGE SEPARATE COUNSEL AND PARTICIPATE IN OR ASSUME THE EXCLUSIVE DEFENSE AND CONTROL OF ANY MATTER OTHERWISE SUBJECT TO INDEMNIFICATION BY YOU HEREUNDER, IN WHICH CASE YOU AGREE TO COOPERATE WITH US AND SUCH SEPARATE COUNSEL AS WE REASONABLY REQUEST.
+귀하는 당사 서비스, 자료 및 실행을 이용하는데 대한 책임을 전적으로 부담합니다. 당사 서비스, 산출물 및 실행은 “현 상태 그대로(AS IS)” 및 “이용가능한 상태로(AS AVAILABLE)” 제공되며 관련 법에서 허용하는 최대 한도 내에서 명시적, 묵시적 또는 법적 보장을 포함한 어떠한 종류의 보장 없이 제공됩니다. 당사 및 당사 제공업체들은 특정 목적에의 적합성, 소유권, 상품성, 정확성, 이용가능성, 신뢰성, 보안, 개인정보보호, 호환성, 비침해성에 대한 보장 및 거래과정, 이행과정 및 거래 관행(TRADE USAGE)에 의해 암시되는 모든 보장을 명시적으로 부인합니다.
 
-THE LAWS OF SOME JURISDICTIONS DO NOT ALLOW THE DISCLAIMER OF IMPLIED WARRANTIES OR CERTAIN TYPES OF DAMAGES, SO SOME OR ALL OF THE DISCLAIMERS AND LIMITATIONS OF LIABILITY IN THESE TERMS MAY NOT APPLY TO YOU.
+관련 법에서 허용하는 최대 한도 내에서 당사, 당사 제공업체들, 또는 그 각각의 계열사, 투자자, 이사, 임원, 직원, 대리인, 승계인 또는 양수인(총칭하여 “ANTHROPIC 당사자들”)은 계약, 불법행위(과실 포함), 무과실 책임(STRICT LIABILITY) 또는 기타 이론에 근거하여 당사 서비스, 자료, 실행 또는 본 약관으로부터 발생하거나 이와 어떠한 방식으로든 관련이 있는 직접적, 간접적, 징벌적, 부수적, 우발적, 특수, 결과적, 예시적(EXEMPLARY) 또는 기타 손해에 대하여 책임을 지지 않으며 이는 어느 ANTHROPIC 당사자들이 손해 가능성에 대하여 고지를 받았거나 손해가 예측가능한 경우에도 그러합니다.
 
-OUR PROVIDERS ARE INTENDED THIRD PARTY BENEFICIARIES OF THE WARRANTY DISCLAIMERS AND LIMITATIONS OF LIABILITY CONTAINED IN THIS SECTION 11.
+관련 법에서 허용하는 최대 한도 내에서 계약, 불법행위(과실 포함) 등에 근거하여 당사 서비스, 자료, 실행 또는 본 약관으로부터 발생하거나 이와 어떠한 방식으로든 관련이 있는 일체의 손해, 손실 및 소인에 대하여 ANTHROPIC 당사자들이 부담하는 귀하에 대한 총 책임은 해당 손해, 손실 및 소인이 최초로 발생한 날의 직전 6개월 동안 귀하가 당사 서비스에 접속하거나 이를 사용한데 대하여 당사에 지급한 금액 및 미화 100 달러 중 더 큰 금액을 초과하지 않습니다. 전술한 제한은 본 약관에 필수적이며 당사는 해당 제한이 없이는 본 약관에 따라 귀하에 당사 서비스를 제공하지 않습니다.
 
-## 12. General terms
+귀하는 본 약관의 위반 또는 위반 혐의, 당사 서비스, 자료 또는 실행에 대한 귀하의 접속, 또는 그 사용 또는 사용 혐의, 귀하의 피드백, 당사 서비스를 사용하거나 당사 서비스와 관련이 있는 다른 방식으로 귀하가 개발, 제안 또는 달리 제공한 여하한 제품 또는 서비스, 귀하의 관련 법 또는 제3자 권리 위반 또는 귀하 또는 귀하의 직원 또는 대리인에 의한 실제 사기, 고의적 위법행위, 중과실 또는 범죄 행위 또는 그러한 혐의로부터 발생하거나 이와 관련이 있는 일체의 책임, 청구, 손해, 비용(합리적인 변호사 보수 및 비용 포함) 및 기타 손실로부터 ANTHROPIC 당사자들을 면책하고 어떠한 피해도 입지 않도록 한다는데 동의합니다. 당사는 귀하에 의한 면책 대상이 되는 문제에 대하여 별도의 법률 대리인을 선임하고 해당 문제에 대한 배타적인 방어 및 통제에 참여하거나 이를 수행할 권리를 보유하며 이 경우 당사가 합리적으로 요청한 바에 따라 당사 및 당사가 별도로 선임한 법률 대리인에 협조한다는데 동의합니다.
 
-**Changes to the Services.** Our Services are novel and will change. We may sometimes add or remove features, increase or decrease capacity limits, offer new Services, or stop offering certain Services.
+일부 관할권의 법률은 묵시적 보장 또는 특정 유형의 손해에 대한 부인을 허용하지 않기 때문에 본 약관의 모든 또는 일부 부인 및 책임 제한은 귀하에 적용되지 않을 수 있습니다.
 
-Unless we specifically agree otherwise in a separate agreement with you, we reserve the right to modify, suspend, or discontinue the Services or your access to the Services, in whole or in part, at any time without notice to you. Although we will strive to provide you with reasonable advance notice if we stop offering a Service, there may be urgent situations—such as preventing abuse, responding to legal requirements, or addressing security and operability issues—where providing advance notice is not feasible. We will not be liable for any change to or any suspension or discontinuation of the Services or your access to them.
+당사 제공업체들은 본 11조에 포함된 보장 부인 및 책임 제한의 제3자 수익자입니다.
 
-**Changes to these terms.** We may revise and update these Terms at our discretion. Some examples of times, we may update these Terms include (1) to reflect changes in our Services, like when we add or remove features or services, or update our pricing, (2) for security or legal reasons, or (3) to promote safety or prevent abuse. If you continue to access the Services after we post the updated Terms on Anthropic’s website or otherwise give you notice of Terms changes, then you agree to the updated Terms. If you do not accept the updated Terms, you must stop using our Services.
+## 12. 일반 조건
 
-**Supplemental terms.** We may offer Services or features that we believe require service-specific terms or guidelines. When using our Services, you agree to comply with any applicable guidelines, rules, or supplemental terms that may be posted on the Services from time to time (“Supplemental Terms”). If these Terms conflict with Supplemental Terms, the Supplemental Terms will govern for the applicable Service.
+당사 서비스 변경. 당사 서비스는 새롭고 변경될 수 있습니다. 당사는 때때로 기능을 추가 또는 제거하거나, 용량 제한을 늘리거나 줄이거나 신규 서비스를 제공하거나 특정 서비스의 제공을 중단할 수 있습니다.
 
-**Entire agreement.** These Terms and any other terms expressly incorporated by reference form the entire agreement between you and us regarding the subject matter of our Terms.
+당사가 귀하와 별도의 계약을 체결하여 달리 명시적으로 합의하지 않는 한, 당사는 귀하에게 통지하지 않고 당사 서비스 또는 귀하의 당사 서비스 접속의 전체 또는 일부를 언제든지 수정, 일시 중단 또는 중단할 수 있는 권리를 갖습니다. 당사가 당사 서비스 제공을 중단하게 되는 경우 귀하에게 합리적인 통지를 제공하도록 노력하겠지만 남용 방지, 법적 요건 대응 또는 보안 및 운영 이슈 해결 등 사전 통지가 불가능한 긴급 상황이 있을 수 있습니다. 당사는 당사 서비스 또는 귀하의 당사 서비스 접속의 변경, 일시 중단 또는 중단에 대한 책임을 지지 않습니다.
 
-**Termination.** You may stop accessing the Services at any time. We may suspend or terminate your access to the Services (including any Subscriptions) at any time without notice to you if we believe that you have breached these Terms, or if we must do so in order to comply with law. If we terminate your access to the Services due to a violation of these Terms and you have a Subscription, you will not be entitled to any refund. In addition, if you have a Subscription, we may terminate the Subscription at any time for any other reason. If we exercise this right and you purchased the subscription via our website, we will refund you, on a pro rata basis, the fees you paid for the remaining portion of your Subscription after termination. Any refunds for Subscriptions purchased via an App Distributor are subject to the App Distributor’s terms and not these terms.
+본 약관 변경. 당사는 당사 재량에 따라 본 약관을 개정 및 업데이트할 수 있습니다. 예를 들어 당사는 (1) 기능 또는 서비스를 추가 또는 제거하거나 가격을 업데이트 하는 등 당사 서비스의 변경사항을 반영하기 위해, (2) 보안 또는 법적 사유로 인하여 또는 (3) 안전을 증진하거나 남용을 방지하기 위해 본 약관을 업데이트할 수 있습니다. 당사가 당사의 Anthropic 웹사이트에 업데이트된 약관을 게시하거나 약관 변경사항을 귀하에게 통지한 이후에도 귀하가 계속하여 당사 서비스에 접속하는 경우 귀하는 업데이트된 약관에 동의한 것으로 간주됩니다. 귀하가 업데이트된 약관을 수락하지 않는 경우 당사 서비스 이용을 중단해야 합니다.
 
-We may also terminate your Account if you have been inactive for over a year and you do not have a paid Account. If we terminate your Account due to inactivity, we will provide you with notice before doing so.
+보충 약관. 당사는 서비스별 약관 또는 지침이 필요하다고 판단되는 당사 서비스 또는 기능을 제공할 수 있습니다. 당사 서비스 이용 시 귀하는 당사 서비스에 수시로 개시되는 관련 지침, 규칙 또는 보충 약관(“보충 약관”)을 준수한다는데 동의합니다. 본 약관이 보충 약관과 상충하는 경우 관련 서비스에 대하여 보충 약관이 적용됩니다.
 
-Upon termination of these Terms, a Subscription, or your access to the Services, we may at our option delete any Materials or other data associated with your Account. Sections 6 (with respect to fees outstanding as of such expiration or termination) and 9 – 12 will survive any expiration or termination of our Terms or a Subscription.
+완전한 합의. 본 약관 및 참조에 의해 명시적으로 포함된 기타 약관은 당사 약관의 대상과 관련하여 귀하와 당사간의 완전한 합의를 구성합니다.
 
-**Severability.** If a particular Term or portion of these Terms is not valid or enforceable, this will have no effect on any other Terms.
+해지. 귀하는 당사 서비스에 대한 접속을 언제든지 중단할 수 있습니다. 당사는 귀하가 본 약관을 위반한 것으로 판단이 되거나 법을 준수하기 위해 필요한 경우 귀하에게 통지하지 않고 당사 서비스(구독 포함)에 대한 귀하의 접속을 언제든지 일시 중단 또는 해지할 수 있습니다. 귀하가 본 약관을 위반하여 당사가 귀하의 당사 서비스 접속을 해지한 상황에서 귀하가 구독 중인 경우 귀하는 환불을 받을 수 없습니다. 또한, 귀하가 구독 중인 경우 당사는 다른 사유로 언제든지 구독을 해지할 수 있습니다. 당사가 이러한 권리를 행사하는 경우 해지 이후 잔여 구독 분에 대하여 귀하가 지급한 수수료는 비례 분배 방식으로 환불해드립니다.
 
-**No waiver.** Any delay or failure on our part to enforce a provision of these Terms is not a waiver of our right to enforce them later.
+당사는 또한 귀하가 1년 동안 비활성화 상태이며 유료 계정을 갖고 있지 않은 경우 귀하의 계정을 해지할 수 있습니다. 당사가 비활성화를 사유로 귀하의 계정을 해지하는 경우 당사는 귀하에게 미리 고지를 할 것입니다.
 
-**No assignment.** These Terms may not be transferred or assigned by you without our prior written consent, but may be assigned by us without restriction.
+본 약관, 구독 또는 당사 서비스에 대한 귀하의 접속이 해지되는 경우, 당사는 당사의 선택에 따라 귀하의 계정과 관련이 있는 자료 또는 기타 데이터를 삭제할 수 있습니다. 제6조(해당 만료 또는 해지 시점 기준 미결제 수수료 관련) 및 제9조 내지 제12조는 본 약관 또는 구독이 만료 또는 해지된 이후에도 존속합니다.
 
-**Use of our brand.** You may not, without our prior written permission, use our name, logos, or other trademarks in connection with products or services other than the Services, or in any other way that implies our affiliation, endorsement, or sponsorship. To seek permission, please email us at marketing@anthropic.com.
+개별성. 본 약관의 특정 조항 또는 일부 조항이 유효하지 않거나 집행 불가능한 경우에도 이는 다른 약관에 영향을 미치지 않습니다.
 
-**Export Controls.** You may not export or provide access to the Services into any U.S. embargoed countries or to anyone on (i) the U.S. Treasury Department’s list of Specially Designated Nationals, (ii) any other restricted party lists identified by the Office of Foreign Asset Control, (iii) the U.S. Department of Commerce Denied Persons List or Entity List, or (iv) any other restricted party lists. You represent and warrant that you and anyone accessing or using the Services on your behalf, or using your Account credentials, are not such persons or entities and are not located in any such country.
+권리포기 없음. 당사가 본 약관의 어느 조항을 집행하는 것을 지체하거나 집행하지 않더라도 이는 추후에 해당 조항을 집행할 수 있는 당사의 권한을 포기하는 것으로 간주되지 않습니다.
 
-**Legal Compliance.** We may comply with governmental, court, and law enforcement requests or requirements relating to provision or use of the Services, or to information provided to or collected under our Terms. We reserve the right, at our sole discretion, to report information from or about you, including but not limited to Inputs, Outputs, or Actions to law enforcement.
+양도 불가. 귀하는 당사의 사전 서면동의 없이 본 약관을 이전 또는 양도할 수 없으나 당사는 제한 없이 양도할 수 있습니다.
 
-**U.S. Government Use.** The Services were developed solely at private expense and are commercial computer software and commercial computer software documentation within the meaning of the applicable Federal Acquisition Regulations and their agency supplements. Accordingly, U.S. Government users of the Services will have only those rights that are granted to all other end users of the Services pursuant to these Terms.
+당사 브랜드 사용. 귀하는 당사의 사전 서면허가 없이 당사 서비스 이외의 제품 또는 서비스와 관련하여 또는 당사의 제휴, 보증 또는 후원을 암시하는 다른 방식으로 당사의 회사명, 로고 또는 기타 상표를 사용할 수 없습니다. 허가를 요청하고자 하는 경우 [marketing@anthropic.com](mailto:marketing@anthropic.com)으로 이메일을 보내주시기 바랍니다.
 
-## 13. In case of disputes
+수출 통제. 귀하는 미국 금수조치 국가 또는 (i) 미 재무부 특별제재대상자 목록, (ii) 해외자산통제국에서 지정한 기타 제재 대상자 목록, (iii) 미 상무부 거부 대상자 또는 단체 목록 또는 (iv) 기타 제재 대상자 목록에 등재된 자에게 당사 서비스에 대한 접근 권한을 수출 또는 제공할 수 없습니다. 귀하 및 귀하를 대신하여 당사 서비스에 접속하거나 이를 사용하거나 귀하의 계정 자격증명을 사용하는 자는 이러한 대상자 또는 단체가 아니며 해당 국가에 소재하고 있지 않다는 점을 진술 및 보장합니다.
 
-**Equitable relief.** You agree that (a) no adequate remedy exists at law if you breach Section 3 (Use of Our Services); (b) it would be difficult to determine the damages resulting from such breach, and any such breach would cause irreparable harm; and (c) a grant of injunctive relief provides the best remedy for any such breach. You waive any opposition to such injunctive relief, as well as any demand that we prove actual damage or post a bond or other security in connection with such injunctive relief.
+법률 준수. 당사는 당사 서비스의 제공 또는 사용과 관련이 있거나 본 약관에 따라 제공되거나 수집된 정보와 관련이 있는 정부, 법원 및 법 집행 요청 또는 요건을 준수합니다. 당사는 당사의 단독 재량에 따라 프롬프트, 산출물 또는 실행을 포함하나 이에 국한되지 않는 귀하가 제공한 정보 또는 귀하에 대한 정보를 법 집행기관에 신고할 수 있는 권한이 있습니다.
 
-**Governing law and exclusive jurisdiction.** Our Terms will be governed by, and construed and interpreted in accordance with, the laws of the State of California without giving effect to conflict of law principles. You and Anthropic agree that any disputes arising out of or relating to these Terms will be resolved exclusively in the state or federal courts located in San Francisco, California, and you and Anthropic submit to the personal and exclusive jurisdiction of those courts. By accessing our Services, you waive any claims that may arise under the laws of other jurisdictions.
+미국 정부 사용. 당사 서비스는 전적으로 민간 비용(private expense)으로 개발되었으며 관련 연방조달규정(Federal Acquisition Regulations) 및 관련 기관 보충규정에서 의미하는 상업용 컴퓨터 소프트웨어 및 상업용 컴퓨터 소프트웨어 문서에 해당합니다. 따라서 당사 서비스를 이용하는 미국 정부기관은 본 약관에 따라 당사 서비스의 다른 모든 최종 사용자에게 부여되는 권리만을 갖습니다.
+
+## 13. 분쟁 해결
+
+형평법상 구제. 귀하는 (a) 귀하가 제3조(당사 서비스 사용)를 위반하는 경우 법률상 적절한 구제책이 존재하지 않으며, (b) 해당 위반으로 발생한 손해를 산정하기는 어렵고 그로 인해 회복할 수 없는 손해가 발생하며 (c) 금지명령구제는 해당 위반에 대한 최선의 구제책이라는 점에 동의합니다. 귀하는 해당 금지명령구제에 대하여 이의를 제기할 수 있는 권리를 비롯하여 해당 금지명령구제와 관련하여 실제 피해를 입증하거나 보증금(bond) 또는 기타 담보를 제공하도록 요구하는 일체의 요구를 포기합니다.
+
+준거법 및 전속 관할. 본 약관은 국제사법의 원칙과 관계없이 캘리포니아 주 법률에 따라 규율 및 해석됩니다. 귀하 및 당사는 본 약관으로부터 또는 이와 관련이 있는 일체의 분쟁은 캘리포니아 주 샌프란시스코에 소재한 주 또는 연방 법원에 의해 배타적으로 해결되며 귀하 및 당사는 해당 법원의 대인 및 전속 관할에 따른다는데 동의합니다. 귀하는 당사 서비스에 접속함으로써 다른 관할권의 법에 따라 발생할 수 있는 청구를 포기하게 됩니다.

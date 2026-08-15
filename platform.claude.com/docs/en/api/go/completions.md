@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/completions -->
 
+---
+title: Completions
+url: https://platform.claude.com/docs/en/api/go/completions
+---
+
 # Completions
 
 ## Create a Text Completion
@@ -160,6 +165,8 @@ Future models and features will not be compatible with Text Completions. See our
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
 ### Returns
 
 - `type Completion struct{…}`
@@ -245,14 +252,6 @@ Future models and features will not be compatible with Text Completions. See our
       - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
-
-      - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-        Powerful intelligence for long-running agents and coding
 
     - `string`
 
@@ -401,14 +400,6 @@ func main() {
       - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
-
-      - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-        Powerful intelligence for long-running agents and coding
 
     - `string`
 

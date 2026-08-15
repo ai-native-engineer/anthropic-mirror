@@ -99,7 +99,7 @@ Money Forward launched MEPAR—Money Forward Engineering Productivity AI Researc
 
 Money Forward built a disciplined evaluation process within MEPAR, running trials with small groups of engineers and only rolling out tools that received strong feedback. For each trial, the team created a public channel where members could exchange thoughts and share how they were using the tools.
 
-The team built an internal template to integrate [Claude Code](https://claude.com/customers) into PR workflows based on their style guide, then tested several options side by side. Teams consistently found Claude Code's reviews to be the most useful. Developers could fix issues before human review, which elevated overall PR quality and made reviewers' jobs significantly easier.
+The team built an internal template to integrate [Claude Code](https://claude.com/product/claude-code) into PR workflows based on their style guide, then tested several options side by side. Teams consistently found Claude Code's reviews to be the most useful. Developers could fix issues before human review, which elevated overall PR quality and made reviewers' jobs significantly easier.
 
 The trial's visibility across the company meant any employee could follow along. When trial members shared their results, more than 200 engineers from teams outside the trial requested access. The adoption became bottom-up instead of top-down—engineers pulled Claude Code into their workflows because they saw their peers getting real productivity gains.
 
@@ -128,8 +128,6 @@ The team also built two internal tools: Sherlock, which helps investigate incide
 Money Forward plans to extend Claude Code across the full software development lifecycle—from product discovery and test generation to SRE operations and multilingual code explanations for distributed teams in Japan, India, and Vietnam.
 
 "Speed is our core value and moat," said Tran Ba Vinh Son, Group Company CTO and Manager of MEPAR. "Developer productivity is therefore a business strategy: the faster we turn ideas into reliable products, the stronger our competitive position. Claude Code compresses cycle times, elevates code quality, and lets small teams ship bigger features with confidence. Our vision is an AI-assisted development model where Claude is an integral teammate across planning, implementation, testing, and operations. That's how we scale innovation across Money Forward."
-
-‍
 
 "I built Money Forward's entire MCP Server in three months using Claude Code. It implemented my plans and reviewed code—essentially acting as my only colleague on the project."
 

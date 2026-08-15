@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials/list -->
 
+---
+title: List Credentials
+url: https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials/list
+---
+
 ## List Credentials
 
 `$ ant beta:vaults:credentials list`
@@ -128,9 +133,21 @@ List Credentials
 
           - `"static_bearer"`
 
-      - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+      - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
         Environment variable credential details. The secret value is never returned.
+
+        - `injection_location: object { body, header }`
+
+          Where in the outbound request the secret value is substituted.
+
+          - `body: boolean`
+
+            Whether the placeholder is substituted in the request body.
+
+          - `header: boolean`
+
+            Whether the placeholder is substituted in request header values.
 
         - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 

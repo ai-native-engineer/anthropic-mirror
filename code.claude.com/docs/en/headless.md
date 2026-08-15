@@ -36,6 +36,8 @@ Add `--bare` to reduce startup time by skipping auto-discovery of hooks, skills,
 
 Bare mode is useful for CI and scripts where you need the same result on every machine. A hook in a teammate's `~/.claude` or an MCP server in the project's `.mcp.json` won't run, because bare mode never reads them.
 
+Without `--bare`, Claude Code runs the hooks in a project's `.claude/settings.json` even in a folder you've never trusted, because a `-p` session shows no workspace trust dialog. It also connects the servers in the project's `.mcp.json`, because a `-p` session can't show the per-server approval prompt either. [What runs before you trust a folder](/docs/en/permissions#what-runs-before-you-trust-a-folder) covers each kind of repository content under `-p` and how to keep it out.
+
 This example runs a one-off summarize task in bare mode and pre-approves the Read tool so the call completes without a permission prompt. Set `ANTHROPIC_API_KEY` before running it, because bare mode doesn't use your subscription login:
 
 ```bash theme={null}
@@ -244,7 +246,9 @@ claude -p "Run the test suite and fix any failures" \
 
 To set a baseline for the whole session instead of listing individual tools, pass a [permission mode](/docs/en/permission-modes). `dontAsk` denies anything not in your `permissions.allow` rules or the [read-only command set](/docs/en/permissions#read-only-commands), which is useful for locked-down CI runs. `AskUserQuestion`, connector tools [your organization set to `ask`](/docs/en/mcp#organization-controls-on-connector-tools), and MCP tools marked [`requiresUserInteraction`](/docs/en/mcp#require-approval-for-a-specific-tool) are denied even when an allow rule matches.
 
-`acceptEdits` lets Claude write files without prompting and also auto-approves common filesystem commands such as `mkdir`, `touch`, `mv`, and `cp`. Other shell commands and network requests still need an `--allowedTools` entry or a `permissions.allow` rule, otherwise the run aborts when one is attempted:
+`acceptEdits` lets Claude write files without prompting and also auto-approves common filesystem commands such as `mkdir`, `touch`, `mv`, and `cp`. Apart from the [read-only command set](/docs/en/permissions#read-only-commands), other shell commands and network requests still need an `--allowedTools` entry or a `permissions.allow` rule. See [what `acceptEdits` auto-approves](/docs/en/permission-modes#auto-approve-file-edits-with-acceptedits-mode) for the full list.
+
+This example applies lint fixes with `acceptEdits` as the baseline:
 
 ```bash theme={null}
 claude -p "Apply the lint fixes" --permission-mode acceptEdits

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/messages/batches/list -->
 
+---
+title: List Message Batches
+url: https://platform.claude.com/docs/en/api/php/beta/messages/batches/list
+---
+
 ## List Message Batches
 
 `$client->beta->messages->batches->list(?string afterID, ?string beforeID, ?int limit, ?list<AnthropicBeta> betas): Page<MessageBatch>`
@@ -8,7 +13,7 @@
 
 List all Message Batches within a Workspace. Most recently created batches are returned first.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -97,7 +102,7 @@ $page = $client->beta->messages->batches->list(
   afterID: 'after_id',
   beforeID: 'before_id',
   limit: 1,
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($page);

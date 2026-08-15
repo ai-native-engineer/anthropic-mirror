@@ -26,19 +26,19 @@ The mission of the Interpretability team is to understand how large language mod
 
 Working closely with the Anthropic Policy and Safeguards teams, Societal Impacts is a technical research team that explores how AI is used in the real world.
 
-![A global workspace in language models](https://www-cdn.anthropic.com/images/4zrzovbb/website/6071a582f06f7b7b9a7cf73e100ec1f25c281442-1280x720.jpg)
+![Learning more about Claude's mathematical capabilities](https://www-cdn.anthropic.com/images/4zrzovbb/website/5a678365e89cbbe43e086c83a6eb0dfb414e96e3-3840x2160.png)
 
-[## A global workspace in language models
+[## Learning more about Claude's mathematical capabilities
 
-InterpretabilityJul 6, 2026
+ScienceAug 10, 2026
 
-New interpretability research reveals an emergent mental workspace in Claude that holds internal thoughts that don’t appear in the model’s output.](https://www.anthropic.com/research/global-workspace)
+An unreleased research version of Claude has made strides on a problem related to the Riemann hypothesis. It improved a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the hypothesis, increasing it from 41.6% to 67.2%.](https://www.anthropic.com/research/riemann-zeta)
 
-[Economic ResearchJun 26, 2026
+[InterpretabilityJul 6, 2026
 
-#### Anthropic Economic Index report: Cadences
+#### A global workspace in language models
 
-In our latest Economic Index report, we sample hourly for the first time to ask: When do people come to Claude? What do they produce with it? And how do they perceive AI's impact on their work?](https://www.anthropic.com/research/economic-index-june-2026-report)[AlignmentMay 8, 2026
+New interpretability research reveals an emergent mental workspace in Claude that holds internal thoughts that don’t appear in the model’s output.](https://www.anthropic.com/research/global-workspace)[AlignmentMay 8, 2026
 
 #### Teaching Claude why
 
@@ -58,6 +58,15 @@ Search
 
 DateCategoryTitle
 
+* [Aug 13, 2026Frontier Red Team
+
+  Patterns and problems in emerging multiagent systems](https://www.anthropic.com/research/multiagent-systems)
+* [Aug 12, 2026Economic Research
+
+  Reviewing the evidence on worker retraining programs](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)
+* [Aug 10, 2026Science
+
+  Learning more about Claude's mathematical capabilities](https://www.anthropic.com/research/riemann-zeta)
 * [Jul 28, 2026Frontier Red Team
 
   Discovering cryptographic weaknesses with Claude](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
@@ -79,19 +88,8 @@ DateCategoryTitle
 * [Jul 6, 2026Interpretability
 
   A global workspace in language models](https://www.anthropic.com/research/global-workspace)
-* [Jun 26, 2026Economic Research
-
-  Anthropic Economic Index report: Cadences](https://www.anthropic.com/research/economic-index-june-2026-report)
-* [Jun 18, 2026Frontier Red Team
-
-  Project Fetch: Phase two](https://www.anthropic.com/research/project-fetch-phase-two)
-* [Jun 16, 2026Economic Research
-
-  Agentic coding and persistent returns to expertise](https://www.anthropic.com/research/claude-code-expertise)
 
 [See more](#)
-
-![Discovering cryptographic weaknesses with Claude](https://www-cdn.anthropic.com/images/4zrzovbb/website/802260d34a0653f23fd4944fae43064df367aa44-1000x1000.svg)
 
 Join the Research team
 

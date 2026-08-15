@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/agents -->
 
+---
+title: Agents
+url: https://platform.claude.com/docs/en/api/cli/beta/agents
+---
+
 # Agents
 
 ## Create Agent
@@ -82,31 +87,39 @@ Create Agent
 
   - `metadata: map[string]`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, inference_geo, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -122,11 +135,11 @@ Create Agent
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -135,6 +148,54 @@ Create Agent
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `inference_geo: optional string`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
     - `speed: optional "standard" or "fast"`
 
@@ -148,17 +209,33 @@ Create Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `agents: array of BetaManagedAgentsAgentReference`
+    - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `id: string`
+      - `beta_managed_agents_agent_reference: object { id, type, version }`
 
-      - `type: "agent"`
+        A resolved agent reference with a concrete version.
 
-        - `"agent"`
+        - `id: string`
 
-      - `version: number`
+        - `type: "agent"`
+
+          - `"agent"`
+
+        - `version: number`
+
+      - `beta_managed_agents_advisor: object { model, type }`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: string`
+
+          The advisor model id.
+
+        - `type: "advisor"`
+
+          - `"advisor"`
 
     - `type: "coordinator"`
 
@@ -347,7 +424,7 @@ Create Agent
 ```cli
 ant beta:agents create \
   --api-key my-anthropic-api-key \
-  --model '{id: claude-opus-4-6}' \
+  --model '{id: claude-opus-4-8}' \
   --name 'My First Agent'
 ```
 
@@ -371,6 +448,10 @@ ant beta:agents create \
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
+    "inference_geo": "inference_geo",
     "speed": "standard"
   },
   "multiagent": {
@@ -491,31 +572,39 @@ List Agents
 
     - `metadata: map[string]`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, inference_geo, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -531,11 +620,11 @@ List Agents
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -544,6 +633,54 @@ List Agents
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
+
+      - `inference_geo: optional string`
+
+        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
       - `speed: optional "standard" or "fast"`
 
@@ -557,17 +694,33 @@ List Agents
 
       Resolved coordinator topology with a concrete agent roster.
 
-      - `agents: array of BetaManagedAgentsAgentReference`
+      - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
         Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-        - `id: string`
+        - `beta_managed_agents_agent_reference: object { id, type, version }`
 
-        - `type: "agent"`
+          A resolved agent reference with a concrete version.
 
-          - `"agent"`
+          - `id: string`
 
-        - `version: number`
+          - `type: "agent"`
+
+            - `"agent"`
+
+          - `version: number`
+
+        - `beta_managed_agents_advisor: object { model, type }`
+
+          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+          - `model: string`
+
+            The advisor model id.
+
+          - `type: "advisor"`
+
+            - `"advisor"`
 
       - `type: "coordinator"`
 
@@ -784,6 +937,10 @@ ant beta:agents list \
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
+        "inference_geo": "inference_geo",
         "speed": "standard"
       },
       "multiagent": {
@@ -891,31 +1048,39 @@ Get Agent
 
   - `metadata: map[string]`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, inference_geo, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -931,11 +1096,11 @@ Get Agent
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -944,6 +1109,54 @@ Get Agent
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `inference_geo: optional string`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
     - `speed: optional "standard" or "fast"`
 
@@ -957,17 +1170,33 @@ Get Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `agents: array of BetaManagedAgentsAgentReference`
+    - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `id: string`
+      - `beta_managed_agents_agent_reference: object { id, type, version }`
 
-      - `type: "agent"`
+        A resolved agent reference with a concrete version.
 
-        - `"agent"`
+        - `id: string`
 
-      - `version: number`
+        - `type: "agent"`
+
+          - `"agent"`
+
+        - `version: number`
+
+      - `beta_managed_agents_advisor: object { model, type }`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: string`
+
+          The advisor model id.
+
+        - `type: "advisor"`
+
+          - `"advisor"`
 
     - `type: "coordinator"`
 
@@ -1179,6 +1408,10 @@ ant beta:agents retrieve \
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
+    "inference_geo": "inference_geo",
     "speed": "standard"
   },
   "multiagent": {
@@ -1245,10 +1478,6 @@ Update Agent
 
   Path param: Path parameter agent_id
 
-- `--version: number`
-
-  Body param: The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. The request fails if this does not match the server's current version.
-
 - `--description: optional string`
 
   Body param: Description. Omit to preserve; send empty string or null to clear.
@@ -1285,6 +1514,10 @@ Update Agent
 
   Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
 
+- `--version: optional number`
+
+  Body param: The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
+
 - `--beta: optional array of AnthropicBeta`
 
   Header param: Optional header to specify the beta version(s) you want to use.
@@ -1319,31 +1552,39 @@ Update Agent
 
   - `metadata: map[string]`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, inference_geo, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -1359,11 +1600,11 @@ Update Agent
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -1372,6 +1613,54 @@ Update Agent
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `inference_geo: optional string`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
     - `speed: optional "standard" or "fast"`
 
@@ -1385,17 +1674,33 @@ Update Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `agents: array of BetaManagedAgentsAgentReference`
+    - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `id: string`
+      - `beta_managed_agents_agent_reference: object { id, type, version }`
 
-      - `type: "agent"`
+        A resolved agent reference with a concrete version.
 
-        - `"agent"`
+        - `id: string`
 
-      - `version: number`
+        - `type: "agent"`
+
+          - `"agent"`
+
+        - `version: number`
+
+      - `beta_managed_agents_advisor: object { model, type }`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: string`
+
+          The advisor model id.
+
+        - `type: "advisor"`
+
+          - `"advisor"`
 
     - `type: "coordinator"`
 
@@ -1584,8 +1889,7 @@ Update Agent
 ```cli
 ant beta:agents update \
   --api-key my-anthropic-api-key \
-  --agent-id agent_011CZkYpogX7uDKUyvBTophP \
-  --version 1
+  --agent-id agent_011CZkYpogX7uDKUyvBTophP
 ```
 
 #### Response
@@ -1608,6 +1912,10 @@ ant beta:agents update \
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
+    "inference_geo": "inference_geo",
     "speed": "standard"
   },
   "multiagent": {
@@ -1708,31 +2016,39 @@ Archive Agent
 
   - `metadata: map[string]`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, inference_geo, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -1748,11 +2064,11 @@ Archive Agent
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -1761,6 +2077,54 @@ Archive Agent
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `inference_geo: optional string`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
     - `speed: optional "standard" or "fast"`
 
@@ -1774,17 +2138,33 @@ Archive Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `agents: array of BetaManagedAgentsAgentReference`
+    - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `id: string`
+      - `beta_managed_agents_agent_reference: object { id, type, version }`
 
-      - `type: "agent"`
+        A resolved agent reference with a concrete version.
 
-        - `"agent"`
+        - `id: string`
 
-      - `version: number`
+        - `type: "agent"`
+
+          - `"agent"`
+
+        - `version: number`
+
+      - `beta_managed_agents_advisor: object { model, type }`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: string`
+
+          The advisor model id.
+
+        - `type: "advisor"`
+
+          - `"advisor"`
 
     - `type: "coordinator"`
 
@@ -1996,6 +2376,10 @@ ant beta:agents archive \
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
+    "inference_geo": "inference_geo",
     "speed": "standard"
   },
   "multiagent": {
@@ -2050,6 +2434,20 @@ ant beta:agents archive \
 
 ## Domain Types
 
+### Beta Managed Agents Advisor
+
+- `beta_managed_agents_advisor: object { model, type }`
+
+  Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+  - `model: string`
+
+    The advisor model id.
+
+  - `type: "advisor"`
+
+    - `"advisor"`
+
 ### Beta Managed Agents Agent
 
 - `beta_managed_agents_agent: object { id, archived_at, created_at, 12 more }`
@@ -2080,31 +2478,39 @@ ant beta:agents archive \
 
   - `metadata: map[string]`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, inference_geo, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -2120,11 +2526,11 @@ ant beta:agents archive \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -2133,6 +2539,54 @@ ant beta:agents archive \
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `inference_geo: optional string`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
     - `speed: optional "standard" or "fast"`
 
@@ -2146,17 +2600,33 @@ ant beta:agents archive \
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `agents: array of BetaManagedAgentsAgentReference`
+    - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `id: string`
+      - `beta_managed_agents_agent_reference: object { id, type, version }`
 
-      - `type: "agent"`
+        A resolved agent reference with a concrete version.
 
-        - `"agent"`
+        - `id: string`
 
-      - `version: number`
+        - `type: "agent"`
+
+          - `"agent"`
+
+        - `version: number`
+
+      - `beta_managed_agents_advisor: object { model, type }`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: string`
+
+          The advisor model id.
+
+        - `type: "advisor"`
+
+          - `"advisor"`
 
     - `type: "coordinator"`
 
@@ -2902,7 +3372,7 @@ ant beta:agents archive \
 
   - `description: string`
 
-    Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+    Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
   - `input_schema: object { type, properties, required }`
 
@@ -2921,6 +3391,56 @@ ant beta:agents archive \
   - `type: "custom"`
 
     - `"custom"`
+
+### Beta Managed Agents Effort High
+
+- `beta_managed_agents_effort_high: object { type }`
+
+  High effort. Favors reasoning depth.
+
+  - `type: "high"`
+
+    - `"high"`
+
+### Beta Managed Agents Effort Low
+
+- `beta_managed_agents_effort_low: object { type }`
+
+  Low effort. Favors latency over reasoning depth.
+
+  - `type: "low"`
+
+    - `"low"`
+
+### Beta Managed Agents Effort Max
+
+- `beta_managed_agents_effort_max: object { type }`
+
+  Maximum effort. Favors reasoning depth over latency.
+
+  - `type: "max"`
+
+    - `"max"`
+
+### Beta Managed Agents Effort Medium
+
+- `beta_managed_agents_effort_medium: object { type }`
+
+  Medium effort. Balances latency and reasoning depth.
+
+  - `type: "medium"`
+
+    - `"medium"`
+
+### Beta Managed Agents Effort Xhigh
+
+- `beta_managed_agents_effort_xhigh: object { type }`
+
+  Extra-high effort. Not all models accept this level.
+
+  - `type: "xhigh"`
+
+    - `"xhigh"`
 
 ### Beta Managed Agents MCP Server URL Definition
 
@@ -3180,31 +3700,39 @@ ant beta:agents archive \
 
 ### Beta Managed Agents Model Config
 
-- `beta_managed_agents_model_config: object { id, speed }`
+- `beta_managed_agents_model_config: object { id, effort, inference_geo, speed }`
 
   Model identifier and configuration.
 
-  - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+  - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
+
     - `"claude-fable-5"`
 
       Next generation of intelligence for the hardest knowledge work and coding problems
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-6"`
 
-      Most intelligent model for building agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -3220,11 +3748,11 @@ ant beta:agents archive \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -3233,6 +3761,54 @@ ant beta:agents archive \
     - `"claude-sonnet-4-5-20250929"`
 
       High-performance model for agents and coding
+
+  - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+    How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+    - `beta_managed_agents_effort_low: object { type }`
+
+      Low effort. Favors latency over reasoning depth.
+
+      - `type: "low"`
+
+        - `"low"`
+
+    - `beta_managed_agents_effort_medium: object { type }`
+
+      Medium effort. Balances latency and reasoning depth.
+
+      - `type: "medium"`
+
+        - `"medium"`
+
+    - `beta_managed_agents_effort_high: object { type }`
+
+      High effort. Favors reasoning depth.
+
+      - `type: "high"`
+
+        - `"high"`
+
+    - `beta_managed_agents_effort_xhigh: object { type }`
+
+      Extra-high effort. Not all models accept this level.
+
+      - `type: "xhigh"`
+
+        - `"xhigh"`
+
+    - `beta_managed_agents_effort_max: object { type }`
+
+      Maximum effort. Favors reasoning depth over latency.
+
+      - `type: "max"`
+
+        - `"max"`
+
+  - `inference_geo: optional string`
+
+    Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
   - `speed: optional "standard" or "fast"`
 
@@ -3244,31 +3820,39 @@ ant beta:agents archive \
 
 ### Beta Managed Agents Model Config Params
 
-- `beta_managed_agents_model_config_params: object { id, speed }`
+- `beta_managed_agents_model_config_params: object { id, effort, inference_geo, speed }`
 
   An object that defines additional configuration control over model use
 
-  - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+  - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
+
     - `"claude-fable-5"`
 
       Next generation of intelligence for the hardest knowledge work and coding problems
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-6"`
 
-      Most intelligent model for building agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -3284,11 +3868,11 @@ ant beta:agents archive \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -3297,6 +3881,68 @@ ant beta:agents archive \
     - `"claude-sonnet-4-5-20250929"`
 
       High-performance model for agents and coding
+
+  - `effort: optional "low" or "medium" or "high" or 2 more or BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or 3 more`
+
+    How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+    - `BetaManagedAgentsEffortLevel: "low" or "medium" or "high" or 2 more`
+
+      How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+      - `"low"`
+
+      - `"medium"`
+
+      - `"high"`
+
+      - `"xhigh"`
+
+      - `"max"`
+
+    - `beta_managed_agents_effort_low: object { type }`
+
+      Low effort. Favors latency over reasoning depth.
+
+      - `type: "low"`
+
+        - `"low"`
+
+    - `beta_managed_agents_effort_medium: object { type }`
+
+      Medium effort. Balances latency and reasoning depth.
+
+      - `type: "medium"`
+
+        - `"medium"`
+
+    - `beta_managed_agents_effort_high: object { type }`
+
+      High effort. Favors reasoning depth.
+
+      - `type: "high"`
+
+        - `"high"`
+
+    - `beta_managed_agents_effort_xhigh: object { type }`
+
+      Extra-high effort. Not all models accept this level.
+
+      - `type: "xhigh"`
+
+        - `"xhigh"`
+
+    - `beta_managed_agents_effort_max: object { type }`
+
+      Maximum effort. Favors reasoning depth over latency.
+
+      - `type: "max"`
+
+        - `"max"`
+
+  - `inference_geo: optional string`
+
+    Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo. On update, `model` is whole-object replacement — omitting inference_geo clears it.
 
   - `speed: optional "standard" or "fast"`
 
@@ -3312,17 +3958,33 @@ ant beta:agents archive \
 
   Resolved coordinator topology with a concrete agent roster.
 
-  - `agents: array of BetaManagedAgentsAgentReference`
+  - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
     Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-    - `id: string`
+    - `beta_managed_agents_agent_reference: object { id, type, version }`
 
-    - `type: "agent"`
+      A resolved agent reference with a concrete version.
 
-      - `"agent"`
+      - `id: string`
 
-    - `version: number`
+      - `type: "agent"`
+
+        - `"agent"`
+
+      - `version: number`
+
+    - `beta_managed_agents_advisor: object { model, type }`
+
+      Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+      - `model: string`
+
+        The advisor model id.
+
+      - `type: "advisor"`
+
+        - `"advisor"`
 
   - `type: "coordinator"`
 
@@ -3364,6 +4026,18 @@ ant beta:agents archive \
 
         - `"self"`
 
+    - `beta_managed_agents_advisor_params: object { model, type }`
+
+      Platform advisor roster entry: a model the session's primary thread may consult mid-turn. At most one per roster; the entry occupies the roster name `anthropic.advisor`.
+
+      - `model: string`
+
+        A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
+
+      - `type: "advisor"`
+
+        - `"advisor"`
+
   - `type: "coordinator"`
 
     - `"coordinator"`
@@ -3398,31 +4072,39 @@ ant beta:agents archive \
 
     - `url: string`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, inference_geo, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -3438,11 +4120,11 @@ ant beta:agents archive \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -3451,6 +4133,54 @@ ant beta:agents archive \
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `inference_geo: optional string`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
     - `speed: optional "standard" or "fast"`
 
@@ -3750,31 +4480,39 @@ List Agent Versions
 
     - `metadata: map[string]`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, inference_geo, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -3790,11 +4528,11 @@ List Agent Versions
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -3803,6 +4541,54 @@ List Agent Versions
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
+
+      - `inference_geo: optional string`
+
+        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
       - `speed: optional "standard" or "fast"`
 
@@ -3816,17 +4602,33 @@ List Agent Versions
 
       Resolved coordinator topology with a concrete agent roster.
 
-      - `agents: array of BetaManagedAgentsAgentReference`
+      - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
         Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-        - `id: string`
+        - `beta_managed_agents_agent_reference: object { id, type, version }`
 
-        - `type: "agent"`
+          A resolved agent reference with a concrete version.
 
-          - `"agent"`
+          - `id: string`
 
-        - `version: number`
+          - `type: "agent"`
+
+            - `"agent"`
+
+          - `version: number`
+
+        - `beta_managed_agents_advisor: object { model, type }`
+
+          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+          - `model: string`
+
+            The advisor model id.
+
+          - `type: "advisor"`
+
+            - `"advisor"`
 
       - `type: "coordinator"`
 
@@ -4044,6 +4846,10 @@ ant beta:agents:versions list \
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
+        "inference_geo": "inference_geo",
         "speed": "standard"
       },
       "multiagent": {

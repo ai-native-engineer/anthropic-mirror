@@ -4,6 +4,13 @@
 
 ## Articles
 
+August 2026
+
+[### Introducing the Conceptual Reasoning Index
+
+We design benchmarks to measure models' capabilities to reason about questions whose answers are
+(practically) impossible to verify empirically or mathematically.](https://alignment.anthropic.com/2026/conceptual-reasoning-index/)
+
 July 2026
 
 [### Agentic Misalignment in Summer 2026

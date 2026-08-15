@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/files/list -->
 
+---
+title: List Files
+url: https://platform.claude.com/docs/en/api/go/beta/files/list
+---
+
 ## List Files
 
 `client.Beta.Files.List(ctx, params) (*Page[FileMetadata], error)`
@@ -101,6 +106,8 @@ List Files
       - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

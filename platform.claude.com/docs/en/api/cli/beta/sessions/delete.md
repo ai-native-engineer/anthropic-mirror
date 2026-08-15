@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/sessions/delete -->
 
+---
+title: Delete Session
+url: https://platform.claude.com/docs/en/api/cli/beta/sessions/delete
+---
+
 ## Delete Session
 
 `$ ant beta:sessions delete`

@@ -56,6 +56,6 @@ Pro subscribers can also enable usage credits to continue working with Claude be
 
 * [What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)
 * [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
-* [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
 * [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+* [Holiday 2025 Usage Promotion](https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion)
 * [Claude Fable 5 on your plan](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan)

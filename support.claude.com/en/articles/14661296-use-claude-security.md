@@ -109,6 +109,6 @@ The claude.ai/security page runs a per-user check against your own connected Git
 
 * [API Key Best Practices: Keeping Your Keys Safe and Secure](https://support.claude.com/en/articles/9767949-api-key-best-practices-keeping-your-keys-safe-and-secure)
 * [Automated Security Reviews in Claude Code](https://support.claude.com/en/articles/11932705-automated-security-reviews-in-claude-code)
-* [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
+* [Claude Code on the web](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)
 * [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
 * [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)

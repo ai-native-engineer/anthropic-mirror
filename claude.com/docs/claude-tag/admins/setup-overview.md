@@ -12,9 +12,9 @@ Claude Tag is Claude working in your team’s Slack channels, with its own accou
 Open [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag). The page opens on setup until your first workspace is paired. It shows a step list, an FAQ, and a **Start setup** button (**Resume setup** if you started earlier without finishing). If you see **View setup guide** and **Go to chat** buttons instead, your signed-in account can’t run setup; start at [Common setup issues](#common-setup-issues). Setup walks you through each step:
 
 * **[Pair your Slack workspace](#pair-your-slack-workspace)**: install the Slack app and link it with a pairing code
-* **[Choose Claude’s first tools](#choose-which-tools-to-connect)**: pick three apps Claude will work in
+* **[Choose Claude’s first tools](#choose-claude%E2%80%99s-first-tools)**: pick two apps Claude will work in
 * **[Connect GitHub](#connect-github)**: install the Claude GitHub App, or grant repositories if it’s already linked
-* **[Create accounts for Claude’s other tools](#create-accounts-for-the-tools-you-chose)**: give Claude its own account in each of the other tools you picked and connect the credentials
+* **[Create accounts for Claude’s other tools](#create-accounts-for-the-tools-you-chose)**: give Claude its own account in each tool you picked and connect the credentials
 * **[Launch Claude Tag](#launch-claude-tag)**: set a spending limit and turn on Claude Tag
 
 The rest of this page covers [what to have ready before you start](#before-you-start), [each step in detail](#setup-steps), and [common setup issues](#common-setup-issues).
@@ -55,7 +55,7 @@ Click **Add the Claude app** to open the Slack Marketplace listing, then click *
 
 Send `@Claude connect` as a new channel message
 
-Copy the message shown and send it in any channel of the workspace you just installed in, with no other text, as a new top-level message or in a thread where Claude isn’t already working. Claude replies with a pairing code valid for 15 minutes.Pick a channel that belongs to just that workspace. Claude can decline to reply in [guest and shared channels](https://claude.com/docs/claude-tag/admins/troubleshooting#guest-and-shared-channels).Only a Slack workspace admin can run `@Claude connect`; anyone else gets a message naming who to ask. If that’s not you, [send them the install request](https://claude.com/docs/claude-tag/admins/pair-workspace#send-the-install-request-to-your-slack-admin) and have them return the code.
+Copy the message shown and send it in any channel of the workspace you just installed in, with no other text, as a new top-level message or in a thread where Claude isn’t already working. Claude replies with a pairing code valid for 15 minutes.Pick a channel that belongs to just that workspace. Claude can decline to reply in [guest and shared channels](https://claude.com/docs/claude-tag/admins/troubleshooting#guest-and-shared-channels).Only a Slack workspace admin (or Grid org admin) can run `@Claude connect`; anyone else gets a message naming who to ask. If that’s not you, [send them the install request](https://claude.com/docs/claude-tag/admins/pair-workspace#send-the-install-request-to-your-slack-admin) and have them return the code.
 
 3
 
@@ -72,10 +72,10 @@ Under **Choose where Claude can reply when tagged**, select **Entire workspace (
 Click **Pair workspace**. A confirmation screen shows the pairing worked; select **Next: Choose Claude’s tools**.
 See [Pair your Slack workspace](https://claude.com/docs/claude-tag/admins/pair-workspace) for the Slack-admin handoff template, what to do if `@Claude connect` fails, and pairing on Enterprise Grid.
 
-###  Choose which tools to connect
+###  Choose Claude’s first tools
 
 Claude works in your tools with its own accounts, so everything it does is recorded under its own name. On this step you pick those tools; connecting them happens in a [later step](#create-accounts-for-the-tools-you-chose).
-GitHub is preselected and counts as one of your picks. The list suggests widely used tools; check the ones your team works in, or use **Search all tools** for a service that isn’t shown. Pick two more (three total, counting GitHub) to unlock **Next: Connect GitHub**; you can add more at any time.
+GitHub isn’t in the list. You connect it in the [next step](#connect-github). The list suggests widely used tools; check the ones your team works in, or use **Search all tools** for a service that isn’t shown. Pick two to unlock **Next: Connect GitHub**. You can add more at any time.
 You can skip connecting the tools you pick and finish that after setup. Without any connected tools, Claude still works in Slack conversations and can use web search and a [default set of network hosts](https://claude.com/docs/claude-tag/admins/add-connections#allow-a-host-without-a-credential); it can’t act in a tool until that tool is connected.
 See [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections) for which services to connect first, and the [per-service connection guides](https://claude.com/docs/claude-tag/admins/connections/overview) for credential fields per tool.
 
@@ -90,7 +90,7 @@ These grants apply to every channel Claude is in. You can [add repositories to s
 
 ###  Create accounts for the tools you chose
 
-Claude needs its own account in each tool you picked besides GitHub (covered by the app in the previous step), so you can always see what it did and limit what it reaches. [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity) explains this model.
+Claude needs its own account in each tool you picked, so you can always see what it did and limit what it reaches. [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity) explains this model.
 
 1
 
@@ -108,7 +108,7 @@ In each tool you picked, create an account for that address, the same way you wo
 
 Connect each tool with Claude's credentials
 
-Each of the other tools you picked is listed (GitHub isn’t; the app covers it). Click **Connect** and enter the credential for the account you created (not your personal login).
+Each tool you picked is listed. Click **Connect** and enter the credential for the account you created (not your personal login).
 
 To finish this step later, select **Skip** and confirm past the warning that Claude won’t be able to act in the unconnected tools.
 See [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections) for how to create the accounts and what access to give them.
@@ -158,7 +158,7 @@ The [See it work](https://claude.com/docs/claude-tag/admins/test-it) page has mo
 
 ##  After setup
 
-After your test passes, these guides cover what’s not part of initial setup:
+After your test passes, you can DM Claude in Slack with setup questions. These guides cover what’s not part of initial setup:
 
 | Guide | Do this when |
 | --- | --- |

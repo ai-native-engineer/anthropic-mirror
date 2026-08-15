@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/service_accounts/create -->
 
+---
+title: Create Service Account
+url: https://platform.claude.com/docs/en/api/admin/service_accounts/create
+---
+
 ## Create Service Account
 
 **post** `/v1/organizations/service_accounts`
@@ -29,17 +34,17 @@ workload may only create `developer`-role service accounts.
 
   Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
-- `description: optional string`
+- `description: optional string or null`
 
   Optional free-text description.
 
-- `organization_role: optional "developer" or "admin"`
+- `organization_role: optional "admin" or "developer"`
 
   Org-level role. Defaults to `developer`.
 
-  - `"developer"`
-
   - `"admin"`
+
+  - `"developer"`
 
 ### Returns
 
@@ -54,11 +59,11 @@ workload may only create `developer`-role service accounts.
 
     Tagged ID of the service account.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     If set, this service account is archived.
 
-  - `archived_by_actor_id: string`
+  - `archived_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
 
@@ -66,11 +71,11 @@ workload may only create `developer`-role service accounts.
 
     When this service account was created.
 
-  - `created_by_actor_id: string`
+  - `created_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that created this service account.
 
-  - `description: string`
+  - `description: string or null`
 
     Optional free-text description.
 
@@ -78,13 +83,13 @@ workload may only create `developer`-role service accounts.
 
     Admin-chosen slug identifier.
 
-  - `organization_role: "developer" or "admin"`
+  - `organization_role: "admin" or "developer"`
 
     Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
 
-    - `"developer"`
-
     - `"admin"`
+
+    - `"developer"`
 
   - `type: "service_account"`
 
@@ -94,7 +99,7 @@ workload may only create `developer`-role service accounts.
 
     When this service account was last updated.
 
-  - `updated_by_actor_id: string`
+  - `updated_by_actor_id: string or null`
 
     Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
 
@@ -121,7 +126,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts \
   "created_by_actor_id": "created_by_actor_id",
   "description": "description",
   "name": "ci-deploy-bot",
-  "organization_role": "developer",
+  "organization_role": "admin",
   "type": "service_account",
   "updated_at": "2024-10-30T23:58:27.427722Z",
   "updated_by_actor_id": "updated_by_actor_id"

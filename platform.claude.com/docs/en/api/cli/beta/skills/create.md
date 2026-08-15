@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/skills/create -->
 
+---
+title: Create Skill
+url: https://platform.claude.com/docs/en/api/cli/beta/skills/create
+---
+
 ## Create Skill
 
 `$ ant beta:skills create`
@@ -10,17 +15,17 @@ Create Skill
 
 ### Parameters
 
+- `--file: array of string`
+
+  Body param: Files to upload for the skill.
+
+  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
+
 - `--display-title: optional string`
 
   Body param: Display title for the skill.
 
   This is a human-readable label that is not included in the prompt sent to the model.
-
-- `--file: optional array of string`
-
-  Body param: Files to upload for the skill.
-
-  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -75,7 +80,8 @@ Create Skill
 
 ```cli
 ant beta:skills create \
-  --api-key my-anthropic-api-key
+  --api-key my-anthropic-api-key \
+  --file 'Example data'
 ```
 
 #### Response

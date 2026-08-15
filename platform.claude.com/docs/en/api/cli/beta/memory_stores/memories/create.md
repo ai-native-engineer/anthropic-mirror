@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memories/create -->
 
+---
+title: Create a memory
+url: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memories/create
+---
+
 ## Create a memory
 
 `$ ant beta:memory-stores:memories create`

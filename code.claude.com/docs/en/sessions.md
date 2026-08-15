@@ -86,6 +86,14 @@ Give sessions descriptive names so they're findable in the session picker and re
 
 Once you name a session through a CLI route or from claude.ai, return to it with `claude --resume <name>` or `/resume <name>`; a desktop-app session resumes in the app, which keeps its own session history. See [Resume a session](#resume-a-session) for how name resolution behaves across worktrees.
 
+When you start or resume an interactive session with a name that another live session on this machine already uses, or rename a session into such a name, Claude Code leaves the name with the session that already has it, renames yours to a variant with a two-word suffix, such as `auth-refactor-graceful-unicorn`, and tells you. Run `/rename` with a new name if you'd rather pick one yourself. Before v2.1.232, both sessions kept the name.
+
+In three cases Claude Code doesn't rename the duplicate, so you can still see two sessions with the same name in listings:
+
+* It doesn't check AI-generated titles or default display names.
+* It doesn't check the `--name` of a [background](/docs/en/agent-view#from-your-shell) or `-p` session at startup.
+* It can't rename a session on an earlier version of Claude Code.
+
 Interactive sessions you never name still get a default display name when they start. Requires Claude Code v2.1.196 or later. The default combines the working directory's name with a two-character suffix, for example `my-app-3f`, and identifies the session in listings of running sessions, such as [agent view](/docs/en/agent-view) and `claude agents --json` output.
 
 The default isn't a resume handle: `claude --resume <name>`, `/resume <name>`, and the session picker match only names you set. Naming the session replaces the default.
@@ -142,6 +150,7 @@ The `/branch` confirmation prints two session IDs: the new branch you are now in
 | Conversation history                                                                                                                                                     | Copied into the branch up to the point you ran `/branch`                                                                                                                                                        |
 | "Allow for this session" permission grants                                                                                                                               | Carried over; the branch runs in the same process, so your existing grants still apply. If you fork into a separate process with `--fork-session`, the new process starts without them and you re-approve there |
 | In-flight [background subagents](/docs/en/sub-agents#run-subagents-in-foreground-or-background) and [background Bash commands](/docs/en/interactive-mode#background-bash-commands) | Keep running. Their output appears in the new branch you switched into, not in the original session                                                                                                             |
+| [Remote Control](/docs/en/remote-control) connection                                                                                                                          | Stays connected. A phone or browser connected to the session follows you into the branch and keeps receiving new messages there                                                                                 |
 
 If you resume the same session in two terminals without forking, messages from both interleave into one transcript. For checkpoint-based rewind within a single session, see [Checkpointing](/docs/en/checkpointing).
 
@@ -176,7 +185,9 @@ claude -p --resume <session-id> --output-format json "summarize what we changed"
 
 ### Where transcripts are stored
 
-By default, transcripts are stored as JSONL at `~/.claude/projects/<project>/<session-id>.jsonl`, where `<project>` is your working directory path with non-alphanumeric characters replaced by `-`. Each line is a JSON object for a message, tool use, or metadata entry. The entry format is internal to Claude Code and changes between versions, so scripts that parse these files directly can break on any release. To build on session data, use `/export` or the [script interfaces](#access-conversations-from-scripts) instead.
+By default, Claude Code stores transcripts as JSONL at `~/.claude/projects/<project>/<session-id>.jsonl`, where `<project>` is your working directory path with non-alphanumeric characters replaced by `-`. For a working directory whose converted name exceeds 200 characters, Claude Code truncates the name to 200 characters and appends a hash of the full path, so the directory name stays within filesystem limits.
+
+Each line is a JSON object for a message, tool use, or metadata entry. The entry format is internal to Claude Code and changes between versions, so scripts that parse these files directly can break on any release. To build on session data, use `/export` or the [script interfaces](#access-conversations-from-scripts) instead.
 
 The location, retention, and write behavior are configurable:
 
@@ -188,8 +199,6 @@ The location, retention, and write behavior are configurable:
 | Suppress writes for one non-interactive run | [`--no-session-persistence`](/docs/en/cli-reference)        | CLI flag with `claude -p` |
 
 ## See also
-
-These pages cover related session and parallelism mechanics:
 
 * [Worktrees](/docs/en/worktrees): run isolated parallel sessions on separate branches
 * [Checkpointing](/docs/en/checkpointing): rewind code and conversation to an earlier point

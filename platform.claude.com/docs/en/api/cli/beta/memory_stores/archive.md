@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/archive -->
 
+---
+title: Archive a memory store
+url: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/archive
+---
+
 ## Archive a memory store
 
 `$ ant beta:memory-stores archive`

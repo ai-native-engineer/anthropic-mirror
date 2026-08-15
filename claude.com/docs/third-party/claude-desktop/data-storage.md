@@ -13,7 +13,7 @@ Claude Desktop on third-party (3P) has no Anthropic account. There is no sign-in
 ##  Identity
 
 When the app first launches in 3P mode, it generates a random UUID and writes it (base64-encoded) to the `ant-did` file in the application-data directory. This identifier, together with the `deploymentOrganizationUuid` from your managed configuration, is what’s attached to telemetry events. It is random per device and per OS-user account, and Anthropic cannot trace it back to a real device or person.
-If you need to attribute Claude Desktop activity to named users, configure [OpenTelemetry export](https://claude.com/docs/third-party/claude-desktop/configuration#otlpendpoint) and join the exported events to your identity system on the collector side, or include user identity in the headers your `managedMcpServers` helpers emit.
+The OpenTelemetry export to your own collector is the exception: it identifies the user directly. Each exported record carries an `enduser.id` resource attribute with the user’s identity and a `process.owner` attribute with the operating-system login name, so attributing activity to named users needs no collector-side correlation. See [User attribution](https://claude.com/docs/third-party/claude-desktop/telemetry#user-attribution) for where the identity comes from and the `endUserAttribution` key that controls it.
 
 ##  Where data lives
 
@@ -35,6 +35,7 @@ Within the application-data directory:
 | `local-agent-mode-sessions/.../cowork_account_settings.json` | User-level preferences set in the app (display name, locale, memory toggle). |
 | `local-agent-mode-sessions/` | Cowork and Chat conversation history. One `local_<uuid>.json` file plus a working directory per session, scoped by account and organization ID. The working directory includes an `uploads/` subdirectory with copies of files attached to the conversation and an `outputs/` subdirectory for files Claude creates. |
 | `local-agent-mode-sessions/.../memory/` | Cowork memory: a `CLAUDE.md` instructions file plus a `memory/` subdirectory of Markdown notes Claude writes about the user’s preferences, projects, and feedback. See [Memory](#memory). |
+| `local-agent-mode-sessions/.../spaces/<projectId>/memory/` | Markdown memory notes for one project, used by Cowork sessions and Chat conversations inside that project. See [Memory](#memory). |
 | `local-agent-mode-sessions/.../<sessionId>/audit.jsonl` | Append-only log of session events (tool invocations, permission decisions, file operations). Each entry is HMAC-chained to the previous one so edits or deletions are detectable; the companion `.audit-key` file holds the per-session signing key, encrypted via the OS keychain. |
 | `claude-code-sessions/` | Code conversation history, in the same per-session layout. |
 | `claude-code/`, `claude-code-vm/` | Claude Code binary and VM workspace data for Code sessions. |
@@ -49,17 +50,17 @@ Separately from the application-data directory, Claude Desktop writes user-visib
 ##  Memory
 
 During Cowork sessions, Claude writes short Markdown files recording what it has learned about the user — working preferences, project context, and corrections — and reads them at the start of subsequent sessions. These files live under `local-agent-mode-sessions/.../memory/memory/` and never leave the device.
-Users can review and delete individual entries, or pause memory entirely (existing files are kept but not read or updated), under **Settings → Cowork → Memory**. The same page exposes a **Global instructions** editor for the `CLAUDE.md` file that is included in every session.
-Memory belongs to Cowork sessions only: Chat conversations neither read nor write these files.
+Users can review and delete individual entries, or pause memory for new sessions and conversations (existing files are kept but not read or updated), under **Settings → Cowork → Memory**. The same page exposes a **Global instructions** editor for the `CLAUDE.md` file that is included in every session.
+Each [project](https://claude.com/docs/cowork/guide/projects) also keeps its own memory under `local-agent-mode-sessions/.../spaces/<projectId>/memory/`. Cowork sessions inside a project read and update the project’s memory rather than the files under `local-agent-mode-sessions/.../memory/memory/`. A Chat conversation inside a project can read the project’s memory but cannot change it, as described under [Chat conversations](#chat-conversations).
 
 ##  Chat conversations
 
 [Chat](https://claude.com/docs/third-party/claude-desktop/chat) conversations follow the same storage model as Cowork sessions: each conversation is a session state file plus a working directory under `local-agent-mode-sessions/`, in the layout described in the table above. The state file records the conversation; the working directory holds the transcript, an `uploads/` directory with copies (or hard links) of files attached to the conversation, an `outputs/` directory for files Claude creates during the conversation (its scratch space), and the same HMAC-chained `audit.jsonl` event log. Because attachments are hard-linked where the filesystem allows it, edits made to the original file while the conversation is open can be visible to the conversation. Conversation content leaves the device only as inference requests to your configured provider, as web search queries to your configured search backend, through web access your egress configuration allows, in connector tool calls permitted by your `toolPolicy` configuration and the user’s approvals, and, if you have enabled [content capture](https://claude.com/docs/third-party/claude-desktop/telemetry#content-capture), in telemetry to your own collector.
 For the questions security reviews most often ask about Chat:
 
-* **Memory is not used.** Chat conversations do not read or update the memory files described in the previous section.
+* **Memory is read-only and applies only inside projects.** A Chat conversation inside a project can read that project’s memory unless memory was paused when the conversation started, but cannot add to or change it. Chat conversations outside a project do not read or update memory.
 * **Past chats are not searchable.** There is no index of conversation content, server-side or local (history exists only as the per-session files above), and a Chat conversation has no tools for listing or reading other sessions’ transcripts. Each conversation is isolated to its own directory.
-* **The advanced file analysis sandbox stays inside the session directory.** When [advanced file analysis](https://claude.com/docs/third-party/claude-desktop/chat#advanced-file-analysis) is enabled, code runs in a local sandbox that reads only the conversation’s `uploads/` directory and writes only its `outputs/` directory, with no network access.
+* **The advanced file analysis sandbox writes only inside the session directory.** When [advanced file analysis](https://claude.com/docs/third-party/claude-desktop/chat#advanced-file-analysis) is enabled, code runs in a local sandbox with no network access. The sandbox writes only to the conversation’s `outputs/` directory, and reads its `uploads/` directory plus, for a conversation inside a project, that project’s memory.
 
 Deleting a conversation’s session state file and working directory removes all of this; there is no other copy.
 

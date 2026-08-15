@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/vaults/credentials/retrieve -->
 
+---
+title: Get Credential
+url: https://platform.claude.com/docs/en/api/beta/vaults/credentials/retrieve
+---
+
 ## Get Credential
 
 **get** `/v1/vaults/{vault_id}/credentials/{credential_id}`
@@ -20,7 +25,7 @@ Get Credential
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -72,11 +77,21 @@ Get Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -88,7 +103,7 @@ Get Credential
 
     Unique identifier for the credential.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -108,11 +123,11 @@ Get Credential
 
         - `"mcp_oauth"`
 
-      - `expires_at: optional string`
+      - `expires_at: optional string or null`
 
         A timestamp in RFC 3339 format
 
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse`
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
 
         OAuth refresh token configuration returned in credential responses.
 
@@ -152,11 +167,11 @@ Get Credential
 
               - `"client_secret_post"`
 
-        - `resource: optional string`
+        - `resource: optional string or null`
 
           OAuth resource indicator.
 
-        - `scope: optional string`
+        - `scope: optional string or null`
 
           OAuth scope for the refresh request.
 
@@ -172,9 +187,21 @@ Get Credential
 
         - `"static_bearer"`
 
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { networking, secret_name, type }`
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -228,7 +255,7 @@ Get Credential
 
     Identifier of the vault this credential belongs to.
 
-  - `display_name: optional string`
+  - `display_name: optional string or null`
 
     Human-readable name for the credential.
 

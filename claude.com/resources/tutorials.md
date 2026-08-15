@@ -26,6 +26,34 @@ Product
 
 Features
 
+![What happens when you talk to AI?](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e2090e8966553930867b9_ANT_KT3%20Edu_Hero%201_Thumbnail.webp)
+
+What happens when you talk to AI?
+
+AI Fluency
+
+Category
+
+AI Fluency
+
+Product
+
+AI Fluency
+
+Features
+
+No items found.
+
+Read tutorial
+
+[Read tutorial](https://claude.com/resources/tutorials/what-happens-when-you-talk-to-ai)Read tutorial
+
+[What happens when you talk to AI?](https://claude.com/resources/tutorials/what-happens-when-you-talk-to-ai)What happens when you talk to AI?
+
+[Text Link](https://claude.com/resources/tutorials/what-happens-when-you-talk-to-ai)
+
+AI Fluency
+
 ![How to choose between voice mode and dictation](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a72171367d5fac36c73e896_Screenshot%202026-08-04%20at%209.44.51%E2%80%AFAM.png)
 
 How to choose between voice mode and dictation
@@ -122,6 +150,8 @@ Professional
 
 Product
 
+Claude Tag
+
 Features
 
 No items found.
@@ -147,6 +177,8 @@ Category
 Professional
 
 Product
+
+Claude Tag
 
 Features
 
@@ -435,38 +467,6 @@ Read tutorial
 [Text Link](https://claude.com/resources/tutorials/why-do-ai-models-hallucinate)
 
 AI Fluency
-
-![Using Claude Design for prototypes and UX](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e1ccae7da2cf317805f09b_Screenshot%202026-04-16%20at%2011.01.12%E2%80%AFPM.png)
-
-Using Claude Design for prototypes and UX
-
-Professional
-
-Category
-
-Professional
-
-Product
-
-Claude Design
-
-Features
-
-No items found.
-
-Read tutorial
-
-[Read tutorial](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Read tutorial
-
-[Using Claude Design for prototypes and UX](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
-
-[Text Link](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)
-
-Professional
-
-Engineering
-
-Marketing
 
 [View more](https://claude.com/resources/tutorials?8adb0641_page=2)
 

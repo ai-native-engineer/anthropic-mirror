@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/rate_limits/list -->
 
+---
+title: List Organization Rate Limits
+url: https://platform.claude.com/docs/en/api/admin/rate_limits/list
+---
+
 ## List Organization Rate Limits
 
 **get** `/v1/organizations/rate_limits`
@@ -74,7 +79,7 @@ and contains the set of limiter values that apply to it.
 
       The configured limit value for this limiter type.
 
-  - `models: array of string`
+  - `models: array of string or null`
 
     Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
 
@@ -84,7 +89,7 @@ and contains the set of limiter values that apply to it.
 
     - `"rate_limit"`
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token to provide in as `page` in the subsequent request to retrieve the next page of data.
 

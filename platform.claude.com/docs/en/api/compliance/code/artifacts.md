@@ -1,21 +1,25 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/code/artifacts -->
 
+---
+title: Artifacts
+url: https://platform.claude.com/docs/en/api/compliance/code/artifacts
+---
+
 # Artifacts
 
 ## List Code Artifacts
 
-**get** `/v1/compliance/code/artifacts`
+**get** `/v1/compliance/apps/code/artifacts`
 
 List Claude Code Artifacts owned by organizations under the parent
 organization.
 
-Results are sorted by Artifact identifier within each batch of child
-organizations. Pages may be short or empty while `next_page` is still
-set — continue until `next_page` is absent. Artifacts are sorted by
-identifier (not creation time): an
-Artifact published during an export may land before the cursor and be
-omitted, so for a point-in-time-complete export re-enumerate after
-publishing quiesces.
+Results are sorted by Artifact identifier. Pages may be short or empty
+while `next_page` is still set — continue until `next_page` is absent.
+Artifacts are sorted by identifier (not creation time): an Artifact
+published during an export may land before the cursor and be omitted, so
+for a point-in-time-complete export re-enumerate after publishing
+quiesces.
 
 Artifacts owned by a since-deleted child organization are not
 returned.
@@ -62,7 +66,7 @@ returned.
 
 ### Returns
 
-- `data: array of object { id, organization_id, organization_uuid, 6 more }`
+- `data: array of object { id, organization_uuid, owner_user_id, 5 more }`
 
   Page of Artifacts
 
@@ -70,43 +74,42 @@ returned.
 
     Artifact identifier (tagged ID)
 
-  - `organization_id: string`
-
-    Organization identifier (tagged ID)
-
   - `organization_uuid: string`
 
     Organization UUID this Artifact belongs to
 
-  - `owner_user_id: string`
+  - `owner_user_id: string or null`
 
-    Artifact owner's user identifier (tagged ID). Always set, so attribution survives after the owner's account is deleted or the owner leaves every organization under the parent.
+    Artifact owner's user identifier (tagged ID), or null for Artifacts published by an agent session rather than a user account. When set, it survives after the owner's account is deleted or the owner leaves every organization under the parent.
 
-  - `published_version_id: string`
+  - `published_version_id: string or null`
 
     Identifier of the version a non-owner viewer would render when `read_mode` permits them — the version the owner has pinned for non-owner readers if one is pinned, otherwise the owner's latest. When `read_mode` is `owner` no non-owner renders any version; the field still reports which version would be served were read_mode widened.
 
-  - `read_mode: "org" or "owner" or "users"`
+  - `read_mode: "org" or "owner" or "public" or "users"`
 
-    Who can view this Artifact: only its owner, a named set of users, or every member of its organization
+    Who can view this Artifact: only its owner, a named set of users, every member of its organization, or anyone on the internet (`public`)
 
     - `"org"`
 
     - `"owner"`
 
+    - `"public"`
+
     - `"users"`
 
-  - `updated_at: string`
+  - `updated_at: string or null`
 
     Artifact last update timestamp, or null for Artifacts published before this field was recorded
 
-  - `user: object { id, email_address }`
+  - `user: object { id, email_address }  or null`
 
     The user who owns a Code Artifact.
 
-    Fields that reference this type are null when the owner's account has
-    been deleted or the owner is no longer a member of any organization
-    under the parent organization.
+    Fields that reference this type are null when the Artifact was
+    published by an agent session rather than a user account, when the
+    owner's account has been deleted, or when the owner is no longer a
+    member of an organization the key may read.
 
     - `id: string`
 
@@ -118,13 +121,13 @@ returned.
 
   - `versions: array of object { id, created_at, name }`
 
-    Up to roughly 20 most-recently-published versions of this Artifact (older versions are not retained). Metadata only — use `GET /v1/compliance/code/artifacts/{artifact_id}/versions/{version_id}` to download a version's content.
+    Up to roughly 20 most-recently-published versions of this Artifact (older versions are not retained). Metadata only — use `GET /v1/compliance/apps/code/artifacts/{artifact_id}/versions/{version_id}` to download a version's content.
 
     - `id: string`
 
       Opaque version identifier
 
-    - `created_at: string`
+    - `created_at: string or null`
 
       When this version was published
 
@@ -134,16 +137,16 @@ returned.
 
 - `has_more: boolean`
 
-  Whether `next_page` is set. When enumeration spans multiple organization batches this may be true for a page whose next page is empty — continue until `next_page` is absent.
+  Whether `next_page` is set. May be true for a page whose next page is empty — continue until `next_page` is absent.
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token to retrieve the next page. Use this as the 'page' parameter in your next request
 
 ### Example
 
 ```http
-curl https://api.anthropic.com/v1/compliance/code/artifacts \
+curl https://api.anthropic.com/v1/compliance/apps/code/artifacts \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -153,34 +156,33 @@ curl https://api.anthropic.com/v1/compliance/code/artifacts \
 {
   "data": [
     {
-      "id": "id",
-      "organization_id": "organization_id",
-      "organization_uuid": "organization_uuid",
-      "owner_user_id": "owner_user_id",
-      "published_version_id": "published_version_id",
+      "id": "cart_01Tu9VwXyZaBcDeFgHiJkLmN",
+      "organization_uuid": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
+      "owner_user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+      "published_version_id": "1741803761-9f3a",
       "read_mode": "org",
-      "updated_at": "2019-12-27T18:11:19.117Z",
+      "updated_at": "2025-03-14T09:05:17.456789Z",
       "user": {
-        "id": "id",
-        "email_address": "email_address"
+        "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+        "email_address": "jane.doe@example.com"
       },
       "versions": [
         {
-          "id": "id",
-          "created_at": "2019-12-27T18:11:19.117Z",
-          "name": "name"
+          "id": "1741803761-9f3a",
+          "created_at": "2025-03-12T18:22:41.123456Z",
+          "name": "Team dashboard"
         }
       ]
     }
   ],
   "has_more": true,
-  "next_page": "next_page"
+  "next_page": "cGFnZV90b2tlbl9leGFtcGxlXzE3MzQ1Njc4OTA="
 }
 ```
 
 ## Download Code Artifact Version Content
 
-**get** `/v1/compliance/code/artifacts/{artifact_id}/versions/{version_id}`
+**get** `/v1/compliance/apps/code/artifacts/{artifact_id}/versions/{version_id}`
 
 Streams the content of one version of a Claude Code Artifact as the
 response body.
@@ -205,12 +207,6 @@ only for identity-stored content; validate against it when present.
 
   Opaque version identifier from the Artifact's `versions` list
 
-### Query Parameters
-
-- `organization_uuid: optional string`
-
-  The Artifact's owning organization UUID, from the list response. Strongly recommended — without it the route scans across child organizations and, for parents with many children, returns 400 rather than scanning further.
-
 ### Header Parameters
 
 - `"x-api-key": optional string`
@@ -218,13 +214,13 @@ only for identity-stored content; validate against it when present.
 ### Example
 
 ```http
-curl https://api.anthropic.com/v1/compliance/code/artifacts/$ARTIFACT_ID/versions/$VERSION_ID \
+curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID/versions/$VERSION_ID \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
 ## Delete Code Artifact
 
-**delete** `/v1/compliance/code/artifacts/{artifact_id}`
+**delete** `/v1/compliance/apps/code/artifacts/{artifact_id}`
 
 Permanently deletes a Code Artifact and all its versions. This is a
 destructive operation that cannot be undone. A 200 response means the
@@ -240,12 +236,6 @@ Artifact.
 - `artifact_id: string`
 
   The Artifact ID (tagged ID, e.g., cart_abc123)
-
-### Query Parameters
-
-- `organization_uuid: optional string`
-
-  The Artifact's owning organization UUID, from the list response. Strongly recommended — without it the route scans across child organizations and, for parents with many children, returns 400 rather than scanning further.
 
 ### Header Parameters
 
@@ -266,7 +256,7 @@ Artifact.
 ### Example
 
 ```http
-curl https://api.anthropic.com/v1/compliance/code/artifacts/$ARTIFACT_ID \
+curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID \
     -X DELETE \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
@@ -284,7 +274,7 @@ curl https://api.anthropic.com/v1/compliance/code/artifacts/$ARTIFACT_ID \
 
 ### Artifact List Response
 
-- `ArtifactListResponse object { id, organization_id, organization_uuid, 6 more }`
+- `ArtifactListResponse object { id, organization_uuid, owner_user_id, 5 more }`
 
   A hosted site published via Claude Code.
 
@@ -292,43 +282,42 @@ curl https://api.anthropic.com/v1/compliance/code/artifacts/$ARTIFACT_ID \
 
     Artifact identifier (tagged ID)
 
-  - `organization_id: string`
-
-    Organization identifier (tagged ID)
-
   - `organization_uuid: string`
 
     Organization UUID this Artifact belongs to
 
-  - `owner_user_id: string`
+  - `owner_user_id: string or null`
 
-    Artifact owner's user identifier (tagged ID). Always set, so attribution survives after the owner's account is deleted or the owner leaves every organization under the parent.
+    Artifact owner's user identifier (tagged ID), or null for Artifacts published by an agent session rather than a user account. When set, it survives after the owner's account is deleted or the owner leaves every organization under the parent.
 
-  - `published_version_id: string`
+  - `published_version_id: string or null`
 
     Identifier of the version a non-owner viewer would render when `read_mode` permits them — the version the owner has pinned for non-owner readers if one is pinned, otherwise the owner's latest. When `read_mode` is `owner` no non-owner renders any version; the field still reports which version would be served were read_mode widened.
 
-  - `read_mode: "org" or "owner" or "users"`
+  - `read_mode: "org" or "owner" or "public" or "users"`
 
-    Who can view this Artifact: only its owner, a named set of users, or every member of its organization
+    Who can view this Artifact: only its owner, a named set of users, every member of its organization, or anyone on the internet (`public`)
 
     - `"org"`
 
     - `"owner"`
 
+    - `"public"`
+
     - `"users"`
 
-  - `updated_at: string`
+  - `updated_at: string or null`
 
     Artifact last update timestamp, or null for Artifacts published before this field was recorded
 
-  - `user: object { id, email_address }`
+  - `user: object { id, email_address }  or null`
 
     The user who owns a Code Artifact.
 
-    Fields that reference this type are null when the owner's account has
-    been deleted or the owner is no longer a member of any organization
-    under the parent organization.
+    Fields that reference this type are null when the Artifact was
+    published by an agent session rather than a user account, when the
+    owner's account has been deleted, or when the owner is no longer a
+    member of an organization the key may read.
 
     - `id: string`
 
@@ -340,13 +329,13 @@ curl https://api.anthropic.com/v1/compliance/code/artifacts/$ARTIFACT_ID \
 
   - `versions: array of object { id, created_at, name }`
 
-    Up to roughly 20 most-recently-published versions of this Artifact (older versions are not retained). Metadata only — use `GET /v1/compliance/code/artifacts/{artifact_id}/versions/{version_id}` to download a version's content.
+    Up to roughly 20 most-recently-published versions of this Artifact (older versions are not retained). Metadata only — use `GET /v1/compliance/apps/code/artifacts/{artifact_id}/versions/{version_id}` to download a version's content.
 
     - `id: string`
 
       Opaque version identifier
 
-    - `created_at: string`
+    - `created_at: string or null`
 
       When this version was published
 

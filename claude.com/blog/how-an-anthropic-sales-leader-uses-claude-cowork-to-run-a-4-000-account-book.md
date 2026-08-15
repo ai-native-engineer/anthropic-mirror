@@ -100,53 +100,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f63175f636cba4641_c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
 
-Aug 5, 2026
+Aug 14, 2026
 
-### Inference hooks: inline data loss prevention for Claude Enterprise
+### Maximizing the value of your Claude Code sessions
 
-Enterprise AI
+Claude Code
 
-[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
+[Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
 
-[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
+[Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225485fe31f1ed2d9a1_db28a79c9f4492b8471009d4c20e900f234ece48-1000x1000.svg)
 
-Aug 6, 2026
+Aug 13, 2026
 
-### Millennium and Anthropic are building a digital risk analyst with Claude
-
-Enterprise AI
-
-[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
-
-[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
-
-Aug 4, 2026
-
-### A guide to cost visibility and control in Claude
+### Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5
 
 Enterprise AI
 
-[A guide to cost visibility and control in Claude](#)A guide to cost visibility and control in Claude
+[Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5](#)Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5
 
-[A guide to cost visibility and control in Claude](https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude)A guide to cost visibility and control in Claude
+[Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5](https://claude.com/blog/how-jetbrains-evaluates-and-deploys-claude-fable-5)Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224f466b800c4a5a016_a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
 
-Jul 24, 2026
+Oct 30, 2025
 
-### How the product designer who built Claude Design uses it to explore ideas before building them
+### How Brex improves code quality and productivity with Claude Code
 
 Enterprise AI
 
-[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
+[How Brex improves code quality and productivity with Claude Code](#)How Brex improves code quality and productivity with Claude Code
 
-[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
+[How Brex improves code quality and productivity with Claude Code](https://claude.com/blog/how-brex-improves-code-quality-and-productivity-with-claude-code)How Brex improves code quality and productivity with Claude Code
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f06154e381e9a1203_fb2273e9cacb0299a3ee1bf1d76d0bff95ba4e15-1000x1000.svg)
+
+Jan 26, 2026
+
+### How Anthropic's Growth Marketing team cut ad creation time from 30 minutes to 30 seconds with Claude Code
+
+Enterprise AI
+
+[How Anthropic's Growth Marketing team cut ad creation time from 30 minutes to 30 seconds with Claude Code](#)How Anthropic's Growth Marketing team cut ad creation time from 30 minutes to 30 seconds with Claude Code
+
+[How Anthropic's Growth Marketing team cut ad creation time from 30 minutes to 30 seconds with Claude Code](https://claude.com/blog/how-anthropic-uses-claude-marketing)How Anthropic's Growth Marketing team cut ad creation time from 30 minutes to 30 seconds with Claude Code
 
 ## Transform how your organization operates with Claude
 

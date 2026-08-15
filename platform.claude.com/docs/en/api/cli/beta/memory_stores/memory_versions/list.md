@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memory_versions/list -->
 
+---
+title: List memory versions
+url: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memory_versions/list
+---
+
 ## List memory versions
 
 `$ ant beta:memory-stores:memory-versions list`

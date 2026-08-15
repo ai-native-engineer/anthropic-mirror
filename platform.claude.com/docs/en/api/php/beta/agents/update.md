@@ -1,8 +1,13 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/agents/update -->
 
+---
+title: Update Agent
+url: https://platform.claude.com/docs/en/api/php/beta/agents/update
+---
+
 ## Update Agent
 
-`$client->beta->agents->update(string agentID, int version, ?string description, ?list<BetaManagedAgentsURLMCPServerParams> mcpServers, ?array<string,string> metadata, ?Model model, ?BetaManagedAgentsMultiagentParams multiagent, ?string name, ?list<BetaManagedAgentsSkillParams> skills, ?string system, ?list<Tool> tools, ?list<AnthropicBeta> betas): BetaManagedAgentsAgent`
+`$client->beta->agents->update(string agentID, ?string description, ?list<BetaManagedAgentsURLMCPServerParams> mcpServers, ?array<string,string> metadata, ?Model model, ?BetaManagedAgentsMultiagentParams multiagent, ?string name, ?list<BetaManagedAgentsSkillParams> skills, ?string system, ?list<Tool> tools, ?int version, ?list<AnthropicBeta> betas): BetaManagedAgentsAgent`
 
 **post** `/v1/agents/{agent_id}`
 
@@ -11,10 +16,6 @@ Update Agent
 ### Parameters
 
 - `agentID: string`
-
-- `version: int`
-
-  The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. The request fails if this does not match the server's current version.
 
 - `description?:optional string`
 
@@ -51,6 +52,10 @@ Update Agent
 - `tools?:optional list<Tool>`
 
   Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
+
+- `version?:optional int`
+
+  The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -113,8 +118,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsAgent = $client->beta->agents->update(
   'agent_011CZkYpogX7uDKUyvBTophP',
-  version: 1,
-  description: 'description',
+  description: 'updated',
   mcpServers: [
     [
       'name' => 'example-mcp',
@@ -123,7 +127,12 @@ $betaManagedAgentsAgent = $client->beta->agents->update(
     ],
   ],
   metadata: ['foo' => 'string'],
-  model: ['id' => 'claude-opus-4-6', 'speed' => 'standard'],
+  model: [
+    'id' => BetaManagedAgentsModel::CLAUDE_OPUS_4_8,
+    'effort' => 'low',
+    'inferenceGeo' => 'inference_geo',
+    'speed' => 'standard',
+  ],
   multiagent: [
     'agents' => ['agent_011CZkYqphY8vELVzwCUpqiQ', ['type' => 'self']],
     'type' => 'coordinator',
@@ -146,7 +155,8 @@ $betaManagedAgentsAgent = $client->beta->agents->update(
       ],
     ],
   ],
-  betas: ['message-batches-2024-09-24'],
+  version: 1,
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaManagedAgentsAgent);
@@ -172,6 +182,10 @@ var_dump($betaManagedAgentsAgent);
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
+    "inference_geo": "inference_geo",
     "speed": "standard"
   },
   "multiagent": {

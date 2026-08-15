@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/memory_stores/create -->
 
+---
+title: Create a memory store
+url: https://platform.claude.com/docs/en/api/beta/memory_stores/create
+---
+
 ## Create a memory store
 
 **post** `/v1/memory_stores`
@@ -14,7 +19,7 @@ Create a memory store
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -66,11 +71,21 @@ Create a memory store
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
@@ -112,7 +127,7 @@ Create a memory store
 
     A timestamp in RFC 3339 format
 
-  - `archived_at: optional string`
+  - `archived_at: optional string or null`
 
     A timestamp in RFC 3339 format
 
@@ -130,7 +145,7 @@ Create a memory store
 curl https://api.anthropic.com/v1/memory_stores \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
     -d '{
           "name": "x"

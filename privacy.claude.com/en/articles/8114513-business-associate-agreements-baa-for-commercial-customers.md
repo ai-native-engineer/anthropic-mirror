@@ -2,7 +2,7 @@
 
 # Business Associate Agreements (BAA) for Commercial Customers
 
-Updated over 3 weeks ago
+July 14, 2026
 
 *This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see **[here](https://privacy.claude.com/en/collections/10663362-consumers)**.*
 

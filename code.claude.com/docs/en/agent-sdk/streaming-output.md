@@ -4,10 +4,10 @@
 
 > Get real-time responses from the Agent SDK as text and tool calls stream in
 
-By default, the Agent SDK yields complete `AssistantMessage` objects after Claude finishes generating each response. To receive incremental updates as text and tool calls are generated, enable partial message streaming by setting `include_partial_messages` (Python) or `includePartialMessages` (TypeScript) to `true` in your options.
+By default, the Agent SDK yields complete `AssistantMessage` objects after Claude finishes generating each response. To receive incremental updates as text and tool calls are generated, enable partial message streaming.
 
 <Tip>
-  This page covers output streaming (receiving tokens in real-time). For input modes (how you send messages), see [Send messages to agents](/en/agent-sdk/streaming-vs-single-mode). You can also [stream responses using the Agent SDK via the CLI](/en/headless).
+  This page covers output streaming (receiving tokens in real-time). For input modes (how you send messages), see [Send messages to agents](/docs/en/agent-sdk/streaming-vs-single-mode). You can also [stream responses using the Agent SDK via the CLI](/docs/en/headless).
 </Tip>
 
 ## Enable streaming output
@@ -83,7 +83,7 @@ Both contain raw Claude API events, not accumulated text. You need to extract an
       uuid: str  # Unique identifier for this event
       session_id: str  # Session identifier
       event: dict[str, Any]  # The raw Claude API stream event
-      parent_tool_use_id: str | None  # Parent tool ID if from a subagent
+      parent_tool_use_id: str | None  # Always None
   ```
 
   ```typescript TypeScript theme={null}
@@ -97,6 +97,8 @@ Both contain raw Claude API events, not accumulated text. You need to extract an
   };
   ```
 </CodeGroup>
+
+The `parent_tool_use_id` field is always `None` in Python and `null` in TypeScript. Stream events are emitted for the main session only; token-level deltas from subagents aren't forwarded. To attribute output to a subagent, use complete messages, which carry `parent_tool_use_id`. See [Detect subagent invocation](/docs/en/agent-sdk/subagents#detect-subagent-invocation).
 
 The `event` field contains the raw streaming event from the [Claude API](https://platform.claude.com/docs/en/build-with-claude/streaming#event-types). Common event types include:
 
@@ -129,53 +131,7 @@ AssistantMessage - complete message with all content
 ResultMessage - final result
 ```
 
-Without partial messages enabled (`include_partial_messages` in Python, `includePartialMessages` in TypeScript), you receive all message types except `StreamEvent`. Common types include `SystemMessage` (session initialization), `AssistantMessage` (complete responses), `ResultMessage` (final result), and a compact boundary message indicating when conversation history was compacted (`SDKCompactBoundaryMessage` in TypeScript; `SystemMessage` with subtype `"compact_boundary"` in Python).
-
-## Stream text responses
-
-To display text as it's generated, look for `content_block_delta` events where `delta.type` is `text_delta`. These contain the incremental text chunks. The example below prints each chunk as it arrives:
-
-<CodeGroup>
-  ```python Python theme={null}
-  from claude_agent_sdk import query, ClaudeAgentOptions
-  from claude_agent_sdk.types import StreamEvent
-  import asyncio
-
-  async def stream_text():
-      options = ClaudeAgentOptions(include_partial_messages=True)
-
-      async for message in query(prompt="Explain how databases work", options=options):
-          if isinstance(message, StreamEvent):
-              event = message.event
-              if event.get("type") == "content_block_delta":
-                  delta = event.get("delta", {})
-                  if delta.get("type") == "text_delta":
-                      # Print each text chunk as it arrives
-                      print(delta.get("text", ""), end="", flush=True)
-
-      print()  # Final newline
-
-  asyncio.run(stream_text())
-  ```
-
-  ```typescript TypeScript theme={null}
-  import { query } from "@anthropic-ai/claude-agent-sdk";
-
-  for await (const message of query({
-    prompt: "Explain how databases work",
-    options: { includePartialMessages: true }
-  })) {
-    if (message.type === "stream_event") {
-      const event = message.event;
-      if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
-        process.stdout.write(event.delta.text);
-      }
-    }
-  }
-
-  console.log(); // Final newline
-  ```
-</CodeGroup>
+Without partial messages enabled, you receive all message types except `StreamEvent`. Common types include `SystemMessage` (session initialization), `AssistantMessage` (complete responses), `ResultMessage` (final result), and a compact boundary message indicating when conversation history was compacted (`SDKCompactBoundaryMessage` in TypeScript; `SystemMessage` with subtype `"compact_boundary"` in Python).
 
 ## Stream tool calls
 
@@ -373,12 +329,12 @@ This example combines text and tool streaming into a cohesive UI. It tracks whet
 
 ## Known limitations
 
-* **Structured output**: the JSON result appears only in the final `ResultMessage.structured_output`, not as streaming deltas. See [structured outputs](/en/agent-sdk/structured-outputs) for details.
+* **Structured output**: the JSON result appears only in the final `ResultMessage.structured_output`, not as streaming deltas. See [structured outputs](/docs/en/agent-sdk/structured-outputs) for details.
 
 ## Next steps
 
 Now that you can stream text and tool calls in real-time, explore these related topics:
 
-* [Interactive vs one-shot queries](/en/agent-sdk/streaming-vs-single-mode): choose between input modes for your use case
-* [Structured outputs](/en/agent-sdk/structured-outputs): get typed JSON responses from the agent
-* [Permissions](/en/agent-sdk/permissions): control which tools the agent can use
+* [Interactive vs one-shot queries](/docs/en/agent-sdk/streaming-vs-single-mode): choose between input modes for your use case
+* [Structured outputs](/docs/en/agent-sdk/structured-outputs): get typed JSON responses from the agent
+* [Permissions](/docs/en/agent-sdk/permissions): control which tools the agent can use

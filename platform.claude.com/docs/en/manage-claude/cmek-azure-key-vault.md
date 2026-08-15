@@ -1,19 +1,19 @@
 <!-- source: https://platform.claude.com/docs/en/manage-claude/cmek-azure-key-vault -->
 
-# Configure Azure Key Vault for CMEK
-
-Use Azure Key Vault to provide an encryption key for your organization.
-
+---
+title: Configure Azure Key Vault for CMEK
+url: https://platform.claude.com/docs/en/manage-claude/cmek-azure-key-vault
+description: Use Azure Key Vault to provide an encryption key for your organization.
 ---
 
 ```bash Configure with the /claude-api skill in Claude Code
 claude "/claude-api help me configure a customer-managed encryption key with Azure Key Vault"
 ```
 
-This guide walks through configuring an Azure Key Vault key as a [customer-managed encryption key (CMEK)](/docs/en/manage-claude/cmek) for your Anthropic organization.
+This guide walks through configuring an Azure Key Vault key as a [customer-managed encryption key (CMEK)](https://platform.claude.com/docs/en/manage-claude/cmek) for your Anthropic organization.
 
 <Warning>
-  Enabling CMEK is permanent. If your Key Vault key is deleted or disabled, Anthropic cannot recover the data encrypted under it. Review the [warnings and limitations](/docs/en/manage-claude/cmek) before you start.
+  Enabling CMEK is permanent. If your Key Vault key is deleted or disabled, Anthropic cannot recover the data encrypted under it. Review the [warnings and limitations](https://platform.claude.com/docs/en/manage-claude/cmek) before you start.
 </Warning>
 
 ## Prerequisites

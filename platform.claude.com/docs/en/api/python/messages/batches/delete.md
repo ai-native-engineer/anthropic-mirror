@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/messages/batches/delete -->
 
+---
+title: Delete a Message Batch
+url: https://platform.claude.com/docs/en/api/python/messages/batches/delete
+---
+
 ## Delete a Message Batch
 
 `messages.batches.delete(strmessage_batch_id)  -> DeletedMessageBatch`

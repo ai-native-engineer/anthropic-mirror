@@ -27,7 +27,7 @@ The first step confirms which organization and tenant you are setting up and wha
 
 A seat tier sets which Claude models a group of users can access and how much they can spend in a given period. This step lists every tier available to your organization. Anthropic-managed tiers are shown first and are labeled **Managed by Anthropic**, followed by any self-managed tiers your organization has defined. Each row shows the tier name and the number of allowed models, and self-managed tiers also show their five-hour and seven-day spend limits.
 Click any tier to open it. An Anthropic-managed tier opens as a read-only summary, because its limits are set by Anthropic. A self-managed tier opens as an editable form where you can change the name, spend limits, and allowed models without leaving the wizard.
-If your tenant lets organizations manage their own tiers, an **Add seat tier** button appears below the list so you can create one here. If that button is missing, tier management has been reserved for the tenant level and you will see only the tiers that have been assigned to you.
+If your tenant lets organizations manage their own tiers, an **Add seat tier** button appears below the list so you can create one here. If that button is missing, your tenant has not turned on **Let organizations manage their own seat tiers**, and only Anthropic can create or change tiers for your organization.
 The step is checked once at least one of your tiers has at least one model allowed. See [Seat tiers](https://claude.com/docs/government/org-admin/seat-tiers) for more on creating and editing tiers.
 
 ##  Step 3: Seats and credits

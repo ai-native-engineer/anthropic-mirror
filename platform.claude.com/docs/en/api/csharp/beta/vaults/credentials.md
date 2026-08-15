@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/csharp/beta/vaults/credentials -->
 
+---
+title: Credentials
+url: https://platform.claude.com/docs/en/api/csharp/beta/vaults/credentials
+---
+
 # Credentials
 
 ## Create Credential
@@ -158,6 +163,18 @@ Create Credential
 
         - `"environment_variable"EnvironmentVariable`
 
+      - `BetaManagedAgentsInjectionLocationParams InjectionLocation`
+
+        Where in the outbound request the secret value may be substituted.
+
+        - `Boolean Body`
+
+          Substitute when the placeholder appears in the request body.
+
+        - `Boolean Header`
+
+          Substitute when the placeholder appears in a request header value.
+
   - `string? displayName`
 
     Body param: Human-readable name for the credential. Up to 255 characters.
@@ -220,11 +237,21 @@ Create Credential
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
+
+    - `"mid-conversation-tool-changes-2026-07-01"MidConversationToolChanges2026_07_01`
 
 ### Returns
 
@@ -323,6 +350,18 @@ Create Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `required Boolean Body`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `required Boolean Header`
+
+          Whether the placeholder is substituted in request header values.
 
       - `required Networking Networking`
 
@@ -502,11 +541,21 @@ List Credentials
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
+
+    - `"mid-conversation-tool-changes-2026-07-01"MidConversationToolChanges2026_07_01`
 
 ### Returns
 
@@ -609,6 +658,18 @@ List Credentials
       - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
 
         Environment variable credential details. The secret value is never returned.
+
+        - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
+
+          Where in the outbound request the secret value is substituted.
+
+          - `required Boolean Body`
+
+            Whether the placeholder is substituted in the request body.
+
+          - `required Boolean Header`
+
+            Whether the placeholder is substituted in request header values.
 
         - `required Networking Networking`
 
@@ -785,11 +846,21 @@ Get Credential
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
+
+    - `"mid-conversation-tool-changes-2026-07-01"MidConversationToolChanges2026_07_01`
 
 ### Returns
 
@@ -888,6 +959,18 @@ Get Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `required Boolean Body`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `required Boolean Header`
+
+          Whether the placeholder is substituted in request header values.
 
       - `required Networking Networking`
 
@@ -1080,6 +1163,18 @@ Update Credential
 
         - `"environment_variable"EnvironmentVariable`
 
+      - `BetaManagedAgentsInjectionLocationUpdateParams InjectionLocation`
+
+        Updated injection location.
+
+        - `Boolean Body`
+
+          Substitute when the placeholder appears in the request body.
+
+        - `Boolean Header`
+
+          Substitute when the placeholder appears in a request header value.
+
       - `BetaManagedAgentsCredentialNetworkingParams? Networking`
 
         Updated networking scope. Full replacement.
@@ -1170,11 +1265,21 @@ Update Credential
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
+
+    - `"mid-conversation-tool-changes-2026-07-01"MidConversationToolChanges2026_07_01`
 
 ### Returns
 
@@ -1273,6 +1378,18 @@ Update Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `required Boolean Body`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `required Boolean Header`
+
+          Whether the placeholder is substituted in request header values.
 
       - `required Networking Networking`
 
@@ -1439,11 +1556,21 @@ Delete Credential
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
+
+    - `"mid-conversation-tool-changes-2026-07-01"MidConversationToolChanges2026_07_01`
 
 ### Returns
 
@@ -1556,11 +1683,21 @@ Archive Credential
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
+
+    - `"mid-conversation-tool-changes-2026-07-01"MidConversationToolChanges2026_07_01`
 
 ### Returns
 
@@ -1659,6 +1796,18 @@ Archive Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `required Boolean Body`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `required Boolean Header`
+
+          Whether the placeholder is substituted in request header values.
 
       - `required Networking Networking`
 
@@ -1825,11 +1974,21 @@ Validate Credential
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
+
+    - `"mid-conversation-tool-changes-2026-07-01"MidConversationToolChanges2026_07_01`
 
 ### Returns
 
@@ -2060,6 +2219,18 @@ Console.WriteLine(betaManagedAgentsCredentialValidation);
 
       Environment variable credential details. The secret value is never returned.
 
+      - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `required Boolean Body`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `required Boolean Header`
+
+          Whether the placeholder is substituted in request header values.
+
       - `required Networking Networking`
 
         Outbound hosts the secret value is substituted on.
@@ -2258,6 +2429,18 @@ Console.WriteLine(betaManagedAgentsCredentialValidation);
 
   Environment variable credential details. The secret value is never returned.
 
+  - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
+
+    Where in the outbound request the secret value is substituted.
+
+    - `required Boolean Body`
+
+      Whether the placeholder is substituted in the request body.
+
+    - `required Boolean Header`
+
+      Whether the placeholder is substituted in request header values.
+
   - `required Networking Networking`
 
     Outbound hosts the secret value is substituted on.
@@ -2332,6 +2515,18 @@ Console.WriteLine(betaManagedAgentsCredentialValidation);
 
     - `"environment_variable"EnvironmentVariable`
 
+  - `BetaManagedAgentsInjectionLocationParams InjectionLocation`
+
+    Where in the outbound request the secret value may be substituted.
+
+    - `Boolean Body`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `Boolean Header`
+
+      Substitute when the placeholder appears in a request header value.
+
 ### Beta Managed Agents Environment Variable Update Params
 
 - `class BetaManagedAgentsEnvironmentVariableUpdateParams:`
@@ -2341,6 +2536,18 @@ Console.WriteLine(betaManagedAgentsCredentialValidation);
   - `required Type Type`
 
     - `"environment_variable"EnvironmentVariable`
+
+  - `BetaManagedAgentsInjectionLocationUpdateParams InjectionLocation`
+
+    Updated injection location.
+
+    - `Boolean Body`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `Boolean Header`
+
+      Substitute when the placeholder appears in a request header value.
 
   - `BetaManagedAgentsCredentialNetworkingParams? Networking`
 
@@ -2369,6 +2576,48 @@ Console.WriteLine(betaManagedAgentsCredentialValidation);
   - `string? SecretValue`
 
     Updated secret value.
+
+### Beta Managed Agents Injection Location Params
+
+- `class BetaManagedAgentsInjectionLocationParams:`
+
+  Where in the outbound request the secret value may be substituted.
+
+  - `Boolean Body`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `Boolean Header`
+
+    Substitute when the placeholder appears in a request header value.
+
+### Beta Managed Agents Injection Location Response
+
+- `class BetaManagedAgentsInjectionLocationResponse:`
+
+  Where in the outbound request the secret value is substituted.
+
+  - `required Boolean Body`
+
+    Whether the placeholder is substituted in the request body.
+
+  - `required Boolean Header`
+
+    Whether the placeholder is substituted in request header values.
+
+### Beta Managed Agents Injection Location Update Params
+
+- `class BetaManagedAgentsInjectionLocationUpdateParams:`
+
+  Updated injection location.
+
+  - `Boolean Body`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `Boolean Header`
+
+    Substitute when the placeholder appears in a request header value.
 
 ### Beta Managed Agents Limited Credential Networking Params
 

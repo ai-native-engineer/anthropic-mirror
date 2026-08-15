@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/spend_limits/retrieve -->
 
+---
+title: Get Spend Limit
+url: https://platform.claude.com/docs/en/api/admin/spend_limits/retrieve
+---
+
 ## Get Spend Limit
 
 **get** `/v1/organizations/spend_limits/{spend_limit_id}`
@@ -18,17 +23,21 @@ Retrieve a spend limit by ID.
 
   - `id: string`
 
-  - `amount: string`
+  - `amount: string or null`
+
+    Limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD): "50000" is $500.00. `null` means no numeric cap is configured at this scope — see the effective report for whether a limit applies.
 
   - `created_at: string`
 
   - `currency: string`
 
-  - `period: "monthly" or "daily" or "weekly"`
+    ISO 4217 code of the organization's billing currency; the unit for `amount`.
 
-    - `"monthly"`
+  - `period: "daily" or "monthly" or "weekly"`
 
     - `"daily"`
+
+    - `"monthly"`
 
     - `"weekly"`
 
@@ -91,9 +100,9 @@ curl https://api.anthropic.com/v1/organizations/spend_limits/$SPEND_LIMIT_ID \
 ```json
 {
   "id": "id",
-  "amount": "amount",
+  "amount": "50000",
   "created_at": "2019-12-27T18:11:19.117Z",
-  "currency": "currency",
+  "currency": "USD",
   "period": "monthly",
   "scope": {
     "type": "user",

@@ -29,7 +29,7 @@ If you followed the steps above to delete your Console organization but want to 
 
 If you have an outstanding balance, you will see a message during the deletion flow that prompts you to pay the balance first by routing you to [Settings > Billing](https://platform.claude.com/settings/billing).
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957766/5c2dd87c0818a0400099a833c9b3/4cc3130a-f696-4967-9fe3-e5623c6f02bd?expires=1786269600&signature=4284c3c1f6882ccba8c7702bb7bba8f4654a2783f1d3a600aee8e5486d42560b&req=dSkgFcB7moZZX%2FMW1HO4zbYXUBFgWu0dFZRyvJPpBZ%2FkkNxup9OPbQ0oEQKY%0AplmbtWtr%2BKcNW8RNgrk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957766/5c2dd87c0818a0400099a833c9b3/4cc3130a-f696-4967-9fe3-e5623c6f02bd?expires=1786269600&signature=4284c3c1f6882ccba8c7702bb7bba8f4654a2783f1d3a600aee8e5486d42560b&req=dSkgFcB7moZZX%2FMW1HO4zbYXUBFgWu0dFZRyvJPpBZ%2FkkNxup9OPbQ0oEQKY%0AplmbtWtr%2BKcNW8RNgrk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957766/5c2dd87c0818a0400099a833c9b3/4cc3130a-f696-4967-9fe3-e5623c6f02bd?expires=1786753800&signature=ce41715231a64cb68711e377c84f74d72cc59429a76c17698b49ff1868b1f04e&req=dSkgFcB7moZZX%2FMW1HO4zbYXUBFlWecTFZRyvJPpBZ%2FMW7YuxkTU32pNJIG%2F%0AQedTFpBl1YaD59pAqNI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957766/5c2dd87c0818a0400099a833c9b3/4cc3130a-f696-4967-9fe3-e5623c6f02bd?expires=1786753800&signature=ce41715231a64cb68711e377c84f74d72cc59429a76c17698b49ff1868b1f04e&req=dSkgFcB7moZZX%2FMW1HO4zbYXUBFlWecTFZRyvJPpBZ%2FMW7YuxkTU32pNJIG%2F%0AQedTFpBl1YaD59pAqNI%3D%0A)
 
 You must pay this outstanding balance before you’re able to move forward with the deletion process.
 
@@ -37,12 +37,12 @@ You must pay this outstanding balance before you’re able to move forward with 
 
 There are some scenarios where you will need to contact our team to delete your account. If this is the case, it will be noted when you try to delete your organization:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957765/19dda72a40db95d78c00c27a1a1c/6ce89be6-93ce-409c-bbea-d34be09db348?expires=1786269600&signature=565b520fe1a9f2c76153648194e7ae4efc456fcc193bb598cefd2a876417b10c&req=dSkgFcB7moZZXPMW1HO4zRW12%2BPPfq3%2FZxDZGlqR6Gjd8XxG8mV81Febgdum%0AcOKPYK%2BPSeno0cGb6v8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957765/19dda72a40db95d78c00c27a1a1c/6ce89be6-93ce-409c-bbea-d34be09db348?expires=1786269600&signature=565b520fe1a9f2c76153648194e7ae4efc456fcc193bb598cefd2a876417b10c&req=dSkgFcB7moZZXPMW1HO4zRW12%2BPPfq3%2FZxDZGlqR6Gjd8XxG8mV81Febgdum%0AcOKPYK%2BPSeno0cGb6v8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957765/19dda72a40db95d78c00c27a1a1c/6ce89be6-93ce-409c-bbea-d34be09db348?expires=1786753800&signature=6a6b39c3016794643b535cfc04c49cbbc98a0bb101bf12782b377e34348f3e1a&req=dSkgFcB7moZZXPMW1HO4zRW12%2BPKfafxZxDZGlqR6GilbWEeEVrnyx95KX9v%0AvMXe85CUfNTbzx8ml4w%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957765/19dda72a40db95d78c00c27a1a1c/6ce89be6-93ce-409c-bbea-d34be09db348?expires=1786753800&signature=6a6b39c3016794643b535cfc04c49cbbc98a0bb101bf12782b377e34348f3e1a&req=dSkgFcB7moZZXPMW1HO4zRW12%2BPKfafxZxDZGlqR6GilbWEeEVrnyx95KX9v%0AvMXe85CUfNTbzx8ml4w%3D%0A)
 
 If you are seeing this message, this indicates that your Console organization cannot be deleted via the self-service pathway.
 
 * [How can I delete my Claude account?](https://support.claude.com/en/articles/9028421-how-can-i-delete-my-claude-account)
-* [Creating and managing Workspaces in the Claude Console](https://support.claude.com/en/articles/9796807-creating-and-managing-workspaces-in-the-claude-console)
 * [Claude Console roles and permissions](https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions)
+* [Log in to your Console account](https://support.claude.com/en/articles/13371040-log-in-to-your-console-account)
 * [Inviting members to the Claude Console](https://support.claude.com/en/articles/13443764-inviting-members-to-the-claude-console)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)

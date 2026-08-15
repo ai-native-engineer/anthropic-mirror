@@ -90,7 +90,7 @@ Note that this link is specific to the version of the artifact you shared, and t
 
 While artifacts are excellent for prototyping and sharing AI-powered apps, they're best for testing and demonstration. At some point, you'll likely want to implement proper API key management and build more robust infrastructure. Eventually, you’ll also run up against a few technical limitations in [claude.ai](http://claude.ai/) (like the lack of interleaved scripts).
 
-Whatever the reason, when you’re ready to take your artifact to the next level, you’ll be able to copy Claude’s code and paste it into your editor of choice. From there, [Claude Code](https://www.anthropic.com/claude-code) is ready to step in.
+Whatever the reason, when you’re ready to take your artifact to the next level, you’ll be able to copy Claude’s code and paste it into your editor of choice. From there, [Claude Code](https://claude.com/product/claude-code) is ready to step in.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6940b1bf832c04bcf5be5a40_AD_4nXduW3cMJwGRo85XL8TopOquqFxTg0TdkjCo-AkCVQ6DfWo0D32wyt1CxWmmqbh66y49eGCvBl3f6phKnDm16NyGCuUaU4o4XfZLrT1oou-zkZUDRcpjWFyzAP7uWiCcU-BX-2Ez.png)
 

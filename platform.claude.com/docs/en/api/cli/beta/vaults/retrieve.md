@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/vaults/retrieve -->
 
+---
+title: Get Vault
+url: https://platform.claude.com/docs/en/api/cli/beta/vaults/retrieve
+---
+
 ## Get Vault
 
 `$ ant beta:vaults retrieve`

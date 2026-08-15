@@ -1,8 +1,13 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/agents/update -->
 
+---
+title: Update Agent
+url: https://platform.claude.com/docs/en/api/java/beta/agents/update
+---
+
 ## Update Agent
 
-`BetaManagedAgentsAgent beta().agents().update(AgentUpdateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaManagedAgentsAgent beta().agents().update(AgentUpdateParamsparams = AgentUpdateParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
 **post** `/v1/agents/{agent_id}`
 
@@ -68,15 +73,21 @@ Update Agent
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
-  - `long version`
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
 
-    The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. The request fails if this does not match the server's current version.
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
   - `Optional<String> description`
 
@@ -112,21 +123,29 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+        High-performance model for coding and agents
+
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `CLAUDE_OPUS_5("claude-opus-5")`
+
+        Powerful intelligence for long-running agents and coding
+
       - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -142,11 +161,11 @@ Update Agent
 
       - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -165,6 +184,68 @@ Update Agent
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+        - `enum BetaManagedAgentsEffortLevel:`
+
+          How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+          - `LOW("low")`
+
+          - `MEDIUM("medium")`
+
+          - `HIGH("high")`
+
+          - `XHIGH("xhigh")`
+
+          - `MAX("max")`
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
+
+      - `Optional<String> inferenceGeo`
+
+        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo. On update, `model` is whole-object replacement — omitting inference_geo clears it.
 
       - `Optional<Speed> speed`
 
@@ -364,7 +445,7 @@ Update Agent
 
       - `String description`
 
-        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+        Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
       - `BetaManagedAgentsCustomToolInputSchema inputSchema`
 
@@ -385,6 +466,10 @@ Update Agent
       - `Type type`
 
         - `CUSTOM("custom")`
+
+  - `Optional<Long> version`
+
+    The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
 
 ### Returns
 
@@ -426,21 +511,29 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+        High-performance model for coding and agents
+
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `CLAUDE_OPUS_5("claude-opus-5")`
+
+        Powerful intelligence for long-running agents and coding
+
       - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -456,11 +549,11 @@ Update Agent
 
       - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -469,6 +562,54 @@ Update Agent
       - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
         High-performance model for agents and coding
+
+    - `Optional<Effort> effort`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow:`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `Type type`
+
+          - `LOW("low")`
+
+      - `class BetaManagedAgentsEffortMedium:`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `Type type`
+
+          - `MEDIUM("medium")`
+
+      - `class BetaManagedAgentsEffortHigh:`
+
+        High effort. Favors reasoning depth.
+
+        - `Type type`
+
+          - `HIGH("high")`
+
+      - `class BetaManagedAgentsEffortXhigh:`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `Type type`
+
+          - `XHIGH("xhigh")`
+
+      - `class BetaManagedAgentsEffortMax:`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `Type type`
+
+          - `MAX("max")`
+
+    - `Optional<String> inferenceGeo`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
     - `Optional<Speed> speed`
 
@@ -482,17 +623,33 @@ Update Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `List<BetaManagedAgentsAgentReference> agents`
+    - `List<Agent> agents`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `String id`
+      - `class BetaManagedAgentsAgentReference:`
 
-      - `Type type`
+        A resolved agent reference with a concrete version.
 
-        - `AGENT("agent")`
+        - `String id`
 
-      - `long version`
+        - `Type type`
+
+          - `AGENT("agent")`
+
+        - `long version`
+
+      - `class BetaManagedAgentsAdvisor:`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `String model`
+
+          The advisor model id.
+
+        - `Type type`
+
+          - `ADVISOR("advisor")`
 
     - `Type type`
 
@@ -694,11 +851,7 @@ public final class Main {
     public static void main(String[] args) {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
-        AgentUpdateParams params = AgentUpdateParams.builder()
-            .agentId("agent_011CZkYpogX7uDKUyvBTophP")
-            .version(1)
-            .build();
-        BetaManagedAgentsAgent betaManagedAgentsAgent = client.beta().agents().update(params);
+        BetaManagedAgentsAgent betaManagedAgentsAgent = client.beta().agents().update("agent_011CZkYpogX7uDKUyvBTophP");
     }
 }
 ```
@@ -723,6 +876,10 @@ public final class Main {
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
+    "inference_geo": "inference_geo",
     "speed": "standard"
   },
   "multiagent": {

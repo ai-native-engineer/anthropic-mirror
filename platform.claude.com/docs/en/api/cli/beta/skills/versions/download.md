@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/skills/versions/download -->
 
+---
+title: Download Skill Version Content
+url: https://platform.claude.com/docs/en/api/cli/beta/skills/versions/download
+---
+
 ## Download Skill Version Content
 
 `$ ant beta:skills:versions download`
@@ -28,7 +33,7 @@ Download a skill version's content as a zip archive.
 
 ### Returns
 
-- `unnamed_schema_1: file path`
+- `unnamed_schema_3: file path`
 
 ### Example
 

@@ -3,1257 +3,6 @@
 
 <!-- chunk-start -->
 
-          - `BetaMCPToolResultBlock object { content, is_error, tool_use_id, type }`
-
-            - `content: string or array of BetaTextBlock`
-
-              - `string`
-
-              - `BetaMCPToolResultBlockContent = array of BetaTextBlock`
-
-                - `citations: array of BetaTextCitation`
-
-                  Citations supporting the text block.
-
-                  The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
-                - `text: string`
-
-                - `type: "text"`
-
-            - `is_error: boolean`
-
-            - `tool_use_id: string`
-
-            - `type: "mcp_tool_result"`
-
-              - `"mcp_tool_result"`
-
-          - `BetaContainerUploadBlock object { file_id, type }`
-
-            Response model for a file uploaded to the container.
-
-            - `file_id: string`
-
-            - `type: "container_upload"`
-
-              - `"container_upload"`
-
-          - `BetaCompactionBlock object { content, encrypted_content, type }`
-
-            A compaction block returned when autocompact is triggered.
-
-            When content is None, it indicates the compaction failed to produce a valid
-            summary (e.g., malformed output from the model). Clients may round-trip
-            compaction blocks with null content; the server treats them as no-ops.
-
-            - `content: string`
-
-              Summary of compacted content, or null if compaction failed
-
-            - `encrypted_content: string`
-
-              Opaque metadata from prior compaction, to be round-tripped verbatim
-
-            - `type: "compaction"`
-
-              - `"compaction"`
-
-          - `BetaFallbackBlock object { from, to, trigger, type }`
-
-            Marks the point in `content` where one model's output gives way to the next.
-
-            One block appears per hop where a preceding model actually ran this turn and
-            declined. A turn where no preceding model ran and declined has no such
-            boundary and carries no block — the signal for whether a fallback model
-            served the response is the presence of a `fallback_message` entry in
-            `usage.iterations`, not this block.
-
-            The block is treated like a server-tool content block for streaming: it
-            arrives via the standard `content_block_start` / `content_block_stop`
-            pair and carries no deltas.
-
-            - `from: BetaFallbackInfo`
-
-              The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
-
-              - `model: Model`
-
-                The model that will complete your prompt.
-
-                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more`
-
-                  The model that will complete your prompt.
-
-                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                  - `"claude-sonnet-5"`
-
-                    High-performance model for coding and agents
-
-                  - `"claude-fable-5"`
-
-                    Next generation of intelligence for the hardest knowledge work and coding problems
-
-                  - `"claude-mythos-5"`
-
-                    Most capable model for cybersecurity and biology research
-
-                  - `"claude-opus-5"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `"claude-opus-4-8"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `"claude-opus-4-7"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `"claude-mythos-preview"`
-
-                    New class of intelligence, strongest in coding and cybersecurity
-
-                  - `"claude-opus-4-6"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `"claude-sonnet-4-6"`
-
-                    Best combination of speed and intelligence
-
-                  - `"claude-haiku-4-5"`
-
-                    Fastest model with near-frontier intelligence
-
-                  - `"claude-haiku-4-5-20251001"`
-
-                    Fastest model with near-frontier intelligence
-
-                  - `"claude-opus-4-5"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `"claude-opus-4-5-20251101"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `"claude-sonnet-4-5"`
-
-                    High-performance model for agents and coding
-
-                  - `"claude-sonnet-4-5-20250929"`
-
-                    High-performance model for agents and coding
-
-                  - `"claude-opus-4-1"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `"claude-opus-4-1-20250805"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                - `string`
-
-            - `to: BetaFallbackInfo`
-
-              The fallback model producing the content that follows this block. Its `model` is always the canonical id.
-
-            - `trigger: BetaFallbackRefusalTrigger`
-
-              What caused the `from` model to hand over at this hop.
-
-              - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
-
-                The policy category that triggered a refusal.
-
-                - `"cyber"`
-
-                  The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
-
-                - `"bio"`
-
-                  The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
-
-                - `"frontier_llm"`
-
-                  The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
-
-                - `"reasoning_extraction"`
-
-                  The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
-
-                - `"general_harms"`
-
-                  The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
-
-              - `type: "refusal"`
-
-                - `"refusal"`
-
-            - `type: "fallback"`
-
-              - `"fallback"`
-
-        - `context_management: BetaContextManagementResponse`
-
-          Context management response.
-
-          Information about context management strategies applied during the request.
-
-          - `applied_edits: array of BetaClearToolUses20250919EditResponse or BetaClearThinking20251015EditResponse`
-
-            List of context management edits that were applied.
-
-            - `BetaClearToolUses20250919EditResponse object { cleared_input_tokens, cleared_tool_uses, type }`
-
-              - `cleared_input_tokens: number`
-
-                Number of input tokens cleared by this edit.
-
-              - `cleared_tool_uses: number`
-
-                Number of tool uses that were cleared.
-
-              - `type: "clear_tool_uses_20250919"`
-
-                The type of context management edit applied.
-
-                - `"clear_tool_uses_20250919"`
-
-            - `BetaClearThinking20251015EditResponse object { cleared_input_tokens, cleared_thinking_turns, type }`
-
-              - `cleared_input_tokens: number`
-
-                Number of input tokens cleared by this edit.
-
-              - `cleared_thinking_turns: number`
-
-                Number of thinking turns that were cleared.
-
-              - `type: "clear_thinking_20251015"`
-
-                The type of context management edit applied.
-
-                - `"clear_thinking_20251015"`
-
-        - `diagnostics: BetaDiagnostics`
-
-          Response envelope for request-level diagnostics. Present (possibly
-          null) whenever the caller supplied `diagnostics` on the request.
-
-          - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more`
-
-            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
-
-            - `BetaCacheMissModelChanged object { cache_missed_input_tokens, type }`
-
-              - `cache_missed_input_tokens: number`
-
-                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: "model_changed"`
-
-                - `"model_changed"`
-
-            - `BetaCacheMissSystemChanged object { cache_missed_input_tokens, type }`
-
-              - `cache_missed_input_tokens: number`
-
-                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: "system_changed"`
-
-                - `"system_changed"`
-
-            - `BetaCacheMissToolsChanged object { cache_missed_input_tokens, type }`
-
-              - `cache_missed_input_tokens: number`
-
-                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: "tools_changed"`
-
-                - `"tools_changed"`
-
-            - `BetaCacheMissMessagesChanged object { cache_missed_input_tokens, type }`
-
-              - `cache_missed_input_tokens: number`
-
-                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: "messages_changed"`
-
-                - `"messages_changed"`
-
-            - `BetaCacheMissPreviousMessageNotFound object { type }`
-
-              - `type: "previous_message_not_found"`
-
-                - `"previous_message_not_found"`
-
-            - `BetaCacheMissUnavailable object { type }`
-
-              - `type: "unavailable"`
-
-                - `"unavailable"`
-
-        - `model: Model`
-
-          The model that will complete your prompt.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `role: "assistant"`
-
-          Conversational role of the generated message.
-
-          This will always be `"assistant"`.
-
-          - `"assistant"`
-
-        - `stop_details: BetaRefusalStopDetails`
-
-          Structured information about a refusal.
-
-          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
-
-            The policy category that triggered a refusal.
-
-            - `"cyber"`
-
-              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
-
-            - `"bio"`
-
-              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
-
-            - `"frontier_llm"`
-
-              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
-
-            - `"reasoning_extraction"`
-
-              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
-
-            - `"general_harms"`
-
-              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
-
-          - `explanation: string`
-
-            Human-readable explanation of the refusal.
-
-            This text is not guaranteed to be stable. `null` when no explanation is available for the category.
-
-          - `fallback_credit_token: string`
-
-            Opaque code that refunds the cache-miss cost when retrying this refused
-            request on the fallback model. Pass it as `fallback_credit_token` on the
-            retry request. Expires 5 minutes after the refusal.
-
-            The retry is sent either with the same request body (`system`, `messages`,
-            `tools`, and other render-shaping fields), or with the same body plus one
-            appended `assistant` message whose content is the partial text (with any
-            trailing whitespace stripped from the final text block) and paired
-            server-tool blocks from this refusal — which also authorizes that
-            appended turn as an assistant-prefill continuation on models that otherwise
-            disallow prefill. A token minted mid-server-tool-loop whose partial content
-            was continuable may only be redeemed the second way — if a same-body retry
-            is rejected with a 400 saying the token must be redeemed by continuing the
-            partial response, retry the second way instead. Either way: same workspace,
-            same platform; a mismatch is a 400. Resending a token for an already-warm
-            prefix is permitted but yields no additional credit.
-
-            `null` when the refused model isn't eligible for a fallback credit.
-
-          - `fallback_has_prefill_claim: boolean`
-
-            Whether the accompanying `fallback_credit_token` may be redeemed with the
-            appended-assistant retry form. Only set when `fallback_credit_token` is
-            present.
-
-            `true`: retry by resending the same request body plus one appended
-            `assistant` message whose content is this response's `content` with any
-            trailing whitespace stripped from the final text block and unpaired
-            `tool_use` blocks omitted (the same appended-turn shape described on
-            `fallback_credit_token`), with the token attached. `false`: retry by
-            resending the original request body unchanged, with the token attached —
-            the appended-assistant form is not available for this refusal (no
-            continuable partial content, or the request uses `output_format` or a
-            `tool_choice` that forces tool use). One exception: when the request used
-            `output_format` or a forced `tool_choice` and the refusal arrived after
-            server tools (including MCP connector tools) had already executed, the
-            token may not be redeemable by either retry form; if the exact-body retry
-            is then rejected with a 400 saying the token must be redeemed by
-            continuing the partial response, discard the token and retry without it.
-
-            Advisory: if an appended-assistant retry is rejected with a 400 despite
-            `true`, fall back to resending the original request body with the token.
-
-          - `recommended_model: string`
-
-            The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
-
-          - `type: "refusal"`
-
-            - `"refusal"`
-
-        - `stop_reason: BetaStopReason`
-
-          The reason that we stopped.
-
-          This may be one the following values:
-
-          * `"end_turn"`: the model reached a natural stopping point
-          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          * `"tool_use"`: the model invoked one or more tools
-          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
-          * `"model_context_window_exceeded"`: we exceeded the model's context window
-
-          In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
-
-          - `"end_turn"`
-
-          - `"max_tokens"`
-
-          - `"stop_sequence"`
-
-          - `"tool_use"`
-
-          - `"pause_turn"`
-
-          - `"compaction"`
-
-          - `"refusal"`
-
-          - `"model_context_window_exceeded"`
-
-        - `stop_sequence: string`
-
-          Which custom stop sequence was generated, if any.
-
-          This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `type: "message"`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
-
-          - `"message"`
-
-        - `usage: BetaUsage`
-
-          Billing and rate-limit usage.
-
-          Anthropic's API bills and rate-limits by token counts, as tokens represent the underlying cost to our systems.
-
-          Under the hood, the API transforms requests into a format suitable for the model. The model's output then goes through a parsing stage before becoming an API response. As a result, the token counts in `usage` will not match one-to-one with the exact visible content of an API request or response.
-
-          For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
-
-          Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
-
-          - `cache_creation: BetaCacheCreation`
-
-            Breakdown of cached tokens by TTL
-
-            - `ephemeral_1h_input_tokens: number`
-
-              The number of input tokens used to create the 1 hour cache entry.
-
-            - `ephemeral_5m_input_tokens: number`
-
-              The number of input tokens used to create the 5 minute cache entry.
-
-          - `cache_creation_input_tokens: number`
-
-            The number of input tokens used to create the cache entry.
-
-          - `cache_read_input_tokens: number`
-
-            The number of input tokens read from the cache.
-
-          - `fallback_credit: BetaFallbackCreditUsage`
-
-            Outcome of the `fallback_credit_token` presented on this request.
-
-            - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
-
-              Whether the fallback-credit reprice was applied to this response's billing.
-
-              A union discriminated on `type`. `redeemed`: the retry is billed as if
-              the conversation had been on the retry model all along — including when the
-              resulting shift is zero because there was nothing to move. `not_applied`:
-              no reprice was applied; the arm's `reason` says why.
-
-              - `BetaFallbackCreditRedeemed object { type }`
-
-                The reprice was applied: the retry is billed as if the conversation
-                had been on the retry model all along.
-
-                - `type: "redeemed"`
-
-                  - `"redeemed"`
-
-              - `BetaFallbackCreditNotApplied object { reason, type, remove_to_redeem }`
-
-                No reprice was applied; `reason` says why.
-
-                - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
-
-                  Why the reprice was not applied.
-
-                  A closed enum; additions to the redemption-check vocabulary arrive as
-                  deliberate schema updates.
-
-                  - `"body_mismatch"`
-
-                  - `"continuation_excluded"`
-
-                  - `"continuation_only"`
-
-                  - `"expired"`
-
-                  - `"invalid_target_model"`
-
-                  - `"not_enabled"`
-
-                  - `"reprice_unavailable"`
-
-                  - `"temporarily_unavailable"`
-
-                  - `"variant_fields_present"`
-
-                  - `"wrong_organization"`
-
-                  - `"wrong_platform"`
-
-                  - `"wrong_workspace"`
-
-                - `type: "not_applied"`
-
-                  - `"not_applied"`
-
-                - `remove_to_redeem: optional array of string`
-
-                  Request fields to remove before retrying, so the retry can redeem this
-                  token.
-
-                  Present exactly when `reason` is `variant_fields_present` — never null,
-                  never an empty array; absent otherwise. Fields are named only from your own request, and only after
-                  the sealed variant hash matched. A served best-effort retry has already
-                  been billed at normal price; nothing redeems retroactively, but a corrected
-                  re-send inside the token's five-minute window can still redeem.
-
-          - `inference_geo: string`
-
-            The geographic region where inference was performed for this request.
-
-          - `input_tokens: number`
-
-            The number of input tokens which were used.
-
-          - `iterations: BetaIterationsUsage`
-
-            Per-iteration token usage breakdown.
-
-            Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
-
-            - Determine which iterations exceeded long context thresholds (>=200k tokens)
-            - Calculate the true context window size from the last iteration
-            - Understand token accumulation across server-side tool use loops
-
-            - `BetaMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
-
-              Token usage for a sampling iteration.
-
-              - `cache_creation: BetaCacheCreation`
-
-                Breakdown of cached tokens by TTL
-
-              - `cache_creation_input_tokens: number`
-
-                The number of input tokens used to create the cache entry.
-
-              - `cache_read_input_tokens: number`
-
-                The number of input tokens read from the cache.
-
-              - `input_tokens: number`
-
-                The number of input tokens which were used.
-
-              - `model: Model`
-
-                The model that will complete your prompt.
-
-                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-              - `output_tokens: number`
-
-                The number of output tokens which were used.
-
-              - `type: "message"`
-
-                Usage for a sampling iteration
-
-                - `"message"`
-
-            - `BetaCompactionIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 3 more }`
-
-              Token usage for a compaction iteration.
-
-              - `cache_creation: BetaCacheCreation`
-
-                Breakdown of cached tokens by TTL
-
-              - `cache_creation_input_tokens: number`
-
-                The number of input tokens used to create the cache entry.
-
-              - `cache_read_input_tokens: number`
-
-                The number of input tokens read from the cache.
-
-              - `input_tokens: number`
-
-                The number of input tokens which were used.
-
-              - `output_tokens: number`
-
-                The number of output tokens which were used.
-
-              - `type: "compaction"`
-
-                Usage for a compaction iteration
-
-                - `"compaction"`
-
-            - `BetaAdvisorMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
-
-              Token usage for an advisor sub-inference iteration.
-
-              - `cache_creation: BetaCacheCreation`
-
-                Breakdown of cached tokens by TTL
-
-              - `cache_creation_input_tokens: number`
-
-                The number of input tokens used to create the cache entry.
-
-              - `cache_read_input_tokens: number`
-
-                The number of input tokens read from the cache.
-
-              - `input_tokens: number`
-
-                The number of input tokens which were used.
-
-              - `model: Model`
-
-                The model that will complete your prompt.
-
-                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-              - `output_tokens: number`
-
-                The number of output tokens which were used.
-
-              - `type: "advisor_message"`
-
-                Usage for an advisor sub-inference iteration
-
-                - `"advisor_message"`
-
-            - `BetaFallbackMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
-
-              Token usage for the fallback-model attempt of a server-side fallback request.
-
-              Produced in place of a `message` entry for whichever hop served the
-              response. A declined hop produces the existing `message` entry. Whether
-              a fallback model served the response is signalled by the presence of this
-              entry in `usage.iterations`.
-
-              - `cache_creation: BetaCacheCreation`
-
-                Breakdown of cached tokens by TTL
-
-              - `cache_creation_input_tokens: number`
-
-                The number of input tokens used to create the cache entry.
-
-              - `cache_read_input_tokens: number`
-
-                The number of input tokens read from the cache.
-
-              - `input_tokens: number`
-
-                The number of input tokens which were used.
-
-              - `model: Model`
-
-                The model that will complete your prompt.
-
-                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-              - `output_tokens: number`
-
-                The number of output tokens which were used.
-
-              - `type: "fallback_message"`
-
-                Usage for the fallback-model attempt that served the response
-
-                - `"fallback_message"`
-
-          - `output_tokens: number`
-
-            The number of output tokens which were used.
-
-          - `output_tokens_details: BetaOutputTokensDetails`
-
-            Breakdown of output tokens by category.
-
-            `output_tokens` remains the inclusive, authoritative total used for billing.
-            This object provides a read-only decomposition for observability — for example,
-            how many of the billed output tokens were spent on internal reasoning that may
-            have been summarized before being returned to you.
-
-            - `thinking_tokens: number`
-
-              Number of output tokens the model generated as internal reasoning, including
-              the thinking-block delimiter tokens.
-
-              Reflects the raw reasoning the model produced, not the (possibly shorter)
-              summarized thinking text returned in the response body. Computed by
-              re-tokenizing the raw reasoning text, so it may differ from the model's exact
-              generation count by a small number of tokens. Always ≤ `output_tokens`;
-              `output_tokens - thinking_tokens` approximates the non-reasoning output.
-
-          - `server_tool_use: BetaServerToolUsage`
-
-            The number of server tool requests.
-
-            - `web_fetch_requests: number`
-
-              The number of web fetch tool requests.
-
-            - `web_search_requests: number`
-
-              The number of web search tool requests.
-
-          - `service_tier: "standard" or "priority" or "batch"`
-
-            If the request used the priority, standard, or batch tier.
-
-            - `"standard"`
-
-            - `"priority"`
-
-            - `"batch"`
-
-          - `speed: "standard" or "fast"`
-
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-            - `"standard"`
-
-            - `"fast"`
-
-      - `type: "succeeded"`
-
-        - `"succeeded"`
-
-    - `BetaMessageBatchErroredResult object { error, type }`
-
-      - `error: BetaErrorResponse`
-
-        - `error: BetaError`
-
-          - `BetaInvalidRequestError object { message, type }`
-
-            - `message: string`
-
-            - `type: "invalid_request_error"`
-
-              - `"invalid_request_error"`
-
-          - `BetaAuthenticationError object { message, type }`
-
-            - `message: string`
-
-            - `type: "authentication_error"`
-
-              - `"authentication_error"`
-
-          - `BetaBillingError object { message, type }`
-
-            - `message: string`
-
-            - `type: "billing_error"`
-
-              - `"billing_error"`
-
-          - `BetaPermissionError object { message, type }`
-
-            - `message: string`
-
-            - `type: "permission_error"`
-
-              - `"permission_error"`
-
-          - `BetaNotFoundError object { message, type }`
-
-            - `message: string`
-
-            - `type: "not_found_error"`
-
-              - `"not_found_error"`
-
-          - `BetaRateLimitError object { message, type }`
-
-            - `message: string`
-
-            - `type: "rate_limit_error"`
-
-              - `"rate_limit_error"`
-
-          - `BetaGatewayTimeoutError object { message, type }`
-
-            - `message: string`
-
-            - `type: "timeout_error"`
-
-              - `"timeout_error"`
-
-          - `BetaAPIError object { message, type }`
-
-            - `message: string`
-
-            - `type: "api_error"`
-
-              - `"api_error"`
-
-          - `BetaOverloadedError object { message, type }`
-
-            - `message: string`
-
-            - `type: "overloaded_error"`
-
-              - `"overloaded_error"`
-
-        - `request_id: string`
-
-        - `type: "error"`
-
-          - `"error"`
-
-      - `type: "errored"`
-
-        - `"errored"`
-
-    - `BetaMessageBatchCanceledResult object { type }`
-
-      - `type: "canceled"`
-
-        - `"canceled"`
-
-    - `BetaMessageBatchExpiredResult object { type }`
-
-      - `type: "expired"`
-
-        - `"expired"`
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: message-batches-2024-09-24' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-## Domain Types
-
-### Beta Deleted Message Batch
-
-- `BetaDeletedMessageBatch object { id, type }`
-
-  - `id: string`
-
-    ID of the Message Batch.
-
-  - `type: "message_batch_deleted"`
-
-    Deleted object type.
-
-    For Message Batches, this is always `"message_batch_deleted"`.
-
-    - `"message_batch_deleted"`
-
-### Beta Message Batch
-
-- `BetaMessageBatch object { id, archived_at, cancel_initiated_at, 7 more }`
-
-  - `id: string`
-
-    Unique object identifier.
-
-    The format and length of IDs may change over time.
-
-  - `archived_at: string`
-
-    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
-
-  - `cancel_initiated_at: string`
-
-    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
-
-  - `created_at: string`
-
-    RFC 3339 datetime string representing the time at which the Message Batch was created.
-
-  - `ended_at: string`
-
-    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
-
-    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
-
-  - `expires_at: string`
-
-    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
-
-  - `processing_status: "in_progress" or "canceling" or "ended"`
-
-    Processing status of the Message Batch.
-
-    - `"in_progress"`
-
-    - `"canceling"`
-
-    - `"ended"`
-
-  - `request_counts: BetaMessageBatchRequestCounts`
-
-    Tallies requests within the Message Batch, categorized by their status.
-
-    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
-    - `canceled: number`
-
-      Number of requests in the Message Batch that have been canceled.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-    - `errored: number`
-
-      Number of requests in the Message Batch that encountered an error.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-    - `expired: number`
-
-      Number of requests in the Message Batch that have expired.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-    - `processing: number`
-
-      Number of requests in the Message Batch that are processing.
-
-    - `succeeded: number`
-
-      Number of requests in the Message Batch that have completed successfully.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-  - `results_url: string`
-
-    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
-
-    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    - `"message_batch"`
-
-### Beta Message Batch Canceled Result
-
-- `BetaMessageBatchCanceledResult object { type }`
-
-  - `type: "canceled"`
-
-    - `"canceled"`
-
-### Beta Message Batch Errored Result
-
-- `BetaMessageBatchErroredResult object { error, type }`
-
-  - `error: BetaErrorResponse`
-
-    - `error: BetaError`
-
-      - `BetaInvalidRequestError object { message, type }`
-
-        - `message: string`
-
-        - `type: "invalid_request_error"`
-
-          - `"invalid_request_error"`
-
-      - `BetaAuthenticationError object { message, type }`
-
-        - `message: string`
-
-        - `type: "authentication_error"`
-
-          - `"authentication_error"`
-
-      - `BetaBillingError object { message, type }`
-
-        - `message: string`
-
-        - `type: "billing_error"`
-
-          - `"billing_error"`
-
-      - `BetaPermissionError object { message, type }`
-
-        - `message: string`
-
-        - `type: "permission_error"`
-
-          - `"permission_error"`
-
-      - `BetaNotFoundError object { message, type }`
-
-        - `message: string`
-
-        - `type: "not_found_error"`
-
-          - `"not_found_error"`
-
-      - `BetaRateLimitError object { message, type }`
-
-        - `message: string`
-
-        - `type: "rate_limit_error"`
-
-          - `"rate_limit_error"`
-
-      - `BetaGatewayTimeoutError object { message, type }`
-
-        - `message: string`
-
-        - `type: "timeout_error"`
-
-          - `"timeout_error"`
-
-      - `BetaAPIError object { message, type }`
-
-        - `message: string`
-
-        - `type: "api_error"`
-
-          - `"api_error"`
-
-      - `BetaOverloadedError object { message, type }`
-
-        - `message: string`
-
-        - `type: "overloaded_error"`
-
-          - `"overloaded_error"`
-
-    - `request_id: string`
-
-    - `type: "error"`
-
-      - `"error"`
-
-  - `type: "errored"`
-
-    - `"errored"`
-
-### Beta Message Batch Expired Result
-
-- `BetaMessageBatchExpiredResult object { type }`
-
-  - `type: "expired"`
-
-    - `"expired"`
-
-### Beta Message Batch Individual Response
-
-- `BetaMessageBatchIndividualResponse object { custom_id, result }`
-
-  This is a single line in the response `.jsonl` file and does not represent the response as a whole.
-
-  - `custom_id: string`
-
-    Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
-
-    Must be unique for each request within the Message Batch.
-
-  - `result: BetaMessageBatchResult`
-
-    Processing result for this request.
-
-    Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
-
-    - `BetaMessageBatchSucceededResult object { message, type }`
-
-      - `message: BetaMessage`
-
-        - `id: string`
-
-          Unique object identifier.
-
-          The format and length of IDs may change over time.
-
-        - `container: BetaContainer`
-
-          Information about the container used in the request (for the code execution tool)
-
-          - `id: string`
-
-            Identifier for the container used in this request
-
-          - `expires_at: string`
-
-            The time at which the container will expire.
-
-          - `skills: array of BetaSkill`
-
-            Skills loaded in the container
-
-            - `skill_id: string`
-
-              Skill ID
-
-            - `type: "anthropic" or "custom"`
-
-              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
-              - `"anthropic"`
-
-              - `"custom"`
-
-            - `version: string`
-
-              Skill version or 'latest' for most recent version
-
-        - `content: array of BetaContentBlock`
-
-          Content generated by the model.
-
-          This is an array of content blocks, each of which has a `type` that determines its shape.
-
-          Example:
-
-          ```json
-          [{"type": "text", "text": "Hi, I'm Claude."}]
-          ```
-
-          If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
-
-          For example, if the input `messages` were:
-
-          ```json
-          [
-            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-            {"role": "assistant", "content": "The best answer is ("}
-          ]
-          ```
-
-          Then the response `content` might be:
-
-          ```json
-          [{"type": "text", "text": "B)"}]
-          ```
-
-          - `BetaTextBlock object { citations, text, type }`
-
-            - `citations: array of BetaTextCitation`
-
-              Citations supporting the text block.
-
-              The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
-              - `BetaCitationCharLocation object { cited_text, document_index, document_title, 4 more }`
-
-                - `cited_text: string`
-
-                - `document_index: number`
-
-                - `document_title: string`
-
-                - `end_char_index: number`
-
-                - `file_id: string`
-
-                - `start_char_index: number`
-
-                - `type: "char_location"`
-
-                  - `"char_location"`
-
-              - `BetaCitationPageLocation object { cited_text, document_index, document_title, 4 more }`
-
-                - `cited_text: string`
-
-                - `document_index: number`
-
-                - `document_title: string`
-
-                - `end_page_number: number`
-
-                - `file_id: string`
-
-                - `start_page_number: number`
-
-                - `type: "page_location"`
-
-                  - `"page_location"`
-
-              - `BetaCitationContentBlockLocation object { cited_text, document_index, document_title, 4 more }`
-
-                - `cited_text: string`
-
-                  The full text of the cited block range, concatenated.
-
-                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                - `document_index: number`
-
-                - `document_title: string`
-
-                - `end_block_index: number`
-
-                  Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                - `file_id: string`
-
-                - `start_block_index: number`
-
-                  0-based index of the first cited block in the source's `content` array.
-
-                - `type: "content_block_location"`
-
                   - `"content_block_location"`
 
               - `BetaCitationsWebSearchResultLocation object { cited_text, encrypted_index, title, 2 more }`
@@ -1262,7 +11,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `encrypted_index: string`
 
-                - `title: string`
+                - `title: string or null`
 
                 - `type: "web_search_result_location"`
 
@@ -1296,7 +45,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   0-based index of the first cited block in the source's `content` array.
 
-                - `title: string`
+                - `title: string or null`
 
                 - `type: "search_result_location"`
 
@@ -1312,7 +61,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `signature: string`
 
+              A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+              This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
             - `thinking: string`
+
+              The text of Claude's thinking process for this block.
 
             - `type: "thinking"`
 
@@ -1321,6 +78,12 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           - `BetaRedactedThinkingBlock object { data, type }`
 
             - `data: string`
+
+              The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+              Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
             - `type: "redacted_thinking"`
 
@@ -1438,7 +201,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `encrypted_content: string`
 
-                - `page_age: string`
+                - `page_age: string or null`
 
                 - `title: string`
 
@@ -1502,7 +265,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `content: BetaDocumentBlock`
 
-                  - `citations: BetaCitationConfig`
+                  - `citations: BetaCitationConfig or null`
 
                     Citation configuration for the document
 
@@ -1534,7 +297,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                         - `"text"`
 
-                  - `title: string`
+                  - `title: string or null`
 
                     The title of the document
 
@@ -1542,7 +305,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                     - `"document"`
 
-                - `retrieved_at: string`
+                - `retrieved_at: string or null`
 
                   ISO 8601 timestamp when the content was retrieved
 
@@ -1602,7 +365,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `BetaAdvisorResultBlock object { stop_reason, text, type }`
 
-                - `stop_reason: string`
+                - `stop_reason: string or null`
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
 
@@ -1618,7 +381,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
 
-                - `stop_reason: string`
+                - `stop_reason: string or null`
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
@@ -1766,7 +529,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"file_not_found"`
 
-                - `error_message: string`
+                - `error_message: string or null`
 
                 - `type: "text_editor_code_execution_tool_result_error"`
 
@@ -1784,11 +547,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"pdf"`
 
-                - `num_lines: number`
+                - `num_lines: number or null`
 
-                - `start_line: number`
+                - `start_line: number or null`
 
-                - `total_lines: number`
+                - `total_lines: number or null`
 
                 - `type: "text_editor_code_execution_view_result"`
 
@@ -1804,15 +567,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `BetaTextEditorCodeExecutionStrReplaceResultBlock object { lines, new_lines, new_start, 3 more }`
 
-                - `lines: array of string`
+                - `lines: array of string or null`
 
-                - `new_lines: number`
+                - `new_lines: number or null`
 
-                - `new_start: number`
+                - `new_start: number or null`
 
-                - `old_lines: number`
+                - `old_lines: number or null`
 
-                - `old_start: number`
+                - `old_start: number or null`
 
                 - `type: "text_editor_code_execution_str_replace_result"`
 
@@ -1840,7 +603,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"execution_time_exceeded"`
 
-                - `error_message: string`
+                - `error_message: string or null`
 
                 - `type: "tool_search_tool_result_error"`
 
@@ -1892,7 +655,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `BetaMCPToolResultBlockContent = array of BetaTextBlock`
 
-                - `citations: array of BetaTextCitation`
+                - `citations: array of BetaTextCitation or null`
 
                   Citations supporting the text block.
 
@@ -1928,11 +691,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
 
-            - `content: string`
+            - `content: string or null`
 
               Summary of compacted content, or null if compaction failed
 
-            - `encrypted_content: string`
+            - `encrypted_content: string or null`
 
               Opaque metadata from prior compaction, to be round-tripped verbatim
 
@@ -1964,7 +727,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more`
+                - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more`
 
                   The model that will complete your prompt.
 
@@ -2030,14 +793,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                     High-performance model for agents and coding
 
-                  - `"claude-opus-4-1"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `"claude-opus-4-1-20250805"`
-
-                    Powerful intelligence for long-running agents and coding
-
                 - `string`
 
             - `to: BetaFallbackInfo`
@@ -2048,7 +803,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               What caused the `from` model to hand over at this hop.
 
-              - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+              - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
                 The policy category that triggered a refusal.
 
@@ -2080,7 +835,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"fallback"`
 
-        - `context_management: BetaContextManagementResponse`
+        - `context_management: BetaContextManagementResponse or null`
 
           Context management response.
 
@@ -2122,12 +877,12 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"clear_thinking_20251015"`
 
-        - `diagnostics: BetaDiagnostics`
+        - `diagnostics: BetaDiagnostics or null`
 
           Response envelope for request-level diagnostics. Present (possibly
           null) whenever the caller supplied `diagnostics` on the request.
 
-          - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more`
+          - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more or null`
 
             Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
 
@@ -2197,11 +952,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `"assistant"`
 
-        - `stop_details: BetaRefusalStopDetails`
+        - `stop_details: BetaRefusalStopDetails or null`
 
           Structured information about a refusal.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
             The policy category that triggered a refusal.
 
@@ -2225,13 +980,13 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-          - `explanation: string`
+          - `explanation: string or null`
 
             Human-readable explanation of the refusal.
 
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
-          - `fallback_credit_token: string`
+          - `fallback_credit_token: string or null`
 
             Opaque code that refunds the cache-miss cost when retrying this refused
             request on the fallback model. Pass it as `fallback_credit_token` on the
@@ -2252,7 +1007,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             `null` when the refused model isn't eligible for a fallback credit.
 
-          - `fallback_has_prefill_claim: boolean`
+          - `fallback_has_prefill_claim: boolean or null`
 
             Whether the accompanying `fallback_credit_token` may be redeemed with the
             appended-assistant retry form. Only set when `fallback_credit_token` is
@@ -2276,7 +1031,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
             Advisory: if an appended-assistant retry is rejected with a 400 despite
             `true`, fall back to resending the original request body with the token.
 
-          - `recommended_model: string`
+          - `recommended_model: string or null`
 
             The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
@@ -2284,7 +1039,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `"refusal"`
 
-        - `stop_reason: BetaStopReason`
+        - `stop_reason: BetaStopReason or null`
 
           The reason that we stopped.
 
@@ -2316,7 +1071,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `"model_context_window_exceeded"`
 
-        - `stop_sequence: string`
+        - `stop_sequence: string or null`
 
           Which custom stop sequence was generated, if any.
 
@@ -2342,7 +1097,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-          - `cache_creation: BetaCacheCreation`
+          - `cache_creation: BetaCacheCreation or null`
 
             Breakdown of cached tokens by TTL
 
@@ -2354,15 +1109,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               The number of input tokens used to create the 5 minute cache entry.
 
-          - `cache_creation_input_tokens: number`
+          - `cache_creation_input_tokens: number or null`
 
             The number of input tokens used to create the cache entry.
 
-          - `cache_read_input_tokens: number`
+          - `cache_read_input_tokens: number or null`
 
             The number of input tokens read from the cache.
 
-          - `fallback_credit: BetaFallbackCreditUsage`
+          - `fallback_credit: BetaFallbackCreditUsage or null`
 
             Outcome of the `fallback_credit_token` presented on this request.
 
@@ -2423,7 +1178,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"not_applied"`
 
-                - `remove_to_redeem: optional array of string`
+                - `remove_to_redeem: optional array of string or null`
 
                   Request fields to remove before retrying, so the retry can redeem this
                   token.
@@ -2434,7 +1189,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
                   been billed at normal price; nothing redeems retroactively, but a corrected
                   re-send inside the token's five-minute window can still redeem.
 
-          - `inference_geo: string`
+          - `inference_geo: string or null`
 
             The geographic region where inference was performed for this request.
 
@@ -2442,7 +1197,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             The number of input tokens which were used.
 
-          - `iterations: BetaIterationsUsage`
+          - `iterations: BetaIterationsUsage or null`
 
             Per-iteration token usage breakdown.
 
@@ -2456,7 +1211,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               Token usage for a sampling iteration.
 
-              - `cache_creation: BetaCacheCreation`
+              - `cache_creation: BetaCacheCreation or null`
 
                 Breakdown of cached tokens by TTL
 
@@ -2492,7 +1247,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               Token usage for a compaction iteration.
 
-              - `cache_creation: BetaCacheCreation`
+              - `cache_creation: BetaCacheCreation or null`
 
                 Breakdown of cached tokens by TTL
 
@@ -2522,7 +1277,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               Token usage for an advisor sub-inference iteration.
 
-              - `cache_creation: BetaCacheCreation`
+              - `cache_creation: BetaCacheCreation or null`
 
                 Breakdown of cached tokens by TTL
 
@@ -2563,7 +1318,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
               a fallback model served the response is signalled by the presence of this
               entry in `usage.iterations`.
 
-              - `cache_creation: BetaCacheCreation`
+              - `cache_creation: BetaCacheCreation or null`
 
                 Breakdown of cached tokens by TTL
 
@@ -2599,7 +1354,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             The number of output tokens which were used.
 
-          - `output_tokens_details: BetaOutputTokensDetails`
+          - `output_tokens_details: BetaOutputTokensDetails or null`
 
             Breakdown of output tokens by category.
 
@@ -2619,7 +1374,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
               generation count by a small number of tokens. Always ≤ `output_tokens`;
               `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
-          - `server_tool_use: BetaServerToolUsage`
+          - `server_tool_use: BetaServerToolUsage or null`
 
             The number of server tool requests.
 
@@ -2631,7 +1386,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               The number of web search tool requests.
 
-          - `service_tier: "standard" or "priority" or "batch"`
+          - `service_tier: "standard" or "priority" or "batch" or null`
 
             If the request used the priority, standard, or batch tier.
 
@@ -2641,7 +1396,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `"batch"`
 
-          - `speed: "standard" or "fast"`
+          - `speed: "standard" or "fast" or null`
 
             Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
@@ -2731,7 +1486,1894 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"overloaded_error"`
 
-        - `request_id: string`
+        - `request_id: string or null`
+
+        - `type: "error"`
+
+          - `"error"`
+
+      - `type: "errored"`
+
+        - `"errored"`
+
+    - `BetaMessageBatchCanceledResult object { type }`
+
+      - `type: "canceled"`
+
+        - `"canceled"`
+
+    - `BetaMessageBatchExpiredResult object { type }`
+
+      - `type: "expired"`
+
+        - `"expired"`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: message-batches-2024-09-24' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+## Domain Types
+
+### Beta Deleted Message Batch
+
+- `BetaDeletedMessageBatch object { id, type }`
+
+  - `id: string`
+
+    ID of the Message Batch.
+
+  - `type: "message_batch_deleted"`
+
+    Deleted object type.
+
+    For Message Batches, this is always `"message_batch_deleted"`.
+
+    - `"message_batch_deleted"`
+
+### Beta Message Batch
+
+- `BetaMessageBatch object { id, archived_at, cancel_initiated_at, 7 more }`
+
+  - `id: string`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `archived_at: string or null`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+  - `cancel_initiated_at: string or null`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+  - `ended_at: string or null`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+  - `expires_at: string`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+  - `processing_status: "in_progress" or "canceling" or "ended"`
+
+    Processing status of the Message Batch.
+
+    - `"in_progress"`
+
+    - `"canceling"`
+
+    - `"ended"`
+
+  - `request_counts: BetaMessageBatchRequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `canceled: number`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `errored: number`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `expired: number`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `processing: number`
+
+      Number of requests in the Message Batch that are processing.
+
+    - `succeeded: number`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+  - `results_url: string or null`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+  - `type: "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    - `"message_batch"`
+
+### Beta Message Batch Canceled Result
+
+- `BetaMessageBatchCanceledResult object { type }`
+
+  - `type: "canceled"`
+
+    - `"canceled"`
+
+### Beta Message Batch Errored Result
+
+- `BetaMessageBatchErroredResult object { error, type }`
+
+  - `error: BetaErrorResponse`
+
+    - `error: BetaError`
+
+      - `BetaInvalidRequestError object { message, type }`
+
+        - `message: string`
+
+        - `type: "invalid_request_error"`
+
+          - `"invalid_request_error"`
+
+      - `BetaAuthenticationError object { message, type }`
+
+        - `message: string`
+
+        - `type: "authentication_error"`
+
+          - `"authentication_error"`
+
+      - `BetaBillingError object { message, type }`
+
+        - `message: string`
+
+        - `type: "billing_error"`
+
+          - `"billing_error"`
+
+      - `BetaPermissionError object { message, type }`
+
+        - `message: string`
+
+        - `type: "permission_error"`
+
+          - `"permission_error"`
+
+      - `BetaNotFoundError object { message, type }`
+
+        - `message: string`
+
+        - `type: "not_found_error"`
+
+          - `"not_found_error"`
+
+      - `BetaRateLimitError object { message, type }`
+
+        - `message: string`
+
+        - `type: "rate_limit_error"`
+
+          - `"rate_limit_error"`
+
+      - `BetaGatewayTimeoutError object { message, type }`
+
+        - `message: string`
+
+        - `type: "timeout_error"`
+
+          - `"timeout_error"`
+
+      - `BetaAPIError object { message, type }`
+
+        - `message: string`
+
+        - `type: "api_error"`
+
+          - `"api_error"`
+
+      - `BetaOverloadedError object { message, type }`
+
+        - `message: string`
+
+        - `type: "overloaded_error"`
+
+          - `"overloaded_error"`
+
+    - `request_id: string or null`
+
+    - `type: "error"`
+
+      - `"error"`
+
+  - `type: "errored"`
+
+    - `"errored"`
+
+### Beta Message Batch Expired Result
+
+- `BetaMessageBatchExpiredResult object { type }`
+
+  - `type: "expired"`
+
+    - `"expired"`
+
+### Beta Message Batch Individual Response
+
+- `BetaMessageBatchIndividualResponse object { custom_id, result }`
+
+  This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
+  - `custom_id: string`
+
+    Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
+
+    Must be unique for each request within the Message Batch.
+
+  - `result: BetaMessageBatchResult`
+
+    Processing result for this request.
+
+    Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
+    - `BetaMessageBatchSucceededResult object { message, type }`
+
+      - `message: BetaMessage`
+
+        - `id: string`
+
+          Unique object identifier.
+
+          The format and length of IDs may change over time.
+
+        - `container: BetaContainer or null`
+
+          Information about the container used in the request (for the code execution tool)
+
+          - `id: string`
+
+            Identifier for the container used in this request
+
+          - `expires_at: string`
+
+            The time at which the container will expire.
+
+          - `skills: array of BetaSkill or null`
+
+            Skills loaded in the container
+
+            - `skill_id: string`
+
+              Skill ID
+
+            - `type: "anthropic" or "custom"`
+
+              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+              - `"anthropic"`
+
+              - `"custom"`
+
+            - `version: string`
+
+              Skill version or 'latest' for most recent version
+
+        - `content: array of BetaContentBlock`
+
+          Content generated by the model.
+
+          This is an array of content blocks, each of which has a `type` that determines its shape.
+
+          Example:
+
+          ```json
+          [{"type": "text", "text": "Hi, I'm Claude."}]
+          ```
+
+          If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
+
+          For example, if the input `messages` were:
+
+          ```json
+          [
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
+          ]
+          ```
+
+          Then the response `content` might be:
+
+          ```json
+          [{"type": "text", "text": "B)"}]
+          ```
+
+          - `BetaTextBlock object { citations, text, type }`
+
+            - `citations: array of BetaTextCitation or null`
+
+              Citations supporting the text block.
+
+              The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+              - `BetaCitationCharLocation object { cited_text, document_index, document_title, 4 more }`
+
+                - `cited_text: string`
+
+                - `document_index: number`
+
+                - `document_title: string or null`
+
+                - `end_char_index: number`
+
+                - `file_id: string or null`
+
+                - `start_char_index: number`
+
+                - `type: "char_location"`
+
+                  - `"char_location"`
+
+              - `BetaCitationPageLocation object { cited_text, document_index, document_title, 4 more }`
+
+                - `cited_text: string`
+
+                - `document_index: number`
+
+                - `document_title: string or null`
+
+                - `end_page_number: number`
+
+                - `file_id: string or null`
+
+                - `start_page_number: number`
+
+                - `type: "page_location"`
+
+                  - `"page_location"`
+
+              - `BetaCitationContentBlockLocation object { cited_text, document_index, document_title, 4 more }`
+
+                - `cited_text: string`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `document_index: number`
+
+                - `document_title: string or null`
+
+                - `end_block_index: number`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `file_id: string or null`
+
+                - `start_block_index: number`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                - `type: "content_block_location"`
+
+                  - `"content_block_location"`
+
+              - `BetaCitationsWebSearchResultLocation object { cited_text, encrypted_index, title, 2 more }`
+
+                - `cited_text: string`
+
+                - `encrypted_index: string`
+
+                - `title: string or null`
+
+                - `type: "web_search_result_location"`
+
+                  - `"web_search_result_location"`
+
+                - `url: string`
+
+              - `BetaCitationSearchResultLocation object { cited_text, end_block_index, search_result_index, 4 more }`
+
+                - `cited_text: string`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `end_block_index: number`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `search_result_index: number`
+
+                  0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                  Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                - `source: string`
+
+                - `start_block_index: number`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                - `title: string or null`
+
+                - `type: "search_result_location"`
+
+                  - `"search_result_location"`
+
+            - `text: string`
+
+            - `type: "text"`
+
+              - `"text"`
+
+          - `BetaThinkingBlock object { signature, thinking, type }`
+
+            - `signature: string`
+
+              A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+              This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+            - `thinking: string`
+
+              The text of Claude's thinking process for this block.
+
+            - `type: "thinking"`
+
+              - `"thinking"`
+
+          - `BetaRedactedThinkingBlock object { data, type }`
+
+            - `data: string`
+
+              The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+              Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
+
+            - `type: "redacted_thinking"`
+
+              - `"redacted_thinking"`
+
+          - `BetaToolUseBlock object { id, input, name, 2 more }`
+
+            - `id: string`
+
+            - `input: map[unknown]`
+
+            - `name: string`
+
+            - `type: "tool_use"`
+
+              - `"tool_use"`
+
+            - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+              Tool invocation directly from the model.
+
+              - `BetaDirectCaller object { type }`
+
+                Tool invocation directly from the model.
+
+                - `type: "direct"`
+
+                  - `"direct"`
+
+              - `BetaServerToolCaller object { tool_id, type }`
+
+                Tool invocation generated by a server-side tool.
+
+                - `tool_id: string`
+
+                - `type: "code_execution_20250825"`
+
+                  - `"code_execution_20250825"`
+
+              - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+                - `tool_id: string`
+
+                - `type: "code_execution_20260120"`
+
+                  - `"code_execution_20260120"`
+
+          - `BetaServerToolUseBlock object { id, input, name, 2 more }`
+
+            - `id: string`
+
+            - `input: map[unknown]`
+
+            - `name: "advisor" or "web_search" or "web_fetch" or 5 more`
+
+              - `"advisor"`
+
+              - `"web_search"`
+
+              - `"web_fetch"`
+
+              - `"code_execution"`
+
+              - `"bash_code_execution"`
+
+              - `"text_editor_code_execution"`
+
+              - `"tool_search_tool_regex"`
+
+              - `"tool_search_tool_bm25"`
+
+            - `type: "server_tool_use"`
+
+              - `"server_tool_use"`
+
+            - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+              Tool invocation directly from the model.
+
+              - `BetaDirectCaller object { type }`
+
+                Tool invocation directly from the model.
+
+              - `BetaServerToolCaller object { tool_id, type }`
+
+                Tool invocation generated by a server-side tool.
+
+              - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+          - `BetaWebSearchToolResultBlock object { content, tool_use_id, type, caller }`
+
+            - `content: BetaWebSearchToolResultBlockContent`
+
+              - `BetaWebSearchToolResultError object { error_code, type }`
+
+                - `error_code: BetaWebSearchToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"too_many_requests"`
+
+                  - `"query_too_long"`
+
+                  - `"request_too_large"`
+
+                - `type: "web_search_tool_result_error"`
+
+                  - `"web_search_tool_result_error"`
+
+              - `array of BetaWebSearchResultBlock`
+
+                - `encrypted_content: string`
+
+                - `page_age: string or null`
+
+                - `title: string`
+
+                - `type: "web_search_result"`
+
+                  - `"web_search_result"`
+
+                - `url: string`
+
+            - `tool_use_id: string`
+
+            - `type: "web_search_tool_result"`
+
+              - `"web_search_tool_result"`
+
+            - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+              Tool invocation directly from the model.
+
+              - `BetaDirectCaller object { type }`
+
+                Tool invocation directly from the model.
+
+              - `BetaServerToolCaller object { tool_id, type }`
+
+                Tool invocation generated by a server-side tool.
+
+              - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+          - `BetaWebFetchToolResultBlock object { content, tool_use_id, type, caller }`
+
+            - `content: BetaWebFetchToolResultErrorBlock or BetaWebFetchBlock`
+
+              - `BetaWebFetchToolResultErrorBlock object { error_code, type }`
+
+                - `error_code: BetaWebFetchToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"url_too_long"`
+
+                  - `"url_not_allowed"`
+
+                  - `"url_not_in_prior_context"`
+
+                  - `"url_not_accessible"`
+
+                  - `"unsupported_content_type"`
+
+                  - `"too_many_requests"`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"unavailable"`
+
+                - `type: "web_fetch_tool_result_error"`
+
+                  - `"web_fetch_tool_result_error"`
+
+              - `BetaWebFetchBlock object { content, retrieved_at, type, url }`
+
+                - `content: BetaDocumentBlock`
+
+                  - `citations: BetaCitationConfig or null`
+
+                    Citation configuration for the document
+
+                    - `enabled: boolean`
+
+                  - `source: BetaBase64PDFSource or BetaPlainTextSource`
+
+                    - `BetaBase64PDFSource object { data, media_type, type }`
+
+                      - `data: string`
+
+                      - `media_type: "application/pdf"`
+
+                        - `"application/pdf"`
+
+                      - `type: "base64"`
+
+                        - `"base64"`
+
+                    - `BetaPlainTextSource object { data, media_type, type }`
+
+                      - `data: string`
+
+                      - `media_type: "text/plain"`
+
+                        - `"text/plain"`
+
+                      - `type: "text"`
+
+                        - `"text"`
+
+                  - `title: string or null`
+
+                    The title of the document
+
+                  - `type: "document"`
+
+                    - `"document"`
+
+                - `retrieved_at: string or null`
+
+                  ISO 8601 timestamp when the content was retrieved
+
+                - `type: "web_fetch_result"`
+
+                  - `"web_fetch_result"`
+
+                - `url: string`
+
+                  Fetched content URL
+
+            - `tool_use_id: string`
+
+            - `type: "web_fetch_tool_result"`
+
+              - `"web_fetch_tool_result"`
+
+            - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+              Tool invocation directly from the model.
+
+              - `BetaDirectCaller object { type }`
+
+                Tool invocation directly from the model.
+
+              - `BetaServerToolCaller object { tool_id, type }`
+
+                Tool invocation generated by a server-side tool.
+
+              - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+          - `BetaAdvisorToolResultBlock object { content, tool_use_id, type }`
+
+            - `content: BetaAdvisorToolResultError or BetaAdvisorResultBlock or BetaAdvisorRedactedResultBlock`
+
+              - `BetaAdvisorToolResultError object { error_code, type }`
+
+                - `error_code: "max_uses_exceeded" or "prompt_too_long" or "too_many_requests" or 4 more`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"prompt_too_long"`
+
+                  - `"too_many_requests"`
+
+                  - `"overloaded"`
+
+                  - `"unavailable"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"model_not_found"`
+
+                - `type: "advisor_tool_result_error"`
+
+                  - `"advisor_tool_result_error"`
+
+              - `BetaAdvisorResultBlock object { stop_reason, text, type }`
+
+                - `stop_reason: string or null`
+
+                  The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
+
+                - `text: string`
+
+                - `type: "advisor_result"`
+
+                  - `"advisor_result"`
+
+              - `BetaAdvisorRedactedResultBlock object { encrypted_content, stop_reason, type }`
+
+                - `encrypted_content: string`
+
+                  Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
+
+                - `stop_reason: string or null`
+
+                  The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
+
+                - `type: "advisor_redacted_result"`
+
+                  - `"advisor_redacted_result"`
+
+            - `tool_use_id: string`
+
+            - `type: "advisor_tool_result"`
+
+              - `"advisor_tool_result"`
+
+          - `BetaCodeExecutionToolResultBlock object { content, tool_use_id, type }`
+
+            - `content: BetaCodeExecutionToolResultBlockContent`
+
+              Code execution result with encrypted stdout for PFC + web_search results.
+
+              - `BetaCodeExecutionToolResultError object { error_code, type }`
+
+                - `error_code: BetaCodeExecutionToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                - `type: "code_execution_tool_result_error"`
+
+                  - `"code_execution_tool_result_error"`
+
+              - `BetaCodeExecutionResultBlock object { content, return_code, stderr, 2 more }`
+
+                - `content: array of BetaCodeExecutionOutputBlock`
+
+                  - `file_id: string`
+
+                  - `type: "code_execution_output"`
+
+                    - `"code_execution_output"`
+
+                - `return_code: number`
+
+                - `stderr: string`
+
+                - `stdout: string`
+
+                - `type: "code_execution_result"`
+
+                  - `"code_execution_result"`
+
+              - `BetaEncryptedCodeExecutionResultBlock object { content, encrypted_stdout, return_code, 2 more }`
+
+                Code execution result with encrypted stdout for PFC + web_search results.
+
+                - `content: array of BetaCodeExecutionOutputBlock`
+
+                  - `file_id: string`
+
+                  - `type: "code_execution_output"`
+
+                - `encrypted_stdout: string`
+
+                - `return_code: number`
+
+                - `stderr: string`
+
+                - `type: "encrypted_code_execution_result"`
+
+                  - `"encrypted_code_execution_result"`
+
+            - `tool_use_id: string`
+
+            - `type: "code_execution_tool_result"`
+
+              - `"code_execution_tool_result"`
+
+          - `BetaBashCodeExecutionToolResultBlock object { content, tool_use_id, type }`
+
+            - `content: BetaBashCodeExecutionToolResultError or BetaBashCodeExecutionResultBlock`
+
+              - `BetaBashCodeExecutionToolResultError object { error_code, type }`
+
+                - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"output_file_too_large"`
+
+                - `type: "bash_code_execution_tool_result_error"`
+
+                  - `"bash_code_execution_tool_result_error"`
+
+              - `BetaBashCodeExecutionResultBlock object { content, return_code, stderr, 2 more }`
+
+                - `content: array of BetaBashCodeExecutionOutputBlock`
+
+                  - `file_id: string`
+
+                  - `type: "bash_code_execution_output"`
+
+                    - `"bash_code_execution_output"`
+
+                - `return_code: number`
+
+                - `stderr: string`
+
+                - `stdout: string`
+
+                - `type: "bash_code_execution_result"`
+
+                  - `"bash_code_execution_result"`
+
+            - `tool_use_id: string`
+
+            - `type: "bash_code_execution_tool_result"`
+
+              - `"bash_code_execution_tool_result"`
+
+          - `BetaTextEditorCodeExecutionToolResultBlock object { content, tool_use_id, type }`
+
+            - `content: BetaTextEditorCodeExecutionToolResultError or BetaTextEditorCodeExecutionViewResultBlock or BetaTextEditorCodeExecutionCreateResultBlock or BetaTextEditorCodeExecutionStrReplaceResultBlock`
+
+              - `BetaTextEditorCodeExecutionToolResultError object { error_code, error_message, type }`
+
+                - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"file_not_found"`
+
+                - `error_message: string or null`
+
+                - `type: "text_editor_code_execution_tool_result_error"`
+
+                  - `"text_editor_code_execution_tool_result_error"`
+
+              - `BetaTextEditorCodeExecutionViewResultBlock object { content, file_type, num_lines, 3 more }`
+
+                - `content: string`
+
+                - `file_type: "text" or "image" or "pdf"`
+
+                  - `"text"`
+
+                  - `"image"`
+
+                  - `"pdf"`
+
+                - `num_lines: number or null`
+
+                - `start_line: number or null`
+
+                - `total_lines: number or null`
+
+                - `type: "text_editor_code_execution_view_result"`
+
+                  - `"text_editor_code_execution_view_result"`
+
+              - `BetaTextEditorCodeExecutionCreateResultBlock object { is_file_update, type }`
+
+                - `is_file_update: boolean`
+
+                - `type: "text_editor_code_execution_create_result"`
+
+                  - `"text_editor_code_execution_create_result"`
+
+              - `BetaTextEditorCodeExecutionStrReplaceResultBlock object { lines, new_lines, new_start, 3 more }`
+
+                - `lines: array of string or null`
+
+                - `new_lines: number or null`
+
+                - `new_start: number or null`
+
+                - `old_lines: number or null`
+
+                - `old_start: number or null`
+
+                - `type: "text_editor_code_execution_str_replace_result"`
+
+                  - `"text_editor_code_execution_str_replace_result"`
+
+            - `tool_use_id: string`
+
+            - `type: "text_editor_code_execution_tool_result"`
+
+              - `"text_editor_code_execution_tool_result"`
+
+          - `BetaToolSearchToolResultBlock object { content, tool_use_id, type }`
+
+            - `content: BetaToolSearchToolResultError or BetaToolSearchToolSearchResultBlock`
+
+              - `BetaToolSearchToolResultError object { error_code, error_message, type }`
+
+                - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                - `error_message: string or null`
+
+                - `type: "tool_search_tool_result_error"`
+
+                  - `"tool_search_tool_result_error"`
+
+              - `BetaToolSearchToolSearchResultBlock object { tool_references, type }`
+
+                - `tool_references: array of BetaToolReferenceBlock`
+
+                  - `tool_name: string`
+
+                  - `type: "tool_reference"`
+
+                    - `"tool_reference"`
+
+                - `type: "tool_search_tool_search_result"`
+
+                  - `"tool_search_tool_search_result"`
+
+            - `tool_use_id: string`
+
+            - `type: "tool_search_tool_result"`
+
+              - `"tool_search_tool_result"`
+
+          - `BetaMCPToolUseBlock object { id, input, name, 2 more }`
+
+            - `id: string`
+
+            - `input: map[unknown]`
+
+            - `name: string`
+
+              The name of the MCP tool
+
+            - `server_name: string`
+
+              The name of the MCP server
+
+            - `type: "mcp_tool_use"`
+
+              - `"mcp_tool_use"`
+
+          - `BetaMCPToolResultBlock object { content, is_error, tool_use_id, type }`
+
+            - `content: string or array of BetaTextBlock`
+
+              - `string`
+
+              - `BetaMCPToolResultBlockContent = array of BetaTextBlock`
+
+                - `citations: array of BetaTextCitation or null`
+
+                  Citations supporting the text block.
+
+                  The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+                - `text: string`
+
+                - `type: "text"`
+
+            - `is_error: boolean`
+
+            - `tool_use_id: string`
+
+            - `type: "mcp_tool_result"`
+
+              - `"mcp_tool_result"`
+
+          - `BetaContainerUploadBlock object { file_id, type }`
+
+            Response model for a file uploaded to the container.
+
+            - `file_id: string`
+
+            - `type: "container_upload"`
+
+              - `"container_upload"`
+
+          - `BetaCompactionBlock object { content, encrypted_content, type }`
+
+            A compaction block returned when autocompact is triggered.
+
+            When content is None, it indicates the compaction failed to produce a valid
+            summary (e.g., malformed output from the model). Clients may round-trip
+            compaction blocks with null content; the server treats them as no-ops.
+
+            - `content: string or null`
+
+              Summary of compacted content, or null if compaction failed
+
+            - `encrypted_content: string or null`
+
+              Opaque metadata from prior compaction, to be round-tripped verbatim
+
+            - `type: "compaction"`
+
+              - `"compaction"`
+
+          - `BetaFallbackBlock object { from, to, trigger, type }`
+
+            Marks the point in `content` where one model's output gives way to the next.
+
+            One block appears per hop where a preceding model actually ran this turn and
+            declined. A turn where no preceding model ran and declined has no such
+            boundary and carries no block — the signal for whether a fallback model
+            served the response is the presence of a `fallback_message` entry in
+            `usage.iterations`, not this block.
+
+            The block is treated like a server-tool content block for streaming: it
+            arrives via the standard `content_block_start` / `content_block_stop`
+            pair and carries no deltas.
+
+            - `from: BetaFallbackInfo`
+
+              The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more`
+
+                  The model that will complete your prompt.
+
+                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `"claude-sonnet-5"`
+
+                    High-performance model for coding and agents
+
+                  - `"claude-fable-5"`
+
+                    Next generation of intelligence for the hardest knowledge work and coding problems
+
+                  - `"claude-mythos-5"`
+
+                    Most capable model for cybersecurity and biology research
+
+                  - `"claude-opus-5"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-opus-4-8"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-opus-4-7"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-mythos-preview"`
+
+                    New class of intelligence, strongest in coding and cybersecurity
+
+                  - `"claude-opus-4-6"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-sonnet-4-6"`
+
+                    Best combination of speed and intelligence
+
+                  - `"claude-haiku-4-5"`
+
+                    Fastest model with near-frontier intelligence
+
+                  - `"claude-haiku-4-5-20251001"`
+
+                    Fastest model with near-frontier intelligence
+
+                  - `"claude-opus-4-5"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-opus-4-5-20251101"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-sonnet-4-5"`
+
+                    High-performance model for agents and coding
+
+                  - `"claude-sonnet-4-5-20250929"`
+
+                    High-performance model for agents and coding
+
+                - `string`
+
+            - `to: BetaFallbackInfo`
+
+              The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+            - `trigger: BetaFallbackRefusalTrigger`
+
+              What caused the `from` model to hand over at this hop.
+
+              - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
+
+                The policy category that triggered a refusal.
+
+                - `"cyber"`
+
+                  The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+                - `"bio"`
+
+                  The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+                - `"frontier_llm"`
+
+                  The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+                - `"reasoning_extraction"`
+
+                  The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+                - `"general_harms"`
+
+                  The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+              - `type: "refusal"`
+
+                - `"refusal"`
+
+            - `type: "fallback"`
+
+              - `"fallback"`
+
+        - `context_management: BetaContextManagementResponse or null`
+
+          Context management response.
+
+          Information about context management strategies applied during the request.
+
+          - `applied_edits: array of BetaClearToolUses20250919EditResponse or BetaClearThinking20251015EditResponse`
+
+            List of context management edits that were applied.
+
+            - `BetaClearToolUses20250919EditResponse object { cleared_input_tokens, cleared_tool_uses, type }`
+
+              - `cleared_input_tokens: number`
+
+                Number of input tokens cleared by this edit.
+
+              - `cleared_tool_uses: number`
+
+                Number of tool uses that were cleared.
+
+              - `type: "clear_tool_uses_20250919"`
+
+                The type of context management edit applied.
+
+                - `"clear_tool_uses_20250919"`
+
+            - `BetaClearThinking20251015EditResponse object { cleared_input_tokens, cleared_thinking_turns, type }`
+
+              - `cleared_input_tokens: number`
+
+                Number of input tokens cleared by this edit.
+
+              - `cleared_thinking_turns: number`
+
+                Number of thinking turns that were cleared.
+
+              - `type: "clear_thinking_20251015"`
+
+                The type of context management edit applied.
+
+                - `"clear_thinking_20251015"`
+
+        - `diagnostics: BetaDiagnostics or null`
+
+          Response envelope for request-level diagnostics. Present (possibly
+          null) whenever the caller supplied `diagnostics` on the request.
+
+          - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more or null`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `BetaCacheMissModelChanged object { cache_missed_input_tokens, type }`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `type: "model_changed"`
+
+                - `"model_changed"`
+
+            - `BetaCacheMissSystemChanged object { cache_missed_input_tokens, type }`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `type: "system_changed"`
+
+                - `"system_changed"`
+
+            - `BetaCacheMissToolsChanged object { cache_missed_input_tokens, type }`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `type: "tools_changed"`
+
+                - `"tools_changed"`
+
+            - `BetaCacheMissMessagesChanged object { cache_missed_input_tokens, type }`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `type: "messages_changed"`
+
+                - `"messages_changed"`
+
+            - `BetaCacheMissPreviousMessageNotFound object { type }`
+
+              - `type: "previous_message_not_found"`
+
+                - `"previous_message_not_found"`
+
+            - `BetaCacheMissUnavailable object { type }`
+
+              - `type: "unavailable"`
+
+                - `"unavailable"`
+
+        - `model: Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `role: "assistant"`
+
+          Conversational role of the generated message.
+
+          This will always be `"assistant"`.
+
+          - `"assistant"`
+
+        - `stop_details: BetaRefusalStopDetails or null`
+
+          Structured information about a refusal.
+
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
+
+            The policy category that triggered a refusal.
+
+            - `"cyber"`
+
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+            - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+            - `"frontier_llm"`
+
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+            - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+          - `explanation: string or null`
+
+            Human-readable explanation of the refusal.
+
+            This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+          - `fallback_credit_token: string or null`
+
+            Opaque code that refunds the cache-miss cost when retrying this refused
+            request on the fallback model. Pass it as `fallback_credit_token` on the
+            retry request. Expires 5 minutes after the refusal.
+
+            The retry is sent either with the same request body (`system`, `messages`,
+            `tools`, and other render-shaping fields), or with the same body plus one
+            appended `assistant` message whose content is the partial text (with any
+            trailing whitespace stripped from the final text block) and paired
+            server-tool blocks from this refusal — which also authorizes that
+            appended turn as an assistant-prefill continuation on models that otherwise
+            disallow prefill. A token minted mid-server-tool-loop whose partial content
+            was continuable may only be redeemed the second way — if a same-body retry
+            is rejected with a 400 saying the token must be redeemed by continuing the
+            partial response, retry the second way instead. Either way: same workspace,
+            same platform; a mismatch is a 400. Resending a token for an already-warm
+            prefix is permitted but yields no additional credit.
+
+            `null` when the refused model isn't eligible for a fallback credit.
+
+          - `fallback_has_prefill_claim: boolean or null`
+
+            Whether the accompanying `fallback_credit_token` may be redeemed with the
+            appended-assistant retry form. Only set when `fallback_credit_token` is
+            present.
+
+            `true`: retry by resending the same request body plus one appended
+            `assistant` message whose content is this response's `content` with any
+            trailing whitespace stripped from the final text block and unpaired
+            `tool_use` blocks omitted (the same appended-turn shape described on
+            `fallback_credit_token`), with the token attached. `false`: retry by
+            resending the original request body unchanged, with the token attached —
+            the appended-assistant form is not available for this refusal (no
+            continuable partial content, or the request uses `output_format` or a
+            `tool_choice` that forces tool use). One exception: when the request used
+            `output_format` or a forced `tool_choice` and the refusal arrived after
+            server tools (including MCP connector tools) had already executed, the
+            token may not be redeemable by either retry form; if the exact-body retry
+            is then rejected with a 400 saying the token must be redeemed by
+            continuing the partial response, discard the token and retry without it.
+
+            Advisory: if an appended-assistant retry is rejected with a 400 despite
+            `true`, fall back to resending the original request body with the token.
+
+          - `recommended_model: string or null`
+
+            The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
+
+          - `type: "refusal"`
+
+            - `"refusal"`
+
+        - `stop_reason: BetaStopReason or null`
+
+          The reason that we stopped.
+
+          This may be one the following values:
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
+
+          In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
+          - `"end_turn"`
+
+          - `"max_tokens"`
+
+          - `"stop_sequence"`
+
+          - `"tool_use"`
+
+          - `"pause_turn"`
+
+          - `"compaction"`
+
+          - `"refusal"`
+
+          - `"model_context_window_exceeded"`
+
+        - `stop_sequence: string or null`
+
+          Which custom stop sequence was generated, if any.
+
+          This value will be a non-null string if one of your custom stop sequences was generated.
+
+        - `type: "message"`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
+
+          - `"message"`
+
+        - `usage: BetaUsage`
+
+          Billing and rate-limit usage.
+
+          Anthropic's API bills and rate-limits by token counts, as tokens represent the underlying cost to our systems.
+
+          Under the hood, the API transforms requests into a format suitable for the model. The model's output then goes through a parsing stage before becoming an API response. As a result, the token counts in `usage` will not match one-to-one with the exact visible content of an API request or response.
+
+          For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
+
+          Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
+          - `cache_creation: BetaCacheCreation or null`
+
+            Breakdown of cached tokens by TTL
+
+            - `ephemeral_1h_input_tokens: number`
+
+              The number of input tokens used to create the 1 hour cache entry.
+
+            - `ephemeral_5m_input_tokens: number`
+
+              The number of input tokens used to create the 5 minute cache entry.
+
+          - `cache_creation_input_tokens: number or null`
+
+            The number of input tokens used to create the cache entry.
+
+          - `cache_read_input_tokens: number or null`
+
+            The number of input tokens read from the cache.
+
+          - `fallback_credit: BetaFallbackCreditUsage or null`
+
+            Outcome of the `fallback_credit_token` presented on this request.
+
+            - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+              Whether the fallback-credit reprice was applied to this response's billing.
+
+              A union discriminated on `type`. `redeemed`: the retry is billed as if
+              the conversation had been on the retry model all along — including when the
+              resulting shift is zero because there was nothing to move. `not_applied`:
+              no reprice was applied; the arm's `reason` says why.
+
+              - `BetaFallbackCreditRedeemed object { type }`
+
+                The reprice was applied: the retry is billed as if the conversation
+                had been on the retry model all along.
+
+                - `type: "redeemed"`
+
+                  - `"redeemed"`
+
+              - `BetaFallbackCreditNotApplied object { reason, type, remove_to_redeem }`
+
+                No reprice was applied; `reason` says why.
+
+                - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+                  Why the reprice was not applied.
+
+                  A closed enum; additions to the redemption-check vocabulary arrive as
+                  deliberate schema updates.
+
+                  - `"body_mismatch"`
+
+                  - `"continuation_excluded"`
+
+                  - `"continuation_only"`
+
+                  - `"expired"`
+
+                  - `"invalid_target_model"`
+
+                  - `"not_enabled"`
+
+                  - `"reprice_unavailable"`
+
+                  - `"temporarily_unavailable"`
+
+                  - `"variant_fields_present"`
+
+                  - `"wrong_organization"`
+
+                  - `"wrong_platform"`
+
+                  - `"wrong_workspace"`
+
+                - `type: "not_applied"`
+
+                  - `"not_applied"`
+
+                - `remove_to_redeem: optional array of string or null`
+
+                  Request fields to remove before retrying, so the retry can redeem this
+                  token.
+
+                  Present exactly when `reason` is `variant_fields_present` — never null,
+                  never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                  the sealed variant hash matched. A served best-effort retry has already
+                  been billed at normal price; nothing redeems retroactively, but a corrected
+                  re-send inside the token's five-minute window can still redeem.
+
+          - `inference_geo: string or null`
+
+            The geographic region where inference was performed for this request.
+
+          - `input_tokens: number`
+
+            The number of input tokens which were used.
+
+          - `iterations: BetaIterationsUsage or null`
+
+            Per-iteration token usage breakdown.
+
+            Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
+            - Determine which iterations exceeded long context thresholds (>=200k tokens)
+            - Calculate the true context window size from the last iteration
+            - Understand token accumulation across server-side tool use loops
+
+            - `BetaMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
+
+              Token usage for a sampling iteration.
+
+              - `cache_creation: BetaCacheCreation or null`
+
+                Breakdown of cached tokens by TTL
+
+              - `cache_creation_input_tokens: number`
+
+                The number of input tokens used to create the cache entry.
+
+              - `cache_read_input_tokens: number`
+
+                The number of input tokens read from the cache.
+
+              - `input_tokens: number`
+
+                The number of input tokens which were used.
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `output_tokens: number`
+
+                The number of output tokens which were used.
+
+              - `type: "message"`
+
+                Usage for a sampling iteration
+
+                - `"message"`
+
+            - `BetaCompactionIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 3 more }`
+
+              Token usage for a compaction iteration.
+
+              - `cache_creation: BetaCacheCreation or null`
+
+                Breakdown of cached tokens by TTL
+
+              - `cache_creation_input_tokens: number`
+
+                The number of input tokens used to create the cache entry.
+
+              - `cache_read_input_tokens: number`
+
+                The number of input tokens read from the cache.
+
+              - `input_tokens: number`
+
+                The number of input tokens which were used.
+
+              - `output_tokens: number`
+
+                The number of output tokens which were used.
+
+              - `type: "compaction"`
+
+                Usage for a compaction iteration
+
+                - `"compaction"`
+
+            - `BetaAdvisorMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
+
+              Token usage for an advisor sub-inference iteration.
+
+              - `cache_creation: BetaCacheCreation or null`
+
+                Breakdown of cached tokens by TTL
+
+              - `cache_creation_input_tokens: number`
+
+                The number of input tokens used to create the cache entry.
+
+              - `cache_read_input_tokens: number`
+
+                The number of input tokens read from the cache.
+
+              - `input_tokens: number`
+
+                The number of input tokens which were used.
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `output_tokens: number`
+
+                The number of output tokens which were used.
+
+              - `type: "advisor_message"`
+
+                Usage for an advisor sub-inference iteration
+
+                - `"advisor_message"`
+
+            - `BetaFallbackMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
+
+              Token usage for the fallback-model attempt of a server-side fallback request.
+
+              Produced in place of a `message` entry for whichever hop served the
+              response. A declined hop produces the existing `message` entry. Whether
+              a fallback model served the response is signalled by the presence of this
+              entry in `usage.iterations`.
+
+              - `cache_creation: BetaCacheCreation or null`
+
+                Breakdown of cached tokens by TTL
+
+              - `cache_creation_input_tokens: number`
+
+                The number of input tokens used to create the cache entry.
+
+              - `cache_read_input_tokens: number`
+
+                The number of input tokens read from the cache.
+
+              - `input_tokens: number`
+
+                The number of input tokens which were used.
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `output_tokens: number`
+
+                The number of output tokens which were used.
+
+              - `type: "fallback_message"`
+
+                Usage for the fallback-model attempt that served the response
+
+                - `"fallback_message"`
+
+          - `output_tokens: number`
+
+            The number of output tokens which were used.
+
+          - `output_tokens_details: BetaOutputTokensDetails or null`
+
+            Breakdown of output tokens by category.
+
+            `output_tokens` remains the inclusive, authoritative total used for billing.
+            This object provides a read-only decomposition for observability — for example,
+            how many of the billed output tokens were spent on internal reasoning that may
+            have been summarized before being returned to you.
+
+            - `thinking_tokens: number`
+
+              Number of output tokens the model generated as internal reasoning, including
+              the thinking-block delimiter tokens.
+
+              Reflects the raw reasoning the model produced, not the (possibly shorter)
+              summarized thinking text returned in the response body. Computed by
+              re-tokenizing the raw reasoning text, so it may differ from the model's exact
+              generation count by a small number of tokens. Always ≤ `output_tokens`;
+              `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
+          - `server_tool_use: BetaServerToolUsage or null`
+
+            The number of server tool requests.
+
+            - `web_fetch_requests: number`
+
+              The number of web fetch tool requests.
+
+            - `web_search_requests: number`
+
+              The number of web search tool requests.
+
+          - `service_tier: "standard" or "priority" or "batch" or null`
+
+            If the request used the priority, standard, or batch tier.
+
+            - `"standard"`
+
+            - `"priority"`
+
+            - `"batch"`
+
+          - `speed: "standard" or "fast" or null`
+
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+            - `"standard"`
+
+            - `"fast"`
+
+      - `type: "succeeded"`
+
+        - `"succeeded"`
+
+    - `BetaMessageBatchErroredResult object { error, type }`
+
+      - `error: BetaErrorResponse`
+
+        - `error: BetaError`
+
+          - `BetaInvalidRequestError object { message, type }`
+
+            - `message: string`
+
+            - `type: "invalid_request_error"`
+
+              - `"invalid_request_error"`
+
+          - `BetaAuthenticationError object { message, type }`
+
+            - `message: string`
+
+            - `type: "authentication_error"`
+
+              - `"authentication_error"`
+
+          - `BetaBillingError object { message, type }`
+
+            - `message: string`
+
+            - `type: "billing_error"`
+
+              - `"billing_error"`
+
+          - `BetaPermissionError object { message, type }`
+
+            - `message: string`
+
+            - `type: "permission_error"`
+
+              - `"permission_error"`
+
+          - `BetaNotFoundError object { message, type }`
+
+            - `message: string`
+
+            - `type: "not_found_error"`
+
+              - `"not_found_error"`
+
+          - `BetaRateLimitError object { message, type }`
+
+            - `message: string`
+
+            - `type: "rate_limit_error"`
+
+              - `"rate_limit_error"`
+
+          - `BetaGatewayTimeoutError object { message, type }`
+
+            - `message: string`
+
+            - `type: "timeout_error"`
+
+              - `"timeout_error"`
+
+          - `BetaAPIError object { message, type }`
+
+            - `message: string`
+
+            - `type: "api_error"`
+
+              - `"api_error"`
+
+          - `BetaOverloadedError object { message, type }`
+
+            - `message: string`
+
+            - `type: "overloaded_error"`
+
+              - `"overloaded_error"`
+
+        - `request_id: string or null`
 
         - `type: "error"`
 
@@ -2803,7 +3445,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         The format and length of IDs may change over time.
 
-      - `container: BetaContainer`
+      - `container: BetaContainer or null`
 
         Information about the container used in the request (for the code execution tool)
 
@@ -2815,7 +3457,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           The time at which the container will expire.
 
-        - `skills: array of BetaSkill`
+        - `skills: array of BetaSkill or null`
 
           Skills loaded in the container
 
@@ -2866,7 +3508,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         - `BetaTextBlock object { citations, text, type }`
 
-          - `citations: array of BetaTextCitation`
+          - `citations: array of BetaTextCitation or null`
 
             Citations supporting the text block.
 
@@ -2878,11 +3520,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `document_index: number`
 
-              - `document_title: string`
+              - `document_title: string or null`
 
               - `end_char_index: number`
 
-              - `file_id: string`
+              - `file_id: string or null`
 
               - `start_char_index: number`
 
@@ -2896,11 +3538,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `document_index: number`
 
-              - `document_title: string`
+              - `document_title: string or null`
 
               - `end_page_number: number`
 
-              - `file_id: string`
+              - `file_id: string or null`
 
               - `start_page_number: number`
 
@@ -2918,7 +3560,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `document_index: number`
 
-              - `document_title: string`
+              - `document_title: string or null`
 
               - `end_block_index: number`
 
@@ -2926,7 +3568,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
 
-              - `file_id: string`
+              - `file_id: string or null`
 
               - `start_block_index: number`
 
@@ -2942,7 +3584,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `encrypted_index: string`
 
-              - `title: string`
+              - `title: string or null`
 
               - `type: "web_search_result_location"`
 
@@ -2976,7 +3618,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 0-based index of the first cited block in the source's `content` array.
 
-              - `title: string`
+              - `title: string or null`
 
               - `type: "search_result_location"`
 
@@ -2992,7 +3634,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `signature: string`
 
+            A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+            This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+            See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
           - `thinking: string`
+
+            The text of Claude's thinking process for this block.
 
           - `type: "thinking"`
 
@@ -3001,6 +3651,12 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
         - `BetaRedactedThinkingBlock object { data, type }`
 
           - `data: string`
+
+            The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+            Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+            See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
           - `type: "redacted_thinking"`
 
@@ -3118,7 +3774,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `encrypted_content: string`
 
-              - `page_age: string`
+              - `page_age: string or null`
 
               - `title: string`
 
@@ -3182,7 +3838,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `content: BetaDocumentBlock`
 
-                - `citations: BetaCitationConfig`
+                - `citations: BetaCitationConfig or null`
 
                   Citation configuration for the document
 
@@ -3214,7 +3870,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                       - `"text"`
 
-                - `title: string`
+                - `title: string or null`
 
                   The title of the document
 
@@ -3222,7 +3878,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"document"`
 
-              - `retrieved_at: string`
+              - `retrieved_at: string or null`
 
                 ISO 8601 timestamp when the content was retrieved
 
@@ -3282,7 +3938,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `BetaAdvisorResultBlock object { stop_reason, text, type }`
 
-              - `stop_reason: string`
+              - `stop_reason: string or null`
 
                 The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
 
@@ -3298,7 +3954,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
 
-              - `stop_reason: string`
+              - `stop_reason: string or null`
 
                 The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
@@ -3446,7 +4102,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"file_not_found"`
 
-              - `error_message: string`
+              - `error_message: string or null`
 
               - `type: "text_editor_code_execution_tool_result_error"`
 
@@ -3464,11 +4120,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"pdf"`
 
-              - `num_lines: number`
+              - `num_lines: number or null`
 
-              - `start_line: number`
+              - `start_line: number or null`
 
-              - `total_lines: number`
+              - `total_lines: number or null`
 
               - `type: "text_editor_code_execution_view_result"`
 
@@ -3484,15 +4140,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `BetaTextEditorCodeExecutionStrReplaceResultBlock object { lines, new_lines, new_start, 3 more }`
 
-              - `lines: array of string`
+              - `lines: array of string or null`
 
-              - `new_lines: number`
+              - `new_lines: number or null`
 
-              - `new_start: number`
+              - `new_start: number or null`
 
-              - `old_lines: number`
+              - `old_lines: number or null`
 
-              - `old_start: number`
+              - `old_start: number or null`
 
               - `type: "text_editor_code_execution_str_replace_result"`
 
@@ -3520,7 +4176,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"execution_time_exceeded"`
 
-              - `error_message: string`
+              - `error_message: string or null`
 
               - `type: "tool_search_tool_result_error"`
 
@@ -3572,7 +4228,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `BetaMCPToolResultBlockContent = array of BetaTextBlock`
 
-              - `citations: array of BetaTextCitation`
+              - `citations: array of BetaTextCitation or null`
 
                 Citations supporting the text block.
 
@@ -3608,11 +4264,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           summary (e.g., malformed output from the model). Clients may round-trip
           compaction blocks with null content; the server treats them as no-ops.
 
-          - `content: string`
+          - `content: string or null`
 
             Summary of compacted content, or null if compaction failed
 
-          - `encrypted_content: string`
+          - `encrypted_content: string or null`
 
             Opaque metadata from prior compaction, to be round-tripped verbatim
 
@@ -3644,7 +4300,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-              - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more`
+              - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more`
 
                 The model that will complete your prompt.
 
@@ -3710,14 +4366,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   High-performance model for agents and coding
 
-                - `"claude-opus-4-1"`
-
-                  Powerful intelligence for long-running agents and coding
-
-                - `"claude-opus-4-1-20250805"`
-
-                  Powerful intelligence for long-running agents and coding
-
               - `string`
 
           - `to: BetaFallbackInfo`
@@ -3728,7 +4376,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             What caused the `from` model to hand over at this hop.
 
-            - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+            - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
               The policy category that triggered a refusal.
 
@@ -3760,7 +4408,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `"fallback"`
 
-      - `context_management: BetaContextManagementResponse`
+      - `context_management: BetaContextManagementResponse or null`
 
         Context management response.
 
@@ -3802,12 +4450,12 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"clear_thinking_20251015"`
 
-      - `diagnostics: BetaDiagnostics`
+      - `diagnostics: BetaDiagnostics or null`
 
         Response envelope for request-level diagnostics. Present (possibly
         null) whenever the caller supplied `diagnostics` on the request.
 
-        - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more`
+        - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more or null`
 
           Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
 
@@ -3877,11 +4525,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         - `"assistant"`
 
-      - `stop_details: BetaRefusalStopDetails`
+      - `stop_details: BetaRefusalStopDetails or null`
 
         Structured information about a refusal.
 
-        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
           The policy category that triggered a refusal.
 
@@ -3905,13 +4553,13 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-        - `explanation: string`
+        - `explanation: string or null`
 
           Human-readable explanation of the refusal.
 
           This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
-        - `fallback_credit_token: string`
+        - `fallback_credit_token: string or null`
 
           Opaque code that refunds the cache-miss cost when retrying this refused
           request on the fallback model. Pass it as `fallback_credit_token` on the
@@ -3932,7 +4580,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           `null` when the refused model isn't eligible for a fallback credit.
 
-        - `fallback_has_prefill_claim: boolean`
+        - `fallback_has_prefill_claim: boolean or null`
 
           Whether the accompanying `fallback_credit_token` may be redeemed with the
           appended-assistant retry form. Only set when `fallback_credit_token` is
@@ -3956,7 +4604,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           Advisory: if an appended-assistant retry is rejected with a 400 despite
           `true`, fall back to resending the original request body with the token.
 
-        - `recommended_model: string`
+        - `recommended_model: string or null`
 
           The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
@@ -3964,7 +4612,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `"refusal"`
 
-      - `stop_reason: BetaStopReason`
+      - `stop_reason: BetaStopReason or null`
 
         The reason that we stopped.
 
@@ -3996,7 +4644,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         - `"model_context_window_exceeded"`
 
-      - `stop_sequence: string`
+      - `stop_sequence: string or null`
 
         Which custom stop sequence was generated, if any.
 
@@ -4022,7 +4670,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-        - `cache_creation: BetaCacheCreation`
+        - `cache_creation: BetaCacheCreation or null`
 
           Breakdown of cached tokens by TTL
 
@@ -4034,15 +4682,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             The number of input tokens used to create the 5 minute cache entry.
 
-        - `cache_creation_input_tokens: number`
+        - `cache_creation_input_tokens: number or null`
 
           The number of input tokens used to create the cache entry.
 
-        - `cache_read_input_tokens: number`
+        - `cache_read_input_tokens: number or null`
 
           The number of input tokens read from the cache.
 
-        - `fallback_credit: BetaFallbackCreditUsage`
+        - `fallback_credit: BetaFallbackCreditUsage or null`
 
           Outcome of the `fallback_credit_token` presented on this request.
 
@@ -4103,7 +4751,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"not_applied"`
 
-              - `remove_to_redeem: optional array of string`
+              - `remove_to_redeem: optional array of string or null`
 
                 Request fields to remove before retrying, so the retry can redeem this
                 token.
@@ -4114,7 +4762,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
                 been billed at normal price; nothing redeems retroactively, but a corrected
                 re-send inside the token's five-minute window can still redeem.
 
-        - `inference_geo: string`
+        - `inference_geo: string or null`
 
           The geographic region where inference was performed for this request.
 
@@ -4122,7 +4770,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           The number of input tokens which were used.
 
-        - `iterations: BetaIterationsUsage`
+        - `iterations: BetaIterationsUsage or null`
 
           Per-iteration token usage breakdown.
 
@@ -4136,7 +4784,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             Token usage for a sampling iteration.
 
-            - `cache_creation: BetaCacheCreation`
+            - `cache_creation: BetaCacheCreation or null`
 
               Breakdown of cached tokens by TTL
 
@@ -4172,7 +4820,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             Token usage for a compaction iteration.
 
-            - `cache_creation: BetaCacheCreation`
+            - `cache_creation: BetaCacheCreation or null`
 
               Breakdown of cached tokens by TTL
 
@@ -4202,7 +4850,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             Token usage for an advisor sub-inference iteration.
 
-            - `cache_creation: BetaCacheCreation`
+            - `cache_creation: BetaCacheCreation or null`
 
               Breakdown of cached tokens by TTL
 
@@ -4243,7 +4891,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
             a fallback model served the response is signalled by the presence of this
             entry in `usage.iterations`.
 
-            - `cache_creation: BetaCacheCreation`
+            - `cache_creation: BetaCacheCreation or null`
 
               Breakdown of cached tokens by TTL
 
@@ -4279,7 +4927,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           The number of output tokens which were used.
 
-        - `output_tokens_details: BetaOutputTokensDetails`
+        - `output_tokens_details: BetaOutputTokensDetails or null`
 
           Breakdown of output tokens by category.
 
@@ -4299,7 +4947,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
             generation count by a small number of tokens. Always ≤ `output_tokens`;
             `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
-        - `server_tool_use: BetaServerToolUsage`
+        - `server_tool_use: BetaServerToolUsage or null`
 
           The number of server tool requests.
 
@@ -4311,7 +4959,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             The number of web search tool requests.
 
-        - `service_tier: "standard" or "priority" or "batch"`
+        - `service_tier: "standard" or "priority" or "batch" or null`
 
           If the request used the priority, standard, or batch tier.
 
@@ -4321,7 +4969,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `"batch"`
 
-        - `speed: "standard" or "fast"`
+        - `speed: "standard" or "fast" or null`
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
@@ -4411,7 +5059,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `"overloaded_error"`
 
-      - `request_id: string`
+      - `request_id: string or null`
 
       - `type: "error"`
 
@@ -4445,7 +5093,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
       The format and length of IDs may change over time.
 
-    - `container: BetaContainer`
+    - `container: BetaContainer or null`
 
       Information about the container used in the request (for the code execution tool)
 
@@ -4457,7 +5105,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         The time at which the container will expire.
 
-      - `skills: array of BetaSkill`
+      - `skills: array of BetaSkill or null`
 
         Skills loaded in the container
 
@@ -4508,7 +5156,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
       - `BetaTextBlock object { citations, text, type }`
 
-        - `citations: array of BetaTextCitation`
+        - `citations: array of BetaTextCitation or null`
 
           Citations supporting the text block.
 
@@ -4520,11 +5168,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `document_index: number`
 
-            - `document_title: string`
+            - `document_title: string or null`
 
             - `end_char_index: number`
 
-            - `file_id: string`
+            - `file_id: string or null`
 
             - `start_char_index: number`
 
@@ -4538,11 +5186,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `document_index: number`
 
-            - `document_title: string`
+            - `document_title: string or null`
 
             - `end_page_number: number`
 
-            - `file_id: string`
+            - `file_id: string or null`
 
             - `start_page_number: number`
 
@@ -4560,7 +5208,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `document_index: number`
 
-            - `document_title: string`
+            - `document_title: string or null`
 
             - `end_block_index: number`
 
@@ -4568,7 +5216,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
 
-            - `file_id: string`
+            - `file_id: string or null`
 
             - `start_block_index: number`
 
@@ -4584,7 +5232,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `encrypted_index: string`
 
-            - `title: string`
+            - `title: string or null`
 
             - `type: "web_search_result_location"`
 
@@ -4618,7 +5266,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               0-based index of the first cited block in the source's `content` array.
 
-            - `title: string`
+            - `title: string or null`
 
             - `type: "search_result_location"`
 
@@ -4634,7 +5282,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         - `signature: string`
 
+          A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+          This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+          See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
         - `thinking: string`
+
+          The text of Claude's thinking process for this block.
 
         - `type: "thinking"`
 
@@ -4643,6 +5299,12 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
       - `BetaRedactedThinkingBlock object { data, type }`
 
         - `data: string`
+
+          The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+          Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+          See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
         - `type: "redacted_thinking"`
 
@@ -4760,7 +5422,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `encrypted_content: string`
 
-            - `page_age: string`
+            - `page_age: string or null`
 
             - `title: string`
 
@@ -4824,7 +5486,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `content: BetaDocumentBlock`
 
-              - `citations: BetaCitationConfig`
+              - `citations: BetaCitationConfig or null`
 
                 Citation configuration for the document
 
@@ -4856,7 +5518,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                     - `"text"`
 
-              - `title: string`
+              - `title: string or null`
 
                 The title of the document
 
@@ -4864,7 +5526,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"document"`
 
-            - `retrieved_at: string`
+            - `retrieved_at: string or null`
 
               ISO 8601 timestamp when the content was retrieved
 
@@ -4924,7 +5586,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `BetaAdvisorResultBlock object { stop_reason, text, type }`
 
-            - `stop_reason: string`
+            - `stop_reason: string or null`
 
               The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
 
@@ -4940,7 +5602,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
 
-            - `stop_reason: string`
+            - `stop_reason: string or null`
 
               The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
@@ -5088,7 +5750,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"file_not_found"`
 
-            - `error_message: string`
+            - `error_message: string or null`
 
             - `type: "text_editor_code_execution_tool_result_error"`
 
@@ -5106,11 +5768,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"pdf"`
 
-            - `num_lines: number`
+            - `num_lines: number or null`
 
-            - `start_line: number`
+            - `start_line: number or null`
 
-            - `total_lines: number`
+            - `total_lines: number or null`
 
             - `type: "text_editor_code_execution_view_result"`
 
@@ -5126,15 +5788,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `BetaTextEditorCodeExecutionStrReplaceResultBlock object { lines, new_lines, new_start, 3 more }`
 
-            - `lines: array of string`
+            - `lines: array of string or null`
 
-            - `new_lines: number`
+            - `new_lines: number or null`
 
-            - `new_start: number`
+            - `new_start: number or null`
 
-            - `old_lines: number`
+            - `old_lines: number or null`
 
-            - `old_start: number`
+            - `old_start: number or null`
 
             - `type: "text_editor_code_execution_str_replace_result"`
 
@@ -5162,7 +5824,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"execution_time_exceeded"`
 
-            - `error_message: string`
+            - `error_message: string or null`
 
             - `type: "tool_search_tool_result_error"`
 
@@ -5214,7 +5876,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `BetaMCPToolResultBlockContent = array of BetaTextBlock`
 
-            - `citations: array of BetaTextCitation`
+            - `citations: array of BetaTextCitation or null`
 
               Citations supporting the text block.
 
@@ -5250,11 +5912,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
         summary (e.g., malformed output from the model). Clients may round-trip
         compaction blocks with null content; the server treats them as no-ops.
 
-        - `content: string`
+        - `content: string or null`
 
           Summary of compacted content, or null if compaction failed
 
-        - `encrypted_content: string`
+        - `encrypted_content: string or null`
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
@@ -5286,7 +5948,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more`
+            - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more`
 
               The model that will complete your prompt.
 
@@ -5352,14 +6014,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 High-performance model for agents and coding
 
-              - `"claude-opus-4-1"`
-
-                Powerful intelligence for long-running agents and coding
-
-              - `"claude-opus-4-1-20250805"`
-
-                Powerful intelligence for long-running agents and coding
-
             - `string`
 
         - `to: BetaFallbackInfo`
@@ -5370,7 +6024,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           What caused the `from` model to hand over at this hop.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
             The policy category that triggered a refusal.
 
@@ -5402,7 +6056,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `"fallback"`
 
-    - `context_management: BetaContextManagementResponse`
+    - `context_management: BetaContextManagementResponse or null`
 
       Context management response.
 
@@ -5444,12 +6098,12 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `"clear_thinking_20251015"`
 
-    - `diagnostics: BetaDiagnostics`
+    - `diagnostics: BetaDiagnostics or null`
 
       Response envelope for request-level diagnostics. Present (possibly
       null) whenever the caller supplied `diagnostics` on the request.
 
-      - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more`
+      - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more or null`
 
         Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
 
@@ -5519,11 +6173,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
       - `"assistant"`
 
-    - `stop_details: BetaRefusalStopDetails`
+    - `stop_details: BetaRefusalStopDetails or null`
 
       Structured information about a refusal.
 
-      - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+      - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
         The policy category that triggered a refusal.
 
@@ -5547,13 +6201,13 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-      - `explanation: string`
+      - `explanation: string or null`
 
         Human-readable explanation of the refusal.
 
         This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
-      - `fallback_credit_token: string`
+      - `fallback_credit_token: string or null`
 
         Opaque code that refunds the cache-miss cost when retrying this refused
         request on the fallback model. Pass it as `fallback_credit_token` on the
@@ -5574,7 +6228,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         `null` when the refused model isn't eligible for a fallback credit.
 
-      - `fallback_has_prefill_claim: boolean`
+      - `fallback_has_prefill_claim: boolean or null`
 
         Whether the accompanying `fallback_credit_token` may be redeemed with the
         appended-assistant retry form. Only set when `fallback_credit_token` is
@@ -5598,7 +6252,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
         Advisory: if an appended-assistant retry is rejected with a 400 despite
         `true`, fall back to resending the original request body with the token.
 
-      - `recommended_model: string`
+      - `recommended_model: string or null`
 
         The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
@@ -5606,7 +6260,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         - `"refusal"`
 
-    - `stop_reason: BetaStopReason`
+    - `stop_reason: BetaStopReason or null`
 
       The reason that we stopped.
 
@@ -5638,7 +6292,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
       - `"model_context_window_exceeded"`
 
-    - `stop_sequence: string`
+    - `stop_sequence: string or null`
 
       Which custom stop sequence was generated, if any.
 
@@ -5664,7 +6318,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-      - `cache_creation: BetaCacheCreation`
+      - `cache_creation: BetaCacheCreation or null`
 
         Breakdown of cached tokens by TTL
 
@@ -5676,15 +6330,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           The number of input tokens used to create the 5 minute cache entry.
 
-      - `cache_creation_input_tokens: number`
+      - `cache_creation_input_tokens: number or null`
 
         The number of input tokens used to create the cache entry.
 
-      - `cache_read_input_tokens: number`
+      - `cache_read_input_tokens: number or null`
 
         The number of input tokens read from the cache.
 
-      - `fallback_credit: BetaFallbackCreditUsage`
+      - `fallback_credit: BetaFallbackCreditUsage or null`
 
         Outcome of the `fallback_credit_token` presented on this request.
 
@@ -5745,7 +6399,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"not_applied"`
 
-            - `remove_to_redeem: optional array of string`
+            - `remove_to_redeem: optional array of string or null`
 
               Request fields to remove before retrying, so the retry can redeem this
               token.
@@ -5756,7 +6410,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
               been billed at normal price; nothing redeems retroactively, but a corrected
               re-send inside the token's five-minute window can still redeem.
 
-      - `inference_geo: string`
+      - `inference_geo: string or null`
 
         The geographic region where inference was performed for this request.
 
@@ -5764,7 +6418,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         The number of input tokens which were used.
 
-      - `iterations: BetaIterationsUsage`
+      - `iterations: BetaIterationsUsage or null`
 
         Per-iteration token usage breakdown.
 
@@ -5778,7 +6432,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           Token usage for a sampling iteration.
 
-          - `cache_creation: BetaCacheCreation`
+          - `cache_creation: BetaCacheCreation or null`
 
             Breakdown of cached tokens by TTL
 
@@ -5814,7 +6468,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           Token usage for a compaction iteration.
 
-          - `cache_creation: BetaCacheCreation`
+          - `cache_creation: BetaCacheCreation or null`
 
             Breakdown of cached tokens by TTL
 
@@ -5844,7 +6498,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           Token usage for an advisor sub-inference iteration.
 
-          - `cache_creation: BetaCacheCreation`
+          - `cache_creation: BetaCacheCreation or null`
 
             Breakdown of cached tokens by TTL
 
@@ -5885,7 +6539,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           a fallback model served the response is signalled by the presence of this
           entry in `usage.iterations`.
 
-          - `cache_creation: BetaCacheCreation`
+          - `cache_creation: BetaCacheCreation or null`
 
             Breakdown of cached tokens by TTL
 
@@ -5921,7 +6575,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         The number of output tokens which were used.
 
-      - `output_tokens_details: BetaOutputTokensDetails`
+      - `output_tokens_details: BetaOutputTokensDetails or null`
 
         Breakdown of output tokens by category.
 
@@ -5941,7 +6595,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           generation count by a small number of tokens. Always ≤ `output_tokens`;
           `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
-      - `server_tool_use: BetaServerToolUsage`
+      - `server_tool_use: BetaServerToolUsage or null`
 
         The number of server tool requests.
 
@@ -5953,7 +6607,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           The number of web search tool requests.
 
-      - `service_tier: "standard" or "priority" or "batch"`
+      - `service_tier: "standard" or "priority" or "batch" or null`
 
         If the request used the priority, standard, or batch tier.
 
@@ -5963,7 +6617,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         - `"batch"`
 
-      - `speed: "standard" or "fast"`
+      - `speed: "standard" or "fast" or null`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 

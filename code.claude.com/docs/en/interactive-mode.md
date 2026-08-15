@@ -9,13 +9,7 @@
 <Note>
   Keyboard shortcuts may vary by platform and terminal. In [fullscreen rendering](/docs/en/fullscreen), press `?` in the transcript viewer to see available shortcuts there.
 
-  **macOS users**: Option/Alt key shortcuts (`Alt+B`, `Alt+F`, `Alt+Y`, `Alt+P`) require configuring Option as Meta in your terminal:
-
-  * **iTerm2**: Settings → Profiles → Keys → General → set Left/Right Option key to "Esc+"
-  * **Apple Terminal**: Settings → Profiles → Keyboard → check "Use Option as Meta Key"
-  * **VS Code**: set `"terminal.integrated.macOptionIsMeta": true` in VS Code settings
-
-  See [Terminal configuration](/docs/en/terminal-config) for details.
+  **macOS users**: Option/Alt key shortcuts (`Alt+B`, `Alt+F`, `Alt+Y`, `Alt+P`) require configuring Option as Meta in your terminal. See [Enable Option key shortcuts on macOS](/docs/en/terminal-config#enable-option-key-shortcuts-on-macos) for the setting in each terminal.
 </Note>
 
 ### General controls
@@ -35,10 +29,10 @@
 | `Ctrl+S`                                                                                     | Stash or restore prompt                                                                                                                                    | With text in the input, stashes it and clears the prompt. Pressed again on an empty prompt, restores the stashed text, cursor position, and pasted content                                                                                                                                                                                                                                                                               |
 | `Ctrl+Z`                                                                                     | Suspend Claude Code                                                                                                                                        | Unix only. Suspends the process to your shell; run `fg` to resume                                                                                                                                                                                                                                                                                                                                                                        |
 | `Left/Right arrows`                                                                          | Cycle through dialog tabs                                                                                                                                  | Navigate between tabs in permission dialogs and menus                                                                                                                                                                                                                                                                                                                                                                                    |
-| `Up/Down arrows` or `Ctrl+P`/`Ctrl+N`                                                        | Move cursor or navigate command history                                                                                                                    | When the input spans more than one visual row, whether wrapped or multiline, first moves the cursor within the prompt. Once the cursor is on the first or last visual row, pressing again navigates command history. As of v2.1.169, wrapped single-line input behaves the same as multiline                                                                                                                                             |
-| `Esc`                                                                                        | Interrupt Claude, or close a dialog                                                                                                                        | Stop the current response or tool call mid-turn so you can redirect. Claude keeps the work done so far. When a dialog such as a permission prompt is open, `Esc` closes the dialog rather than interrupting Claude. Before v2.1.202, `Esc` on some dialogs interrupted Claude and left the dialog open                                                                                                                                   |
-| `Esc` + `Esc`                                                                                | Clear input draft, or rewind                                                                                                                               | When the prompt input contains text, double `Esc` clears it and saves the draft to history so `Up` recalls it. When the input is empty, double `Esc` opens the [rewind menu](/docs/en/checkpointing) to restore or summarize code and conversation from a previous point. Before v2.1.216, double `Esc` at an empty prompt could stop opening the menu for the rest of a long-running session that used background tasks                      |
-| `Shift+Tab`, or `Alt+M` on Windows when the Node or Bun runtime doesn't enable VT input mode | Cycle permission modes                                                                                                                                     | Cycle through `default` (labeled Manual in the mode indicator), `acceptEdits`, `plan`, and any modes you have enabled, such as `auto` or `bypassPermissions`. See [permission modes](/docs/en/permission-modes).                                                                                                                                                                                                                              |
+| `Up/Down arrows` or `Ctrl+P`/`Ctrl+N`                                                        | Move cursor or navigate command history                                                                                                                    | When the input spans more than one visual row, whether wrapped or multiline, first moves the cursor within the prompt. Once the cursor is on the first or last visual row, pressing again navigates command history                                                                                                                                                                                                                      |
+| `Esc`                                                                                        | Interrupt Claude, or close a dialog                                                                                                                        | Stop the current response or tool call mid-turn so you can redirect. Claude keeps the work done so far. When a dialog such as a permission prompt is open, `Esc` closes the dialog rather than interrupting Claude                                                                                                                                                                                                                       |
+| `Esc` + `Esc`                                                                                | Clear input draft, or rewind                                                                                                                               | When the prompt input contains text, double `Esc` clears it and saves the draft to history so `Up` recalls it. When the input is empty, double `Esc` opens the [rewind menu](/docs/en/checkpointing) to restore or summarize code and conversation from a previous point                                                                                                                                                                      |
+| `Shift+Tab`, or `Alt+M` on Windows when the Node or Bun runtime doesn't enable VT input mode | Cycle permission modes                                                                                                                                     | Cycle through `default` (labeled Manual in the mode indicator), `acceptEdits`, `plan`, and, when available, `bypassPermissions` and then `auto`. From `auto`, the first press switches to `default`. See [permission modes](/docs/en/permission-modes).                                                                                                                                                                                       |
 | `Option+P` (macOS) or `Alt+P` (Windows/Linux)                                                | Switch model                                                                                                                                               | Switch models without clearing your prompt                                                                                                                                                                                                                                                                                                                                                                                               |
 | `Option+T` (macOS) or `Alt+T` (Windows/Linux)                                                | Toggle extended thinking                                                                                                                                   | Enable or disable extended thinking mode. Has no effect on Fable 5, which always uses extended thinking. Works on macOS without configuring Option as Meta                                                                                                                                                                                                                                                                               |
 | `Option+O` (macOS) or `Alt+O` (Windows/Linux)                                                | Toggle fast mode                                                                                                                                           | Enable or disable [fast mode](/docs/en/fast-mode)                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -66,31 +60,27 @@
 
 ### Multiline input
 
-| Method           | Shortcut       | Context                                                                                            |
-| :--------------- | :------------- | :------------------------------------------------------------------------------------------------- |
-| Quick escape     | `\` + `Enter`  | Works in all terminals                                                                             |
-| Option key       | `Option+Enter` | After enabling [Option as Meta](/docs/en/terminal-config#enable-option-key-shortcuts-on-macos) on macOS |
-| Shift+Enter      | `Shift+Enter`  | Native in iTerm2, WezTerm, Ghostty, Kitty, Warp, Apple Terminal, Windows Terminal                  |
-| Control sequence | `Ctrl+J`       | Works in any terminal without configuration                                                        |
-| Paste mode       | Paste directly | For code blocks, logs                                                                              |
-
-<Tip>
-  Shift+Enter works without configuration in iTerm2, WezTerm, Ghostty, Kitty, Warp, Apple Terminal, and Windows Terminal. For VS Code, Cursor, Devin Desktop, Alacritty, and Zed, run `/terminal-setup` to install the binding.
-</Tip>
+| Method           | Shortcut       | Context                                                                                                                                                                            |
+| :--------------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Quick escape     | `\` + `Enter`  | Works in all terminals                                                                                                                                                             |
+| Option key       | `Option+Enter` | After enabling [Option as Meta](/docs/en/terminal-config#enable-option-key-shortcuts-on-macos) on macOS                                                                                 |
+| Shift+Enter      | `Shift+Enter`  | Native in iTerm2, WezTerm, Ghostty, Kitty, Warp, Apple Terminal, Windows Terminal. For other terminals, see [Enter multiline prompts](/docs/en/terminal-config#enter-multiline-prompts) |
+| Control sequence | `Ctrl+J`       | Works in any terminal without configuration                                                                                                                                        |
+| Paste mode       | Paste directly | For code blocks, logs                                                                                                                                                              |
 
 ### Quick commands
 
-| Shortcut           | Description                    | Notes                                                                                                                                                                                                           |
-| :----------------- | :----------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/` at start       | Command or skill               | See [commands](#commands) and [skills](/docs/en/skills)                                                                                                                                                              |
-| `!` at start       | Shell mode                     | Run a command directly, add its output to the session, and have Claude respond to it                                                                                                                            |
-| `@`                | File path mention              | Trigger file path autocomplete                                                                                                                                                                                  |
-| `:`                | Emoji shortcode                | Type a full `:name:` to insert the emoji, or two or more characters for suggestions. See [Emoji shortcodes](#emoji-shortcodes). Requires Claude Code v2.1.217 or later                                          |
-| `?` on empty input | Toggle the shortcut help panel | Typing `?` when the input already contains text inserts the character. Before v2.1.211, an edit that left a lone `?` in the input, such as backspacing from `?x`, also toggled the panel and discarded the edit |
+| Shortcut           | Description                    | Notes                                                                                                                                                                                                                                                                                                                                            |
+| :----------------- | :----------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/` at start       | Command or skill               | See [commands](#commands) and [skills](/docs/en/skills)                                                                                                                                                                                                                                                                                               |
+| `!` at start       | Shell mode                     | Run a command directly, add its output to the session, and have Claude respond to it                                                                                                                                                                                                                                                             |
+| `@`                | File path mention              | Trigger file path autocomplete. In sessions with [cross-session messaging](/docs/en/cross-session-messaging#message-another-session), when you type at least one letter after the `@`, Claude Code also suggests your other live sessions on this machine, so you can tell Claude to message the one you pick. Requires Claude Code v2.1.232 or later |
+| `:`                | Emoji shortcode                | Type a full `:name:` to insert the emoji, or two or more characters for suggestions. See [Emoji shortcodes](#emoji-shortcodes). Requires Claude Code v2.1.217 or later                                                                                                                                                                           |
+| `?` on empty input | Toggle the shortcut help panel | Typing `?` when the input already contains text inserts the character                                                                                                                                                                                                                                                                            |
 
 ### Transcript viewer
 
-When the transcript viewer is open (toggled with `Ctrl+O`), these shortcuts are available. Run `/tui` with no argument to check which renderer is active. In [fullscreen rendering](/docs/en/fullscreen), press `?` to show the full shortcut reference panel inside the viewer. `Ctrl+E` can be rebound via [`transcript:toggleShowAll`](/docs/en/keybindings).
+When the transcript viewer is open (toggled with `Ctrl+O`), these shortcuts are available. Run `/tui` with no argument to check which renderer is active. `Ctrl+E` can be rebound via [`transcript:toggleShowAll`](/docs/en/keybindings).
 
 | Shortcut             | Description                                                                                                                                                                                                           |
 | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -154,25 +144,25 @@ Claude Code reads this setting from your user settings file, the `--settings` fl
 
 ### Navigation (NORMAL mode)
 
-| Command         | Action                                                                                                                                                              |
-| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `h`/`j`/`k`/`l` | Move left/down/up/right                                                                                                                                             |
-| `Space`         | Move right                                                                                                                                                          |
-| `w`             | Next word                                                                                                                                                           |
-| `e`             | End of word                                                                                                                                                         |
-| `b`             | Previous word                                                                                                                                                       |
-| `0`             | Beginning of line                                                                                                                                                   |
-| `$`             | End of line                                                                                                                                                         |
-| `^`             | First non-blank character                                                                                                                                           |
-| `gg`            | Beginning of input                                                                                                                                                  |
-| `G`             | End of input                                                                                                                                                        |
-| `f{char}`       | Jump to next occurrence of character                                                                                                                                |
-| `F{char}`       | Jump to previous occurrence of character                                                                                                                            |
-| `t{char}`       | Jump to just before next occurrence of character                                                                                                                    |
-| `T{char}`       | Jump to just after previous occurrence of character                                                                                                                 |
-| `;`             | Repeat last f/F/t/T motion                                                                                                                                          |
-| `,`             | Repeat last f/F/t/T motion in reverse                                                                                                                               |
-| `/`             | Open reverse history search, same as `Ctrl+R`. As of v2.1.191, the empty search prompt shows a hint: press `Esc` then `i` then `/` to open the command menu instead |
+| Command         | Action                                                                                                                                              |
+| :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `h`/`j`/`k`/`l` | Move left/down/up/right                                                                                                                             |
+| `Space`         | Move right                                                                                                                                          |
+| `w`             | Next word                                                                                                                                           |
+| `e`             | End of word                                                                                                                                         |
+| `b`             | Previous word                                                                                                                                       |
+| `0`             | Beginning of line                                                                                                                                   |
+| `$`             | End of line                                                                                                                                         |
+| `^`             | First non-blank character                                                                                                                           |
+| `gg`            | Beginning of input                                                                                                                                  |
+| `G`             | End of input                                                                                                                                        |
+| `f{char}`       | Jump to next occurrence of character                                                                                                                |
+| `F{char}`       | Jump to previous occurrence of character                                                                                                            |
+| `t{char}`       | Jump to just before next occurrence of character                                                                                                    |
+| `T{char}`       | Jump to just after previous occurrence of character                                                                                                 |
+| `;`             | Repeat last f/F/t/T motion                                                                                                                          |
+| `,`             | Repeat last f/F/t/T motion in reverse                                                                                                               |
+| `/`             | Open reverse history search, same as `Ctrl+R`. The empty search prompt shows a hint: press `Esc` then `i` then `/` to open the command menu instead |
 
 <Note>
   In vim NORMAL mode, if the cursor is at the beginning or end of input and can't move further, `j`/`k` and `↑`/`↓` navigate command history instead. `←` on an empty prompt opens [agent view](/docs/en/agent-view) from NORMAL mode as well as INSERT; before v2.1.219, `←` on an empty prompt did nothing in NORMAL mode.
@@ -180,26 +170,26 @@ Claude Code reads this setting from your user settings file, the `--settings` fl
 
 ### Editing (NORMAL mode)
 
-| Command        | Action                                                                                                                                                                                                              |
-| :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `x`            | Delete character                                                                                                                                                                                                    |
-| `dd`           | Delete line                                                                                                                                                                                                         |
-| `D`            | Delete to end of line                                                                                                                                                                                               |
-| `dw`/`de`/`db` | Delete word/to end/back                                                                                                                                                                                             |
-| `cc`           | Change line                                                                                                                                                                                                         |
-| `C`            | Change to end of line                                                                                                                                                                                               |
-| `cw`/`ce`/`cb` | Change word/to end/back                                                                                                                                                                                             |
-| `s`            | Substitute character: delete the character under the cursor and enter INSERT mode. Requires Claude Code v2.1.211 or later                                                                                           |
-| `S`            | Substitute line: clear the line and enter INSERT mode. Requires Claude Code v2.1.211 or later                                                                                                                       |
-| `yy`/`Y`       | Yank (copy) line                                                                                                                                                                                                    |
-| `yw`/`ye`/`yb` | Yank word/to end/back                                                                                                                                                                                               |
-| `p`            | Paste after cursor                                                                                                                                                                                                  |
-| `P`            | Paste before cursor                                                                                                                                                                                                 |
-| `>>`           | Indent line                                                                                                                                                                                                         |
-| `<<`           | Dedent line                                                                                                                                                                                                         |
-| `J`            | Join lines                                                                                                                                                                                                          |
-| `u`            | Undo                                                                                                                                                                                                                |
-| `.`            | Repeat last change. Before v2.1.216, repeating a change operator such as `cw` or `cc` replayed only the inserted text without the deletion, and `.` after `p`/`P` repeated the previous change instead of the paste |
+| Command        | Action                                                                                                                    |
+| :------------- | :------------------------------------------------------------------------------------------------------------------------ |
+| `x`            | Delete character                                                                                                          |
+| `dd`           | Delete line                                                                                                               |
+| `D`            | Delete to end of line                                                                                                     |
+| `dw`/`de`/`db` | Delete word/to end/back                                                                                                   |
+| `cc`           | Change line                                                                                                               |
+| `C`            | Change to end of line                                                                                                     |
+| `cw`/`ce`/`cb` | Change word/to end/back                                                                                                   |
+| `s`            | Substitute character: delete the character under the cursor and enter INSERT mode. Requires Claude Code v2.1.211 or later |
+| `S`            | Substitute line: clear the line and enter INSERT mode. Requires Claude Code v2.1.211 or later                             |
+| `yy`/`Y`       | Yank (copy) line                                                                                                          |
+| `yw`/`ye`/`yb` | Yank word/to end/back                                                                                                     |
+| `p`            | Paste after cursor                                                                                                        |
+| `P`            | Paste before cursor                                                                                                       |
+| `>>`           | Indent line                                                                                                               |
+| `<<`           | Dedent line                                                                                                               |
+| `J`            | Join lines                                                                                                                |
+| `u`            | Undo                                                                                                                      |
+| `.`            | Repeat last change                                                                                                        |
 
 ### Text objects (NORMAL mode)
 
@@ -242,7 +232,6 @@ Claude Code keeps a history of the prompts you type, and Up-arrow recall reaches
 * Input history is stored per working directory
 * Running `/clear` starts a new session: recall then lists the new session's prompts first, with earlier sessions' prompts after them. The previous session's conversation is preserved and can be resumed.
 * Submitting the same prompt twice in a row records one history entry, so pressing Up steps to the previous distinct prompt
-* Use Up/Down arrows to navigate (see keyboard shortcuts above)
 * When you recall a prompt that included pasted text, Claude Code sends the full pasted content again when you resubmit. If the content has since been [cleaned up](/docs/en/claude-directory#cleaned-up-automatically), Claude Code doesn't send the literal `[Pasted text #N]` string; see [Paste large content](/docs/en/terminal-config#paste-large-content) for what happens to the prompt
 * History expansion with `!` is disabled by default
 
@@ -261,9 +250,9 @@ Press `Ctrl+R` to interactively search through your command history. In [fullscr
    * Press `Ctrl+C` to cancel and restore your original input
    * Press `Backspace` on empty search to cancel
 
-The inline search scans your full prompt history, newest first, with duplicates collapsed to the newest occurrence. The fullscreen dialog lists the 100 most recent unique prompts in the selected scope. Matching prompts display with the search term highlighted, so you can find and reuse previous inputs.
+The inline search scans your full prompt history, newest first, with duplicates collapsed to the newest occurrence. The fullscreen dialog searches your whole prompt history in the selected scope, newest first, with duplicates collapsed to the newest occurrence: the most recent prompts appear immediately, and matches from older prompts fill in as Claude Code loads the rest. Matching prompts display with the search term highlighted, so you can find and reuse previous inputs.
 
-Accepting a match or canceling the search takes effect immediately, even while Claude Code is still loading the history. Before v2.1.202, accepting or canceling during that load could report an internal error.
+Accepting a match or canceling the search takes effect immediately, even while Claude Code is still loading the history.
 
 ## Background Bash commands
 
@@ -284,7 +273,7 @@ To run commands in the background, you can either:
 * Background tasks have unique IDs for tracking and output retrieval
 * Background tasks are automatically cleaned up when Claude Code exits. If you background the session instead of exiting it, Claude Code hands them to the background session, where they keep running. See [background a running session](/docs/en/agent-view#from-inside-a-session)
 * Background tasks are automatically terminated if output exceeds 5GB, with a note in stderr explaining why
-* On macOS and Linux, Claude Code terminates running background tasks when the operating system signals memory pressure, provided the session has been idle for at least 30 minutes and no turn or subagent is running. Set [`CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP`](/docs/en/env-vars) to `1` to turn this off. Requires Claude Code v2.1.193 or later. Background commands owned by a [subagent](/docs/en/sub-agents) are instead terminated after 60 minutes, configurable in milliseconds with [`CLAUDE_SUBAGENT_BG_SHELL_MAX_MS`](/docs/en/env-vars). Before v2.1.218, neither limit covered commands moved to the background with `Ctrl+B`
+* On macOS and Linux, Claude Code terminates running background tasks when the operating system signals memory pressure, provided the session has been idle for at least 30 minutes and no turn or subagent is running. Set [`CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP`](/docs/en/env-vars) to `1` to turn this off. Requires Claude Code v2.1.193 or later. Background commands owned by a [subagent](/docs/en/sub-agents) are instead terminated after 60 minutes, configurable in milliseconds with [`CLAUDE_SUBAGENT_BG_SHELL_MAX_MS`](/docs/en/env-vars). A command owned by a subagent running in the foreground also ends when that subagent gives its final response; see [Background commands](/docs/en/tools-reference#background-commands) in the tools reference. Before v2.1.218, neither the memory-pressure reap nor the 60-minute limit covered commands moved to the background with `Ctrl+B`
 
 To disable all background task functionality, set the `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` environment variable to `1`. See [Environment variables](/docs/en/env-vars) for details.
 
@@ -317,24 +306,40 @@ Shell mode:
 * Exit with `Escape`, `Backspace`, or `Ctrl+U` on an empty prompt
 * Pasting text that starts with `!` into an empty prompt enters shell mode automatically, matching typed `!` behavior
 
-As of v2.1.186, Claude responds to the command output automatically once it lands in the transcript, so you can run `! npm test` and get an explanation of the failures without a second prompt. The response costs the same as sending a normal prompt. To restore the earlier behavior where the output is added to context without a response, set [`respondToBashCommands`](/docs/en/settings#available-settings) to `false` in `settings.json`. Before v2.1.186, shell mode always added output to context without a response.
-
-This is useful for quick shell operations while maintaining conversation context.
+Claude responds to the command output automatically once it lands in the transcript, so you can run `! npm test` and get an explanation of the failures without a second prompt. The response costs the same as sending a normal prompt. To restore the earlier behavior where the output is added to context without a response, set [`respondToBashCommands`](/docs/en/settings#available-settings) to `false` in `settings.json`. Before v2.1.186, shell mode always added output to context without a response.
 
 ## Prompt suggestions
 
-When you first open a session, a grayed-out example command appears in the prompt input to help you get started. Claude Code picks this from your project's git history, so it reflects files you've been working on recently.
+When you first open a session, Claude Code shows a grayed-out example command in the prompt input to help you get started. It picks this from your project's git history, so the example reflects files you've been working on recently.
 
-After Claude responds, suggestions continue to appear based on your conversation history, such as a follow-up step from a multi-part request or a natural continuation of your workflow.
+After Claude responds, Claude Code can suggest your next prompt based on your conversation history, such as a follow-up step from a multi-part request or a natural continuation of your workflow.
 
 * Press `Tab` or `Right arrow` to place the suggestion in the prompt input, then `Enter` to submit
 * Start typing to dismiss it
 
-The suggestion runs as a background request that reuses the parent conversation's prompt cache, so the additional cost is minimal. Claude Code skips suggestion generation when the cache is cold to avoid unnecessary cost.
+Claude Code generates each of these next-prompt suggestions with a background request that reuses the conversation's prompt cache, so the additional cost is minimal.
 
-Suggestions are automatically skipped after the first turn of a conversation and in plan mode.
+### When Claude Code skips suggestions
 
-In print mode they are off by default. Pass [`--prompt-suggestions`](/docs/en/cli-reference#cli-flags) with `-p "<prompt>" --output-format stream-json --verbose` to emit a `prompt_suggestion` message after each turn instead.
+In interactive mode, Claude Code leaves prompt suggestions off by default and hides the **Prompt suggestions** toggle in `/config` when it doesn't evaluate feature flags. That happens in these cases:
+
+* You use Amazon Bedrock, Claude Platform on AWS, Google Cloud's Agent Platform, or Microsoft Foundry as the model provider, unless a host platform that embeds Claude Code sets [`CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST`](/docs/en/env-vars) to a true value such as `1`
+* You are signed in to a [Claude apps gateway](/docs/en/claude-apps-gateway)
+* You set [`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`, `DISABLE_TELEMETRY`, `DO_NOT_TRACK`, or `DISABLE_GROWTHBOOK`](/docs/en/env-vars#features-that-need-feature-flag-fetching) to a value that turns off feature-flag evaluation
+
+Outside those cases, if you start a session before Claude Code has ever fetched feature flags, such as your first session after installing on a slow network, Claude Code can also leave suggestions off and hide the **Prompt suggestions** toggle for that session. It shows them starting with the next session after a fetch succeeds.
+
+Claude Code also skips individual suggestions in several situations, including:
+
+* The prompt cache is cold, to avoid unnecessary cost
+* After the first turn of a conversation, in some sessions
+* The previous response ended in an error
+* While you're in plan mode
+* In an [agent team](/docs/en/agent-teams), in teammates' sessions by default. The lead's session shows suggestions
+
+In print mode, Claude Code doesn't generate suggestions by default. Pass [`--prompt-suggestions`](/docs/en/cli-reference#cli-flags) with `-p "<prompt>" --output-format stream-json --verbose` to have Claude Code emit a `prompt_suggestion` message after each turn that generates one. The generator skips very short conversations and cold prompt caches here too, so a single short `-p` query can emit none.
+
+### Turn prompt suggestions off
 
 To disable prompt suggestions entirely, use any of the following:
 
@@ -360,20 +365,22 @@ To turn the feature off, set [`emojiCompletionEnabled`](/docs/en/settings#availa
 
 ## Side questions with /btw
 
-Use `/btw` to ask a quick question about your current work without adding to the conversation history. This is useful when you want a fast answer but don't want to clutter the main context or derail Claude from a long-running task.
+Use `/btw` to ask a question about your current work without adding to the conversation history.
 
 ```
 /btw what was the name of that config file again?
 ```
 
-Side questions have full visibility into the current conversation, so you can ask about code Claude has already read, decisions it made earlier, or anything else from the session. The question and answer are ephemeral: they appear in a dismissible overlay and never enter the conversation history.
+Claude answers a side question from what's already in the conversation: your messages, its replies, and the tool results it has gathered. You can ask about code Claude has already read, decisions it made earlier, or anything else from the session. A later side question also sees your earlier side questions: Claude Code replays the newest 20 exchanges with each ask, until you clear them. The question and answer never enter the conversation history. In the terminal, they appear in a dismissible overlay. The terminal keeps the thread in memory: press `x` to clear the earlier exchanges, and it's gone when you exit Claude Code.
 
-* **Available while Claude is working**: you can run `/btw` even while Claude is processing a response. The side question runs independently and doesn't interrupt the main turn.
+In the [VS Code extension](/docs/en/vs-code#use-the-prompt-box)'s chat panel, `/btw` opens a panel rather than the overlay this section describes, and you ask follow-up questions right in the panel. The panel's thread survives window reloads, on the retention schedule that page describes. You need the extension at v2.1.227 or later. Earlier extension versions don't offer `/btw`.
+
+* **Available while Claude is working**: you can run `/btw` even while Claude is processing a response. The side question runs independently and doesn't interrupt the main turn. It sees everything in the conversation so far, except the reply Claude is still writing.
 * **No tool access**: side questions answer only from what is already in context. Claude can't read files, run commands, or search when answering a side question.
-* **Single response**: there are no follow-up turns in the overlay. To continue the thread, fork it into its own session with `f`.
-* **Low cost**: the side question reuses the parent conversation's prompt cache, so the additional cost is minimal.
+* **Single response**: there are no follow-up turns in the overlay. To continue the thread, ask another `/btw` question. To continue with full tool access, fork this question and answer into their own session with `f`.
+* **Low cost**: while the conversation's [prompt cache](/docs/en/prompt-caching) is warm, a side question costs little beyond the answer itself.
 
-Earlier side questions from the same session appear as a dimmed list above the current answer. They stay out of the conversation history but remain visible in the overlay until you clear them.
+Your five newest earlier side questions appear as a dimmed list above the current answer, with a count of any older ones. They stay out of the conversation history.
 
 To return to the overlay after dismissing it, run `/btw` with no question. The overlay reopens on your most recent exchange. Press `Left` to step back through earlier answers. Before v2.1.212, `/btw` without a question printed a usage message instead.
 
@@ -383,7 +390,7 @@ Once the answer appears, the overlay accepts these keys.
 | :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `Space`, `Enter`, `Escape` | Dismiss the answer and return to the prompt                                                                                                                                                                                                                               |
 | `Up` / `Down`              | Scroll the answer                                                                                                                                                                                                                                                         |
-| `Left` / `Right`           | Step between this answer and your earlier `/btw` answers from the session. `Left` moves to older answers and `Right` returns toward the current one. Requires Claude Code v2.1.187 or later                                                                               |
+| `Left` / `Right`           | Step between this answer and your earlier `/btw` answers. `Left` moves to older answers and `Right` returns toward the current one. Requires Claude Code v2.1.187 or later                                                                                                |
 | `c`                        | Copy the answer to your clipboard as raw Markdown. Use this instead of mouse selection, which captures the hard-wrapped terminal rendering rather than the source text                                                                                                    |
 | `f`                        | Fork into a new session. The fork inherits the parent conversation plus this question and answer as real transcript turns, so you can continue with full tool access. The original session is preserved under [`/resume`](/docs/en/commands). Available in local sessions only |
 | `x`                        | Clear the list of earlier `/btw` exchanges shown above the current answer                                                                                                                                                                                                 |
@@ -418,7 +425,7 @@ When working on a branch with an open pull request, Claude Code displays a click
 
 The badge disappears once the pull request merges or closes. `Cmd+click` (macOS) or `Ctrl+click` (Windows/Linux) the link to open the pull request in your browser. The status refreshes every 60 seconds, and immediately after a `gh pr` or `git push` command runs in the session.
 
-Claude Code renders the badge as a hyperlink even when it can't detect hyperlink support in your terminal, which commonly happens over SSH or in tmux. Set [`FORCE_HYPERLINK=0`](/docs/en/env-vars) to render the badge as plain text. Before v2.1.217, the badge was a hyperlink only when detection succeeded.
+Claude Code renders the badge as a hyperlink even when it can't detect hyperlink support in your terminal, which commonly happens over SSH or in tmux. Set [`FORCE_HYPERLINK=0`](/docs/en/env-vars) to render the badge as plain text.
 
 <Note>
   PR status requires the `gh` CLI to be installed and authenticated (`gh auth login`).

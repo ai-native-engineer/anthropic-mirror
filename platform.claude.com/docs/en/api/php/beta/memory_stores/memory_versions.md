@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/memory_stores/memory_versions -->
 
+---
+title: Memory Versions
+url: https://platform.claude.com/docs/en/api/php/beta/memory_stores/memory_versions
+---
+
 # Memory Versions
 
 ## List memory versions
@@ -128,7 +133,7 @@ $page = $client->beta->memoryStores->memoryVersions->list(
   page: 'page',
   sessionID: 'session_id',
   view: ManagedAgentsMemoryView::BASIC,
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($page);
@@ -258,7 +263,7 @@ $betaManagedAgentsMemoryVersion = $client
   'memory_version_id',
   memoryStoreID: 'memory_store_id',
   view: ManagedAgentsMemoryView::BASIC,
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaManagedAgentsMemoryVersion);
@@ -378,7 +383,7 @@ $betaManagedAgentsMemoryVersion = $client
   ->redact(
   'memory_version_id',
   memoryStoreID: 'memory_store_id',
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaManagedAgentsMemoryVersion);

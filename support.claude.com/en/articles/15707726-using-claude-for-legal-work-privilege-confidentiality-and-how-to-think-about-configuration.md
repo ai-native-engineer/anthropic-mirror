@@ -48,8 +48,8 @@ We believe Claude's commercial offerings can be configured by lawyers in a way t
 
 *This document describes Anthropic's products and Anthropic's perspective on publicly available legal authorities as of June 2026. It is not legal advice. Whether any particular configuration meets your confidentiality, privilege, or regulatory obligations is a question for your own counsel.*
 
-* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
-* [Get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)
+* [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
+* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+* [How Claude marks AI-generated content](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)

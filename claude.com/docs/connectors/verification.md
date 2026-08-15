@@ -12,13 +12,13 @@ The [Connectors Directory](https://claude.com/docs/connectors/directory) include
 
 ##  Verified
 
-Anthropic has reviewed this connector for quality and security. Verified connectors show a checkmark next to their name.
+Anthropic has tested this connector’s tools for quality and compatibility and it has met our [Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy) requirements at the time of review. Verified connectors show a checkmark next to their name. Verification means Anthropic has reviewed the connector more closely than a Community connector, but it is not a security audit or a guarantee of how the connector will perform. The developer operates the connector and controls its tools, which can change after review.
 
 ##  Community
 
-A third-party developer built this connector. It passed Anthropic’s automated checks, but Anthropic has not reviewed it in depth.
+A third-party developer built this connector. Anthropic screens community connectors before listing, but has not reviewed this connector in depth. We do not control the tools the Community developer makes available and cannot guarantee they will work as intended or will not change, so only connect developers you trust.
 Community connectors show a “Community” label in the directory and in [Customize > Connectors](https://claude.ai/customize/connectors). Before you connect one, Claude shows a reminder that it has not been reviewed in depth.
-The label is a quality signal. It affects how the connector is displayed and discovered in the directory, not how the connector itself functions: once connected, a community connector works the same way as a verified one.
+The label reflects the level of review each connector received. It affects how the connector is displayed and discovered in the directory, not how the connector itself functions: once connected, a community connector has the same capabilities and access as any connector you grant.
 
 ##  Custom
 
@@ -29,7 +29,7 @@ See [custom connectors](https://claude.com/docs/connectors/custom/remote-mcp) to
 
 The directory is a catalog, not a separate kind of connector. Connectors in the directory and custom connectors you add yourself use the same technology.
 If you have a connector’s URL, it can be added as a custom connector. A connector does not need to be in the directory for you to use it.
-Listing a connector in the directory makes it discoverable by other people and gives it a review label (a checkmark if Anthropic has verified it, or “Community” if it passed Anthropic’s automated checks). It does not change the tools the connector exposes. See [directory vs custom](https://claude.com/docs/connectors/building/directory-vs-custom) for a detailed comparison.
+Listing a connector in the directory makes it discoverable by other people and gives it a review label (a checkmark if Anthropic has verified it, or “Community” if Anthropic has screened but not reviewed it in depth). It does not change the tools the connector exposes. See [directory vs custom](https://claude.com/docs/connectors/building/directory-vs-custom) for a detailed comparison.
 
 ##  Advice for all third-party connectors
 

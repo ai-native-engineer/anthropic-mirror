@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/messages/batches/retrieve -->
 
+---
+title: Retrieve a Message Batch
+url: https://platform.claude.com/docs/en/api/python/messages/batches/retrieve
+---
+
 ## Retrieve a Message Batch
 
 `messages.batches.retrieve(strmessage_batch_id)  -> MessageBatch`

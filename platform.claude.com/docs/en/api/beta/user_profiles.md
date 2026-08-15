@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/user_profiles -->
 
+---
+title: User Profiles
+url: https://platform.claude.com/docs/en/api/beta/user_profiles
+---
+
 # User Profiles
 
 ## Create User Profile
@@ -16,7 +21,7 @@ Create User Profile
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -68,15 +73,25 @@ Create User Profile
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
-- `external_id: optional string`
+- `external_id: optional string or null`
 
   Platform's own identifier for this user. Not enforced unique. Maximum 255 characters.
 
@@ -84,7 +99,7 @@ Create User Profile
 
   Free-form key-value data to attach to this user profile. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters. Values must be non-empty strings.
 
-- `name: optional string`
+- `name: optional string or null`
 
   Display name of the entity this profile represents. Required when relationship is `resold` (the resold-to company's name); optional otherwise. Maximum 255 characters.
 
@@ -148,11 +163,11 @@ Create User Profile
 
     A timestamp in RFC 3339 format
 
-  - `external_id: optional string`
+  - `external_id: optional string or null`
 
     Platform's own identifier for this user. Not enforced unique.
 
-  - `name: optional string`
+  - `name: optional string or null`
 
     Display name of the entity this profile represents. For `resold` this is the resold-to company's name.
 
@@ -222,7 +237,7 @@ List User Profiles
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -274,11 +289,21 @@ List User Profiles
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -332,15 +357,15 @@ List User Profiles
 
     A timestamp in RFC 3339 format
 
-  - `external_id: optional string`
+  - `external_id: optional string or null`
 
     Platform's own identifier for this user. Not enforced unique.
 
-  - `name: optional string`
+  - `name: optional string or null`
 
     Display name of the entity this profile represents. For `resold` this is the resold-to company's name.
 
-- `next_page: string`
+- `next_page: string or null`
 
   Cursor for the next page, or `null` when there are no more results.
 
@@ -396,7 +421,7 @@ Get User Profile
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -448,11 +473,21 @@ Get User Profile
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -504,11 +539,11 @@ Get User Profile
 
     A timestamp in RFC 3339 format
 
-  - `external_id: optional string`
+  - `external_id: optional string or null`
 
     Platform's own identifier for this user. Not enforced unique.
 
-  - `name: optional string`
+  - `name: optional string or null`
 
     Display name of the entity this profile represents. For `resold` this is the resold-to company's name.
 
@@ -559,7 +594,7 @@ Update User Profile
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -611,15 +646,25 @@ Update User Profile
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
-- `external_id: optional string`
+- `external_id: optional string or null`
 
   If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters.
 
@@ -627,11 +672,11 @@ Update User Profile
 
   Key-value pairs to merge into the stored metadata. Keys provided overwrite existing values. To remove a key, set its value to an empty string. Keys not provided are left unchanged. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters.
 
-- `name: optional string`
+- `name: optional string or null`
 
   If present, replaces the stored name. Omit to leave unchanged. Maximum 255 characters.
 
-- `relationship: optional "external" or "resold" or "internal"`
+- `relationship: optional "external" or "resold" or "internal" or null`
 
   How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
 
@@ -691,11 +736,11 @@ Update User Profile
 
     A timestamp in RFC 3339 format
 
-  - `external_id: optional string`
+  - `external_id: optional string or null`
 
     Platform's own identifier for this user. Not enforced unique.
 
-  - `name: optional string`
+  - `name: optional string or null`
 
     Display name of the entity this profile represents. For `resold` this is the resold-to company's name.
 
@@ -750,7 +795,7 @@ Create Enrollment URL
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -802,11 +847,21 @@ Create Enrollment URL
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -898,11 +953,11 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
     A timestamp in RFC 3339 format
 
-  - `external_id: optional string`
+  - `external_id: optional string or null`
 
     Platform's own identifier for this user. Not enforced unique.
 
-  - `name: optional string`
+  - `name: optional string or null`
 
     Display name of the entity this profile represents. For `resold` this is the resold-to company's name.
 

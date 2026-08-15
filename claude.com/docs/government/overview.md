@@ -18,6 +18,7 @@
 > | A tenant administrator | [Tenant administration](https://claude.com/docs/government/tenant-admin/overview) |
 > | An organization owner | [Organization administration](https://claude.com/docs/government/org-admin/overview) |
 > | Any user | [Your account](https://claude.com/docs/government/account/overview) |
+> | Anyone using Claude Desktop | [Use Claude Desktop](https://claude.com/docs/government/desktop/plugins) |
 
 This guide covers the portals used to manage Claude for Government: how access, seats, and usage are organized, and who is responsible for each part.
 If you just want to use Claude for Government, you don’t need this guide. You can simply sign in and start a conversation, and come back here when you need to manage other people’s access or understand why something is configured the way it is.

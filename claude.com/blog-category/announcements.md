@@ -16,6 +16,54 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
+
+Aug 13, 2026
+
+Claude Tag now reads even more of the room
+
+Product announcements
+
+Claude Tag now reads even more of the room
+
+August 13, 2026
+
+[Claude Tag now reads even more of the room](https://claude.com/blog/claude-tag-now-reads-even-more-of-the-room)Claude Tag now reads even more of the room
+
+[Claude Tag now reads even more of the room](#)Claude Tag now reads even more of the room
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d0099a66d72e05699_33ddc751e21fb4b116b3f57dd553f0bc55ea09d1-1000x1000.svg)
+
+Aug 12, 2026
+
+The Claude in Chrome side panel is now Claude Cowork
+
+Product announcements
+
+The Claude in Chrome side panel is now Claude Cowork
+
+August 12, 2026
+
+[The Claude in Chrome side panel is now Claude Cowork](https://claude.com/blog/cowork-chrome-side-panel)The Claude in Chrome side panel is now Claude Cowork
+
+[The Claude in Chrome side panel is now Claude Cowork](#)The Claude in Chrome side panel is now Claude Cowork
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+Aug 11, 2026
+
+Compliance API coverage extends to Claude Cowork and Claude Code
+
+Enterprise AI
+
+Compliance API coverage extends to Claude Cowork and Claude Code
+
+August 11, 2026
+
+[Compliance API coverage extends to Claude Cowork and Claude Code](https://claude.com/blog/compliance-api-cowork-and-claude-code)Compliance API coverage extends to Claude Cowork and Claude Code
+
+[Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22651dd05046d0fdb0b_39c40393e610cc0a5e65f50ad12ff5ada273f792-1000x1000.svg)
 
 Aug 6, 2026
@@ -208,54 +256,6 @@ June 17, 2026
 
 [Claude Design now stays on brand for daily work](#)Claude Design now stays on brand for daily work
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Jun 17, 2026
-
-Secure access to the Claude Platform with Workload Identity Federation
-
-Product announcements
-
-Secure access to the Claude Platform with Workload Identity Federation
-
-June 17, 2026
-
-[Secure access to the Claude Platform with Workload Identity Federation](https://claude.com/blog/workload-identity-federation)Secure access to the Claude Platform with Workload Identity Federation
-
-[Secure access to the Claude Platform with Workload Identity Federation](#)Secure access to the Claude Platform with Workload Identity Federation
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
-
-Jun 9, 2026
-
-New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-Product announcements
-
-New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-June 9, 2026
-
-[New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults](https://claude.com/blog/whats-new-in-claude-managed-agents)New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-[New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults](#)New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
-
-Jun 8, 2026
-
-Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-Product announcements
-
-Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-June 8, 2026
-
-[Building intelligent apps for Apple platforms with Claude in the Foundation Models framework](https://claude.com/blog/claude-for-foundation-models)Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-[Building intelligent apps for Apple platforms with Claude in the Foundation Models framework](#)Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
 [View more](https://claude.com/blog-category/announcements?1e959936_page=2)
 
 Category
@@ -263,6 +263,54 @@ Category
 Product
 
 Usecase
+
+### Claude Tag now reads even more of the room
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 13, 2026
+
+[Claude Tag now reads even more of the room](https://claude.com/blog/claude-tag-now-reads-even-more-of-the-room)Claude Tag now reads even more of the room
+
+[Claude Tag now reads even more of the room](#)Claude Tag now reads even more of the room
+
+### The Claude in Chrome side panel is now Claude Cowork
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 12, 2026
+
+[The Claude in Chrome side panel is now Claude Cowork](https://claude.com/blog/cowork-chrome-side-panel)The Claude in Chrome side panel is now Claude Cowork
+
+[The Claude in Chrome side panel is now Claude Cowork](#)The Claude in Chrome side panel is now Claude Cowork
+
+### Compliance API coverage extends to Claude Cowork and Claude Code
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 11, 2026
+
+[Compliance API coverage extends to Claude Cowork and Claude Code](https://claude.com/blog/compliance-api-cowork-and-claude-code)Compliance API coverage extends to Claude Cowork and Claude Code
+
+[Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
 
 ### Run Claude Code sessions on your own compute
 
@@ -455,54 +503,6 @@ June 17, 2026
 [Claude Design now stays on brand for daily work](https://claude.com/blog/claude-design-stays-on-brand-for-daily-work)Claude Design now stays on brand for daily work
 
 [Claude Design now stays on brand for daily work](#)Claude Design now stays on brand for daily work
-
-### Secure access to the Claude Platform with Workload Identity Federation
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-June 17, 2026
-
-[Secure access to the Claude Platform with Workload Identity Federation](https://claude.com/blog/workload-identity-federation)Secure access to the Claude Platform with Workload Identity Federation
-
-[Secure access to the Claude Platform with Workload Identity Federation](#)Secure access to the Claude Platform with Workload Identity Federation
-
-### New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-June 9, 2026
-
-[New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults](https://claude.com/blog/whats-new-in-claude-managed-agents)New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-[New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults](#)New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-### Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-June 8, 2026
-
-[Building intelligent apps for Apple platforms with Claude in the Foundation Models framework](https://claude.com/blog/claude-for-foundation-models)Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-[Building intelligent apps for Apple platforms with Claude in the Foundation Models framework](#)Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
 
 [View more](https://claude.com/blog-category/announcements?2f226f2c_page=2)
 

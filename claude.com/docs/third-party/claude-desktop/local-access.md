@@ -13,7 +13,7 @@ In Claude Desktop on 3P, administrators can constrain which folders users are al
 
 ##  Workspace folder allowlist
 
-The `allowedWorkspaceFolders` configuration key restricts which paths users may attach as workspace folders.
+Set [`allowedWorkspaceFolders`](https://claude.com/docs/third-party/claude-desktop/configuration#allowedworkspacefolders) in the managed configuration to restrict which paths users may attach as workspace folders. The [Configuration reference](https://claude.com/docs/third-party/claude-desktop/configuration) covers where the managed configuration lives on each platform and how to deploy it.
 
 | Value | Behavior |
 | --- | --- |
@@ -21,10 +21,19 @@ The `allowedWorkspaceFolders` configuration key restricts which paths users may 
 | `["~/Documents/Claude", "/Volumes/Shared/Projects"]` | Users may attach only folders **inside** one of the listed roots. |
 | `[]` | No folders may be attached. The agent can still create files in its own sandbox scratch space, but cannot read or write the user’s filesystem. |
 
-A leading `~` expands to the user’s home directory, so a single profile can express per-user roots like `~/Documents/Claude` across the fleet.
+A leading `~` expands to the user’s home directory, so a single profile can express per-user roots like `~/Documents/Claude` across the fleet. A path may also reference one of a fixed set of environment-variable tokens, such as `%OneDrive%` or `%USERNAME%`, listed in the [configuration reference](https://claude.com/docs/third-party/claude-desktop/configuration#allowedworkspacefolders). An entry that references any other `%VAR%`, or one that is unset on the device, is ignored.
+Each entry is either a plain path string or an object with these fields:
+
+| Field | Description |
+| --- | --- |
+| `path` | The folder path (required). Subfolders are included. |
+| `mode` | `rw` (the default) or `ro`. The agent can view and search a read-only folder but cannot modify it in Cowork. In Code sessions, read-only applies to Claude’s file tools only; shell commands and SSH sessions do not enforce it. |
+| `isDefaultSelected` | When `true`, the folder appears already selected on the new-task page and skips the trust prompt. Users can remove it. |
+
+For example, `[{"path": "~/Documents/Claude"}, {"path": "/Volumes/Shared/Reference", "mode": "ro"}]` lets users work in their own folder and consult the shared reference folder without changing it.
 The check is enforced against the **resolved** path, so symlinks and `..` traversal can’t be used to escape an allowed root.
 
-The allowlist controls what users can **attach**. Within an attached folder, the agent has full read/write access to every file the user’s OS account can reach. To isolate sensitive data, keep it outside the allowed roots.
+The allowlist controls what users can **attach**. Within an attached read/write folder, the agent can read and write every file the user’s OS account can reach. To keep data out of reach entirely, leave it outside the allowed roots. To let the agent read data in Cowork without changing it, list the folder with `mode` set to `ro`.
 
 ##  Network drives on Windows
 

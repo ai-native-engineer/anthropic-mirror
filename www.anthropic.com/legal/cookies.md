@@ -1,35 +1,41 @@
 <!-- source: https://www.anthropic.com/legal/cookies -->
 
-Anthropic is an AI safety and research company working to build reliable, interpretable, and steerable AI systems.
+쿠키정책
 
-This policy provides information about how and when we, our service providers, and our business partners use cookies, beacons, pixels, or similar technologies (“cookies”). For more information about cookies, see <https://www.aboutcookies.org/cookie-faq>. Terms used in this policy but not defined here have their meaning set forth in our [Privacy Policy](https://www.anthropic.com/legal/privacy), which also includes additional details about the collection and use of information at Anthropic.
+**시행일 2024년 3월 19일**
 
-## How Anthropic Uses Cookies
+Anthropic은 신뢰할 수 있고, 해석 가능하며 제어할 수 있는 AI 시스템을 구축하기 위해 노력하는 AI 안전, 연구 회사입니다.
 
-We use cookies to manage the Services and to collect information about you and your use of the Services. Cookies help us to recognize you, customize or personalize your experience, market additional products or services to you, and analyze the use of our Services to make it more useful to you. Cookies may also allow us to collect demographic and statistical data and provide this information to our service providers to help deliver their services.
+본 정책은 당사, 당사 서비스 제공업체 및 협력업체(business partners)가 쿠키, 비콘(beacons), 픽셀(pixels) 또는 이와 유사한 기술(“쿠키”)을 언제 어떻게 사용하는지에 대한 정보를 제공합니다. 쿠키에 대한 자세한 정보는 <https://www.aboutcookies.org/cookie-faq>에서 확인하실 수 있습니다. 본 정책에 사용되었으나 정의되지 않은 용어는 당사의 개인정보 처리방침에서 정의된 의미를 가지며, 당사 개인정보 처리방침에는 Anthropic의 정보 수집 및 사용에 대한 추가적인 내용이 포함되어 있습니다.
 
-We use cookies for the following purposes. You can also visit our [cookies table](https://support.anthropic.com/en/articles/9020432) to learn more.
+## Anthropic이 쿠키를 사용하는 방법
 
-| Purpose | Description |
+당사는 쿠키를 사용하여 서비스를 관리하고 귀하 및 귀하의 서비스 사용에 대한 정보를 수집합니다. 당사는 쿠키를 통해 귀하를 인식하고, 귀하의 경험을 맞춤화 또는 개인화하며, 귀하에게 추가적인 제품 또는 서비스를 마케팅하고, 귀하의 서비스 사용을 분석하여 보다 유용한 서비스를 제공합니다. 또한, 쿠키를 통해 인구통계학적 및 통계학적 정보를 수집하고, 해당 정보를 당사 서비스 제공업체에 제공하여 그들이 서비스를 제공하는데 도움이 되도록 합니다.
+
+당사는 아래의 목적을 위해 쿠키를 사용합니다. 자세한 내용은 쿠키 표에서 확인하실 수 있습니다.
+
+| **목적** | **내용** |
 | --- | --- |
-| Necessary | These are cookies necessary to use our Services, for example: cookies to help us detect and prevent malicious activity or fraudulent usage, and when you sign in to use our Services, cookies that help us show you the correct information and preferences associated with your account. |
-| Analytics | We use cookies to understand the general usage of, and to improve, our Services (for example, to help us measure how many people interact with our Services). We may collect technical information, such as pages visited and how your web browser interacts with our Services. |
-| Marketing | Cookies help us market our Services more effectively to users that we, our service providers, and our business partners believe may be interested in using our Services. They also help provide us with aggregated reporting and help us know when marketing content has been shown to you. |
+| 필수사항 | 당사 서비스를 사용하기 위해 필요한 쿠키입니다. 예를 들어 악의적인 활동 또는 사기적 사용을 감지하고 이를 예방하는데 도움이 되는 쿠키 그리고 귀하가 당사 서비스를 이용하기 위해 로그인 할 때 귀하의 계정과 관련하여 정확한 정보 및 환경설정(preferences)을 표시하는데 도움이 되는 쿠키가 있습니다. |
+| 분석 | 당사는 당사 서비스 사용 현황을 파악하고 당사 서비스를 개선하는데 쿠키를 사용합니다(예, 당사 서비스와 상호작용하는 이용자 수 파악). 당사는 방문 페이지 및 귀하의 웹 브라우저가 당사 서비스와 상호작용하는 방식 등의 기술정보를 수집할 수 있습니다. |
+| 마케팅 | 쿠키는 당사, 당사 서비스 제공업체 및 당사 사업 협력업체가 당사 서비스 사용에 관심이 있을 것으로 판단하는 이용자에게 당사 서비스를 보다 효과적으로 마케팅하는데 도움이 됩니다. 또한 집계된 보고서(aggregated reporting)를 제공하고 마케팅 콘텐츠가 귀하에게 표시된 시점을 알려주는데 도움이 됩니다. |
 
-Cookie Purpose and Description
+쿠키 목적 및 설명
 
-## Managing Your Cookie Settings
+## 귀하의 쿠키 설정 관리
 
-Most browsers allow you to remove or manage cookie functions and adjust your privacy and security preferences. For information on how to do this, access the “help” menu on your browser, or access <http://www.aboutcookies.org/how-to-control-cookies>. Due to differences between websites and other technologies, you may need to take additional steps to opt out. Please check your settings for additional information. Please note, however, that disabling all cookies may mean that you may not be able to take full advantage of our Services.
+대부분의 브라우저는 귀하가 쿠키 기능을 제거 또는 관리하고, 귀하의 개인정보보호 및 보안 설정을 조정할 수 있도록 허용하고 있습니다. 이에 대한 자세한 방법은 귀하 브라우저 상의 “도움말” 메뉴 또는 <http://www.aboutcookies.org/how-to-control-cookies>에서 확인하실 수 있습니다. 웹사이트 및 다른 기술 간의 차이로 인하여 쿠키 거부를 위해 추가 조치를 취해야 할 수도 있습니다. 이에 대한 자세한 내용은 귀하의 설정에서 확인하시기 바랍니다. 다만, 모든 쿠키를 비활성화할 경우 귀하는 당사 서비스를 최대한 활용하지 못할 수 있다는 점에 유의하시기 바랍니다.
 
-You can control how and when your personal data is shared or used for purposes of advertising about Anthropic’s AI services by clicking on the Privacy Choices link at the bottom of the page or enabling global privacy controls.
+귀하는 페이지 하단의 개인정보보호 선택(Privacy Choices) 링크를 클릭하거나 글로벌 개인정보보호 제어(global privacy controls)를 활성화하여 Anthropic의 AI 서비스에 대한 광고 목적을 위해 귀하의 데이터가 공유 또는 사용되는 방식 및 시기를 제어할 수 있습니다.
 
-**Do Not Track**. Some web browsers provide a “Do Not Track” option. We currently do not respond to browser “Do Not Track” signals.
+**추적 금지.** 일부 웹 브라우저는 “추적 금지(Do Not Track)” 옵션을 제공합니다. 당사는 현재 브라우저의 “추적 금지” 신호에 응답하지 않습니다.
 
-## Changes to Our Cookie Policy
+## 당사 쿠키정책 변경
 
-Anthropic may update this Cookie Policy from time to time. We will notify you of any material changes to this Cookie Policy, as appropriate, and update the Effective Date at the top of this page. We encourage you to review this page for updates when you access the Services.
+Anthropic은 수시로 본 쿠키정책을 업데이트할 수 있습니다. 본 쿠키 정책에 중대한 변경 사항이 있을 경우, 적절한 방법으로 귀하에게 통지하고, 본 페이지 상단에 시행일을 업데이트 할 것입니다. 당사 서비스를 접속할 때 본 페이지를 검토하여 업데이트 사항을 확인할 것을 권장합니다.
 
-## Contact Us
+## 연락처
 
-If you have any questions or comments, please contact us via [privacy@anthropic.com](mailto:privacy@anthropic.com).
+문의 또는 의견이 있으신 경우 [privacy@anthropic.com](mailto:privacy@anthropic.com)으로 연락주시기 바랍니다.
+
+Cookie Policy \ Anthropic

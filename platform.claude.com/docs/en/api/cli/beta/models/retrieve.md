@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/models/retrieve -->
 
+---
+title: Get a Model
+url: https://platform.claude.com/docs/en/api/cli/beta/models/retrieve
+---
+
 ## Get a Model
 
 `$ ant beta:models retrieve`

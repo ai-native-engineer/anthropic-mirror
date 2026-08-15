@@ -6,13 +6,13 @@ Using AI to increase the pace of scientific progress is a core part of Anthropic
 
 Science
 
-## Paving the way for agents in biology
+## Learning more about Claude's mathematical capabilities
 
-Laura Luebbert argues that we need to make biological data infrastructure more agent-friendly. As a case study, she and her team tasked various scientific research agents to retrieve the sequence data from NCBI Virus, a database virologists use for tasks such as surveillance and diagnostic assay development. Even the strongest models did not consistently achieve the level of accuracy required for reliable dataset construction. But accuracy rose to nearly 100% once she and her team added gget virus, a deterministic retrieval layer. The broader lesson for scientific agents is that deterministic retrieval tools are (currently) crucial to making agent workflows more reliable, and biological databases will need to be designed with agents in mind as scaled users.
+An unreleased research version of Claude has made strides on a problem related to the Riemann hypothesis. It improved a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the hypothesis, increasing it from 41.6% to 67.2%.
 
-[Read more](https://www.anthropic.com/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/riemann-zeta)
 
-![Paving the way for agents in biology](https://www-cdn.anthropic.com/images/4zrzovbb/website/5f8526abfb93dbe99a0c2078ddd344528de2be0f-2500x646.png)
+![Learning more about Claude's mathematical capabilities](https://www-cdn.anthropic.com/images/4zrzovbb/website/ca772f1b34e5b58e38694538f017d63f5dd196d9-1200x630.jpg)
 
 ## Publications
 
@@ -20,6 +20,9 @@ Search
 
 DateCategoryTitle
 
+* [Aug 10, 2026Science
+
+  Learning more about Claude's mathematical capabilities](https://www.anthropic.com/research/riemann-zeta)
 * [Jun 8, 2026Science
 
   Paving the way for agents in biology](https://www.anthropic.com/research/agents-in-biology)
@@ -38,8 +41,6 @@ DateCategoryTitle
 * [Mar 23, 2026Science
 
   Vibe physics: The AI grad student](https://www.anthropic.com/research/vibe-physics)
-
-![Paving the way for agents in biology](https://www-cdn.anthropic.com/images/4zrzovbb/website/8925ac952fa2cb8eb5e845b2e44f3e71b33fd695-1000x1000.svg)
 
 Join the Research team
 

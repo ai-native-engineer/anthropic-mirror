@@ -204,6 +204,14 @@ Tune in to watch Anthropic CEO and Co-founder Dario Amodei share his vision for 
 
 ## Related stories
 
+[League cuts product development cycle times in half with Claude](https://claude.com/customers/league) League cuts product development cycle times in half with Claude
+
+League cuts product development cycle times in half with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/league)Customer story
+
 [How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
 
 How can a medical lab keep patients at the center of its work while the caseload keeps growing?
@@ -227,11 +235,3 @@ A conversation with Seth Hain about Epic’s internal AI adoption
 Customer story
 
 [Customer story](https://claude.com/customers/epic-systems)Customer story
-
-[Medgate accelerates healthcare innovation with Claude Code](https://claude.com/customers/medgate)Medgate accelerates healthcare innovation with Claude Code
-
-Medgate accelerates healthcare innovation with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/medgate)Customer story

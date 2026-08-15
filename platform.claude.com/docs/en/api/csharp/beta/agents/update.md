@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/csharp/beta/agents/update -->
 
+---
+title: Update Agent
+url: https://platform.claude.com/docs/en/api/csharp/beta/agents/update
+---
+
 ## Update Agent
 
 `BetaManagedAgentsAgent Beta.Agents.Update(AgentUpdateParamsparameters, CancellationTokencancellationToken = default)`
@@ -15,10 +20,6 @@ Update Agent
   - `required string agentID`
 
     Path param: Path parameter agent_id
-
-  - `required Int version`
-
-    Body param: The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. The request fails if this does not match the server's current version.
 
   - `string? description`
 
@@ -54,21 +55,29 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"ClaudeSonnet5`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"ClaudeFable5`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"ClaudeOpus5`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"ClaudeOpus4_8`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"ClaudeOpus4_7`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"ClaudeOpus4_6`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"ClaudeSonnet4_6`
 
@@ -84,11 +93,11 @@ Update Agent
 
       - `"claude-opus-4-5"ClaudeOpus4_5`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"ClaudeSonnet4_5`
 
@@ -108,21 +117,29 @@ Update Agent
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"ClaudeSonnet5`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"ClaudeFable5`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"ClaudeOpus5`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"ClaudeOpus4_8`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"ClaudeOpus4_6`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"ClaudeSonnet4_6`
 
@@ -138,11 +155,11 @@ Update Agent
 
         - `"claude-opus-4-5"ClaudeOpus4_5`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"ClaudeSonnet4_5`
 
@@ -151,6 +168,68 @@ Update Agent
         - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
 
           High-performance model for agents and coding
+
+      - `Effort? Effort`
+
+        How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+        - `enum BetaManagedAgentsEffortLevel:`
+
+          How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+          - `"low"Low`
+
+          - `"medium"Medium`
+
+          - `"high"High`
+
+          - `"xhigh"Xhigh`
+
+          - `"max"Max`
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `required Type Type`
+
+            - `"low"Low`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `required Type Type`
+
+            - `"medium"Medium`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `required Type Type`
+
+            - `"high"High`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `required Type Type`
+
+            - `"xhigh"Xhigh`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `required Type Type`
+
+            - `"max"Max`
+
+      - `string? InferenceGeo`
+
+        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo. On update, `model` is whole-object replacement — omitting inference_geo clears it.
 
       - `Speed? Speed`
 
@@ -350,7 +429,7 @@ Update Agent
 
       - `required string Description`
 
-        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+        Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
       - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
@@ -369,6 +448,10 @@ Update Agent
       - `required Type Type`
 
         - `"custom"Custom`
+
+  - `Int version`
+
+    Body param: The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -424,11 +507,21 @@ Update Agent
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
+
+    - `"mid-conversation-tool-changes-2026-07-01"MidConversationToolChanges2026_07_01`
 
 ### Returns
 
@@ -470,21 +563,29 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"ClaudeSonnet5`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"ClaudeFable5`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"ClaudeOpus5`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"ClaudeOpus4_8`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"ClaudeOpus4_7`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"ClaudeOpus4_6`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"ClaudeSonnet4_6`
 
@@ -500,11 +601,11 @@ Update Agent
 
       - `"claude-opus-4-5"ClaudeOpus4_5`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"ClaudeSonnet4_5`
 
@@ -513,6 +614,54 @@ Update Agent
       - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
 
         High-performance model for agents and coding
+
+    - `Effort Effort`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow:`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `required Type Type`
+
+          - `"low"Low`
+
+      - `class BetaManagedAgentsEffortMedium:`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `required Type Type`
+
+          - `"medium"Medium`
+
+      - `class BetaManagedAgentsEffortHigh:`
+
+        High effort. Favors reasoning depth.
+
+        - `required Type Type`
+
+          - `"high"High`
+
+      - `class BetaManagedAgentsEffortXhigh:`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `required Type Type`
+
+          - `"xhigh"Xhigh`
+
+      - `class BetaManagedAgentsEffortMax:`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `required Type Type`
+
+          - `"max"Max`
+
+    - `string InferenceGeo`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
     - `Speed Speed`
 
@@ -526,17 +675,33 @@ Update Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `required IReadOnlyList<BetaManagedAgentsAgentReference> Agents`
+    - `required IReadOnlyList<Agent> Agents`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `required string ID`
+      - `class BetaManagedAgentsAgentReference:`
 
-      - `required Type Type`
+        A resolved agent reference with a concrete version.
 
-        - `"agent"Agent`
+        - `required string ID`
 
-      - `required Int Version`
+        - `required Type Type`
+
+          - `"agent"Agent`
+
+        - `required Int Version`
+
+      - `class BetaManagedAgentsAdvisor:`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `required string Model`
+
+          The advisor model id.
+
+        - `required Type Type`
+
+          - `"advisor"Advisor`
 
     - `required Type Type`
 
@@ -725,8 +890,7 @@ Update Agent
 ```csharp
 AgentUpdateParams parameters = new()
 {
-    AgentID = "agent_011CZkYpogX7uDKUyvBTophP",
-    Version = 1,
+    AgentID = "agent_011CZkYpogX7uDKUyvBTophP"
 };
 
 var betaManagedAgentsAgent = await client.Beta.Agents.Update(parameters);
@@ -754,6 +918,10 @@ Console.WriteLine(betaManagedAgentsAgent);
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
+    "inference_geo": "inference_geo",
     "speed": "standard"
   },
   "multiagent": {

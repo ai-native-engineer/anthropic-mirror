@@ -41,7 +41,7 @@ The choice matters for direct messages. On Enterprise Grid, DMs follow each user
 
 ##  Set the version for a scope
 
-Every scope routes to one of four versions. In the **Claude Tag’s access** section of admin settings, select the scope and use the **Claude Tag version** control.
+Every scope routes to one of four versions. In the **Claude Tag’s access** section of admin settings, select the scope and use the **Claude Tag version** control. Channels Claude was added to appear in the section automatically, and the **Search channels** field finds a channel’s scope by name or ID.
 
 | Label | Effect |
 | --- | --- |

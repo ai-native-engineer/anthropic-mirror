@@ -119,7 +119,3 @@ These facts give us cautious optimism that with tighter monitoring and controls 
 
 1. We routinely test internal research prototypes like this one. It is not planned for general release.
 2. We generally store traces for benchmark evaluations. We have carefully audited these two benchmarks in particular for signs of harm because the OpenAI/Hugging Face incident occurred during an evaluation of ExploitGym.
-
-### Our position on open-weights models
-
-[Read more](https://www.anthropic.com/news/position-open-weights-models)

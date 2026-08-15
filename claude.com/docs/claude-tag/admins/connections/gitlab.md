@@ -30,7 +30,7 @@ Add the credential to a bundle
 
 On the bundle’s **Credentials** tab, click **Connect** next to **GitLab** and paste the token. For self-managed GitLab, switch to the form’s **Advanced** tab and add your instance’s hostname under **Allowed websites**.
 
-**You’ll see:** GitLab listed in the bundle’s connections, and `@Claude what can you access from this channel?` returns it in a new thread under the bundle’s scope.
+**You’ll see:** GitLab listed in the bundle’s connections, and `@Claude what can you access from this channel?` returns it in a new thread under the bundle’s scope. New threads pick up the connection on their own; in an existing thread, ask Claude to use the service by name.
 
 | Field | Value |
 | --- | --- |
@@ -46,6 +46,7 @@ GitLab’s own guide for creating tokens is at [docs.gitlab.com](https://docs.gi
 | Auth | A service account’s personal access token | The Claude GitHub App, [installed separately](https://claude.com/docs/claude-tag/admins/configure-github) |
 | Referencing a project in a thread | Give Claude the full project URL; it reads it through the API | Typing `owner/repo` in the message auto-attaches it |
 | Self-managed | Your hostname under **Advanced → Allowed websites** | [GitHub Enterprise setup](https://claude.com/docs/claude-tag/admins/configure-github#github-enterprise) |
+| Handing back changes | Manages issues and comments on merge requests through the API | [Draft pull requests](https://claude.com/docs/claude-tag/users/use-cases/work-with-github) authored by the Claude GitHub App |
 
 The token is auto-injected on every API request to your GitLab host. The model and the sandbox are not given the key; see [how Agent Proxy works](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy).
 

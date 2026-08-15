@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/files -->
 
+---
+title: Files
+url: https://platform.claude.com/docs/en/api/cli/beta/files
+---
+
 # Files
 
 ## Upload File
@@ -242,7 +247,7 @@ Download File
 
 ### Returns
 
-- `unnamed_schema_0: file path`
+- `unnamed_schema_2: file path`
 
 ### Example
 

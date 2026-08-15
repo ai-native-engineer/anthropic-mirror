@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/organizations/me -->
 
+---
+title: Get Current Organization
+url: https://platform.claude.com/docs/en/api/admin/organizations/me
+---
+
 ## Get Current Organization
 
 **get** `/v1/organizations/me`

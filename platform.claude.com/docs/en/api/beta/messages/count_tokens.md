@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/messages/count_tokens -->
 
+---
+title: Count tokens in a Message
+url: https://platform.claude.com/docs/en/api/beta/messages/count_tokens
+---
+
 ## Count tokens in a Message
 
 **post** `/v1/messages/count_tokens`
@@ -8,7 +13,7 @@ Count the number of tokens in a Message.
 
 The Token Count API can be used to count the number of tokens in a Message, including tools, images, and documents, without creating it.
 
-Learn more about token counting in our [user guide](https://docs.claude.com/en/docs/build-with-claude/token-counting)
+Learn more about token counting in our [user guide](https://platform.claude.com/docs/en/build-with-claude/token-counting)
 
 ### Header Parameters
 
@@ -18,7 +23,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -70,11 +75,25 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
+- `"anthropic-user-profile-id": optional string`
+
+  The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
 ### Body Parameters
 
@@ -123,9 +142,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
-  See [input examples](https://docs.claude.com/en/api/messages-examples).
+  See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
 
-  Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+  Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
   There is a limit of 100,000 messages in a single request.
 
@@ -143,7 +162,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"text"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -160,13 +179,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
-            Defaults to `5m`.
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
             - `"5m"`
 
             - `"1h"`
 
-        - `citations: optional array of BetaTextCitationParam`
+        - `citations: optional array of BetaTextCitationParam or null`
 
           - `BetaCitationCharLocationParam object { cited_text, document_index, document_title, 3 more }`
 
@@ -174,7 +193,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
             - `document_index: number`
 
-            - `document_title: string`
+            - `document_title: string or null`
 
             - `end_char_index: number`
 
@@ -190,7 +209,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
             - `document_index: number`
 
-            - `document_title: string`
+            - `document_title: string or null`
 
             - `end_page_number: number`
 
@@ -210,7 +229,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
             - `document_index: number`
 
-            - `document_title: string`
+            - `document_title: string or null`
 
             - `end_block_index: number`
 
@@ -232,7 +251,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
             - `encrypted_index: string`
 
-            - `title: string`
+            - `title: string or null`
 
             - `type: "web_search_result_location"`
 
@@ -266,7 +285,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               0-based index of the first cited block in the source's `content` array.
 
-            - `title: string`
+            - `title: string or null`
 
             - `type: "search_result_location"`
 
@@ -314,7 +333,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"image"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -382,17 +401,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"document"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
-        - `citations: optional BetaCitationsConfigParam`
+        - `citations: optional BetaCitationsConfigParam or null`
 
           - `enabled: optional boolean`
 
-        - `context: optional string`
+        - `context: optional string or null`
 
-        - `title: optional string`
+        - `title: optional string or null`
 
       - `BetaSearchResultBlockParam object { content, source, title, 3 more }`
 
@@ -402,11 +421,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `type: "text"`
 
-          - `cache_control: optional BetaCacheControlEphemeral`
+          - `cache_control: optional BetaCacheControlEphemeral or null`
 
             Create a cache control breakpoint at this content block.
 
-          - `citations: optional array of BetaTextCitationParam`
+          - `citations: optional array of BetaTextCitationParam or null`
 
         - `source: string`
 
@@ -416,7 +435,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"search_result"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -426,7 +445,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         - `signature: string`
 
+          The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
+
+          Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
+
         - `thinking: string`
+
+          The `thinking` text of this block as returned by the API.
 
         - `type: "thinking"`
 
@@ -435,6 +460,8 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `BetaRedactedThinkingBlockParam object { data, type }`
 
         - `data: string`
+
+          The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
         - `type: "redacted_thinking"`
 
@@ -452,7 +479,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"tool_use"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -494,7 +521,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"tool_result"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -522,7 +549,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
                 - `"tool_reference"`
 
-              - `cache_control: optional BetaCacheControlEphemeral`
+              - `cache_control: optional BetaCacheControlEphemeral or null`
 
                 Create a cache control breakpoint at this content block.
 
@@ -556,7 +583,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"server_tool_use"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -590,7 +617,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
             - `url: string`
 
-            - `page_age: optional string`
+            - `page_age: optional string or null`
 
           - `BetaWebSearchToolRequestError object { error_code, type }`
 
@@ -618,7 +645,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"web_search_tool_result"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -678,7 +705,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               Fetched content URL
 
-            - `retrieved_at: optional string`
+            - `retrieved_at: optional string or null`
 
               ISO 8601 timestamp when the content was retrieved
 
@@ -688,7 +715,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"web_fetch_tool_result"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -740,7 +767,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `"advisor_result"`
 
-            - `stop_reason: optional string`
+            - `stop_reason: optional string or null`
 
           - `BetaAdvisorRedactedResultBlockParam object { encrypted_content, type, stop_reason }`
 
@@ -752,7 +779,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `"advisor_redacted_result"`
 
-            - `stop_reason: optional string`
+            - `stop_reason: optional string or null`
 
         - `tool_use_id: string`
 
@@ -760,7 +787,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"advisor_tool_result"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -832,7 +859,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"code_execution_tool_result"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -884,7 +911,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"bash_code_execution_tool_result"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -910,7 +937,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `"text_editor_code_execution_tool_result_error"`
 
-            - `error_message: optional string`
+            - `error_message: optional string or null`
 
           - `BetaTextEditorCodeExecutionViewResultBlockParam object { content, file_type, type, 3 more }`
 
@@ -928,11 +955,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `"text_editor_code_execution_view_result"`
 
-            - `num_lines: optional number`
+            - `num_lines: optional number or null`
 
-            - `start_line: optional number`
+            - `start_line: optional number or null`
 
-            - `total_lines: optional number`
+            - `total_lines: optional number or null`
 
           - `BetaTextEditorCodeExecutionCreateResultBlockParam object { is_file_update, type }`
 
@@ -948,15 +975,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `"text_editor_code_execution_str_replace_result"`
 
-            - `lines: optional array of string`
+            - `lines: optional array of string or null`
 
-            - `new_lines: optional number`
+            - `new_lines: optional number or null`
 
-            - `new_start: optional number`
+            - `new_start: optional number or null`
 
-            - `old_lines: optional number`
+            - `old_lines: optional number or null`
 
-            - `old_start: optional number`
+            - `old_start: optional number or null`
 
         - `tool_use_id: string`
 
@@ -964,7 +991,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"text_editor_code_execution_tool_result"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -988,7 +1015,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `"tool_search_tool_result_error"`
 
-            - `error_message: optional string`
+            - `error_message: optional string or null`
 
           - `BetaToolSearchToolSearchResultBlockParam object { tool_references, type }`
 
@@ -998,7 +1025,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `type: "tool_reference"`
 
-              - `cache_control: optional BetaCacheControlEphemeral`
+              - `cache_control: optional BetaCacheControlEphemeral or null`
 
                 Create a cache control breakpoint at this content block.
 
@@ -1012,7 +1039,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"tool_search_tool_result"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -1032,7 +1059,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"mcp_tool_use"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -1044,7 +1071,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"mcp_tool_result"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -1058,11 +1085,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
             - `type: "text"`
 
-            - `cache_control: optional BetaCacheControlEphemeral`
+            - `cache_control: optional BetaCacheControlEphemeral or null`
 
               Create a cache control breakpoint at this content block.
 
-            - `citations: optional array of BetaTextCitationParam`
+            - `citations: optional array of BetaTextCitationParam or null`
 
         - `is_error: optional boolean`
 
@@ -1077,7 +1104,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"container_upload"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
@@ -1095,15 +1122,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           - `"compaction"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
 
-        - `content: optional string`
+        - `content: optional string or null`
 
           Summary of previously compacted content, or null if compaction failed
 
-        - `encrypted_content: optional string`
+        - `encrypted_content: optional string or null`
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
@@ -1114,27 +1141,133 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         Use this block to provide or update system-level instructions at a specific
         point in the conversation, rather than only via the top-level `system` parameter.
 
-        - `content: array of BetaTextBlockParam`
+        - `content: array of BetaTextBlockParam or BetaRequestToolAdditionBlock or BetaRequestToolRemovalBlock`
 
           System instruction text blocks.
 
-          - `text: string`
+          - `BetaTextBlockParam object { text, type, cache_control, citations }`
 
-          - `type: "text"`
+          - `BetaRequestToolAdditionBlock object { tool, type, cache_control }`
 
-          - `cache_control: optional BetaCacheControlEphemeral`
+            Mid-conversation directive to surface a declared tool.
 
-            Create a cache control breakpoint at this content block.
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is offered to the model from this point in the
+            conversation onward.
 
-          - `citations: optional array of BetaTextCitationParam`
+            - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `BetaToolChangeToolReference object { name, type }`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+                - `name: string`
+
+                - `type: "tool_reference"`
+
+                  - `"tool_reference"`
+
+              - `BetaToolChangeMCPToolReference object { name, server_name, type }`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                - `name: string`
+
+                - `server_name: string`
+
+                - `type: "mcp_tool_reference"`
+
+                  - `"mcp_tool_reference"`
+
+              - `BetaToolChangeMCPToolsetReference object { server_name, type }`
+
+                Reference to every tool in the named MCP server's toolset.
+
+                - `server_name: string`
+
+                - `type: "mcp_toolset_reference"`
+
+                  - `"mcp_toolset_reference"`
+
+            - `type: "tool_addition"`
+
+              - `"tool_addition"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+          - `BetaRequestToolRemovalBlock object { tool, type, cache_control }`
+
+            Mid-conversation directive to withdraw a tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is no longer offered to the model from this point in the
+            conversation onward.
+
+            - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `BetaToolChangeToolReference object { name, type }`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+              - `BetaToolChangeMCPToolReference object { name, server_name, type }`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+              - `BetaToolChangeMCPToolsetReference object { server_name, type }`
+
+                Reference to every tool in the named MCP server's toolset.
+
+            - `type: "tool_removal"`
+
+              - `"tool_removal"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
 
         - `type: "mid_conv_system"`
 
           - `"mid_conv_system"`
 
-        - `cache_control: optional BetaCacheControlEphemeral`
+        - `cache_control: optional BetaCacheControlEphemeral or null`
 
           Create a cache control breakpoint at this content block.
+
+      - `BetaRequestToolAdditionBlock object { tool, type, cache_control }`
+
+        Mid-conversation directive to surface a declared tool.
+
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is offered to the model from this point in the
+        conversation onward.
+
+      - `BetaRequestToolRemovalBlock object { tool, type, cache_control }`
+
+        Mid-conversation directive to withdraw a tool.
+
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is no longer offered to the model from this point in the
+        conversation onward.
 
       - `BetaFallbackBlockParam object { from, to, type, trigger }`
 
@@ -1162,11 +1295,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more`
+            - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -1176,13 +1313,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
                 Most capable model for cybersecurity and biology research
 
+              - `"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-mythos-preview"`
 
@@ -1190,7 +1331,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-6"`
 
@@ -1206,11 +1347,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-5"`
 
@@ -1219,14 +1360,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `"claude-sonnet-4-5-20250929"`
 
                 High-performance model for agents and coding
-
-              - `"claude-opus-4-1"`
-
-                Exceptional model for specialized complex tasks
-
-              - `"claude-opus-4-1-20250805"`
-
-                Exceptional model for specialized complex tasks
 
             - `string`
 
@@ -1256,11 +1389,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-- `cache_control: optional BetaCacheControlEphemeral`
+- `cache_control: optional BetaCacheControlEphemeral or null`
 
   Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-- `context_management: optional BetaContextManagementConfig`
+- `context_management: optional BetaContextManagementConfig or null`
 
   Context management configuration.
 
@@ -1276,7 +1409,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         - `"clear_tool_uses_20250919"`
 
-      - `clear_at_least: optional BetaInputTokensClearAtLeast`
+      - `clear_at_least: optional BetaInputTokensClearAtLeast or null`
 
         Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
 
@@ -1286,7 +1419,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         - `value: number`
 
-      - `clear_tool_inputs: optional boolean or array of string`
+      - `clear_tool_inputs: optional boolean or array of string or null`
 
         Whether to clear all tool inputs (bool) or specific tool inputs to clear (list)
 
@@ -1294,7 +1427,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         - `array of string`
 
-      - `exclude_tools: optional array of string`
+      - `exclude_tools: optional array of string or null`
 
         Tool names whose uses are preserved from clearing
 
@@ -1364,7 +1497,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         - `"compact_20260112"`
 
-      - `instructions: optional string`
+      - `instructions: optional string or null`
 
         Additional instructions for summarization.
 
@@ -1372,7 +1505,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         Whether to pause after compaction and return the compaction block to the user.
 
-      - `trigger: optional BetaInputTokensTrigger`
+      - `trigger: optional BetaInputTokensTrigger or null`
 
         When to trigger compaction. Defaults to 150000 input tokens.
 
@@ -1388,19 +1521,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   - `url: string`
 
-  - `authorization_token: optional string`
+  - `authorization_token: optional string or null`
 
-  - `tool_configuration: optional BetaRequestMCPServerToolConfiguration`
+  - `tool_configuration: optional BetaRequestMCPServerToolConfiguration or null`
 
-    - `allowed_tools: optional array of string`
+    - `allowed_tools: optional array of string or null`
 
-    - `enabled: optional boolean`
+    - `enabled: optional boolean or null`
 
 - `output_config: optional BetaOutputConfig`
 
   Configuration options for the model's output, such as the output format.
 
-  - `effort: optional "low" or "medium" or "high" or 2 more`
+  - `effort: optional "low" or "medium" or "high" or 2 more or null`
 
     All possible effort levels.
 
@@ -1414,7 +1547,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
     - `"max"`
 
-  - `format: optional BetaJSONOutputFormat`
+  - `format: optional BetaJSONOutputFormat or null`
 
     A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
@@ -1426,7 +1559,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"json_schema"`
 
-  - `task_budget: optional BetaTokenTaskBudget`
+  - `task_budget: optional BetaTokenTaskBudget or null`
 
     User-configurable total token budget across contexts.
 
@@ -1440,19 +1573,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"tokens"`
 
-    - `remaining: optional number`
+    - `remaining: optional number or null`
 
       Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
 
-- `output_format: optional BetaJSONOutputFormat`
+- `output_format: optional BetaJSONOutputFormat or null`
 
   Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
   A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
 
-- `speed: optional "standard" or "fast"`
+- `speed: optional "standard" or "fast" or null`
 
-  The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
   - `"standard"`
 
@@ -1462,7 +1595,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   System prompt.
 
-  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
   - `string`
 
@@ -1472,11 +1605,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
     - `type: "text"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
-    - `citations: optional array of BetaTextCitationParam`
+    - `citations: optional array of BetaTextCitationParam or null`
 
 - `thinking: optional BetaThinkingConfigParam`
 
@@ -1484,7 +1617,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-  See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
   - `BetaThinkingConfigEnabled object { budget_tokens, type, display }`
 
@@ -1494,13 +1627,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       Must be ≥1024 and less than `max_tokens`.
 
-      See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
     - `type: "enabled"`
 
       - `"enabled"`
 
-    - `display: optional "summarized" or "omitted"`
+    - `display: optional "summarized" or "omitted" or null`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
@@ -1520,7 +1653,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"adaptive"`
 
-    - `display: optional "summarized" or "omitted"`
+    - `display: optional "summarized" or "omitted" or null`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
@@ -1586,13 +1719,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"none"`
 
-- `tools: optional array of BetaTool or BetaToolBash20241022 or BetaToolBash20250124 or 21 more`
+- `tools: optional array of BetaTool or BetaToolBash20241022 or BetaToolBash20250124 or 23 more`
 
   Definitions of tools that the model may use.
 
   If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
-  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
+  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
 
@@ -1648,7 +1781,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
-  See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+  See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
   - `BetaTool object { input_schema, name, allowed_callers, 7 more }`
 
@@ -1662,9 +1795,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         - `"object"`
 
-      - `properties: optional map[unknown]`
+      - `properties: optional map[unknown] or null`
 
-      - `required: optional array of string`
+      - `required: optional array of string or null`
 
     - `name: string`
 
@@ -1682,7 +1815,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -1696,7 +1829,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
 
-    - `eager_input_streaming: optional boolean`
+    - `eager_input_streaming: optional boolean or null`
 
       Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
 
@@ -1706,7 +1839,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       When true, guarantees schema validation on tool names and inputs
 
-    - `type: optional "custom"`
+    - `type: optional "custom" or null`
 
       - `"custom"`
 
@@ -1734,7 +1867,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -1772,7 +1905,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -1810,7 +1943,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -1846,7 +1979,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -1884,7 +2017,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -1922,7 +2055,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -1966,7 +2099,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -1974,7 +2107,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-    - `display_number: optional number`
+    - `display_number: optional number or null`
 
       The X11 display number (e.g. 0, 1) for the display.
 
@@ -2008,7 +2141,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -2054,7 +2187,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -2062,7 +2195,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-    - `display_number: optional number`
+    - `display_number: optional number or null`
 
       The X11 display number (e.g. 0, 1) for the display.
 
@@ -2096,7 +2229,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -2142,7 +2275,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -2150,7 +2283,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-    - `display_number: optional number`
+    - `display_number: optional number or null`
 
       The X11 display number (e.g. 0, 1) for the display.
 
@@ -2188,7 +2321,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -2226,7 +2359,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -2264,7 +2397,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -2274,7 +2407,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
     - `input_examples: optional array of map[unknown]`
 
-    - `max_characters: optional number`
+    - `max_characters: optional number or null`
 
       Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
 
@@ -2306,15 +2439,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `allowed_domains: optional array of string`
+    - `allowed_domains: optional array of string or null`
 
       If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
 
-    - `blocked_domains: optional array of string`
+    - `blocked_domains: optional array of string or null`
 
       If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -2322,7 +2455,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-    - `max_uses: optional number`
+    - `max_uses: optional number or null`
 
       Maximum number of times the tool can be used in the API request.
 
@@ -2330,7 +2463,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       When true, guarantees schema validation on tool names and inputs
 
-    - `user_location: optional BetaUserLocation`
+    - `user_location: optional BetaUserLocation or null`
 
       Parameters for the user's location. Used to provide more relevant search results.
 
@@ -2338,19 +2471,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         - `"approximate"`
 
-      - `city: optional string`
+      - `city: optional string or null`
 
         The city of the user.
 
-      - `country: optional string`
+      - `country: optional string or null`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-      - `region: optional string`
+      - `region: optional string or null`
 
         The region of the user.
 
-      - `timezone: optional string`
+      - `timezone: optional string or null`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
@@ -2378,19 +2511,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `allowed_domains: optional array of string`
+    - `allowed_domains: optional array of string or null`
 
       List of domains to allow fetching from
 
-    - `blocked_domains: optional array of string`
+    - `blocked_domains: optional array of string or null`
 
       List of domains to block fetching from
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
-    - `citations: optional BetaCitationsConfigParam`
+    - `citations: optional BetaCitationsConfigParam or null`
 
       Citations configuration for fetched documents. Citations are disabled by default.
 
@@ -2398,11 +2531,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-    - `max_content_tokens: optional number`
+    - `max_content_tokens: optional number or null`
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-    - `max_uses: optional number`
+    - `max_uses: optional number or null`
 
       Maximum number of times the tool can be used in the API request.
 
@@ -2434,15 +2567,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `allowed_domains: optional array of string`
+    - `allowed_domains: optional array of string or null`
 
       If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
 
-    - `blocked_domains: optional array of string`
+    - `blocked_domains: optional array of string or null`
 
       If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -2450,7 +2583,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-    - `max_uses: optional number`
+    - `max_uses: optional number or null`
 
       Maximum number of times the tool can be used in the API request.
 
@@ -2458,7 +2591,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       When true, guarantees schema validation on tool names and inputs
 
-    - `user_location: optional BetaUserLocation`
+    - `user_location: optional BetaUserLocation or null`
 
       Parameters for the user's location. Used to provide more relevant search results.
 
@@ -2486,19 +2619,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `allowed_domains: optional array of string`
+    - `allowed_domains: optional array of string or null`
 
       List of domains to allow fetching from
 
-    - `blocked_domains: optional array of string`
+    - `blocked_domains: optional array of string or null`
 
       List of domains to block fetching from
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
-    - `citations: optional BetaCitationsConfigParam`
+    - `citations: optional BetaCitationsConfigParam or null`
 
       Citations configuration for fetched documents. Citations are disabled by default.
 
@@ -2506,11 +2639,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-    - `max_content_tokens: optional number`
+    - `max_content_tokens: optional number or null`
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-    - `max_uses: optional number`
+    - `max_uses: optional number or null`
 
       Maximum number of times the tool can be used in the API request.
 
@@ -2544,19 +2677,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `allowed_domains: optional array of string`
+    - `allowed_domains: optional array of string or null`
 
       List of domains to allow fetching from
 
-    - `blocked_domains: optional array of string`
+    - `blocked_domains: optional array of string or null`
 
       List of domains to block fetching from
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
-    - `citations: optional BetaCitationsConfigParam`
+    - `citations: optional BetaCitationsConfigParam or null`
 
       Citations configuration for fetched documents. Citations are disabled by default.
 
@@ -2564,13 +2697,141 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-    - `max_content_tokens: optional number`
+    - `max_content_tokens: optional number or null`
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-    - `max_uses: optional number`
+    - `max_uses: optional number or null`
 
       Maximum number of times the tool can be used in the API request.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `use_cache: optional boolean`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+  - `BetaWebSearchTool20260318 object { name, type, allowed_callers, 8 more }`
+
+    - `name: "web_search"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `"web_search"`
+
+    - `type: "web_search_20260318"`
+
+      - `"web_search_20260318"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: optional array of string or null`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: optional "full" or "excluded"`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `"full"`
+
+      - `"excluded"`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: optional BetaUserLocation or null`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `BetaWebFetchTool20260318 object { name, type, allowed_callers, 10 more }`
+
+    - `name: "web_fetch"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `"web_fetch"`
+
+    - `type: "web_fetch_20260318"`
+
+      - `"web_fetch_20260318"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: optional array of string or null`
+
+      List of domains to block fetching from
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: optional BetaCitationsConfigParam or null`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: optional number or null`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: optional "full" or "excluded"`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `"full"`
+
+      - `"excluded"`
 
     - `strict: optional boolean`
 
@@ -2610,11 +2871,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
-    - `caching: optional BetaCacheControlEphemeral`
+    - `caching: optional BetaCacheControlEphemeral or null`
 
       Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
 
@@ -2622,11 +2883,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-    - `max_tokens: optional number`
+    - `max_tokens: optional number or null`
 
       Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
 
-    - `max_uses: optional number`
+    - `max_uses: optional number or null`
 
       Maximum number of times the tool can be used in the API request.
 
@@ -2660,7 +2921,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -2698,7 +2959,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"code_execution_20260521"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
@@ -2725,11 +2986,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `"mcp_toolset"`
 
-    - `cache_control: optional BetaCacheControlEphemeral`
+    - `cache_control: optional BetaCacheControlEphemeral or null`
 
       Create a cache control breakpoint at this content block.
 
-    - `configs: optional map[BetaMCPToolConfig]`
+    - `configs: optional map[BetaMCPToolConfig] or null`
 
       Configuration overrides for specific tools, keyed by tool name
 
@@ -2749,7 +3010,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
 - `BetaMessageTokensCount object { context_management, input_tokens }`
 
-  - `context_management: BetaCountTokensContextManagementResponse`
+  - `context_management: BetaCountTokensContextManagementResponse or null`
 
     Information about context management applied to the message.
 
@@ -2768,39 +3029,39 @@ curl https://api.anthropic.com/v1/messages/count_tokens \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d "{
-          \"messages\": [
+    -d '{
+          "messages": [
             {
-              \"content\": \"Hello, world\",
-              \"role\": \"user\"
+              "content": "Hello, world",
+              "role": "user"
             }
           ],
-          \"model\": \"claude-opus-4-6\",
-          \"system\": [
+          "model": "claude-opus-4-6",
+          "system": [
             {
-              \"text\": \"Today's date is 2024-06-01.\",
-              \"type\": \"text\"
+              "text": "Today'\''s date is 2024-06-01.",
+              "type": "text"
             }
           ],
-          \"thinking\": {
-            \"type\": \"adaptive\"
+          "thinking": {
+            "type": "adaptive"
           },
-          \"tools\": [
+          "tools": [
             {
-              \"input_schema\": {
-                \"type\": \"object\",
-                \"properties\": {
-                  \"location\": \"bar\",
-                  \"unit\": \"bar\"
+              "input_schema": {
+                "type": "object",
+                "properties": {
+                  "location": "bar",
+                  "unit": "bar"
                 },
-                \"required\": [
-                  \"location\"
+                "required": [
+                  "location"
                 ]
               },
-              \"name\": \"name\"
+              "name": "name"
             }
           ]
-        }"
+        }'
 ```
 
 #### Response

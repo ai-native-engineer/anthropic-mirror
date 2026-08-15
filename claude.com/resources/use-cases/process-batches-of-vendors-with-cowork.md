@@ -159,7 +159,7 @@ Ask Claude
 
 Updating the vendor tracker and generating the contract don't depend on each other — so you can ask Claude to spin up subagents and run them in parallel.
 
-### Add Claude for Chrome as a connector before starting
+### Add Claude in Chrome as a connector before starting
 
 Install Claude in Chrome and add it as a connector in your Cowork session. Log into your procurement portal before you start — Claude works within your authenticated session.
 

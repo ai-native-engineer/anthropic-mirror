@@ -10,7 +10,7 @@
 
 > **Who this is for:** IT administrators who install Claude Desktop on agency devices and connect it to Claude for Government.
 
-A fresh install of Claude Desktop connects to claude.ai. To connect it to Claude for Government instead, each device needs one managed setting that tells the app where to reach Claude for Government. Once that setting is in place, everything else that governs the app (which products and features are available, model access, [connectors](https://claude.com/docs/government/connectors/overview), usage limits, the desktop banner) is controlled through the [tenant](https://claude.com/docs/government/tenant-admin/configuration) and [organization](https://claude.com/docs/government/org-admin/configuration) configuration pages in this portal and delivered to each user when they sign in.
+A fresh install of Claude Desktop connects to claude.ai. To connect it to Claude for Government instead, each device needs one managed setting that tells the app where to reach Claude for Government. Once that setting is in place, everything else that governs the app (which products and features are available, model access, [connectors](https://claude.com/docs/government/connectors/overview), usage limits, the Claude Desktop banner) is controlled through the [tenant](https://claude.com/docs/government/tenant-admin/configuration) and [organization](https://claude.com/docs/government/org-admin/configuration) configuration pages in this portal and delivered to each user when they sign in.
 
 ##  Choose how to deploy
 
@@ -27,11 +27,14 @@ For a production rollout, use your device management system so end users never n
 
 ##  Before you begin
 
+Confirm each of the following before you start either path.
+
 * **User accounts exist.** Claude Desktop signs users in to the same accounts as this portal. For each user, including your own test account, check with your tenant administrators that the user can sign in (a [routing rule](https://claude.com/docs/government/tenant-admin/identity-and-access) covers them) and has a [seat tier](https://claude.com/docs/government/org-admin/seat-tiers) with at least one model enabled.
 * **Devices can reach Claude for Government.** Claude Desktop on every device must reach the Claude for Government host over HTTPS on port 443. That one host carries the app’s configuration and chat traffic.
 * **Browsers can reach sign-in.** Sign-in happens in the user’s default web browser, not in the app. Browsers on each device must reach the Claude for Government host, its sign-in service (a separate host that your Anthropic representative provides), and your agency’s identity provider.
-* **The device meets Claude Desktop’s requirements.** See the Claude Desktop [system requirements](https://claude.com/docs/third-party/claude-desktop/installation#system-requirements) for macOS and Windows device requirements. On Windows, the Cowork workspace also needs the Virtual Machine Platform optional feature, covered in the [Windows fleet section](#windows) below.
-* **You can install the app.** Installing by hand needs administrator rights on each device; see [Configure a single machine](#configure-a-single-machine) for what that means on each platform. The [general deployment guides](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos) cover where to download the installer and how to distribute it.
+* **The device meets Claude Desktop’s requirements.** See the Claude Desktop [system requirements](https://claude.com/docs/third-party/claude-desktop/installation#system-requirements) for macOS and Windows device requirements. For a Windows fleet, work through the [Windows fleet checklist](https://claude.com/docs/government/deploy-desktop/windows-checklist), which covers the Virtual Machine Platform feature that Cowork needs along with the installer, policy, and network prerequisites.
+* **Windows devices used for Code have Git for Windows.** On Windows, only the Code part of Claude Desktop needs Git for Windows. Chat and Cowork work without it. Install Git on the devices whose users will work in Code, or turn **Code in Claude Desktop** off under [Product availability](https://claude.com/docs/government/config/settings#product-availability) so that users are not prompted to install Git.
+* **You can install the app.** Installing by hand needs administrator rights on each device; see [Configure a single machine](#configure-a-single-machine) for what that means on each platform. Installing through your device management system does not, because the management system installs with elevated rights. The [macOS deployment guide](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos) and the [Windows deployment guide](https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows) cover where to download the installer and how to distribute it.
 * **The app is current.** The configuration mechanism on this page requires Claude Desktop 1.10628.0 or later.
 
 ##  The managed setting
@@ -42,7 +45,24 @@ The setting is called `bootstrapUrl`, and its value is the Claude for Government
 https://<claude-for-government-host>/gateway-api/user/bootstrap
 ```
 
-The Claude for Government host is the address of this portal. If you are unsure of it, ask your Anthropic representative. The app uses the address exactly as entered; it fetches each user’s configuration from it and derives the location of the sign-in service from it, so include the full path.
+The Claude for Government host is the same domain name you use to access Claude for Government. If you are unsure of it, ask your Anthropic representative. The app uses the address exactly as entered; it fetches each user’s configuration from it and starts sign-in from it, so include the full path.
+
+###  How the app uses the bootstrap address
+
+The address is the same for every device and user in your agency and carries no credentials or user information, so the same profile is safe to push to your whole fleet. A request to the address without a signed-in session is refused.
+When a user chooses **Sign in with your organization**, the app asks the Claude for Government host to start a sign-in, shows the pairing code it receives, and opens the host’s sign-in page in the user’s default browser. That page asks for the user’s agency email address, then sends the browser to the sign-in service and on to your agency’s identity provider. After signing in, the user acknowledges the system-use notification, confirms that the code shown in the browser matches the one in the app, and approves.
+Claude for Government then issues the app a session for that user, which the app stores encrypted on the device. The app presents that session, and nothing from the profile, when it downloads the user’s configuration from this address and when it sends chat traffic to the same host. It re-checks the configuration about every 30 minutes and at each launch.
+The configuration that the app downloads for a user includes the following settings, all of which you manage in this portal.
+
+| What the app receives | Where it is set |
+| --- | --- |
+| Which of Chat, Cowork, and Code the user can open, and whether Advanced file analysis is on in Chat | [Product availability](https://claude.com/docs/government/config/settings#product-availability) on the Config page |
+| The models the user can choose | The user’s [seat tier](https://claude.com/docs/government/org-admin/seat-tiers) |
+| Connectors, plugins, and the settings for the built-in tools | The [tool and connector cards](https://claude.com/docs/government/config/settings#tool-and-connector-cards) on the Config page |
+| The hosts that tools may reach | [Allowed network hosts](https://claude.com/docs/government/config/settings#allowed-network-hosts) |
+| The folders a user can choose as a workspace | [Allowed workspace folders](https://claude.com/docs/government/config/settings#allowed-workspace-folders) |
+| The banner shown across the top of the app | [Claude Desktop banner](https://claude.com/docs/government/config/settings#claude-desktop-banner) |
+| Where the app sends your agency’s own telemetry, if you have set a collector | [Telemetry endpoint (Claude Desktop)](https://claude.com/docs/government/config/settings#telemetry-endpoint-claude-desktop) |
 
 ##  Configure a single machine
 
@@ -86,7 +106,7 @@ Run the verification checklist
 
 Work through [Confirm it worked](#confirm-it-worked) below.
 
-After the test, the same configuration window has an **Export** menu that produces files ready for your management system: a `.mobileconfig` profile for macOS, a `.reg` file for Windows, an ADMX template for Intune or Group Policy, and a Profile Manifest for Jamf. Before exporting, turn on **Disable Claude.ai sign-in** in the window’s **Workspace restrictions** section so the exported profile hides the claude.ai option on managed devices.
+After the test, the same configuration window has an **Export** menu that produces files ready for your management system: a `.mobileconfig` profile for macOS, a `.reg` file for Windows, an ADMX template for Intune or Group Policy, and a Profile Manifest for Jamf. Before exporting, turn on **Disable Claude.ai sign-in** in the window’s **Workspace** section so the exported profile hides the claude.ai option on managed devices.
 
 ##  Deploy to your fleet
 
@@ -130,7 +150,7 @@ Windows Registry Editor Version 5.00
 
 The `.reg` file from the Export menu targets `HKEY_CURRENT_USER`, which is correct for single-machine testing. For fleet deployment, deliver the values under `HKEY_LOCAL_MACHINE` as shown here.
 
-Cowork, the agentic workspace in Claude Desktop, requires the **Virtual Machine Platform** Windows optional feature. Enable that feature through your device management system before rollout. On a device where the feature is not enabled, Cowork is unavailable until someone turns the feature on, which requires administrator rights that a standard user does not have. Chat works regardless of this feature.
+Cowork, the agentic workspace in Claude Desktop, requires the **Virtual Machine Platform** Windows optional feature. Enable that feature through your device management system before rollout. On a device where the feature is not enabled, Cowork is unavailable until someone turns the feature on, which requires administrator rights that a standard user does not have. Chat works regardless of this feature. The [Windows fleet checklist](https://claude.com/docs/government/deploy-desktop/windows-checklist) lists the remaining Windows prerequisites.
 
 ###  Linux
 
@@ -185,7 +205,7 @@ Sign in as a provisioned test user. Chat works and the model picker lists the mo
 
 Confirm per-user settings arrived
 
-After sign-in, what the app offers matches that user’s [product availability](https://claude.com/docs/government/config/settings#product-availability) settings (with everything on, the sidebar shows **Home** and **Code**), and any organization-managed connectors appear in the app. One end-to-end test is to set a short message in the **Desktop banner** setting on the tenant [Config](https://claude.com/docs/government/tenant-admin/configuration) page during rollout; if the message appears across the top of the app after sign-in, per-user delivery is working. If sign-in succeeds but none of these settings arrive, re-check the configured address.
+After sign-in, what the app offers matches that user’s [product availability](https://claude.com/docs/government/config/settings#product-availability) settings (with everything on, the sidebar shows **Home** and **Code**), and any organization-managed connectors appear in the app. One end-to-end test is to set a short message in the **Claude Desktop banner** setting on the tenant [Config](https://claude.com/docs/government/tenant-admin/configuration) page during rollout; if the message appears across the top of the app after sign-in, per-user delivery is working. If sign-in succeeds but none of these settings arrive, re-check the configured address.
 
 ##  Troubleshooting
 

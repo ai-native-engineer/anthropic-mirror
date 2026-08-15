@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/environments/work/stats -->
 
+---
+title: Get Queue Statistics
+url: https://platform.claude.com/docs/en/api/beta/environments/work/stats
+---
+
 ## Get Queue Statistics
 
 **get** `/v1/environments/{environment_id}/work/stats`
@@ -18,7 +23,7 @@ Get statistics about the work queue for an environment.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -70,11 +75,21 @@ Get statistics about the work queue for an environment.
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -88,7 +103,7 @@ Get statistics about the work queue for an environment.
 
     Number of work items waiting to be picked up (lag from consumer group)
 
-  - `oldest_queued_at: string`
+  - `oldest_queued_at: string or null`
 
     RFC 3339 timestamp of oldest item in the work stream (includes both queued and pending items), null if stream empty
 
@@ -102,7 +117,7 @@ Get statistics about the work queue for an environment.
 
     - `"work_queue_stats"`
 
-  - `workers_polling: number`
+  - `workers_polling: number or null`
 
     Number of workers that have polled for work in the last 30 seconds. Requires worker_id to be sent with poll requests.
 

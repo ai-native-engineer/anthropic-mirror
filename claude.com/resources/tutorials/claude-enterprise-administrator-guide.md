@@ -1818,7 +1818,7 @@ A comprehensive directory of support, training, and enablement resources for Cla
 
 ### Claude Code Setup & Configuration
 
-* [Claude Code](https://support.claude.com/en/collections/14445694-claude-code) — Team/Enterprise setup, model configuration, security reviews, and usage analytics
+* [Claude Code](https://claude.com/product/claude-code) — Team/Enterprise setup, model configuration, security reviews, and usage analytics
 * [Using Claude Code with Team or Enterprise Plan](https://support.claude.com/en/articles/11845131-using-claude-code-with-your-team-or-enterprise-plan) — Configuration and deployment for organizational plans
 * [Claude Code Usage Analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics) — Track adoption and usage across your organization
 * [Claude Code Troubleshooting](https://support.claude.com/en/articles/12386420-claude-code-faq) — Common issues, fixes, and debugging steps

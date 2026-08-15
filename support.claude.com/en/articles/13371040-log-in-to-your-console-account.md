@@ -2,7 +2,7 @@
 
 When you navigate to the **[Claude Console](https://platform.claude.com)**, you will see two different options for logging in to your Console account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1786269600&signature=908a95bb644d616c3b0db6d959bc8b7eccc44dbde0a95186ac84c6da446c465d&req=dSkkE8l8m4dbX%2FMW1HO4zcrI54%2FupokL8vUNcPt4%2B73wwtdLp6ndEJhDORvc%0A9%2FZYKkekcKEgWQJ8bnY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1786269600&signature=908a95bb644d616c3b0db6d959bc8b7eccc44dbde0a95186ac84c6da446c465d&req=dSkkE8l8m4dbX%2FMW1HO4zcrI54%2FupokL8vUNcPt4%2B73wwtdLp6ndEJhDORvc%0A9%2FZYKkekcKEgWQJ8bnY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1786753800&signature=dfe68b0c616303e8d33374c99c016cc4ceb09222677f936b388a86d6569c7cfa&req=dSkkE8l8m4dbX%2FMW1HO4zcrI54%2FrpYMF8vUNcPt4%2B70HZBn%2BPjzPi7G3Juo%2F%0Ai25r1wl6wDI3HsLXwss%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1786753800&signature=dfe68b0c616303e8d33374c99c016cc4ceb09222677f936b388a86d6569c7cfa&req=dSkkE8l8m4dbX%2FMW1HO4zcrI54%2FrpYMF8vUNcPt4%2B70HZBn%2BPjzPi7G3Juo%2F%0Ai25r1wl6wDI3HsLXwss%3D%0A)
 
 ## Continue with Google
 
@@ -72,4 +72,4 @@ Yes, you can have both a Claude account (for using Claude at claude.ai) and a Co
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
 * [Google Workspace SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917817-google-workspace-sso-scim-email-mismatch)
 * [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
-* [SSO login](https://support.claude.com/en/articles/14503613-sso-login)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)

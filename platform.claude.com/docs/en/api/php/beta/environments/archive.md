@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/environments/archive -->
 
+---
+title: Archive Environment
+url: https://platform.claude.com/docs/en/api/php/beta/environments/archive
+---
+
 ## Archive Environment
 
 `$client->beta->environments->archive(string environmentID, ?list<AnthropicBeta> betas): BetaEnvironment`
@@ -70,7 +75,8 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaEnvironment = $client->beta->environments->archive(
-  'env_011CZkZ9X2dpNyB7HsEFoRfW', betas: ['message-batches-2024-09-24']
+  'env_011CZkZ9X2dpNyB7HsEFoRfW',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaEnvironment);

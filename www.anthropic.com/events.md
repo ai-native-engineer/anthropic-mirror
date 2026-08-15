@@ -350,7 +350,7 @@ Jul 24, 2026
 
 2026-07-24
 
-[Learn more about this webinar](https://www.anthropic.com/webinars/startup-builds-getting-started-with-loops)
+[Learn more about this webinar](https://anthropic.ondemand.goldcast.io/on-demand/0dc79613-f360-435c-bde3-fa88e32d44ff)
 
 Claude for Investing Teams
 
@@ -358,7 +358,7 @@ Jul 24, 2026
 
 2026-07-24
 
-[Learn more about this webinar](https://www.anthropic.com/webinars/claude-for-investing-teams)
+[Learn more about this webinar](https://anthropic.ondemand.goldcast.io/on-demand/3008911f-0ffd-4473-b176-7385ba425a7c)
 
 Voice and Intelligence: Building the Human Interface for Customer Experience
 
@@ -366,7 +366,7 @@ Jul 22, 2026
 
 2026-07-22
 
-[Learn more about this webinar](https://www.anthropic.com/webinars/voice-and-intelligence-building-the-human-interface-for-customer-experience)
+[Learn more about this webinar](https://anthropic.ondemand.goldcast.io/on-demand/8e39b703-835e-45a4-9fff-f0a790f8d2ea)
 
 Building on the Claude Platform: Claude Fable 5 and model orchestration patterns
 
@@ -374,7 +374,7 @@ Jul 22, 2026
 
 2026-07-22
 
-[Learn more about this webinar](https://www.anthropic.com/webinars/building-on-the-claude-platform-claude-fable-5-and-model-orchestration-patterns)
+[Learn more about this webinar](https://anthropic.ondemand.goldcast.io/on-demand/c32e19a5-c4d7-432d-b83c-ec12c4222ab6)
 
 [Show more](https://www.anthropic.com/events?e45d281a_page=2)
 

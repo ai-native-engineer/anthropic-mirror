@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/memory_stores/update -->
 
+---
+title: Update a memory store
+url: https://platform.claude.com/docs/en/api/beta/memory_stores/update
+---
+
 ## Update a memory store
 
 **post** `/v1/memory_stores/{memory_store_id}`
@@ -18,7 +23,7 @@ Update a memory store
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -70,23 +75,33 @@ Update a memory store
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
-- `description: optional string`
+- `description: optional string or null`
 
   New description for the store, up to 1024 characters. Pass an empty string to clear it.
 
-- `metadata: optional map[string]`
+- `metadata: optional map[string] or null`
 
   Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
 
-- `name: optional string`
+- `name: optional string or null`
 
   New human-readable name for the store. 1–255 characters; no control characters. Renaming changes the slug used for the store's `mount_path` in sessions created after the update.
 
@@ -116,7 +131,7 @@ Update a memory store
 
     A timestamp in RFC 3339 format
 
-  - `archived_at: optional string`
+  - `archived_at: optional string or null`
 
     A timestamp in RFC 3339 format
 
@@ -134,7 +149,7 @@ Update a memory store
 curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
     -d '{}'
 ```

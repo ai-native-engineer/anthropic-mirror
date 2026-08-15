@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/messages/batches/list -->
 
+---
+title: List Message Batches
+url: https://platform.claude.com/docs/en/api/go/messages/batches/list
+---
+
 ## List Message Batches
 
 `client.Messages.Batches.List(ctx, query) (*Page[MessageBatch], error)`

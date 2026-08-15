@@ -47,3 +47,5 @@
 [Using Claude for Legal Work: Privilege, Confidentiality, and How to Think About Configuration](https://support.claude.com/en/articles/15707726-using-claude-for-legal-work-privilege-confidentiality-and-how-to-think-about-configuration)
 
 [Claude for Teachers: your data and our terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms)
+
+[How Claude marks AI-generated content](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)

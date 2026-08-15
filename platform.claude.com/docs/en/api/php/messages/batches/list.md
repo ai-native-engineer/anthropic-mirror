@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/messages/batches/list -->
 
+---
+title: List Message Batches
+url: https://platform.claude.com/docs/en/api/php/messages/batches/list
+---
+
 ## List Message Batches
 
 `$client->messages->batches->list(?string afterID, ?string beforeID, ?int limit): Page<MessageBatch>`
@@ -8,7 +13,7 @@
 
 List all Message Batches within a Workspace. Most recently created batches are returned first.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 

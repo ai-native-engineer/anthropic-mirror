@@ -1,243 +1,249 @@
 <!-- source: https://www.anthropic.com/legal/privacy -->
 
-Anthropic is an AI safety and research company working to build reliable, interpretable, and steerable AI systems.
+## 개인정보 처리방침
 
-This Privacy Policy explains how we collect, use, disclose, and process your personal data when you use our website, Claude.ai, or other Anthropic products and services (the “Services”). This Privacy Policy does not apply to content that we process on behalf of customers of our business offerings, such as our Enterprise accounts. Our use of that data is governed by our customer agreements covering access to and use of those offerings.
+**2026년 7월 8일 시행**
 
-Please see our [Non-User Privacy Policy](https://anthropic.com/legal/non-user-privacy-policy) for information on how our large language models are ‘trained’ and how personal data obtained from third party sources, including where others may submit personal data when using our services, may be used when developing or delivering our products and services.
+*본 정책은 2026년 6월 8일에 게시되었으며, 2026년 7월 8일부터 시행됩니다.*
 
-This Privacy Policy also describes your privacy rights. More information about your rights, and how to exercise them, is set out in Section 4 (“Rights and Choices”).
+Anthropic은 신뢰할 수 있고, 해석가능 하며 제어할 수 있는 AI 시스템을 구축하기 위해 노력하는 AI 안전, 연구 회사입니다.
 
-If you are located in Canada, Brazil, or the Republic of Korea, please read the relevant [Regional Supplemental Disclosure](https://www.anthropic.com/legal/privacy#11-regional-supplemental-disclosures) which applies to you.
+본 개인정보 처리방침(“**본 방침**”)은 귀하가 당사 웹사이트, Claude.ai나 기타 Anthropic 제품 및 서비스(“**당사 서비스**”)를 이용하는 경우 귀하의 개인정보를 수집, 사용, 공개 및 처리하는 방식을 규정합니다. 본 방침은 당사가 Enterprise 계정 등과 같은 기업용 서비스 고객을 대신하여 처리하는 콘텐츠에는 적용되지 않습니다. 해당 정보의 이용은 해당 상품의 접근 및 이용에 관한 당사의 고객 계약에 의해 규율됩니다.
 
-If you are located in Washington or a state with similar consumer health data laws, please read our [Consumer Health Data Privacy Policy](https://anthropic.com/legal/consumer-health-data-privacy-policy) which applies to you if you integrate third party health applications with Claude.
+당사의 대규모 언어 모델이 어떻게 ‘학습’되는지, 그리고 타인이 당사 서비스를 이용하면서 제출할 수 있는 개인정보를 포함하여 제3자 출처로부터 수집된 개인정보가 당사 제품 및 서비스의 개발 또는 제공 과정에서 어떻게 사용될 수 있는지에 대한 정보는 [비이용자 개인정보 처리방침](https://anthropic.com/legal/non-user-privacy-policy)을 참고하시기 바랍니다.
 
-## 1. Collection of Personal Data
+또한 본 방침은 귀하의 개인정보 보호에 관한 권리를 규정하고 있습니다. 귀하의 권리 및 행사 방법에 대한 보다 자세한 내용은 섹션4 “권리 및 선택권”에 규정되어 있습니다.
 
-We collect the following categories of personal data:
+귀하가 캐나다, 브라질 또는 대한민국에 거주하는 경우, 귀하에게 적용되는 관련 지역별 보충 공시를 확인하시기 바랍니다.
 
-### Personal data you provide to us directly
+귀하가 워싱턴주 또는 이에 준하는 소비자 건강정보 보호 법령이 적용되는 주에 거주하고 있으며, Claude와 제3자 건강 애플리케이션을 연동하는 경우, 귀하에게 적용되는 당사의 ‘소비자 건강정보 개인정보 처리방침’을 확인하시기 바랍니다.
 
-* Identity and Contact Data: Anthropic collects identifiers, including your name, email address, and phone number when you sign up for an Anthropic account, or to receive information on our Services. We may also collect or generate indirect identifiers (e.g., “USER12345”).
-* Payment Information: We shall collect your payment information if you choose to purchase access to Anthropic’s Services.
-* Inputs and Outputs: You are able to interact with our Services in a variety of formats, including but not limited to chat, coding, agentic sessions (where Claude performs multi-step tasks or takes actions on your behalf), and connected services. The content you submit to the Services through these interactions, including via third-party applications, services, and content you choose to upload, integrate or interact with using our Services, are your “Inputs”. Inputs generate responses and actions (“Outputs”). If you include personal data or reference external content in your Inputs, we will collect that information and it may be reproduced in your Outputs. Depending on the permissions you grant Claude, some Outputs may result in actions with effects outside the Services, such as sending communications, modifying files, or interacting with third-party services on your behalf.
-* Feedback on your use of our Services: We appreciate feedback, including ideas and suggestions for improvement or rating an Output in response to an Input ("Feedback"). If you rate an Output in response to an Input—for example, by using the thumbs up/thumbs down icon—we may store the entire related conversation as part of your Feedback. You can learn more about how we use Feedback [here](https://privacy.anthropic.com/en/articles/10023565-how-does-anthropic-use-submitted-feedback).
-* Study Participation Data: If you participate in Anthropic research studies, surveys, or interviews (for example our Anthropic Interviewer), we collect the responses you provide, associated account data, and related Technical Information. We may combine this data with other data from your account for aggregated analysis.
-* Communication Information: If you communicate with us, including via our chatbot on our Help site, we collect your name, contact information, and the contents of any messages you send.
-* Verification Data: In certain circumstances, we may ask you to verify your age or identity. If you choose to do so, data we will collect includes, depending on the method: an image of your government-issued identity document and the information appearing on it (such as your ID number and date of birth); your image in photo or video form, facial geometry templates (which may be considered ‘biometric data’ in some jurisdictions); and the result of the verification (for example, whether your age meets the applicable threshold).
+## 1. 개인정보 수집
 
-When you provide Inputs—including by uploading files, granting Claude access to third-party services, or instructing Claude to retrieve or act on information—you are responsible for ensuring you have the necessary rights, permissions, or authority to do so.
+당사는 아래 범주에 해당하는 개인 정보를 수집합니다.
 
-### Personal data we receive automatically from your use of the Services
+### 귀하가 당사에게 직접 제공하는 개인정보
 
-When you use the Services, we also receive certain technical data automatically (described below, collectively “**Technical Information**”). This includes:
+* **신원 및 연락처 정보:** Anthropic은 귀하가 Anthropic 계정에 가입하거나 당사 서비스에 대한 정보를 수령할 때 귀하의 성명, 이메일 주소 및 전화 번호 등의 식별자를 수집합니다. 당사는 또한 간접적인 식별자(예, “USER12345”)를 수집 또는 생성할 수 있습니다.
+* **결제 정보:** 당사는 귀하가 Anthropic의 서비스에 대한 접근 권한을 구매하기로 선택한 경우 귀하의 결제 정보를 수집합니다.
+* **입력 및 출력:** 귀하는 채팅, 코딩, 에이전트 세션(Claude가 귀하를 대신하여 다단계 작업을 수행하거나 조치를 취하는 경우), 연결된 서비스 등 다양한 형식으로 당사 서비스와 상호 작용할 수 있습니다. 이러한 상호 작용을 통해(귀하가 당사 서비스를 사용하여 업로드, 연동 또는 상호 작용하기로 선택한 제3자 애플리케이션, 서비스 및 콘텐츠를 통하는 것 포함) 귀하가 당사 서비스에 제출하는 콘텐츠를 귀하의 “**입력**”이라고 합니다. 입력은 응답 및 동작(“**출력**”)을 생성합니다. 만약 입력에 개인정보를 포함하거나 외부 콘텐츠를 참조하는 경우, 당사는 해당 정보를 수집하게 되며, 이는 귀하의 출력에서 재현될 수 있습니다. 귀하가 Claude에 부여하는 권한에 따라, 일부 출력은 귀하를 대신하여 통신을 발송하거나, 파일을 수정하거나, 제3자 서비스와 상호 작용하는 등 서비스 외부에 영향을 미치는 동작으로 이어질 수 있습니다.
+* **귀하의 당사 서비스 이용에 대한 피드백:** 저희는 서비스 개선을 위한 아이디어나 제안, 또는 입력에 대한 출력 평가를 포함한 피드백(**“피드백”**)을 환영합니다. 만약 입력에 따른 출력에 대해 평가를 하신다면, 예를 들어, 엄지 위/아래 아이콘을 사용하여 평가할 경우, 해당 평가와 관련된 전체 대화를 귀하의 피드백의 일부로 저장할 수 있습니다. 당사의 피드백 이용 방법에 대한 자세한 내용은 [여기](https://privacy.anthropic.com/en/articles/10023565-how-does-anthropic-use-submitted-feedback)에서 확인할 수 있습니다.
+* **연구 참여 정보:** 귀하가 Anthropic의 연구, 설문조사 또는 인터뷰(예: 당사의 Anthropic Interviewer)에 참여하실 경우, 당사는 귀하가 제공한 응답과 함께 관련 계정 정보 및 기술 정보를 수집합니다. 수집된 정보는 귀하의 계정에서 확보한 기타 정보와 결합하여 종합적인 총계 분석에 활용될 수 있습니다.
+* **통신 정보:** 귀하가 당사의 도움말 사이트의 챗봇 등을 통해 당사와 소통하는 경우 당사는 귀하의 성명, 연락처 및 귀하가 전송한 메시지 내용을 수집합니다.
+* **인증 정보**: 특정 상황에서 당사는 귀하에게 연령 또는 신원 확인을 요청할 수 있습니다. 귀하가 이를 선택하는 경우, 방법에 따라 당사가 수집하는 정보에는 다음이 포함됩니다: 정부 발급 신분증의 이미지 및 그에 표시된 정보(귀하의 신분증 번호 및 생년월일 등), 사진 또는 동영상 형식의 귀하의 이미지, 얼굴의 기하학적 구조(일부 관할권에서는 ‘생체인식 정보’로 간주될 수 있음), 인증 결과(예: 귀하의 연령이 적용 기준을 충족하는지 여부).
 
-* Device and Connection Information: Consistent with your device or browser permissions, your device or browser automatically sends us information about when and how you install, access, or use our Services. This includes information such as your device type, operating system information, browser information and web page referers, mobile network, connection information, mobile operator or internet service provider (ISP), time zone setting, IP address (including information about the location of the device derived from your IP address), identifiers (including device or advertising identifiers, probabilistic identifiers, and other unique personal or online identifiers), and device location.
-* Usage Information: We collect information about your use of the Services, such as the dates and times of access, browsing history, search, information about the links you click and about third-party applications, services, and content you integrate or interact with, pages you view, and other information about how you use the Services, and technology on the devices you use to access the Services.
-* Log and Troubleshooting Information: We collect information about how our Services are performing when you use them. This information includes log files. If you or your device experiences an error, we may collect information about the error, the time the error occurred, the feature being used, the state of the application when the error occurred, and any communications or content provided at the time the error occurred.
-* Cookies & Similar Technologies: We and our service providers use cookies, scripts, or similar technologies (“Cookies”) to manage the Services and to collect information about you and your use of the Services. These technologies help us to recognize you, customize or personalize your experience, market additional products or services to you, and analyze the use of our Services to make them safer and more useful to you. For more details about how we use these technologies, and your opt-out controls and other options, please visit our [Cookie Policy](https://www.anthropic.com/legal/cookies).
+귀하가 입력을 제공하는 경우(파일 업로드, Claude에 제3자 서비스에 대한 접근 권한 부여, Claude에 대한 정보 검색 또는 정보에 기한 동작 지시 포함), 귀하는 이를 위하여 필요한 권리, 허가 또는 권한을 보유하고 있는지 확인할 책임이 있습니다.
 
-### Personal data we collect or receive to train our models
+### 귀하가 당사 서비스를 사용할 때 당사가 자동적으로 수신하는 개인정보
 
-Anthropic obtains personal data from third party sources in order to train our models. Specifically, we train our models using data from the following sources:
+귀하가 당사 서비스를 사용할 때 당사는 특정 기술 정보(아래에 정의되어 있으며 총칭하여 “**기술 정보**”)를 자동으로 수신하며 기술 정보에는 아래의 정보가 포함됩니다.
 
-* Publicly available information via the Internet
-* Datasets that we obtain through commercial agreements with third party businesses
-* Data that our users or crowd workers provide, including Inputs and Outputs from our Services (unless users opt out)
-* Feedback that users explicitly provide about our Services
-* Materials flagged for safety, security, or policy review
-* Data that we generate internally
+* **기기 및 연결 정보:** 귀하의 기기 또는 브라우저 권한(permissions)에 따라 귀하의 기기 또는 브라우저는 귀하가 당사 서비스를 설치, 접속 또는 사용하는 시점 및 방식에 대한 정보를 자동으로 당사에 전송합니다. 해당 정보에는 귀하의 기기 유형, 운영 시스템 정보, 브라우저 정보 및 웹 페이지 접속경로(referers), 모바일 네트워크, 연결 정보, 이동통신사업자 또는 인터넷 서비스 제공업체(ISP), 시간대 설정, IP 주소 (귀하의 IP 주소에서 파생된 기기 위치에 대한 정보 포함), 식별자(기기 또는 광고 식별자, 확률적 식별자 및 기타 고유한 개인 또는 온라인 식별자에 대한 정보 포함), 기기 위치 등이 포함됩니다.
+* **사용 정보:**당사는 접속 일시, 방문 기록(browsing history), 검색, 귀하가 클릭한 링크에 대한 정보 및 귀하가 연동하거나 상호작용하는 제3자 애플리케이션·서비스·콘텐츠에 대한 정보, 귀하가 조회한 페이지 및 귀하의 당사 서비스 사용 방법 그리고 귀하가 당사 서비스에 접속에 사용한 기기의 기술에 대한 기타 정보 등 귀하의 당사 서비스 사용에 대한 정보를 수집합니다.
+* **로그 및 문제해결 정보:** 당사는 귀하가 당사의 서비스를 사용할 때 해당 서비스가 어떻게 수행되는지에 대한 정보를 수집합니다. 해당 정보에는 로그 파일이 포함됩니다. 귀하 또는 귀하의 기기에 오류가 발생하는 경우 당사는 오류 내용, 오류 발생 시각, 사용 중인 기능, 오류 발생 당시 애플리케이션 상태 및 오류 발생 시점에 제공된 통신 또는 콘텐츠에 대한 정보를 수집할 수 있습니다.
+* **쿠키 및 유사 기술:**당사 및 당사 서비스 제공업체는 쿠키, 스크립트 또는 이와 유사한 기술(“**쿠키**”)을 사용하여 당사 서비스를 관리하고 귀하 및 귀하의 서비스 이용에 대한 정보를 수집합니다. 이러한 기술은 당사가 귀하를 인식하고, 귀하의 경험을 맞춤화 또는 개인화하며, 귀하에게 추가적인 제품 또는 서비스를 마케팅하고, 당사 서비스 사용을 분석하여 귀하에게 보다 안전하고 유용한 서비스를 제공하는데 도움을 줍니다. 당사가 이러한 기술을 사용하는 방식, 귀하의 선택 해제 옵션 및 기타 선택 사항에 대한 보다 자세한 정보는 당사 [쿠키 정책](https://www.anthropic.com/legal/cookies)을 참고하시기 바랍니다.
 
-For more information about how we collect and use personal data to develop our language models that power our Services, the steps we take to minimize the privacy impact on individuals through the training process, and your choices with respect to that information, please see our separate [Non-User Privacy Policy](https://anthropic.com/legal/non-user-privacy-policy).
+### 당사 모델을 학습시키기 위해 당사가 수집 또는 수신하는 개인정보
 
-## 2. Uses of Personal Data Permitted Under Applicable Data Protection Laws
+Anthropic은 당사의 모델을 학습시키기 위해 제3자로부터 개인정보를 수집합니다. 구체적으로 당사는 아래 출처로부터 얻은 데이터를 사용하여 모델을 학습합니다.
 
-We use your personal data for the following purposes:
+* 인터넷을 통해 공개적으로 이용가능한 정보
+* 당사가 제3자 기업과의 상업적 계약을 통해 취득한 데이터 세트
+* 당사 이용자 또는 플랫폼 작업자(crowd workers)가 제공하는 정보. (당사 이용자가 거부하지 않는 한) 당사 서비스 이용 과정에서 발생하는 입력값과 출력값이 포함됨
+* 당사 이용자가 당사 서비스에 대해 명시적으로 제공하는 피드백
+* 안전, 보안 또는 정책 검토를 위해 표시된 자료
+* 당사가 내부적으로 생성하는 데이터
 
-* To provide, maintain and facilitate any products and services offered to you with respect to your Anthropic account, which are governed by our Terms of Service;
-* To provide, maintain and facilitate optional services and features that enhance platform functionality and user experience;
-* To provide you with service updates, communications, and to provide tailored recommendations about our Services that may be of interest to you;
-* To create and administer your Anthropic account;
-* To facilitate payments for products and services provided by Anthropic;
-* To prevent and investigate fraud, abuse, and violations of our [Usage Policy](https://anthropic.com/legal/aup), unlawful or criminal activity, unauthorized access to or use of personal data or Anthropic systems and networks, to protect our rights and the rights of others, to protect your safety or that of any other person, and to meet legal, governmental and institutional policy obligations;
-* To investigate and resolve disputes;
-* To investigate and resolve security issues;
-* To debug and to identify and repair errors that impair existing functionality;
-* To improve the Services and conduct research, including training our models and conducting broader research on AI-related topics such as the societal impacts of AI; and
-* To enforce our [Terms of Service](https://anthropic.com/terms) and similar terms and agreements, including our [Usage Policy](https://anthropic.com/aup).
+당사의 서비스를 지원하는 언어 모델을 개발하기 위해 당사가 개인정보를 수집하고 이용하는 방법, 학습 과정에서 개인에 대한 개인정보 관련 영향을 최소화하기 위해 취하는 조치 및 해당 정보에 대한 귀하의 선택에 대한 자세한 내용은 [비이용자 개인정보 처리방침](https://anthropic.com/legal/non-user-privacy-policy)을 참고하시기 바랍니다.
 
-We may use your Inputs and Outputs to train and improve Anthropic AI models, unless you opt out through your account settings. Even if you opt-out, we will use Inputs and Outputs for model improvement when: (i) your conversations are flagged for safety review to improve our ability to detect harmful content, enforce our policies, or advance AI safety research, or (ii) you've explicitly reported the materials to us (for example via our feedback mechanisms).
+## 2. 적용 가능한 데이터 보호 법률에 따라 허용되는 개인정보의 이용
 
-Please see Section 10 below for details of our legal bases for processing your personal data.
+당사는 아래 목적을 위해 귀하의 개인정보를 이용합니다.
 
-## 3. Recipients and Third-Party Data Sources
+* 귀하의 Anthropic 계정과 관련하여 귀하에게 제공되는 당사 서비스 약관에 의해 규율되는 제품 및 서비스의 제공, 유지관리 및 지원
+* 플랫폼의 기능과 이용자 경험을 향상시키는 선택적 서비스 및 기능을 제공, 유지관리 및 지원
+* 서비스 업데이트 및 관련 공지의 제공, 귀하의 관심사에 부합하는 당사 서비스에 대한 맞춤형 추천 제공
+* 귀하의 Anthropic 계정 생성 및 관리
+* Anthropic이 제공한 제품 및 서비스에 대한 결제 지원
+* 사기, 남용 및 당사 [이용정책](https://anthropic.com/legal/aup) 위반, 불법 또는 범죄 행위, 개인정보 및 Anthropic 시스템과 네트워크에 대한 무단 접속 및 이용 금지 및 이에 대한 조사, 당사 권리 및 타인의 권리 보호, 귀하 또는 타인의 안전 보호와 법률, 정부 및 기관 정책상 의무 준수
+* 분쟁 조사 및 해결
+* 보안 이슈 조사 및 해결
+* 기존 기능을 손상시키는 오류를 디버그, 확인 및 복구
+* 당사 모델 학습 및 AI의 사회적 영향과 같은 AI 관련 주제에 대한 보다 광범위한 연구 수행을 포함한 서비스 개선 및 연구
+* 당사 [서비스](https://anthropic.com/terms) [약관](https://anthropic.com/terms)과 당사 [이용정책](https://anthropic.com/aup) 등 유사한 조건 및 계약 집행 목적
 
-Anthropic will disclose personal data to, or receive personal data from, the following categories of third parties for the purposes explained in this Policy:
+귀하가 계정 설정을 통해 거부하지 않는 한, 당사는 귀하의 입력과 출력을 Anthropic AI 모델 학습 및 개선을 위해 사용할 수 있습니다. 귀하가 거부하더라도 다음의 경우에는 모델 개선을 위해 입력 및 출력을 사용할 수 있습니다: (i) 귀하의 대화가 유해한 콘텐츠를 감지하고, 정책을 집행하며, AI 안전 연구를 발전시키기 위한 **안전성 검토** 대상으로 표시된 경우, (ii) 귀하가 해당 자료를 **명시적으로 당사에 신고**한 경우 (예: 피드백 기능을 통해 신고한 경우).
 
-* Affiliates & corporate partners: Anthropic discloses the categories of personal data described above between and among its affiliates and related entities.
-* Service providers & business partners: Anthropic may receive and disclose the categories of personal data described above with service providers and business partners for a variety of business purposes, including website and data hosting, ensuring compliance with industry standards, research, auditing, data processing, investigating and resolving safety and security issues, preventing and investigating fraud, abuse, and violations of our Usage Policy, and providing you with the Services.
-* Your Organization and Administrator: If you use an email address owned by your employer or another organization, your account may be linked to the organization’s enterprise account with us, as described in our Consumer Terms of Service.
+귀하의 개인 정보 처리에 대한 법적 근거에 대한 자세한 내용은 아래 섹션10을 참고하시기 바랍니다.
 
-Anthropic may also receive or disclose personal data in the following circumstances:
+## 3. 수령인 및 제3자 데이터 출처
 
-* As part of a significant corporate event: If Anthropic is involved in a merger, corporate transaction, bankruptcy, or other situation involving the transfer of business assets, Anthropic will receive or disclose your personal data as part of these corporate transactions.
-* Third-Party Websites, Integrations, and Services: Our Services allow you to connect to and interact with third-party applications, services, and content (“Third-Party Services”) via the Services and through integrations you enable, such as Connectors, plugins, webhooks, and external APIs. When you connect to or interact with Third-Party Services:
-  + Claude may send your Inputs, Outputs, and instructions to Third-Party Services to perform actions on your behalf (such as reading files, sending messages, or retrieving information). The Third-Party Service receives this data directly and processes it according to its own privacy policy.
-  + Claude may retrieve content and data from Third-Party Services you interact with. This data becomes part of your Inputs.
-  + Some integrations or features may allow Claude to access Third-Party Services on an ongoing basis until you disable the feature or disconnect the integration in your settings.
-* Anthropic does not control, and is not responsible for, the data practices of Third-Party Services. Before enabling an integration, granting Claude access to, or instructing Claude to take actions on a Third-Party Service, you should ensure you have the authority to grant such access and that doing so complies with any applicable terms, policies, or confidentiality obligations. Before enabling an integration, you should review the third party's privacy policy. Our Services may also link to third-party websites (such as social media); by following these links, you provide information directly to those third parties. Our linking to, or supporting an integration with, a Third-Party Service does not mean we endorse it or speak for that third party.
-* Pursuant to regulatory or legal requirements, safety, rights of others, and to enforce our rights or our terms. We may share personal data with government authorities, law enforcement, or other third parties where, based on the information available to us, we have a good-faith belief that disclosure is reasonably necessary to (i) comply with applicable law, regulation or legal process, including for legal, tax or accounting purposes, or in response to an enforceable governmental request; (ii) prevent serious harm to any person or to property; (iii) detect, prevent, or otherwise address fraud or other illegal activity; or (iv) enforce our terms, or protect the rights, property, security, or safety of Anthropic, our users, or others.
-* Research publications: We may publish aggregated, de-identified, or anonymized findings from our research, including research into how our Services are used and AI safety research.
-* With an individual's consent: Anthropic will otherwise disclose personal data when an individual gives us permission or directs us to disclose this information, including as a part of our Services.
+Anthropic은 본 방침에 설명된 목적을 위해 아래 범주에 해당하는 제3자에게 개인정보를 공개하거나 제3자로부터 개인정보를 수령할 수 있습니다.
 
-You can find information about the third parties Anthropic engages to help us process personal data [here](https://www.anthropic.com/subprocessors).
+* **계열사 및 기업 파트너:** Anthropic은 위 기재된 범주의 개인정보를 자사 계열사 및 관련 업체에게 공개합니다.
+* **서비스 제공업체 및 사업 파트너:** Anthropic은 웹사이트 및 데이터 호스팅, 업계 표준 준수, 연구, 감사, 정보 처리, 안전·보안 문제 조사 및 해결, 사기·남용·이용정책위반 방지 및 조사, 당사 서비스 제공 등의 다양한 사업 목적을 위해 위 명시된 범주의 개인정보를 서비스 제공업체 및 사업 파트너로부터 수령하거나 이들에게 공개할 수 있습니다.
+* **귀하의 조직 및 관리자:** 귀하가 귀하의 고용주 또는 조직 소유의 이메일 주소를 사용하는 경우, 당사의 소비자 서비스 약관에 명시된 바와 같이 귀하의 계정은 해당 조직의 기업용 계정과 연결될 수 있습니다
 
-## 4. Rights and Choices
+또한 Anthropic은 아래 경우에 개인정보를 공개하거나 수령할 수 있습니다.
 
-Depending on where you live and the laws that apply in your country of residence, you may enjoy certain rights regarding your personal data, as described further below. However, please be aware that these rights are limited, and that the processes by which we may need to action your requests regarding our training dataset are complex. We may also decline a request if we have a lawful reason for doing so. That said, we strive to prioritize the protection of personal data, and comply with all applicable privacy laws.
+* **중요한 회사 이벤트의 일환으로:** Anthropic이 합병, 기업간 거래, 파산 또는 사업 자산 양도를 수반하는 기타 상황에 개입되어 있는 경우, Anthropic은 기업간 거래의 일환으로 귀하의 개인정보를 공개하거나 수령합니다.
+* **제3자 웹사이트, 연동 및 서비스:**당사 서비스는 커넥터, 플러그인, 웹훅, 외부 API 등 귀하가 활성화한 연동 기능을 통해, 당사 서비스 내에서 귀하가 제3자 애플리케이션, 서비스 및 콘텐츠(“**제3자 서비스**”)에 연결하고 상호작용할 수 있도록 지원합니다. 제3자 서비스에 연결하거나 상호작용하는 경우 다음 사항이 적용됩니다.
+  + Claude는 파일 읽기, 메시지 발송, 정보 검색 등 귀하를 대신하여 작업을 수행하기 위해 귀하의 입력, 출력 및 지시 사항을 제3자 서비스에 전송할 수 있습니다. 해당 제3자 서비스는 위 정보를 직접 수령하며, 자체 개인정보 처리방침에 따라 처리합니다.
+  + Claude는 귀하가 상호작용하는 제3자 서비스로부터 콘텐츠 및 정보를 가져올 수 있으며, 이 정보는 귀하의 입력의 일부가 됩니다.
+  + 일부 연동 또는 기능은 귀하가 설정에서 해당 기능을 비활성화하거나 연동을 해제할 때까지 Claude가 제3자 서비스에 지속적으로 접근하는 것을 허용할 수 있습니다.
+* Anthropic은 제3자 서비스의 데이터 처리 방식을 통제하지 않으며, 이에 대한 책임을 지지 않습니다. 연동을 활성화하거나, Claude에게 제3자 서비스에 대한 접근 권한을 부여하거나, 해당 서비스에서 작업을 수행하도록 지시하기 전에, 귀하는 그러한 접근 권한을 부여할 권한이 있는지, 그리고 관련 약관, 정책 또는 비밀 유지 의무를 준수하는지를 확인하여야 합니다. 또한 연동을 활성화하기 전에 해당 제3자의 개인정보 처리방침을 검토하시기 바랍니다. 당사 서비스는 소셜 미디어 등 제3자 웹사이트로 연결되는 링크를 포함할 수 있으며, 귀하가 해당 링크를 따라 이동하는 경우 귀하는 해당 제3자에게 직접 정보를 제공하게 됩니다. 당사가 제3자 서비스와의 연결 또는 연동을 지원한다고 해서 해당 서비스를 보증하거나 해당 제3자를 대변하는 것은 아닙니다.
+* **규제 또는 법적 요건에 따라 안전, 타인의 권리를 위해 그리고 당사의 권리 또는 당사의 약관을 집행하기 위해:** 당사는 당사가 이용 가능한 정보에 근거하여 다음의 목적을 위해 공개가 합리적으로 필요하다고 판단되는 경우, 정부 기관, 법 집행 기관 또는 기타 제3자와 개인정보를 공유할 수 있습니다. (i) 법적·세무적·회계적 목적을 포함하여 관련 법률, 규정 또는 법적 절차를 준수하거나, 강제력 있는 정부 요청에 응하기 위한 경우, (ii) 특정인 또는 재산에 대한 중대한 피해를 방지하기 위한 경우, (iii) 사기 또는 기타 불법 행위를 탐지, 예방하거나 이에 대응하기 위한 경우, (iv) 당사의 약관을 집행하거나, Anthropic, 당사 이용자 또는 제3자의 권리, 재산, 보안 또는 안전을 보호하기 위한 경우.
+* **연구 간행물:** 당사는 서비스 이용 방식에 관한 연구 및 AI 안전성 연구를 포함하여, 당사 연구에서 도출된 집계, 비식별화 또는 익명화된 결과를 게시할 수 있습니다.
+* **개인이 동의하는 경우:** Anthropic은 개인이 당사에 개인정보의 공개를 허용하거나 지시하는 경우(당사 서비스의 일부로서 공개되는 경우를 포함하여) 개인정보를 공개합니다.
 
-To exercise your rights, you or an authorized agent may submit a request by [contacting us](mailto:privacy@anthropic.com). After we receive your request, we may verify it by requesting information sufficient to confirm your identity (e.g. email address, billing details). Where a third party representative submits a request on behalf of a data subject, we require evidence of authorization to act on behalf of the data subject.
+귀하는 개인정보를 처리하기 위해 Anthropic이 고용한 제3자에 대한 정보를 [여기](https://www.anthropic.com/subprocessors)에서 확인할 수 있습니다.
 
-We will respond to your request within the period required by the data protection law that applies to you. For example, where the EU GDPR or UK GDPR applies, we will respond within one calendar month of receiving a verifiable request, and where your request is complex or you have made a number of requests within a short timeframe, we may extend that period by up to a further two months. Where another law applies to you and sets a different period, we will respond within that period. You may also have the right to appeal requests that we deny by emailing privacy@anthropic.com. Anthropic will not discriminate based on the exercising of privacy rights you may have. Set out below is a summary of the rights which you may enjoy, depending on the laws that apply in your country of residence.
+## 4. 권리 및 선택권
 
-* Right to know: the right to know what personal data Anthropic processes about you, including the categories of personal data, the categories of sources from which it is collected, the business or commercial purposes for collection, and the categories of third parties to whom we disclose it.
-* Access & data portability: the right to request a copy of the personal data Anthropic processes about you, subject to certain exceptions and conditions. In certain cases and subject to applicable law, you have the right to port your information.
-* Deletion: the right to request that we delete personal data collected from you when you use our Services, subject to certain exceptions. You also are able to [delete individual conversations](https://support.anthropic.com/en/articles/8230524-how-can-i-delete-or-rename-a-conversation), which will be removed immediately from your conversation history and automatically deleted from our back-end within 30 days. Learn more [here](https://privacy.anthropic.com/en/articles/10023548-how-long-do-you-store-personal-data).
-* Correction: the right to request that we correct inaccurate personal data Anthropic retains about you, subject to certain exceptions. Please note that we cannot guarantee the factual accuracy of Outputs. If Outputs contain factually inaccurate personal data relating to you, you can submit a correction request and we will make a reasonable effort to correct this information—but due to the technical complexity of our large language models, it may not always be possible for us to do so.
-* Objection: the right to object to processing of your personal data, including profiling conducted on grounds of public or legitimate interest. In places where such a right applies, we will no longer process the personal data in case of such objection unless we demonstrate compelling legitimate grounds for the processing which override your interests, rights, and freedoms, or for the establishment, exercise or defense of legal claims. If we use your information for direct marketing, you can object and opt out of future direct marketing messages using the unsubscribe link in such communications.
-* Restriction: the right to restrict our processing of your personal data in certain circumstances.
-* Withdrawal of consent: Where Anthropic’s processing of your personal data is based on consent, you have the right to withdraw your consent. For example, you can disconnect your health app integration and withdraw your consent in your [settings](https://claude.ai/redirect/website.v1.57f1c274-8ec2-4c9d-bed2-f051804cd0e5/settings/connectors). The withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal.
-* Automated decision-making: Anthropic does not engage in decision making based solely on automated processing or profiling in a manner which produces a legal effect (i.e., impacts your legal rights) or significantly affects you in a similar way (e.g., significantly affects your financial circumstances or ability to access essential goods or services).
-* Sale & targeted Anthropic marketing of its products and services: Anthropic does not “sell” your personal data as that term is defined by applicable laws and regulations. You can opt-out of sharing your personal data for targeted advertising to promote our products and services, and we will honor global privacy controls. To learn more, [click here](https://www.anthropic.com/legal/cookies).
+귀하의 거주지 및 거주 국가에 적용되는 법률에 따라 귀하는 아래 규정된 바와 같이 개인정보와 관련하여 특정 권리를 갖습니다. 당사는 이러한 권리 요청에 대응하기 위해 노력합니다. 단, 이러한 권리는 제한적이며 당사 학습 데이터 세트와 관련한 귀하의 요청을 처리하는데 필요할 수 있는 절차들이 복잡할 수 있다는 점에 유의하시기 바랍니다. 또한 당사는 합법적인 이유가 있는 경우 요청을 거부할 수도 있습니다. 그러나, 당사는 개인정보 보호를 우선시하고 모든 관련 개인정보 보호법을 준수하기 위해 노력합니다.
 
-Anthropic gives you access to a variety of tools to help you manage your data. You can access these in your [Privacy Settings](https://claude.ai/redirect/website.v1.57f1c274-8ec2-4c9d-bed2-f051804cd0e5/new#settings/data-privacy-controls).
+귀하의 권리를 행사하기 위해서 귀하 또는 권한을 위임받은 대리인은 [여기](mailto:privacy@anthropic.com)로 당사에 연락하여 신청서를 제출할 수 있습니다. 당사는 귀하의 요청을 접수한 후 귀하의 신원을 확인하기에 충분한 정보(예: 이메일 주소, 결제 정보)를 요청하여 해당 요청을 검증할 수 있습니다. 정보주체를 대신하여 제3자 대리인이 요청을 제출하는 경우, 당사는 해당 정보주체를 대리할 권한이 있음을 입증하는 증빙 자료를 요구합니다.
 
-## 5. Data Transfers
+당사는 귀하에게 적용되는 개인정보 보호법이 정한 기간 내에 귀하의 요청에 응답합니다. 예를 들어, EU GDPR 또는 UK GDPR이 적용되는 경우, 당사는 검증 가능한 요청을 수령한 날로부터 1개월 이내에 응답하며, 귀하의 요청이 복잡하거나 단기간 내에 다수의 요청이 접수된 경우에는 응답 기간을 최대 2개월까지 연장할 수 있습니다. 다른 법률이 적용되어 별도의 기간이 규정된 경우에는 해당 기간 내에 응답합니다. 또한 귀하는 당사가 거부한 요청에 대하여 privacy@anthropic.com로 이메일을 송부하여 이의를 제기할 권리가 있습니다. Anthropic은 귀하가 보유할 수 있는 개인정보 보호에 관한 권리를 행사하였다는 이유로 차별하지 않습니다. 귀하의 거주 국가에 적용되는 법률에 따라 귀하가 누릴 수 있는 권리의 요약내용은 아래와 같습니다.
 
-Anthropic is a global company, and when you access our Services, your personal data is transferred to our servers in the US, or to other countries outside the European Economic Area (“EEA”) and the UK for the purposes outlined in Section 2 of this Privacy Policy, for example to provide you with the Service, or to train our models, or to conduct research. This may be a direct provision of your personal data to us, or a transfer that we or a third party make. You can find more details about the [affiliates](https://trust.anthropic.com/faq?search=Which+Anthropic+affiliates%2Fentities+may+have+access+to+customer+data%3F) and [third parties](https://trust.anthropic.com/subprocessors) we transfer data to, including their locations, in our Trust Center.
+* **알 권리:** 개인정보의 범주, 개인정보가 수집되는 출처의 범주, 사업 또는 상업적인 수집 목적 및 당사가 개인정보를 공개하는 제3자의 범주 등 귀하에 대하여 Anthropic이 어떠한 개인정보를 처리하는지에 대하여 알 권리
+* **접근 및 정보이전권:** 특정 예외사항 및 조건을 준수하여 Anthropic이 귀하에 대하여 처리하는 개인정보의 사본을 요청할 권리. 일부 경우에 관련 법에 따라 귀하는 귀하의 정보를 이전할 수 있는 권리를 갖습니다. **삭제:** 일부 예외사항을 조건으로 하여 귀하가 당사 서비스를 이용할 때 당사가 귀하로부터 수집한 개인정보를 삭제할 것을 요청할 권리. 또한 귀하는 [개별 대화를 삭제](https://support.anthropic.com/en/articles/8230524-how-can-i-delete-or-rename-a-conversation)할 수 있는데 개별 대화는 귀하의 대화 기록에서 즉시 삭제되며 30일 이내에 당사 백엔드에서 자동으로 삭제됩니다. 보다 자세한 내용은 [여기](https://privacy.anthropic.com/en/articles/10023548-how-long-do-you-store-personal-data)에서 확인하시기 바랍니다.
+* **정정:** 특정 예외사항을 조건으로 하여 Anthropic이 귀하에 대하여 보유하고 있는 부정확한 개인정보를 수정할 것을 요청할 권리. 당사는 출력의 사실적 정확성을 보장할 수 없다는 점에 유의하시기 바랍니다. 출력에 사실적으로 부정확한 귀하에 대한 개인정보가 포함되어 있는 경우, 귀하는 정정을 요청할 수 있으며 당사는 해당 정보를 정정하기 위해 합리적인 노력을 할 것이나 당사의 대규모 언어 모델의 기술적 복잡성으로 인하여 정정이 항상 가능하지는 않을 수 있습니다.
+* **거부:** 공익 또는 정당한 이익을 근거로 하여 수행되는 프로파일링 등 귀하의 개인정보 처리에 대하여 거부할 수 있는 권리. 이러한 권리가 적용되는 경우 당사는 귀하의 이익, 권리 및 자유에 우선하는 처리 또는 법적 청구의 성립, 행사 또는 방어에 관한 설득력 있는 적법한 근거를 입증하지 않는 한 거부를 하는 경우 더 이상 개인정보를 처리하지 않을 것입니다. 당사가 직접 마케팅을 위해 귀하의 정보를 활용하는 경우 귀하는 직접 마케팅 메시지 상의 구독 취소 링크를 사용하여 향후 메시지를 거부하고, 거부할 수 있습니다.
+* **제한**: 경우에 따라 귀하의 개인정보 처리를 제한할 수 있는 권리.
+* **동의 철회:** Anthropic의 개인정보 처리가 동의에 근거한 경우 귀하는 귀하의 동의를 철회할 수 있는 권리를 갖습니다. 예를 들어, 귀하가 건강 앱 연동을 해제하고자 경우 [설정](https://claude.ai/redirect/website.v1.20cf9eed-1265-46af-b921-3e055a7d8ff8/settings/connectors)에서 동의를 철회할 수 있습니다. 동의 철회는 철회 이전의 동의에 근거한 처리의 적법성에 영향을 미치지 않습니다.
+* **자동 의사결정**: Anthropic은 법적 효과를 발생시키거나(즉, 귀하의 법적 권리에 영향을 미침) 이와 유사한 방식으로 귀하에게 중대하게 영향을 미치는 방식(예: 귀하의 재정상황 또는 필수 제품 또는 서비스에 대한 접근 능력에 중대하한 영향을 미침)으로 자동화된 처리 또는 프로파일링에만 근거한 의사결정을 내리지 않습니다.
+* **Anthropic 제품 및 서비스에 대한 판매 및 맞춤형 광고**: Anthropic은 관련 법 및 규정에 용어 “판매”가 정의된 바에 따라 귀하의 개인정보를 "판매"하지 않습니다. 귀하는 당사 제품 및 서비스를 홍보하기 위한 맞춤형 광고를 위해 귀하의 개인정보를 공유하는 것을 거부할 수 있으며 당사는 글로벌 개인정보 보호 통제권(global privacy controls)을 준수합니다. 보다 자세한 내용은 [여기에서](https://www.anthropic.com/legal/cookies) 확인하시기 바랍니다.
 
-Where Anthropic transfers information outside the EEA or the UK, we ensure it benefits from an adequate level of data protection by relying on:
+Anthropic은 귀하가 자신의 데이터를 관리할 수 있도록 다양한 도구를 제공합니다. 이러한 도구는 [개인정보 설정](https://claude.ai/redirect/website.v1.20cf9eed-1265-46af-b921-3e055a7d8ff8/settings/privacy)에서 확인하실 수 있습니다.
 
-* Adequacy decisions:These are decisions from the European Commission under Article 45 GDPR (or equivalent decisions under other laws) where they recognize that a country outside of the EEA offers an adequate level of data protection. We transfer your information as described in “Collection of Personal Data” to some countries with adequacy decisions, such as the countries with EU adequacy decisions listed [here](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en) and countries with UK adequacy decisions listed [here](https://www.gov.uk/government/publications/uk-approach-to-international-data-transfers/international-data-transfers-building-trust-delivering-growth-and-firing-up-innovation#uk-adequacy); or
-* Standard contractual clauses:The European Commission has approved contractual clauses under Article 46 GDPR that allows companies in the EEA to transfer data outside the EEA. These (and their approved equivalent for the UK and Switzerland) are called standard contractual clauses. We rely on standard contractual clauses to transfer information as described in “Collection of Personal Data” to certain affiliates and third parties in countries without an adequacy decision.
+## 5. 정보 이전
 
-In certain situations, we rely on derogations provided for under applicable data protection law to transfer information to a third country. If you have questions about international transfers, or the safeguards we apply, you can [contact us](mailto:privacy@anthropic.com).
+Anthropic은 글로벌 기업입니다. 귀하가 당사 서비스에 접속하는 경우, 귀하의 개인정보는 본 방침 제2조에 명시된 목적(예: 당사 서비스 제공, 모델 학습 또는 연구 수행 등)을 위해 미국 내 당사 서버 또는 유럽경제지역(“**EEA**”) 및 영국 이외의 국가로 이전됩니다. 이는 귀하의 개인정보가 당사에 직접적으로 제공되거나 당사 또는 제3자에 의해 이전되는 것에 해당할 수 있습니다. 당사가 정보를 이전하는 [계열사](https://trust.anthropic.com/faq?search=Which+Anthropic+affiliates%2Fentities+may+have+access+to+customer+data%3F) 및 [제3자](https://trust.anthropic.com/subprocessors)에 관한 상세 정보(소재지 포함)는 당사 트러스트 센터에서 확인하실 수 있습니다.
 
-## 6. Data Retention, Data Lifecycle, and Security Controls
+Anthropic이 정보를 EEA 또는 영국 이외의 국가로 이전하는 경우, 당사는 아래 항목에 의존함으로써 적절한 수준의 정보보호를 받도록 합니다.
 
-Anthropic retains your personal data for as long as reasonably necessary for the purposes and criteria outlined in this Privacy Policy and explained further in our [privacy center](https://privacy.anthropic.com/en/articles/10023548-how-long-do-you-store-personal-data).
+* **적정성 결정:**이는 유럽위원회가 일반정보보호규정(GDPR) 제45조에 따라 EEA 이외의 국가에서 적절한 수준의 정보보호를 제공한다고 인정하는 경우에 내리는 결정(또는 다른 법률에 따라 내린 동등한 결정)입니다. 당사는 "개인정보 수집" 항목에 명시된 귀하의 정보를 [EU 적정성 결정 국가 목록](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en) 및 [UK 적정성 결정 국가 목록](https://www.gov.uk/government/publications/uk-approach-to-international-data-transfers/international-data-transfers-building-trust-delivering-growth-and-firing-up-innovation#uk-adequacy)에 포함된 국가 등 적정성 결정이 내려진 일부 국가로 이전합니다.
+* **표준계약 조항:**유럽위원회는 EEA 국가에 소재한 회사가 EEA 이외의 국가로 정보를 이전하는 것을 허용하는 GDPR 제46조에 따른 계약 조항을 승인했습니다. 이러한 조항(및 영국 및 스위스에 대하여 승인된 이와 동등한 조항)을 표준계약 조항이라 합니다. 당사는 표준계약 조항에 따라 적정성 결정을 받지 못한 국가의 일부 계열사 및 제3자에게 “개인정보 수집”에 명시된 정보를 이전합니다.
 
-When the personal data collected is no longer required by us, we and our service providers will perform the necessary procedures for destroying, deleting, erasing, or converting it into an anonymous form as permitted or required under applicable laws.
+경우에 따라 당사는 관련 정보보호법에 규정된 완화조항(derogations)에 따라 제3국으로 정보를 이전합니다. 국제 이전 또는 당사가 적용하는 보호 조치에 관한 문의 사항이 있으시면 [여기](mailto:privacy@anthropic.com)로 당사에 연락하시기 바랍니다.
 
-### Aggregated or De-Identified Information
+## 6. 정보 보유, 정보 수명주기 및 보안 통제
 
-We apply aggregation and de-identification techniques where appropriate as part of our data minimization practices. For example, we may process personal data in an aggregated or de-identified form to analyze and improve the effectiveness of our Services including to conduct analytics, conduct research, study user behavior, and train our AI models as permitted under applicable laws. For instance:
+Anthropic은 본 방침에 명시된 목적과 기준에 따라 합리적으로 필요한 기간동안 귀하의 개인정보를 보유하며, 이는 당사 [개인정보](https://privacy.anthropic.com/en/articles/10023548-how-long-do-you-store-personal-data) [보호센터](https://privacy.anthropic.com/en/articles/10023548-how-long-do-you-store-personal-data)에서 자세히 설명되어 있습니다.
 
-* When you submit Feedback, we disassociate Inputs and Outputs from your user ID to use them for training and improving our models.
-* If our systems flag Inputs or Outputs for harmful content or for potentially violating our policies, we disassociate the content from your user ID to train our trust and safety internal classification and generative models. However, we may re-identify the Inputs or Outputs to enforce our Terms of Service or Usage Policy with the responsible user if necessary.
-* To improve user experience, we may analyze and aggregate general user behavior and usage data. This information does not identify individual users.
+수집된 개인정보가 더 이상 필요하지 않은 경우 당사 및 당사 서비스 제공업체는 관련 법률에서 허용하거나 요구하는 바에 따라 개인정보를 파기, 삭제하거나 익명 형식으로 전환하는데 필요한 절차를 수행합니다.
 
-Where data is de-identified, Anthropic will maintain and use this information in its de-identified form, and will not attempt to re-identify such information, except as permitted by law.
+### 총계처리된 또는 비식별화된 정보
 
-### Security Controls Relating to our Processing of Personal Data
+당사는 데이터 최소화 원칙의 일환으로 적절한 총계처리 및 비식별화 기법을 적용합니다. 예를 들어, 당사는 관련 법에서 허용한 바에 따라 분석 수행을 포함하여 당사 서비스의 효과를 분석·개선하고, 연구를 수행하고, 이용자 행위를 연구하고 당사 AI 모델을 학습시키기 위해 총계처리 되거나 비식별화된 형식의 개인정보를 처리할 수 있습니다. 예를 들어,
 
-We implement appropriate technical and organizational security measures designed to protect personal data from loss, misuse, and unauthorized access, disclosure, alteration, or destruction.
+* 귀하가 피드백을 제출하는 경우 당사는 귀하의 이용자 ID에서 입력 및 출력을 분리하여 당사 모델을 학습시키거나 개선하는데 사용할 수 있습니다.
+* 당사 시스템이 입력 또는 출력에서 유해 콘텐츠 또는 정책 위반 가능성을 감지한 경우, 당사는 신뢰와 안전을 위한 내부 분류 및 생성형 모델을 학습시키기 위해 귀하의 이용자 ID에서 콘텐츠를 분리합니다. 단, 필요한 경우 당사 서비스 약관 또는 이용정책을 시행하기 위해 책임있는 이용자와 입력 또는 출력을 재식별(re-identify)할 수 있습니다.
+* 당사는 이용자 경험을 개선하기 위해 일반적인 이용자 행위 및 사용 정보를 분석 및 총계처리 할 수 있습니다. 해당 정보는 개별 이용자를 식별하지 않습니다.
+* 정보가 비식별화된 경우, Anthropic은 해당 정보를 비식별화된 형태로 유지·활용하며, 법률이 허용하는 경우를 제외하고는 재식별을 시도하지 않습니다.
 
-## 7. Children
+### 당사의 개인정보 처리와 관련된 보안 통제
 
-Our Services are not directed towards, and we do not knowingly collect, use, disclose, sell, or share any information from children under the age of 18. We have measures in place to detect and remove children from our Services. If you become aware that a child under the age of 18 has provided any personal data to us while using our Services, please email us at privacy@anthropic.com and we will investigate the matter and, if appropriate, delete the personal data.
+당사는 개인 정보가 분실, 오용, 무단 접근, 공개, 변경 또는 파기되는 것을 방지하기 위해 고안된 적절한 기술적 및 조직적 보안 조치를 시행하고 있습니다.
 
-## 8. Changes to Our Privacy Policy
+## 7. 아동
 
-Anthropic may update this Privacy Policy from time to time. We will notify you of any material changes to this Privacy Policy, as appropriate, and update the Effective Date at the top of <https://www.anthropic.com/legal/privacy>. You can view a summary of privacy policy changes and previous versions in our [Privacy Center](https://privacy.anthropic.com/en/articles/10301952-updates-to-our-privacy-policy).
+당사 서비스는 18세 미만의 아동을 대상으로 하지 않으며 18세 미만의 아동의 정보를 의도적으로 수집, 사용, 공개, 판매 또는 공유하지 않습니다. 당사는 아동을 서비스에서 탐지하고 차단하기 위한 조치를 시행하고 있습니다. 18세 미만의 아동이 당사 서비스를 이용하는 동안 당사에 개인정보를 제공한 사실을 알게 된 경우 privacy@anthropic.com으로 이메일을 보내주시면 해당 사안을 조사하고 적절한 경우 개인정보를 삭제할 것입니다.
 
-## 9. Contact Information
+## 8. 당사 개인정보 처리방침 변경
 
-If you live in the European Economic Area (EEA), UK or Switzerland (the “European Region”), the data controller responsible for your personal data is Anthropic Ireland, Limited. If you live outside the European Region, the data controller responsible for your personal data is Anthropic PBC.
+Anthropic은 본 방침을 수시로 업데이트할 수 있습니다. 당사는 본 방침에 대한 중대한 변경사항을 적절하게 귀하에게 고지하고 <https://www.anthropic.com/legal/privacy> 상단에 시행일을 업데이트 할 것입니다. 이전 버전의 개인정보 처리방침과 변경 사항 요약은 당사의 [개인정보 보호센터](https://privacy.anthropic.com/en/articles/10301952-updates-to-our-privacy-policy)에서 확인하실 수 있습니다.
 
-If you have any questions about this Privacy Policy, or have any questions, complaints or requests regarding your personal data, you can contact us as described below:
+## 9. 연락처
 
-* Anthropic PBC with a registered address at 548 Market St, PMB 90375, San Francisco, CA 94104 (United States).
-* Anthropic Ireland, Limited with a registered address at 6th Floor, South Bank House, Barrow Street, Dublin 4, D04 TR29 (Ireland).
+귀하가 유럽경제지역(EEA), 영국 또는 스위스(“**유럽지역**”)에 거주하는 경우, 귀하의 개인정보를 담당하는 처리자는 Anthropic Ireland, Limited입니다. 귀하가 유럽지역 이외의 국가에 거주하는 경우 귀하의 개인정보를 담당하는 처리자는 Anthropic PBC입니다.
 
-You can email us at [privacy@anthropic.com](mailto:privacy@anthropic.com) and contact our Data Protection Officer at [dpo@anthropic.com](mailto:dpo@anthropic.com).
+본 방침에 대하여 문의사항이 있으시거나 귀하의 개인정보와 관련하여 문의사항, 불만 또는 요청이 있으신 경우 아래로 연락주시기 바랍니다.
 
-Please note that under many countries' laws, you have the right to lodge a complaint with the supervisory authority in the place in which you live or work. A full list of EU supervisory authorities’ contact details is available [here](https://edpb.europa.eu/about-edpb/about-edpb/members_en). If you live or work in the UK, you have the right to lodge a complaint with the [UK Information Commissioner’s Office](https://ico.org.uk/make-a-complaint/). If you live in Brazil, you have the right to lodge a complaint with the [Brazilian Data Protection Authority (ANPD)](https://www.gov.br/anpd/pt-br/canais_atendimento/cidadao-titular-de-dados/denuncia-peticao-de-titular). If you live in Australia, you have the right to lodge a complaint with the [Office of the Australian Information Commissioner](https://www.oaic.gov.au/privacy/privacy-complaints/lodge-a-privacy-complaint-with-us).
+* Anthropic PBC 등록 주소: 548 Market St, PMB 90375, San Francisco, CA 94104 (United States)
+* Anthropic Ireland, Limited 등록 주소: 6th Floor, South Bank House, Barrow Street, Dublin 4, D04 TR29 (Ireland)
 
-## 10. Legal Bases for Processing
+privacy@anthropic.com으로 당사에 이메일을 보내주시거나 dpo@anthropic.com으로 당사 정보보호책임자에게 연락을 하실 수 있습니다.
 
-| Purpose | Type of Data | Legal Basis |
+대다수 국가 법률에 따라 귀하는 귀하의 거주지 또는 근무지에 소재한 감독 당국에 이의를 제기할 권리를 갖는다는 점에 유의하시기 바랍니다. EU 감독 당국의 전체 연락처는 [여기에서](https://edpb.europa.eu/about-edpb/about-edpb/members_en) 확인할 수 있습니다. 귀하가 영국에서 거주 또는 근무하는 경우, 귀하는 영국의 정보위원회사무국([UK Information Commissioner’s Office](https://ico.org.uk/make-a-complaint/))에 이의를 제기할 권리를 갖고 귀하가 브라질에 거주하는 경우 브라질 정보보호당국([Brazilian Data Protection Authority (ANPD)](https://www.gov.br/anpd/pt-br/canais_atendimento/cidadao-titular-de-dados/denuncia-peticao-de-titular))에 이의를 제기할 권리를 갖습니다. 귀하가 호주에 거주하는 경우, 귀하는 호주 정보위원회([Office of the Australian Information Commissioner](https://www.oaic.gov.au/privacy/privacy-complaints/lodge-a-privacy-complaint-with-us))에 이의를 제기할 권리를 갖습니다.
+
+## 10. 처리의 법적 근거
+
+| **목적** | **정보 유형** | **법적 근거** |
 | --- | --- | --- |
-| To provide, maintain and facilitate any products and services offered to you with respect to your Anthropic account, which are governed by our Terms of Service | * Identity and Contact Data * Payment Information * Feedback * Inputs and Outputs * Technical Information | * Contract |
-| To provide, maintain and facilitate optional services and features that enhance platform functionality and user experience | * Identity and Contact Data * Feedback * Study Participation Data * Inputs and Outputs * Technical Information | * Consent (for example for precise device location or for health app integrations) * Legitimate interests  It is in our and our users' legitimate interests to expand our product features and deliver additional services that enhance platform functionality and user experience. |
-| To provide you with service updates, communications, and to provide tailored recommendations about our Services that may be of interest to you. | * Identity and Contact Data * Communication Information * Technical Information * Study Participation Data | * Where necessary to perform a contract with you, such as processing your contact information to send you a technical announcement about the Services. * Your consent when we ask for it to process your personal data for a specific purpose that we communicate to you, such as processing your contact information to send you certain forms of marketing communications. * Legitimate Interests  It is in our legitimate interests to promote our Services that may be of interest to you, including sending direct marketing. |
-| To create and administer your Anthropic account | * Identity and Contact Data * Payment Information * Feedback * Verification Data | * Contract |
-| To facilitate payments for products and services provided by Anthropic | * Identity and Contact Data * Payment Information | * Contract |
-| To prevent and investigate fraud, abuse, and violations of our [Usage Policy](https://anthropic.com/legal/aup), unlawful or criminal activity, unauthorized access to or use of personal data or Anthropic systems and networks, to protect our rights and the rights of others, to protect your safety or that of any other person, and to meet legal, governmental and institutional policy obligations | * Identity and Contact Data * Payment Information * Inputs and Outputs * Technical Information * Verification Data * Study Participation Data | * Consent (for example where you choose to verify your identity using biometric data) * Legitimate interests * Legal obligation * Vital Interests  It is in our legitimate interests to protect our business, employees and users from illegal activities, inappropriate behavior or violations of terms that would be detrimental. We also have a duty to cooperate with authorities. |
-| To investigate and resolve disputes | * Identity and Contact Data * Payment Information * Inputs and Outputs * Feedback * Technical Information * Study Participation Data * Communication Information | * Legitimate interests * Legal obligation  It is in our legitimate interests to fully understand and make reasonable efforts to resolve customer complaints in order to improve user satisfaction. We also have a legal obligation in some cases. |
-| To investigate and resolve security issues | * Identity and Contact Data * Payment Information * Feedback * Technical Information * Inputs and Outputs * Study Participation Data * Communication Information * Verification Data | * Legal obligation * Legitimate interests  It is in our legitimate interests to protect user data and our systems from intrusion or compromise through monitoring and swift response. We also have a legal obligation to provide adequate security safeguards. |
-| To debug and to identify and repair errors that impair existing functionality | * Identity and Contact Data * Feedback * Technical Information * Inputs and Outputs | * Legitimate interests  It is in our legitimate interests to maintain continuous functioning of our services and rapid correction of problems to ensure a positive user experience that encourages engagement. |
-| To improve the Services and conduct research (excluding model training) | * Identity and Contact Data * Feedback * Study Participation Data * Technical Information * Inputs and Outputs | * Scientific Research * Legitimate interests  It is in our legitimate interests and in the interest of Anthropic users to evaluate the use of the Services and adoption of new features to inform the development of future features and improve direction and development of the Services. Our research also benefits the AI industry and society: it investigates the safety, inner workings, and societal impact of AI models so that artificial intelligence has a positive impact on society as it becomes increasingly advanced and capable. |
-| To improve the Services and conduct research (including model training). See our [Non-User Privacy Policy](https://anthropic.com/legal/non-user-privacy-policy) for more details on the data used to train our models, and the different stages of development. | * Feedback * Study Participation Data * Inputs and Outputs * Data provided through the [Development Partner Program](https://support.anthropic.com/en/articles/11174108-about-the-development-partner-program) | * Scientific Research * Consent * Legitimate interests  It is in our legitimate interests and in the interest of Anthropic users to evaluate the use of the Services and adoption of new features to inform the development of future features and improve direction and development of the Services. Our research also benefits the AI industry and society: it investigates the safety, inner workings, and societal impact of AI models so that artificial intelligence has a positive impact on society as it becomes increasingly advanced and capable. |
-| To enforce our [Terms of Service](https://anthropic.com/terms) and similar terms and agreements, including our [Usage Policy](https://anthropic.com/aup). | * Identity and Contact Data * Inputs and Outputs * Technical Information * Study Participation Data * Verification Data | * Contract * Legitimate interests  In certain circumstances outside of the performance of our contract with you, we may rely on legitimate interests. It is in our legitimate interests to enforce the rules and policies governing use of our services, to maintain intended functionality and value for users. We aim to provide a safe, useful platform. |
+| 귀하의 Anthropic 계정과 관련하여 귀하에게 제공되는 당사 서비스 약관에 의해 규율되는 제품 및 서비스의 제공, 유지관리 및 지원 | * 신원 및 연락처 정보 * 결제 정보 * 피드백 * 입력 및 출력 * 기술 정보 | * 계약 |
+| 플랫폼의 기능과 이용자 경험을 향상시키는 선택적 서비스 및 기능을 제공, 유지관리 및 지원 | * 신원 및 연락처 * 피드백 * 연구 참여 정보 * 입력 및 출력 * 기술 정보 | * (예를 들어, 정확한 기기 위치 또는 건강 앱 연동을 위한) 동의 * 정당한 이익  플랫폼의 기능과 이용자 경험을 향상시키기 위해 당사 제품 기능을 확장하고 추가 서비스를 제공하는 것은 당사와 이용자의 정당한 이익입니다. |
+| 서비스 업데이트 및 관련 공지의 제공, 고객의 관심사에 부합하는 당사 서비스에 대한 맞춤형 추천 제공 | * 신원 및 연락처 정보 * 통신 정보 * 기술 정보 * 연구 참여 정보 | * 서비스에 대한 기술적 공지사항을 전송하기 위해 연락처 정보를 처리하는 등 귀하와의 계약을 이행하기 위해 필요한 경우 * 특정 형태의 마케팅 정보를 전송하기 위해 연락처 정보를 처리하는 등 당사가 귀하와 소통하는 특정 목적을 위해 귀하의 개인정보 처리를 요청할 때의 귀하의 동의 * 정당한 이익  직접 마케팅 수행을 포함하여 귀하의 관심사에 부합할 수 있는 당사 서비스를 홍보하는 것은 당사의 정당한 이익입니다. |
+| 귀하의 Anthropic 계정 생성 및 관리 | * 신원 및 연락처 정보 * 결제 정보 * 피드백 * 인증 정보 | * 계약 |
+| Anthropic이 제공한 제품 및 서비스에 대한 결제 지원 | * 신원 및 연락처 정보 * 결제 정보 | * 계약 |
+| 사기, 남용 및 당사 [이용정책](https://anthropic.com/legal/aup) 위반, 불법 또는 범죄 행위, 개인정보 및 Anthropic 시스템과 네트워크에 대한 무단 접속 및 이용 금지 및 이에 대한 조사, 당사 권리 및 타인의 권리 보호, 이용자 또는 다른 사람의 안전 보호, 그리고 법률, 정부 및 기관 정책상 의무 준수 | * 신원 및 연락처 정보 * 결제 정보 * 입력 및 출력 * 기술 정보 * 인증 정보 * 연구 참여 정보 | * 동의 (예: 귀하가 생체 인식 정보를 활용한 본인 확인을 선택하는 경우) * 정당한 이익 * 법적 의무 * 중대한 이익  불법 행위, 부적절한 행동 또는 불이익을 초래할 수 있는 약관 위반으로부터 당사 사업, 직원 및 이용자를 보호하는 것은 당사의 정당한 이익입니다. 또한 당사는 당국과 협력할 의무가 있습니다. |
+| 분쟁 조사 및 해결 | * 신원 및 연락처 정보 * 결제 정보 * 입력 및 출력 * 피드백 * 기술 정보 * 연구 참여 정보 * 통신 정보 | * 정당한 이익 * 법적 의무  이용자 만족도를 높이기 위해 고객 불만을 완전히 파악하고 이를 해결하기 위해 합리적인 노력을 기울이는 것은 당사의 정당한 이익입니다. 또한 당사는 경우에 따라 법적 의무를 부담합니다. |
+| 보안 이슈 조사 및 해결 | * 신원 및 연락처 정보 * 결제 정보 * 피드백 * 기술 정보 * 입력 및 출력 * 연구 참여 정보 * 통신 정보 * 인증 정보 | * 법적 의무 * 정당한 이익  모니터링과 신속한 대응을 통해 침입 또는 손상으로부터 이용자 정보 및 당사 시스템을 보호하는 것은 당사의 정당한 이익입니다. 또한 당사는 적절한 보안 보호 장치를 제공해야 할 법적 의무를 부담합니다. |
+| 기존 기능을 손상시키는 오류를 디버그, 식별 및 복구 | * 신원 및 연락처 정보 * 피드백 * 기술 정보 * 입력 및 출력 | * 정당한 이익  당사 서비스의 지속적인 기능 유지와 신속한 문제점 해결은 이용자의 참여를 유도하는 긍정적인 이용자 경험을 보장하기 위한 당사의 정당한 이익입니다. |
+| 서비스 개선 및 연구(모델 학습 제외) | * 신원 및 연락처 정보 * 피드백 * 연구 참여 정보 * 기술 정보 * 입력 및 출력 | * 과학적 연구 * 정당한 이익  서비스 이용과 새로운 기능의 채택을 평가하여 향후 기능 개발에 대한 정보를 제공하고 서비스의 방향과 개발을 개선하는 것은 당사의 정당한 이익이며 Anthropic 이용자에게 이익이 됩니다. 당사의 연구는 AI 산업과 사회에도 도움이 됩니다. 이 연구는 AI 모델의 안전성, 내부 작동 방식, 사회적 영향을 조사함으로써, 인공지능이 더욱 발전하고 강력해짐에 따라 사회에 긍정적인 영향을 미칠 수 있도록 합니다. |
+| 서비스 개선 및 연구(모델 학습 포함)모델 학습에 이용되는 정보 및 개발 단계별 세부 사항에 대한 자세한 내용은 [비이용자 개인정보 처리방침](https://anthropic.com/legal/non-user-privacy-policy) 참조. | * 피드백 * 연구 참여 정보 * 입력 및 출력 * [Development Partner Program](https://support.anthropic.com/en/articles/11174108-about-the-development-partner-program)을 통해 제공된 데이터 | * 과학적 연구 * 동의 * 정당한 이익  서비스 이용과 새로운 기능의 채택을 평가하여 향후 기능 개발에 대한 정보를 제공하고 서비스의 방향과 개발을 개선하는 것은 당사의 정당한 이익이며 Anthropic 이용자에게 이익이 됩니다. 당사의 연구는 AI 산업과 사회에도 도움이 됩니다. 이 연구는 AI 모델의 안전성, 내부 작동 방식, 사회적 영향을 조사함으로써, 인공지능이 더욱 발전하고 강력해짐에 따라 사회에 긍정적인 영향을 미칠 수 있도록 합니다. |
+| 당사 [서비스 약관](https://anthropic.com/terms)과 당사 [이용정책](https://anthropic.com/aup) 등 유사한 약관 및 계약 시행 목적 | * 신원 및 연락처 정보 * 입력 및 출력 * 기술 정보 * 연구 참여 정보 * 인증 정보 | * 계약 * 정당한 이익  당사와 귀하 간의 계약을 이행하는 것 이외의 특정한 경우에 당사는 정당한 이익에 의존할 수 있습니다. 당사 서비스 이용을 규율하는 규칙 및 정책을 시행하고 이용자를 위해 의도된 기능 및 가치를 유지하는 것은 당사의 정당한 이익입니다. 당사는 안전하고 유용한 플랫폼을 제공하는 것을 목표로 합니다. |
 
-Use of personal data
+개인정보의 이용
 
-## 11. Regional Supplemental Disclosures
+## 11. **지역별 보충 공시**
 
-### Supplemental Disclosures for Residents of Canada
+### 캐나다 거주자를 위한 보충 공시
 
-These supplemental disclosures contain additional information relevant to residents of Canada. This content should be read in conjunction with the rest of our Privacy Policy. In case of conflict between our Privacy Policy and these supplemental disclosures, the supplemental disclosures shall prevail in relation to residents of Canada.
+본 보충 공시에는 캐나다 거주자와 관련이 있는 추가 정보가 포함되어 있습니다. 공시 내용은 본 방침의 나머지 부분과 함께 읽어야 합니다. 본 방침이 보충 공시와 상충하는 경우 캐나다 거주자와 관련하여 보충 공시가 우선합니다.
 
-Consent. By expressly consenting to this Privacy Policy, you confirm you have read, understand, and consent to the collection, use, processing, and disclosure of your personal data in accordance with this Privacy Policy and understand that, in jurisdictions where it is available, Anthropic also relies on other lawful bases for the foregoing as more fully set out in this policy. We will only collect, use and disclose your personal data with your consent, unless otherwise permitted or required by law. Your consent may be given expressly or implied, depending on the circumstances and the sensitivity of the information involved. You may withdraw consent at any time, subject to legal or contractual restrictions and reasonable notice.
+동의. 본 방침에 명시적으로 동의함으로써 귀하는 본 방침에 따라 귀하의 개인정보를 수집, 이용, 처리 및 공개하는 것에 대하여 읽고 이해하고 이에 동의함을 확인하며, 본 방침에 보다 상세히 명시된 바와 같이 개인정보가 제공되는 관할권에서 Anthropic이 전술한 내용에 대하여 다른 법적 근거에도 의존한다는 점을 이해합니다. Anthropic은 법에서 달리 허용하거나 요구하지 않는 한 귀하의 동의를 받은 경우에만 개인정보를 수집, 이용 및 공개합니다. 귀하의 동의는 상황 및 관련 정보의 민감도에 따라 명시적 또는 묵시적으로 제공될 수 있습니다. 귀하는 법적 또는 계약상의 제한을 준수하고 합리적으로 통지하여 언제든지 동의를 철회할 수 있습니다.
 
-Cross-jurisdictional Transfers. By providing us with personal data, you acknowledge and agree that your personal data may be transferred or disclosed to other jurisdictions for processing and storage outside of Canada, including to the United States and the countries listed on our [Subprocessor List](https://www.anthropic.com/subprocessors), where laws regarding the protection of personal data may be less stringent than the laws in your jurisdiction. Furthermore, we may disclose your personal data in these jurisdictions in response to legal processes or where we believe in good faith that disclosure is required or permitted by law.
+관할권 간 이전.귀하는 당사에 개인정보를 제공함으로써 귀하의 개인정보가 처리 및 저장 목적을 위해 개인정보보호에 대한 법률이 귀하의 관할권의 법률보다 덜 엄격할 수 있는 미국 및 [재수탁자 목록](https://trust.anthropic.com/subprocessors)에 기재된 국가 등 캐나다 이외의 관할권으로 이전 또는 공개될 수 있음을 인정하고 이에 동의합니다. 또한, 당사는 법적 절차에 따라 또는 당사가 선의로 판단하기에 법에 따라 공개가 요구 또는 허용되는 경우 해당 관할권에서 귀하의 개인정보를 공개할 수 있습니다.
 
-Contact. If you have any questions or comments about our processing of your personal data, or to exercise your rights as outlined in Section 4 (“Rights and Choices”), please contact us at privacy@anthropic.com.
+연락처. 귀하의 개인정보 처리에 대하여 질문 또는 의견이 있으시거나 섹션4 “권리 및 선택권”에 규정된 귀하의 권리를 행사하고자 하는 경우 privacy@anthropic.com으로 당사에 연락해주시기 바랍니다.
 
-### Supplemental Disclosures for Residents of Brazil
+### 브라질 거주자를 위한 보충 공시
 
-These supplemental disclosures contain additional information relevant to residents of Brazil. This content should be read in conjunction with the rest of our Privacy Policy. In case of conflict between our Privacy Policy and these supplemental disclosures, the supplemental disclosures shall prevail in relation to residents of Brazil.
+본 보충 공시에는 브라질 거주자와 관련이 있는 추가 정보가 포함되어 있습니다. 공시 내용은 본 방침의 나머지 부분과 함께 읽어야 합니다. 본 방침이 보충 공시와 상충하는 경우 브라질 거주자와 관련하여 보충 공시가 우선합니다.
 
-Legal Bases. Depending on the specific purpose of the processing, we may rely on different grounds than those listed under section 2, where permitted by and in accordance with the Brazilian General Data Protection Law (LGPD). For example, we may rely on the "exercise of legal rights" basis to process personal data associated with customer complaints and to enforce our Terms of Service and similar terms and agreements, including our Usage Policy.
+법적 근거.구체적인 처리 목적에 따라 당사는 브라질 일반정보보호법(LGPD)에서 허용한 경우 이를 준수하여 섹션2에 기재된 근거와는 다른 근거에 의존할 수 있습니다. 예를 들어, 당사는 “법적 권리의 행사” 근거에 의존하여 고객 불만과 관련이 있는 개인정보를 처리하고 당사 서비스 약관 및 이용정책을 포함한 유사한 약관 및 계약을 시행할 수 있습니다.
 
-Data Subject's Rights. LGPD grants certain rights regarding your personal data, which differ from the ones listed under section 4. We will respond to your requests to exercise your rights below in accordance with applicable law:
+정보 주체의 권리. LGPD는 귀하의 개인정보와 관련하여 섹션4에 규정된 권리와 다른 특정 권리를 부여합니다. 당사는 관련 법률에 따라 아래에 기재된 귀하의 권리를 행사하고자 하는 요청에 대응할 것입니다.
 
-* Confirmation of whether your data is being processed. You have the right to receive a confirmation on whether Anthropic processes your data.
-* Access to your data. You have the right to know what personal data Anthropic processes about you.
-* Correction of incomplete, inaccurate or outdated data. You have the right to request the correction of your data that is incomplete, inaccurate, or outdated.
-* Anonymization, blocking or erasure of data. You have the right to request the anonymization, blocking or erasure of data that is unnecessary, excessive or processed in non-compliance with the provisions of the law.
-* Portability of personal data to a third party. You have the right to request portability of your data to a third-party, as long as this does not infringe on our trade secrets.
-* Information of public and private entities with which we shared data. You have the right to request information of public and private entities with which we have shared your data.
-* Information about the possibility to refuse to provide consent and the respective consequences, when applicable.
-* Withdrawal of your consent. You have the right to withdraw your consent. This procedure will be carried out free of charge.
-* Request a review of decisions made solely based on automated processing of personal data.
+* 귀하의 정보 처리 여부 확인.귀하는 Anthropic이 귀하의 정보를 처리하는지 여부에 대하여 확인을 받을 권리를 갖습니다.
 
-Please keep in mind that these rights are not absolute and may not apply in certain circumstances. For example, in certain cases we may continue to process and retain data regardless of your request for deletion, objection, blocking or anonymisation, in order to comply with legal, contractual and regulatory obligations, safeguard and exercise rights, including in judicial, administrative and arbitration proceedings and in other cases provided for by law.
+귀하의 정보에 대한 접근. 귀하는 Anthropic이 귀하에 대하여 어떠한 개인정보를 처리하는지에 대하여 알 권리를 갖습니다.
 
-International Data Transfers. You acknowledge that Anthropic is a company based and headquartered in the United States. Any information we hold about you will be transferred to, used, processed, and stored in the United States and other countries and territories, which may not have data privacy or data protection laws equivalent to those in your country or territory. For the proper operation of the Services, Anthropic needs to carry out international transfers of personal data. In the case of Brazil, we will rely on standard contractual clauses (SCCs) for our data transfers where required and in instances where they are not covered by an adequacy decision. These SCCs have been approved by the Brazilian Data Protection Authority (ANPD), which is the "competent supervisory authority" for these transfers, as governed by Brazilian Data Protection Laws. You can view the SCCs adopted by the ANPD [here](https://www.in.gov.br/en/web/dou/-/resolucao-cd/anpd-n-19-de-23-de-agosto-de-2024-580095396).
+* 불안전하거나 부정확하거나 오래된 정보의 수정.귀하는 불완전하거나 부정확하거나 오래된 귀하의 정보를 수정할 것을 요청할 권리를 갖습니다.
+* 정보의 익명화, 차단 또는 삭제.귀하는 불필요하거나 과도하거나 법 조항을 위반하여 처리된 정보를 익명화하거나 차단하거나 삭제할 것을 요청할 권리를 갖습니다.
+* 제3자로의 개인정보이전권.귀하는 당사 영업비밀을 침해하지 않는 한 귀하의 정보를 제3자로 이전할 것을 요청할 권리를 갖습니다.
+* 당사가 정보를 공유한 공공 및 민간 단체에 대한 정보. 귀하는 당사가 귀하의 정보를 공유한 공공 및 개인 단체에 대한 정보를 요청할 권리를 갖습니다.
+* 동의 제공을 거부할 수 있는 가능성 및 해당하는 경우 그에 따른 결과에 대한 정보
+* 귀하의 동의 철회. 귀하는 동의를 철회할 수 있는 권리를 갖습니다. 철회 절차는 무료로 진행됩니다.
+* 귀하는 자동화된 개인정보 처리만을 근거로 하여 내려진 결정에 대하여 검토를 요청할 권리를 갖습니다.
 
-### Supplemental Disclosures for Residents of the Republic of Korea
+이러한 권리는 절대적인 것이 아니며 경우에 따라 적용되지 않을 수 있다는 점에 유의하시기 바랍니다. 예를 들어 사법, 행정 및 중재 절차에서나 법에서 규정한 다른 경우에서 등 법적, 계약 상 및 규제 의무를 준수하고 권리를 보호 및 행사하기 위해 귀하의 삭제, 이의제기, 차단 또는 익명화 요청에도 불구하고 정보를 처리 및 보유할 수 있습니다.
 
-Domestic Representative in the Republic of Korea
+국외 정보 이전. 귀하는 Anthropic이 미국에 소재하고 본사를 둔 회사임을 인정합니다. 당사가 귀하에 대하여 보유하고 있는 정보는 귀하의 국가 또는 지역의 법률과 동등한 개인정보 보호법 또는 정보보호법이 없을 수 있는 미국, 기타 국가 및 지역으로 이전되거나, 이용, 처리 및 저장될 수 있습니다. Anthropic은 당사 서비스를 적절히 운영하기 위해 개인정보를 국외로 이전할 필요가 있습니다. 브라질의 경우, 필요한 데이터 이전이지만 적정성 결정의 적용을 받지 않는 이전인 때에는 브라질 표준계약조항(SCCs)에 근거합니다. 이 표준계약조항은 브라질 정보보호법에서 규정한 바에 따라 해당 이전에 대한 “관할 감독당국”인 브라질 정보보호당국(ANPD)의 승인을 받았습니다. ANPD에서 채택한 표준계약조항은 [여기](https://www.in.gov.br/en/web/dou/-/resolucao-cd/anpd-n-19-de-23-de-agosto-de-2024-580095396)에서 확인하실 수 있습니다.
 
-The domestic representative of Anthropic PBC for data protection and related regulatory purposes under Article 31-2 of the Personal Information Protection Act and Article 32-5 of the Act on Promotion of Information and Communications Network Utilization and Data Protection, Etc. in the Republic of Korea is as follows:
+### 대한민국 거주자를 위한 추가 고지사항
 
-Entity Name and Representative: Anthropic Korea, Limited (Representative Patrick Azubike Ekeruo)
+대한민국 내 국내대리인
 
-Registered Address: (Yeoksam-dong), 41F, 152 Teheran-ro, Gangnam-gu, Seoul, South Korea
+「개인정보 보호법」 제31조의2 및 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 제32조의5에 따른 개인정보 보호 및 관련 규제 목적상 지정된 Anthropic PBC의 국내대리인은 다음과 같습니다.
 
-Telephone: [+82-2-6252-2080]
+명칭 및 대표자: 앤트로픽코리아 유한회사(대표자 패트릭아주비크에케루오)
 
-Email: [anthropicprivacy@bkl.co.kr]
+주소: 서울시 강남구 테헤란로 152, 41층(역삼동)
 
-Data Processors:
+전화번호: [+82-2-6252-2080]
+
+전자우편 주소: [[anthropicprivacy@bkl.co.kr](mailto:anthropicprivacy@bkl.co.kr)]
+
+개인정보 처리 수탁자:
 
 |  |  |
 | --- | --- |
-| **Trustees and Contacts** | Bae, Kim & Lee LLC (02-3404-0001) |
-| **Entrusted Data** | Name, ID, phone number, email, address, and other information that you may provide to the domestic representative |
-| **Purpose** | Assisting with the domestic representative duties |
-| **Recipient Location** | South Korea |
-| **Retention period** | The period necessary to process your request |
-| **Times and methods of transfer** | Telephone, text, or email |
+| **수탁자 및 연락처** | 법무법인(유한) 태평양 (02-3404-0001) |
+| **위탁되는 데이터** | 이름, ID, 전화번호, 이메일 주소, 주소 및 귀하가 국내대리인에게 제공할 수 있는 기타 정보 |
+| **목적** | 국내대리인 업무 수행 지원 |
+| **수령인 소재지** | 대한민국 |
+| **보유 기간** | 귀하가 요청한 업무 처리에 필요한 기간 |
+| **이전 시기 및 방법** | 전화, 문자, 이메일 |

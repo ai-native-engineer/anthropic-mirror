@@ -1,7 +1,10 @@
 # claude (YouTube)
 
-영상 169개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 174개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [What does AI actually know about you?](claude/260813-what-does-ai-actually-know-about-you.md) — 2026-08-13
+- [Claude Cowork is now your Chrome side panel](claude/260812-claude-cowork-is-now-your-chrome-side-panel.md) — 2026-08-12 (자막없음)
+- [Can you trust what AI tells you?](claude/260811-can-you-trust-what-ai-tells-you.md) — 2026-08-11
 - [How Ramp engineers work with AI agents at every step](claude/260806-how-ramp-engineers-work-with-ai-agents-at-every-step.md) — 2026-08-06
 - [What happens when you talk to AI?](claude/260805-what-happens-when-you-talk-to-ai.md) — 2026-08-05
 - [How auto mode works with Claude Code](claude/260804-how-auto-mode-works-with-claude-code.md) — 2026-08-04
@@ -146,6 +149,8 @@
 - [A.A.Murakami's The Moon Underwater](claude/260202-a-a-murakami-s-the-moon-underwater.md) — 2026-02-02
 - [Getting started with Claude in Excel](claude/260130-getting-started-with-claude-in-excel.md) — 2026-01-30
 - [How Anthropic uses Claude in Marketing](claude/260127-how-anthropic-uses-claude-in-marketing.md) — 2026-01-27
+- [What does AI actually know about you?](claude/260814-what-does-ai-actually-know-about-you.md) — 2026-08-14
+- [Can you trust what AI tells you?](claude/260811-can-you-trust-what-ai-tells-you-O0Bf2A.md) — 2026-08-11
 - [What happens when you talk to AI?](claude/260808-what-happens-when-you-talk-to-ai.md) — 2026-08-08
 - [Record A Skill With Claude](claude/260803-record-a-skill-with-claude.md) — 2026-08-03
 - [What do AI models actually know?](claude/260724-what-do-ai-models-actually-know.md) — 2026-07-24

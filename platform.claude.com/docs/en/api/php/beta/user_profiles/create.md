@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/user_profiles/create -->
 
+---
+title: Create User Profile
+url: https://platform.claude.com/docs/en/api/php/beta/user_profiles/create
+---
+
 ## Create User Profile
 
 `$client->beta->userProfiles->create(?string externalID, ?array<string,string> metadata, ?string name, ?Relationship relationship, ?list<AnthropicBeta> betas): BetaUserProfile`
@@ -84,7 +89,7 @@ $betaUserProfile = $client->beta->userProfiles->create(
   metadata: [],
   name: 'x',
   relationship: 'external',
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaUserProfile);

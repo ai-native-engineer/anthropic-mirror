@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/skills/delete -->
 
+---
+title: Delete Skill
+url: https://platform.claude.com/docs/en/api/cli/beta/skills/delete
+---
+
 ## Delete Skill
 
 `$ ant beta:skills delete`

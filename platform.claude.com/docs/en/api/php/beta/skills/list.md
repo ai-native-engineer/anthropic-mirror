@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/skills/list -->
 
+---
+title: List Skills
+url: https://platform.claude.com/docs/en/api/php/beta/skills/list
+---
+
 ## List Skills
 
 `$client->beta->skills->list(?int limit, ?string page, ?string source, ?list<AnthropicBeta> betas): PageCursor<SkillListResponse>`
@@ -93,7 +98,7 @@ $page = $client->beta->skills->list(
   limit: 0,
   page: 'page',
   source: 'source',
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($page);

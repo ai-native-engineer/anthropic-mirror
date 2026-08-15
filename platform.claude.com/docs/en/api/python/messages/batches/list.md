@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/messages/batches/list -->
 
+---
+title: List Message Batches
+url: https://platform.claude.com/docs/en/api/python/messages/batches/list
+---
+
 ## List Message Batches
 
 `messages.batches.list(BatchListParams**kwargs)  -> SyncPage[MessageBatch]`

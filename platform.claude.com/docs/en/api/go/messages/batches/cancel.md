@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/messages/batches/cancel -->
 
+---
+title: Cancel a Message Batch
+url: https://platform.claude.com/docs/en/api/go/messages/batches/cancel
+---
+
 ## Cancel a Message Batch
 
 `client.Messages.Batches.Cancel(ctx, messageBatchID) (*MessageBatch, error)`

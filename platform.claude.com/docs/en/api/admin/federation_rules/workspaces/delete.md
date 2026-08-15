@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/federation_rules/workspaces/delete -->
 
+---
+title: Remove Federation Rule Workspace
+url: https://platform.claude.com/docs/en/api/admin/federation_rules/workspaces/delete
+---
+
 ## Remove Federation Rule Workspace
 
 **delete** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces/{workspace_id}`

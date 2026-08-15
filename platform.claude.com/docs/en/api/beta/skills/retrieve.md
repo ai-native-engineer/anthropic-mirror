@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/skills/retrieve -->
 
+---
+title: Get Skill
+url: https://platform.claude.com/docs/en/api/beta/skills/retrieve
+---
+
 ## Get Skill
 
 **get** `/v1/skills/{skill_id}`
@@ -22,7 +27,7 @@ Get Skill
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -74,11 +79,21 @@ Get Skill
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -92,13 +107,13 @@ Get Skill
 
   ISO 8601 timestamp of when the skill was created.
 
-- `display_title: string`
+- `display_title: string or null`
 
   Display title for the skill.
 
   This is a human-readable label that is not included in the prompt sent to the model.
 
-- `latest_version: string`
+- `latest_version: string or null`
 
   The latest version identifier for the skill.
 

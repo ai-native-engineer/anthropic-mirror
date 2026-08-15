@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/organizations/roles/permissions -->
 
+---
+title: Permissions
+url: https://platform.claude.com/docs/en/api/compliance/organizations/roles/permissions
+---
+
 # Permissions
 
 ## List Compliance Role Permissions
@@ -54,7 +59,7 @@ List Compliance Role Permissions
 
   Whether more records exist beyond the current result set
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token to retrieve the next page. Use this as the 'page' parameter in your next request
 
@@ -71,13 +76,13 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 {
   "data": [
     {
-      "action": "action",
-      "resource_id": "resource_id",
-      "resource_type": "resource_type"
+      "action": "claude_code",
+      "resource_id": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
+      "resource_type": "organization"
     }
   ],
   "has_more": true,
-  "next_page": "next_page"
+  "next_page": "cGFnZV90b2tlbl9leGFtcGxlXzE3MzQ1Njc4OTA="
 }
 ```
 

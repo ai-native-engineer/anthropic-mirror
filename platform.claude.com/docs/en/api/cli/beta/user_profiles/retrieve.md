@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/retrieve -->
 
+---
+title: Get User Profile
+url: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/retrieve
+---
+
 ## Get User Profile
 
 `$ ant beta:user-profiles retrieve`

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/agents/create -->
 
+---
+title: Create Agent
+url: https://platform.claude.com/docs/en/api/python/beta/agents/create
+---
+
 ## Create Agent
 
 `beta.agents.create(AgentCreateParams**kwargs)  -> BetaManagedAgentsAgent`
@@ -180,6 +185,10 @@ Create Agent
 
           - `"max"`
 
+    - `inference_geo: Optional[str]`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo. On update, `model` is whole-object replacement — omitting inference_geo clears it.
+
     - `speed: Optional[Literal["standard", "fast"]]`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
@@ -249,6 +258,18 @@ Create Agent
       - `type: Literal["self"]`
 
         - `"self"`
+
+    - `class BetaManagedAgentsAdvisorParams: …`
+
+      Platform advisor roster entry: a model the session's primary thread may consult mid-turn. At most one per roster; the entry occupies the roster name `anthropic.advisor`.
+
+      - `model: str`
+
+        A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
+
+      - `type: Literal["advisor"]`
+
+        - `"advisor"`
 
   - `type: Literal["coordinator"]`
 
@@ -436,7 +457,7 @@ Create Agent
 
     - `description: str`
 
-      Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
+      Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
     - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
@@ -464,7 +485,7 @@ Create Agent
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -529,6 +550,8 @@ Create Agent
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -688,6 +711,10 @@ Create Agent
 
           - `"max"`
 
+    - `inference_geo: Optional[str]`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
     - `speed: Optional[Literal["standard", "fast"]]`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
@@ -700,17 +727,33 @@ Create Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
-    - `agents: List[BetaManagedAgentsAgentReference]`
+    - `agents: List[Agent]`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `id: str`
+      - `class BetaManagedAgentsAgentReference: …`
 
-      - `type: Literal["agent"]`
+        A resolved agent reference with a concrete version.
 
-        - `"agent"`
+        - `id: str`
 
-      - `version: int`
+        - `type: Literal["agent"]`
+
+          - `"agent"`
+
+        - `version: int`
+
+      - `class BetaManagedAgentsAdvisor: …`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: str`
+
+          The advisor model id.
+
+        - `type: Literal["advisor"]`
+
+          - `"advisor"`
 
     - `type: Literal["coordinator"]`
 
@@ -937,6 +980,7 @@ print(beta_managed_agents_agent.id)
     "effort": {
       "type": "low"
     },
+    "inference_geo": "inference_geo",
     "speed": "standard"
   },
   "multiagent": {

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/files/upload -->
 
+---
+title: Upload File
+url: https://platform.claude.com/docs/en/api/python/beta/files/upload
+---
+
 ## Upload File
 
 `beta.files.upload(FileUploadParams**kwargs)  -> FileMetadata`
@@ -20,7 +25,7 @@ Upload File
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -85,6 +90,8 @@ Upload File
     - `"fallback-credit-2026-07-01"`
 
     - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

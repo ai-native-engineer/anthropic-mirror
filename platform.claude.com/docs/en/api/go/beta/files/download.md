@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/files/download -->
 
+---
+title: Download File
+url: https://platform.claude.com/docs/en/api/go/beta/files/download
+---
+
 ## Download File
 
 `client.Beta.Files.Download(ctx, fileID, query) (*Response, error)`
@@ -87,6 +92,8 @@ Download File
       - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

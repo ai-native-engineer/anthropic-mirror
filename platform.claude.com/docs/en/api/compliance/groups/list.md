@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/groups/list -->
 
+---
+title: List Compliance Groups
+url: https://platform.claude.com/docs/en/api/compliance/groups/list
+---
+
 ## List Compliance Groups
 
 **get** `/v1/compliance/groups`
@@ -34,7 +39,7 @@ List Compliance Groups
 
     Group identifier (tagged ID)
 
-  - `created_at: string`
+  - `created_at: string or null`
 
     Group creation timestamp (ISO 8601)
 
@@ -46,7 +51,7 @@ List Compliance Groups
 
     Group name
 
-  - `roles: array of string`
+  - `roles: array of string or null`
 
     Role IDs assigned to this group.
 
@@ -54,7 +59,7 @@ List Compliance Groups
 
     How the group was created ('direct' or 'scim')
 
-  - `updated_at: string`
+  - `updated_at: string or null`
 
     Group last-updated timestamp (ISO 8601)
 
@@ -62,7 +67,7 @@ List Compliance Groups
 
   Whether more records exist beyond the current result set
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token to retrieve the next page. Use this as the 'page' parameter in your next request
 
@@ -79,18 +84,19 @@ curl https://api.anthropic.com/v1/compliance/groups \
 {
   "data": [
     {
-      "id": "id",
-      "created_at": "created_at",
-      "description": "description",
-      "name": "name",
+      "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+      "created_at": "2025-03-12T18:22:41.123456",
+      "description": "All members of the engineering organization",
+      "name": "Engineering Team",
       "roles": [
-        "string"
+        "rbac_role_01SGBg3kEnZrdsVR2QmyJbvD",
+        "rbac_role_01HtCd4mFoAseWS3RnzKcwE7"
       ],
-      "source_type": "source_type",
-      "updated_at": "updated_at"
+      "source_type": "scim",
+      "updated_at": "2025-03-14T09:05:17.456789"
     }
   ],
   "has_more": true,
-  "next_page": "next_page"
+  "next_page": "cGFnZV90b2tlbl9leGFtcGxlXzE3MzQ1Njc4OTA="
 }
 ```

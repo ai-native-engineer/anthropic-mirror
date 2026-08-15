@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/dreams/retrieve -->
 
+---
+title: Get a Dream
+url: https://platform.claude.com/docs/en/api/beta/dreams/retrieve
+---
+
 ## Get a Dream
 
 **get** `/v1/dreams/{dream_id}`
@@ -18,7 +23,7 @@ Get a Dream
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -84,6 +89,8 @@ Get a Dream
 
     - `"agent-memory-2026-07-22"`
 
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
 ### Returns
 
 - `BetaDream object { id, archived_at, created_at, 10 more }`
@@ -92,7 +99,7 @@ Get a Dream
 
   - `id: string`
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -100,11 +107,11 @@ Get a Dream
 
     A timestamp in RFC 3339 format
 
-  - `ended_at: string`
+  - `ended_at: string or null`
 
     A timestamp in RFC 3339 format
 
-  - `error: BetaDreamError`
+  - `error: BetaDreamError or null`
 
     Failure detail for a Dream whose `status` is `failed`.
 
@@ -134,7 +141,7 @@ Get a Dream
 
         - `"sessions"`
 
-  - `instructions: string`
+  - `instructions: string or null`
 
   - `model: BetaDreamModelConfig`
 
@@ -160,7 +167,7 @@ Get a Dream
 
       - `"memory_store"`
 
-  - `session_id: string`
+  - `session_id: string or null`
 
   - `status: BetaDreamStatus`
 

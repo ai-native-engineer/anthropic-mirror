@@ -35,11 +35,11 @@ Write every value as a **string** in the OS preference store, even booleans and 
 | string | Plain string | `vertex` |
 | boolean | `"true"` or `"false"` (or `1` / `0`) | `"true"` |
 | integer | Decimal string | `"3600"` |
-| string[] (JSON) | JSON array **encoded as a string** (not a native plist/registry array) | `["claude-sonnet-5","claude-opus-5"]` |
+| string[] (JSON) | JSON array **encoded as a string** | `["claude-sonnet-5","claude-opus-5"]` |
 | object (JSON) | JSON object mapping name to value, as a string | `{"X-Org-Id":"team1"}` |
 | object[] (JSON) | JSON array of objects, as a string | see [`managedMcpServers`](#managedmcpservers) |
 
-The most common configuration mistake is writing array- or object-typed keys as native plist/registry structures. Keys like `inferenceModels`, `inferenceGatewayOidc`, `managedMcpServers`, `coworkEgressAllowedHosts`, and `otlpHeaders` must be **JSON strings**. In a `.mobileconfig`, that means a single `<string>` element containing `[...]` or `{...}` — not an `<array>`, not a `<dict>`, and not separate keys with dotted names like `inferenceGatewayOidc.clientId`.
+Array- and object-typed keys such as `inferenceModels`, `inferenceGatewayOidc`, `managedMcpServers`, `coworkEgressAllowedHosts`, and `otlpHeaders` are single keys whose value is a whole JSON document. The portable encoding is a JSON string, which works on every platform. In a `.mobileconfig` that is a single `<string>` element containing `[...]` or `{...}`, and on Windows a `REG_SZ` value. A macOS profile may instead carry the value as a native `<array>` or `<dict>`, which the app reads as the equivalent JSON. Separate keys with dotted names, such as `inferenceGatewayOidc.clientId`, are never read.
 
 On Windows, write registry values as `REG_SZ`, directly under the policy key rather than nested in a subkey (the app never reads subkeys). `REG_DWORD` is also accepted for boolean and integer keys and is read as its decimal value. Avoid `REG_EXPAND_SZ`: the app counts it toward machine policy being present but cannot read its contents. The app cannot see `REG_QWORD`, `REG_MULTI_SZ`, or `REG_BINARY` values at all.
 
@@ -94,7 +94,7 @@ Claude runs the executable with no arguments and reads **stdout** (trimmed). Exi
 * a single bare token (the API key / bearer token), or
 * a JSON object `{"token": "...", "headers": {"Name": "Value", ...}}` when per-request headers are needed (merged over **Custom inference headers**, helper wins on conflict)
 
-Result is cached for the TTL below. On TTL expiry the helper is re-invoked transparently (no user prompt, no relaunch).**Expiry and refresh:** the app checks the active credential’s expiry before each turn and refreshes silently when possible (re-runs the helper, or uses the stored refresh token for interactive sign-in kinds). If the provider returns HTTP 401 mid-turn, the same silent refresh is attempted before surfacing an error. When silent refresh fails, a prompt appears with a provider-specific action (re-sign-in for interactive kinds; admin-contact for static credentials). Applies to all providers and both tabs.**Typical use:** a shell script that pulls from Keychain, 1Password CLI, or an internal secret broker. Example:`security find-generic-password -s anthropic-api -w`If this field is set, static credential fields (API key, bearer token) are ignored. The helper always wins.
+The helper receives `CLAUDE_HELPER_CONTEXT` in its environment (`interactive`, `mid-session-refresh`, `background`, `scheduled-task`, `setup-test`) so it can decide whether to prompt the user — see the credential-helper docs for the full contract.Result is cached for the TTL below. On TTL expiry the helper is re-invoked transparently (no user prompt, no relaunch).**Expiry and refresh:** the app checks the active credential’s expiry before each turn and refreshes silently when possible (re-runs the helper, or uses the stored refresh token for interactive sign-in kinds). If the provider returns HTTP 401 mid-turn, the same silent refresh is attempted before surfacing an error. When silent refresh fails, a prompt appears with a provider-specific action (re-sign-in for interactive kinds; admin-contact for static credentials). Applies to all providers, and to both Cowork and Code.**Typical use:** a shell script that pulls from Keychain, 1Password CLI, or an internal secret broker. Example:`security find-generic-password -s anthropic-api -w`If this field is set, static credential fields (API key, bearer token) are ignored. The helper always wins.
 
 inferenceProvider details
 
@@ -177,14 +177,15 @@ general_settings:
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `clientId` | `string` | — |  |
-| `issuer` | `string` | — |  |
-| `authorizationUrl` | `string` | — |  |
-| `tokenUrl` | `string` | — |  |
+| `clientId` | `string` | — | OAuth client ID of the desktop app registration at your identity provider (public client, PKCE). |
+| `issuer` | `string` | — | HTTPS issuer with OIDC discovery. Set this, or set the authorization and token URLs instead. |
+| `authorizationUrl` | `string` | — | HTTPS authorization endpoint. Used with the token URL when no issuer is set. |
+| `tokenUrl` | `string` | — | HTTPS token endpoint. Used with the authorization URL when no issuer is set. |
 | `bearerTokenType` | `enum` | `id_token` | Which token to send as the gateway bearer. Use access token for gateways that validate as an OAuth resource server. One of: `id_token`, `access_token`. |
-| `scopes` | `string` | — |  |
+| `scopes` | `string` | — | Space-separated scopes. Required in access-token mode: set the gateway’s API scope. offline\_access is appended automatically unless disabled below. |
 | `appendOfflineAccess` | `boolean` | `true` | Automatically append offline\_access to scopes so the IdP returns a refresh token for silent refresh. |
-| `redirectPort` | `integer` | — |  |
+| `resource` | `string` | — | Absolute URL identifying the gateway as the access-token audience. Sent as the RFC 8707 resource parameter when set; leave unset for Microsoft Entra ID. |
+| `redirectPort` | `integer` | — | Fixed loopback port for the sign-in redirect (<http://127.0.0.1:PORT/callback>). Leave unset to use a free port each time. |
 | `additionalRedirectReferrerHosts` | `string` | — | Space-separated hostnames also accepted as the referrer of the sign-in callback. Only needed when the IdP completes sign-in from a different host. |
 
 ###  Models
@@ -192,11 +193,16 @@ general_settings:
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
 | Model discovery `modelDiscoveryEnabled` | `boolean` | MDM + Bootstrap | — | Auto-populate the model picker from the provider at launch. |
+| Default to 1M context `modelPrefer1mContext` | `boolean` | MDM + Bootstrap | — | When a user has no saved selection, start the picker on the 1M-context variant of the default model if it offers one. |
 | Model list `inferenceModels` | `object[]` | MDM + Bootstrap | — | Override the auto-discovered model list. First entry is the default. |
 
 modelDiscoveryEnabled details
 
 Auto-populate the model picker from the provider’s model-list endpoint at launch. For gateway and Anthropic providers, a config that doesn’t set this key skips discovery automatically when the model list below already makes it unnecessary; the toggle here only sets it explicitly on or off. Turn off if the endpoint isn’t reachable from your network, or to use a fixed list. When off, the model list below is required and must use full model IDs (aliases like sonnet/opus are resolved via discovery).
+
+modelPrefer1mContext details
+
+When a user has no saved selection, start the picker on the 1M-context variant of the default model (the first listed model, or the first model your endpoint returns under discovery) if it offers one. A saved selection is always kept; users who picked a model before this version need to pick the 1M row once, after which it persists. Equivalent to setting `prefer1m` on the default entry of `inferenceModels`, but also applies under dynamic discovery.
 
 inferenceModels details
 
@@ -206,7 +212,7 @@ Use the **provider’s exact model ID**: Vertex publisher IDs (`claude-sonnet-5`
 [{"name": "claude-sonnet-5", "supports1m": true}, "claude-opus-4-8"]
 ```
 
-**Default to 1M context** (`prefer1m`) makes the 1M-context variant the default picker selection when this entry is the default model (the first entry); users can still switch to the standard variant, and an explicit user pick is always kept. No effect without `supports1m`:
+**Default to 1M context** (`prefer1m`) makes the 1M-context variant the default picker selection when this entry is the default model (the first entry); users can still switch to the standard variant, and an explicit user pick is always kept. No effect without `supports1m`. Under dynamic discovery (no explicit list), the equivalent flat key in the **Models** group applies instead:
 
 ```
 [{"name": "claude-opus-4-8", "supports1m": true, "prefer1m": true}]
@@ -218,7 +224,7 @@ Use the **provider’s exact model ID**: Vertex publisher IDs (`claude-sonnet-5`
 [{"name": "arn:aws:bedrock:us-east-1:123:application-inference-profile/abc", "labelOverride": "Claude Opus (Prod)"}]
 ```
 
-**Tier mapping** (`anthropicFamilyTier`) tells the app which Claude tier (`haiku`/`sonnet`/`opus`/`fable`/`mythos`) an entry stands in for, so bare tier aliases (e.g. in the Code tab) resolve to your model. `isFamilyDefault: true` picks the winner when several entries share a tier:
+**Tier mapping** (`anthropicFamilyTier`) tells the app which Claude tier (`haiku`/`sonnet`/`opus`/`fable`/`mythos`) an entry stands in for, so bare tier aliases (e.g. in Code sessions) resolve to your model. `isFamilyDefault: true` picks the winner when several entries share a tier:
 
 ```
 [{"name": "us.anthropic.claude-opus-4-8", "anthropicFamilyTier": "opus"}]
@@ -226,12 +232,12 @@ Use the **provider’s exact model ID**: Vertex publisher IDs (`claude-sonnet-5`
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `name` | `string` | — |  |
+| `name` | `string` | — | Model ID exactly as the provider expects it. The first entry is the default model. |
 | `labelOverride` | `string` | — | Shown in the model picker. Leave blank to auto-format from the ID. |
-| `supports1m` | `boolean` | — |  |
+| `supports1m` | `boolean` | — | Adds a 1M-context variant of this model to the picker. Set only if the deployment accepts 1M-token context for it. |
 | `prefer1m` | `boolean` | — | Make the 1M-context variant the default picker selection when this model is the default (first) entry. Users can still choose the standard variant. |
 | `anthropicFamilyTier` | `enum` | — | Which Claude tier this model stands in for. Pins the bare alias (e.g. ‘opus’) and, for opus/fable, the refusal fallback. One of: `sonnet`, `opus`, `haiku`, `fable`, `mythos`. |
-| `isFamilyDefault` | `boolean` | — |  |
+| `isFamilyDefault` | `boolean` | — | When several models share a tier alias, marks this one as the model the alias resolves to. Otherwise the first listed wins. |
 
 ###  Vertex
 
@@ -261,16 +267,16 @@ inferenceVertexWorkforceOidc details
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `clientId` | `string` | — |  |
-| `issuer` | `string` | — |  |
-| `authorizationUrl` | `string` | — |  |
-| `tokenUrl` | `string` | — |  |
-| `scopes` | `string` | — |  |
-| `redirectPort` | `integer` | — |  |
+| `clientId` | `string` | — | OAuth client ID of the desktop app registration at your identity provider (public client, PKCE). |
+| `issuer` | `string` | — | HTTPS issuer with OIDC discovery. Set this, or set the authorization and token URLs instead. |
+| `authorizationUrl` | `string` | — | HTTPS authorization endpoint. Used with the token URL when no issuer is set. |
+| `tokenUrl` | `string` | — | HTTPS token endpoint. Used with the authorization URL when no issuer is set. |
+| `scopes` | `string` | — | Space-separated scopes. Defaults to openid profile email offline\_access. |
+| `redirectPort` | `integer` | — | Fixed loopback port for the sign-in redirect (<http://127.0.0.1:PORT/callback>). Leave unset to use a free port each time. |
 | `omitOfflineAccess` | `boolean` | — | Only enable if your IdP rejects the offline\_access scope on this client. Without it the app prompts for sign-in each time the token expires. |
 | `additionalRedirectReferrerHosts` | `string` | — | Space-separated hostnames also accepted as the referrer of the sign-in callback. Only needed when the IdP completes sign-in from a different host. |
 
-##  Workspace restrictions
+##  Workspace
 
 ###  Authentication
 
@@ -283,7 +289,7 @@ inferenceVertexWorkforceOidc details
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
-| Allow Chat tab `chatTabEnabled` | `boolean` | MDM + Bootstrap | — | Enable the Chat tab. Quick questions and drafting. |
+| Allow Chat `chatTabEnabled` | `boolean` | MDM + Bootstrap | — | Enable Chat. Quick questions and drafting. |
 | Advanced file analysis `chatAdvancedFileAnalysisEnabled` | `boolean` | MDM + Bootstrap | — | Allow Claude to run code in a local sandbox to analyze attached files it can’t read natively — like Excel and PowerPoint. Off by default. |
 
 chatAdvancedFileAnalysisEnabled details
@@ -294,13 +300,13 @@ Also enables inline data analysis. The sandbox can only read files attached to t
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
-| Allow Claude Code tab `isClaudeCodeForDesktopEnabled` | `boolean` | MDM + Bootstrap | `true` | Enable the Code tab. Claude writes and runs code. Defaults to `true`. |
+| Allow Code `isClaudeCodeForDesktopEnabled` | `boolean` | MDM + Bootstrap | `true` | Enable Code. Claude writes and runs code. Defaults to `true`. |
 
 ###  Cowork surface
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
-| Allow Cowork tab `coworkTabEnabled` | `boolean` | MDM + Bootstrap | `true` | Enable the Cowork tab. Claude works on longer tasks like research, analysis, and documents. Defaults to `true`. |
+| Allow Cowork `coworkTabEnabled` | `boolean` | MDM + Bootstrap | `true` | Enable Cowork. Claude works on longer tasks like research, analysis, and documents. Defaults to `true`. |
 
 ###  Workspace
 
@@ -312,8 +318,8 @@ Also enables inline data analysis. The sandbox can only read files attached to t
 | Built-in tool policy `builtinToolPolicy` | `object` | MDM + Bootstrap | — | Per-tool approval policy for built-in tools. “ask” requires user approval before each call; “allow” is the default. |
 | Allow Auto mode `autoModeEnabled` | `boolean` | MDM + Bootstrap | `false` | Offer Auto mode in the Cowork and Code permission selectors. Claude decides which actions need approval. Defaults to `false`. |
 | Enable tool search `toolSearchEnabled` | `boolean` | MDM + Bootstrap | `false` | Load MCP tool schemas on demand (tool search) instead of inlining every schema into context. Defaults to `false`. |
-| Allowed workspace folders `allowedWorkspaceFolders` | `object[]` | MDM + Bootstrap | — | Folders where Claude may work. Applies to both the Cowork and Code tabs. Leave unset for unrestricted access. |
-| Allowed egress hosts `coworkEgressAllowedHosts` | `string[]` | MDM + Bootstrap | — | Hostnames the agent’s tools may reach from the Cowork and Code tabs. Also surfaced under Egress Requirements. |
+| Allowed workspace folders `allowedWorkspaceFolders` | `object[]` | MDM + Bootstrap | — | Folders where Claude may work. Applies to both Cowork and Code sessions. Leave unset for unrestricted access. |
+| Allowed egress hosts `coworkEgressAllowedHosts` | `string[]` | MDM + Bootstrap | — | Hostnames the agent’s tools may reach from Cowork and Code sessions. Also surfaced under Egress Requirements. |
 | Require full VM sandbox `requireCoworkFullVmSandbox` | `boolean` | MDM + Bootstrap · Deprecated | `false` | Runs tools inside an isolated VM instead of the host. Stronger isolation; slower file access and no host-process tools. Defaults to `false`. |
 
 skillCreationEnabled details
@@ -326,11 +332,11 @@ builtinToolPolicy details
 
 autoModeEnabled details
 
-When enabled, users can select **Auto mode** (Code tab) / **Automatically approve** (Cowork tab). Claude runs a safety classifier on each action and only prompts for approval on actions it judges risky, instead of following the static per-tool policy.Requires a model that supports the safety classifier — which models qualify depends on the deployment’s provider and the app version. Models without support show the option greyed out. `builtinToolPolicy` and this key may both be set; Auto mode is a user-selectable option alongside the default policy, not a replacement for it.In the Code tab, a separately deployed Claude Code [managed-settings](https://claude.com/docs/third-party/claude-desktop/code#interaction-with-claude-code%E2%80%99s-own-managed-settings) file that sets `disableAutoMode` to `"disable"` overrides this key and keeps Auto mode hidden.
+When enabled, users can select **Auto mode** (Code) / **Automatically approve** (Cowork). Claude runs a safety classifier on each action and only prompts for approval on actions it judges risky, instead of following the static per-tool policy.Requires a model that supports the safety classifier — which models qualify depends on the deployment’s provider and the app version. Models without support show the option greyed out. `builtinToolPolicy` and this key may both be set; Auto mode is a user-selectable option alongside the default policy, not a replacement for it.In Code sessions, a separately deployed Claude Code [managed-settings](https://claude.com/docs/third-party/claude-desktop/code#interaction-with-claude-code%E2%80%99s-own-managed-settings) file that sets `disableAutoMode` to `"disable"` overrides this key and keeps Auto mode hidden.
 
 toolSearchEnabled details
 
-When enabled, Cowork and Code sessions load MCP tool schemas on demand (“tool search”): only tool names are placed in context up front, and Claude fetches a tool’s full schema the first time it needs it. Use this when many MCP tools are configured and their inlined schemas crowd out the context window (sessions that compact every turn or two). Equivalent to running terminal Claude Code with `ENABLE_TOOL_SEARCH=true` against the same endpoint.**Enabling this key causes sessions to send experimental `anthropic-beta` request headers, and the beta request fields that ride with them, to your inference endpoint** — tool search (`advanced-tool-use`, with `tool_reference` content blocks and deferred tool loading) and context management (a `context_management` request field on supported models) among them. Enable it only if your gateway forwards and accepts these; when it does not, requests fail with HTTP 400 on the beta header or fields. A practical preflight: run terminal Claude Code through the same gateway with `ENABLE_TOOL_SEARCH=true` — Claude Desktop then sends the same request surface, so if the terminal works, Desktop will too. **Do not enable this on Vertex-provider deployments** — Vertex rejects the tool-search beta header, and this key overrides the protection Claude Code applies to Vertex by default, turning working (inlined) MCP tools into failing requests.Claude Desktop otherwise suppresses **all** of Claude Code’s experimental beta features on 3P deployments (it pins `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` into session environments, because strict gateways reject unrecognized beta headers and fields). Enabling this key lifts that suppression, so other experimental betas — for example, on gateway- and Foundry-backed deployments, `context_management` request fields on models that support them — are re-enabled as well. This matches the request surface terminal Claude Code presents through the same gateway by default. Leave unset to keep the conservative default.
+When enabled, Cowork, Code, and Chat sessions load MCP tool schemas on demand (“tool search”): only tool names are placed in context up front, and Claude fetches a tool’s full schema the first time it needs it. Use this when many MCP tools are configured and their inlined schemas crowd out the context window (sessions that compact every turn or two). Equivalent to running terminal Claude Code with `ENABLE_TOOL_SEARCH=true` against the same endpoint.**Enabling this key causes sessions to send experimental `anthropic-beta` request headers, and the beta request fields that ride with them, to your inference endpoint** — tool search (`advanced-tool-use`, with `tool_reference` content blocks and deferred tool loading) and context management (a `context_management` request field on supported models) among them. Enable it only if your gateway forwards and accepts these; when it does not, requests fail with HTTP 400 on the beta header or fields. A practical preflight: run terminal Claude Code through the same gateway with `ENABLE_TOOL_SEARCH=true` — Claude Desktop then sends the same request surface, so if the terminal works, Desktop will too. **Do not enable this on Vertex-provider deployments** — Vertex rejects the tool-search beta header, and this key overrides the protection Claude Code applies to Vertex by default, turning working (inlined) MCP tools into failing requests.Claude Desktop otherwise suppresses **all** of Claude Code’s experimental beta features on 3P deployments (it pins `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` into session environments, because strict gateways reject unrecognized beta headers and fields). Enabling this key lifts that suppression, so other experimental betas — for example, on gateway- and Foundry-backed deployments, `context_management` request fields on models that support them — are re-enabled as well. This matches the request surface terminal Claude Code presents through the same gateway by default. Leave unset to keep the conservative default.
 
 allowedWorkspaceFolders details
 
@@ -338,27 +344,26 @@ Paths can reference `~` and these environment variables, expanded per user: `%On
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `path` | `string` | — |  |
+| `path` | `string` | — | Absolute folder path. May start with ~ or one of the listed %VAR% tokens, expanded per user. Subfolders are included. |
 | `isDefaultSelected` | `boolean` | — | Shows as a folder chip on the new-task page and skips the trust prompt. Users can remove it. |
 | `mode` | `enum` | — | Read-only folders can be viewed and searched but not modified in Cowork. In Code, applies to file tools only; Bash and SSH do not yet enforce read-only. One of: `rw`, `ro`. |
 
 coworkEgressAllowedHosts details
 
-Applies to **both** the Cowork and Code tabs. In the Cowork tab it governs the sandbox’s web fetch, shell commands, and package installs. In the Code tab it is [translated into Claude Code’s network sandbox allowlist](https://claude.com/docs/third-party/claude-desktop/code#applied-as-managed-policy); a separately deployed Claude Code managed-settings file on the endpoint takes precedence by default.Does **not** apply to Web Search, which runs server-side at your inference provider rather than from the sandbox.Only affects **tool calls**. Inference and MCP traffic are covered by their own allowlists elsewhere. When unset, only the inference endpoint is reachable from the sandbox; the agent’s package installs (pip/npm) and web fetches will fail with a 403.Accepts exact hostnames (`api.github.com`), wildcards (`*.corp.com` matches one subdomain level), and `*` to allow all. `*.corp.com` matches `docs.corp.com` but not `corp.com` itself; add both if you need the apex. IP literals and localhost always resolve regardless of this list; this is a public-egress filter, not a sandbox.Any entry except bare `*` may carry a `:port` suffix (`internal.corp.com:8443`, `*.corp.com:8443`) restricting that entry to the named port; an entry with no port allows any port. A port on a wildcard applies to every matched subdomain. IPv6 literals are not supported. Entries outside this grammar are dropped individually, with a warning naming the entry in the app log; the remaining valid entries keep working. Port restrictions are enforced for the Cowork sandbox’s web fetch today. The sandbox’s shell and package-install egress enforces them once the app ships a VM image whose sandbox runtime supports ports; until then a port-scoped host is unreachable from shell (fails closed). Plugin CLIs additionally keep their own stricter in-VM filter and treat port-scoped entries as absent for now. The Code tab’s Claude Code translation treats a port-restricted entry as its bare host (any port). The `:port` syntax requires the Claude Desktop release it first shipped in or newer — hold off deploying port-scoped entries until your whole fleet is on that build (note `disableAutoUpdates` pins builds); on older builds a port-scoped entry invalidates the sandbox’s whole shell and package-install allowlist for the session (the older sandbox runtime rejects the entire list), and web fetch simply never matches it.Hosts you add here also need to be open on your network firewall, on the listed ports. See **Egress Requirements** for the full allowlist.
+Applies to **both** Cowork and Code. In Cowork it governs the sandbox’s web fetch, shell commands, and package installs. In Code sessions it is [translated into Claude Code’s network sandbox allowlist](https://claude.com/docs/third-party/claude-desktop/code#applied-as-managed-policy); a separately deployed Claude Code managed-settings file on the endpoint takes precedence by default.Does **not** apply to Web Search, which runs server-side at your inference provider rather than from the sandbox.Only affects **tool calls**. Inference and MCP traffic are covered by their own allowlists elsewhere. When unset, only the inference endpoint is reachable from the sandbox; the agent’s package installs (pip/npm) and web fetches will fail with a 403.Accepts exact hostnames (`api.github.com`), wildcards (`*.corp.com` matches subdomains at any depth — `docs.corp.com` and `a.b.corp.com` both match), and `*` to allow all. `*.corp.com` does not match `corp.com` itself; add both if you need the apex. IP addresses only match when listed exactly — wildcards never match IP addresses, so an unlisted IP destination is blocked. `localhost` and private-network addresses are blocked in the sandbox’s web fetch regardless of this list; shell commands and package installs run inside a network sandbox that can only reach hosts on this list (plus your inference provider’s endpoints). With `*`, the network sandbox is disabled and web fetch still blocks private addresses.Any entry except bare `*` may carry a `:port` suffix (`internal.corp.com:8443`, `*.corp.com:8443`) restricting that entry to the named port; an entry with no port allows any port. A port on a wildcard applies to every matched subdomain. IPv6 literals are not supported. Entries outside this grammar are dropped individually, with a warning naming the entry in the app log; the remaining valid entries keep working. Port restrictions are enforced for the Cowork sandbox’s web fetch today. The sandbox’s shell and package-install egress enforces them once the app ships a VM image whose sandbox runtime supports ports; until then a port-scoped host is unreachable from shell (fails closed). Plugin CLIs additionally keep their own stricter in-VM filter and treat port-scoped entries as absent for now. In Code sessions, the Claude Code translation treats a port-restricted entry as its bare host (any port). The `:port` syntax requires the Claude Desktop release it first shipped in or newer — hold off deploying port-scoped entries until your whole fleet is on that build (note `disableAutoUpdates` pins builds); on older builds a port-scoped entry invalidates the sandbox’s whole shell and package-install allowlist for the session (the older sandbox runtime rejects the entire list), and web fetch simply never matches it.Hosts you add here also need to be open on your network firewall, on the listed ports. See **Egress Requirements** for the full allowlist.
 
-##  Connectors & extensions
+##  Connectors
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
-| Claude.ai data import `claudeAiImport` | `object` | MDM + Bootstrap | — | Export endpoint and OAuth client for importing a user’s Claude.ai conversation history into this deployment. |
+| Claude.ai data import `claudeAiImport` | `object` | MDM + Bootstrap | — | Lets users import Claude.ai chats and projects, plus earlier Claude sessions on this computer, into this deployment. Off unless `enabled` is true. |
 
 claudeAiImport details
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `url` | `string` | — |  |
-| `oauthIssuer` | `string` | — |  |
-| `oauthClientId` | `string` | — |  |
+| `enabled` | `boolean` | `false` | Lets users import a Claude.ai data export and earlier Claude sessions on this computer from Settings → Import. When false, that page says import is off. |
+| `bannerBehavior` | `enum` | — | Prompt to import at the top of a new chat or task. `detect`: only when earlier Claude sessions are found on this computer. `show`: always. Hidden when unset. One of: `off`, `detect`, `show`. |
 
 ###  Authentication
 
@@ -387,30 +392,30 @@ isDesktopExtensionEnabled details
 
 managedMcpServers details
 
-For OAuth-authenticated entries, the app builds the redirect URI as `http://<callbackHost>:<callbackPort>/callback`; register that exact value with the OAuth provider. Tokens refresh automatically during a session, so users aren’t interrupted when the initial access token expires.`toolPolicy` locks the per-tool approval state, keyed by tool name. Keys may contain `*` wildcards (`"read_*"` matches every tool whose name starts with `read_`; matching is anchored and `*` is the only wildcard, identical to Claude Code permission-rule globs). An exact-name key wins over matching wildcard keys, with two exceptions in the stricter direction: in the Code tab, forwarded `blocked`/`ask` wildcard rules take precedence over a less strict exact key, and in chat approval flows and always-allow persistence a wildcard `ask` key keeps every matching tool behind a per-call prompt (no persistent always-allow), and a wildcard `ask-session` key likewise keeps every matching tool on the ask-session clamp, even when a more permissive exact-name key matches — for direct (imperative) tool invocations such as artifact or widget tool calls, the exact-name key still decides. When several wildcard keys match a tool, the strictest applies (blocked > ask > ask-session > allow). `"blocked"` removes the tool from the session and labels it admin-blocked. `"ask"` requires approval on every call (Allow once / Deny only; no persistent always-allow). `"ask-session"` requires approval on the tool’s first use per session; a session-scoped **Allow for this task** covers the rest of that session, a new session re-prompts, and persistent always-allow stays unavailable. Scheduled tasks do not honor ask-session grants: every run prompts and blocks until attended, exactly as `ask` (use `allow` for tools that must run unattended). `"allow"` pre-approves. Tools **not listed** follow the user’s choice: the prompt offers a persistent Always allow, except for tools that can modify data, which instead show a session-scoped **Allow for this task** alongside **Allow for all tasks** with a malicious-instruction warning. In the Code tab, `blocked`/`ask`/`ask-session` are forwarded as Claude Code permission rules (`ask-session` as an ask rule, with the once-per-session behavior applied by the desktop); `allow` is not.For the bundled Microsoft 365 connector, the send tools (`outlook_send_mail`, `outlook_send_draft`, `outlook_forward_mail`, `outlook_create_event`, `outlook_update_event`, `teams_send_chat_message`, `teams_send_channel_message`, `teams_reply_channel_message`) cannot be loosened below `ask` — an `allow` setting resolves to `ask`.
+For OAuth-authenticated entries, the app builds the redirect URI as `http://<callbackHost>:<callbackPort>/callback`; register that exact value with the OAuth provider. Tokens refresh automatically during a session, so users aren’t interrupted when the initial access token expires.`toolPolicy` locks the per-tool approval state, keyed by tool name. Keys may contain `*` wildcards (`"read_*"` matches every tool whose name starts with `read_`; matching is anchored and `*` is the only wildcard, identical to Claude Code permission-rule globs). An exact-name key wins over matching wildcard keys, with two exceptions in the stricter direction: in Code sessions, forwarded `blocked`/`ask` wildcard rules take precedence over a less strict exact key, and in chat approval flows and always-allow persistence a wildcard `ask` key keeps every matching tool behind a per-call prompt (no persistent always-allow), and a wildcard `ask-session` key likewise keeps every matching tool on the ask-session clamp, even when a more permissive exact-name key matches — for direct (imperative) tool invocations such as artifact or widget tool calls, the exact-name key still decides. When several wildcard keys match a tool, the strictest applies (blocked > ask > ask-session > allow). `"blocked"` removes the tool from the session and labels it admin-blocked. `"ask"` requires approval on every call (Allow once / Deny only; no persistent always-allow). `"ask-session"` requires approval on the tool’s first use per session; a session-scoped **Allow for this task** covers the rest of that session, a new session re-prompts, and persistent always-allow stays unavailable. Scheduled tasks do not honor ask-session grants: every run prompts and blocks until attended, exactly as `ask` (use `allow` for tools that must run unattended). `"allow"` pre-approves. Tools **not listed** follow the user’s choice: the prompt offers a persistent Always allow, except for tools that can modify data, which instead show a session-scoped **Allow for this task** alongside **Allow for all tasks** with a malicious-instruction warning. In Code sessions, `blocked`/`ask`/`ask-session` are forwarded as Claude Code permission rules (`ask-session` as an ask rule, with the once-per-session behavior applied by the desktop); `allow` is not.For the bundled Microsoft 365 connector, the send tools (`outlook_send_mail`, `outlook_send_draft`, `outlook_forward_mail`, `outlook_create_event`, `outlook_update_event`, `teams_send_chat_message`, `teams_send_channel_message`, `teams_reply_channel_message`) cannot be loosened below `ask` — an `allow` setting resolves to `ask`.
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `name` | `string` | — |  |
-| `server` | `string` | — | One of: `microsoft365`, `websearch`, `github`. |
+| `name` | `string` | — | Unique name for this server. Shown to users and used to key tool policy and sign-in state. |
+| `server` | `string` | — | Which bundled connector this entry turns on. Set instead of a transport; each built-in server has its own fields. One of: `microsoft365`, `websearch`, `github`. |
 | `tenantId` | `string` | — | Your organization’s Microsoft Entra directory (tenant) ID. |
 | `clientId` | `string` | — | OAuth app client ID for this built-in server. |
 | `azureCloud` | `enum` | — | Microsoft cloud for sign-in and Graph. Leave as global for commercial Microsoft 365; US Government clouds require your own app registration (Client ID). One of: `global`, `us-gov-high`, `us-gov-dod`. |
 | `scope` | `string` | — | What the server may request at sign-in. If blank, Desktop’s default read set is used. |
 | `toolPolicy` | `object` | — | Lock the approval state for specific tools. Unlisted tools stay user-controlled. |
-| `headers` | `object` | — |  |
+| `headers` | `object` | — | Static HTTP headers sent on every request to the server. For values that rotate, use a headers helper instead. |
 | `headersHelper` | `string` | — | Script that prints the auth header as a JSON object to stdout. Runs before each request (cached for the TTL below). |
-| `headersHelperTtlSec` | `integer` | — |  |
-| `headersHelperRefreshBufferSec` | `integer` | — |  |
+| `headersHelperTtlSec` | `integer` | — | How long the helper’s headers are reused before it runs again, in seconds. Defaults to 300. |
+| `headersHelperRefreshBufferSec` | `integer` | — | Seconds before the TTL expires at which the helper re-runs mid-session. Defaults to 60. Keep it larger than the helper’s typical runtime. |
 | `provider` | `enum` | — | Runs search from the desktop, for inference providers without native web search. Set the provider’s auth header below. One of: `brave`, `tavily`, `exa`, `custom`. |
 | `customUrl` | `string` | — | POST endpoint accepting {q} JSON and returning a results[] array. Only used when provider is Custom. |
 | `host` | `string` | — | Leave blank for github.com. For GitHub Enterprise Server, your instance’s base URL. |
 | `toolsets` | `string` | — | Comma-separated github-mcp-server toolsets to enable. If blank, the bundled server’s default toolsets are used. |
 | `readOnly` | `boolean` | — | Offer only read tools — the server registers no write tools at all. |
-| `transport` | `enum` | — | One of: `http`, `sse`, `stdio`. |
-| `url` | `string` | — |  |
-| `oauth` | `object` | — |  |
-| `oauth.clientId` | `string` | — |  |
+| `transport` | `enum` | — | How the app connects: Streamable HTTP or legacy SSE for remote servers, or a local command over stdio. One of: `http`, `sse`, `stdio`. |
+| `url` | `string` | — | HTTPS endpoint of the remote MCP server. |
+| `oauth` | `object` | — | OAuth settings for a remote server: true to auto-register a client, or an object with a pre-registered client ID, tenant, and scope. |
+| `oauth.clientId` | `string` | — | OAuth client ID from your IdP app registration. Leave unset to auto-register (dynamic client registration) and only narrow scopes. |
 | `oauth.clientSecret` | `string` | — | Only for IdPs whose token endpoint requires a client secret (e.g. Box). Leave blank for PKCE-only public clients. |
 | `oauth.clientSecretHelper` | `string` | — | Executable that prints the client secret on stdout. Overrides the inline value. |
 | `oauth.authorizationServer` | `string[]` | — | Issuer URLs the OAuth sign-in may use, as a JSON array. Pre-filled by presets; ask your IdP admin if unsure. |
@@ -418,21 +423,21 @@ For OAuth-authenticated entries, the app builds the redirect URI as `http://<cal
 | `oauth.tokenUrl` | `string` | — | Only for IdPs that don’t serve a .well-known discovery document. Set together with Authorization URL; requires Client ID. |
 | `oauth.tenantId` | `string` | — | Required for single-tenant Entra apps. Leave blank for multi-tenant or non-Microsoft IdPs. |
 | `oauth.authFlow` | `enum` | — | How Entra sign-in runs for this server: the system browser (default) or the OS identity broker. One of: `browser`, `broker`. |
-| `oauth.scope` | `string` | — |  |
+| `oauth.scope` | `string` | — | Space-separated scopes sent on the authorize request. Leave unset to use the scopes the server advertises. Required when Tenant ID is set. |
 | `oauth.appendOfflineAccess` | `boolean` | — | Adds offline\_access to the authorize request so the IdP returns a refresh token for silent renewal. |
 | `oauth.callbackHost` | `enum` | — | Use localhost only if your IdP’s registered redirect URI specifies it. One of: `127.0.0.1`, `localhost`. |
 | `oauth.callbackPort` | `integer` | — | Only set if your IdP requires an exact-match redirect port. Entra accepts any. |
 | `oauth.additionalRedirectReferrerHosts` | `string` | — | Space-separated hostnames also accepted as the referrer of the sign-in callback. Only needed when the IdP completes sign-in from a different host. |
 | `command` | `string` | — | Absolute path to the server executable, run on the user’s machine. |
-| `args` | `string[]` | — |  |
-| `env` | `object` | — |  |
+| `args` | `string[]` | — | Arguments passed to the command, one per entry. |
+| `env` | `object` | — | Environment variables set for the command. |
 | `envHelper` | `string` | — | Script that prints environment variables as a JSON object to stdout. Runs when the local server starts (cached for the TTL below). |
 | `envHelperTtlSec` | `integer` | `300` | Maximum age of a cached helper result, in seconds (default 300). Applies when the server starts or restarts. |
 | `startupTimeoutSec` | `integer` | `120` | Maximum wait in seconds for the server to start and list its tools. |
 
 mcpPersistentAlwaysAllowEnabled details
 
-When enabled (the default), approval prompts for tools without a `toolPolicy` entry offer a persistent grant — **Always allow**, or **Allow for all tasks** for tools that can modify data — the Tool permissions picker in Connector settings lets users pre-approve tools, and those grants persist across sessions with no expiry.When disabled, the persistent options are hidden from approval prompts and from the Connector settings picker, previously stored persistent grants stop being honored, and scheduled-task runs no longer record or replay cross-run tool approvals. Session-scoped approvals are unchanged: users can still approve each call, and tools that can modify data keep the session-scoped **Allow for this task** option.A per-tool `toolPolicy` entry on `managedMcpServers` always takes precedence over this key: `blocked`, `ask`, `ask-session`, and `allow` behave exactly as documented there whether this key is enabled or not.This key governs the chat and Cowork surfaces. The Code tab uses a separate permission path this key does not cover — govern Code tab tool approvals with per-tool `toolPolicy` entries, whose `blocked` and `ask` values are forwarded there.
+When enabled (the default), approval prompts for tools without a `toolPolicy` entry offer a persistent grant — **Always allow**, or **Allow for all tasks** for tools that can modify data — the Tool permissions picker in Connector settings lets users pre-approve tools, and those grants persist across sessions with no expiry.When disabled, the persistent options are hidden from approval prompts and from the Connector settings picker, previously stored persistent grants stop being honored, and scheduled-task runs no longer record or replay cross-run tool approvals. Session-scoped approvals are unchanged: users can still approve each call, and tools that can modify data keep the session-scoped **Allow for this task** option.A per-tool `toolPolicy` entry on `managedMcpServers` always takes precedence over this key: `blocked`, `ask`, `ask-session`, and `allow` behave exactly as documented there whether this key is enabled or not.This key governs the chat and Cowork surfaces. Code sessions use a separate permission path this key does not cover — govern Code tool approvals with per-tool `toolPolicy` entries, whose `blocked` and `ask` values are forwarded there.
 
 ##  Telemetry & updates
 
@@ -463,9 +468,13 @@ disableNonessentialServices details
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
-| Block auto-updates `disableAutoUpdates` | `boolean` | MDM + Bootstrap | `false` | Stop Cowork from fetching updates. You’ll need to push new versions yourself. Defaults to `false`. |
-| Auto-update enforcement window `autoUpdaterEnforcementHours` | `integer` | MDM + Bootstrap | — | Hours before a downloaded update force-installs. Blank = 72-hour default. Range: 1–72. |
+| Block auto-updates `disableAutoUpdates` | `boolean` | MDM + Bootstrap | `false` | Stop Cowork from fetching updates entirely (no time limit). You’ll need to push new versions yourself. Defaults to `false`. |
+| Auto-update enforcement window `autoUpdaterEnforcementHours` | `integer` | MDM + Bootstrap | — | Hours before a downloaded update force-installs. Only applies when auto-updates are enabled. Blank = 72-hour default. Range: 1–72. |
 | Check for updates on releases.claude.com `updateViaUpdatesHost` | `boolean` | MDM + Bootstrap | `false` | Read the update feed from releases.claude.com so api.anthropic.com can stay blocked. Defaults to `false`. |
+
+autoUpdaterEnforcementHours details
+
+Has no effect when `disableAutoUpdates` is in place at launch: the updater never starts, so nothing is downloaded and this timer never arms. If the policy reaches an already-running app after an update has downloaded, that one staged update still installs on this timer; no further updates are fetched.Leaving it blank uses the 72-hour default *and* then waits for the machine to be idle (10+ minutes without input) before restarting; setting any explicit value (including 72) restarts once the window elapses regardless of user activity. In both cases the restart holds off while Claude is mid-task.
 
 updateViaUpdatesHost details
 
@@ -478,10 +487,20 @@ By default the app asks `api.anthropic.com` which version to install. That host 
 | OpenTelemetry collector endpoint `otlpEndpoint` | `string` | MDM + Bootstrap | — | Where Cowork sends OpenTelemetry logs and metrics. Leave blank to disable. |
 | OpenTelemetry exporter protocol `otlpProtocol` | `enum` | MDM + Bootstrap | `http/protobuf` | grpc or http/protobuf. One of: `http/protobuf`, `http/json`, `grpc`. Defaults to `http/protobuf`. |
 | OpenTelemetry exporter headers `otlpHeaders` | `object` | MDM + Bootstrap | — | Optional auth headers for the collector. |
+| Collector authentication `otlpAuthMode` | `enum` | MDM + Bootstrap | — | inference-credential sends the user’s inference bearer token to the collector as Authorization: Bearer. One of: `none`, `inference-credential`. |
+| OpenTelemetry headers helper script `otlpHeadersHelper` | `string` | MDM + Bootstrap | — | Absolute path to an executable that prints a JSON object of collector headers. Merged over the static headers and Collector authentication; the helper wins. |
 | OpenTelemetry resource attributes `otlpResourceAttributes` | `object` | MDM + Bootstrap | — | Extra resource attributes to attach to every span/metric. A static enduser.id set here always wins over the runtime identity. |
 | Desktop telemetry export level `otlpDesktopLogLevel` | `enum` | MDM + Bootstrap | `error` | Controls the Claude Desktop application’s events, separate from Cowork and Code sessions. Defaults to error. One of: `off`, `error`, `warn`, `info`, `debug`. Defaults to `error`. |
 | Content capture categories `otlpContentCapture` | `enum[]` | MDM + Bootstrap | — | Content categories the desktop exporter sends unredacted to your collector. Leave empty to redact all content (default). One of: `userPrompts`, `assistantResponses`, `toolDetails`, `toolContent`, `rawApiBodies`. |
 | Export traces (beta) `otlpTracesEnabled` | `boolean` | MDM + Bootstrap | — | Also export OpenTelemetry traces from Cowork tasks and Code sessions. Uses Claude Code’s session-tracing beta. |
+
+otlpAuthMode details
+
+`inference-credential` adds `Authorization: Bearer <token>` to every export, using the token the app currently holds for the inference provider, with no helper script to deploy. The collector must accept that token as issued: a gateway OIDC token carries the gateway’s audience, Microsoft Entra on Foundry issues the Foundry resource’s token, and Vertex workforce identity forwards a Google Cloud access token; static gateway and Bedrock keys are forwarded as-is. Because the token can also call inference as the user, use this only for a collector you operate; for anything else, use the headers helper script with an ingest-scoped credential. Kinds that never produce a bearer (AWS SigV4 kinds on Bedrock, Google ADC / OAuth files on Vertex, API-key kinds) export without it — use the helper script instead. Cowork tasks pick up the current token each time they start; a Code session keeps the token it started with for as long as it stays open; the desktop’s own event exporter uses the current token on every flush. Before sign-in, exports go out unauthenticated. An `Authorization` header printed by the headers helper script wins over this.
+
+otlpHeadersHelper details
+
+Absolute path to an executable that prints a single JSON object of HTTP headers on stdout, e.g. `{"Authorization": "Bearer …"}`. The desktop runs it (no arguments; output cached for a few minutes, and a failure is not retried for 30 seconds) whenever it needs collector headers and merges the result over **OpenTelemetry exporter headers** and the **Collector authentication** header (the helper wins on conflict). Cowork tasks get the current output when they start; Code sessions and host-run Cowork sessions are also given the script as Claude Code’s own `otelHeadersHelper`, so an open session re-runs it as tokens rotate (on Windows this applies to `.exe`, `.cmd` and `.bat` helpers; a `.ps1` helper applies at session start only); the desktop’s own event exporter re-runs it per flush. Session start waits at most two seconds for a slow helper and otherwise proceeds without its headers until it finishes. Use this when the collector needs a credential the inference sign-in cannot provide, when the collector token rotates, or when the config comes from a hosted admin console, which cannot store header values. If the helper fails, telemetry is sent without its headers — check the app log.
 
 otlpResourceAttributes details
 
@@ -503,7 +522,7 @@ otlpTracesEnabled details
 
 Enables Claude Code’s session-tracing beta (`CLAUDE_CODE_ENHANCED_TELEMETRY_BETA=1` + `OTEL_TRACES_EXPORTER=otlp`) in spawned Cowork tasks and Code sessions. Each user interaction exports a trace whose spans and events carry `trace_id`/`span_id`, enabling end-to-end correlation in your observability backend (metrics do not carry trace context; correlate those via `session.id`). Traces go to the collector endpoint and protocol configured above. While the Claude Code feature is in beta the span structure may evolve; see the [Claude Code monitoring docs](https://code.claude.com/docs/en/monitoring-usage).
 
-##  Usage limits
+##  Limits
 
 ###  Token limits
 
@@ -531,7 +550,7 @@ Required when `inferenceMaxTokensPerWindow` is set — the cap only takes effect
 
 endUserAttribution details
 
-When on (default), the app resolves the signed-in user’s identity from the configured credential source (the identity provider claim, or the OS login name when no claim is available) and shows it in the sidebar footer, the account menu, and the Code-tab greeting. If an OpenTelemetry collector is configured, the same identity is also emitted as the `enduser.id` resource attribute on every span, metric, and log sent to your collector — unless you have set a static `enduser.id` under OpenTelemetry resource attributes, in which case your static value is kept and the runtime identity is not emitted. When off, no identity is shown in the app and no runtime `enduser.id` is emitted; a static `enduser.id` under OpenTelemetry resource attributes still passes through unchanged. This setting does not gate the `process.owner` resource attribute (the OS login name), which is standard OpenTelemetry process metadata and is always emitted — set a static `process.owner` under OpenTelemetry resource attributes to override it. Applies to both Cowork tasks and Code sessions.
+When on (default), the app resolves the signed-in user’s identity from the configured credential source (the identity provider claim, or the OS login name when no claim is available) and shows it in the sidebar footer, the account menu, and the Code session greeting. If an OpenTelemetry collector is configured, the same identity is also emitted as the `enduser.id` resource attribute on every span, metric, and log sent to your collector — unless you have set a static `enduser.id` under OpenTelemetry resource attributes, in which case your static value is kept and the runtime identity is not emitted. When off, no identity is shown in the app and no runtime `enduser.id` is emitted; a static `enduser.id` under OpenTelemetry resource attributes still passes through unchanged. This setting does not gate the `process.owner` resource attribute (the OS login name), which is standard OpenTelemetry process metadata and is always emitted — set a static `process.owner` under OpenTelemetry resource attributes to override it. Applies to both Cowork tasks and Code sessions.
 
 deploymentDisplayName details
 
@@ -547,7 +566,7 @@ Use this for compliance notices, an internal-support link, or to identify the de
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `enabled` | `boolean` | — |  |
+| `enabled` | `boolean` | — | Turns the banner on. When false or unset, the other banner fields are ignored. |
 | `text` | `string` | — | Single line, truncated on overflow. Maximum 200 characters. |
 | `backgroundColor` | `string` | `#F5F5F5` | Six-digit hex (#RRGGBB). Applied exactly as configured; not theme-adapted. |
 | `textColor` | `string` | `#000000` | Six-digit hex (#RRGGBB). Applied exactly as configured; not theme-adapted. |
@@ -563,7 +582,7 @@ disableFeatureDiscovery details
 
 Covers the version-shipped announcement UI baked into each release: the **What’s new** button that appears on its own after an update, and the one-time **New feature** tips (coach-marks) that point out newly shipped capabilities. Useful when your organization gates feature availability and doesn’t want the app advertising capabilities you haven’t rolled out.User-initiated surfaces stay: the What’s-new menu item and header button still open the release notes on demand. Auto-update behavior is unaffected — that is governed by `disableAutoUpdates` and `autoUpdaterEnforcementHours`.
 
-##  Plugins & skills
+##  Plugins
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
@@ -582,24 +601,24 @@ If a Managed MCP servers entry and an org-plugin server share a name, the Manage
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `serverName` | `string` | — |  |
-| `tools` | `object[]` | — |  |
-| `tools.toolName` | `string` | — |  |
-| `tools.permission` | `enum` | — | One of: `allow`, `ask`, `ask-session`, `blocked`. |
+| `serverName` | `string` | — | Name of the plugin-delivered MCP server this policy applies to. |
+| `tools` | `object[]` | — | Per-tool approval locks for this server. |
+| `tools.toolName` | `string` | — | MCP tool name as the server reports it. |
+| `tools.permission` | `enum` | — | Approval state locked for this tool. Unlisted tools stay user-controlled. One of: `allow`, `ask`, `ask-session`, `blocked`. |
 
 allowedPluginMarketplaces details
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `source` | `string` | — | One of: `github`, `git`. |
-| `repo` | `string` | — |  |
+| `source` | `string` | — | Where the marketplace is fetched from: a GitHub repository (set repo) or any Git remote (set url). One of: `github`, `git`. |
+| `repo` | `string` | — | GitHub repository in owner/repo form. Case-insensitive. |
 | `ref` | `string` | — | Commit SHA, branch, or tag. Leave empty to track the default branch. |
 | `path` | `string` | — | Folder within the repository that contains the marketplace, when it isn’t at the root. |
 | `expectedName` | `string` | — | Rejects the marketplace if its manifest name differs. |
 | `installationPreference` | `enum` | — | Whether users install plugins themselves or get them automatically. One of: `available`, `auto_install`, `required`. |
 | `credentialKind` | `enum` | — | How clones authenticate: anonymously, with the user’s git credentials, or via a helper executable. One of: `anonymous`, `userGit`, `credentialHelper`. |
 | `credentialHelper` | `string` | — | Executable that prints an access token for this repository. |
-| `url` | `string` | — |  |
+| `url` | `string` | — | HTTPS Git remote URL for the marketplace repository. |
 
 ##  Source
 
@@ -610,7 +629,7 @@ allowedPluginMarketplaces details
 | Use bootstrap config `bootstrapEnabled` | `boolean` | MDM only | `true` | Fetch and apply the URL above at launch. Turn off to keep the URL saved but skip the fetch. Defaults to `true`. |
 | Bootstrap config URL `bootstrapUrl` | `string` | MDM only | — | HTTPS endpoint that returns a per-user JSON config overlay. Values from the response override local settings and become read-only. |
 | Bootstrap OIDC parameters `bootstrapOidc` | `object` | MDM only | — | When set, the bootstrap request sends a Bearer token from a browser sign-in (authorization-code-with-PKCE). |
-| Trust bootstrap-delivered settings `trustBootstrapDelivery` | `boolean` | MDM only | `false` | Skip the per-user consent prompt for sign-in targets, helper scripts, and connectors the bootstrap server delivers. Defaults to `false`. Previously named `trustBootstrapLocalExec`. |
+| Trust bootstrap-delivered settings `trustBootstrapDelivery` | `boolean` | MDM only | `false` | Skip the per-user consent prompt for sign-in targets, inference endpoints, helper scripts, and connectors the bootstrap server delivers. Defaults to `false`. Previously named `trustBootstrapLocalExec`. |
 
 bootstrapOidc details
 
@@ -618,12 +637,12 @@ Set this to use a separate identity provider (Microsoft Entra ID, Okta, Ping, or
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `clientId` | `string` | — |  |
-| `issuer` | `string` | — |  |
-| `authorizationUrl` | `string` | — |  |
-| `tokenUrl` | `string` | — |  |
+| `clientId` | `string` | — | OAuth client ID of the desktop app registration at your identity provider (public client, PKCE). |
+| `issuer` | `string` | — | HTTPS issuer with OIDC discovery. Set this, or set the authorization and token URLs instead. |
+| `authorizationUrl` | `string` | — | HTTPS authorization endpoint. Used with the token URL when no issuer is set. |
+| `tokenUrl` | `string` | — | HTTPS token endpoint. Used with the authorization URL when no issuer is set. |
 | `scopes` | `string` | — | Space-separated; the token’s audience must match what your bootstrap server validates. |
-| `redirectPort` | `integer` | — |  |
+| `redirectPort` | `integer` | — | Fixed loopback port for the sign-in redirect (<http://127.0.0.1:PORT/callback>). Leave unset to use a free port each time. |
 | `additionalRedirectReferrerHosts` | `string` | — | Space-separated hostnames also accepted as the referrer of the sign-in callback. Only needed when the IdP completes sign-in from a different host. |
 
 ##  Guides
@@ -679,7 +698,7 @@ For air-gapped or maximally restricted environments. **The only traffic leaving 
 Each [`managedMcpServers`](#managedmcpservers) entry can carry a `toolPolicy` that locks the approval state per tool:
 
 * `"allow"` — the tool runs without prompting.
-* `"ask"` — the user approves every call; no standing grants are offered.
+* `"ask"` — the user approves every call; no session-scoped or standing grants are offered.
 * `"blocked"` — the tool is removed from Claude’s session; connector settings show it as blocked by your organization.
 
-Tools with no policy entry stay user-controlled (built-in connectors apply default policies to some tools — see the reference above): the user is prompted and can approve once or grant a standing approval, depending on the tool and your organization’s settings. Full prompt options require version 1.22209.0 or later; earlier third-party builds offered only per-call approval. The reference above also documents an `"ask-session"` value; its once-per-session behavior is not yet functional in shipped builds, so don’t rely on it yet. Managed policies take precedence over user grants, and enforcement happens in the desktop host process, not only in the prompt UI. A deny-by-default posture — `"*": "blocked"` plus exact `"allow"` entries for approved tools — works from an upcoming release, which also supersedes the Code-session wildcard-precedence note in the reference above. See the [`managedMcpServers` reference](#managedmcpservers) for wildcard matching, precedence rules, and built-in connector defaults.
+Tools with no policy entry stay user-controlled (built-in connectors apply default policies to some tools — see the reference above): the user is prompted and can approve once, approve for the rest of the task (offered for tools that can modify data), or grant a standing approval unless [`mcpPersistentAlwaysAllowEnabled`](#mcppersistentalwaysallowenabled) is `false`. Full prompt options require version 1.22209.0 or later; earlier third-party builds offered only per-call approval. The reference above also lists an `"ask-session"` value; it is accepted for compatibility and behaves exactly as `"ask"`. Managed policies take precedence over user grants, and enforcement happens in the desktop host process, not only in the prompt UI. A deny-by-default posture — `"*": "blocked"` plus exact `"allow"` entries for approved tools — is supported, including in Code sessions (where an allowed tool still gets Claude Code’s own approval prompt). See the [`managedMcpServers` reference](#managedmcpservers) for wildcard matching, precedence rules, and built-in connector defaults.

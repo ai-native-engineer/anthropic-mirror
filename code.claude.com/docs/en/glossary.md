@@ -10,7 +10,7 @@ This glossary defines Claude Code terminology. Each entry links to the page wher
 
 ### Agent teams
 
-Multiple independent Claude Code sessions coordinated by a team lead, with a shared task list and peer-to-peer messaging. Unlike [subagents](#subagent), which run within a single session and report only to the parent, teammates each have their own context window and you can interact with any of them directly. Agent teams are experimental and must be enabled by setting `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`.
+Multiple independent Claude Code sessions coordinated by a team lead, with a shared task list and peer-to-peer messaging. Unlike [subagents](#subagent), which run within a single session and report only to the parent, teammates each have their own context window and you can interact with any of them directly. Agent teams are experimental and disabled by default; see [Enable agent teams](/docs/en/agent-teams#enable-agent-teams).
 
 Learn more: [Run agent teams](/docs/en/agent-teams)
 
@@ -158,7 +158,7 @@ Learn more: [Get started with hooks](/docs/en/hooks-guide) · [Hooks reference](
 
 ### Managed settings
 
-Settings enforced org-wide by IT or DevOps, delivered from Anthropic's servers through the admin console or deployed to devices at an OS-level path outside `~/.claude`. User and project settings cannot override managed settings, apart from the exceptions listed under [Settings precedence](/docs/en/settings#settings-precedence). Server-managed delivery applies on [eligible configurations](/docs/en/server-managed-settings#platform-availability); see [Security considerations](/docs/en/server-managed-settings#security-considerations). Use this for security policies, compliance requirements, or standardized tooling across a fleet.
+Settings enforced org-wide by IT or DevOps, delivered from Anthropic's servers through the admin console or deployed to devices at an OS-level path outside `~/.claude`. User and project settings cannot override managed settings. Server-managed delivery applies on [eligible configurations](/docs/en/server-managed-settings#platform-availability); see [Security considerations](/docs/en/server-managed-settings#security-considerations). Use this for security policies, compliance requirements, or standardized tooling across a fleet.
 
 Learn more: [Server-managed settings](/docs/en/server-managed-settings) · [Settings files](/docs/en/settings#settings-files)
 
@@ -226,7 +226,7 @@ Learn more: [Plugins](/docs/en/plugins)
 
 ### Project trust
 
-A dialog accepting a directory before Claude Code loads its configuration. Acceptance is saved per project directory, except your home directory, where trust is held for the current session only and the prompt reappears on each launch. Trust gates auto-installation of marketplace plugins and execution of project-defined hooks. Trusting a directory means its `.claude/settings.json`, `.mcp.json`, and other config files take effect.
+A dialog accepting a directory before Claude Code loads its configuration. Acceptance is saved per project directory, except your home directory, where trust is held for the current session only and the prompt reappears on each launch. Until you trust a directory, Claude Code holds back some of the content its repository supplies, such as project allow rules and marketplaces from `.claude/settings.json`. [What runs before you trust a folder](/docs/en/permissions#what-runs-before-you-trust-a-folder) lists each kind of content, including what a `-p` session runs without a dialog.
 
 Learn more: [The `.claude` directory](/docs/en/claude-directory)
 
@@ -266,7 +266,7 @@ Learn more: [Work with sessions](/docs/en/how-claude-code-works#work-with-sessio
 
 ### Settings layers
 
-The hierarchy Claude Code reads configuration from, in precedence order from highest to lowest: [managed policy](#managed-settings), command-line arguments, local settings at `.claude/settings.local.json`, project settings at `.claude/settings.json`, then user settings at `~/.claude/settings.json`. Arrays merge across layers; scalars at a higher layer override lower ones, apart from the exceptions under [Settings precedence](/docs/en/settings#settings-precedence).
+The hierarchy Claude Code reads configuration from, in precedence order from highest to lowest: [managed policy](#managed-settings), command-line arguments, local settings at `.claude/settings.local.json`, project settings at `.claude/settings.json`, then user settings at `~/.claude/settings.json`. Arrays merge across layers; scalars at a higher layer override lower ones. See [Settings precedence](/docs/en/settings#settings-precedence).
 
 Learn more: [Settings files](/docs/en/settings#settings-files)
 

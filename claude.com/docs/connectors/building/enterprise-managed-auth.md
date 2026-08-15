@@ -102,8 +102,17 @@ The refresh token is issued by the customer’s identity provider. Treat it as l
 ##  Testing your implementation
 
 End-to-end testing requires a Claude organization with Enterprise Managed Auth enabled and an identity provider tenant configured to issue assertions for your authorization server’s audience.
+If your identity provider is Okta, refer to Okta’s [Cross App Access participation guide](https://support.okta.com/help/s/article/claude-enterprise-managed-auth-with-okta-cross-app-access-xaa-beta-participation-guide?language=en_US) and configure your organization to be able to test your MCP’s XAA implementation.
 
-If the customer’s identity provider is Okta, refer to Okta’s [Cross App Access participation guide](https://support.okta.com/help/s/article/claude-enterprise-managed-auth-with-okta-cross-app-access-xaa-beta-participation-guide?language=en_US) for the tenant configuration steps.
+###  Testing with the cross-app access playground
+
+[Okta’s cross-app access playground](https://xaa.dev) lets you exercise the flow without a Claude organization. This is useful while you develop, and when your organization’s single sign-on is not on a supported identity provider. On the playground you can:
+
+* Walk the full four-step flow end to end against a sandbox IdP, with every token shown decoded
+* Point it at your own MCP server or REST API to check resource metadata discovery, the `WWW-Authenticate` hint on `401` responses, and token validation
+* Point it at your own authorization server to check that it accepts an identity assertion over the JWT bearer grant, mints a scoped access token, and serves its metadata for discovery
+* Bring your own OIDC or SAML identity provider in place of the sandbox one
+* Re-run a single failed step and inspect service configurations, discovery documents, and a live event log
 
 Enterprise Managed Auth is in beta. [Register interest](https://docs.google.com/forms/d/e/1FAIpQLSf1goHGNDVFK7rncYuh6wnRpWSy7eGOcgL1i8uw3oyKFO9UUA/viewform) to get onboarded for testing.
 

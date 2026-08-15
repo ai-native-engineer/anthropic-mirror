@@ -503,42 +503,7 @@ Errors like `curl: (35) TLS connect error`, `schannel: next InitializeSecurityCo
 
 ### `Failed to fetch version from downloads.claude.ai`
 
-The installer couldn't reach the download server. This typically means `downloads.claude.ai` is blocked on your network.
-
-**Solutions:**
-
-1. **Test connectivity directly**:
-
-   ```bash theme={null}
-   curl -sI https://downloads.claude.ai/claude-code-releases/latest
-   ```
-
-   An `HTTP/2 200` line means the server is reachable. Other results point to the cause:
-
-   * `403`: usually a proxy or network filter blocking the host, or Claude Code is [not available in your region](https://www.anthropic.com/supported-countries)
-   * `5xx`: usually a temporary service issue; wait a few minutes and retry
-
-2. **If behind a proxy**, set `HTTPS_PROXY` so the installer can route through it. See [proxy configuration](/docs/en/network-config#proxy-configuration) for details.
-   ```bash theme={null}
-   export HTTPS_PROXY=http://proxy.example.com:8080
-   curl -fsSL https://claude.ai/install.sh | bash
-   ```
-
-3. **If on a restricted network**, try a different network or VPN, or use an alternative install method:
-
-   On macOS:
-
-   ```bash theme={null}
-   brew install --cask claude-code
-   ```
-
-   On Windows:
-
-   ```powershell theme={null}
-   winget install Anthropic.ClaudeCode
-   ```
-
-   Then run `claude --version` to confirm: the command prints a version number such as `2.1.211 (Claude Code)`. If the shell reports `claude` isn't found, open a new terminal window and retry: the session you installed from keeps its old `PATH`.
+The installer couldn't reach the download server. This typically means `downloads.claude.ai` is blocked on your network. See [Check network connectivity](#check-network-connectivity).
 
 ### Wrong install command on Windows
 
@@ -632,8 +597,6 @@ Installation was killed before it could finish (exit code 137). This usually mea
 Claude Code needs roughly 512MB of free memory to install. Free up memory, then run this script again.
 ```
 
-Before v2.1.200, the script exited with only the shell's bare `Killed` line and no explanation.
-
 Installing needs roughly 512 MB of free memory, and running Claude Code needs more. See the [system requirements](/docs/en/setup#system-requirements).
 
 **Solutions:**
@@ -699,7 +662,14 @@ Git for Windows is optional. Claude Code uses the [PowerShell tool](/docs/en/too
 
 **To install Git for Windows instead**, download it from [git-scm.com/downloads/win](https://git-scm.com/downloads/win). During setup, select "Add to PATH." Restart your terminal after installing. Installing it enables the Bash tool, useful when working with Bash-based scripts and tooling.
 
-**If Git is already installed** but Claude Code can't find it, set the path in your [settings.json file](/docs/en/settings):
+**If Git is already installed** but Claude Code can't find it, compare its location against the places Claude Code checks. When `CLAUDE_CODE_GIT_BASH_PATH` isn't set, Claude Code looks for `bash.exe` in this order:
+
+1. The default install locations `C:\Program Files\Git` and `C:\Program Files (x86)\Git`.
+2. The `git` on your `PATH`, using the `bin\bash.exe` from that Git installation.
+
+In step 2, Claude Code skips a `git` that sits in the folder you launched Claude Code from, or below it in a path that contains `node_modules` or a virtual-environment folder such as `.venv` or `env`, for example `C:\dev\env\myproject\Git` when you launched from `C:\dev\env\myproject`. This keeps Claude Code from running an executable that a project placed there. If your Git is in a location like that, point `CLAUDE_CODE_GIT_BASH_PATH` at it.
+
+**To point Claude Code at a specific Git installation**, find it by running `where.exe git` in PowerShell, then set the `bin\bash.exe` path from that installation as `CLAUDE_CODE_GIT_BASH_PATH` in your [settings.json file](/docs/en/settings):
 
 ```json theme={null}
 {
@@ -709,9 +679,7 @@ Git for Windows is optional. Claude Code uses the [PowerShell tool](/docs/en/too
 }
 ```
 
-If your Git is installed somewhere else, find the path by running `where.exe git` in PowerShell and use the `bin\bash.exe` path from that directory.
-
-**If the path is correct and the file exists** but Claude Code still doesn't use it, check the file's name first. Claude Code accepts only a file named `bash.exe`, `sh.exe`, `bash`, or `sh`; with any other name, such as Git for Windows' `git-bash.exe` launcher, it ignores the variable and auto-detects Git Bash as if it were unset, logging a warning visible with `--debug`. A path that doesn't exist gets the same fallback and warning. Before v2.1.219, Claude Code used any existing file as the shell without checking its name, and exited at startup with `Claude Code was unable to find CLAUDE_CODE_GIT_BASH_PATH path` when the path didn't exist.
+**If `CLAUDE_CODE_GIT_BASH_PATH` is set to the correct path and the file exists** but Claude Code still doesn't use it, check the file's name first. Claude Code accepts only a file named `bash.exe`, `sh.exe`, `bash`, or `sh`; with any other name, such as Git for Windows' `git-bash.exe` launcher, it ignores the variable and auto-detects Git Bash as if it were unset, logging a warning visible with `--debug`. A path that doesn't exist gets the same fallback and warning. Before v2.1.219, Claude Code used any existing file as the shell without checking its name, and exited at startup with `Claude Code was unable to find CLAUDE_CODE_GIT_BASH_PATH path` when the path didn't exist.
 
 If the file's name is right, endpoint security software such as AppLocker, Group Policy software restriction policies, or EDR agents may be interfering. Ask your IT team to allowlist `claude.exe` and the processes it spawns, including `cmd.exe` and `bash.exe`, in your endpoint protection policy.
 

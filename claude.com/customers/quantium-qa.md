@@ -74,7 +74,7 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 [Next](#)Next
 
-[Quantium](https://quantium.com.au/) is an AI and data analytics company headquartered in Australia, with more than 23 years of experience building AI and data solutions for retail, consumer, financial services, government, and health organizations. The firm designs, builds, and deploys AI agents for a client portfolio of large-scale enterprise clients. We sat down with Justin Spratt, Head of Executive Partnerships at Quantium, to talk about how enterprises are deploying Claude, what's blocking them, and how Quantium's own development culture has shifted.
+[Quantium](https://quantium.com.au/) is an AI and data analytics company headquartered in Australia, with more than 23 years of experience building AI and data solutions for retail, consumer, financial services, government, and health organizations. The firm designs, builds, and deploys AI agents for a client portfolio of large-scale enterprise clients. We sat down with Justin Spratt, Executive, AI Partnerships at Quantium, to talk about how enterprises are deploying Claude, what's blocking them, and how Quantium's own development culture has shifted.
 
 ## Anthropic: There's a lot of noise about AI disrupting consulting. What's your read on what's actually changing?
 

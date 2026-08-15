@@ -128,7 +128,7 @@ In **APIs & Services → Credentials**, choose **Create credentials → OAuth cl
 
 Allow network egress
 
-The sign-in flow and subsequent token refreshes reach `accounts.google.com` and `oauth2.googleapis.com` from the user’s device. These hosts are already included in the standard egress requirements for Google Cloud’s Agent Platform, so if you allowed egress based on the **Egress Requirements** section of the configuration window, no additional firewall changes are needed.
+The sign-in flow and subsequent token refreshes reach `accounts.google.com` and `oauth2.googleapis.com` from the user’s device. These hosts are already included in the standard egress requirements for Google Cloud’s Agent Platform, so if you allowed egress based on the **Egress** section of the configuration window, no additional firewall changes are needed.
 
 ####  Federate to a third-party identity provider
 
@@ -157,6 +157,7 @@ In your IdP, register a native OAuth client for the app. The app does not send a
 Use `127.0.0.1`, not `localhost`; most IdPs do not treat them as interchangeable.
 Distribute the workforce-pool provider audience and the IdP OIDC client in the managed configuration; the app shows a **Sign in** page on first launch, runs an authorization-code-with-PKCE flow against your IdP in the system browser, exchanges the returned ID token for a Google Cloud access token at `sts.googleapis.com`, and stores the IdP refresh token encrypted with the operating system’s secure storage. No `gcloud` CLI, helper script, or Google identity is required.
 The app always requests the `offline_access` scope so that the IdP returns a refresh token for silent renewal. If your IdP rejects `offline_access` on this client (for example, a PingFederate public client without the Refresh Token grant type enabled), set the `omitOfflineAccess` field of `inferenceVertexWorkforceOidc` to `true`. Without a refresh token the app cannot refresh silently, so users will be prompted to sign in again each time the IdP’s ID token expires, typically about once an hour.
+When your IdP is Microsoft Entra ID, you can run this sign-in through the [OS identity broker](https://claude.com/docs/third-party/claude-desktop/entra-broker) on Windows and macOS instead of the system browser by setting `inferenceVertexWorkforceAuthFlow` to `broker`. The `issuer` in `inferenceVertexWorkforceOidc` must then be `https://login.microsoftonline.com/TENANT_ID/v2.0`, and no loopback redirect URI is needed. The token exchange at `sts.googleapis.com` is unchanged.
 
 ##  Configure the app
 
@@ -206,12 +207,12 @@ inferenceVertexWorkforceOidc details
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
-| `clientId` | `string` | — |  |
-| `issuer` | `string` | — |  |
-| `authorizationUrl` | `string` | — |  |
-| `tokenUrl` | `string` | — |  |
-| `scopes` | `string` | — |  |
-| `redirectPort` | `integer` | — |  |
+| `clientId` | `string` | — | OAuth client ID of the desktop app registration at your identity provider (public client, PKCE). |
+| `issuer` | `string` | — | HTTPS issuer with OIDC discovery. Set this, or set the authorization and token URLs instead. |
+| `authorizationUrl` | `string` | — | HTTPS authorization endpoint. Used with the token URL when no issuer is set. |
+| `tokenUrl` | `string` | — | HTTPS token endpoint. Used with the authorization URL when no issuer is set. |
+| `scopes` | `string` | — | Space-separated scopes. Defaults to openid profile email offline\_access. |
+| `redirectPort` | `integer` | — | Fixed loopback port for the sign-in redirect (<http://127.0.0.1:PORT/callback>). Leave unset to use a free port each time. |
 | `omitOfflineAccess` | `boolean` | — | Only enable if your IdP rejects the offline\_access scope on this client. Without it the app prompts for sign-in each time the token expires. |
 | `additionalRedirectReferrerHosts` | `string` | — | Space-separated hostnames also accepted as the referrer of the sign-in callback. Only needed when the IdP completes sign-in from a different host. |
 

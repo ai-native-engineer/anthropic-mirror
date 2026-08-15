@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memories/delete -->
 
+---
+title: Delete a memory
+url: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memories/delete
+---
+
 ## Delete a memory
 
 `$ ant beta:memory-stores:memories delete`

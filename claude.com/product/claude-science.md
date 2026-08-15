@@ -3104,14 +3104,6 @@ Save any pipeline as a reusable skill, or connect to your lab’s preferred tool
 
 Includes fully sourced indication dossiers available today, and a growing set of skills that build the case behind every program.
 
-Introducing Claude Science
-
-One research environment for your lab: connect to scientific databases, research tools, ELNs, protein and structure models, your HPC, and more. Available now for macOS and Linux.
-
-Read the blog
-
-[Read the blog](https://www.anthropic.com/news/claude-science-ai-workbench)Read the blog
-
 ## How researchers use Claude Science
 
 The app is pre-configured for every major domain in life sciences. When a project spans disciplines, it can help solve hard problems.
@@ -3192,12 +3184,6 @@ Iain Cheeseman, Professor of Biology, Whitehead Institute and Department of Biol
 
 Prasad Shirvalkar, Associate Professor of Neurosurgery and Anesthesiology, UCSF
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43b1d291e5af015479f323_ucsf_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43b1d96a550680f0e3fb41_ucsf_dark.svg)
-
-“Claude Science immediately found a laboratory virus contaminant in our bulk RNA-seq data. We spun our wheels on this for the better part of a year, and it came out as one of the first key findings.”
-
-Stephen Francis, Principal Investigator, UCSF
-
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43aebc1bc85393b3abd8b2_everycure_light.png)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43aebebc5bc0c490bd9212_everycure_dark.png)
 
 “New agentic fact-checking capabilities in Claude Science have helped our team build confidence in the biomedical outputs. This makes Claude particularly useful for our triage and medical review work.”
@@ -3209,6 +3195,12 @@ Elliott Sharp, Director of Pipeline Strategy, Every Cure
 “Xaira is building AI-native capabilities across the full arc of drug discovery and development, from predictive models to physical AI systems that learn from biology at scale, powered by agentic workflows designed to create the next generation of medicines. Claude Code and Claude Science are accelerating that work, compressing the path from hypothesis to validation and advancing our therapeutic pipeline, enabling our scientists to focus on the discoveries that matter most and bring innovative medicines to patients faster.”
 
 Xaira
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43b1d291e5af015479f323_ucsf_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43b1d96a550680f0e3fb41_ucsf_dark.svg)
+
+“Claude Science immediately found a laboratory virus contaminant in our bulk RNA-seq data. We spun our wheels on this for the better part of a year, and it came out as one of the first key findings.”
+
+Stephen Francis, Principal Investigator, UCSF
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ac80994990363a651d46_allen-institute_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ac82e34ad450422b4249_allen-institute_dark.svg)
 
@@ -3287,6 +3279,40 @@ Connectors bring your internal APIs, ELNs, and bespoke pipelines into the workfl
 Explore connectors
 
 [Explore connectors](https://claude.com/connectors)Explore connectors
+
+## Claude Science resources
+
+[Introducing Claude Science, an AI workbench for scientists](https://www.anthropic.com/news/claude-science-ai-workbench)Introducing Claude Science, an AI workbench for scientists
+
+Introducing Claude Science, an AI workbench for scientists
+
+Blog
+
+[Blog](https://www.anthropic.com/news/claude-science-ai-workbench)Blog
+
+[See how you can accelerate scientific discovery with Claude](https://www.youtube.com/watch?v=i8g1pdzWJik&t=2643s)See how you can accelerate scientific discovery with Claude
+
+See how you can accelerate scientific discovery with Claude
+
+Demo
+
+[Demo](https://www.youtube.com/watch?v=i8g1pdzWJik&t=2643s)Demo
+
+[Join us for an AMA and live demos on 8/20](https://www.anthropic.com/webinars/claude-science-ama-how-to-accelerate-scientific-discovery)Join us for an AMA and live demos on 8/20
+
+Join us for an AMA and live demos on 8/20
+
+Webinar
+
+[Webinar](https://www.anthropic.com/webinars/claude-science-ama-how-to-accelerate-scientific-discovery)Webinar
+
+[Get started with Claude Science](https://claude.com/docs/claude-science/overview)Get started with Claude Science
+
+Get started with Claude Science
+
+Docs
+
+[Docs](https://claude.com/docs/claude-science/overview)Docs
 
 ## FAQs
 

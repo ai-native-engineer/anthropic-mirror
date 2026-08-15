@@ -10,6 +10,72 @@
 
 Configuration keys by Claude Desktop release. Each section lists keys added in that release, with the MDM key name (for plist/registry deployment) and the equivalent JSON shape (for local-file or bootstrap remote configuration).
 
+v1.30096.5
+
+2026-08-14
+
+No configuration changes in this release.
+
+v1.30096.1
+
+2026-08-13
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`otlpAuthMode`](https://claude.com/docs/third-party/claude-desktop/configuration#otlpauthmode) | `enum` | Collector authentication |
+| [`otlpHeadersHelper`](https://claude.com/docs/third-party/claude-desktop/configuration#otlpheadershelper) | `string` | OpenTelemetry headers helper script |
+| [`inferenceGatewayOidc.resource`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencegatewayoidc) | `string` | New subfield: RFC 8707 resource indicator sent on gateway sign-in and token refresh so the IdP audience-restricts the access token to the gateway; leave unset for Microsoft Entra ID. |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "otlp": {
+    "authMode": "<none|inference-credential>",
+    "headersHelper": "<string>"
+  },
+  "inference": {
+    "credential": {
+      "oidc": {
+        "resource": "<string>"
+      }
+    }
+  }
+}
+```
+
+**Changed:**
+
+* `inferenceBedrockBaseUrl` and `inferenceVertexBaseUrl`: only affects users who entered the bootstrap server URL themselves (in Settings or a local config file). Those users are now asked once to allow a Bedrock or Vertex endpoint that server delivers (and again if it changes) before it takes effect, the same `trustBootstrapDelivery` consent prompt `inferenceGatewayBaseUrl` already shows; the provider’s default endpoint is used until they allow it. Managed deployments (bootstrap URL set by device management, or `trustBootstrapDelivery: true`) see no change.
+
+v1.28929.0
+
+2026-08-11
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`modelPrefer1mContext`](https://claude.com/docs/third-party/claude-desktop/configuration#modelprefer1mcontext) | `boolean` | Default to 1M context |
+| [`claudeAiImport.enabled`](https://claude.com/docs/third-party/claude-desktop/configuration#claudeaiimport) | `boolean` | New subfield: turns history import on; the banner and import actions stay off until set to `true` (default `false`). |
+| [`claudeAiImport.bannerBehavior`](https://claude.com/docs/third-party/claude-desktop/configuration#claudeaiimport) | `enum` | New subfield: when the import banner appears: `off` (default), `detect`, or `show`. |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "models": {
+    "prefer1mContext": "<boolean>"
+  },
+  "claudeAiImport": {
+    "enabled": "<boolean>",
+    "bannerBehavior": "<off|detect|show>"
+  }
+}
+```
+
+**Changed:**
+
+* `inferenceGatewayBaseUrl` delivered by a bootstrap server now goes through the `trustBootstrapDelivery` consent prompt: unless the bootstrap URL came from device management or `trustBootstrapDelivery` is `true`, each user is asked once to allow the address, and again if it changes, before it takes effect.
+
 v1.26832.0
 
 2026-08-06

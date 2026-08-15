@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/memory_stores/memories/retrieve -->
 
+---
+title: Retrieve a memory
+url: https://platform.claude.com/docs/en/api/php/beta/memory_stores/memories/retrieve
+---
+
 ## Retrieve a memory
 
 `$client->beta->memoryStores->memories->retrieve(string memoryID, string memoryStoreID, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas): ManagedAgentsMemory`
@@ -77,7 +82,7 @@ $betaManagedAgentsMemory = $client->beta->memoryStores->memories->retrieve(
   'memory_id',
   memoryStoreID: 'memory_store_id',
   view: ManagedAgentsMemoryView::BASIC,
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaManagedAgentsMemory);

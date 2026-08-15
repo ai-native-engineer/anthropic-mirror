@@ -1861,7 +1861,7 @@ Traditional product manager thinking treats exploration as something that happen
 
 Instead of a long-term roadmap, we encourage everyone on the team (engineers, product managers, designers) to take on side quests. A side quest is a short self-directed experiment you run outside your official roadmap—an afternoon spent prototyping an idea, testing a capability you assumed was out of reach, or just seeing what happens when you push the model harder than you expect to.
 
-Some of Anthropic’s most popular features—[Claude Code on Desktop](https://code.claude.com/docs/en/desktop), the [AskUserQuestion tool](https://platform.claude.com/docs/en/agent-sdk/user-input), and [todo lists](https://platform.claude.com/docs/en/agent-sdk/todo-tracking)—emerged this way.
+Some of Anthropic’s most popular features—[Claude Code on Desktop](https://claude.com/product/claude-code), the [AskUserQuestion tool](https://platform.claude.com/docs/en/agent-sdk/user-input), and [todo lists](https://platform.claude.com/docs/en/agent-sdk/todo-tracking)—emerged this way.
 
 **Encourage demos and evals over docs**
 
@@ -2568,15 +2568,9 @@ I really appreciate the conversation.
 
 The PM role now is to track both things at once: how AI is changing the way you work, and how it's changing what's possible in your product. Do that well, and you stop being surprised when the table tool finally works. You're the one who saw it coming.
 
-*Start building better products with* [*Claude Code*](https://code.claude.com/docs/en/overview)*.*
-
-‍
+*Start building better products with* [*Claude Code*](https://claude.com/product/claude-code)*.*
 
 ***Acknowledgments:****This article was written by Cat Wu, the Head of Product for Claude Code at Anthropic. You can find her on* [*X*](https://x.com/_catwu) *and* [*LinkedIn*](https://www.linkedin.com/in/cat-wu/)*. She'd like to thank Bihan Jiang and Kai Xin Tai for their contributions to this piece.*
-
-‍
-
-‍
 
 No items found.
 
@@ -2602,53 +2596,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f63175f636cba4641_c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
 
-Aug 7, 2026
+Aug 14, 2026
 
-### Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-Claude Code
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
-
-Aug 7, 2026
-
-### Running auto mode in production
+### Maximizing the value of your Claude Code sessions
 
 Claude Code
 
-[Running auto mode in production](#)Running auto mode in production
+[Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
 
-[Running auto mode in production](https://claude.com/blog/auto-mode-in-production)Running auto mode in production
+[Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
 
-Aug 6, 2026
+May 20, 2026
 
-### Millennium and Anthropic are building a digital risk analyst with Claude
+### Using Claude Code: The unreasonable effectiveness of HTML
 
-Enterprise AI
+Claude Code
 
-[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
+[Using Claude Code: The unreasonable effectiveness of HTML](#)Using Claude Code: The unreasonable effectiveness of HTML
 
-[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
+[Using Claude Code: The unreasonable effectiveness of HTML](https://claude.com/blog/using-claude-code-the-unreasonable-effectiveness-of-html)Using Claude Code: The unreasonable effectiveness of HTML
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
-Jul 24, 2026
+May 12, 2026
 
-### Claude models explained: choosing the best model for your use case
+### How Anthropic's cybersecurity team built a threat detection platform with Claude Code
 
-Enterprise AI
+Claude Code
 
-[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](#)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
 
-[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](https://claude.com/blog/how-anthropic-uses-claude-cybersecurity)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Apr 29, 2026
+
+### Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
+
+Agents
+
+[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](#)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
+
+[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](https://claude.com/blog/claude-api-skill)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
 
 ## Transform how your organization operates with Claude
 

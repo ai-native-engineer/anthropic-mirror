@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/spend_limits/create -->
 
+---
+title: Set Spend Limit
+url: https://platform.claude.com/docs/en/api/admin/spend_limits/create
+---
+
 ## Set Spend Limit
 
 **post** `/v1/organizations/spend_limits`
@@ -12,7 +17,9 @@ group, and organization-level defaults are configured in claude.ai.
 
 ### Body Parameters
 
-- `amount: string`
+- `amount: string or null`
+
+  Limit amount as a non-negative integer decimal string in the minor unit of the organization's billing currency (cents for USD): "50000" is $500.00. `null` sets an explicit no-limit override for this scope and `period` only — each period resolves independently, so caps for other periods still apply.
 
 - `scope: object { type, user_id }`
 
@@ -22,11 +29,11 @@ group, and organization-level defaults are configured in claude.ai.
 
   - `user_id: string`
 
-- `period: optional "monthly" or "daily" or "weekly"`
-
-  - `"monthly"`
+- `period: optional "daily" or "monthly" or "weekly"`
 
   - `"daily"`
+
+  - `"monthly"`
 
   - `"weekly"`
 
@@ -36,17 +43,21 @@ group, and organization-level defaults are configured in claude.ai.
 
   - `id: string`
 
-  - `amount: string`
+  - `amount: string or null`
+
+    Limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD): "50000" is $500.00. `null` means no numeric cap is configured at this scope — see the effective report for whether a limit applies.
 
   - `created_at: string`
 
   - `currency: string`
 
-  - `period: "monthly" or "daily" or "weekly"`
+    ISO 4217 code of the organization's billing currency; the unit for `amount`.
 
-    - `"monthly"`
+  - `period: "daily" or "monthly" or "weekly"`
 
     - `"daily"`
+
+    - `"monthly"`
 
     - `"weekly"`
 
@@ -104,11 +115,12 @@ curl https://api.anthropic.com/v1/organizations/spend_limits \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
-          "amount": "amount",
+          "amount": "50000",
           "scope": {
             "type": "user",
             "user_id": "user_id"
-          }
+          },
+          "period": "monthly"
         }'
 ```
 
@@ -117,9 +129,9 @@ curl https://api.anthropic.com/v1/organizations/spend_limits \
 ```json
 {
   "id": "id",
-  "amount": "amount",
+  "amount": "50000",
   "created_at": "2019-12-27T18:11:19.117Z",
-  "currency": "currency",
+  "currency": "USD",
   "period": "monthly",
   "scope": {
     "type": "user",

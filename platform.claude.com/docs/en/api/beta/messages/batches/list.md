@@ -1,12 +1,17 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/messages/batches/list -->
 
+---
+title: List Message Batches
+url: https://platform.claude.com/docs/en/api/beta/messages/batches/list
+---
+
 ## List Message Batches
 
 **get** `/v1/messages/batches`
 
 List all Message Batches within a Workspace. Most recently created batches are returned first.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Query Parameters
 
@@ -32,7 +37,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -84,11 +89,21 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -100,11 +115,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     The format and length of IDs may change over time.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
 
-  - `cancel_initiated_at: string`
+  - `cancel_initiated_at: string or null`
 
     RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
 
@@ -112,7 +127,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     RFC 3339 datetime string representing the time at which the Message Batch was created.
 
-  - `ended_at: string`
+  - `ended_at: string or null`
 
     RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
 
@@ -166,7 +181,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       This is zero until processing of the entire Message Batch has ended.
 
-  - `results_url: string`
+  - `results_url: string or null`
 
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
@@ -180,7 +195,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"message_batch"`
 
-- `first_id: string`
+- `first_id: string or null`
 
   First ID in the `data` list. Can be used as the `before_id` for the previous page.
 
@@ -188,7 +203,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   Indicates if there are more results in the requested page direction.
 
-- `last_id: string`
+- `last_id: string or null`
 
   Last ID in the `data` list. Can be used as the `after_id` for the next page.
 

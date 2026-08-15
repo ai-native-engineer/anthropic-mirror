@@ -166,7 +166,7 @@ Yes. Claude can search shared mailboxes you have delegate access to in Microsoft
 
 ### Can Claude search archived emails?
 
-Yes. Claude can search any email you have access to in Outlook, including archived messages.
+Yes, but only if they're in your primary mailbox. Claude can search every folder in your primary Outlook mailbox, including its Archive folder. Claude doesn't search the separate Online Archive mailbox (also called the In-Place Archive), so messages that a retention policy has moved there won't appear in results. To work with one of those messages, move it back into a folder in your primary mailbox, or open it in Outlook and paste the content into your chat.
 
 ### Can Claude summarize long email threads?
 
@@ -184,8 +184,8 @@ Only ones you're a member of. Claude mirrors your Microsoft 365 permissions, so 
 
 You'll see an error indicating that an administrator must grant app permissions before you can connect. Ask your organization’s Microsoft Entra Global Administrator to complete consent. If you're on a Team or Enterprise plan, your Claude organization owner also needs to enable Microsoft 365 in organization settings.
 
+* [Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
 * [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
 * [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
-* [Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)
-* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
+* [Use Claude in Microsoft Foundry](https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)

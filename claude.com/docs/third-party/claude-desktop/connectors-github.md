@@ -64,7 +64,7 @@ A GitHub App works in place of an OAuth app: put its client ID in the same field
 
 Add the managed entry
 
-In the Claude Desktop [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration), open **Connectors & extensions**, select **Add server**, and choose **GitHub** under the **Built-in** group. Enter the client ID from step 1, select **Test connection** to verify that the bundled server starts and lists its tools, and select **Save**.If you manage configuration through JSON or a plist directly, add an entry to [`managedMcpServers`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) with the `server` field set to `github`:
+In the Claude Desktop [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration), open **Connectors**, select **Add server**, and choose **GitHub** under the **Built-in** group. Enter the client ID from step 1, select **Test connection** to verify that the bundled server starts and lists its tools, and select **Save**.If you manage configuration through JSON or a plist directly, add an entry to [`managedMcpServers`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) with the `server` field set to `github`:
 
 ```
 {

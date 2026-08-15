@@ -12,6 +12,7 @@
 
 Use this page to see how much of your Claude allowance you have used and when it refreshes.
 Check this page if Claude tells you that you have reached a limit, or if you simply want to see how much headroom you have left before you start a large piece of work.
+Claude Desktop does not show how much of your allowance you have used. To check, sign in to the web portal in your browser and open the **Usage** tab.
 
 ##  How limits work
 

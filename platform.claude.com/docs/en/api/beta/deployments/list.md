@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/deployments/list -->
 
+---
+title: List Deployments
+url: https://platform.claude.com/docs/en/api/beta/deployments/list
+---
+
 ## List Deployments
 
 **get** `/v1/deployments`
@@ -48,7 +53,7 @@ List Deployments
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -100,11 +105,21 @@ List Deployments
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -128,7 +143,7 @@ List Deployments
 
     - `version: number`
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -136,7 +151,7 @@ List Deployments
 
     A timestamp in RFC 3339 format
 
-  - `description: string`
+  - `description: string or null`
 
     Description of what the deployment does.
 
@@ -152,7 +167,7 @@ List Deployments
 
       A user message sent to the session.
 
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock`
+      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
 
         Array of content blocks for the user message.
 
@@ -290,13 +305,21 @@ List Deployments
 
             - `"document"`
 
-          - `context: optional string`
+          - `context: optional string or null`
 
             Additional context about the document for the model.
 
-          - `title: optional string`
+          - `title: optional string or null`
 
             The title of the document.
+
+        - `BetaManagedAgentsRedactedBlock object { type }`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: "redacted"`
+
+            - `"redacted"`
 
       - `type: "user.message"`
 
@@ -342,7 +365,7 @@ List Deployments
 
         - `"user.define_outcome"`
 
-      - `max_iterations: optional number`
+      - `max_iterations: optional number or null`
 
         Eval→revision cycles before giving up. Default 3, max 20.
 
@@ -374,7 +397,7 @@ List Deployments
 
     Human-readable name.
 
-  - `paused_reason: BetaManagedAgentsDeploymentPausedReason`
+  - `paused_reason: BetaManagedAgentsDeploymentPausedReason or null`
 
     Why a deployment is paused. Non-null exactly when `status` is `paused`.
 
@@ -526,7 +549,7 @@ List Deployments
 
         Github URL of the repository
 
-      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout or null`
 
         Branch or commit to check out. Defaults to the repository's default branch.
 
@@ -550,7 +573,7 @@ List Deployments
 
             - `"commit"`
 
-      - `mount_path: optional string`
+      - `mount_path: optional string or null`
 
         Mount path in the container. Defaults to `/workspace/<repo-name>`.
 
@@ -566,7 +589,7 @@ List Deployments
 
         - `"file"`
 
-      - `mount_path: optional string`
+      - `mount_path: optional string or null`
 
         Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
 
@@ -582,7 +605,7 @@ List Deployments
 
         - `"memory_store"`
 
-      - `access: optional "read_write" or "read_only"`
+      - `access: optional "read_write" or "read_only" or null`
 
         Access mode for an attached memory store.
 
@@ -590,11 +613,11 @@ List Deployments
 
         - `"read_only"`
 
-      - `instructions: optional string`
+      - `instructions: optional string or null`
 
         Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
-  - `schedule: BetaManagedAgentsSchedule`
+  - `schedule: BetaManagedAgentsSchedule or null`
 
     5-field POSIX cron schedule with computed runtime timestamps.
 
@@ -610,7 +633,7 @@ List Deployments
 
       - `"cron"`
 
-    - `last_run_at: optional string`
+    - `last_run_at: optional string or null`
 
       A timestamp in RFC 3339 format
 
@@ -638,7 +661,29 @@ List Deployments
 
     Vault IDs supplying stored credentials for sessions created from this deployment.
 
-- `next_page: optional string`
+  - `budget: optional BetaManagedAgentsBudgetLimit or null`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `type: "limit"`
+
+      - `"limit"`
+
+- `next_page: optional string or null`
 
   Opaque cursor for the next page. Null when no more results.
 
@@ -657,31 +702,29 @@ curl https://api.anthropic.com/v1/deployments \
 {
   "data": [
     {
-      "id": "id",
+      "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
       "agent": {
-        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "id": "agent_011CZkYpogX7uDKUyvBTophP",
         "type": "agent",
         "version": 1
       },
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "description": "description",
-      "environment_id": "environment_id",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "Compiles yesterday's orders into a report every weekday morning.",
+      "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
       "initial_events": [
         {
           "content": [
             {
-              "text": "Where is my order #1234?",
+              "text": "Compile yesterday's orders into report.md.",
               "type": "text"
             }
           ],
           "type": "user.message"
         }
       ],
-      "metadata": {
-        "foo": "string"
-      },
-      "name": "name",
+      "metadata": {},
+      "name": "Daily order report",
       "paused_reason": {
         "type": "manual"
       },
@@ -697,22 +740,30 @@ curl https://api.anthropic.com/v1/deployments \
         }
       ],
       "schedule": {
-        "expression": "x",
-        "timezone": "x",
+        "expression": "0 9 * * 1-5",
+        "timezone": "America/Los_Angeles",
         "type": "cron",
-        "last_run_at": "2019-12-27T18:11:19.117Z",
+        "last_run_at": "2026-03-16T16:00:09Z",
         "upcoming_runs_at": [
-          "2019-12-27T18:11:19.117Z"
+          "2026-03-17T16:00:00Z",
+          "2026-03-18T16:00:00Z"
         ]
       },
       "status": "active",
       "type": "deployment",
-      "updated_at": "2019-12-27T18:11:19.117Z",
+      "updated_at": "2026-03-15T10:00:00Z",
       "vault_ids": [
-        "string"
-      ]
+        "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+      ],
+      "budget": {
+        "max_list_cost": {
+          "amount": "2500",
+          "currency": "USD"
+        },
+        "type": "limit"
+      }
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```

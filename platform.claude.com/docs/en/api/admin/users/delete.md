@@ -1,10 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/users/delete -->
 
+---
+title: Remove User
+url: https://platform.claude.com/docs/en/api/admin/users/delete
+---
+
 ## Remove User
 
 **delete** `/v1/organizations/users/{user_id}`
 
-Remove User
+For Claude Enterprise organizations, this endpoint's availability is in beta.
 
 ### Path Parameters
 

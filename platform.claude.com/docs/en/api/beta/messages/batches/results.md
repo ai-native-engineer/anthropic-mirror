@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/messages/batches/results -->
 
+---
+title: Retrieve Message Batch results
+url: https://platform.claude.com/docs/en/api/beta/messages/batches/results
+---
+
 ## Retrieve Message Batch results
 
 **get** `/v1/messages/batches/{message_batch_id}/results`
@@ -8,7 +13,7 @@ Streams the results of a Message Batch as a `.jsonl` file.
 
 Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Path Parameters
 
@@ -24,7 +29,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -76,11 +81,21 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -110,7 +125,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           The format and length of IDs may change over time.
 
-        - `container: BetaContainer`
+        - `container: BetaContainer or null`
 
           Information about the container used in the request (for the code execution tool)
 
@@ -122,7 +137,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             The time at which the container will expire.
 
-          - `skills: array of BetaSkill`
+          - `skills: array of BetaSkill or null`
 
             Skills loaded in the container
 
@@ -173,7 +188,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `BetaTextBlock object { citations, text, type }`
 
-            - `citations: array of BetaTextCitation`
+            - `citations: array of BetaTextCitation or null`
 
               Citations supporting the text block.
 
@@ -185,11 +200,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `document_index: number`
 
-                - `document_title: string`
+                - `document_title: string or null`
 
                 - `end_char_index: number`
 
-                - `file_id: string`
+                - `file_id: string or null`
 
                 - `start_char_index: number`
 
@@ -203,11 +218,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `document_index: number`
 
-                - `document_title: string`
+                - `document_title: string or null`
 
                 - `end_page_number: number`
 
-                - `file_id: string`
+                - `file_id: string or null`
 
                 - `start_page_number: number`
 
@@ -225,7 +240,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `document_index: number`
 
-                - `document_title: string`
+                - `document_title: string or null`
 
                 - `end_block_index: number`
 
@@ -233,7 +248,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
 
-                - `file_id: string`
+                - `file_id: string or null`
 
                 - `start_block_index: number`
 
@@ -249,7 +264,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `encrypted_index: string`
 
-                - `title: string`
+                - `title: string or null`
 
                 - `type: "web_search_result_location"`
 
@@ -283,7 +298,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   0-based index of the first cited block in the source's `content` array.
 
-                - `title: string`
+                - `title: string or null`
 
                 - `type: "search_result_location"`
 
@@ -299,7 +314,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             - `signature: string`
 
+              A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+              This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
             - `thinking: string`
+
+              The text of Claude's thinking process for this block.
 
             - `type: "thinking"`
 
@@ -308,6 +331,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `BetaRedactedThinkingBlock object { data, type }`
 
             - `data: string`
+
+              The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+              Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
             - `type: "redacted_thinking"`
 
@@ -425,7 +454,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `encrypted_content: string`
 
-                - `page_age: string`
+                - `page_age: string or null`
 
                 - `title: string`
 
@@ -489,7 +518,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `content: BetaDocumentBlock`
 
-                  - `citations: BetaCitationConfig`
+                  - `citations: BetaCitationConfig or null`
 
                     Citation configuration for the document
 
@@ -521,7 +550,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                         - `"text"`
 
-                  - `title: string`
+                  - `title: string or null`
 
                     The title of the document
 
@@ -529,7 +558,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                     - `"document"`
 
-                - `retrieved_at: string`
+                - `retrieved_at: string or null`
 
                   ISO 8601 timestamp when the content was retrieved
 
@@ -589,7 +618,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               - `BetaAdvisorResultBlock object { stop_reason, text, type }`
 
-                - `stop_reason: string`
+                - `stop_reason: string or null`
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
 
@@ -605,7 +634,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
 
-                - `stop_reason: string`
+                - `stop_reason: string or null`
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
@@ -753,7 +782,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"file_not_found"`
 
-                - `error_message: string`
+                - `error_message: string or null`
 
                 - `type: "text_editor_code_execution_tool_result_error"`
 
@@ -771,11 +800,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"pdf"`
 
-                - `num_lines: number`
+                - `num_lines: number or null`
 
-                - `start_line: number`
+                - `start_line: number or null`
 
-                - `total_lines: number`
+                - `total_lines: number or null`
 
                 - `type: "text_editor_code_execution_view_result"`
 
@@ -791,15 +820,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               - `BetaTextEditorCodeExecutionStrReplaceResultBlock object { lines, new_lines, new_start, 3 more }`
 
-                - `lines: array of string`
+                - `lines: array of string or null`
 
-                - `new_lines: number`
+                - `new_lines: number or null`
 
-                - `new_start: number`
+                - `new_start: number or null`
 
-                - `old_lines: number`
+                - `old_lines: number or null`
 
-                - `old_start: number`
+                - `old_start: number or null`
 
                 - `type: "text_editor_code_execution_str_replace_result"`
 
@@ -827,7 +856,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"execution_time_exceeded"`
 
-                - `error_message: string`
+                - `error_message: string or null`
 
                 - `type: "tool_search_tool_result_error"`
 
@@ -879,7 +908,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               - `BetaMCPToolResultBlockContent = array of BetaTextBlock`
 
-                - `citations: array of BetaTextCitation`
+                - `citations: array of BetaTextCitation or null`
 
                   Citations supporting the text block.
 
@@ -915,11 +944,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
 
-            - `content: string`
+            - `content: string or null`
 
               Summary of compacted content, or null if compaction failed
 
-            - `encrypted_content: string`
+            - `encrypted_content: string or null`
 
               Opaque metadata from prior compaction, to be round-tripped verbatim
 
@@ -951,11 +980,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more`
+                - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more`
 
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `"claude-sonnet-5"`
+
+                    High-performance model for coding and agents
 
                   - `"claude-fable-5"`
 
@@ -965,13 +998,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                     Most capable model for cybersecurity and biology research
 
+                  - `"claude-opus-5"`
+
+                    Powerful intelligence for long-running agents and coding
+
                   - `"claude-opus-4-8"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-opus-4-7"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-mythos-preview"`
 
@@ -979,7 +1016,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"claude-opus-4-6"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-sonnet-4-6"`
 
@@ -995,11 +1032,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"claude-opus-4-5"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-opus-4-5-20251101"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-sonnet-4-5"`
 
@@ -1008,14 +1045,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `"claude-sonnet-4-5-20250929"`
 
                     High-performance model for agents and coding
-
-                  - `"claude-opus-4-1"`
-
-                    Exceptional model for specialized complex tasks
-
-                  - `"claude-opus-4-1-20250805"`
-
-                    Exceptional model for specialized complex tasks
 
                 - `string`
 
@@ -1027,17 +1056,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               What caused the `from` model to hand over at this hop.
 
-              - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+              - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
                 The policy category that triggered a refusal.
 
                 - `"cyber"`
 
+                  The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
                 - `"bio"`
+
+                  The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
                 - `"frontier_llm"`
 
+                  The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
                 - `"reasoning_extraction"`
+
+                  The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+                - `"general_harms"`
+
+                  The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
               - `type: "refusal"`
 
@@ -1047,7 +1088,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               - `"fallback"`
 
-        - `context_management: BetaContextManagementResponse`
+        - `context_management: BetaContextManagementResponse or null`
 
           Context management response.
 
@@ -1089,12 +1130,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"clear_thinking_20251015"`
 
-        - `diagnostics: BetaDiagnostics`
+        - `diagnostics: BetaDiagnostics or null`
 
           Response envelope for request-level diagnostics. Present (possibly
           null) whenever the caller supplied `diagnostics` on the request.
 
-          - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more`
+          - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more or null`
 
             Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
 
@@ -1164,29 +1205,41 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `"assistant"`
 
-        - `stop_details: BetaRefusalStopDetails`
+        - `stop_details: BetaRefusalStopDetails or null`
 
           Structured information about a refusal.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
             The policy category that triggered a refusal.
 
             - `"cyber"`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `"frontier_llm"`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `"reasoning_extraction"`
 
-          - `explanation: string`
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+          - `explanation: string or null`
 
             Human-readable explanation of the refusal.
 
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
-          - `fallback_credit_token: string`
+          - `fallback_credit_token: string or null`
 
             Opaque code that refunds the cache-miss cost when retrying this refused
             request on the fallback model. Pass it as `fallback_credit_token` on the
@@ -1207,7 +1260,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             `null` when the refused model isn't eligible for a fallback credit.
 
-          - `fallback_has_prefill_claim: boolean`
+          - `fallback_has_prefill_claim: boolean or null`
 
             Whether the accompanying `fallback_credit_token` may be redeemed with the
             appended-assistant retry form. Only set when `fallback_credit_token` is
@@ -1231,7 +1284,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Advisory: if an appended-assistant retry is rejected with a 400 despite
             `true`, fall back to resending the original request body with the token.
 
-          - `recommended_model: string`
+          - `recommended_model: string or null`
 
             The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
@@ -1239,7 +1292,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             - `"refusal"`
 
-        - `stop_reason: BetaStopReason`
+        - `stop_reason: BetaStopReason or null`
 
           The reason that we stopped.
 
@@ -1251,6 +1304,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           * `"tool_use"`: the model invoked one or more tools
           * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
           * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -1270,7 +1324,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `"model_context_window_exceeded"`
 
-        - `stop_sequence: string`
+        - `stop_sequence: string or null`
 
           Which custom stop sequence was generated, if any.
 
@@ -1296,7 +1350,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-          - `cache_creation: BetaCacheCreation`
+          - `cache_creation: BetaCacheCreation or null`
 
             Breakdown of cached tokens by TTL
 
@@ -1308,15 +1362,87 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               The number of input tokens used to create the 5 minute cache entry.
 
-          - `cache_creation_input_tokens: number`
+          - `cache_creation_input_tokens: number or null`
 
             The number of input tokens used to create the cache entry.
 
-          - `cache_read_input_tokens: number`
+          - `cache_read_input_tokens: number or null`
 
             The number of input tokens read from the cache.
 
-          - `inference_geo: string`
+          - `fallback_credit: BetaFallbackCreditUsage or null`
+
+            Outcome of the `fallback_credit_token` presented on this request.
+
+            - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+              Whether the fallback-credit reprice was applied to this response's billing.
+
+              A union discriminated on `type`. `redeemed`: the retry is billed as if
+              the conversation had been on the retry model all along — including when the
+              resulting shift is zero because there was nothing to move. `not_applied`:
+              no reprice was applied; the arm's `reason` says why.
+
+              - `BetaFallbackCreditRedeemed object { type }`
+
+                The reprice was applied: the retry is billed as if the conversation
+                had been on the retry model all along.
+
+                - `type: "redeemed"`
+
+                  - `"redeemed"`
+
+              - `BetaFallbackCreditNotApplied object { reason, type, remove_to_redeem }`
+
+                No reprice was applied; `reason` says why.
+
+                - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+                  Why the reprice was not applied.
+
+                  A closed enum; additions to the redemption-check vocabulary arrive as
+                  deliberate schema updates.
+
+                  - `"body_mismatch"`
+
+                  - `"continuation_excluded"`
+
+                  - `"continuation_only"`
+
+                  - `"expired"`
+
+                  - `"invalid_target_model"`
+
+                  - `"not_enabled"`
+
+                  - `"reprice_unavailable"`
+
+                  - `"temporarily_unavailable"`
+
+                  - `"variant_fields_present"`
+
+                  - `"wrong_organization"`
+
+                  - `"wrong_platform"`
+
+                  - `"wrong_workspace"`
+
+                - `type: "not_applied"`
+
+                  - `"not_applied"`
+
+                - `remove_to_redeem: optional array of string or null`
+
+                  Request fields to remove before retrying, so the retry can redeem this
+                  token.
+
+                  Present exactly when `reason` is `variant_fields_present` — never null,
+                  never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                  the sealed variant hash matched. A served best-effort retry has already
+                  been billed at normal price; nothing redeems retroactively, but a corrected
+                  re-send inside the token's five-minute window can still redeem.
+
+          - `inference_geo: string or null`
 
             The geographic region where inference was performed for this request.
 
@@ -1324,7 +1450,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             The number of input tokens which were used.
 
-          - `iterations: BetaIterationsUsage`
+          - `iterations: BetaIterationsUsage or null`
 
             Per-iteration token usage breakdown.
 
@@ -1338,7 +1464,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               Token usage for a sampling iteration.
 
-              - `cache_creation: BetaCacheCreation`
+              - `cache_creation: BetaCacheCreation or null`
 
                 Breakdown of cached tokens by TTL
 
@@ -1374,7 +1500,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               Token usage for a compaction iteration.
 
-              - `cache_creation: BetaCacheCreation`
+              - `cache_creation: BetaCacheCreation or null`
 
                 Breakdown of cached tokens by TTL
 
@@ -1404,7 +1530,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               Token usage for an advisor sub-inference iteration.
 
-              - `cache_creation: BetaCacheCreation`
+              - `cache_creation: BetaCacheCreation or null`
 
                 Breakdown of cached tokens by TTL
 
@@ -1445,7 +1571,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               a fallback model served the response is signalled by the presence of this
               entry in `usage.iterations`.
 
-              - `cache_creation: BetaCacheCreation`
+              - `cache_creation: BetaCacheCreation or null`
 
                 Breakdown of cached tokens by TTL
 
@@ -1481,7 +1607,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             The number of output tokens which were used.
 
-          - `output_tokens_details: BetaOutputTokensDetails`
+          - `output_tokens_details: BetaOutputTokensDetails or null`
 
             Breakdown of output tokens by category.
 
@@ -1501,7 +1627,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               generation count by a small number of tokens. Always ≤ `output_tokens`;
               `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
-          - `server_tool_use: BetaServerToolUsage`
+          - `server_tool_use: BetaServerToolUsage or null`
 
             The number of server tool requests.
 
@@ -1513,7 +1639,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               The number of web search tool requests.
 
-          - `service_tier: "standard" or "priority" or "batch"`
+          - `service_tier: "standard" or "priority" or "batch" or null`
 
             If the request used the priority, standard, or batch tier.
 
@@ -1523,9 +1649,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             - `"batch"`
 
-          - `speed: "standard" or "fast"`
+          - `speed: "standard" or "fast" or null`
 
-            The inference speed mode used for this request.
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
             - `"standard"`
 
@@ -1613,7 +1739,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               - `"overloaded_error"`
 
-        - `request_id: string`
+        - `request_id: string or null`
 
         - `type: "error"`
 

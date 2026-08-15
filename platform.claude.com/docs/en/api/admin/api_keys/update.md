@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/api_keys/update -->
 
+---
+title: Update API Key
+url: https://platform.claude.com/docs/en/api/admin/api_keys/update
+---
+
 ## Update API Key
 
 **post** `/v1/organizations/api_keys/{api_key_id}`
@@ -14,23 +19,23 @@ Update API Key
 
 ### Body Parameters
 
-- `name: optional string`
+- `name: optional string or null`
 
   Name of the API key.
 
-- `status: optional "active" or "inactive" or "archived"`
+- `status: optional "active" or "archived" or "inactive" or null`
 
   Status of the API key.
 
   - `"active"`
 
-  - `"inactive"`
-
   - `"archived"`
+
+  - `"inactive"`
 
 ### Returns
 
-- `APIKey object { id, created_at, created_by, 6 more }`
+- `APIKey object { id, created_at, created_by, 7 more }`
 
   - `id: string`
 
@@ -40,9 +45,11 @@ Update API Key
 
     RFC 3339 datetime string indicating when the API Key was created.
 
-  - `created_by: object { id, type }`
+  - `created_by: object { id, type }  or null`
 
-    The ID and type of the actor that created the API key.
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
 
     - `id: string`
 
@@ -52,7 +59,7 @@ Update API Key
 
       Type of the actor that created the object.
 
-  - `expires_at: string`
+  - `expires_at: string or null`
 
     RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
 
@@ -60,21 +67,37 @@ Update API Key
 
     Name of the API key.
 
-  - `partial_key_hint: string`
+  - `partial_key_hint: string or null`
 
     Partially redacted hint for the API key.
 
-  - `status: "active" or "inactive" or "archived" or "expired"`
+  - `principal: object { id, type }  or null`
+
+    The ID and type of the principal the API key acts as, or `null` if the key is not bound to a principal.
+
+    - `id: string`
+
+      ID of the principal the API key acts as: a User ID (`user_...`) when the type is `user`, or a Service Account ID (`svac_...`) when the type is `service_account`.
+
+    - `type: "service_account" or "user"`
+
+      Type of the principal the API key acts as.
+
+      - `"service_account"`
+
+      - `"user"`
+
+  - `status: "active" or "archived" or "expired" or "inactive"`
 
     Status of the API key.
 
     - `"active"`
 
-    - `"inactive"`
-
     - `"archived"`
 
     - `"expired"`
+
+    - `"inactive"`
 
   - `type: "api_key"`
 
@@ -84,7 +107,7 @@ Update API Key
 
     - `"api_key"`
 
-  - `workspace_id: string`
+  - `workspace_id: string or null`
 
     ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace.
 
@@ -111,6 +134,10 @@ curl https://api.anthropic.com/v1/organizations/api_keys/$API_KEY_ID \
   "expires_at": "2024-10-30T23:58:27.427722Z",
   "name": "Developer Key",
   "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "principal": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
   "status": "active",
   "type": "api_key",
   "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"

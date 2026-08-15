@@ -62,7 +62,7 @@ Spend limits are your primary tool for controlling consumption. Claude Enterpris
 
 ### Org-level spend limits
 
-The org-level limit is available as a hard ceiling across all users and surfaces, but use it carefully: hitting it affects everyone simultaneously, which can be disruptive. Most admins find that managing consumption at the group and user level gives them better outcomes with less operational risk.
+The org-level limit is available as a hard ceiling across all users and surfaces, but use it carefully: hitting it affects everyone simultaneously, which can be disruptive. Most admins find that managing consumption at the group and user level gives them better outcomes with less operational risk.a
 
 ### Group spend limit
 
@@ -220,6 +220,20 @@ For programmatic access, use the Claude Enterprise Analytics API. Pull a ranked 
 
 Your Primary Owner can generate an admin API key. Data refreshes every four hours; for invoicing-grade totals, query dates 30+ days in the past so late events have time to reconcile. **[Learn more](https://platform.claude.com/docs/en/manage-claude/analytics-api)** and review the **[API reference guide](https://platform.claude.com/docs/en/api/admin/analytics)**.
 
+### Per-user skills, plugin, and connector usage
+
+The Analytics API also breaks skill, plugin, and connector usage down per user. The `skills`, `plugins`, and `connectors` endpoints each support a `group_by[]=user_id` parameter, turning the org-wide totals you see in the dashboard into one row per user per skill (or plugin, or connector)—so you can see exactly who is running a given skill, how often, and which team members have actually invoked a plugin you rolled out. You can also group by RBAC group or product surface, or filter down to a single skill, plugin, or connector by name.
+
+This is useful for the same per-skill ROI questions above, just broken down by individual user instead of exported to a spreadsheet—for example, confirming a plugin rollout actually landed with the team it was distributed to, rather than just checking that it was installed. Learn more in the API reference: **[skills](https://platform.claude.com/docs/en/api/admin/analytics/skills/list)**, **[plugins](https://platform.claude.com/docs/en/api/admin/analytics/plugins/list)**, **[connectors](https://platform.claude.com/docs/en/api/admin/analytics/connectors/list)**.
+
+### Admin API
+
+For organizations managing limits across many groups, the **[Admin API](https://support.claude.com/en/articles/15330651-claude-enterprise-admin-api-reference-guide)** moves cost-control workflows into scripts — automating increase-request reviews, flagging members near their limits, and surfacing rapidly changing usage at scale. Learn more with our **[API docs](https://platform.claude.com/docs/en/manage-claude/spend-limits-api).**
+
+### Spend-threshold alerts
+
+Spend-threshold alerts notify admins at 75% and 90% of an org-level spend limit, giving you time to raise the cap before anyone is blocked mid-task.
+
 ---
 
 ## End user education
@@ -250,7 +264,7 @@ When you onboard users, share the following:
 * They won't lose work in progress—Claude will complete the current turn before limiting further usage.
 
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
-* [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/files/retrieve_metadata -->
 
+---
+title: Get File Metadata
+url: https://platform.claude.com/docs/en/api/cli/beta/files/retrieve_metadata
+---
+
 ## Get File Metadata
 
 `$ ant beta:files retrieve-metadata`

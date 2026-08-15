@@ -38,6 +38,9 @@ Search
 
 DateCategoryTitle
 
+* [Aug 14, 2026Announcements
+
+  How Claude’s text watermark works](https://www.anthropic.com/news/claude-text-watermark)
 * [Aug 7, 2026Product
 
   Improving Fable 5's biology safeguards](https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards)
@@ -65,10 +68,7 @@ DateCategoryTitle
 * [Jul 21, 2026Announcements
 
   Anthropic is donating another $20 million to Public First Action](https://www.anthropic.com/news/donation-public-first-action)
-* [Jul 20, 2026Announcements
-
-  Apply for Anthropic’s AI for Science rare disease research grants](https://www.anthropic.com/news/rare-disease-research-grants)
 
 [See more](#)
 
-![Improving Fable 5's biology safeguards](https://www-cdn.anthropic.com/images/4zrzovbb/website/e253e6c4926deb09baf67f41e4e24e8028ea5f36-1000x1000.svg)
+![How Claude’s text watermark works](https://www-cdn.anthropic.com/images/4zrzovbb/website/33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)

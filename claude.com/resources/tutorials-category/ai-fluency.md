@@ -28,6 +28,34 @@ Product
 
 Features
 
+![What happens when you talk to AI?](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e2090e8966553930867b9_ANT_KT3%20Edu_Hero%201_Thumbnail.webp)
+
+What happens when you talk to AI?
+
+AI Fluency
+
+Author
+
+AI Fluency
+
+Author
+
+AI Fluency
+
+Author
+
+No items found.
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/what-happens-when-you-talk-to-ai)Read use case
+
+[What happens when you talk to AI?](https://claude.com/resources/tutorials/what-happens-when-you-talk-to-ai)What happens when you talk to AI?
+
+[Text Link](https://claude.com/resources/tutorials/what-happens-when-you-talk-to-ai)
+
+AI Fluency
+
 ![How AI gets its character](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a55978c2a3fad32a041cdd0_Thumb%20v1_L3.png)
 
 How AI gets its character
@@ -193,6 +221,34 @@ Read use case
 [Getting good at Claude: A research-backed curriculum](https://claude.com/resources/tutorials/getting-good-at-claude-a-research-backed-curriculum)Getting good at Claude: A research-backed curriculum
 
 [Text Link](https://claude.com/resources/tutorials/getting-good-at-claude-a-research-backed-curriculum)
+
+AI Fluency
+
+![Can you trust what AI tells you?](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e225f24f12d0f8aca1179_ANT_KT3%20Edu_Hero%202_Thumbnail.webp)
+
+Can you trust what AI tells you?
+
+AI Fluency
+
+Author
+
+AI Fluency
+
+Author
+
+AI Fluency
+
+Author
+
+No items found.
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/can-you-trust-what-ai-tells-you)Read use case
+
+[Can you trust what AI tells you?](https://claude.com/resources/tutorials/can-you-trust-what-ai-tells-you)Can you trust what AI tells you?
+
+[Text Link](https://claude.com/resources/tutorials/can-you-trust-what-ai-tells-you)
 
 AI Fluency
 

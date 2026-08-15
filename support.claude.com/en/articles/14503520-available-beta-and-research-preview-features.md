@@ -51,5 +51,5 @@ Feedback on beta and research preview features helps inform our decisions. You c
 * [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
 * [When should I use web search, extended thinking, and research?](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research)
-* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Use Claude in Xcode](https://support.claude.com/en/articles/12293051-use-claude-in-xcode)
+* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

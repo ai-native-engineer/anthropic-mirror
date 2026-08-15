@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/update -->
 
+---
+title: Update a memory store
+url: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/update
+---
+
 ## Update a memory store
 
 `$ ant beta:memory-stores update`

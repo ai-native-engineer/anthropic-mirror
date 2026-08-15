@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/user_profiles -->
 
+---
+title: User Profiles
+url: https://platform.claude.com/docs/en/api/cli/beta/user_profiles
+---
+
 # User Profiles
 
 ## Create User Profile

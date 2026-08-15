@@ -63,7 +63,7 @@ For Ghostty, Kitty, and other terminals, look for an Option-as-Alt or Option-as-
 
 ## Get a terminal bell or notification
 
-When Claude finishes a task or pauses for a permission prompt, it fires a notification event. Surfacing this as a terminal bell or desktop notification lets you switch to other work while a long task runs.
+When Claude finishes a task or pauses for a permission prompt, and you appear to be away from the terminal, it fires a notification event. See [when each notification type fires](/docs/en/hooks#notification) for the exact timing. Surfacing this as a terminal bell or desktop notification lets you switch to other work while a long task runs.
 
 By default Claude Code sends a desktop notification only in Ghostty, Kitty, and iTerm2. In other terminals, set [`preferredNotifChannel`](/docs/en/settings#available-settings) to `"terminal_bell"` to ring the terminal bell instead, or configure a [Notification hook](#play-a-sound-with-a-notification-hook) for a custom sound or command. The following settings entry turns on the terminal bell:
 
@@ -204,7 +204,7 @@ The reference below covers the tokens you can set in `overrides`. The interactiv
 
   | Token          | Controls                                           |
   | :------------- | :------------------------------------------------- |
-  | `promptBorder` | Input box border in the default permission mode    |
+  | `promptBorder` | Input box border in Manual mode                    |
   | `planMode`     | Plan mode accent and border                        |
   | `autoAccept`   | Accept-edits mode accent and border                |
   | `bashBorder`   | Input box border when entering a `!` shell command |
@@ -267,7 +267,7 @@ The reference below covers the tokens you can set in `overrides`. The interactiv
 
 In [screen reader mode](/docs/en/accessibility), this section doesn't apply. Claude Code always renders as plain scrolling text except in attached [background sessions](/docs/en/agent-view), and if you run `/tui fullscreen` in any other session, Claude Code prints an explanation instead of switching.
 
-If the display flickers or the scroll position jumps while Claude is working, switch to [fullscreen rendering mode](/docs/en/fullscreen). It draws to a separate screen the terminal reserves for full-screen apps instead of appending to your normal scrollback, which keeps memory usage flat and adds mouse support for scrolling and selection. In this mode you scroll with the mouse or PageUp inside Claude Code rather than with your terminal's native scrollback; see the [fullscreen page](/docs/en/fullscreen#search-and-review-the-conversation) for how to search and copy.
+If the display flickers or the scroll position jumps while Claude is working, switch to [fullscreen rendering mode](/docs/en/fullscreen). In this mode you scroll with the mouse or PageUp inside Claude Code rather than with your terminal's native scrollback; see the [fullscreen page](/docs/en/fullscreen#search-and-review-the-conversation) for how to search and copy.
 
 If flicker is the only problem and your terminal supports synchronized output but isn't auto-detected, such as Emacs `eat`, set [`CLAUDE_CODE_FORCE_SYNC_OUTPUT=1`](/docs/en/env-vars) to stop the flicker without changing renderers.
 
@@ -295,9 +295,9 @@ Run `/tui fullscreen` to switch and save the preference. Your conversation relau
 
 When you paste more than 800 characters or more than two lines into the prompt, Claude Code collapses the input to a placeholder such as `[Pasted text #1 +120 lines]` so the input box stays usable. The full content is still sent to Claude when you submit.
 
-Claude Code keeps the collapsed content under `~/.claude/paste-cache/`, so when you recall a prompt from [command history](/docs/en/interactive-mode#command-history) and resubmit it, Claude Code sends the full pasted content again, including in a later session, until the cache file ages past `cleanupPeriodDays`.
+Claude Code keeps the collapsed content under `~/.claude/paste-cache/`, so when you recall a prompt from [command history](/docs/en/interactive-mode#command-history) and resubmit it, Claude Code sends the full pasted content again, including in a later session, until the retention sweep removes the cache file.
 
-Claude Code deletes cache files older than [`cleanupPeriodDays`](/docs/en/settings#available-settings) at startup, so a recalled prompt can reference pasted text that no longer exists. When you submit such a prompt, Claude Code never sends the literal `[Pasted text #N]` string, and shows a notification naming the missing paste:
+Claude Code deletes cache files older than [`cleanupPeriodDays`](/docs/en/settings#available-settings), following the [retention sweep rules](/docs/en/claude-directory#cleaned-up-automatically), so a recalled prompt can reference pasted text that no longer exists. When you submit such a prompt, Claude Code never sends the literal `[Pasted text #N]` string, and shows a notification naming the missing paste:
 
 * In a plain prompt with text remaining, Claude Code removes the placeholder and sends the remaining text.
 * In a [shell mode](/docs/en/interactive-mode#shell-mode-with-prefix) command or a `/` command, where the removal would change what runs, and in any prompt the removal leaves empty, Claude Code cancels the submission and keeps the original text in the input, with the placeholder still in it. Delete the placeholder or edit the command, then resubmit.

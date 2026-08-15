@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/apps/artifacts/download -->
 
+---
+title: Download artifact content
+url: https://platform.claude.com/docs/en/api/compliance/apps/artifacts/download
+---
+
 ## Download artifact content
 
 **get** `/v1/compliance/apps/artifacts/{artifact_version_id}/content`

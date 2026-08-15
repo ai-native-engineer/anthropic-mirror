@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memory_versions/retrieve -->
 
+---
+title: Retrieve a memory version
+url: https://platform.claude.com/docs/en/api/cli/beta/memory_stores/memory_versions/retrieve
+---
+
 ## Retrieve a memory version
 
 `$ ant beta:memory-stores:memory-versions retrieve`

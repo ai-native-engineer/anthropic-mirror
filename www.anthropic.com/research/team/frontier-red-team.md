@@ -22,6 +22,9 @@ Search
 
 DateCategoryTitle
 
+* [Aug 13, 2026Frontier Red Team
+
+  Patterns and problems in emerging multiagent systems](https://www.anthropic.com/research/multiagent-systems)
 * [Jul 28, 2026Frontier Red Team
 
   Discovering cryptographic weaknesses with Claude](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
@@ -49,10 +52,5 @@ DateCategoryTitle
 * [Apr 7, 2026Frontier Red Team
 
   Assessing Claude Mythos Preview’s cybersecurity capabilities](https://www.anthropic.com/research/mythos-preview)
-* [Mar 6, 2026Policy
-
-  Partnering with Mozilla to improve Firefox’s security](https://www.anthropic.com/news/mozilla-firefox-security)
 
 [See more](#)
-
-![Discovering cryptographic weaknesses with Claude](https://www-cdn.anthropic.com/images/4zrzovbb/website/802260d34a0653f23fd4944fae43064df367aa44-1000x1000.svg)

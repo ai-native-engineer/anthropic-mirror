@@ -29,7 +29,7 @@ Legend: Supported / Partial / Not available / Not applicable
 
 | Admin setting | Status in Claude Science beta | Note |
 | --- | --- | --- |
-| Org enable toggle | Supported | Off by default for Team and Enterprise; turn it on under Organization settings > Claude Science. |
+| Org enable toggle | Supported | Off by default for Team and Enterprise; an Owner or Primary Owner turns it on under Organization settings > Claude Science. Assigning seats doesn’t turn it on. |
 | Completion feedback (thumbs) | Supported | The org toggle hides the feedback buttons, same as Chat. |
 | Organization custom instructions | Supported | The org’s custom instructions are applied to the app’s model calls, the same as Chat. |
 | Skills allowlist | Partial | Org-published skills appear, but members can also install local skills without restriction. Adding admin control is on the roadmap. |
@@ -75,7 +75,7 @@ Legend: Supported / Partial / Not available / Not applicable
 | Usage limits | Supported | Usage counts toward the same 5-hour and weekly limits as Claude Code and Cowork. |
 | Billing and seats | Supported | Uses the same seat as the rest of claude.ai. |
 | Model access controls | Supported | Uses the standard model API, so the org’s allowed-model list and model access grants apply to both the model picker and the calls themselves. |
-| Usage analytics | Supported | Spend is filterable by product in Organization settings > Analytics. |
+| Usage analytics | Supported | Open Analytics from the user menu; the Claude Science tab shows usage, and spend is filterable by product on the Overview tab. |
 
 ##  Offboarding and local data
 

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/vaults -->
 
+---
+title: Vaults
+url: https://platform.claude.com/docs/en/api/beta/vaults
+---
+
 # Vaults
 
 ## Create Vault
@@ -16,7 +21,7 @@ Create Vault
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -68,11 +73,21 @@ Create Vault
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
@@ -94,7 +109,7 @@ Create Vault
 
     Unique identifier for the vault.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -178,7 +193,7 @@ List Vaults
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -230,11 +245,21 @@ List Vaults
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -246,7 +271,7 @@ List Vaults
 
     Unique identifier for the vault.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -270,7 +295,7 @@ List Vaults
 
     A timestamp in RFC 3339 format
 
-- `next_page: optional string`
+- `next_page: optional string or null`
 
   Pagination token for the next page, or null if no more results.
 
@@ -322,7 +347,7 @@ Get Vault
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -374,11 +399,21 @@ Get Vault
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -390,7 +425,7 @@ Get Vault
 
     Unique identifier for the vault.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -457,7 +492,7 @@ Update Vault
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -509,19 +544,29 @@ Update Vault
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
-- `display_name: optional string`
+- `display_name: optional string or null`
 
   Updated human-readable name for the vault. 1-255 characters.
 
-- `metadata: optional map[string]`
+- `metadata: optional map[string] or null`
 
   Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
 
@@ -535,7 +580,7 @@ Update Vault
 
     Unique identifier for the vault.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -609,7 +654,7 @@ Delete Vault
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -661,11 +706,21 @@ Delete Vault
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -718,7 +773,7 @@ Archive Vault
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -770,11 +825,21 @@ Archive Vault
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -786,7 +851,7 @@ Archive Vault
 
     Unique identifier for the vault.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -862,7 +927,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/archive \
 
     Unique identifier for the vault.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -906,7 +971,7 @@ Create Credential
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -958,11 +1023,21 @@ Create Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
@@ -986,11 +1061,11 @@ Create Credential
 
       - `"mcp_oauth"`
 
-    - `expires_at: optional string`
+    - `expires_at: optional string or null`
 
       A timestamp in RFC 3339 format
 
-    - `refresh: optional BetaManagedAgentsMCPOAuthRefreshParams`
+    - `refresh: optional BetaManagedAgentsMCPOAuthRefreshParams or null`
 
       OAuth refresh token parameters for creating a credential with refresh support.
 
@@ -1042,11 +1117,11 @@ Create Credential
 
             - `"client_secret_post"`
 
-      - `resource: optional string`
+      - `resource: optional string or null`
 
         OAuth resource indicator.
 
-      - `scope: optional string`
+      - `scope: optional string or null`
 
         OAuth scope for the refresh request.
 
@@ -1066,7 +1141,7 @@ Create Credential
 
       - `"static_bearer"`
 
-  - `BetaManagedAgentsEnvironmentVariableCreateParams object { networking, secret_name, secret_value, type }`
+  - `BetaManagedAgentsEnvironmentVariableCreateParams object { networking, secret_name, secret_value, 2 more }`
 
     Parameters for creating an environment variable credential.
 
@@ -1106,7 +1181,19 @@ Create Credential
 
       - `"environment_variable"`
 
-- `display_name: optional string`
+    - `injection_location: optional BetaManagedAgentsInjectionLocationParams`
+
+      Where in the outbound request the secret value may be substituted.
+
+      - `body: optional boolean`
+
+        Substitute when the placeholder appears in the request body.
+
+      - `header: optional boolean`
+
+        Substitute when the placeholder appears in a request header value.
+
+- `display_name: optional string or null`
 
   Human-readable name for the credential. Up to 255 characters.
 
@@ -1124,7 +1211,7 @@ Create Credential
 
     Unique identifier for the credential.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -1144,11 +1231,11 @@ Create Credential
 
         - `"mcp_oauth"`
 
-      - `expires_at: optional string`
+      - `expires_at: optional string or null`
 
         A timestamp in RFC 3339 format
 
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse`
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
 
         OAuth refresh token configuration returned in credential responses.
 
@@ -1188,11 +1275,11 @@ Create Credential
 
               - `"client_secret_post"`
 
-        - `resource: optional string`
+        - `resource: optional string or null`
 
           OAuth resource indicator.
 
-        - `scope: optional string`
+        - `scope: optional string or null`
 
           OAuth scope for the refresh request.
 
@@ -1208,9 +1295,21 @@ Create Credential
 
         - `"static_bearer"`
 
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { networking, secret_name, type }`
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -1264,7 +1363,7 @@ Create Credential
 
     Identifier of the vault this credential belongs to.
 
-  - `display_name: optional string`
+  - `display_name: optional string or null`
 
     Human-readable name for the credential.
 
@@ -1342,7 +1441,7 @@ List Credentials
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -1394,11 +1493,21 @@ List Credentials
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -1410,7 +1519,7 @@ List Credentials
 
     Unique identifier for the credential.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -1430,11 +1539,11 @@ List Credentials
 
         - `"mcp_oauth"`
 
-      - `expires_at: optional string`
+      - `expires_at: optional string or null`
 
         A timestamp in RFC 3339 format
 
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse`
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
 
         OAuth refresh token configuration returned in credential responses.
 
@@ -1474,11 +1583,11 @@ List Credentials
 
               - `"client_secret_post"`
 
-        - `resource: optional string`
+        - `resource: optional string or null`
 
           OAuth resource indicator.
 
-        - `scope: optional string`
+        - `scope: optional string or null`
 
           OAuth scope for the refresh request.
 
@@ -1494,9 +1603,21 @@ List Credentials
 
         - `"static_bearer"`
 
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { networking, secret_name, type }`
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -1550,11 +1671,11 @@ List Credentials
 
     Identifier of the vault this credential belongs to.
 
-  - `display_name: optional string`
+  - `display_name: optional string or null`
 
     Human-readable name for the credential.
 
-- `next_page: optional string`
+- `next_page: optional string or null`
 
   Pagination token for the next page, or null if no more results.
 
@@ -1613,7 +1734,7 @@ Get Credential
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -1665,11 +1786,21 @@ Get Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -1681,7 +1812,7 @@ Get Credential
 
     Unique identifier for the credential.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -1701,11 +1832,11 @@ Get Credential
 
         - `"mcp_oauth"`
 
-      - `expires_at: optional string`
+      - `expires_at: optional string or null`
 
         A timestamp in RFC 3339 format
 
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse`
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
 
         OAuth refresh token configuration returned in credential responses.
 
@@ -1745,11 +1876,11 @@ Get Credential
 
               - `"client_secret_post"`
 
-        - `resource: optional string`
+        - `resource: optional string or null`
 
           OAuth resource indicator.
 
-        - `scope: optional string`
+        - `scope: optional string or null`
 
           OAuth scope for the refresh request.
 
@@ -1765,9 +1896,21 @@ Get Credential
 
         - `"static_bearer"`
 
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { networking, secret_name, type }`
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -1821,7 +1964,7 @@ Get Credential
 
     Identifier of the vault this credential belongs to.
 
-  - `display_name: optional string`
+  - `display_name: optional string or null`
 
     Human-readable name for the credential.
 
@@ -1875,7 +2018,7 @@ Update Credential
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -1927,11 +2070,21 @@ Update Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
@@ -1947,23 +2100,23 @@ Update Credential
 
       - `"mcp_oauth"`
 
-    - `access_token: optional string`
+    - `access_token: optional string or null`
 
       Updated OAuth access token.
 
-    - `expires_at: optional string`
+    - `expires_at: optional string or null`
 
       A timestamp in RFC 3339 format
 
-    - `refresh: optional BetaManagedAgentsMCPOAuthRefreshUpdateParams`
+    - `refresh: optional BetaManagedAgentsMCPOAuthRefreshUpdateParams or null`
 
       Parameters for updating OAuth refresh token configuration.
 
-      - `refresh_token: optional string`
+      - `refresh_token: optional string or null`
 
         Updated OAuth refresh token.
 
-      - `scope: optional string`
+      - `scope: optional string or null`
 
         Updated OAuth scope for the refresh request.
 
@@ -1979,7 +2132,7 @@ Update Credential
 
             - `"client_secret_basic"`
 
-          - `client_secret: optional string`
+          - `client_secret: optional string or null`
 
             Updated OAuth client secret.
 
@@ -1991,7 +2144,7 @@ Update Credential
 
             - `"client_secret_post"`
 
-          - `client_secret: optional string`
+          - `client_secret: optional string or null`
 
             Updated OAuth client secret.
 
@@ -2003,11 +2156,11 @@ Update Credential
 
       - `"static_bearer"`
 
-    - `token: optional string`
+    - `token: optional string or null`
 
       Updated static bearer token value.
 
-  - `BetaManagedAgentsEnvironmentVariableUpdateParams object { type, networking, secret_value }`
+  - `BetaManagedAgentsEnvironmentVariableUpdateParams object { type, injection_location, networking, secret_value }`
 
     Parameters for updating an environment variable credential. `secret_name` is immutable.
 
@@ -2015,7 +2168,19 @@ Update Credential
 
       - `"environment_variable"`
 
-    - `networking: optional BetaManagedAgentsCredentialNetworkingParams`
+    - `injection_location: optional BetaManagedAgentsInjectionLocationUpdateParams`
+
+      Updated injection location.
+
+      - `body: optional boolean`
+
+        Substitute when the placeholder appears in the request body.
+
+      - `header: optional boolean`
+
+        Substitute when the placeholder appears in a request header value.
+
+    - `networking: optional BetaManagedAgentsCredentialNetworkingParams or null`
 
       Updated networking scope. Full replacement.
 
@@ -2039,15 +2204,15 @@ Update Credential
 
           - `"limited"`
 
-    - `secret_value: optional string`
+    - `secret_value: optional string or null`
 
       Updated secret value.
 
-- `display_name: optional string`
+- `display_name: optional string or null`
 
   Updated human-readable name for the credential. 1-255 characters.
 
-- `metadata: optional map[string]`
+- `metadata: optional map[string] or null`
 
   Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
 
@@ -2061,7 +2226,7 @@ Update Credential
 
     Unique identifier for the credential.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -2081,11 +2246,11 @@ Update Credential
 
         - `"mcp_oauth"`
 
-      - `expires_at: optional string`
+      - `expires_at: optional string or null`
 
         A timestamp in RFC 3339 format
 
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse`
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
 
         OAuth refresh token configuration returned in credential responses.
 
@@ -2125,11 +2290,11 @@ Update Credential
 
               - `"client_secret_post"`
 
-        - `resource: optional string`
+        - `resource: optional string or null`
 
           OAuth resource indicator.
 
-        - `scope: optional string`
+        - `scope: optional string or null`
 
           OAuth scope for the refresh request.
 
@@ -2145,9 +2310,21 @@ Update Credential
 
         - `"static_bearer"`
 
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { networking, secret_name, type }`
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -2201,7 +2378,7 @@ Update Credential
 
     Identifier of the vault this credential belongs to.
 
-  - `display_name: optional string`
+  - `display_name: optional string or null`
 
     Human-readable name for the credential.
 
@@ -2262,7 +2439,7 @@ Delete Credential
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -2314,11 +2491,21 @@ Delete Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -2373,7 +2560,7 @@ Archive Credential
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -2425,11 +2612,21 @@ Archive Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -2441,7 +2638,7 @@ Archive Credential
 
     Unique identifier for the credential.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -2461,11 +2658,11 @@ Archive Credential
 
         - `"mcp_oauth"`
 
-      - `expires_at: optional string`
+      - `expires_at: optional string or null`
 
         A timestamp in RFC 3339 format
 
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse`
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
 
         OAuth refresh token configuration returned in credential responses.
 
@@ -2505,11 +2702,11 @@ Archive Credential
 
               - `"client_secret_post"`
 
-        - `resource: optional string`
+        - `resource: optional string or null`
 
           OAuth resource indicator.
 
-        - `scope: optional string`
+        - `scope: optional string or null`
 
           OAuth scope for the refresh request.
 
@@ -2525,9 +2722,21 @@ Archive Credential
 
         - `"static_bearer"`
 
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { networking, secret_name, type }`
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -2581,7 +2790,7 @@ Archive Credential
 
     Identifier of the vault this credential belongs to.
 
-  - `display_name: optional string`
+  - `display_name: optional string or null`
 
     Human-readable name for the credential.
 
@@ -2636,7 +2845,7 @@ Validate Credential
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -2688,11 +2897,21 @@ Validate Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -2708,11 +2927,11 @@ Validate Credential
 
     Whether the credential has a refresh token configured.
 
-  - `mcp_probe: BetaManagedAgentsMCPProbe`
+  - `mcp_probe: BetaManagedAgentsMCPProbe or null`
 
     The failing step of an MCP validation probe.
 
-    - `http_response: BetaManagedAgentsRefreshHTTPResponse`
+    - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
 
       An HTTP response captured during a credential validation probe.
 
@@ -2736,11 +2955,11 @@ Validate Credential
 
       The MCP method that failed (for example `initialize` or `tools/list`).
 
-  - `refresh: BetaManagedAgentsRefreshObject`
+  - `refresh: BetaManagedAgentsRefreshObject or null`
 
     Outcome of a refresh-token exchange attempted during credential validation.
 
-    - `http_response: BetaManagedAgentsRefreshHTTPResponse`
+    - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
 
       An HTTP response captured during a credential validation probe.
 
@@ -2831,7 +3050,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
     Unique identifier for the credential.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -2851,11 +3070,11 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
         - `"mcp_oauth"`
 
-      - `expires_at: optional string`
+      - `expires_at: optional string or null`
 
         A timestamp in RFC 3339 format
 
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse`
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
 
         OAuth refresh token configuration returned in credential responses.
 
@@ -2895,11 +3114,11 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
               - `"client_secret_post"`
 
-        - `resource: optional string`
+        - `resource: optional string or null`
 
           OAuth resource indicator.
 
-        - `scope: optional string`
+        - `scope: optional string or null`
 
           OAuth scope for the refresh request.
 
@@ -2915,9 +3134,21 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
         - `"static_bearer"`
 
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { networking, secret_name, type }`
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -2971,7 +3202,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
     Identifier of the vault this credential belongs to.
 
-  - `display_name: optional string`
+  - `display_name: optional string or null`
 
     Human-readable name for the credential.
 
@@ -3015,11 +3246,11 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
     Whether the credential has a refresh token configured.
 
-  - `mcp_probe: BetaManagedAgentsMCPProbe`
+  - `mcp_probe: BetaManagedAgentsMCPProbe or null`
 
     The failing step of an MCP validation probe.
 
-    - `http_response: BetaManagedAgentsRefreshHTTPResponse`
+    - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
 
       An HTTP response captured during a credential validation probe.
 
@@ -3043,11 +3274,11 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
       The MCP method that failed (for example `initialize` or `tools/list`).
 
-  - `refresh: BetaManagedAgentsRefreshObject`
+  - `refresh: BetaManagedAgentsRefreshObject or null`
 
     Outcome of a refresh-token exchange attempted during credential validation.
 
-    - `http_response: BetaManagedAgentsRefreshHTTPResponse`
+    - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
 
       An HTTP response captured during a credential validation probe.
 
@@ -3113,9 +3344,21 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
 ### Beta Managed Agents Environment Variable Auth Response
 
-- `BetaManagedAgentsEnvironmentVariableAuthResponse object { networking, secret_name, type }`
+- `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
 
   Environment variable credential details. The secret value is never returned.
+
+  - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+    Where in the outbound request the secret value is substituted.
+
+    - `body: boolean`
+
+      Whether the placeholder is substituted in the request body.
+
+    - `header: boolean`
+
+      Whether the placeholder is substituted in request header values.
 
   - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -3151,7 +3394,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
 ### Beta Managed Agents Environment Variable Create Params
 
-- `BetaManagedAgentsEnvironmentVariableCreateParams object { networking, secret_name, secret_value, type }`
+- `BetaManagedAgentsEnvironmentVariableCreateParams object { networking, secret_name, secret_value, 2 more }`
 
   Parameters for creating an environment variable credential.
 
@@ -3191,9 +3434,21 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
     - `"environment_variable"`
 
+  - `injection_location: optional BetaManagedAgentsInjectionLocationParams`
+
+    Where in the outbound request the secret value may be substituted.
+
+    - `body: optional boolean`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header: optional boolean`
+
+      Substitute when the placeholder appears in a request header value.
+
 ### Beta Managed Agents Environment Variable Update Params
 
-- `BetaManagedAgentsEnvironmentVariableUpdateParams object { type, networking, secret_value }`
+- `BetaManagedAgentsEnvironmentVariableUpdateParams object { type, injection_location, networking, secret_value }`
 
   Parameters for updating an environment variable credential. `secret_name` is immutable.
 
@@ -3201,7 +3456,19 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
     - `"environment_variable"`
 
-  - `networking: optional BetaManagedAgentsCredentialNetworkingParams`
+  - `injection_location: optional BetaManagedAgentsInjectionLocationUpdateParams`
+
+    Updated injection location.
+
+    - `body: optional boolean`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header: optional boolean`
+
+      Substitute when the placeholder appears in a request header value.
+
+  - `networking: optional BetaManagedAgentsCredentialNetworkingParams or null`
 
     Updated networking scope. Full replacement.
 
@@ -3225,9 +3492,51 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
         - `"limited"`
 
-  - `secret_value: optional string`
+  - `secret_value: optional string or null`
 
     Updated secret value.
+
+### Beta Managed Agents Injection Location Params
+
+- `BetaManagedAgentsInjectionLocationParams object { body, header }`
+
+  Where in the outbound request the secret value may be substituted.
+
+  - `body: optional boolean`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header: optional boolean`
+
+    Substitute when the placeholder appears in a request header value.
+
+### Beta Managed Agents Injection Location Response
+
+- `BetaManagedAgentsInjectionLocationResponse object { body, header }`
+
+  Where in the outbound request the secret value is substituted.
+
+  - `body: boolean`
+
+    Whether the placeholder is substituted in the request body.
+
+  - `header: boolean`
+
+    Whether the placeholder is substituted in request header values.
+
+### Beta Managed Agents Injection Location Update Params
+
+- `BetaManagedAgentsInjectionLocationUpdateParams object { body, header }`
+
+  Updated injection location.
+
+  - `body: optional boolean`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header: optional boolean`
+
+    Substitute when the placeholder appears in a request header value.
 
 ### Beta Managed Agents Limited Credential Networking Params
 
@@ -3271,11 +3580,11 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
     - `"mcp_oauth"`
 
-  - `expires_at: optional string`
+  - `expires_at: optional string or null`
 
     A timestamp in RFC 3339 format
 
-  - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse`
+  - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
 
     OAuth refresh token configuration returned in credential responses.
 
@@ -3315,11 +3624,11 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
           - `"client_secret_post"`
 
-    - `resource: optional string`
+    - `resource: optional string or null`
 
       OAuth resource indicator.
 
-    - `scope: optional string`
+    - `scope: optional string or null`
 
       OAuth scope for the refresh request.
 
@@ -3341,11 +3650,11 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
     - `"mcp_oauth"`
 
-  - `expires_at: optional string`
+  - `expires_at: optional string or null`
 
     A timestamp in RFC 3339 format
 
-  - `refresh: optional BetaManagedAgentsMCPOAuthRefreshParams`
+  - `refresh: optional BetaManagedAgentsMCPOAuthRefreshParams or null`
 
     OAuth refresh token parameters for creating a credential with refresh support.
 
@@ -3397,11 +3706,11 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
           - `"client_secret_post"`
 
-    - `resource: optional string`
+    - `resource: optional string or null`
 
       OAuth resource indicator.
 
-    - `scope: optional string`
+    - `scope: optional string or null`
 
       OAuth scope for the refresh request.
 
@@ -3459,11 +3768,11 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
         - `"client_secret_post"`
 
-  - `resource: optional string`
+  - `resource: optional string or null`
 
     OAuth resource indicator.
 
-  - `scope: optional string`
+  - `scope: optional string or null`
 
     OAuth scope for the refresh request.
 
@@ -3509,11 +3818,11 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
         - `"client_secret_post"`
 
-  - `resource: optional string`
+  - `resource: optional string or null`
 
     OAuth resource indicator.
 
-  - `scope: optional string`
+  - `scope: optional string or null`
 
     OAuth scope for the refresh request.
 
@@ -3523,11 +3832,11 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
   Parameters for updating OAuth refresh token configuration.
 
-  - `refresh_token: optional string`
+  - `refresh_token: optional string or null`
 
     Updated OAuth refresh token.
 
-  - `scope: optional string`
+  - `scope: optional string or null`
 
     Updated OAuth scope for the refresh request.
 
@@ -3543,7 +3852,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
         - `"client_secret_basic"`
 
-      - `client_secret: optional string`
+      - `client_secret: optional string or null`
 
         Updated OAuth client secret.
 
@@ -3555,7 +3864,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
         - `"client_secret_post"`
 
-      - `client_secret: optional string`
+      - `client_secret: optional string or null`
 
         Updated OAuth client secret.
 
@@ -3569,23 +3878,23 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
     - `"mcp_oauth"`
 
-  - `access_token: optional string`
+  - `access_token: optional string or null`
 
     Updated OAuth access token.
 
-  - `expires_at: optional string`
+  - `expires_at: optional string or null`
 
     A timestamp in RFC 3339 format
 
-  - `refresh: optional BetaManagedAgentsMCPOAuthRefreshUpdateParams`
+  - `refresh: optional BetaManagedAgentsMCPOAuthRefreshUpdateParams or null`
 
     Parameters for updating OAuth refresh token configuration.
 
-    - `refresh_token: optional string`
+    - `refresh_token: optional string or null`
 
       Updated OAuth refresh token.
 
-    - `scope: optional string`
+    - `scope: optional string or null`
 
       Updated OAuth scope for the refresh request.
 
@@ -3601,7 +3910,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
           - `"client_secret_basic"`
 
-        - `client_secret: optional string`
+        - `client_secret: optional string or null`
 
           Updated OAuth client secret.
 
@@ -3613,7 +3922,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
           - `"client_secret_post"`
 
-        - `client_secret: optional string`
+        - `client_secret: optional string or null`
 
           Updated OAuth client secret.
 
@@ -3623,7 +3932,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
   The failing step of an MCP validation probe.
 
-  - `http_response: BetaManagedAgentsRefreshHTTPResponse`
+  - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
 
     An HTTP response captured during a credential validation probe.
 
@@ -3675,7 +3984,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
   Outcome of a refresh-token exchange attempted during credential validation.
 
-  - `http_response: BetaManagedAgentsRefreshHTTPResponse`
+  - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
 
     An HTTP response captured during a credential validation probe.
 
@@ -3749,7 +4058,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
     - `"static_bearer"`
 
-  - `token: optional string`
+  - `token: optional string or null`
 
     Updated static bearer token value.
 
@@ -3787,7 +4096,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
     - `"client_secret_basic"`
 
-  - `client_secret: optional string`
+  - `client_secret: optional string or null`
 
     Updated OAuth client secret.
 
@@ -3845,7 +4154,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
     - `"client_secret_post"`
 
-  - `client_secret: optional string`
+  - `client_secret: optional string or null`
 
     Updated OAuth client secret.
 

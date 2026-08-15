@@ -1,8 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/mcp_tunnels/tunnel_certificates/list -->
 
+---
+title: List Tunnel Certificates
+url: https://platform.claude.com/docs/en/api/admin/mcp_tunnels/tunnel_certificates/list
+---
+
 ## List Tunnel Certificates
 
 **get** `/v1/organizations/tunnels/{tunnel_id}/certificates`
+
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 List the certificates registered on a tunnel.
 
@@ -46,7 +53,7 @@ Archived certificates are excluded unless `include_archived` is set.
 
     ID of the Tunnel Certificate.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     RFC 3339 datetime string indicating when the certificate was archived, or
     `null` if it is not archived.
@@ -55,7 +62,7 @@ Archived certificates are excluded unless `include_archived` is set.
 
     RFC 3339 datetime string indicating when the certificate was registered.
 
-  - `expires_at: string`
+  - `expires_at: string or null`
 
     RFC 3339 datetime string indicating when the certificate expires, or
     `null` if it does not expire.
@@ -74,7 +81,7 @@ Archived certificates are excluded unless `include_archived` is set.
 
     - `"tunnel_certificate"`
 
-- `next_page: string`
+- `next_page: string or null`
 
   Opaque cursor for the next page, or `null` if there are no more results.
 

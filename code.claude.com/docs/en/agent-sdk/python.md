@@ -20,8 +20,6 @@ For uv, Windows PowerShell, and API key setup, see [Setup in the Agent SDK quick
 
 The Python SDK provides two ways to interact with Claude Code:
 
-### Quick comparison
-
 | Feature             | `query()`                                      | `ClaudeSDKClient`                  |
 | :------------------ | :--------------------------------------------- | :--------------------------------- |
 | **Session**         | Creates a new session by default               | Reuses same session                |
@@ -34,24 +32,7 @@ The Python SDK provides two ways to interact with Claude Code:
 | **Continue Chat**   | Manual via `continue_conversation` or `resume` | ✅ Automatic                        |
 | **Use Case**        | One-off tasks                                  | Continuous conversations           |
 
-### When to use `query()` (one-off tasks)
-
-**Best for:**
-
-* One-off questions where you don't need conversation history
-* Independent tasks that don't require context from previous exchanges
-* Simple automation scripts
-* When you want a fresh start each time
-
-### When to use `ClaudeSDKClient` (continuous conversation)
-
-**Best for:**
-
-* **Continuing conversations** - When you need Claude to remember context
-* **Follow-up questions** - Building on previous responses
-* **Interactive applications** - Chat interfaces, REPLs
-* **Response-driven logic** - When next action depends on Claude's response
-* **Session control** - Managing conversation lifecycle explicitly
+Use `ClaudeSDKClient` for interactive applications such as chat interfaces, or when the next action depends on Claude's response.
 
 ## Functions
 
@@ -435,16 +416,7 @@ for session in list_sessions(directory="/path/to/project"):
 
 ### `ClaudeSDKClient`
 
-**Maintains a conversation session across multiple exchanges.** This is the Python equivalent of how the TypeScript SDK's `query()` function works internally - it creates a client object that can continue conversations.
-
-#### Key Features
-
-* **Session continuity**: Maintains conversation context across multiple `query()` calls
-* **Same conversation**: The session retains previous messages
-* **Interrupt support**: Can stop execution mid-task
-* **Explicit lifecycle**: You control when the session starts and ends
-* **Response-driven flow**: Can react to responses and send follow-ups
-* **Custom tools and hooks**: Supports custom tools (created with `@tool` decorator) and hooks
+**Maintains a conversation session across multiple exchanges.** This is the Python equivalent of how the TypeScript SDK's `query()` function works internally - it creates a client object that can continue conversations. See the [comparison with `query()`](#choosing-between-query-and-claudesdkclient).
 
 ```python theme={null}
 class ClaudeSDKClient:
@@ -783,6 +755,8 @@ class ClaudeAgentOptions:
     include_partial_messages: bool = False
     include_hook_events: bool = False
     fork_session: bool = False
+    resume_session_at: str | None = None
+    resume_drops_turn: str | None = None
     agents: dict[str, AgentDefinition] | None = None
     setting_sources: list[SettingSource] | None = None
     skills: list[str] | Literal["all"] | None = None
@@ -833,6 +807,8 @@ class ClaudeAgentOptions:
 | `include_partial_messages`    | `bool`                                                                                | `False`                            | Include partial message streaming events. When enabled, [`StreamEvent`](#streamevent) messages are yielded                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `include_hook_events`         | `bool`                                                                                | `False`                            | Include hook lifecycle events in the message stream as `HookEventMessage` objects                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `fork_session`                | `bool`                                                                                | `False`                            | When resuming with `resume`, fork to a new session ID instead of continuing the original session                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `resume_session_at`           | `str \| None`                                                                         | `None`                             | When resuming, load the conversation only up to and including the message with this UUID. Use with `resume`, and usually `fork_session`, to branch from an earlier point                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `resume_drops_turn`           | `str \| None`                                                                         | `None`                             | UUID of the user prompt whose turn a `resume_session_at` truncation discards. When set, the CLI refuses the resume if the discarded range holds entries not attributable to that turn. Requires Claude Code v2.1.223 or later; the bundled CLI satisfies this                                                                                                                                                                                                                                                                                                                                        |
 | `agents`                      | `dict[str, AgentDefinition] \| None`                                                  | `None`                             | Programmatically defined subagents                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `plugins`                     | `list[SdkPluginConfig]`                                                               | `[]`                               | Load custom plugins from local paths. See [Plugins](/docs/en/agent-sdk/plugins) for details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `sandbox`                     | [`SandboxSettings`](#sandboxsettings) ` \| None`                                      | `None`                             | Configure sandbox behavior programmatically. See [Sandbox settings](#sandboxsettings) for details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -841,7 +817,7 @@ class ClaudeAgentOptions:
 | `max_thinking_tokens`         | `int \| None`                                                                         | `None`                             | *Deprecated* - Maximum tokens for thinking blocks. Use `thinking` instead                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `thinking`                    | [`ThinkingConfig`](#thinkingconfig) ` \| None`                                        | `None`                             | Controls extended thinking behavior. Takes precedence over `max_thinking_tokens`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `effort`                      | [`EffortLevel`](#effortlevel) ` \| None`                                              | `None`                             | Effort level for thinking depth. See [adjust the effort level](/docs/en/model-config#adjust-effort-level)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `session_store`               | [`SessionStore`](/docs/en/agent-sdk/session-storage#the-sessionstore-interface) ` \| None` | `None`                             | Mirror session transcripts to an external backend so any host can resume them. See [Persist sessions to external storage](/docs/en/agent-sdk/session-storage)                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `session_store`               | [`SessionStore`](/docs/en/agent-sdk/session-storage#the-sessionstore-interface) ` \| None` | `None`                             | Mirror session transcripts to an external backend so another host can resume them. See [Persist sessions to external storage](/docs/en/agent-sdk/session-storage)                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `session_store_flush`         | `Literal["batched", "eager"]`                                                         | `"batched"`                        | When to flush mirrored transcript entries to `session_store`. `"batched"` flushes once per turn or when the buffer fills; `"eager"` triggers a background flush after every frame. Ignored when `session_store` is `None`                                                                                                                                                                                                                                                                                                                                                                            |
 | `load_timeout_ms`             | `int`                                                                                 | `60000`                            | Per-call timeout for `session_store.load()` and `list_subkeys()` during resume materialization, in milliseconds                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `task_budget`                 | `TaskBudget \| None`                                                                  | `None`                             | API-side token budget. Sent as `output_config.task_budget` with the `task-budgets-2026-03-13` beta header. Pass `{"total": <int>}`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -901,7 +877,7 @@ class SystemPromptPreset(TypedDict):
 | `type`                     | Yes      | Must be `"preset"` to use a preset system prompt                                                                                                                                                                                                                                                                             |
 | `preset`                   | Yes      | Must be `"claude_code"` to use Claude Code's system prompt                                                                                                                                                                                                                                                                   |
 | `append`                   | No       | Additional instructions to append to the preset system prompt                                                                                                                                                                                                                                                                |
-| `exclude_dynamic_sections` | No       | Move per-session context such as working directory, the git-repo flag, and auto-memory paths from the system prompt into the first user message. Improves prompt-cache reuse across users and machines. See [Modify system prompts](/docs/en/agent-sdk/modifying-system-prompts#improve-prompt-caching-across-users-and-machines) |
+| `exclude_dynamic_sections` | No       | Move per-session context such as working directory, the git-repo flag, and auto memory paths from the system prompt into the first user message. Improves prompt-cache reuse across users and machines. See [Modify system prompts](/docs/en/agent-sdk/modifying-system-prompts#improve-prompt-caching-across-users-and-machines) |
 
 ### `SystemPromptFile`
 
@@ -961,24 +937,6 @@ asyncio.run(main())
   In Python SDK 0.1.59 and earlier, an empty list was treated the same as omitting the option, so `setting_sources=[]` did not disable filesystem settings. Upgrade to a newer release if you need an empty list to take effect. The TypeScript SDK is not affected.
 </Note>
 
-**Load all filesystem settings explicitly:**
-
-```python theme={null}
-import asyncio
-from claude_agent_sdk import query, ClaudeAgentOptions
-
-async def main():
-    async for message in query(
-        prompt="Analyze this code",
-        options=ClaudeAgentOptions(
-            setting_sources=["user", "project", "local"]
-        ),
-    ):
-        print(message)
-
-asyncio.run(main())
-```
-
 **Load only specific setting sources:**
 
 ```python theme={null}
@@ -991,26 +949,6 @@ async def main():
         prompt="Run CI checks",
         options=ClaudeAgentOptions(
             setting_sources=["project"]  # Only .claude/settings.json
-        ),
-    ):
-        print(message)
-
-asyncio.run(main())
-```
-
-**Testing and CI environments:**
-
-```python theme={null}
-# Ensure consistent behavior in CI by excluding local settings
-import asyncio
-from claude_agent_sdk import query, ClaudeAgentOptions
-
-async def main():
-    async for message in query(
-        prompt="Run tests",
-        options=ClaudeAgentOptions(
-            setting_sources=["project"],  # Only team-shared settings
-            permission_mode="bypassPermissions",
         ),
     ):
         print(message)
@@ -1045,29 +983,7 @@ async def main():
 asyncio.run(main())
 ```
 
-**Loading CLAUDE.md project instructions:**
-
-```python theme={null}
-# Load project settings to include CLAUDE.md files
-import asyncio
-from claude_agent_sdk import query, ClaudeAgentOptions
-
-async def main():
-    async for message in query(
-        prompt="Add a new feature following project conventions",
-        options=ClaudeAgentOptions(
-            system_prompt={
-                "type": "preset",
-                "preset": "claude_code",  # Use Claude Code's system prompt
-            },
-            setting_sources=["project"],  # Loads CLAUDE.md from project
-            allowed_tools=["Read", "Write", "Edit"],
-        ),
-    ):
-        print(message)
-
-asyncio.run(main())
-```
+To load CLAUDE.md project instructions, include `"project"` in `setting_sources`. See [Modify system prompts](/docs/en/agent-sdk/modifying-system-prompts#claude-md-files-for-project-level-instructions) for how CLAUDE.md loading interacts with the system prompt options.
 
 #### Settings precedence
 
@@ -1512,6 +1428,7 @@ Message = (
     | ResultMessage
     | StreamEvent
     | RateLimitEvent
+    | ConversationResetMessage
 )
 ```
 
@@ -1526,14 +1443,16 @@ class UserMessage:
     uuid: str | None = None
     parent_tool_use_id: str | None = None
     tool_use_result: dict[str, Any] | None = None
+    origin: MessageOrigin | None = None
 ```
 
-| Field                | Type                        | Description                                           |
-| :------------------- | :-------------------------- | :---------------------------------------------------- |
-| `content`            | `str \| list[ContentBlock]` | Message content as text or content blocks             |
-| `uuid`               | `str \| None`               | Unique message identifier                             |
-| `parent_tool_use_id` | `str \| None`               | Tool use ID if this message is a tool result response |
-| `tool_use_result`    | `dict[str, Any] \| None`    | Tool result data if applicable                        |
+| Field                | Type                        | Description                                                                                                                                   |
+| :------------------- | :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| `content`            | `str \| list[ContentBlock]` | Message content as text or content blocks                                                                                                     |
+| `uuid`               | `str \| None`               | Unique message identifier                                                                                                                     |
+| `parent_tool_use_id` | `str \| None`               | Tool use ID if this message is a tool result response                                                                                         |
+| `tool_use_result`    | `dict[str, Any] \| None`    | Tool result data if applicable                                                                                                                |
+| `origin`             | `MessageOrigin \| None`     | Provenance of this message, populated on injected turns such as task notifications and peer messages. `None` when the CLI didn't attribute it |
 
 ### `AssistantMessage`
 
@@ -1618,6 +1537,7 @@ class ResultMessage:
     api_error_status: int | None = None
     uuid: str | None = None
     terminal_reason: str | None = None
+    origin: MessageOrigin | None = None
 ```
 
 The `subtype` field determines which other fields are populated. It is one of `"success"`, `"error_during_execution"`, `"error_max_turns"`, `"error_max_budget_usd"`, or `"error_max_structured_output_retries"`. The Python dataclass flattens all variants into one shape, so fields that don't apply to the returned subtype are `None`.
@@ -1629,8 +1549,9 @@ Several fields carry diagnostic detail about how the conversation ended:
 * `result`: text of the final assistant message on `subtype="success"`, or `None` on the `error_*` subtypes. When `subtype="success"` and `is_error=True`, this holds the API error string if one is available but can be empty, so check `api_error_status` and the preceding `AssistantMessage` content for detail.
 * `errors`: loop-level error strings such as the max-turns message. Populated only on the `error_*` subtypes.
 * `terminal_reason`: why the query loop ended, such as `"completed"`, `"max_turns"`, `"api_error"`, `"aborted_streaming"`, or `"aborted_tools"`. A value of `"aborted_streaming"` or `"aborted_tools"` means the turn was aborted before completing. Common causes are [`interrupt()`](#claudesdkclient) and a permission callback returning [`PermissionResultDeny`](#permissionresultdeny) with `interrupt=True`. `None` on CLI versions that predate the field, on results that bypassed the query loop such as local slash commands, or on synthesized error results emitted when the session fails fatally. Mirrors the TypeScript SDK's [`SDKResultMessage.terminal_reason`](/docs/en/agent-sdk/typescript#sdkresultmessage), which lists the full set of values.
+* `origin`: origin of the user message that triggered this turn. In [streaming input mode](/docs/en/agent-sdk/streaming-vs-single-mode), check this to tell the result of your own prompt, where `origin` is `None` or `{"kind": "human"}`, from the result of an injected turn such as a background-task notification.
 
-The `usage` dict contains the following keys when present:
+The `usage` dict covers the main agent loop only and excludes subagent and other nested or auxiliary model calls. In [streaming input mode](/docs/en/agent-sdk/streaming-vs-single-mode), the values are per-turn. Prefer `model_usage` for token and cost accounting. The `usage` dict contains the following keys when present:
 
 | Key                           | Type  | Description                                                                                                                                                                                   |
 | ----------------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1639,7 +1560,11 @@ The `usage` dict contains the following keys when present:
 | `cache_creation_input_tokens` | `int` | Tokens used to create new cache entries.                                                                                                                                                      |
 | `cache_read_input_tokens`     | `int` | Tokens read from existing cache entries.                                                                                                                                                      |
 
-The `model_usage` dict maps model names to per-model usage. Each value is a `ModelUsage` TypedDict whose keys use camelCase, because the value is passed through unmodified from the underlying CLI process. Import via `from claude_agent_sdk.types import ModelUsage`. The keys are:
+The `model_usage` dict maps model names to per-model usage. It covers every model call made through the query pipeline: the main loop, subagents, and internal calls such as compaction and Workflow agents. Helper calls outside that pipeline, such as the permission classifier and token-counting requests, are excluded from `model_usage`. Treat `model_usage` as an estimate, not a billing statement.
+
+In [streaming input mode](/docs/en/agent-sdk/streaming-vs-single-mode), `model_usage` and `total_cost_usd` are cumulative across turns, so read the latest result rather than summing across results. See [Track costs in streaming input mode](/docs/en/agent-sdk/cost-tracking#track-costs-in-streaming-input-mode) for resets and [Recover totals after a session crash](/docs/en/agent-sdk/cost-tracking#recover-totals-after-a-session-crash) for zeroed results.
+
+Each value in `model_usage` is a `ModelUsage` TypedDict, imported via `from claude_agent_sdk.types import ModelUsage`. Its keys use camelCase because the SDK passes the value through unmodified from the underlying CLI process, matching the TypeScript [`ModelUsage`](/docs/en/agent-sdk/typescript#modelusage) type:
 
 | Key                        | Type    | Description                                                                                                                                                              |
 | -------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -1724,6 +1649,24 @@ class RateLimitInfo:
 | `overage_resets_at`       | `int \| None`             | Unix timestamp when the overage window resets                                                         |
 | `overage_disabled_reason` | `str \| None`             | Why overage is unavailable, if status is `"rejected"`                                                 |
 | `raw`                     | `dict[str, Any]`          | Full raw dict from the CLI, including fields not modeled above                                        |
+
+### `ConversationResetMessage`
+
+Emitted when the conversation is replaced without ending the connection, such as after `/clear`. See [Track costs in streaming input mode](/docs/en/agent-sdk/cost-tracking#track-costs-in-streaming-input-mode) for how a reset affects the running totals on later `ResultMessage` objects.
+
+```python theme={null}
+@dataclass
+class ConversationResetMessage:
+    new_conversation_id: str
+    uuid: str
+    session_id: str
+```
+
+| Field                 | Type  | Description                                                                                                                |
+| :-------------------- | :---- | :------------------------------------------------------------------------------------------------------------------------- |
+| `new_conversation_id` | `str` | Opaque identifier for the fresh conversation. Not the `session_id` of subsequent messages; read that from the next message |
+| `uuid`                | `str` | Unique message identifier                                                                                                  |
+| `session_id`          | `str` | ID of the session that was reset. Messages after the reset carry a new `session_id`                                        |
 
 ### `TaskStartedMessage`
 
@@ -2285,9 +2228,7 @@ class SyncHookJSONOutput(TypedDict):
 
 #### `HookSpecificOutput`
 
-A `TypedDict` containing the hook event name and event-specific fields. The shape depends on the `hookEventName` value. For full details on available fields per hook event, see [Control execution with hooks](/docs/en/agent-sdk/hooks#outputs).
-
-A discriminated union of event-specific output types. The `hookEventName` field determines which fields are valid.
+A discriminated union of event-specific `TypedDict` output types. The `hookEventName` field determines which fields are valid. For full details on available fields per hook event, see [Control execution with hooks](/docs/en/agent-sdk/hooks#outputs).
 
 ```python theme={null}
 class PreToolUseHookSpecificOutput(TypedDict):
@@ -2445,7 +2386,7 @@ Launches a new agent to handle complex, multi-step tasks autonomously.
     "modelsUsed": list[str] | None,  # Models used in order, with consecutive repeats collapsed
     "totalToolUseCount": int,  # Number of tool calls the agent made
     "totalDurationMs": int,  # Execution duration in milliseconds
-    "totalTokens": int,  # Total tokens used
+    "totalTokens": int,  # Token count from the final API request, not the whole run
     "usage": {  # Token usage statistics
         "input_tokens": int,
         "output_tokens": int,
@@ -2457,6 +2398,7 @@ Launches a new agent to handle complex, multi-step tasks autonomously.
         "inference_geo": str | None,
         "speed": str | None,
         "iterations": Any | None,
+        "output_tokens_details": {"thinking_tokens": int | None} | None,
     },
     "toolStats": {  # Aggregate tool activity for the run
         "readCount": int,
@@ -2469,8 +2411,8 @@ Launches a new agent to handle complex, multi-step tasks autonomously.
         "frameCount": int | None,
     } | None,
     "prompt": str,  # The prompt the agent ran
-    "worktreePath": str | None,  # Present for worktree-isolated runs
-    "worktreeBranch": str | None,  # Present for worktree-isolated runs
+    "worktreePath": str | None,  # Present when Claude Code kept the subagent's worktree
+    "worktreeBranch": str | None,  # Present when Claude Code created that worktree with git
 }
 ```
 
@@ -2503,9 +2445,11 @@ Launches a new agent to handle complex, multi-step tasks autonomously.
 }
 ```
 
-Returns the result from the subagent. The output is discriminated on the `status` field: `"completed"` for finished tasks, `"async_launched"` for background tasks, and `"remote_launched"` for tasks Claude Code dispatched to a remote cloud session, where `sessionUrl` links to that session and `taskId` identifies it. Worktree-isolated runs include `worktreePath` and `worktreeBranch` on the `completed` variant.
+Returns the result from the subagent. The output is discriminated on the `status` field: `"completed"` for finished tasks, `"async_launched"` for background tasks, and `"remote_launched"` for tasks Claude Code dispatched to a remote cloud session, where `sessionUrl` links to that session and `taskId` identifies it. If Claude Code [kept the subagent's isolated worktree](/docs/en/worktrees#isolate-subagents-with-worktrees), `worktreePath` on the `completed` variant is where to find it, and `worktreeBranch` is its branch when Claude Code created the worktree with git.
 
 On the `completed` variant, `resolvedModel` names the model the subagent started on, which can differ from the requested `model` input when [`availableModels`](/docs/en/model-config#restrict-model-selection) or another override applies. This field requires Claude Code v2.1.174 or later. On the `async_launched` variant, `resolvedModel` names the model in use when the agent moved to the background, so a swap that happened before backgrounding is reflected there. The `modelsUsed` field on both variants lists the models used in order, with consecutive repeats collapsed; it's set only when the model was swapped mid-run. `modelsUsed` and the backgrounding-time `resolvedModel` behavior require Claude Code v2.1.212 or later.
+
+Claude Code fills `usage` and `totalTokens` from the subagent's final API request, not from the whole run. When present, `thinking_tokens` under `output_tokens_details` in `usage` is the number of that request's output tokens that were thinking tokens. The `output_tokens_details` key requires Python SDK v0.2.136 or later, which bundles Claude Code v2.1.228.
 
 ### AskUserQuestion
 
@@ -3362,31 +3306,6 @@ async def main():
 asyncio.run(main())
 ```
 
-### Streaming mode with client
-
-```python theme={null}
-from claude_agent_sdk import ClaudeSDKClient
-import asyncio
-
-async def interactive_session():
-    async with ClaudeSDKClient() as client:
-        # Send initial message
-        await client.query("What's the weather like?")
-
-        # Process responses
-        async for msg in client.receive_response():
-            print(msg)
-
-        # Send follow-up
-        await client.query("Tell me more about that")
-
-        # Process follow-up response
-        async for msg in client.receive_response():
-            print(msg)
-
-asyncio.run(interactive_session())
-```
-
 ### Using custom tools with ClaudeSDKClient
 
 ```python theme={null}
@@ -3538,17 +3457,17 @@ class SandboxNetworkConfig(TypedDict, total=False):
     socksProxyPort: int
 ```
 
-| Property                  | Type        | Default | Description                                                                                                                                            |
-| :------------------------ | :---------- | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `allowedDomains`          | `list[str]` | `[]`    | Domain names that sandboxed processes can access                                                                                                       |
-| `deniedDomains`           | `list[str]` | `[]`    | Domain names that sandboxed processes cannot access. Takes precedence over `allowedDomains`                                                            |
-| `allowManagedDomainsOnly` | `bool`      | `False` | Managed-settings only: when set in managed settings, ignore `allowedDomains` from non-managed settings sources. Has no effect when set via SDK options |
-| `allowUnixSockets`        | `list[str]` | `[]`    | Unix socket paths that processes can access (e.g., Docker socket)                                                                                      |
-| `allowAllUnixSockets`     | `bool`      | `False` | Allow access to all Unix sockets                                                                                                                       |
-| `allowLocalBinding`       | `bool`      | `False` | Allow processes to bind to local ports (e.g., for dev servers)                                                                                         |
-| `allowMachLookup`         | `list[str]` | `[]`    | macOS only: XPC/Mach service names to allow. Supports a trailing wildcard                                                                              |
-| `httpProxyPort`           | `int`       | `None`  | HTTP proxy port for network requests                                                                                                                   |
-| `socksProxyPort`          | `int`       | `None`  | SOCKS proxy port for network requests                                                                                                                  |
+| Property                  | Type        | Default | Description                                                                                                                                                                                   |
+| :------------------------ | :---------- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `allowedDomains`          | `list[str]` | `[]`    | Domain names that sandboxed processes can access                                                                                                                                              |
+| `deniedDomains`           | `list[str]` | `[]`    | Domain names that sandboxed processes cannot access. Takes precedence over `allowedDomains`                                                                                                   |
+| `allowManagedDomainsOnly` | `bool`      | `False` | Managed-settings only: when set in managed settings, ignore `allowedDomains` and `WebFetch(domain:...)` allow rules from non-managed settings sources. Has no effect when set via SDK options |
+| `allowUnixSockets`        | `list[str]` | `[]`    | Unix socket paths that processes can access (e.g., Docker socket)                                                                                                                             |
+| `allowAllUnixSockets`     | `bool`      | `False` | Allow access to all Unix sockets                                                                                                                                                              |
+| `allowLocalBinding`       | `bool`      | `False` | Allow processes to bind to local ports (e.g., for dev servers)                                                                                                                                |
+| `allowMachLookup`         | `list[str]` | `[]`    | macOS only: XPC/Mach service names to allow. Supports a trailing wildcard                                                                                                                     |
+| `httpProxyPort`           | `int`       | `None`  | HTTP proxy port for network requests                                                                                                                                                          |
+| `socksProxyPort`          | `int`       | `None`  | SOCKS proxy port for network requests                                                                                                                                                         |
 
 <Note>
   The built-in sandbox proxy enforces the network allowlist based on the requested hostname and does not terminate or inspect TLS traffic, so techniques such as [domain fronting](https://en.wikipedia.org/wiki/Domain_fronting) can potentially bypass it. See [Sandboxing security limitations](/docs/en/sandboxing#security-limitations) for details and [Secure deployment](/docs/en/agent-sdk/secure-deployment#traffic-forwarding) for configuring a TLS-terminating proxy.
@@ -3571,14 +3490,9 @@ class SandboxIgnoreViolations(TypedDict, total=False):
 
 ### Permissions Fallback for Unsandboxed Commands
 
-When `allowUnsandboxedCommands` is enabled, the model can request to run commands outside the sandbox by setting `dangerouslyDisableSandbox: True` in the tool input. These requests fall back to the existing permissions system, meaning your `can_use_tool` handler will be invoked, allowing you to implement custom authorization logic.
+When `allowUnsandboxedCommands` is enabled, the model can request to run commands outside the sandbox by setting `dangerouslyDisableSandbox: True` in the tool input. These requests fall back to the existing permissions system, meaning your `can_use_tool` handler will be invoked, allowing you to implement custom authorization logic. Commands listed in `excludedCommands` instead bypass the sandbox automatically, with no model involvement; see [`SandboxSettings`](#sandboxsettings).
 
-<Note>
-  **`excludedCommands` vs `allowUnsandboxedCommands`:**
-
-  * `excludedCommands`: A static list of commands that always bypass the sandbox automatically (e.g., `["docker"]`). The model has no control over this.
-  * `allowUnsandboxedCommands`: Lets the model decide at runtime whether to request unsandboxed execution by setting `dangerouslyDisableSandbox: True` in the tool input.
-</Note>
+The following example logs each unsandboxed request and denies it unless your own authorization logic allows it:
 
 ```python theme={null}
 import asyncio
@@ -3637,12 +3551,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
-This pattern enables you to:
-
-* **Audit model requests**: Log when the model requests unsandboxed execution
-* **Implement allowlists**: Only permit specific commands to run unsandboxed
-* **Add approval workflows**: Require explicit authorization for privileged operations
 
 <Warning>
   Commands running with `dangerouslyDisableSandbox: True` have full system access. Ensure your `can_use_tool` handler validates these requests carefully.

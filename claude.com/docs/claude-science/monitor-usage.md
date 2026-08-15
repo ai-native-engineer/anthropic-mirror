@@ -8,11 +8,11 @@
 
 [Skip to main content](#content-area)
 
-Claude Science usage counts against each member’s standard weekly quota and uses the same seat as the rest of claude.ai. You can track adoption in the Activity dashboard and through the Admin API.
+Claude Science usage counts against each member’s standard weekly quota and uses the same seat as the rest of claude.ai. You can track adoption in Analytics and through the Admin API.
 
-##  Analytics in Organization settings
+##  Analytics
 
-Go to Organization settings > Analytics > All Activity and select Claude Science in the product filter to see active members, sessions, and spend for this product.
+Open Analytics from the user menu and select the Claude Science tab to see adoption and session metrics for this product. To see spend, or to compare active members across products, select Claude Science in the product filter on the Overview tab.
 The Monitor usage link in Organization settings > Claude Science opens Analytics.
 
 ##  Admin API

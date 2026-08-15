@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/skills -->
 
+---
+title: Skills
+url: https://platform.claude.com/docs/en/api/beta/skills
+---
+
 # Skills
 
 ## Create Skill
@@ -16,7 +21,7 @@ Create Skill
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -68,11 +73,21 @@ Create Skill
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -86,13 +101,13 @@ Create Skill
 
   ISO 8601 timestamp of when the skill was created.
 
-- `display_title: string`
+- `display_title: string or null`
 
   Display title for the skill.
 
   This is a human-readable label that is not included in the prompt sent to the model.
 
-- `latest_version: string`
+- `latest_version: string or null`
 
   The latest version identifier for the skill.
 
@@ -121,10 +136,11 @@ Create Skill
 
 ```http
 curl https://api.anthropic.com/v1/skills \
-    -X POST \
+    -H 'Content-Type: multipart/form-data' \
     -H 'anthropic-version: 2023-06-01' \
     -H 'anthropic-beta: skills-2025-10-02' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -F files='["Example data"]'
 ```
 
 #### Response
@@ -178,7 +194,7 @@ List Skills
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -230,11 +246,21 @@ List Skills
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -252,13 +278,13 @@ List Skills
 
     ISO 8601 timestamp of when the skill was created.
 
-  - `display_title: string`
+  - `display_title: string or null`
 
     Display title for the skill.
 
     This is a human-readable label that is not included in the prompt sent to the model.
 
-  - `latest_version: string`
+  - `latest_version: string or null`
 
     The latest version identifier for the skill.
 
@@ -289,11 +315,11 @@ List Skills
 
   If `true`, there are additional results that can be fetched using the `next_page` token.
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token for fetching the next page of results.
 
-  If `null`, there are no more results available. Pass this value to the `page_token` parameter in the next request to get the next page.
+  If `null`, there are no more results available. Pass this value to the `page` parameter in the next request to get the next page.
 
 ### Example
 
@@ -346,7 +372,7 @@ Get Skill
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -398,11 +424,21 @@ Get Skill
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -416,13 +452,13 @@ Get Skill
 
   ISO 8601 timestamp of when the skill was created.
 
-- `display_title: string`
+- `display_title: string or null`
 
   Display title for the skill.
 
   This is a human-readable label that is not included in the prompt sent to the model.
 
-- `latest_version: string`
+- `latest_version: string or null`
 
   The latest version identifier for the skill.
 
@@ -492,7 +528,7 @@ Delete Skill
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -544,11 +580,21 @@ Delete Skill
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -599,13 +645,13 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID \
 
     ISO 8601 timestamp of when the skill was created.
 
-  - `display_title: string`
+  - `display_title: string or null`
 
     Display title for the skill.
 
     This is a human-readable label that is not included in the prompt sent to the model.
 
-  - `latest_version: string`
+  - `latest_version: string or null`
 
     The latest version identifier for the skill.
 
@@ -644,13 +690,13 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID \
 
     ISO 8601 timestamp of when the skill was created.
 
-  - `display_title: string`
+  - `display_title: string or null`
 
     Display title for the skill.
 
     This is a human-readable label that is not included in the prompt sent to the model.
 
-  - `latest_version: string`
+  - `latest_version: string or null`
 
     The latest version identifier for the skill.
 
@@ -689,13 +735,13 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID \
 
     ISO 8601 timestamp of when the skill was created.
 
-  - `display_title: string`
+  - `display_title: string or null`
 
     Display title for the skill.
 
     This is a human-readable label that is not included in the prompt sent to the model.
 
-  - `latest_version: string`
+  - `latest_version: string or null`
 
     The latest version identifier for the skill.
 
@@ -760,7 +806,7 @@ Create Skill Version
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -812,11 +858,21 @@ Create Skill Version
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -868,10 +924,11 @@ Create Skill Version
 
 ```http
 curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions \
-    -X POST \
+    -H 'Content-Type: multipart/form-data' \
     -H 'anthropic-version: 2023-06-01' \
     -H 'anthropic-beta: skills-2025-10-02' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -F files='["Example data"]'
 ```
 
 #### Response
@@ -923,7 +980,7 @@ List Skill Versions
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -975,11 +1032,21 @@ List Skill Versions
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -1035,7 +1102,7 @@ List Skill Versions
 
   Indicates if there are more results in the requested page direction.
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token to provide in as `page` in the subsequent request to retrieve the next page of data.
 
@@ -1097,7 +1164,7 @@ Download a skill version's content as a zip archive.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -1149,11 +1216,21 @@ Download a skill version's content as a zip archive.
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Example
 
@@ -1192,7 +1269,7 @@ Get Skill Version
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -1244,11 +1321,21 @@ Get Skill Version
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -1348,7 +1435,7 @@ Delete Skill Version
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -1400,11 +1487,21 @@ Delete Skill Version
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

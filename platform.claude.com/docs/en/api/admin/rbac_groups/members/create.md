@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/rbac_groups/members/create -->
 
+---
+title: Add RBAC Group Member
+url: https://platform.claude.com/docs/en/api/admin/rbac_groups/members/create
+---
+
 ## Add RBAC Group Member
 
 **post** `/v1/organizations/rbac_groups/{group_id}/members`

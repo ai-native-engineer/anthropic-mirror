@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/tunnels/certificates/list -->
 
+---
+title: List Tunnel Certificates
+url: https://platform.claude.com/docs/en/api/beta/tunnels/certificates/list
+---
+
 ## List Tunnel Certificates
 
 **get** `/v1/tunnels/{tunnel_id}/certificates`
@@ -34,7 +39,7 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -86,11 +91,21 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -102,7 +117,7 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
     Unique identifier for the certificate, prefixed with `tcrt_`.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -110,7 +125,7 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
     A timestamp in RFC 3339 format
 
-  - `expires_at: string`
+  - `expires_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -126,7 +141,7 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
     - `"tunnel_certificate"`
 
-- `next_page: string`
+- `next_page: string or null`
 
   Pagination cursor for the next page, or null if no more results.
 

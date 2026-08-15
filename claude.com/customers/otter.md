@@ -130,34 +130,34 @@ Video caption
 
 ## Related stories
 
-[Wondr Health scales trusted health coaching with Claude](https://claude.com/customers/wondr-health)Wondr Health scales trusted health coaching with Claude
+[Office Hours: Building the case for leaders who ship with DoorDash](https://claude.com/customers/doordash-boris-office-hours) Office Hours: Building the case for leaders who ship with DoorDash
 
-Wondr Health scales trusted health coaching with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/wondr-health)Customer story
-
-[How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
-
-How Notability built a study tool that improves with every Claude release
+Office Hours: Building the case for leaders who ship with DoorDash
 
 Customer story
 
-[Customer story](https://claude.com/customers/notability)Customer story
+[Customer story](https://claude.com/customers/doordash-boris-office-hours)Customer story
 
-[Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
+[Office Hours: Asynchronous coding and the end of the IDE with Spotify](https://claude.com/customers/spotify-boris-office-hours) Office Hours: Asynchronous coding and the end of the IDE with Spotify
 
-Dust enables agents to go deeper at lower cost with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/dust)Customer story
-
-[How Vercel built an ecosystem on the open skills standard](https://claude.com/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
-
-How Vercel built an ecosystem on the open skills standard
+Office Hours: Asynchronous coding and the end of the IDE with Spotify
 
 Customer story
 
-[Customer story](https://claude.com/customers/vercel-qa)Customer story
+[Customer story](https://claude.com/customers/spotify-boris-office-hours)Customer story
+
+[Office Hours: Building for the model that doesn't exist yet](https://claude.com/customers/ramp-boris-office-hours)Office Hours: Building for the model that doesn't exist yet
+
+Office Hours: Building for the model that doesn't exist yet
+
+Customer story
+
+[Customer story](https://claude.com/customers/ramp-boris-office-hours)Customer story
+
+[How Miro's champions run their week with Claude Cowork](https://claude.com/customers/miro-qa)How Miro's champions run their week with Claude Cowork
+
+How Miro's champions run their week with Claude Cowork
+
+Customer story
+
+[Customer story](https://claude.com/customers/miro-qa)Customer story

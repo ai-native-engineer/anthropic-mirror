@@ -40,7 +40,7 @@ Sometimes you need to talk through an idea before it's ready to write down. Voic
 
 A thinking partner isn't useful if it's stuck in one place. Claude now meets you where you're working: on mobile to draft messages, create calendar invites, or make plans using your location.
 
-In your browser with [Claude for Chrome](http://claude.ai/chrome) to handle forms, extract data, and automate repetitive steps. And connected to tools like [Notion](https://claude.com/connectors/notion), [Canva](https://claude.com/connectors/canva), [Slack](https://claude.com/connectors/slack), [Linear](https://claude.com/connectors/linear), [Figma](https://claude.com/connectors/figma), [and more](https://claude.com/connectors) so Claude can pull in context and take action directly.
+In your browser with [Claude in Chrome](https://claude.com/claude-in-chrome) to handle forms, extract data, and automate repetitive steps. And connected to tools like [Notion](https://claude.com/connectors/notion), [Canva](https://claude.com/connectors/canva), [Slack](https://claude.com/connectors/slack), [Linear](https://claude.com/connectors/linear), [Figma](https://claude.com/connectors/figma), [and more](https://claude.com/connectors) so Claude can pull in context and take action directly.
 
 When you're ready to build, Claude can run analysis, create [polished documents, spreadsheets, and presentations](https://claude.com/blog/create-files), or help you [prototype websites and interactive tools](http://claude.ai/artifacts) right in the conversation.
 
@@ -76,6 +76,42 @@ Try now
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
+
+Aug 13, 2026
+
+### Claude Tag now reads even more of the room
+
+Product announcements
+
+[Claude Tag now reads even more of the room](#)Claude Tag now reads even more of the room
+
+[Claude Tag now reads even more of the room](https://claude.com/blog/claude-tag-now-reads-even-more-of-the-room)Claude Tag now reads even more of the room
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d0099a66d72e05699_33ddc751e21fb4b116b3f57dd553f0bc55ea09d1-1000x1000.svg)
+
+Aug 12, 2026
+
+### The Claude in Chrome side panel is now Claude Cowork
+
+Product announcements
+
+[The Claude in Chrome side panel is now Claude Cowork](#)The Claude in Chrome side panel is now Claude Cowork
+
+[The Claude in Chrome side panel is now Claude Cowork](https://claude.com/blog/cowork-chrome-side-panel)The Claude in Chrome side panel is now Claude Cowork
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+Aug 11, 2026
+
+### Compliance API coverage extends to Claude Cowork and Claude Code
+
+Enterprise AI
+
+[Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
+
+[Compliance API coverage extends to Claude Cowork and Claude Code](https://claude.com/blog/compliance-api-cowork-and-claude-code)Compliance API coverage extends to Claude Cowork and Claude Code
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
 
 Aug 5, 2026
@@ -87,42 +123,6 @@ Enterprise AI
 [Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
 
 [Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22651dd05046d0fdb0b_39c40393e610cc0a5e65f50ad12ff5ada273f792-1000x1000.svg)
-
-Aug 6, 2026
-
-### Run Claude Code sessions on your own compute
-
-Product announcements
-
-[Run Claude Code sessions on your own compute](#)Run Claude Code sessions on your own compute
-
-[Run Claude Code sessions on your own compute](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)Run Claude Code sessions on your own compute
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
-
-Jul 28, 2026
-
-### Bringing MCP 2026-07-28 to Claude
-
-Product announcements
-
-[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
-
-[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
-
-Jul 2, 2026
-
-### Giving admins more visibility and control over Claude spend
-
-Product announcements
-
-[Giving admins more visibility and control over Claude spend](#)Giving admins more visibility and control over Claude spend
-
-[Giving admins more visibility and control over Claude spend](https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend)Giving admins more visibility and control over Claude spend
 
 ## Transform how your organization operates with Claude
 

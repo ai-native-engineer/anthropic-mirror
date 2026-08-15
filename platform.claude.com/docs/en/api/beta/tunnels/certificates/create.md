@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/tunnels/certificates/create -->
 
+---
+title: Create Tunnel Certificate
+url: https://platform.claude.com/docs/en/api/beta/tunnels/certificates/create
+---
+
 ## Create Tunnel Certificate
 
 **post** `/v1/tunnels/{tunnel_id}/certificates`
@@ -20,7 +25,7 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -72,11 +77,21 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Body Parameters
 
@@ -94,7 +109,7 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
     Unique identifier for the certificate, prefixed with `tcrt_`.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -102,7 +117,7 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
     A timestamp in RFC 3339 format
 
-  - `expires_at: string`
+  - `expires_at: string or null`
 
     A timestamp in RFC 3339 format
 

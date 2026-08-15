@@ -1,8 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/mcp_tunnels/rotate_token -->
 
+---
+title: Rotate Tunnel Token
+url: https://platform.claude.com/docs/en/api/admin/mcp_tunnels/rotate_token
+---
+
 ## Rotate Tunnel Token
 
 **post** `/v1/organizations/tunnels/{tunnel_id}/rotate_token`
+
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Invalidate the tunnel's current token for new connections and return a fresh value.
 
@@ -26,7 +33,7 @@ restarted after rotation must use the new value. An optional
 
 ### Body Parameters
 
-- `reason: optional string`
+- `reason: optional string or null`
 
   Optional free-text reason for the rotation, recorded for audit.
 

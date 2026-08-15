@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/models -->
 
+---
+title: Models
+url: https://platform.claude.com/docs/en/api/models
+---
+
 # Models
 
 ## List Models
@@ -34,7 +39,7 @@ The Models API response can be used to determine which models are available for 
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -86,11 +91,21 @@ The Models API response can be used to determine which models are available for 
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -100,7 +115,7 @@ The Models API response can be used to determine which models are available for 
 
     Unique model identifier.
 
-  - `capabilities: ModelCapabilities`
+  - `capabilities: ModelCapabilities or null`
 
     Model capability information.
 
@@ -124,15 +139,15 @@ The Models API response can be used to determine which models are available for 
 
       Context management support and available strategies.
 
-      - `clear_thinking_20251015: CapabilitySupport`
+      - `clear_thinking_20251015: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
-      - `clear_tool_uses_20250919: CapabilitySupport`
+      - `clear_tool_uses_20250919: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
-      - `compact_20260112: CapabilitySupport`
+      - `compact_20260112: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
@@ -164,7 +179,7 @@ The Models API response can be used to determine which models are available for 
 
         Whether this capability is supported by the model.
 
-      - `xhigh: CapabilitySupport`
+      - `xhigh: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
@@ -208,11 +223,11 @@ The Models API response can be used to determine which models are available for 
 
     A human-readable name for the model.
 
-  - `max_input_tokens: number`
+  - `max_input_tokens: number or null`
 
     Maximum input context window size in tokens for this model.
 
-  - `max_tokens: number`
+  - `max_tokens: number or null`
 
     Maximum value for the `max_tokens` parameter when using this model.
 
@@ -224,7 +239,7 @@ The Models API response can be used to determine which models are available for 
 
     - `"model"`
 
-- `first_id: string`
+- `first_id: string or null`
 
   First ID in the `data` list. Can be used as the `before_id` for the previous page.
 
@@ -232,7 +247,7 @@ The Models API response can be used to determine which models are available for 
 
   Indicates if there are more results in the requested page direction.
 
-- `last_id: string`
+- `last_id: string or null`
 
   Last ID in the `data` list. Can be used as the `after_id` for the next page.
 
@@ -347,7 +362,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -399,11 +414,21 @@ The Models API response can be used to determine information about a specific mo
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -413,7 +438,7 @@ The Models API response can be used to determine information about a specific mo
 
     Unique model identifier.
 
-  - `capabilities: ModelCapabilities`
+  - `capabilities: ModelCapabilities or null`
 
     Model capability information.
 
@@ -437,15 +462,15 @@ The Models API response can be used to determine information about a specific mo
 
       Context management support and available strategies.
 
-      - `clear_thinking_20251015: CapabilitySupport`
+      - `clear_thinking_20251015: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
-      - `clear_tool_uses_20250919: CapabilitySupport`
+      - `clear_tool_uses_20250919: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
-      - `compact_20260112: CapabilitySupport`
+      - `compact_20260112: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
@@ -477,7 +502,7 @@ The Models API response can be used to determine information about a specific mo
 
         Whether this capability is supported by the model.
 
-      - `xhigh: CapabilitySupport`
+      - `xhigh: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
@@ -521,11 +546,11 @@ The Models API response can be used to determine information about a specific mo
 
     A human-readable name for the model.
 
-  - `max_input_tokens: number`
+  - `max_input_tokens: number or null`
 
     Maximum input context window size in tokens for this model.
 
-  - `max_tokens: number`
+  - `max_tokens: number or null`
 
     Maximum value for the `max_tokens` parameter when using this model.
 
@@ -637,7 +662,7 @@ curl https://api.anthropic.com/v1/models/$MODEL_ID \
 
   Context management capability details.
 
-  - `clear_thinking_20251015: CapabilitySupport`
+  - `clear_thinking_20251015: CapabilitySupport or null`
 
     Indicates whether a capability is supported.
 
@@ -645,11 +670,11 @@ curl https://api.anthropic.com/v1/models/$MODEL_ID \
 
       Whether this capability is supported by the model.
 
-  - `clear_tool_uses_20250919: CapabilitySupport`
+  - `clear_tool_uses_20250919: CapabilitySupport or null`
 
     Indicates whether a capability is supported.
 
-  - `compact_20260112: CapabilitySupport`
+  - `compact_20260112: CapabilitySupport or null`
 
     Indicates whether a capability is supported.
 
@@ -687,7 +712,7 @@ curl https://api.anthropic.com/v1/models/$MODEL_ID \
 
     Whether this capability is supported by the model.
 
-  - `xhigh: CapabilitySupport`
+  - `xhigh: CapabilitySupport or null`
 
     Indicates whether a capability is supported.
 
@@ -717,15 +742,15 @@ curl https://api.anthropic.com/v1/models/$MODEL_ID \
 
     Context management support and available strategies.
 
-    - `clear_thinking_20251015: CapabilitySupport`
+    - `clear_thinking_20251015: CapabilitySupport or null`
 
       Indicates whether a capability is supported.
 
-    - `clear_tool_uses_20250919: CapabilitySupport`
+    - `clear_tool_uses_20250919: CapabilitySupport or null`
 
       Indicates whether a capability is supported.
 
-    - `compact_20260112: CapabilitySupport`
+    - `compact_20260112: CapabilitySupport or null`
 
       Indicates whether a capability is supported.
 
@@ -757,7 +782,7 @@ curl https://api.anthropic.com/v1/models/$MODEL_ID \
 
       Whether this capability is supported by the model.
 
-    - `xhigh: CapabilitySupport`
+    - `xhigh: CapabilitySupport or null`
 
       Indicates whether a capability is supported.
 
@@ -801,7 +826,7 @@ curl https://api.anthropic.com/v1/models/$MODEL_ID \
 
     Unique model identifier.
 
-  - `capabilities: ModelCapabilities`
+  - `capabilities: ModelCapabilities or null`
 
     Model capability information.
 
@@ -825,15 +850,15 @@ curl https://api.anthropic.com/v1/models/$MODEL_ID \
 
       Context management support and available strategies.
 
-      - `clear_thinking_20251015: CapabilitySupport`
+      - `clear_thinking_20251015: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
-      - `clear_tool_uses_20250919: CapabilitySupport`
+      - `clear_tool_uses_20250919: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
-      - `compact_20260112: CapabilitySupport`
+      - `compact_20260112: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
@@ -865,7 +890,7 @@ curl https://api.anthropic.com/v1/models/$MODEL_ID \
 
         Whether this capability is supported by the model.
 
-      - `xhigh: CapabilitySupport`
+      - `xhigh: CapabilitySupport or null`
 
         Indicates whether a capability is supported.
 
@@ -909,11 +934,11 @@ curl https://api.anthropic.com/v1/models/$MODEL_ID \
 
     A human-readable name for the model.
 
-  - `max_input_tokens: number`
+  - `max_input_tokens: number or null`
 
     Maximum input context window size in tokens for this model.
 
-  - `max_tokens: number`
+  - `max_tokens: number or null`
 
     Maximum value for the `max_tokens` parameter when using this model.
 

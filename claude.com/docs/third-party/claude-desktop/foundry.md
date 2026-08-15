@@ -76,13 +76,13 @@ When the tenant and client IDs are set and `inferenceCredentialKind` is `interac
 
 On success, the app returns to Cowork. For the device-code and browser flows the app stores the refresh token encrypted with the operating system’s secure storage (Keychain on macOS, DPAPI on Windows), and both flows store the same token against the same app registration, so switching between them later does not itself prompt users to sign in again. For the broker flow the operating system’s broker holds the credential, and the app stores only a reference to the signed-in account.
 If the app can no longer renew the credential silently, it shows a **Sign in again** prompt; clicking it reopens the configured sign-in flow. For the device-code and browser flows this happens when the stored refresh token expires or is revoked. For the broker flow it happens when the broker can no longer renew the token silently.
-`inferenceFoundryTenantId` and `inferenceFoundryClientId` can be set only via an MDM profile, not via a bootstrap server. `inferenceFoundryAuthFlow` can be set via either.
+`inferenceFoundryTenantId`, `inferenceFoundryClientId`, and `inferenceFoundryAuthFlow` can be set through an MDM profile or a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap). When a bootstrap server delivers `inferenceFoundryTenantId` or `inferenceFoundryClientId`, the values are among the [keys that require user consent](https://claude.com/docs/third-party/claude-desktop/bootstrap#keys-that-require-user-consent), so users may see a one-time approval dialog depending on how `bootstrapUrl` reached the device.
 
 In-app sign-in and a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap) are separate layers that work together. In-app sign-in supplies each user’s inference credential, the Entra ID token that authorizes model calls. A bootstrap server supplies per-user configuration values when the app starts. A bootstrap server does not replace sign-in: a deployment with a bootstrap server still needs each user to sign in, and signing in does not deliver configuration.
 
 ####  Allow network egress
 
-The sign-in flow reaches `login.microsoftonline.com` in addition to your Microsoft Foundry endpoint. Both hosts are included automatically in the **Egress Requirements** section of the in-app configuration window when these keys are set.
+The sign-in flow reaches `login.microsoftonline.com` in addition to your Microsoft Foundry endpoint. Both hosts are included automatically in the **Egress** section of the in-app configuration window when these keys are set.
 
 ##  Configure the app
 

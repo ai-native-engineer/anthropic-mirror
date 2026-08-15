@@ -102,7 +102,7 @@ Editing your MCP config does not by itself change the cache. The new config take
 
 The exception is a plugin that provides [MCP servers](/docs/en/plugins-reference#mcp-servers). Enabling or disabling one follows the same rules as [connecting or disconnecting an MCP server](#connecting-or-disconnecting-an-mcp-server): the cache survives when the server's tools are deferred, and the next request re-reads the entire conversation when they load into the prefix.
 
-Plugin changes apply when you run [`/reload-plugins`](/docs/en/discover-plugins#apply-plugin-changes-without-restarting) or start a new session. Claude Code can also activate a plugin you [install from the `/plugin` interface](/docs/en/discover-plugins#install-plugins) during the install; the install summary tells you whether it did or whether to run `/reload-plugins`. If that reload would trigger the full re-read below, the command warns first and applies when you rerun it with `--force`.
+Plugin changes apply when you run [`/reload-plugins`](/docs/en/discover-plugins#apply-plugin-changes-without-restarting) or start a new session. For a plugin with a `command` source, Claude Code [can reload the plugin itself](/docs/en/plugin-marketplaces#when-claude-code-re-runs-the-command). Claude Code can also activate a plugin you [install from the `/plugin` interface](/docs/en/discover-plugins#install-plugins) during the install; the install summary tells you whether it did or whether to run `/reload-plugins`. If that reload would trigger the full re-read below, the command warns first and applies when you rerun it with `--force`.
 
 The cost, whether appended announcements or a full re-read, shows up on the first turn after the change applies, not when you run `/plugin enable` or `/plugin disable`. When a reload would trigger the full re-read, `/reload-plugins` shows a warning and doesn't apply the reload. Pass `--force` to apply anyway.
 
@@ -163,7 +163,7 @@ Your project-root and user-level CLAUDE.md files are read once at session start 
 
 ### Changing permission mode
 
-Switching between [permission modes](/docs/en/permission-modes), such as from default to accept edits, does not change the system prompt or tool definitions, so mode changes are cache-safe. The exception is plan mode with the [`opusplan`](/docs/en/model-config#opusplan-model-setting) model setting, which switches the model between Opus and Sonnet as you enter or leave plan mode. That makes the mode toggle a [model switch](#switching-models).
+Switching between [permission modes](/docs/en/permission-modes), such as from Manual to accept edits, does not change the system prompt or tool definitions, so mode changes are cache-safe. The exception is plan mode with the [`opusplan`](/docs/en/model-config#opusplan-model-setting) model setting, which switches the model between Opus and Sonnet as you enter or leave plan mode. That makes the mode toggle a [model switch](#switching-models).
 
 ### Invoking skills and commands
 
@@ -205,7 +205,7 @@ Set `FORCE_PROMPT_CACHING_5M=1` to force the five-minute TTL regardless of authe
 
 ## Cache scope
 
-In Claude Code, the cache is effectively scoped to one machine and directory. The system prompt embeds the working directory, platform, shell, OS version, and auto-memory paths, so two sessions in different directories build different prefixes and miss each other's cache. That includes worktrees of the same repository, since each worktree has its own working directory.
+In Claude Code, the cache is effectively scoped to one machine and directory. The system prompt embeds the working directory, platform, shell, OS version, and auto memory paths, so two sessions in different directories build different prefixes and miss each other's cache. That includes worktrees of the same repository, since each worktree has its own working directory.
 
 Sessions you run in parallel in the same directory build matching prefixes and read each other's cache. Sequential sessions share the prefix only when the git status snapshot at startup matches, since the system prompt also captures branch and recent commits.
 
@@ -226,11 +226,11 @@ For visibility across an organization, the OpenTelemetry exporter reports cache 
 
 ## Subagents and the cache
 
-A [subagent](/docs/en/sub-agents) starts its own conversation with its own system prompt and tool set, separate from the parent's. It builds its own cache, starting with no cache hits on its first call and warming up across its own turns. Subagents use the five-minute TTL even on a subscription, since the automatic one-hour TTL applies to the main conversation.
+A [subagent](/docs/en/sub-agents) starts its own conversation with its own system prompt and tool set, separate from the parent's. Its first request doesn't read the parent's cache, because the two prefixes differ, and it warms a cache of its own across its turns. Subagents use the five-minute TTL even on a subscription, since the automatic one-hour TTL applies to the main conversation.
 
 The parent's cache is unaffected. From the parent's side, the subagent's call and result append to the conversation, leaving the parent's prefix intact.
 
-A [fork](/docs/en/sub-agents#fork-the-current-conversation), by contrast, inherits the parent's system prompt, tools, and conversation history exactly, so its first request reads the parent's cache. The compaction summarization call described in [Compacting the conversation](#compacting-the-conversation) uses the same prefix-sharing approach.
+A [fork](/docs/en/sub-agents#fork-the-current-conversation), by contrast, inherits the parent's system prompt, tools, and conversation history exactly, so its first request reads the parent's cache. The compaction summarization call described in [Compacting the conversation](#compacting-the-conversation) uses the same prefix-sharing approach. In a [workflow fan-out](/docs/en/workflows#prompt-caching-in-a-fan-out) of same-prefix agents, Claude Code briefly holds all but the first so their first requests can read the prefix the first agent cached.
 
 ## Disable prompt caching
 

@@ -25,7 +25,8 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 | Chat | ✓ | ✓ (admin opt-in) |
 | Cowork | ✓ | ✓ |
 | Code | ✓ | ✓ |
-| Auto mode / Act without asking | ✓ | ✓ (admin opt-in) |
+| Auto mode (Code) | ✓ | ✓ (admin opt-in) |
+| Automatically approve / Skip all approvals (Cowork) | — ¶ | ✓ (admin opt-in) |
 | Projects | ✓ | ✓ |
 | Code execution for analysis | ✓ | ✓ |
 | Web search | ✓ | ✓ § |
@@ -50,6 +51,7 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 
 § Amazon Bedrock deployments (and gateways that do not forward Anthropic server tools) need a web search provider configured first; see [Web search options](https://claude.com/docs/third-party/claude-desktop/web-tools#web-search-options).
 † Memory in Claude Desktop on 3P is stored on the device, not on Anthropic infrastructure. Users can review, delete, or pause it under **Settings → Cowork → Memory**; see [Memory](https://claude.com/docs/third-party/claude-desktop/data-storage#memory). Chat-history search and nightly summary generation are not available in Chat on 3P.
+¶ Cowork’s Automatically approve and Skip all approvals modes are not available for Claude Enterprise organizations.
 
 ##  Admin features
 

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/tunnels/retrieve -->
 
+---
+title: Get Tunnel
+url: https://platform.claude.com/docs/en/api/beta/tunnels/retrieve
+---
+
 ## Get Tunnel
 
 **get** `/v1/tunnels/{tunnel_id}`
@@ -20,7 +25,7 @@ Fetches a tunnel by ID.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -72,11 +77,21 @@ Fetches a tunnel by ID.
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 
@@ -88,7 +103,7 @@ Fetches a tunnel by ID.
 
     Unique identifier for the tunnel, prefixed with `tnl_`.
 
-  - `archived_at: string`
+  - `archived_at: string or null`
 
     A timestamp in RFC 3339 format
 
@@ -96,7 +111,7 @@ Fetches a tunnel by ID.
 
     A timestamp in RFC 3339 format
 
-  - `display_name: string`
+  - `display_name: string or null`
 
     Human-readable name for the tunnel (1-255 characters). Null if unset.
 

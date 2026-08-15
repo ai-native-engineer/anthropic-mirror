@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/external_keys/delete -->
 
+---
+title: Delete External Key
+url: https://platform.claude.com/docs/en/api/admin/external_keys/delete
+---
+
 ## Delete External Key
 
 **delete** `/v1/organizations/external_keys/{external_key_id}`
@@ -12,7 +17,7 @@ The request is rejected if any workspace still references this config.
 
 - `external_key_id: string`
 
-  ID of the External Key to delete.
+  ID of the External Key.
 
 ### Returns
 

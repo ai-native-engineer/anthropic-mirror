@@ -2,7 +2,9 @@
 
 The Compliance API lets your organization programmatically pull activity feed events, chat data, and file content across all your Claude deployments. Use it to monitor, audit, and meet compliance requirements with your own tools.
 
-The Compliance API is available to Claude Enterprise plans, excluding Public Sector organizations, and Claude Platform customers.
+The Compliance API is generally available to Claude Enterprise plans, excluding Public Sector organizations, and Claude Platform customers in Claude chats.
+
+Compliance API coverage now extends to Cowork (via Claude, Claude Desktop, and Claude Mobile) and Claude Code (via CLI and Claude Desktop), in beta for Claude Enterprise customers. It uses your organization's existing Compliance Access Key and settings, so no additional integration is required. This beta doesn't include Claude Code on web, Claude Code accessed through the Claude Platform, or sessions run on Amazon Bedrock or Google Vertex AI.
 
 ## Compliance API technical documentation
 
@@ -16,8 +18,8 @@ Security and compliance platforms have built integrations on top of the Claude C
 
 The Compliance API now includes audit log events, giving you a full view across all your Claude deployments. To see which events are recorded via audit logs, see **[How to access audit logs](https://support.claude.com/en/articles/9970975-how-to-access-audit-logs#h_41cdad187a)**.
 
-* [How can I check connectivity to the Claude API?](https://support.claude.com/en/articles/13403291-how-can-i-check-connectivity-to-the-claude-api)
-* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
-* [Configure a custom OpenTelemetry collector for Office agents](https://support.claude.com/en/articles/14447276-configure-a-custom-opentelemetry-collector-for-office-agents)
+* [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Monitor Claude Cowork activity with OpenTelemetry](https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)
+* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
+* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [Get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)

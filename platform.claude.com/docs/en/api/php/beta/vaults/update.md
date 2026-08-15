@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/vaults/update -->
 
+---
+title: Update Vault
+url: https://platform.claude.com/docs/en/api/php/beta/vaults/update
+---
+
 ## Update Vault
 
 `$client->beta->vaults->update(string vaultID, ?string displayName, ?array<string,string> metadata, ?list<AnthropicBeta> betas): BetaManagedAgentsVault`
@@ -67,7 +72,7 @@ $betaManagedAgentsVault = $client->beta->vaults->update(
   'vlt_011CZkZDLs7fYzm1hXNPeRjv',
   displayName: 'Example vault',
   metadata: ['environment' => 'production'],
-  betas: ['message-batches-2024-09-24'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaManagedAgentsVault);

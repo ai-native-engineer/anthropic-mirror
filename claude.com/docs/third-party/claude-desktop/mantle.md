@@ -28,7 +28,7 @@ Enable Claude models in Amazon Bedrock for the region you will set as `inference
 ###  Bearer token
 
 No per-device preparation is required. Place the Mantle bearer token in the managed configuration as `inferenceBedrockBearerToken`.
-The app reaches `bedrock-mantle.<region>.api.aws` (or the host in `inferenceBedrockBaseUrl` if you set one). This host is included automatically in the **Egress Requirements** section of the in-app configuration window. The `.api.aws` zone has no FIPS endpoint variant.
+The app reaches `bedrock-mantle.<region>.api.aws` (or the host in `inferenceBedrockBaseUrl` if you set one). This host is included automatically in the **Egress** section of the in-app configuration window. The `.api.aws` zone has no FIPS endpoint variant.
 
 ##  Configure the app
 

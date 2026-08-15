@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/sessions/resources/update -->
 
+---
+title: Update Session Resource
+url: https://platform.claude.com/docs/en/api/cli/beta/sessions/resources/update
+---
+
 ## Update Session Resource
 
 `$ ant beta:sessions:resources update`

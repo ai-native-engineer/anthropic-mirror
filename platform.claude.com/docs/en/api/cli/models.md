@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/models -->
 
+---
+title: Models
+url: https://platform.claude.com/docs/en/api/cli/models
+---
+
 # Models
 
 ## List Models

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/organizations/roles -->
 
+---
+title: Roles
+url: https://platform.claude.com/docs/en/api/compliance/organizations/roles
+---
+
 # Roles
 
 ## List Compliance Roles
@@ -38,7 +43,7 @@ List Compliance Roles
 
     Role identifier (tagged ID)
 
-  - `created_at: string`
+  - `created_at: string or null`
 
     Role creation timestamp (ISO 8601)
 
@@ -50,7 +55,7 @@ List Compliance Roles
 
     Role name
 
-  - `updated_at: string`
+  - `updated_at: string or null`
 
     Role last-updated timestamp (ISO 8601)
 
@@ -58,7 +63,7 @@ List Compliance Roles
 
   Whether more records exist beyond the current result set
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token to retrieve the next page. Use this as the 'page' parameter in your next request
 
@@ -75,15 +80,15 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles \
 {
   "data": [
     {
-      "id": "id",
-      "created_at": "created_at",
-      "description": "description",
-      "name": "name",
-      "updated_at": "updated_at"
+      "id": "rbac_role_01SGBg3kEnZrdsVR2QmyJbvD",
+      "created_at": "2025-03-12T18:22:41.123456",
+      "description": "Full administrative access to organization settings and members",
+      "name": "Organization Admin",
+      "updated_at": "2025-03-14T09:05:17.456789"
     }
   ],
   "has_more": true,
-  "next_page": "next_page"
+  "next_page": "cGFnZV90b2tlbl9leGFtcGxlXzE3MzQ1Njc4OTA="
 }
 ```
 
@@ -113,7 +118,7 @@ Get Compliance Role
 
   Role identifier (tagged ID)
 
-- `created_at: string`
+- `created_at: string or null`
 
   Role creation timestamp (ISO 8601)
 
@@ -125,7 +130,7 @@ Get Compliance Role
 
   Role name
 
-- `updated_at: string`
+- `updated_at: string or null`
 
   Role last-updated timestamp (ISO 8601)
 
@@ -140,11 +145,11 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 
 ```json
 {
-  "id": "id",
-  "created_at": "created_at",
-  "description": "description",
-  "name": "name",
-  "updated_at": "updated_at"
+  "id": "rbac_role_01SGBg3kEnZrdsVR2QmyJbvD",
+  "created_at": "2025-03-12T18:22:41.123456",
+  "description": "Full administrative access to organization settings and members",
+  "name": "Organization Admin",
+  "updated_at": "2025-03-14T09:05:17.456789"
 }
 ```
 
@@ -160,7 +165,7 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 
     Role identifier (tagged ID)
 
-  - `created_at: string`
+  - `created_at: string or null`
 
     Role creation timestamp (ISO 8601)
 
@@ -172,7 +177,7 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 
     Role name
 
-  - `updated_at: string`
+  - `updated_at: string or null`
 
     Role last-updated timestamp (ISO 8601)
 
@@ -186,7 +191,7 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 
     Role identifier (tagged ID)
 
-  - `created_at: string`
+  - `created_at: string or null`
 
     Role creation timestamp (ISO 8601)
 
@@ -198,7 +203,7 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 
     Role name
 
-  - `updated_at: string`
+  - `updated_at: string or null`
 
     Role last-updated timestamp (ISO 8601)
 
@@ -256,7 +261,7 @@ List Compliance Role Permissions
 
   Whether more records exist beyond the current result set
 
-- `next_page: string`
+- `next_page: string or null`
 
   Token to retrieve the next page. Use this as the 'page' parameter in your next request
 
@@ -273,13 +278,13 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 {
   "data": [
     {
-      "action": "action",
-      "resource_id": "resource_id",
-      "resource_type": "resource_type"
+      "action": "claude_code",
+      "resource_id": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
+      "resource_type": "organization"
     }
   ],
   "has_more": true,
-  "next_page": "next_page"
+  "next_page": "cGFnZV90b2tlbl9leGFtcGxlXzE3MzQ1Njc4OTA="
 }
 ```
 

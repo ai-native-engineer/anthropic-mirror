@@ -103,14 +103,6 @@ To enable every discovered Skill, pass `skills: "all"` rather than a wildcard.
 
 The `skills` option is a context filter, not a sandbox. Unlisted Skills are hidden from the model and rejected by the Skill tool, but their files remain on disk and are reachable through Read and Bash.
 
-## Skill Locations
-
-Skills are loaded from filesystem directories based on your `settingSources`/`setting_sources` configuration:
-
-* **Project Skills** (`.claude/skills/`): Shared with your team via git - loaded when `setting_sources` includes `"project"`
-* **User Skills** (`~/.claude/skills/`): Personal Skills across all projects - loaded when `setting_sources` includes `"user"`
-* **Plugin Skills**: Bundled with installed Claude Code plugins
-
 ## Creating Skills
 
 Create each Skill as a directory containing a `SKILL.md` file with YAML frontmatter and Markdown content. The `description` field determines when Claude invokes your Skill.
@@ -124,8 +116,8 @@ Create each Skill as a directory containing a `SKILL.md` file with YAML frontmat
 
 For complete guidance on creating Skills, including SKILL.md structure, multi-file Skills, and examples, see:
 
-* [Agent Skills in Claude Code](/docs/en/skills): Complete guide with examples
-* [Agent Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices): Authoring guidelines and naming conventions
+* [Agent Skills in Claude Code](/docs/en/skills): complete guide with examples
+* [Agent Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices): authoring guidelines and naming conventions
 
 ## Tool Restrictions
 
@@ -267,7 +259,7 @@ Claude automatically invokes the relevant Skill if the description matches your 
   ```
 </CodeGroup>
 
-For more details on `settingSources`/`setting_sources`, see the [TypeScript SDK reference](/docs/en/agent-sdk/typescript#settingsource) or [Python SDK reference](/docs/en/agent-sdk/python#settingsource).
+For which skill directories each source loads, see the [filesystem sources table](/docs/en/agent-sdk/claude-code-features#control-filesystem-settings-with-settingsources). For more details on `settingSources`/`setting_sources`, see the [TypeScript SDK reference](/docs/en/agent-sdk/typescript#settingsource) or [Python SDK reference](/docs/en/agent-sdk/python#settingsource).
 
 **Check working directory**: The SDK loads Skills from `.claude/skills/` in the `cwd` option and in every parent directory up to the repository root. Ensure `cwd` points at or below the directory containing `.claude/skills/`, within the same repository:
 
@@ -317,15 +309,15 @@ For general Skills troubleshooting (YAML syntax, debugging, etc.), see the [Clau
 
 ### Skills Guides
 
-* [Agent Skills in Claude Code](/docs/en/skills): Complete Skills guide with creation, examples, and troubleshooting
-* [Agent Skills Overview](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview): Conceptual overview, benefits, and architecture
-* [Agent Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices): Authoring guidelines for effective Skills
-* [Agent Skills Cookbook](https://platform.claude.com/cookbook/skills-notebooks-01-skills-introduction): Example Skills and templates
+* [Agent Skills in Claude Code](/docs/en/skills): complete Skills guide with creation, examples, and troubleshooting
+* [Agent Skills Overview](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview): conceptual overview, benefits, and architecture
+* [Agent Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices): authoring guidelines for effective Skills
+* [Agent Skills Cookbook](https://platform.claude.com/cookbook/skills-notebooks-01-skills-introduction): example Skills and templates
 
 ### SDK Resources
 
-* [Subagents in the SDK](/docs/en/agent-sdk/subagents): Similar filesystem-based agents with programmatic options
-* [Slash Commands in the SDK](/docs/en/agent-sdk/slash-commands): User-invoked commands
-* [SDK Overview](/docs/en/agent-sdk/overview): General SDK concepts
-* [TypeScript SDK Reference](/docs/en/agent-sdk/typescript): Complete API documentation
-* [Python SDK Reference](/docs/en/agent-sdk/python): Complete API documentation
+* [Subagents in the SDK](/docs/en/agent-sdk/subagents): similar filesystem-based agents with programmatic options
+* [Commands in the SDK](/docs/en/agent-sdk/slash-commands): user-invoked commands
+* [SDK Overview](/docs/en/agent-sdk/overview): general SDK concepts
+* [TypeScript SDK Reference](/docs/en/agent-sdk/typescript): complete API documentation
+* [Python SDK Reference](/docs/en/agent-sdk/python): complete API documentation

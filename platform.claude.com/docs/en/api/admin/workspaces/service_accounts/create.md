@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts/create -->
 
+---
+title: Create Service Account Workspace Member
+url: https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts/create
+---
+
 ## Create Service Account Workspace Member
 
 **post** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
@@ -36,25 +41,25 @@ Console session; Admin API keys are not accepted.
 
   Tagged service account ID to add.
 
-- `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or "workspace_admin"`
+- `workspace_role: "workspace_admin" or "workspace_developer" or "workspace_restricted_developer" or "workspace_user"`
 
   Role to assign to the service account in this workspace.
 
-  - `"workspace_user"`
+  - `"workspace_admin"`
 
   - `"workspace_developer"`
 
   - `"workspace_restricted_developer"`
 
-  - `"workspace_admin"`
+  - `"workspace_user"`
 
 ### Returns
 
-- `created_by_actor_id: string`
+- `created_by_actor_id: string or null`
 
   Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
 
-- `implicit: boolean`
+- `implicit: boolean or null`
 
   True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role workspace_user and cannot be removed.
 
@@ -70,19 +75,19 @@ Console session; Admin API keys are not accepted.
 
   Tagged workspace ID (`wrkspc_...`).
 
-- `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+- `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
   Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
 
-  - `"workspace_user"`
+  - `"workspace_admin"`
+
+  - `"workspace_billing"`
 
   - `"workspace_developer"`
 
   - `"workspace_restricted_developer"`
 
-  - `"workspace_admin"`
-
-  - `"workspace_billing"`
+  - `"workspace_user"`
 
 ### Example
 
@@ -93,7 +98,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "service_account_id": "service_account_id",
-          "workspace_role": "workspace_user"
+          "workspace_role": "workspace_admin"
         }'
 ```
 
@@ -106,6 +111,6 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
   "service_account_id": "service_account_id",
   "type": "service_account_workspace_member",
   "workspace_id": "workspace_id",
-  "workspace_role": "workspace_user"
+  "workspace_role": "workspace_admin"
 }
 ```

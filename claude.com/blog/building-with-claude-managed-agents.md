@@ -38,9 +38,9 @@ Over time, however, the tasks people wanted to hand off stopped fitting.  They 
 
 With the API, turning Claude into an agent meant building your own loop: ask the model what to do, run the tool, feed the result back, and repeat. You were responsible for building and deploying the agent scaffolding, which may need tuning as models evolve. For agents that require full customization, this approach makes sense. For agentic workloads that are more predictable and less complex, optimizing harnesses as models and products evolved became tedious.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298c28f950480f89a8dfcf_01%20_%20Messages%20API.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298c28f950480f89a8dfcf_01%20_%20Messages%20API.png)
 
-[Claude Code](https://code.claude.com/docs/en/overview), the agentic coding tool we launched in 2025 that lets Claude interact directly with your codebase, contained our own version of that harness: the loop, tool execution, subagents, context management, and rich capabilities that made it an effective agent. Developers naturally wanted similar harness machinery for their own agents across various domains.
+[Claude Code](https://claude.com/product/claude-code), the agentic coding tool we launched in 2025 that lets Claude interact directly with your codebase, contained our own version of that harness: the loop, tool execution, subagents, context management, and rich capabilities that made it an effective agent. Developers naturally wanted similar harness machinery for their own agents across various domains.
 
 To enable teams to build agents on top of the Claude Code harness, we released [Claude Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview). Claude Agent SDK gives developers tools to build their own agents on the same machinery that runs Claude Code instead of maintaining a homegrown loop. For a lot of teams, this is when agents became practical: the harness arrived already tuned for Claude with infrastructure primitives and it kept improving as Claude Code did.
 
@@ -55,7 +55,7 @@ Even with a harness, though, deploying agents in production environments can be 
 
 With the Agent SDK, many elements of the aforementioned production infrastructure are provided through Claude Code’s machinery. The agent gets a real filesystem to work in, session state is persisted locally or on external storage, and observability is exportable through OpenTelemetry into whatever monitoring stack you already run.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298c53aaeeee508f2b3166_02%20_%20Claude%20Agent%20SDK.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298c53aaeeee508f2b3166_02%20_%20Claude%20Agent%20SDK.png)
 
 However, as teams increasingly built agents that moved out of local development into production, they needed a way to deploy them at scale and with managed infrastructure. And as models and their surrounding harnesses become more advanced–running longer, executing more code, touching more systems, and taking more actions– scaling, security, and sandboxing became more challenging.
 
@@ -63,7 +63,7 @@ Several of these hurdles stem from a common architectural choice: agent harnesse
 
 Managed Agents solves these problems by [decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents). The harness that calls Claude runs separately from the sandbox where code executes, and the session–an append-only log of every model call, tool call, and result–connects the two. Claude can start reasoning before any container exists, the sandbox stays far away from your credentials, and a whole run can be reconstructed from its session at any point.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298c97d4a887f2666a50b6_03%20_%20Claude%20Managed%20Agents.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298c97d4a887f2666a50b6_03%20_%20Claude%20Managed%20Agents.png)
 
 ## **When and why to use Claude Managed Agents**
 
@@ -75,7 +75,7 @@ For most organizations, maintaining a harness is overhead that doesn't different
 
 To enable developers to configure the context and tools necessary to build effective agents, Managed Agents is built around three primary resources: agents, environments, and sessions. An *agent* is a configuration: a model, a prompt, a set of tools, and the guardrails around them. An *environment* is the execution context the agent runs in: the sandbox container, its networking rules, and the packages pre-installed in it, hosted on our cloud or on infrastructure you control. Each run is a *session*, which pairs an agent with an environment and gets its own isolated sandbox instance. Sessions persist their full event history, sandbox state, and outputs server-side, so long-running work can pause, resume cleanly, and be traced step by step after the fact. With Managed Agents, you can define an agent and an environment once, then run many sessions against the same configuration as your workload grows.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29a18bb07e245f8389acb9_04%20_%20Agents_%20environments_%20sessions%20(2).png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29a18bb07e245f8389acb9_04%20_%20Agents_%20environments_%20sessions%20(2).png)
 
 ## **Building for production and scale on Managed Agents**
 
@@ -85,7 +85,7 @@ Below, we share the most common reasons to build on a managed service like Claud
 
 **1. Credentials are kept out of the sandbox.** When everything runs in one container, the code Claude generates sits right next to your credentials, so prompt injections could lead the model to leak a token by convincing the model to read its own environment. We can protect against this by setting up robust guardrails within the same container, but decoupling the architecture enables a much more secure approach by keeping credentials out of the sandbox entirely. Tokens for tools like MCPs, CLIs, and GitHub repos live in a separate vault, and a proxy fetches them and decrypts them only on demand. Managed Agents provides [Vaults](https://platform.claude.com/docs/en/managed-agents/vaults) that handle credentials out-of-the-box, so you don’t need to run your own secret store, transmit tokens on every call, or lose track of which end user an agent acted on behalf of. Vault credentials are protected with envelope encryption before storage, and retrieval requires a signed request token for verification.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29a19cebb4eb7adac0a8ec_05%20_%20Managed%20Agents%20runtime%20(1).png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29a19cebb4eb7adac0a8ec_05%20_%20Managed%20Agents%20runtime%20(1).png)
 
 **2. Lower latency from eliminated sandbox overhead.** Latency is a metric that is top-of-mind for many enterprise teams, since users acutely feel when they’re waiting for Claude to respond. Without the Managed Agents architecture, a container has to be spun up for every session, even the ones where the agent only needs to think and never runs a tool. That setup time is wasted, and the user feels it as a delay before the first response. With Managed Agents, Claude begins reasoning immediately while the environment spins up in parallel, and sessions that never run a tool skip the container entirely. This means the user sees the first token without waiting on container startup, and the environment is ready by the time the agent needs to run something. In our testing, that cut the time-to-first-token by roughly 60% in the median case (p50) and by over 90% in the slowest cases (p95).
 
@@ -93,7 +93,7 @@ Below, we share the most common reasons to build on a managed service like Claud
 
 **4. Flexibility in Anthropic-managed or self-hosted cloud containers.** By default, with Managed Agents, you can delegate both orchestration and tool execution to Anthropic-managed cloud containers. This makes hosting and scaling simple and easy, delivering a faster path to production. Because the brain is decoupled from the hands in Managed Agents, the hands can live anywhere, including inside your Virtual Private Cloud (VPC). Thus, we also offer [self-hosted sandboxes](https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes) for teams that want control over tool execution, so the agent’s code, filesystem, and network egress never leave their environment. We also provide [MCP tunnels](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/overview), which let you connect Claude to Model Context Protocol (MCP) servers that run inside your private network. So self-hosted sandboxes control *where the agent’s code executes*, and MCP tunnels control *how Anthropic reaches MCP servers in your network*, giving you the ability to control exactly what stays inside your boundary.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298e427c7a804ea4295163_image7.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298e427c7a804ea4295163_image7.png)
 
 *The built-in observability console for Claude Managed Agents records every event, so you can scrub the timeline, open any step, and read its raw payload.*
 
@@ -112,17 +112,17 @@ Across industries, customers are already shipping agents in production with Clau
 
 We built Managed Agents to make it as easy as possible to spin up agents through Claude Code and the Claude Developer Console at [platform.claude.com](http://platform.claude.com). The Console’s quickstart, for example, lets you start from an agent template or describe an agent in plain language, then turn it into a production-ready agent you can secure and deploy in minutes.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298e9b866a4402a3c9bb5d_image5.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298e9b866a4402a3c9bb5d_image5.png)
 
 *The agent quickstart at platform.claude.com: start from a template or describe what you want to build.*
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298ebdff6d26839e052c63_image9.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298ebdff6d26839e052c63_image9.png)
 
 *A few steps later: the agent is created, the environment is configured, and a session is live. The console streams the run as it happens.*
 
 In Claude Code, the [/claude-api skill](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill) is provided by default and provides Claude with detailed, up-to-date reference material for building applications on Claude Managed Agents. We highly recommend that you utilize it for the best practices on setting up your Managed Agents application. Get started by running /claude-api managed-agents-onboard for an interview-driven walkthrough for setting up a new Managed Agent from scratch.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298ef3765ce453971174cd_image6.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a298ef3765ce453971174cd_image6.png)
 
 ## **The future of building managed agents**
 
@@ -158,6 +158,30 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Apr 29, 2026
+
+### Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
+
+Agents
+
+[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](#)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
+
+[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](https://claude.com/blog/claude-api-skill)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22562f020146c9ec973_f8f4644253bde2f901550431b871b6dcf91e5d9d-1000x1000.svg)
+
+Apr 10, 2026
+
+### Multi-agent coordination patterns: Five approaches and when to use them
+
+Agents
+
+[Multi-agent coordination patterns: Five approaches and when to use them](#)Multi-agent coordination patterns: Five approaches and when to use them
+
+[Multi-agent coordination patterns: Five approaches and when to use them](https://claude.com/blog/multi-agent-coordination-patterns)Multi-agent coordination patterns: Five approaches and when to use them
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
 
 Aug 6, 2026
@@ -181,30 +205,6 @@ Enterprise AI
 [Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6909386cc7ad3ed2a7ec8eed_Object-ThoughtBubble.svg)
-
-Nov 10, 2025
-
-### Best practices for prompt engineering for 2026
-
-Agents
-
-[Best practices for prompt engineering for 2026](#)Best practices for prompt engineering for 2026
-
-[Best practices for prompt engineering for 2026](https://claude.com/blog/best-practices-for-prompt-engineering)Best practices for prompt engineering for 2026
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
-Jul 24, 2026
-
-### The new rules of context engineering for Claude 5 generation models
-
-Claude Code
-
-[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
-
-[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
 
 ## Transform how your organization operates with Claude
 

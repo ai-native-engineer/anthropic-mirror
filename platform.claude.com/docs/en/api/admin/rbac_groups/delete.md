@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/rbac_groups/delete -->
 
+---
+title: Delete RBAC Group
+url: https://platform.claude.com/docs/en/api/admin/rbac_groups/delete
+---
+
 ## Delete RBAC Group
 
 **delete** `/v1/organizations/rbac_groups/{group_id}`

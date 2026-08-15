@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/list -->
 
+---
+title: List User Profiles
+url: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/list
+---
+
 ## List User Profiles
 
 `$ ant beta:user-profiles list`

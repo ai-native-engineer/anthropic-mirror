@@ -23,7 +23,7 @@ The person who completes the link must be both an **owner of the GitHub organiza
 
 Open the GitHub settings page
 
-Open [`claude.ai/admin-settings/claude-code/github`](https://claude.ai/admin-settings/claude-code/github). This page is shared with Claude Code; one connection serves both products.
+Open [`claude.ai/admin-settings/github`](https://claude.ai/admin-settings/github). This page is shared with Claude Code; one connection serves both products.
 
 2
 
@@ -48,7 +48,7 @@ The remaining steps are in the Claude Tag admin page, not GitHub’s settings. R
 
 Open the bundle's Repositories tab
 
-Open an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle) and go to its **Repositories** tab. Before any GitHub organization is linked, this tab shows a **Get started with GitHub** button that opens [`claude.ai/admin-settings/claude-code/github`](https://claude.ai/admin-settings/claude-code/github).
+Open an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle) and go to its **Repositories** tab. Before any GitHub organization is linked, this tab shows a **Get started with GitHub** button that opens [`claude.ai/admin-settings/github`](https://claude.ai/admin-settings/github).
 
 2
 
@@ -58,7 +58,7 @@ Choose the repositories Claude can read from and open pull requests against. Acc
 
 ##  Verify GitHub access
 
-* The GitHub organization shows as **Connected** under **Connected GitHub accounts** at [`claude.ai/admin-settings/claude-code/github`](https://claude.ai/admin-settings/claude-code/github).
+* The GitHub organization shows as **Connected** under **Connected GitHub accounts** at [`claude.ai/admin-settings/github`](https://claude.ai/admin-settings/github).
 * The granted repositories are listed in the bundle’s **Repositories** tab.
 * For the end-to-end check, open a draft PR from a test channel; see [Verify the bundle is live](https://claude.com/docs/claude-tag/admins/attach-to-scope#verify-the-bundle-is-live).
 
@@ -68,7 +68,7 @@ When Claude replies “That environment or repo isn’t configured for Claude Co
 
 | Check | Where |
 | --- | --- |
-| The GitHub organization that owns the repository shows **Connected** under **Connected GitHub accounts** | [`claude.ai/admin-settings/claude-code/github`](https://claude.ai/admin-settings/claude-code/github). An installation still waiting on a GitHub organization owner shows **Needs permissions**; **Review permissions** opens the approval on github.com. |
+| The GitHub organization that owns the repository shows **Connected** under **Connected GitHub accounts** | [`claude.ai/admin-settings/github`](https://claude.ai/admin-settings/github). An installation still waiting on a GitHub organization owner shows **Needs permissions**; **Review permissions** opens the approval on github.com. |
 | The repository is listed on the bundle’s **Repositories** tab, and that bundle is attached to the channel’s scope | [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) → **Access bundles** → the bundle → **Repositories**. A repository granted in one bundle isn’t reachable from a channel under a different bundle. |
 
 Repository grants apply to new threads. After changing the **Repositories** tab, start a fresh thread in the channel and name the repository in the first message.

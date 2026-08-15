@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/messages/batches/cancel -->
 
+---
+title: Cancel a Message Batch
+url: https://platform.claude.com/docs/en/api/go/beta/messages/batches/cancel
+---
+
 ## Cancel a Message Batch
 
 `client.Beta.Messages.Batches.Cancel(ctx, messageBatchID, body) (*BetaMessageBatch, error)`
@@ -91,6 +96,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
       - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
       - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
 ### Returns
 

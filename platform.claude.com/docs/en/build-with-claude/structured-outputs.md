@@ -1,17 +1,17 @@
 <!-- source: https://platform.claude.com/docs/en/build-with-claude/structured-outputs -->
 
-# Structured outputs
-
-Get validated JSON results from agent workflows
+---
+title: Structured outputs
+url: https://platform.claude.com/docs/en/build-with-claude/structured-outputs
+description: Get validated JSON results from agent workflows
+---
 
 ## Compatibility
-- [ZDR](/docs/en/manage-claude/api-and-data-retention): eligible (excludes [Covered Models](/docs/en/manage-claude/api-and-data-retention#model-specific-data-retention-requirements))
+- [ZDR](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention): eligible (excludes [Covered Models](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention#model-specific-data-retention-requirements))
 - Supported models: `claude-fable-5`, `claude-mythos-5`, `claude-mythos-preview`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, `claude-sonnet-5`, `claude-sonnet-4-6`, `claude-sonnet-4-5-20250929`, `claude-opus-4-5-20251101`, `claude-haiku-4-5-20251001`
 - Platforms: Claude API, Claude Platform on AWS, Amazon Bedrock [1], Google Cloud, Microsoft Foundry [2]
-1. On Amazon Bedrock, structured outputs are natively GA for Claude Opus 5, Claude Opus 4.8, Claude Opus 4.6, Claude Sonnet 4.6, Claude Sonnet 4.5, Claude Opus 4.5, and Claude Haiku 4.5. Claude Sonnet 5, Claude Opus 4.7, and Claude Mythos Preview are available through [Claude in Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock) (the Messages-API Bedrock endpoint).
-2. On [Microsoft Foundry](/docs/en/build-with-claude/claude-in-microsoft-foundry), structured outputs require a [Hosted on Anthropic deployment](/docs/en/build-with-claude/claude-in-microsoft-foundry#additional-features-not-supported-when-hosted-on-azure).
-
----
+1. On Amazon Bedrock, structured outputs are available for Claude Opus 4.6, Claude Sonnet 4.6, Claude Sonnet 4.5, Claude Opus 4.5, and Claude Haiku 4.5.
+2. On [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry), structured outputs require a [Hosted on Anthropic deployment](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry#additional-features-not-supported-when-hosted-on-azure).
 
 Structured outputs constrain Claude's responses to follow a specific schema, ensuring valid, parseable output for downstream processing. Structured outputs provide two complementary features:
 
@@ -364,7 +364,7 @@ JSON outputs control Claude's response format, ensuring Claude returns valid JSO
 
 <Steps>
   <Step title="Define your JSON schema">
-    Create a JSON schema that describes the structure you want Claude to follow. The schema uses standard JSON Schema format with some limitations (see [JSON Schema limitations](#json-schema-limitations)).
+    Create a JSON schema that describes the structure you want Claude to follow. The schema uses standard JSON Schema format with some limitations (see [JSON Schema limitations](https://platform.claude.com/docs/en/build-with-claude/structured-outputs#json-schema-limitations)).
   </Step>
 
   <Step title="Add the output_config.format parameter">
@@ -399,10 +399,9 @@ Instead of writing raw JSON schemas, you can use familiar schema definition tool
 
 <CodeGroup exclude="shell:cURL">
   ```bash CLI
-  { read -r _ NAME; read -r _ EMAIL; } < <(
-    ant messages create \
-      --transform 'content.#(type=="text").text|@fromstr|{name,email}' \
-      --format yaml <<'YAML'
+  ant messages create \
+    --transform 'content.#(type=="text").text|@fromstr|{name,email}' \
+    --format yaml <<'YAML'
   model: claude-opus-5
   max_tokens: 1024
   messages:
@@ -424,8 +423,6 @@ Instead of writing raw JSON schemas, you can use familiar schema definition tool
         required: [name, email, plan_interest, demo_requested]
         additionalProperties: false
   YAML
-  )
-  printf '%s (%s)\n' "$NAME" "$EMAIL"
   ```
 
   ```python Python
@@ -832,7 +829,7 @@ Each SDK provides helpers that make working with structured outputs easier. See 
 
     **Type inference requires `as const`.** Use a literal object expression with a `const` assertion so TypeScript can narrow the property types. Without `as const`, the inferred type collapses to `unknown`.
 
-    **Schema transformation.** By default, the helper transforms the schema the same way `zodOutputFormat()` does: removing unsupported constraints, adding `additionalProperties: false` to objects, and filtering string formats. Pass `jsonSchemaOutputFormat(schema, { transform: false })` to send your schema to the API unchanged. See [How SDK transformation works](#how-sdk-transformation-works).
+    **Schema transformation.** By default, the helper transforms the schema the same way `zodOutputFormat()` does: removing unsupported constraints, adding `additionalProperties: false` to objects, and filtering string formats. Pass `jsonSchemaOutputFormat(schema, { transform: false })` to send your schema to the API unchanged. See [How SDK transformation works](https://platform.claude.com/docs/en/build-with-claude/structured-outputs#how-sdk-transformation-works).
   </Tab>
 
   <Tab title="C#">
@@ -941,7 +938,7 @@ Each SDK provides helpers that make working with structured outputs easier. See 
   </Tab>
 
   <Tab title="Java">
-    Java examples on this page use [JDK 25 compact source file](https://openjdk.org/jeps/512) syntax; see the [Java SDK requirements](/docs/en/cli-sdks-libraries/sdks/java#requirements) for the substitution on earlier JDKs.
+    Java examples on this page use [JDK 25 compact source file](https://openjdk.org/jeps/512) syntax; see the [Java SDK requirements](https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/java#requirements) for the substitution on earlier JDKs.
 
     **`outputConfig(Class<T>)` method**
 
@@ -983,7 +980,7 @@ Each SDK provides helpers that make working with structured outputs easier. See 
     </Accordion>
 
     <Accordion title="Local schema validation">
-      Structured outputs support a [subset of the JSON Schema language](/docs/en/build-with-claude/structured-outputs#json-schema-limitations). The SDK generates schemas automatically from classes to align with this subset. The `outputConfig(Class<T>)` method performs a validation check on the schema derived from the specified class.
+      Structured outputs support a [subset of the JSON Schema language](https://platform.claude.com/docs/en/build-with-claude/structured-outputs#json-schema-limitations). The SDK generates schemas automatically from classes to align with this subset. The `outputConfig(Class<T>)` method performs a validation check on the schema derived from the specified class.
 
       Key points:
 
@@ -2359,7 +2356,7 @@ This means Claude receives a simplified schema, but your code still enforces all
 
 ## Strict tool use
 
-For enforcing JSON Schema compliance on tool inputs with grammar-constrained sampling, see [Strict tool use](/docs/en/agents-and-tools/tool-use/strict-tool-use).
+For enforcing JSON Schema compliance on tool inputs with grammar-constrained sampling, see [Strict tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/strict-tool-use).
 
 ## Using both features together
 
@@ -2807,7 +2804,7 @@ When using structured outputs, Claude automatically receives an additional syste
 
 * Your input token count is slightly higher
 * The injected prompt costs you tokens like any other system prompt
-* Changing the `output_config.format` parameter will invalidate any [prompt cache](/docs/en/build-with-claude/prompt-caching) for that conversation thread
+* Changing the `output_config.format` parameter will invalidate any [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for that conversation thread
 
 ### JSON Schema limitations
 
@@ -2815,7 +2812,7 @@ Structured outputs support standard JSON Schema with some limitations. Both JSON
 
 <Accordion title="Supported features">
   * All basic types: object, array, string, integer, number, boolean, null
-  * `enum` (strings, numbers, bools, or nulls only - no complex types; see [Invalid outputs](#invalid-outputs) for a capitalization caveat)
+  * `enum` (strings, numbers, bools, or nulls only - no complex types; see [Invalid outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs#invalid-outputs) for a capitalization caveat)
   * `const`
   * `anyOf` and `allOf` (with limitations - `allOf` with `$ref` not supported)
   * `$ref`, `$def`, and `definitions` (external `$ref` not supported)
@@ -2856,7 +2853,7 @@ Structured outputs support standard JSON Schema with some limitations. Both JSON
 </Accordion>
 
 <Tip>
-  The Python, TypeScript, Ruby, and PHP SDKs can automatically transform schemas with unsupported features by removing them and adding constraints to field descriptions. The C# and Go SDKs do the same when the schema is derived from a native type. See [SDK-specific methods](#sdk-specific-methods) for details.
+  The Python, TypeScript, Ruby, and PHP SDKs can automatically transform schemas with unsupported features by removing them and adding constraints to field descriptions. The C# and Go SDKs do the same when the schema is derived from a native type. See [SDK-specific methods](https://platform.claude.com/docs/en/build-with-claude/structured-outputs#sdk-specific-methods) for details.
 </Tip>
 
 ### Property ordering
@@ -2977,42 +2974,42 @@ Prompts and responses are processed with ZDR when using structured outputs. Howe
 
 Structured outputs are HIPAA eligible, but **PHI must not be included in JSON schema definitions**. The API compiles JSON schemas into grammars that are cached separately from message content, and these cached schemas do not receive the same PHI protections as prompts and responses. Do not include PHI in schema property names, `enum` values, `const` values, or `pattern` regular expressions. PHI should only appear in message content (prompts and responses), where it is protected under HIPAA safeguards.
 
-For ZDR and HIPAA eligibility across all features, see [API and data retention](/docs/en/manage-claude/api-and-data-retention).
+For ZDR and HIPAA eligibility across all features, see [API and data retention](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention).
 
 ## Feature compatibility
 
 **Works with:**
 
-* **[Batch processing](/docs/en/build-with-claude/batch-processing):** Process structured outputs at scale with 50% discount
-* **[Token counting](/docs/en/build-with-claude/token-counting):** Count tokens without compilation
-* **[Streaming](/docs/en/build-with-claude/streaming):** Stream structured outputs like normal responses
+* **[Batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing):** Process structured outputs at scale with 50% discount
+* **[Token counting](https://platform.claude.com/docs/en/build-with-claude/token-counting):** Count tokens without compilation
+* **[Streaming](https://platform.claude.com/docs/en/build-with-claude/streaming):** Stream structured outputs like normal responses
 * **Combined usage:** Use JSON outputs (`output_config.format`) and strict tool use (`strict: true`) together in the same request
 
 **Incompatible with:**
 
-* **[Citations](/docs/en/build-with-claude/citations):** Citations require interleaving citation blocks with text, which conflicts with strict JSON schema constraints. Returns 400 error if citations enabled with `output_config.format`.
+* **[Citations](https://platform.claude.com/docs/en/build-with-claude/citations):** Citations require interleaving citation blocks with text, which conflicts with strict JSON schema constraints. Returns 400 error if citations enabled with `output_config.format`.
 * **Message Prefilling:** Incompatible with JSON outputs
 
 <Tip>
-  **Grammar scope:** Grammars apply only to Claude's direct output, not to tool use calls, tool results, or thinking tags (when using [thinking](/docs/en/build-with-claude/thinking)). Grammar state resets between sections, allowing Claude to think freely while still producing structured output in the final response.
+  **Grammar scope:** Grammars apply only to Claude's direct output, not to tool use calls, tool results, or thinking tags (when using [thinking](https://platform.claude.com/docs/en/build-with-claude/thinking)). Grammar state resets between sections, allowing Claude to think freely while still producing structured output in the final response.
 </Tip>
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Citations" icon="book-bookmark" href="/docs/en/build-with-claude/citations">
+  <Card title="Citations" icon="book-bookmark" href="https://platform.claude.com/docs/en/build-with-claude/citations">
     Have Claude cite its sources when answering questions about provided documents.
   </Card>
 
-  <Card title="Strict tool use" icon="check" href="/docs/en/agents-and-tools/tool-use/strict-tool-use">
+  <Card title="Strict tool use" icon="check" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/strict-tool-use">
     Enforce JSON Schema compliance on Claude's tool inputs with grammar-constrained sampling.
   </Card>
 
-  <Card title="Tool use with Claude" icon="wrench" href="/docs/en/agents-and-tools/tool-use/overview">
+  <Card title="Tool use with Claude" icon="wrench" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview">
     Connect Claude to external tools and APIs. Learn where tools execute and how the agentic loop works.
   </Card>
 
-  <Card title="Pricing" icon="calculator" href="/docs/en/about-claude/pricing">
+  <Card title="Pricing" icon="calculator" href="https://platform.claude.com/docs/en/about-claude/pricing">
     Learn about Anthropic's pricing structure for models and features.
   </Card>
 </CardGroup>

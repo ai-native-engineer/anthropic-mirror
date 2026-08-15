@@ -25,7 +25,7 @@ The three setup steps before your first task: open the desktop app, run the guid
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f210534cc7e321a4454c18_Screenshot%202026-04-27%20at%209.28.38%E2%80%AFAM.png)
 
-[Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) takes on whole tasks across your files and connected tools to deliver finished work. It reads from your folders and the services you connect, does the work over many steps, and saves the result where you can open it.
+[Claude Cowork](https://claude.com/product/cowork) takes on whole tasks across your files and connected tools to deliver finished work. It reads from your folders and the services you connect, does the work over many steps, and saves the result where you can open it.
 
 > If you're still deciding which mode fits a task, see [when to use Chat vs Cowork](https://claude.com/resources/tutorials/choosing-between-claude-cowork-or-chat).
 

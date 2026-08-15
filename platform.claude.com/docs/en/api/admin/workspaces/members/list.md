@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/workspaces/members/list -->
 
+---
+title: List Workspace Members
+url: https://platform.claude.com/docs/en/api/admin/workspaces/members/list
+---
+
 ## List Workspace Members
 
 **get** `/v1/organizations/workspaces/{workspace_id}/members`
@@ -48,21 +53,21 @@ List Workspace Members
 
     ID of the Workspace.
 
-  - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
+  - `workspace_role: "workspace_admin" or "workspace_billing" or "workspace_developer" or 2 more`
 
     Role of the Workspace Member.
-
-    - `"workspace_user"`
-
-    - `"workspace_developer"`
-
-    - `"workspace_restricted_developer"`
 
     - `"workspace_admin"`
 
     - `"workspace_billing"`
 
-- `first_id: string`
+    - `"workspace_developer"`
+
+    - `"workspace_restricted_developer"`
+
+    - `"workspace_user"`
+
+- `first_id: string or null`
 
   First ID in the `data` list. Can be used as the `before_id` for the previous page.
 
@@ -70,7 +75,7 @@ List Workspace Members
 
   Indicates if there are more results in the requested page direction.
 
-- `last_id: string`
+- `last_id: string or null`
 
   Last ID in the `data` list. Can be used as the `after_id` for the next page.
 

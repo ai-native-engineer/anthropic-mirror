@@ -42,12 +42,12 @@ On the new application’s left navigation, go to **Manage** > **Authentication*
 
 ```
 ms-appx-web://Microsoft.AAD.BrokerPlugin/APPLICATION_CLIENT_ID
-msauth.com.anthropic.claudefordesktop.helper://auth
+msauth.com.anthropic.claudefordesktop://auth
 ```
 
 The `http://localhost` URI is the standard loopback redirect for browser sign-in. When a member signs in through their browser, Microsoft Entra sends the response to a temporary listener on the member’s own machine, so it never leaves the device. The other two URIs let Claude Desktop sign in through the operating system’s account broker on Windows and macOS devices that meet the [brokered sign-in requirements](#brokered-sign-in-requirements). Brokered sign-in carries the device-identity claim that Conditional Access policies such as **Require compliant device** evaluate, so register all three now even if you are not sure you need them.
 
-All three URIs must be under **Mobile and desktop applications**, not **Web**. Registering them as **Web** causes Entra error `AADSTS50011` at sign-in. After you save, Entra may display the `msauth.com.anthropic.claudefordesktop.helper://auth` URI under a separate **iOS/macOS** section. That’s expected, since both sections are public-client platforms. To double-check, open **Manage** > **Manifest** and confirm the three URIs appear under `publicClient.redirectUris` rather than `web.redirectUris`.
+All three URIs must be under **Mobile and desktop applications**, not **Web**. Registering them as **Web** causes Entra error `AADSTS50011` at sign-in. After you save, Entra may display the `msauth.com.anthropic.claudefordesktop://auth` URI under a separate **iOS/macOS** section. That’s expected, since both sections are public-client platforms. To double-check, open **Manage** > **Manifest** and confirm the three URIs appear under `publicClient.redirectUris` rather than `web.redirectUris`. If the list also contains `msauth.com.anthropic.claudefordesktop.helper://auth`, remove that entry. Claude Desktop does not use it.
 
 3
 
@@ -177,8 +177,8 @@ When the broker is available, it carries the device claim, and Conditional Acces
 
 | What the member sees | What it means | How to fix it |
 | --- | --- | --- |
-| Entra error `AADSTS50011` at sign-in | One of the redirect URIs from step 2 is missing from the app registration, or was added under the **Web** platform instead of **Mobile and desktop applications**. | Re-check step 2 above. |
-| Entra error `AADSTS900971` at sign-in on macOS | No redirect URI is registered for macOS brokered sign-in. | Add `msauth.com.anthropic.claudefordesktop.helper://auth` under **Mobile and desktop applications** (step 2). |
+| Entra error `AADSTS50011` at sign-in | One of the redirect URIs from step 2 is missing from the app registration, was entered with a different value, or was added under the **Web** platform instead of **Mobile and desktop applications**. The error message names the URI that Claude Desktop sent. | Compare it with step 2 and add or correct that URI under **Mobile and desktop applications**. |
+| Entra error `AADSTS900971` at sign-in on macOS | No redirect URI is registered for macOS brokered sign-in. | Add `msauth.com.anthropic.claudefordesktop://auth` under **Mobile and desktop applications** (step 2). |
 | Entra error `AADSTS65001` at sign-in | The Microsoft Graph permissions have not been approved for the tenant, or a permission the connector requests is not listed under the app registration’s **API permissions** (so **Grant admin consent** never covered it). | Confirm that every permission selected under **Access** on the Config page, plus `User.Read` and `offline_access`, is listed under the app registration’s **API permissions**. Add any that are missing, then select **Grant admin consent** (step 4). |
 | A Microsoft consent prompt appears at sign-in even though you selected **Grant admin consent** | Same cause as `AADSTS65001` above, on a tenant that allows members to approve permissions themselves. | See the `AADSTS65001` row above. |
 | Entra error `AADSTS7000218` at sign-in | **Allow public client flows** is set to **No** on the app registration. | Set it to **Yes** (step 3). |

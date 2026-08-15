@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/completions -->
 
+---
+title: Completions
+url: https://platform.claude.com/docs/en/api/typescript/completions
+---
+
 # Completions
 
 ## Create a Text Completion
@@ -10,9 +15,9 @@
 
 [Legacy] Create a Text Completion.
 
-The Text Completions API is a legacy API. We recommend using the [Messages API](https://docs.claude.com/en/api/messages) going forward.
+The Text Completions API is a legacy API. We recommend using the [Messages API](https://platform.claude.com/docs/en/api/messages) going forward.
 
-Future models and features will not be compatible with Text Completions. See our [migration guide](https://docs.claude.com/en/api/migrating-from-text-completions-to-messages) for guidance in migrating from Text Completions to Messages.
+Future models and features will not be compatible with Text Completions. See our [migration guide](https://platform.claude.com/docs/en/build-with-claude/working-with-messages) for guidance in migrating from Text Completions to Messages.
 
 ### Parameters
 
@@ -32,7 +37,11 @@ Future models and features will not be compatible with Text Completions. See our
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-fable-5" | "claude-mythos-5" | "claude-opus-4-8" | 12 more`
+      - `"claude-sonnet-5" | "claude-fable-5" | "claude-mythos-5" | 12 more`
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -42,13 +51,17 @@ Future models and features will not be compatible with Text Completions. See our
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -56,7 +69,7 @@ Future models and features will not be compatible with Text Completions. See our
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -72,11 +85,11 @@ Future models and features will not be compatible with Text Completions. See our
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -85,14 +98,6 @@ Future models and features will not be compatible with Text Completions. See our
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
-
-        - `"claude-opus-4-1"`
-
-          Exceptional model for specialized complex tasks
-
-        - `"claude-opus-4-1-20250805"`
-
-          Exceptional model for specialized complex tasks
 
       - `(string & {})`
 
@@ -114,7 +119,7 @@ Future models and features will not be compatible with Text Completions. See our
       Assistant:"
       ```
 
-      See [prompt validation](https://docs.claude.com/en/api/prompt-validation) and our guide to [prompt design](https://docs.claude.com/en/docs/intro-to-prompting) for more details.
+      See [prompt validation](https://platform.claude.com/docs/en/build-with-claude/working-with-messages) and our guide to [prompt design](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) for more details.
 
     - `metadata?: Metadata`
 
@@ -138,7 +143,7 @@ Future models and features will not be compatible with Text Completions. See our
 
       Body param: Whether to incrementally stream the response using server-sent events.
 
-      See [streaming](https://docs.claude.com/en/api/streaming) for details.
+      See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
 
       - `false`
 
@@ -172,7 +177,7 @@ Future models and features will not be compatible with Text Completions. See our
 
       - `(string & {})`
 
-      - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+      - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
 
         - `"message-batches-2024-09-24"`
 
@@ -224,11 +229,21 @@ Future models and features will not be compatible with Text Completions. See our
 
         - `"cache-diagnosis-2026-04-07"`
 
+        - `"dreaming-2026-04-21"`
+
         - `"thinking-token-count-2026-05-13"`
 
         - `"server-side-fallback-2026-06-01"`
 
+        - `"server-side-fallback-2026-07-01"`
+
         - `"fallback-credit-2026-06-01"`
+
+        - `"fallback-credit-2026-07-01"`
+
+        - `"agent-memory-2026-07-22"`
+
+        - `"mid-conversation-tool-changes-2026-07-01"`
 
   - `CompletionCreateParamsNonStreaming extends CompletionCreateParamsBase`
 
@@ -236,7 +251,7 @@ Future models and features will not be compatible with Text Completions. See our
 
       Body param: Whether to incrementally stream the response using server-sent events.
 
-      See [streaming](https://docs.claude.com/en/api/streaming) for details.
+      See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
 
   - `CompletionCreateParamsStreaming extends CompletionCreateParamsBase`
 
@@ -244,7 +259,7 @@ Future models and features will not be compatible with Text Completions. See our
 
       Body param: Whether to incrementally stream the response using server-sent events.
 
-      See [streaming](https://docs.claude.com/en/api/streaming) for details.
+      See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
 
       - `true`
 
@@ -268,7 +283,11 @@ Future models and features will not be compatible with Text Completions. See our
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `"claude-fable-5" | "claude-mythos-5" | "claude-opus-4-8" | 12 more`
+    - `"claude-sonnet-5" | "claude-fable-5" | "claude-mythos-5" | 12 more`
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -278,13 +297,17 @@ Future models and features will not be compatible with Text Completions. See our
 
         Most capable model for cybersecurity and biology research
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-mythos-preview"`
 
@@ -292,7 +315,7 @@ Future models and features will not be compatible with Text Completions. See our
 
       - `"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -308,11 +331,11 @@ Future models and features will not be compatible with Text Completions. See our
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -321,14 +344,6 @@ Future models and features will not be compatible with Text Completions. See our
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
-
-      - `"claude-opus-4-1"`
-
-        Exceptional model for specialized complex tasks
-
-      - `"claude-opus-4-1-20250805"`
-
-        Exceptional model for specialized complex tasks
 
     - `(string & {})`
 
@@ -352,16 +367,16 @@ Future models and features will not be compatible with Text Completions. See our
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
 const completion = await client.completions.create({
   max_tokens_to_sample: 256,
-  model: 'claude-2.1',
-  prompt: '\n\nHuman: Hello, world!\n\nAssistant:',
+  model: "claude-2.1",
+  prompt: "\n\nHuman: Hello, world!\n\nAssistant:"
 });
 
 console.log(completion.id);
@@ -401,7 +416,11 @@ console.log(completion.id);
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `"claude-fable-5" | "claude-mythos-5" | "claude-opus-4-8" | 12 more`
+    - `"claude-sonnet-5" | "claude-fable-5" | "claude-mythos-5" | 12 more`
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -411,13 +430,17 @@ console.log(completion.id);
 
         Most capable model for cybersecurity and biology research
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-mythos-preview"`
 
@@ -425,7 +448,7 @@ console.log(completion.id);
 
       - `"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -441,11 +464,11 @@ console.log(completion.id);
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -454,14 +477,6 @@ console.log(completion.id);
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
-
-      - `"claude-opus-4-1"`
-
-        Exceptional model for specialized complex tasks
-
-      - `"claude-opus-4-1-20250805"`
-
-        Exceptional model for specialized complex tasks
 
     - `(string & {})`
 

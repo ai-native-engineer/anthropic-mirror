@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/environments/create -->
 
+---
+title: Create Environment
+url: https://platform.claude.com/docs/en/api/cli/beta/environments/create
+---
+
 ## Create Environment
 
 `$ ant beta:environments create`

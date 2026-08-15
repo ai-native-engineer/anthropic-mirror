@@ -1,13 +1,19 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/spend_limits/delete -->
 
+---
+title: Delete Spend Limit
+url: https://platform.claude.com/docs/en/api/admin/spend_limits/delete
+---
+
 ## Delete Spend Limit
 
 **delete** `/v1/organizations/spend_limits/{spend_limit_id}`
 
 Delete a per-user spend limit override.
 
-The member falls back to any inherited cap at that period. Seat-tier,
-group, and organization-level rows cannot be deleted via this endpoint.
+The member falls back to any inherited spend limit at that period.
+Seat-tier, group, and organization-level rows cannot be deleted via
+this endpoint.
 
 ### Path Parameters
 

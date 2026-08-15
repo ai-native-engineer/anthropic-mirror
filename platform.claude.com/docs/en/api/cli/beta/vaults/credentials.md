@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials -->
 
+---
+title: Credentials
+url: https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials
+---
+
 # Credentials
 
 ## Create Credential
@@ -126,9 +131,21 @@ Create Credential
 
         - `"static_bearer"`
 
-    - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+    - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: object { body, header }`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -344,9 +361,21 @@ List Credentials
 
           - `"static_bearer"`
 
-      - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+      - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
         Environment variable credential details. The secret value is never returned.
+
+        - `injection_location: object { body, header }`
+
+          Where in the outbound request the secret value is substituted.
+
+          - `body: boolean`
+
+            Whether the placeholder is substituted in the request body.
+
+          - `header: boolean`
+
+            Whether the placeholder is substituted in request header values.
 
         - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -558,9 +587,21 @@ Get Credential
 
         - `"static_bearer"`
 
-    - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+    - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: object { body, header }`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -776,9 +817,21 @@ Update Credential
 
         - `"static_bearer"`
 
-    - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+    - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: object { body, header }`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -1036,9 +1089,21 @@ Archive Credential
 
         - `"static_bearer"`
 
-    - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+    - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: object { body, header }`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -1384,9 +1449,21 @@ ant beta:vaults:credentials mcp-oauth-validate \
 
         - `"static_bearer"`
 
-    - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+    - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: object { body, header }`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -1598,9 +1675,21 @@ ant beta:vaults:credentials mcp-oauth-validate \
 
 ### Beta Managed Agents Environment Variable Auth Response
 
-- `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+- `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
   Environment variable credential details. The secret value is never returned.
+
+  - `injection_location: object { body, header }`
+
+    Where in the outbound request the secret value is substituted.
+
+    - `body: boolean`
+
+      Whether the placeholder is substituted in the request body.
+
+    - `header: boolean`
+
+      Whether the placeholder is substituted in request header values.
 
   - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -1636,7 +1725,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
 
 ### Beta Managed Agents Environment Variable Create Params
 
-- `beta_managed_agents_environment_variable_create_params: object { networking, secret_name, secret_value, type }`
+- `beta_managed_agents_environment_variable_create_params: object { networking, secret_name, secret_value, 2 more }`
 
   Parameters for creating an environment variable credential.
 
@@ -1676,15 +1765,39 @@ ant beta:vaults:credentials mcp-oauth-validate \
 
     - `"environment_variable"`
 
+  - `injection_location: optional object { body, header }`
+
+    Where in the outbound request the secret value may be substituted.
+
+    - `body: optional boolean`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header: optional boolean`
+
+      Substitute when the placeholder appears in a request header value.
+
 ### Beta Managed Agents Environment Variable Update Params
 
-- `beta_managed_agents_environment_variable_update_params: object { type, networking, secret_value }`
+- `beta_managed_agents_environment_variable_update_params: object { type, injection_location, networking, secret_value }`
 
   Parameters for updating an environment variable credential. `secret_name` is immutable.
 
   - `type: "environment_variable"`
 
     - `"environment_variable"`
+
+  - `injection_location: optional object { body, header }`
+
+    Updated injection location.
+
+    - `body: optional boolean`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header: optional boolean`
+
+      Substitute when the placeholder appears in a request header value.
 
   - `networking: optional BetaManagedAgentsUnrestrictedCredentialNetworkingParams or BetaManagedAgentsLimitedCredentialNetworkingParams`
 
@@ -1713,6 +1826,48 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `secret_value: optional string`
 
     Updated secret value.
+
+### Beta Managed Agents Injection Location Params
+
+- `beta_managed_agents_injection_location_params: object { body, header }`
+
+  Where in the outbound request the secret value may be substituted.
+
+  - `body: optional boolean`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header: optional boolean`
+
+    Substitute when the placeholder appears in a request header value.
+
+### Beta Managed Agents Injection Location Response
+
+- `beta_managed_agents_injection_location_response: object { body, header }`
+
+  Where in the outbound request the secret value is substituted.
+
+  - `body: boolean`
+
+    Whether the placeholder is substituted in the request body.
+
+  - `header: boolean`
+
+    Whether the placeholder is substituted in request header values.
+
+### Beta Managed Agents Injection Location Update Params
+
+- `beta_managed_agents_injection_location_update_params: object { body, header }`
+
+  Updated injection location.
+
+  - `body: optional boolean`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header: optional boolean`
+
+    Substitute when the placeholder appears in a request header value.
 
 ### Beta Managed Agents Limited Credential Networking Params
 

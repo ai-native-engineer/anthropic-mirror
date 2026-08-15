@@ -45,7 +45,7 @@ The helper runs with a `PATH` that includes the user’s login-shell `PATH` and 
 
 ##  Timeouts and caching
 
-The helper’s output is cached for `inferenceCredentialHelperTtlSec` seconds (default 3600). After expiry it re-runs at the next session start.
+The helper’s output is cached for `inferenceCredentialHelperTtlSec` seconds (default 3600). Claude Desktop checks the cached credential’s expiry before each turn and, when it has expired or is about to, re-runs the helper transparently before sending the turn, with no sign-in prompt and no app relaunch. With a TTL of 120 seconds or less, Claude Desktop skips the per-turn check; the helper then re-runs at the next session start, or mid-session when the provider rejects the credential (see [Turn off mid-session re-runs](#turn-off-mid-session-re-runs)).
 Each run is bounded by `inferenceCredentialHelperTimeoutSec` seconds (default 60, maximum 600). When Claude Desktop re-runs the helper to recover a session mid-turn (`CLAUDE_HELPER_CONTEXT=mid-session-refresh`), the timeout is additionally clamped to 20 seconds so a slow helper can’t stall the turn. A helper’s silent path should comfortably finish within that window.
 
 ##  Turn off mid-session re-runs

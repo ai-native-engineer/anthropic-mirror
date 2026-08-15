@@ -1,9 +1,9 @@
 <!-- source: https://platform.claude.com/docs/en/cli-sdks-libraries/middleware -->
 
-# SDK middleware
-
-Intercept and modify requests and responses in the Anthropic SDKs.
-
+---
+title: SDK middleware
+url: https://platform.claude.com/docs/en/cli-sdks-libraries/middleware
+description: Intercept and modify requests and responses in the Anthropic SDKs.
 ---
 
 The Anthropic SDKs provide a middleware (or interceptor) hook that lets you run code before a request is sent and after the response is received. Use middleware for cross-cutting concerns such as logging, custom retries, request annotation, and refusal fallback handling.
@@ -32,171 +32,137 @@ Each middleware can inspect or replace the request before calling `next()`, and 
 
 Each middleware is a function that receives the outgoing request and a `next` callable. Call `next` to forward the request to the rest of the chain (or directly to the SDK core if this is the last middleware), and return its response. Anything before the `next` call runs on the way out; anything after runs on the way back.
 
-<Tabs>
+<CodeGroup exclude="shell">
+  ```python Python
+  def logging_middleware(request: APIRequest, call_next: CallNext) -> APIResponse[Any]:
+      # Before the request
+      print(f"-> {request.method} {request.url}")
 
-<Tab title="Python">
+      # Forward the request to the rest of the chain
+      response = call_next(request)
 
-```python hidelines={1..2}
-from anthropic import Anthropic, APIRequest, CallNext
+      # After the request
+      print(f"<- {response.status_code}")
 
+      return response
 
-def logging_middleware(request: APIRequest, call_next: CallNext):
+  client = Anthropic(middleware=[logging_middleware])
+  ```
+
+  ```typescript TypeScript
+  import type { Middleware } from "@anthropic-ai/sdk";
+
+  const loggingMiddleware: Middleware = async (request, next, ctx) => {
+    // Before the request
+    ctx.logger.debug("->", request.method, request.url);
+
+    // Forward the request to the rest of the chain
+    const response = await next(request);
+
+    // After the request
+    ctx.logger.debug("<-", response.status, request.url);
+
+    return response;
+  };
+
+  const client = new Anthropic({ middleware: [loggingMiddleware] });
+  ```
+
+  ```csharp C#
+  AnthropicClient client = new()
+  {
+      Handlers =
+      [
+          Handler.Create(async (request, next, cancellationToken) =>
+          {
+              // Before the request
+              Console.WriteLine($"Sending {request.Method} {request.RequestUri}");
+
+              // Forward the request to the next handler
+              var response = await next(request, cancellationToken);
+
+              // After the request
+              Console.WriteLine($"Received {(int)response.StatusCode}");
+
+              return response;
+          }),
+      ],
+  };
+  ```
+
+  ```go Go
+  client := anthropic.NewClient(
+  	option.WithMiddleware(func(req *http.Request, next option.MiddlewareNext) (*http.Response, error) {
+  		// Before the request
+  		start := time.Now()
+  		slog.Info("sending request", "method", req.Method, "url", req.URL)
+
+  		// Forward the request to the rest of the chain
+  		res, err := next(req)
+  		if err != nil {
+  			return nil, err
+  		}
+
+  		// After the request
+  		slog.Info("received response", "status", res.StatusCode, "duration", time.Since(start))
+
+  		return res, nil
+  	}),
+  )
+  ```
+
+  ```java Java
+  AnthropicClient client = AnthropicOkHttpClient.builder()
+      .fromEnv()
+      .addInterceptor(Interceptor.syncOnly((nextClient, request, requestOptions) -> {
+          // Before the request
+          IO.println(request.method() + " /" + String.join("/", request.pathSegments()));
+
+          // Forward the request to the next handler
+          HttpResponse response = nextClient.execute(request, requestOptions);
+
+          // After the request
+          IO.println(response.statusCode());
+
+          return response;
+      }))
+      .build();
+  ```
+
+  ```php PHP
+  $loggingMiddleware = function (RequestInterface $request, callable $next): ResponseInterface {
+      // Before the request
+      error_log("-> {$request->getMethod()} {$request->getUri()}");
+
+      // Forward the request to the rest of the chain
+      $response = $next($request);
+
+      // After the request
+      error_log("<- {$response->getStatusCode()}");
+
+      return $response;
+  };
+
+  $client = new Client(requestOptions: ['middleware' => [$loggingMiddleware]]);
+  ```
+
+  ```ruby Ruby
+  logging_middleware = lambda do |request, call_next|
     # Before the request
-    print(f"-> {request.method} {request.url}")
+    puts "-> #{request.method.upcase} #{request.url}"
 
     # Forward the request to the rest of the chain
-    response = call_next(request)
+    response = call_next.call(request)
 
     # After the request
-    print(f"<- {response.status_code}")
+    puts "<- #{response.status}"
 
-    return response
+    response
+  end
 
-
-client = Anthropic(middleware=[logging_middleware])
-```
-
-</Tab>
-
-<Tab title="TypeScript">
-
-```typescript
-import Anthropic, { type Middleware } from "@anthropic-ai/sdk";
-
-const loggingMiddleware: Middleware = async (request, next, ctx) => {
-  // Before the request
-  ctx.logger.debug("->", request.method, request.url);
-
-  // Forward the request to the rest of the chain
-  const response = await next(request);
-
-  // After the request
-  ctx.logger.debug("<-", response.status, request.url);
-
-  return response;
-};
-
-const client = new Anthropic({ middleware: [loggingMiddleware] });
-```
-
-</Tab>
-
-<Tab title="Go">
-
-```go hidelines={1..16,32..33}
-package main
-
-import (
-	"net/http"
-	"time"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-var _ = anthropic.ModelClaudeOpus4_8
-
-func LogReq(req *http.Request)                              {}
-func LogRes(res *http.Response, err error, d time.Duration) {}
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithMiddleware(func(req *http.Request, next option.MiddlewareNext) (res *http.Response, err error) {
-			// Before the request
-			start := time.Now()
-			LogReq(req)
-
-			// Forward the request to the next handler
-			res, err = next(req)
-
-			// Handle stuff after the request
-			LogRes(res, err, time.Since(start))
-
-			return res, err
-		}),
-	)
-	_ = client
-}
-```
-
-</Tab>
-
-<Tab title="Java">
-
-```java hidelines={1..6,22}
-import com.anthropic.client.AnthropicClient;
-import com.anthropic.client.okhttp.AnthropicOkHttpClient;
-import com.anthropic.core.http.HttpResponse;
-import com.anthropic.core.http.Interceptor;
-
-void main() {
-    AnthropicClient client = AnthropicOkHttpClient.builder()
-        .fromEnv()
-        .addInterceptor(Interceptor.syncOnly((nextClient, request, requestOptions) -> {
-            // Before the request
-            IO.println(request.method() + " /" + String.join("/", request.pathSegments()));
-
-            // Forward the request to the next handler
-            HttpResponse response = nextClient.execute(request, requestOptions);
-
-            // After the request
-            IO.println(response.statusCode());
-
-            return response;
-        }))
-        .build();
-}
-```
-
-</Tab>
-
-<Tab title="C#">
-
-```csharp hidelines={1..2}
-using System;
-using Anthropic;
-using Anthropic.Core;
-
-AnthropicClient client = new()
-{
-    Handlers =
-    [
-        Handler.Create(async (request, next, cancellationToken) =>
-        {
-            // Before the request
-            Console.WriteLine($"Sending {request.Method} {request.RequestUri}");
-
-            // Forward the request to the next handler
-            var response = await next(request, cancellationToken);
-
-            // Handle stuff after the request
-            Console.WriteLine($"Received {(int)response.StatusCode}");
-
-            return response;
-        }),
-    ],
-};
-```
-
-</Tab>
-
-<Tab title="Ruby">
-
-<Note>
-Middleware is not currently available in the Ruby SDK.
-</Note>
-
-</Tab>
-
-<Tab title="PHP">
-
-<Note>
-Middleware is not currently available in the PHP SDK.
-</Note>
-
-</Tab>
-
-</Tabs>
+  client = Anthropic::Client.new(middleware: [logging_middleware])
+  ```
+</CodeGroup>
 
 ## Middleware ordering
 
@@ -210,4 +176,4 @@ Each SDK also accepts a custom HTTP client (for proxy configuration, custom TLS,
 
 ## Built-in middleware
 
-The SDKs ship a refusal-fallback middleware that automatically retries requests Claude Fable 5 declines on a fallback model. See [Detect and retry on a fallback model](/docs/en/build-with-claude/refusals-and-fallback#client-side-fallback) for setup and per-language examples.
+The SDKs ship a refusal-fallback middleware that automatically retries requests Claude Fable 5 declines on a fallback model. See [Detect and retry on a fallback model](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#client-side-fallback) for setup and per-language examples.

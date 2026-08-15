@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/groups/retrieve -->
 
+---
+title: Get Compliance Group
+url: https://platform.claude.com/docs/en/api/compliance/groups/retrieve
+---
+
 ## Get Compliance Group
 
 **get** `/v1/compliance/groups/{group_id}`
@@ -22,7 +27,7 @@ Get Compliance Group
 
   Group identifier (tagged ID)
 
-- `created_at: string`
+- `created_at: string or null`
 
   Group creation timestamp (ISO 8601)
 
@@ -34,7 +39,7 @@ Get Compliance Group
 
   Group name
 
-- `roles: array of string`
+- `roles: array of string or null`
 
   Role IDs assigned to this group.
 
@@ -42,7 +47,7 @@ Get Compliance Group
 
   How the group was created ('direct' or 'scim')
 
-- `updated_at: string`
+- `updated_at: string or null`
 
   Group last-updated timestamp (ISO 8601)
 
@@ -57,14 +62,15 @@ curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID \
 
 ```json
 {
-  "id": "id",
-  "created_at": "created_at",
-  "description": "description",
-  "name": "name",
+  "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+  "created_at": "2025-03-12T18:22:41.123456",
+  "description": "All members of the engineering organization",
+  "name": "Engineering Team",
   "roles": [
-    "string"
+    "rbac_role_01SGBg3kEnZrdsVR2QmyJbvD",
+    "rbac_role_01HtCd4mFoAseWS3RnzKcwE7"
   ],
-  "source_type": "source_type",
-  "updated_at": "updated_at"
+  "source_type": "scim",
+  "updated_at": "2025-03-14T09:05:17.456789"
 }
 ```
