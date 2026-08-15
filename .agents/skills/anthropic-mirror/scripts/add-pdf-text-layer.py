@@ -64,8 +64,8 @@ def add_text_layer(path: Path) -> None:
         subprocess.run(
             [
                 "ocrmypdf",
-                "--plugin",
-                "ocrmypdf_appleocr",
+                "--ocr-engine",
+                "appleocr",
                 "--redo-ocr",
                 "--appleocr-recognition-mode",
                 "accurate",
@@ -113,8 +113,8 @@ def self_test() -> None:
         subprocess.run(
             [
                 "ocrmypdf",
-                "--plugin",
-                "ocrmypdf_appleocr",
+                "--ocr-engine",
+                "appleocr",
                 "--image-dpi",
                 "144",
                 "--output-type",
