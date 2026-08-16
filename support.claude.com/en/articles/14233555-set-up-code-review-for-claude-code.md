@@ -178,7 +178,7 @@ No, Code Review is not available to add to a **[custom role](https://support.cla
 * **[GitLab CI/CD](https://code.claude.com/docs/en/gitlab-ci-cd)** — Self-hosted Claude integration for GitLab pipelines.
 
 * [Automated Security Reviews in Claude Code](https://support.claude.com/en/articles/11932705-automated-security-reviews-in-claude-code)
-* [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Claude Code on the web](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)
 * [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
 * [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)

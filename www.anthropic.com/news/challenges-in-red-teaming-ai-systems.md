@@ -118,3 +118,5 @@ To support further adoption and standardization of red teaming, we encourage pol
 ## Conclusion
 
 Red teaming is a valuable technique for identifying and mitigating risks in AI systems. The various red teaming methods covered in this post highlight a handful of techniques available for different use cases and threat models. We look forward to collaborating with other actors to iterate on these techniques and work towards common standards for safety testing. By investing in red teaming, we can work towards building AI systems that are safe and beneficial to society. It is one of several tools in a larger effort to ensure AI is developed thoughtfully and with robust safeguards in place.
+
+Challenges in Red Teaming AI Systems \ Anthropic

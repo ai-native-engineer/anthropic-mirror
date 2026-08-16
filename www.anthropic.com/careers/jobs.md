@@ -58,11 +58,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5223093008)[Engineering M
 
 San Francisco, CA | New York City, NY
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5371065008)[Evals Infrastructure Tech Lead / Manager
-
-San Francisco, CA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5367417008)[Full-Stack Software Engineer, Reinforcement Learning
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5371065008)[Full-Stack Software Engineer, Reinforcement Learning
 
 San Francisco, CA | New York City, NY
 
@@ -94,7 +90,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/4926227008)[Performance E
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5224564008)[Research Engineer (Senior Staff+), Safeguards Labs
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5224564008)[Pre-training Distributed Systems Tech Lead / Manager
+
+San Francisco, CA
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5367417008)[Research Engineer (Senior Staff+), Safeguards Labs
 
 San Francisco, CA | New York City, NY
 
@@ -494,9 +494,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5116820008)
 
 ## Engineering & Design - Product
 
-33 Open Roles
+34 Open Roles
 
-33 Open Roles
+34 Open Roles
 
 [Developer Relations
 
@@ -626,7 +626,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5174747008)[Staff+ Softwa
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5157847008)[Staff+ Software Engineer, Public Sector
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5157847008)[Staff+ Software Engineer, Platform Ecosystem
+
+San Francisco, CA | New York City, NY
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5392335008)[Staff+ Software Engineer, Public Sector
 
 Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC
 
@@ -682,7 +686,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5076754008)[Director, US 
 
 Remote-Friendly (Travel Required) | San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5358120008)[Finance & Strategy, Compute
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5358120008)[Finance & Strategy Manager, Machines
+
+San Francisco, CA
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5197562008)[Finance & Strategy, Compute
 
 San Francisco, CA
 
@@ -702,11 +710,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5079133008)[Finance & Str
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5358088008)[Finance & Strategy, Machines (Manager)
-
-San Francisco, CA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5197562008)[Finance Systems Engineer, Finance and Strategy
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5358088008)[Finance Systems Engineer, Finance and Strategy
 
 San Francisco, CA
 
@@ -818,15 +822,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5286348008)
 
 ## Legal
 
-16 Open Roles
+15 Open Roles
 
-16 Open Roles
+15 Open Roles
 
-[AI Compliance Officer
-
-Dublin, IE
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5208218008)[Commercial Counsel, APAC
+[Commercial Counsel, APAC
 
 Sydney, Australia
 
@@ -890,15 +890,19 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5209661008)
 
 ## Marketing & Brand
 
-17 Open Roles
+18 Open Roles
 
-17 Open Roles
+18 Open Roles
 
 [Brand Marketing Lead, Enterprise
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5176201008)[Customer Program Manager, Executive Briefing Center
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5176201008)[Customer Marketing Manager, Industries
+
+San Francisco, CA | New York City, NY
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5390155008)[Customer Program Manager, Executive Briefing Center
 
 San Francisco, CA
 
@@ -1518,9 +1522,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5197597008)
 
 ## Security
 
-32 Open Roles
+34 Open Roles
 
-32 Open Roles
+34 Open Roles
 
 [AV Engineer
 
@@ -1562,7 +1566,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5383708008)[Executive Ser
 
 Boston, MA; Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY; Washington, DC
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5385626008)[GSOC Response & Policy Program Specialist
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5385626008)[Executive Support Senior Program Manager, Tech Advisor
+
+Boston, MA; Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY; Washington, DC
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391787008)[GSOC Response & Policy Program Specialist
 
 San Francisco, CA
 
@@ -1594,7 +1602,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5390019008)[IT Support En
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5370555008)[Offensive Hardware Security Engineer, Platform Security
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5370555008)[Manager, Corporate Network Engineering
+
+San Francisco, CA
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391782008)[Offensive Hardware Security Engineer, Platform Security
 
 San Francisco, CA | New York City, NY | Seattle, WA
 

@@ -452,5 +452,3 @@ Or read the [documentation](https://code.claude.com/docs/en/overview)
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
 Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
-
-Claude Code by Anthropic | AI Coding Agent, Terminal, IDE

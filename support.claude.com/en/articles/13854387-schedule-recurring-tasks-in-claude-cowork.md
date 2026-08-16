@@ -43,7 +43,7 @@ There are two ways to create a scheduled task:
 5. Once Claude has all the necessary information, it will output the name of the task it’s creating, the schedule it will follow, and what the task actually does.
 6. You can explicitly confirm you want to schedule the task when prompted by Claude by clicking “Schedule":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1786753800&signature=d1a54a12d443873d3f64aa62a48355108ec9b05bbe4b39ea44bd7652ad28c7a7&req=diEnEsl2mIJWUPMW1HO4zeLJBkPj%2BumPPx%2FSrZI7l8y3T2PSQ9v3EZjm4Ehc%0AZIsB%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1786753800&signature=d1a54a12d443873d3f64aa62a48355108ec9b05bbe4b39ea44bd7652ad28c7a7&req=diEnEsl2mIJWUPMW1HO4zeLJBkPj%2BumPPx%2FSrZI7l8y3T2PSQ9v3EZjm4Ehc%0AZIsB%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1786846500&signature=ee89179226f99db44b4f932b2dec18abedba92a389dc667009d4544364d64f80&req=diEnEsl2mIJWUPMW1HO4zeLJBkPs%2B%2ByCPx%2FSrZI7l8xh8ggzkVIPt%2FptZeJs%0ArmzP%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1786846500&signature=ee89179226f99db44b4f932b2dec18abedba92a389dc667009d4544364d64f80&req=diEnEsl2mIJWUPMW1HO4zeLJBkPs%2B%2ByCPx%2FSrZI7l8xh8ggzkVIPt%2FptZeJs%0ArmzP%0A)
 7. Claude will create and schedule your task, and it will be added to the **Scheduled tasks** page.
 
 ### Set up manually
@@ -76,6 +76,6 @@ To view and manage all your scheduled tasks, click “Scheduled” in the left s
 
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
 * [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+* [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

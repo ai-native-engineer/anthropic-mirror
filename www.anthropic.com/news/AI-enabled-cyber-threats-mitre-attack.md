@@ -57,3 +57,5 @@ In our [Red blog post](https://red.anthropic.com/2026/attack-navigator/), we sha
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
+
+What we learned mapping a year’s worth of AI-enabled cyber threats \ Anthropic

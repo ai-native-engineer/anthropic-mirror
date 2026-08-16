@@ -30,3 +30,5 @@ To jumpstart our new operations in France and Germany, we’re also partnering w
 * We’re teaming up with Unaite, a French organization that’s building developer communities and advancing AI education, in support of two hackathons to be held in 2026.
 
 In total, Anthropic now has offices in 12 cities, including in San Francisco, Seattle, New York, and Washington D.C. For information about career opportunities at Anthropic, including our new Paris and Munich offices, visit [anthropic.com/careers](https://www.anthropic.com/careers).
+
+New offices in Paris and Munich expand Anthropic’s European presence \ Anthropic

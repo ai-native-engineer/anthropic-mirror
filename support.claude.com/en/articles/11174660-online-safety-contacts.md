@@ -2,7 +2,7 @@
 
 # **Designated Point of Contact for Authorities**
 
-Government authorities can contact Anthropic directly by emailing [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#691b0c0e1c05081d061b440007181c001b000c1a2908071d011b0619000a470a0604). This is reserved for government officials seeking a point of contact and for governmental submissions to remove content.
+Government authorities can contact Anthropic directly by emailing [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#8ffdeae8fae3eefbe0fda2e6e1fefae6fde6eafccfeee1fbe7fde0ffe6eca1ece0e2). This is reserved for government officials seeking a point of contact and for governmental submissions to remove content.
 
 For other types of inquiries, please use the mechanisms described below. ￼
 

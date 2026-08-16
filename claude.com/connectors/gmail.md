@@ -4,7 +4,7 @@
 
 # Gmail
 
-Search your emails, surface insights, and draft replies
+Search your emails, surface insights, and send replies
 
   Communication
 * Used in
@@ -25,7 +25,7 @@ Search your emails, surface insights, and draft replies
 
   [Documentation](https://support.claude.com/en/articles/11088742-using-the-gmail-and-google-calendar-integrations)[Privacy Policy](https://policies.google.com/privacy)[Support](https://support.claude.com/en/articles/11088742-using-the-gmail-and-google-calendar-integrations)
 
-Connect Gmail to Claude so it can search your emails, surface the information you need, and draft replies — without manually copying or forwarding anything. Claude retrieves the minimum information needed to answer your question, provides citations linking back to the original emails, and can help you compose drafts directly.
+Connect Gmail to Claude so it can search your emails, surface the information you need, and handle replies — without manually copying or forwarding anything. Claude retrieves the minimum information needed to answer your question and provides citations linking back to the original emails. It can also draft, send, reply to, and forward emails, and asks for your approval by default before anything goes out.
 
 You can use Gmail to:
 
@@ -33,7 +33,9 @@ You can use Gmail to:
 
 **Summarize recent communications:** "Summarize the emails I've received from the marketing team this week"
 
-**Draft a reply:** "Draft a response to the vendor's pricing proposal, pushing back on the timeline but agreeing to the budget"
+**Reply and send:** "Draft a response to the vendor's pricing proposal, pushing back on the timeline but agreeing to the budget — then send it"
+
+**Forward with context:** "Forward the signed contract to legal with a short summary of what changed"
 
 **Prepare for meetings:** "Pull together any emails related to the product launch so I can prepare for tomorrow's meeting"
 

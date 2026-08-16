@@ -200,3 +200,5 @@ While we expect this capability to improve rapidly in the coming months, Claude'
 Learning from the initial deployments of this technology, which is still in its earliest stages, will help us better understand both the potential and the implications of increasingly capable AI systems.
 
 We’re excited for you to explore [our new models](https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf) and the public beta of computer use—and welcome you to [share your feedback](mailto:feedback@anthropic.com) with us. We believe these developments will open up new possibilities for how you work with Claude, and we look forward to seeing what you'll create.
+
+Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku \ Anthropic

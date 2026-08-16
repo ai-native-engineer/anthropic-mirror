@@ -184,8 +184,8 @@ Only ones you're a member of. Claude mirrors your Microsoft 365 permissions, so 
 
 You'll see an error indicating that an administrator must grant app permissions before you can connect. Ask your organization’s Microsoft Entra Global Administrator to complete consent. If you're on a Team or Enterprise plan, your Claude organization owner also needs to enable Microsoft 365 in organization settings.
 
-* [Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
 * [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
 * [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
 * [Use Claude in Microsoft Foundry](https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)

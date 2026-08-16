@@ -89,3 +89,5 @@ A: It is critical that the burden of AI regulations is proportionate and tailore
 *Q: Won’t regulation harm the open source ecosystem?*
 
 A: Our view is that regulation of frontier models should focus on empirically measured risks, not on whether a system is open-or closed-weights. Regulation should thus intrinsically neither favor nor disfavor open-weights models, except to the extent that uniform, empirically rigorous tests show them to present greater or less risk. If there are unique risks associated with open weights models—for instance, their ability to be arbitrarily finetuned onto new datasets—then regulation should be designed to incentivize developers to address those risks, just as with closed-weights models.
+
+The case for targeted regulation \ Anthropic

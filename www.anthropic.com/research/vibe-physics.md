@@ -60,7 +60,7 @@ and out would pop the paper. We are not there yet, of course. I tried giving thi
 
 To go about this scientifically, I encapsulated all the work. The rules were strict:
 
-* Only give text prompts to [Claude Code](https://claude.ai/redirect/website.v1.e5557702-6beb-4bcd-bdb3-81bc10338078/code). No editing files directly.
+* Only give text prompts to [Claude Code](https://claude.ai/redirect/website.v1.809739fe-748f-4ccc-9874-fff57c5b6206/code). No editing files directly.
 * Don’t cut and paste my own calculations into the chat.
 * But pasting Gemini or GPT calculations was OK, as long as they were only text-prompted.
 
@@ -70,7 +70,7 @@ My question was: is there a set of prompts, like instructions to a talented G2, 
 
 I knew from experience that LLMs struggle with context and organization over long projects. So I started by asking Claude to come up with a plan of attack: what tasks needed to be done in what order. I also asked GPT 5.2 and Gemini 3.0. Then, I had all three LLMs merge the best ideas from each, using web interfaces and copying one to another. Next, I gave those merges to Claude, asking it to break the outline into detailed subsections. The result is [here](https://www-cdn.anthropic.com/2595299ccf7f8b9a9c74823c24faaa5d9b216804.pdf). There were 102 separate tasks across seven stages.
 
-From there, I turned to [Claude Code](https://claude.ai/redirect/website.v1.e5557702-6beb-4bcd-bdb3-81bc10338078/code), using the extension in VS Code.
+From there, I turned to [Claude Code](https://claude.ai/redirect/website.v1.809739fe-748f-4ccc-9874-fff57c5b6206/code), using the extension in VS Code.
 
 ![A screen grab of Claude code](https://www-cdn.anthropic.com/images/4zrzovbb/website/2277f287d82a9a6087bc70c6d16cfd6648634d7e-1600x967.jpg)
 

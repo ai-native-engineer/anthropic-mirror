@@ -4,7 +4,7 @@
 
 # Google Drive
 
-Search and read your Docs, Sheets, and Slides in Claude
+Search, read, and organize your Docs, Sheets, and Slides
 
   Productivity
 * Used in
@@ -25,7 +25,7 @@ Search and read your Docs, Sheets, and Slides in Claude
 
   [Documentation](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration)[Privacy Policy](https://policies.google.com/privacy)[Support](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration)
 
-Connect your Google Drive to Claude to work across your Docs, Sheets, and Slides. Claude can read Google Docs directly, pull data from Google Sheets (exported as CSV), and extract content from Google Slides (exported as plain text). You can also search across your Drive to quickly find what you need.
+Connect your Google Drive to Claude to work across your Docs, Sheets, and Slides. Claude can read Google Docs directly, pull data from Google Sheets (exported as CSV), and extract content from Google Slides (exported as plain text). You can also search across your Drive to quickly find what you need — and keep it organized. Claude can share, move, and trash files, and asks for your approval by default before making any changes.
 
 You can use Google Drive to:
 
@@ -34,6 +34,10 @@ You can use Google Drive to:
 **Search across your Drive:** "Find the most recent doc about our product roadmap"
 
 **Extract insights from your documents:** "Find all of the action items assigned to me from all meeting notes this week"
+
+**Organize your files:** "Move last quarter's planning docs into the archive folder"
+
+**Share with your team:** "Share the launch brief with the marketing team"
 
 The Google Drive connector does not support adding comments, converting xlsx to sheets, or converting pptx to slides.
 

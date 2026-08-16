@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-A command is `@Claude` followed immediately by one of a few exact words starting with `!`. Claude matches the message against that word and runs a fixed action instead of starting a normal turn. `!help`, `!restart`, `!mute`, and `!unmute` must stand alone: adding extra words, as in `!restart` with words tacked on, makes the message an ordinary prompt instead. `!feedback`, `!routines`, and `!fork` accept text after the command, covered below.
+A command is `@Claude` followed immediately by one of a few exact words starting with `!`. Claude matches the message against that word and runs a fixed action instead of starting a normal turn. `!help`, `!configure`, `!restart`, `!mute`, and `!unmute` must stand alone: adding extra words, as in `!restart` with words tacked on, makes the message an ordinary prompt instead. `!feedback`, `!routines`, and `!fork` accept text after the command, covered below.
 
 ##  See the commands available to you
 
@@ -17,6 +17,14 @@ A command is `@Claude` followed immediately by one of a few exact words starting
 ```
 
 Claude replies with the commands it understands in your workspace. The list can differ by workspace, since a command can be enabled for some workspaces and not others.
+
+##  Get the link to configure a channel
+
+```
+@Claude !configure
+```
+
+Run `!configure` in a channel, and Claude replies in the thread with a link to that channel’s Configure page on claude.ai. On that page you [tailor how Claude works in the channel](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel), for example by editing its channel instructions, and it’s the same page the **Configure** link in the footer of any Claude reply opens. In a DM with Claude there are no per-channel settings, so Claude replies there with a link to the [Claude Tag admin page](https://claude.ai/admin-settings/claude-tag) instead.
 
 ##  Restart a stuck or wrong-context session
 

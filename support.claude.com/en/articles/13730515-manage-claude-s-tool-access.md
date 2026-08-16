@@ -70,4 +70,4 @@ In “On demand” mode, Claude searches for the right tool before using it. Thi
 * [Troubleshoot Claude error messages](https://support.claude.com/en/articles/12466728-troubleshoot-claude-error-messages)
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
-* [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
+* [Schedule recurring tasks in Claude Cowork](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork)

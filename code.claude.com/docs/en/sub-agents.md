@@ -348,6 +348,8 @@ The second filter applies to subagents running in the background. Apart from `Ag
 
 Teammates in [agent teams](/docs/en/agent-teams) additionally keep the task tools and cron tools: `TaskCreate`, `TaskGet`, `TaskList`, `TaskUpdate`, `CronCreate`, `CronDelete`, and `CronList`.
 
+In a [session without the Task tools](/docs/en/tools-reference#task-tool-availability), Claude Code doesn't provide the task tools to subagents either, even when the subagent runs a different model. An in-process teammate follows your session the same way, while a teammate in its own [split pane](/docs/en/agent-teams#choose-a-display-mode) runs as a separate Claude Code process, so its own model decides.
+
 To restrict tools, use the `tools` field as an allowlist or the `disallowedTools` field as a denylist. This example uses `tools` to allow only Read, Grep, Glob, and Bash. The subagent can't edit files, write files, or use any MCP tools:
 
 ```yaml theme={null}
@@ -804,7 +806,12 @@ You can also steer this yourself:
 * Where fork mode is off, ask Claude to run a task in the background or in the foreground
 * Press **Ctrl+B** to background a running task
 
-A background subagent that completes stays listed in [`/tasks`](/docs/en/commands), marked done and sorted below running work, until the session cleans up its task list. Its detail view stays open when the subagent finishes. Subagents that fail or that you stop leave the list. Before v2.1.208, a completed subagent left the list the moment it finished and its detail view closed.
+Claude Code clears a background subagent's row from the subagent panel below the prompt input in one of two ways, depending on how the subagent ended:
+
+* When a subagent finishes successfully, Claude Code removes its row immediately and, except in [screen reader mode](/docs/en/accessibility), shows `/tasks to see subagents` in the footer for 30 seconds. During those 30 seconds, run [`/tasks`](/docs/en/commands) and press `Enter` on the subagent to open its transcript. Before v2.1.232, Claude Code kept the row for 30 seconds after the subagent finished, the same as a failed one, and showed no footer hint.
+* When a subagent fails or you stop it, Claude Code keeps its row for 30 seconds. To clear the row sooner, select it and press `x`.
+
+A background subagent that completes stays listed in [`/tasks`](/docs/en/commands), marked done and sorted below running work, for the same window as the footer hint above. Its detail view stays open when the subagent finishes. Subagents that fail or that you stop leave the list. Before v2.1.208, a completed subagent left the list the moment it finished and its detail view closed.
 
 ### Subagent names
 
@@ -907,7 +914,7 @@ With this value, your subagents can delegate to a second layer of their own, and
 
 A nested subagent is configured the same way as a top-level one and resolves from the same [scopes](#choose-the-subagent-scope). To keep one subagent from spawning while nesting is on, such as a reviewer that should stay read-only, omit `Agent` from its [`tools`](#available-tools) list or add it to `disallowedTools`.
 
-The subagent panel below the prompt input shows the full tree: each row displays a `(+N)` count of descendants, and as of v2.1.193, opening a row shows that subagent's siblings and direct children with a path back to `main`.
+Claude Code shows nested subagents as a tree in the subagent panel below the prompt input and marks each row that still has descendants in the panel with a `(+N)` count of them. Open a row to see that subagent's siblings and direct children with a path back to `main`.
 
 <Note>
   Earlier versions used different defaults:
@@ -976,7 +983,7 @@ Continue that code review and now analyze the authorization logic
 
 A completed subagent that receives a `SendMessage` auto-resumes in the background without a new `Agent` invocation. The same applies to a subagent that Claude stopped with the `TaskStop` tool.
 
-As of v2.1.191, a subagent you stopped yourself, with `x` in `/tasks` or an SDK `stop_task` request, doesn't auto-resume. The `SendMessage` call returns a refusal telling Claude the agent was cancelled. Type into that subagent's transcript in the subagent panel to resume it yourself, which clears the stop so later `SendMessage` calls can auto-resume it again.
+As of v2.1.191, a subagent you stopped yourself, with `x` in `/tasks` or an SDK `stop_task` request, doesn't auto-resume. The `SendMessage` call returns a refusal telling Claude the agent was cancelled. While [that subagent's row is still in the subagent panel](#run-subagents-in-foreground-or-background), type into its transcript to resume it yourself, which clears the stop so later `SendMessage` calls can auto-resume it again.
 
 Resuming starts a new run of the agent under the same ID, so a subagent that had already failed or completed shows as running again in the task list and in the Agent SDK's task events. Before v2.1.205, it kept showing its earlier failed or completed status while the resumed run was working.
 
@@ -1031,14 +1038,18 @@ The fork appears in a panel below your prompt and runs in the background while y
 
 ### Observe and steer running forks
 
-Running forks appear in a panel below the prompt input, with one row for the main session and one for each fork. Use these keys to interact with the panel:
+Running forks appear in a panel below the prompt input, with one row for the main session and one for each fork.
 
-| Key       | Action                                                                                                                                                                                                       |
-| :-------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `↑` / `↓` | Move between rows                                                                                                                                                                                            |
-| `Enter`   | Open the selected fork's transcript and send it follow-up messages                                                                                                                                           |
-| `x`       | Dismiss a finished fork or stop a running one. Acts on the selected fork row. On the main session row, or on the row of the fork whose transcript you opened with `Enter`, `x` types into the prompt instead |
-| `Esc`     | Return focus to the prompt input                                                                                                                                                                             |
+When a fork finishes successfully, Claude Code removes its row. Claude Code keeps the row of a fork that failed or that you stopped for 30 seconds, [the same as for any other background subagent](#run-subagents-in-foreground-or-background). Before v2.1.232, Claude Code kept a finished fork's row for 30 seconds as well.
+
+Use these keys to interact with the panel:
+
+| Key       | Action                                                                                                                                                                                                               |
+| :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `↑` / `↓` | Move between rows                                                                                                                                                                                                    |
+| `Enter`   | Open the selected fork's transcript and send it follow-up messages                                                                                                                                                   |
+| `x`       | Stop the selected fork if it's running, or dismiss its row if it's no longer running. On the main session row, or on the row of the fork whose transcript you opened with `Enter`, `x` types into the prompt instead |
+| `Esc`     | Return focus to the prompt input                                                                                                                                                                                     |
 
 With a fork's or subagent's transcript open, follow-up messages and [skills](/docs/en/skills) go to that agent, but built-in commands still run in your main conversation. As of v2.1.199, typing `/model` or `/fast` in that view shows a notice that it changes the main conversation's model or fast mode, not the viewed agent's, instead of running it silently.
 

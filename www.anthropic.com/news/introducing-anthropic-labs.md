@@ -15,3 +15,5 @@ Today we’re building on this approach with the expansion of Labs, a team focus
 “The speed of advancement in AI demands a different approach to how we build, how we organize, and where we focus. Labs gives us room to break the mold and explore,” said Daniela Amodei, President of Anthropic. “We now have the right structure in place to support the most critical motions for our product organization—discovering experimental products at the frontier of Claude’s capabilities, and scaling them responsibly to meet the needs of our enterprise customers and growing user base.”
 
 We're hiring builders with a track record of creating products people love and shaping emerging technology with care. If you’d like to build with us at the very frontier of AI capabilities, [we want to hear from you](https://www.anthropic.com/careers).
+
+Introducing Labs \ Anthropic

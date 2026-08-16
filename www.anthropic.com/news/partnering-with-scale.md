@@ -17,3 +17,5 @@ Dario Amodei, CEO of Anthropic, says, “Partnering with Scale allows us to brin
 By combining Anthropic's Claude model and [Constitutional AI](https://www.anthropic.com/index/constitutional-ai-harmlessness-from-ai-feedback?token=91dScZBi-mOLCL2ht2JRXNaLktnej22N) system with Scale's robust tooling and functionality, customers gain an enterprise-ready solution to work with Generative AI. We look forward to sharing more details on our partnership to responsibly bring Claude to more organizations.
 
 The future of AI is collaborative. We are excited to collaborate with Scale.
+
+Partnering with Scale to Bring Generative AI to Enterprises \ Anthropic
