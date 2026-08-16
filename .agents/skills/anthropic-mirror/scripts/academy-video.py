@@ -71,7 +71,10 @@ async def open_lesson(pg, url):
     """레슨 탐색 실패는 한 번 재시도하고, 계속 실패하면 해당 레슨만 건너뛴다."""
     for attempt in range(2):
         try:
-            await pg.goto(url, wait_until="domcontentloaded")
+            # Playwright의 자체 navigation timeout이 driver 응답 대기에서 멈추는 경우를 막는다.
+            await asyncio.wait_for(
+                pg.goto(url, wait_until="domcontentloaded"), timeout=45
+            )
             return True
         except Exception as exc:
             if attempt == 1:
