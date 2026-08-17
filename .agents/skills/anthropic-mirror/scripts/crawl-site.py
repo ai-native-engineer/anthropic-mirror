@@ -81,6 +81,7 @@ SPA_PAGES = [
     "https://trust.anthropic.com/updates",
 ]
 STATE_FILE = ".anthropic-mirror-state.json"
+NO_BOILERPLATE_STRIP = {"platform.claude.com", "code.claude.com", "trust.anthropic.com"}
 
 
 def get(url, suffix=""):
@@ -433,8 +434,8 @@ def flush(pages, out, state, force=False):
     for u in pages:
         by_host.setdefault(urlsplit(u).netloc, []).append(u)
     for host, us in by_host.items():
-        # Mintlify docs .md는 이미 깨끗 -> boilerplate 스킵
-        if host not in ("platform.claude.com", "code.claude.com") and len(us) >= 5:
+        # Mintlify docs는 이미 깨끗하고, Trust Center는 route 간 공유 카드도 본문이다.
+        if host not in NO_BOILERPLATE_STRIP and len(us) >= 5:
             bl = cm.find_boilerplate([pages[u] for u in us], 0.4)
             if bl:
                 for u in us:
@@ -507,6 +508,7 @@ def main():
             assert not redirected(url, url + "/")
             assert same_host(url, url + "/other")
             assert not same_host(url, "https://other.example/page")
+            assert "trust.anthropic.com" in NO_BOILERPLATE_STRIP
         print("self-test ok")
         return
 
