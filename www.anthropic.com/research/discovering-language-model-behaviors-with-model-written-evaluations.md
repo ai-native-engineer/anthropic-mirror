@@ -27,3 +27,5 @@ We're sharing a review of the evidence on worker retraining programs, coauthored
 An unreleased research version of Claude has made strides on a problem related to the Riemann hypothesis. It improved a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the hypothesis, increasing it from 41.6% to 67.2%.
 
 [Read more](https://www.anthropic.com/research/riemann-zeta)
+
+Discovering Language Model Behaviors with Model-Written Evaluations \ Anthropic

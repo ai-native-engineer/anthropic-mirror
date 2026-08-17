@@ -23,5 +23,3 @@ The conference will showcase how developers are maximizing Claude's capabilities
 * **Registration**: [Apply to attend](https://anthropic.swoogo.com/codewithclaude). Registration opens today—apply now to secure your place at what promises to be an essential event for anyone building with AI.
 
 Space is limited. Applicants will be notified on a rolling basis and will receive information in the coming weeks. Additional event details to follow.
-
-Code with Claude - Anthropic's First Developer Conference \ Anthropic

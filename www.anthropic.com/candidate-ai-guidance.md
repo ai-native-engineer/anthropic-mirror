@@ -91,5 +91,3 @@ RefiningPreparingResearching
 We’re excited to get to know you.
 
 [See open roles](https://www.anthropic.com/jobs)
-
-Guidance on Candidates' AI Usage \ Anthropic

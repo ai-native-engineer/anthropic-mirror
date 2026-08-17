@@ -437,3 +437,5 @@ An unreleased research version of Claude has made strides on a problem related t
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
+
+Project Fetch: Can Claude train a robot dog? \ Anthropic

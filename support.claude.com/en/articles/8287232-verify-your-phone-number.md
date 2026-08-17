@@ -2,7 +2,7 @@
 
 When you first create a Claude account, you’ll be asked to enter your phone number from a **[supported location](https://support.claude.com/en/articles/8461763-where-can-i-access-claude)** to receive a verification code via text message:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1786847400&signature=ee821a613b52ca7594d397a74dc8535a02bdb717d9017c128cf077796436f526&req=dSguFch5noBbWvMW1HO4zVIf8JZr2C1%2BoTnI%2BoMZk7cVuxsMVgxQKg6UXxbu%0AEJ6hEKVRE5pRU4pXqAU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1786847400&signature=ee821a613b52ca7594d397a74dc8535a02bdb717d9017c128cf077796436f526&req=dSguFch5noBbWvMW1HO4zVIf8JZr2C1%2BoTnI%2BoMZk7cVuxsMVgxQKg6UXxbu%0AEJ6hEKVRE5pRU4pXqAU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1786926600&signature=d294ff6803bdfa8b3745f8b9ba4656ccc82d1400cbefe8db9a25ddfb97a27d8c&req=dSguFch5noBbWvMW1HO4zVIf8JZq3ix8oTnI%2BoMZk7fvt3cIMKpxhGlRzFMf%0AKSFocksRMY1xJW%2BYfsA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1786926600&signature=d294ff6803bdfa8b3745f8b9ba4656ccc82d1400cbefe8db9a25ddfb97a27d8c&req=dSguFch5noBbWvMW1HO4zVIf8JZq3ix8oTnI%2BoMZk7fvt3cIMKpxhGlRzFMf%0AKSFocksRMY1xJW%2BYfsA%3D%0A)
 
 Once you receive the text message with the code, type it into the box and click “Verify code.” This will complete the verification and account creation process and allow you to start chatting with Claude.
 

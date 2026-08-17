@@ -39,5 +39,3 @@ All models support a variety of Claude Developer Platform capabilities in Foundr
 ## Get started
 
 Claude is available now in public preview through Microsoft Foundry. Visit the [Microsoft Foundry catalog](https://ai.azure.com/catalog/publishers/anthropic) to deploy Claude Sonnet 4.5, Claude Haiku 4.5, or Claude Opus 4.1, or explore our [documentation](https://docs.claude.com/en/docs/build-with-claude/claude-in-microsoft-foundry) to learn more.
-
-Claude now available in Microsoft Foundry and Microsoft 365 Copilot \ Anthropic

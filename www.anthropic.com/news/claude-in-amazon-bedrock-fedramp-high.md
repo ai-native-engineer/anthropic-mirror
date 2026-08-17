@@ -33,3 +33,5 @@ Government customers now have flexibility to deploy some of the most capable AI 
 Federal agency employees, defense contractors, and approved partners can access Claude models through Amazon Bedrock in AWS GovCloud (US) regions using familiar AWS APIs and management tools.
 
 [Contact our public sector team](mailto:pubsec@anthropic.com) for guidance on implementing Claude in your federal environment while ensuring full compliance with government security requirements.
+
+Claude in Amazon Bedrock: Approved for Use in FedRAMP High and DoD IL4/5 Workloads \ Anthropic

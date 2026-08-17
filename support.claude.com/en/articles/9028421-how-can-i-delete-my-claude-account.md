@@ -2,7 +2,7 @@
 
 Once you are logged in, click your initials or name in the lower left corner and select "Settings." Navigate to **[Settings > Account](https://claude.ai/settings/account)** and click the "Delete account" button:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2274267534/e7064e2657b1bd20031ba40da11c/CleanShot+2026-04-14+at+09_48_08.png?expires=1786846500&signature=1eaca0e675cb3c24b3e9632334abb93c368b19d24c79f27db1d4fbc856d0a20b&req=diIgEst4moRcXfMW1HO4zeqzlXoGIof5oVDupr7i4TEswvUyjv2RrL%2BFv28l%0AbLsStiwYwMf5ilUFEOY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2274267534/e7064e2657b1bd20031ba40da11c/CleanShot+2026-04-14+at+09_48_08.png?expires=1786846500&signature=1eaca0e675cb3c24b3e9632334abb93c368b19d24c79f27db1d4fbc856d0a20b&req=diIgEst4moRcXfMW1HO4zeqzlXoGIof5oVDupr7i4TEswvUyjv2RrL%2BFv28l%0AbLsStiwYwMf5ilUFEOY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2274267534/e7064e2657b1bd20031ba40da11c/CleanShot+2026-04-14+at+09_48_08.png?expires=1786926600&signature=a58fc40cdd3523737d6567afec8390d8fa51927fe672e56e30bdb27081fddf13&req=diIgEst4moRcXfMW1HO4zeqzlXoHJIf6oVDupr7i4TGSLB7Kb2HUB%2BxHZRF5%0A%2BfFHR8x6vbjyhlXD39w%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2274267534/e7064e2657b1bd20031ba40da11c/CleanShot+2026-04-14+at+09_48_08.png?expires=1786926600&signature=a58fc40cdd3523737d6567afec8390d8fa51927fe672e56e30bdb27081fddf13&req=diIgEst4moRcXfMW1HO4zeqzlXoHJIf6oVDupr7i4TGSLB7Kb2HUB%2BxHZRF5%0A%2BfFHR8x6vbjyhlXD39w%3D%0A)
 
 ## Considerations for paid Claude accounts
 
@@ -18,7 +18,7 @@ If you have multiple accounts associated with the same email address, you'll nee
 
 There are some scenarios where you will need to **[contact our team](https://support.claude.com/en/articles/9015913-how-to-get-support)** to delete your account. If this is the case, it will be noted in your account:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584796811/331afc5dc61eec6f72786155b782/Screenshot+2025-06-23+at+1_54_23%E2%80%AFPM.png?expires=1786846500&signature=8b5622beb636768ee14b371134092a5caafbd7ca23f665bc0e1c95b219813167&req=dSUvEs53m4leWPMW1HO4zXW0qxMDH4xeVOsMorzl%2B%2FRSVXwmkB9jUhFqw%2Ft2%0ACncWIEvwmtZrmDLXjNM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584796811/331afc5dc61eec6f72786155b782/Screenshot+2025-06-23+at+1_54_23%E2%80%AFPM.png?expires=1786846500&signature=8b5622beb636768ee14b371134092a5caafbd7ca23f665bc0e1c95b219813167&req=dSUvEs53m4leWPMW1HO4zXW0qxMDH4xeVOsMorzl%2B%2FRSVXwmkB9jUhFqw%2Ft2%0ACncWIEvwmtZrmDLXjNM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584796811/331afc5dc61eec6f72786155b782/Screenshot+2025-06-23+at+1_54_23%E2%80%AFPM.png?expires=1786926600&signature=7d9ac8982ff148c24c904517ddc169f731c956ec0bf3d227bc55cdbc8addde46&req=dSUvEs53m4leWPMW1HO4zXW0qxMCGYxdVOsMorzl%2B%2FTqZ%2BlAP7tqXl2EqYF8%0An50z894Yp8lyqrEmUPA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584796811/331afc5dc61eec6f72786155b782/Screenshot+2025-06-23+at+1_54_23%E2%80%AFPM.png?expires=1786926600&signature=7d9ac8982ff148c24c904517ddc169f731c956ec0bf3d227bc55cdbc8addde46&req=dSUvEs53m4leWPMW1HO4zXW0qxMCGYxdVOsMorzl%2B%2FTqZ%2BlAP7tqXl2EqYF8%0An50z894Yp8lyqrEmUPA%3D%0A)
 
 * [How do I change the email address associated with my account?](https://support.claude.com/en/articles/8452276-how-do-i-change-the-email-address-associated-with-my-account)
 * [Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)

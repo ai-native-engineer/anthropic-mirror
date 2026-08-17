@@ -75,5 +75,3 @@ Read [**the full constitution**](http://anthropic.com/constitution).
 
 1. We have previously published an [earlier version](https://www.anthropic.com/news/claudes-constitution) of our constitution, and OpenAI has published their [model spec](https://model-spec.openai.com/2025-10-27.html) which has a similar function.
 2. Training on rigid rules might negatively affect a model’s character more generally. For example, imagine we trained Claude to follow a rule like “Always recommend professional help when discussing emotional topics.” This might be well-intentioned, but it could have unintended consequences: Claude might start modeling itself as an entity that cares more about bureaucratic box-ticking—always ensuring that a specific recommendation is made—rather than actually helping people.
-
-Claude's new constitution \ Anthropic

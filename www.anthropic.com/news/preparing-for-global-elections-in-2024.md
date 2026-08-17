@@ -56,5 +56,3 @@ At Anthropic, we’re building methods to help us spot unanticipated uses of our
 **Update, May 28, 2024:** After making Claude available [in Europe in May](https://www.anthropic.com/news/claude-europe), we also implemented a pop-up intervention for EU-based users who ask Claude for voting information. The pop-up will offer the user the option to be redirected to the European Parliament’s [nonpartisan elections website](https://elections.europa.eu/en/).
 
 We also updated our [Usage Policy t](https://www.anthropic.com/legal/aup)o provide greater clarity on the definitions of political lobbying and campaigning activities, which are prohibited when using our products. You can read more about these restrictions [here](https://www.anthropic.com/news/updating-our-usage-policy).
-
-Preparing for global elections in 2024 \ Anthropic

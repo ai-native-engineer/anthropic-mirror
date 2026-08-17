@@ -43,5 +43,3 @@ These findings directly shape our products: we designed Learning Mode in Claude 
 ## Looking forward
 
 Our participation in today's White House AI Education Taskforce meeting demonstrates our commitment to working alongside government and industry partners to ensure America's students and educators are prepared for an AI-powered future. Through initiatives like the White House Pledge to America's Youth: Investing in AI Education, we’ll continue to invest in America's next generation of leaders, innovators, and problem-solvers. Learn more about our education work at [anthropic.com/education](http://anthropic.com/education).
-
-Anthropic joins White House pledge for AI education \ Anthropic

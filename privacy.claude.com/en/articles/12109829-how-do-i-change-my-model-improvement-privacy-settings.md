@@ -2,7 +2,7 @@
 
 # How do I change my model improvement privacy settings?
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 *This article is about our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code. For our commercial products such as Claude for Work and the Anthropic API, see [here](https://privacy.anthropic.com/en/collections/10663361-commercial-customers).*
 

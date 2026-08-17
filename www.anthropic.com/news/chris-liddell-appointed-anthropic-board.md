@@ -15,5 +15,3 @@ Liddell joins Dario Amodei, Daniela Amodei, [Yasmin Razavi](https://www.anthropi
 Liddell currently serves as a Director of both Commonwealth Fusion Systems and the Council on Foreign Relations. He has also been involved in several presidential transition teams, has written a book on that topic, and was the Director of the American Technology Council in the White House, focused on modernizing government technology.
 
 Beyond his corporate and public service career, Liddell has been recognized for his contributions to business and philanthropy. He currently serves as Chairman of New Zealand’s largest environmental foundation and has sat on several nonprofit boards, including the New Zealand Rugby Union. In 2016, he was appointed a Companion of the New Zealand Order of Merit for services to business and philanthropy.
-
-Chris Liddell appointed to Anthropic’s board of directors \ Anthropic

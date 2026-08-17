@@ -31,7 +31,7 @@ Our fastest model, a lightweight version of our most powerful AI, at a more affo
 
 ## Availability and pricing
 
-Anyone can chat with Claude using Haiku 4.5 on [Claude.ai](http://claude.ai/redirect/website.v1.b07412de-d0ab-4dbb-9f74-5d029be7dbaa), available on web, iOS, and Android.
+Anyone can chat with Claude using Haiku 4.5 on [Claude.ai](http://claude.ai/redirect/website.v1.593a0c84-48b9-4651-bd83-9a2a4a3ba6bb), available on web, iOS, and Android.
 
 For developers, Haiku 4.5 is available on the Claude Platform natively, and in Amazon Bedrock, Google Cloud's Vertex AI, and Microsoft Foundry.
 
@@ -116,3 +116,5 @@ Haiku 4.5 scores 73.3% on SWE-bench Verified, making it one of the world’s bes
 ### How much does it cost to use Haiku 4.5?
 
 Pricing depends on how you want to use Haiku 4.5. To learn more, check out our [pricing page](https://www.anthropic.com/pricing#anthropic-api).
+
+Claude Haiku \ Anthropic

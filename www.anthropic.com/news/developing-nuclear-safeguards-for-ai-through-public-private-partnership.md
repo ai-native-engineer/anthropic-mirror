@@ -25,5 +25,3 @@ Along with the concrete importance of securing frontier AI models against nuclea
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
-
-Developing nuclear safeguards for AI through public-private partnership \ Anthropic

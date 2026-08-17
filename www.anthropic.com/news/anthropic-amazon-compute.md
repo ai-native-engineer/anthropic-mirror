@@ -31,3 +31,5 @@ Today’s agreement will quickly expand our available capacity, delivering meani
 To learn more about Anthropic on AWS, visit: <https://aws.amazon.com/bedrock/anthropic/>.
 
 *Updated April 21st to clarify Claude Platform on AWS is coming soon.*
+
+Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute \ Anthropic

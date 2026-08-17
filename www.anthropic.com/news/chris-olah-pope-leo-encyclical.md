@@ -63,3 +63,5 @@ Today is just the beginning—the start of a long collaboration between those of
 Today is a powerful illustration of the form this global project of good will might take. Let it also be a decisive first step toward a hopeful future for magnificent humanity.
 
 Thank you.
+
+Anthropic co-founder Chris Olah's remarks on Pope Leo XIV's encyclical "Magnifica humanitas" \ Anthropic
