@@ -11,6 +11,8 @@ import tempfile
 
 
 ALLOWED_ROOTS = {
+    "academy.claude.com",
+    "academy.claude.com.md",
     "alignment.anthropic.com",
     "alignment.anthropic.com.md",
     "anthropic.com",
@@ -21,6 +23,7 @@ ALLOWED_ROOTS = {
     "claude.com.md",
     "code.claude.com",
     "platform.claude.com",
+    "partnerhub.claude.com",
     "privacy.claude.com",
     "resources.anthropic.com",
     "support.claude.com",
