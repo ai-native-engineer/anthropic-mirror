@@ -6,11 +6,12 @@
 
 Manage databases, authentication, and storage
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Supabase](https://supabase.com/)
 

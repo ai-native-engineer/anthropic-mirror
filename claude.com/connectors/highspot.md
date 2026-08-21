@@ -6,11 +6,12 @@
 
 Search, share content, and take action to win deals
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/9c052ba1-9319-48bf-8ccd-adb042a24dc2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Highspot](https://highspot.com)
 

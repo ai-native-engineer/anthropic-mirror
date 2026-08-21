@@ -73,6 +73,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
 
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -381,6 +383,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `JsonValue; type "code_execution_20260120"constant`
 
                   - `CODE_EXECUTION_20260120("code_execution_20260120")`
+
+            - `Optional<String> toolsetName`
+
+              For a toolset member tool_use, the toolset family.
 
           - `class BetaServerToolUseBlock:`
 

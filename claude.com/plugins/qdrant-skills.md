@@ -7,7 +7,6 @@ Agent skills for Qdrant vector search covering scaling, performance optimization
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Qdrant](#)
 * Installs

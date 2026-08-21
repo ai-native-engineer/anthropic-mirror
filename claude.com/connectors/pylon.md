@@ -6,11 +6,12 @@
 
 Search and manage Pylon support issues
 
+* Category
+
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/240b8712-17ed-4233-858a-9a872dec63b2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Pylon](https://www.usepylon.com/)
 

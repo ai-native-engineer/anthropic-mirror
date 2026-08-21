@@ -6,11 +6,12 @@
 
 Autonomous marketing to transform how you work
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/adf5273a-9e9f-414c-a213-2b64a4aa36ae)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [ActiveCampaign](https://activecampaign.com/)
 

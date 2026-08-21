@@ -7,7 +7,6 @@ Claude Code plugin for Firetiger observability workflows and MCP-powered investi
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Firetiger](https://firetiger.com)
 * Installs

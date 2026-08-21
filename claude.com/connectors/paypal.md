@@ -6,11 +6,12 @@
 
 Access PayPal payments platform
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](http://claude.ai/directory/001103b7-bcde-4b9c-b5d4-f209c2fed1f3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [PayPal](https://paypal.com)
 

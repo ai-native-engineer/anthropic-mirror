@@ -7,7 +7,6 @@ Skills for creating MCP Apps with the MCP Apps SDK
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic / Model Context Protocol](#)
 * Installs

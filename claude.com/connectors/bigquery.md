@@ -6,11 +6,12 @@
 
 BigQuery: Advanced analytical insights for agents
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/7c316b77-98a0-4dbb-8b54-a96ae26a884f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Google](https://google.com)
 

@@ -6,13 +6,14 @@
 
 Search and access context from meetings
 
+* Category
+
   Communication
 
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/91c3f3e4-8c61-4f73-b912-96d035f69f24)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Circleback](https://circleback.ai)
 

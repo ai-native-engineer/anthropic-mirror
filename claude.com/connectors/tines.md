@@ -6,11 +6,12 @@
 
 Securely deploy servers in a matter of seconds in Tines
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/bfbaa374-0528-4d49-8de8-bb0d0b92596c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Tines](https://www.tines.com)
 

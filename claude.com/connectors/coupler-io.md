@@ -6,11 +6,12 @@
 
 Access business data from hundreds of sources
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/dba65f24-3bd2-4d72-a86c-62b7c5290a5f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Coupler.io](https://coupler.io)
 

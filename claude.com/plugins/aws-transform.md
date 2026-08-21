@@ -7,7 +7,6 @@ Modernize codebases to AWS: .NET→8/10, COBOL→Java, VMware→EC2, SQL Server�
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Amazon Web Services](https://github.com/awslabs/agent-plugins)
 * Installs

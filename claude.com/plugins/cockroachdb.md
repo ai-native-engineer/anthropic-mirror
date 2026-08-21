@@ -7,7 +7,6 @@ CockroachDB plugin for Claude Code — explore schemas, write SQL, debug queries
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Cockroach Labs](https://www.cockroachlabs.com)
 * Installs

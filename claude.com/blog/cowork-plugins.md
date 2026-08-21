@@ -6,6 +6,8 @@
 
 We built Cowork to bring the power of Claude Code to everyone. Today, we're adding support for plugins, which let you bundle any skills, connectors, slash commands, and sub-agents together to turn Claude into a specialist for your role, team, and company.
 
+* Category
+
   [Product announcements](https://claude.com/blog/category/announcements)
 
   [Agents](https://claude.com/blog/category/agents)
@@ -90,53 +92,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-Jun 10, 2026
-
-### The evolution of agentic surfaces: building with Claude Managed Agents
-
-Agents
-
-[The evolution of agentic surfaces: building with Claude Managed Agents](#)The evolution of agentic surfaces: building with Claude Managed Agents
-
-[The evolution of agentic surfaces: building with Claude Managed Agents](https://claude.com/blog/building-with-claude-managed-agents)The evolution of agentic surfaces: building with Claude Managed Agents
-
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
 
-Apr 29, 2026
+Aug 20, 2026
 
-### Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
-
-Agents
-
-[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](#)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
-
-[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](https://claude.com/blog/claude-api-skill)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22562f020146c9ec973_f8f4644253bde2f901550431b871b6dcf91e5d9d-1000x1000.svg)
-
-Apr 10, 2026
-
-### Multi-agent coordination patterns: Five approaches and when to use them
+### How monday.com transformed its platform into an agent-first product where humans and agents collaborate
 
 Agents
 
-[Multi-agent coordination patterns: Five approaches and when to use them](#)Multi-agent coordination patterns: Five approaches and when to use them
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](#)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
 
-[Multi-agent coordination patterns: Five approaches and when to use them](https://claude.com/blog/multi-agent-coordination-patterns)Multi-agent coordination patterns: Five approaches and when to use them
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](https://claude.com/blog/how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
 
-Aug 13, 2026
+Aug 20, 2026
 
-### Claude Tag now reads even more of the room
+### Build production agents with computer use, the Skills API, and the Files API
 
 Product announcements
 
-[Claude Tag now reads even more of the room](#)Claude Tag now reads even more of the room
+[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
 
-[Claude Tag now reads even more of the room](https://claude.com/blog/claude-tag-now-reads-even-more-of-the-room)Claude Tag now reads even more of the room
+[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
+
+Aug 20, 2026
+
+### Anthropic’s approach to teaching and learning AI
+
+Product announcements
+
+[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
+
+[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
+
+Aug 18, 2026
+
+### Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+Enterprise AI
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
 
 ## Transform how your organization operates with Claude
 

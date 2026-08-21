@@ -6,11 +6,12 @@
 
 Managed MCP servers with Unity Catalog and Mosaic AI
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/5f6045b0-e8c9-4ef7-ade5-f5030a69d4ba)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Databricks](https://databricks.com)
 

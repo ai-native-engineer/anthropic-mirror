@@ -6,11 +6,12 @@
 
 Get insights from your autonomous AI analyst
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/6e891213-b720-4ac4-a895-570b2e2639c5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Gravity](https://bygravity.com)
 

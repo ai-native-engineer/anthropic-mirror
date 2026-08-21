@@ -7,7 +7,6 @@ Run read-only database queries against a Ruby on Rails 8.2+ app's database via `
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Lewis Buckley](#)
 * Installs

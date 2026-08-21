@@ -7,7 +7,6 @@ Add Logfire observability to Python applications with auto-instrumentation for F
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Pydantic](#)
 * Installs

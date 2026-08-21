@@ -6,11 +6,12 @@
 
 Operate your portfolio directly from Claude
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/7ee5e27a-c9cf-49bd-9cdc-324310605cfe)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [AppFolio, Inc.](https://appfolio.com)
 

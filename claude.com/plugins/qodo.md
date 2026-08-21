@@ -7,7 +7,6 @@ Qodo Skills: AI agent capabilities for code quality, testing, security, and comp
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Qodo.ai](https://www.qodo.ai)
 * Installs

@@ -4,6 +4,8 @@
 
 # Get to production faster with the upgraded Anthropic Console
 
+* Category
+
   No items found.
 * Product
 

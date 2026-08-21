@@ -6,11 +6,12 @@
 
 View lab test results summaries, get nutrition plans
 
+* Category
+
   Health and wellness
 * Used in
 
   [Claude](https://claude.ai/directory/48527e54-fe84-4dc6-b97f-c8e0763bca97)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Function Health](https://www.functionhealth.com)
 

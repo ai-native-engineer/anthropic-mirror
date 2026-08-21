@@ -6,11 +6,12 @@
 
 Build, Ship and Secure your apps on Harness Platform
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/b98c06f8-3945-46ff-a81d-14233c0bc9a6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Harness.io](https://www.harness.io)
 

@@ -6,11 +6,12 @@
 
 Search, analyze, and export Campfire data
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/ccafdad0-bc2b-46fe-b10b-f193d9baa64a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Campfire](https://campfire.ai)
 

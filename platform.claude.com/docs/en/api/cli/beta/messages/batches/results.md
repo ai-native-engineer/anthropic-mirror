@@ -256,7 +256,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: "redacted_thinking"`
 
-          - `beta_tool_use_block: object { id, input, name, 2 more }`
+          - `beta_tool_use_block: object { id, input, name, 3 more }`
 
             - `id: string`
 
@@ -289,6 +289,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `tool_id: string`
 
                 - `type: "code_execution_20260120"`
+
+            - `toolset_name: optional string`
+
+              For a toolset member tool_use, the toolset family.
 
           - `beta_server_tool_use_block: object { id, input, name, 2 more }`
 

@@ -6,11 +6,12 @@
 
 Surface call insights and missed opportunities
 
+* Category
+
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/5b1d1665-4793-4a8c-98cf-909e00e97a29)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Quo](https://quo.com/)
 

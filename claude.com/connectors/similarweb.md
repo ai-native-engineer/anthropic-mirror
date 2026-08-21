@@ -6,11 +6,12 @@
 
 Real time web, mobile app, and market data.
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/80862d08-1022-4d86-816d-ee9b500d6b90)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Similarweb](https://similarweb.com)
 

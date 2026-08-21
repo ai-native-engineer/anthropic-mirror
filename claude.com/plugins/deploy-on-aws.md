@@ -7,7 +7,6 @@ Deploy applications to AWS with architecture recommendations, cost estimates, an
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Amazon Web Services](https://github.com/awslabs/agent-plugins)
 * Installs

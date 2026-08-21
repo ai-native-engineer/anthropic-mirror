@@ -6,11 +6,12 @@
 
 Financial data and AI infrastructure for company research.
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/ac8e4b2a-1618-4b6f-8756-660eb7583ebe)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Quartr](https://quartr.com/)
 

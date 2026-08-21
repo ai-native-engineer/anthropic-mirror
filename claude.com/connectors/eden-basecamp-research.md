@@ -6,11 +6,12 @@
 
 Design antibiotics and prioritise vaccine targets against drug-resistant pathogens using EDEN, Basecamp Research's biological foundation model.
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/a93abec3-44cb-47e2-a35f-ab87ba8e4a86)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Basecamp Research](https://basecamp-research.com/)
 

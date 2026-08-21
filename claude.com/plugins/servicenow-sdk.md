@@ -7,7 +7,6 @@ Create, edit, and deploy ServiceNow applications with the Fluent SDK effortlessl
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [ServiceNow](#)
 * Installs

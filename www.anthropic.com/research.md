@@ -58,6 +58,9 @@ Search
 
 DateCategoryTitle
 
+* [Aug 18, 2026Science
+
+  How Claude is accelerating protein design and analytical chemistry](https://www.anthropic.com/research/Claude-accelerates-protein-design)
 * [Aug 13, 2026Frontier Red Team
 
   Patterns and problems in emerging multiagent systems](https://www.anthropic.com/research/multiagent-systems)
@@ -85,9 +88,6 @@ DateCategoryTitle
 * [Jul 8, 2026Alignment
 
   An off switch for dual-use knowledge in AI models](https://www.anthropic.com/research/off-switch-dual-use)
-* [Jul 6, 2026Interpretability
-
-  A global workspace in language models](https://www.anthropic.com/research/global-workspace)
 
 [See more](#)
 

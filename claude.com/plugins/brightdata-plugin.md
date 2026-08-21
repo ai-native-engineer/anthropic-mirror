@@ -7,7 +7,6 @@ Web scraping, Google search, data extraction & MCP via Bright Data. Bot detectio
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Bright Data](https://brightdata.com)
 * Installs

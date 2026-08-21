@@ -6,11 +6,12 @@
 
 Ideate, create, and deliver with Adobe pro tools
 
+* Category
+
   Design
 * Used in
 
   [Claude](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Adobe Inc.](https://www.adobe.com/)
 

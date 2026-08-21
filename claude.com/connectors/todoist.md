@@ -6,11 +6,12 @@
 
 Search, complete, and manage your tasks in Todoist
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/d1bac76b-5673-4d98-b275-41451f3dd847)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Doist](https://todoist.com)
 

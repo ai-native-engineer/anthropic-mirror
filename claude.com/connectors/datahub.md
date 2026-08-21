@@ -6,11 +6,12 @@
 
 Connect AI agents to enterprise data & context
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/5ccb820e-419d-4683-9646-90ea294ada71)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Acryl Data, Inc.](https://datahub.com)
 

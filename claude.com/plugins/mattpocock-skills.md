@@ -7,7 +7,6 @@ Matt Pocock's agent skills for real engineering — grilling, spec/ticket flows,
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Matt Pocock](https://www.aihero.dev)
 * Installs

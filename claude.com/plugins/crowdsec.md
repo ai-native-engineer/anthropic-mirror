@@ -7,7 +7,6 @@ Operational skill for installing, configuring, operating, and debugging CrowdSec
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [CrowdSec](https://www.crowdsec.net)
 * Installs

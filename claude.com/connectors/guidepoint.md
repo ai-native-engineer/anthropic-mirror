@@ -6,11 +6,12 @@
 
 Real-time access to trusted expert knowledge
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/e86f1abc-7986-49d6-aae9-c69c654b2ec5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Guidepoint](https://www.guidepoint.com)
 

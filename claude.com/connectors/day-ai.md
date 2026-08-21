@@ -6,11 +6,12 @@
 
 Know everything about your prospects & customers with CRMx
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/87d31b20-90c3-42ca-94a7-51270953869d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Day AI](https://day.ai)
 

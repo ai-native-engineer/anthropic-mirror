@@ -4,7 +4,7 @@ Scheduled tasks allow you to delegate work to Claude Cowork by creating tasks th
 
 Scheduled tasks are available in Cowork for all paid plans (Pro, Max, Team, Enterprise).
 
-Claude Cowork is in beta on web and mobile, and rolling out over the next several weeks starting with the Max plan, with more plans to follow.
+Claude Cowork is available for paid plans (Pro, Max, Team, Enterprise) on desktop, and in beta on web and mobile for Pro, Max, and Team plans, and Enterprise plans when enabled by an owner.
 
 ## What scheduled tasks can do
 
@@ -43,7 +43,7 @@ There are two ways to create a scheduled task:
 5. Once Claude has all the necessary information, it will output the name of the task it’s creating, the schedule it will follow, and what the task actually does.
 6. You can explicitly confirm you want to schedule the task when prompted by Claude by clicking “Schedule":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1786926600&signature=f624cfc4db407b76a9d1a919af392b89c8940e228c9174624eff465f6eedf9c2&req=diEnEsl2mIJWUPMW1HO4zeLJBkPt%2FeyBPx%2FSrZI7l8wQDoMGW%2FmRYybB%2F5cF%0Aj6yS%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1786926600&signature=f624cfc4db407b76a9d1a919af392b89c8940e228c9174624eff465f6eedf9c2&req=diEnEsl2mIJWUPMW1HO4zeLJBkPt%2FeyBPx%2FSrZI7l8wQDoMGW%2FmRYybB%2F5cF%0Aj6yS%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1787298300&signature=84e9f07a647c632518693ea6502d8c8515915a3876b714e7a861378bbb251c0b&req=diEnEsl2mIJWUPMW1HO4zeLJBkLm9uKEPx%2FSrZI7l8zqb7TX55IU4KgKd0A0%0AqkNV%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1787298300&signature=84e9f07a647c632518693ea6502d8c8515915a3876b714e7a861378bbb251c0b&req=diEnEsl2mIJWUPMW1HO4zeLJBkLm9uKEPx%2FSrZI7l8zqb7TX55IU4KgKd0A0%0AqkNV%0A)
 7. Claude will create and schedule your task, and it will be added to the **Scheduled tasks** page.
 
 ### Set up manually
@@ -76,6 +76,6 @@ To view and manage all your scheduled tasks, click “Scheduled” in the left s
 
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
+* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

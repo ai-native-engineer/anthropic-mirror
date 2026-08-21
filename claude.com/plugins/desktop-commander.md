@@ -7,7 +7,6 @@ MCP server for terminal commands, process management, and file operations across
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Desktop Commander](#)
 * Installs

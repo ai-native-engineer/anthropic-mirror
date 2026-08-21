@@ -6,13 +6,14 @@
 
 Connect Claude to NetSuite data for analysis & insights
 
+* Category
+
   Data
 
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/d7733f53-723c-477a-a87b-41926580ef7d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Oracle NetSuite](https://www.netsuite.com/portal/home.shtml)
 

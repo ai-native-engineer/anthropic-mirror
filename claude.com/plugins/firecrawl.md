@@ -7,7 +7,6 @@ Firecrawl: Convert websites to LLM-ready markdown/data. Scrape pages, crawl site
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Firecrawl](https://firecrawl.dev)
 * Installs

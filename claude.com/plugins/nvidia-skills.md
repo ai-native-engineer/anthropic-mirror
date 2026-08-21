@@ -7,7 +7,6 @@ NVIDIA agent skills for accelerated-computing workflows — starting with cuOpt 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [NVIDIA](#)
 * Installs

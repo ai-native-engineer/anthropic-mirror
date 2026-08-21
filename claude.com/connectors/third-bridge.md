@@ -6,11 +6,12 @@
 
 Expert-led enhanced insights
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/c8e8f367-5a12-4320-b715-eee2fbdd8088)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Third Bridge Group](https://www.thirdbridge.com)
 

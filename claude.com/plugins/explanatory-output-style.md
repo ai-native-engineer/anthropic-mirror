@@ -8,7 +8,6 @@ Adds educational insights on implementation choices and codebase patterns (mimic
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

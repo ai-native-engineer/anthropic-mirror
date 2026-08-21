@@ -6,11 +6,12 @@
 
 Managed MCP platform for 350 sources
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/9df925ce-a2fc-42f1-93dd-748516052caf)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [CData](https://www.cdata.com/cloud/ai/)
 

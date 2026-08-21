@@ -6,13 +6,14 @@
 
 Shorten links, generate QR Codes, and track performance
 
+* Category
+
   Sales and marketing
 
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/b8f1c2a3-9d4e-5f6g-7h8i-9j0k1l2m3n4o)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Bitly](https://bitly.com/)
 

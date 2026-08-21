@@ -6,13 +6,14 @@
 
 Manage your partner program and access your Partner Data Lake with Claude.
 
+* Category
+
   Sales and marketing
 
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/5070225d-6c89-4bcc-92f9-e28184b0648d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Euler Software Inc](https://eulerapp.com)
 

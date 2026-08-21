@@ -11,7 +11,7 @@ If you're using Claude through AWS Bedrock, your usage is non-refundable. If you
 **Note:** For Japanese Customers using Bedrock,Anthropic will register for Japanese Consumption Tax once it becomes a Japanese Consumption Taxpayer by exceeding the legal thresholds (at the earliest as of FY2026).
 
 * [What is Amazon Bedrock?](https://support.claude.com/en/articles/7996918-what-is-amazon-bedrock)
-* [How do I get access to Claude in Amazon Bedrock?](https://support.claude.com/en/articles/7996920-how-do-i-get-access-to-claude-in-amazon-bedrock)
 * [What AWS Regions are Claude models available in Amazon Bedrock?](https://support.claude.com/en/articles/10280791-what-aws-regions-are-claude-models-available-in-amazon-bedrock)
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
+* [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)

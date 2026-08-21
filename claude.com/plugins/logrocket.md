@@ -7,7 +7,6 @@ Connect Claude Code to LogRocket to query session replays, metrics, issues, and 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [LogRocket](https://www.logrocket.com)
 * Installs

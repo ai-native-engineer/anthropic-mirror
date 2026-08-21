@@ -8,7 +8,6 @@ Triage tickets, draft responses, escalate issues, and build your knowledge base.
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=customer-support)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

@@ -8,7 +8,6 @@ PR review agents for comments, tests, errors, types, quality, and simplification
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

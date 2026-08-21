@@ -8,7 +8,6 @@ Streamline standups, code review, architecture decisions, incident response, and
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=engineering)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

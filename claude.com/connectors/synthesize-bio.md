@@ -6,11 +6,12 @@
 
 Generate gene expression from a virtual human
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/ef243b27-ec39-440b-8bb2-c407871c3bc6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Synthesize Bio](https://www.synthesize.bio/)
 

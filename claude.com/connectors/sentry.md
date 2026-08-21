@@ -6,11 +6,12 @@
 
 Search, query, and debug errors intelligently
 
+* Category
+
   Code
 * Used in
 
   [Claude](http://claude.ai/directory/46d6322a-5f75-4822-b739-f49261805e9c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Sentry](https://sentry.io)
 

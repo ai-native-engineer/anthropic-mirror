@@ -7,7 +7,6 @@ Build full-stack apps with AWS Amplify Gen 2 using guided workflows for authenti
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   1829

@@ -6,11 +6,12 @@
 
 Query, search, and explore your data with Sigma
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/d02b089b-6cc9-44e3-8667-a590a0aa8df6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Sigma Computing](https://www.sigmacomputing.com/)
 

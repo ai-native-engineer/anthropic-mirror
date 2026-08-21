@@ -6,11 +6,12 @@
 
 Search, explore, and query Blackbaud data
 
+* Category
+
   Nonprofit
 * Used in
 
   [Claude](https://claude.ai/directory/69f8fe1e-e212-41e5-9080-ce703bf39c66)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Blackbaud](https://blackbaud.com/)
 

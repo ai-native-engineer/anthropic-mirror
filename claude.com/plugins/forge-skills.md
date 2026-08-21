@@ -7,7 +7,6 @@ Forge-focused skills and MCP configuration for Atlassian Forge: scaffold and dep
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Atlassian](#)
 * Installs

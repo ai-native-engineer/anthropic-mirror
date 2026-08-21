@@ -7,7 +7,6 @@
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [ClickHouse Inc](#)
 * Installs

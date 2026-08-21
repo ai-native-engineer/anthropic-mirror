@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/ruby/beta/files/retrieve_metadata
 
 ## Get File Metadata
 
-`beta.files.retrieve_metadata(file_id, **kwargs) -> FileMetadata`
+`beta.files.retrieve_metadata(file_id, **kwargs) -> BetaFileMetadata`
 
 **get** `/v1/files/{file_id}`
 
@@ -25,7 +25,7 @@ Get File Metadata
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -71,6 +71,8 @@ Get File Metadata
 
     - `:"user-profiles-2026-03-24"`
 
+    - `:"user-profiles-2026-08-18"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -95,7 +97,7 @@ Get File Metadata
 
 ### Returns
 
-- `class FileMetadata`
+- `class BetaFileMetadata`
 
   - `id: String`
 
@@ -152,9 +154,9 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-file_metadata = anthropic.beta.files.retrieve_metadata("file_id")
+beta_file_metadata = anthropic.beta.files.retrieve_metadata("file_id")
 
-puts(file_metadata)
+puts(beta_file_metadata)
 ```
 
 #### Response

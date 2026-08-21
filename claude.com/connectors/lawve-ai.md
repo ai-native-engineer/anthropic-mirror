@@ -6,11 +6,12 @@
 
 Discover expert-written skills for legal work
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/afce8e96-04a4-4d3c-9e63-0e47c64468ea)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Lawve AI](https://lawve.ai)
 

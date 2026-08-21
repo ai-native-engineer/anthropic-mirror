@@ -6,11 +6,12 @@
 
 Analyse your live people data, right in Claude
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/b9c73e61-98e6-4658-b946-0fd6c00accb3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Shapes](https://shapes.co)
 

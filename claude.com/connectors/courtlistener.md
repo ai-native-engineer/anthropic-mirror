@@ -6,11 +6,12 @@
 
 Legal research across millions of court records
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/58d5cff1-20b3-4bb8-9c51-9ac3e6bd0dac)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Free Law Project](https://free.law/)
 

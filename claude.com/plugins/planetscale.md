@@ -7,7 +7,6 @@ An authenticated hosted MCP server that accesses your PlanetScale organizations,
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [PlanetScale](https://planetscale.com)
 * Installs

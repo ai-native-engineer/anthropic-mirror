@@ -6,11 +6,12 @@
 
 Clean Public Equity Fundamental Data
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/9620ff48-f0d9-4f7f-bda0-4d7240894538)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Fiscal.ai](https://fiscal.ai/)
 

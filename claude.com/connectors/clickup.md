@@ -6,11 +6,12 @@
 
 Project management & collaboration for teams & agents
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/aa5a2bca-4004-49ea-bc2b-978162587a3a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [ClickUp](https://clickup.com/)
 

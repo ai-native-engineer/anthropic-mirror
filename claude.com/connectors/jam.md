@@ -6,11 +6,12 @@
 
 Record screen and collect automatic context for issues
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/923fb14b-ed65-4e41-8dd5-4c2c38c00457)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Jam](https://jam.dev)
 

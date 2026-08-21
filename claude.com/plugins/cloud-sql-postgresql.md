@@ -7,7 +7,6 @@ Create, connect, and interact with a Cloud SQL for PostgreSQL database and data.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google LLC](#)
 * Installs

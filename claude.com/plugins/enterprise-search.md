@@ -8,7 +8,6 @@ Search across all of your company's tools in one place — email, chat, document
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=enterprise-search)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

@@ -6,11 +6,12 @@
 
 Build, govern, and document APIs
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/653a5f84-8819-4215-9ba7-9b384eb2ddc2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [SmartBear](https://smartbear.com/)
 

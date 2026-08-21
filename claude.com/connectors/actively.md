@@ -6,11 +6,12 @@
 
 1:1 account agents for GTM teams
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/ce5e0577-7004-470c-91f8-5abdc9335ae3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Taurus Labs, Inc.](https://www.actively.ai)
 

@@ -6,11 +6,12 @@
 
 Natural-language estimating for XactRestore
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/ca0cd7ba-6a50-4aba-a1c9-45367fc80cc2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Verisk Analytics, Inc.](https://verisk.com)
 

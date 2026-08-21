@@ -7,7 +7,6 @@ Assess cloud usage/billing, compare AWS services/pricing, recommend migration or
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Amazon Web Services](https://aws.amazon.com)
 * Installs

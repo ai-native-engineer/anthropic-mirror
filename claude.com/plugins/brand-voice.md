@@ -8,7 +8,6 @@ Transform scattered brand materials into enforceable AI guardrails — automatic
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=brand-voice)
-* Made by
 
   [Tribe AI](https://www.tribe.ai/)
 * Installs

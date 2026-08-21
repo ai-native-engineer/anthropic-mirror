@@ -7,7 +7,6 @@ Control and inspect a live Chrome browser from your coding agent. Record perform
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google](https://github.com/ChromeDevTools)
 * Installs

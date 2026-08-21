@@ -7,7 +7,6 @@ Search code across codebases, trace references, analyze refactor impact, investi
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Sourcegraph Community](https://github.com/sourcegraph-community/sourcegraph-claudecode-plugin)
 * Installs

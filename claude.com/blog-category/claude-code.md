@@ -16,6 +16,38 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Aug 20, 2026
+
+The Claude Code guide for startups
+
+Claude Code
+
+The Claude Code guide for startups
+
+August 20, 2026
+
+[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
+
+[The Claude Code guide for startups](#)The Claude Code guide for startups
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
+
+Aug 18, 2026
+
+Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+Enterprise AI
+
+Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+August 18, 2026
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f63175f636cba4641_c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
 
 Aug 14, 2026
@@ -224,38 +256,6 @@ July 7, 2026
 
 [Choosing a Claude model and effort level in Claude Code](#)Choosing a Claude model and effort level in Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
-
-Jul 6, 2026
-
-A field guide to Claude Fable 5: Finding your unknowns
-
-Claude Code
-
-A field guide to Claude Fable 5: Finding your unknowns
-
-July 6, 2026
-
-[A field guide to Claude Fable 5: Finding your unknowns](https://claude.com/blog/a-field-guide-to-claude-fable-finding-your-unknowns)A field guide to Claude Fable 5: Finding your unknowns
-
-[A field guide to Claude Fable 5: Finding your unknowns](#)A field guide to Claude Fable 5: Finding your unknowns
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229e73ca2d0d73d78f7_682ac293884c9d4ee4ebe2355a2f6c4ecfdd9c1b-1000x1000.svg)
-
-Jun 30, 2026
-
-Loop engineering: Getting started with loops
-
-Claude Code
-
-Loop engineering: Getting started with loops
-
-June 30, 2026
-
-[Loop engineering: Getting started with loops](https://claude.com/blog/getting-started-with-loops)Loop engineering: Getting started with loops
-
-[Loop engineering: Getting started with loops](#)Loop engineering: Getting started with loops
-
 [View more](https://claude.com/blog-category/claude-code?1e959936_page=2)
 
 Category
@@ -263,6 +263,38 @@ Category
 Product
 
 Usecase
+
+### The Claude Code guide for startups
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+August 20, 2026
+
+[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
+
+[The Claude Code guide for startups](#)The Claude Code guide for startups
+
+### Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 18, 2026
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
 
 ### Maximizing the value of your Claude Code sessions
 
@@ -471,38 +503,6 @@ July 7, 2026
 [Choosing a Claude model and effort level in Claude Code](https://claude.com/blog/claude-model-and-effort-level-in-claude-code)Choosing a Claude model and effort level in Claude Code
 
 [Choosing a Claude model and effort level in Claude Code](#)Choosing a Claude model and effort level in Claude Code
-
-### A field guide to Claude Fable 5: Finding your unknowns
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 6, 2026
-
-[A field guide to Claude Fable 5: Finding your unknowns](https://claude.com/blog/a-field-guide-to-claude-fable-finding-your-unknowns)A field guide to Claude Fable 5: Finding your unknowns
-
-[A field guide to Claude Fable 5: Finding your unknowns](#)A field guide to Claude Fable 5: Finding your unknowns
-
-### Loop engineering: Getting started with loops
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-June 30, 2026
-
-[Loop engineering: Getting started with loops](https://claude.com/blog/getting-started-with-loops)Loop engineering: Getting started with loops
-
-[Loop engineering: Getting started with loops](#)Loop engineering: Getting started with loops
 
 [View more](https://claude.com/blog-category/claude-code?2f226f2c_page=2)
 

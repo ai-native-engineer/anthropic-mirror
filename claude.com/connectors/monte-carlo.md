@@ -6,11 +6,12 @@
 
 Data & AI observability
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/54c8ca93-5e6e-4f30-89ca-207c3d3a438b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Monte Carlo](https://www.montecarlodata.com)
 

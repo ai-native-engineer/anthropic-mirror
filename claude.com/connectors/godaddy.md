@@ -6,11 +6,12 @@
 
 Search domains and check availability
 
+* Category
+
   No items found.
 * Used in
 
   [Claude](https://claude.ai/directory/a1d0551d-c567-4975-91fc-7ced9e819421)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [GoDaddy](https://www.godaddy.com/)
 

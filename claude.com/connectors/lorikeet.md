@@ -6,11 +6,12 @@
 
 A universal concierge for complex businesses
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/0ffe8735-4ad5-4e7b-99e3-c8fc25f51b52)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Lorikeet](https://www.lorikeetcx.ai)
 

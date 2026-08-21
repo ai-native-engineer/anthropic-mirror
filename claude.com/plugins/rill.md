@@ -7,7 +7,6 @@ Skills for developing and querying projects in the Rill business intelligence pl
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Rill Data](https://github.com/rilldata)
 * Installs

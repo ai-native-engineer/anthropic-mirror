@@ -6,11 +6,12 @@
 
 Discover local food spots and order with a conversation
 
+* Category
+
   No items found.
 * Used in
 
   [Claude](https://claude.ai/directory/3a81d020-f026-4552-beb8-cc144f917fc4)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Block, Inc.](https://block.xyz/)
 

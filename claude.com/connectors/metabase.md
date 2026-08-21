@@ -6,11 +6,12 @@
 
 Query and explore your Metabase data
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/13e064b4-8243-4ab8-ae2d-b5329200f854)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Metabase](https://www.metabase.com/)
 

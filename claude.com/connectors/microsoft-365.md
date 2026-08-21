@@ -6,11 +6,12 @@
 
 Access SharePoint, OneDrive, Outlook, and Teams context directly in Claude
 
+* Category
+
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 

@@ -7,7 +7,6 @@ AI reviews legal documents for risks and advises when to hire an attorney. Conne
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [LegalZoom](https://www.legalzoom.com)
 * Installs

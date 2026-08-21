@@ -7,7 +7,6 @@ Build, train, and deploy AI models with deep AWS AI/ML expertise brought directl
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   1469

@@ -6,11 +6,12 @@
 
 Explore customer data and generate insights via Claude
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/e46d22da-f472-465a-ae46-52f6ac61a97f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Customer.io](https://customer.io/)
 

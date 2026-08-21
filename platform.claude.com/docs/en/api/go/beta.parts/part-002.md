@@ -3,6 +3,5251 @@
 
 <!-- chunk-start -->
 
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `DocumentIndex int64`
+
+    - `DocumentTitle string`
+
+    - `EndBlockIndex int64`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `FileID string`
+
+    - `StartBlockIndex int64`
+
+      0-based index of the first cited block in the source's `content` array.
+
+    - `Type ContentBlockLocation`
+
+      - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
+
+  - `type BetaCitationsWebSearchResultLocation struct{…}`
+
+    - `CitedText string`
+
+    - `EncryptedIndex string`
+
+    - `Title string`
+
+    - `Type WebSearchResultLocation`
+
+      - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
+
+    - `URL string`
+
+  - `type BetaCitationSearchResultLocation struct{…}`
+
+    - `CitedText string`
+
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `EndBlockIndex int64`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `SearchResultIndex int64`
+
+      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+      Counted separately from `document_index`; server-side web search results are not included in this count.
+
+    - `Source string`
+
+    - `StartBlockIndex int64`
+
+      0-based index of the first cited block in the source's `content` array.
+
+    - `Title string`
+
+    - `Type SearchResultLocation`
+
+      - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
+
+### Beta Text Citation Param
+
+- `type BetaTextCitationParamUnionResp interface{…}`
+
+  - `type BetaCitationCharLocationParamResp struct{…}`
+
+    - `CitedText string`
+
+    - `DocumentIndex int64`
+
+    - `DocumentTitle string`
+
+    - `EndCharIndex int64`
+
+    - `StartCharIndex int64`
+
+    - `Type CharLocation`
+
+      - `const CharLocationCharLocation CharLocation = "char_location"`
+
+  - `type BetaCitationPageLocationParamResp struct{…}`
+
+    - `CitedText string`
+
+    - `DocumentIndex int64`
+
+    - `DocumentTitle string`
+
+    - `EndPageNumber int64`
+
+    - `StartPageNumber int64`
+
+    - `Type PageLocation`
+
+      - `const PageLocationPageLocation PageLocation = "page_location"`
+
+  - `type BetaCitationContentBlockLocationParamResp struct{…}`
+
+    - `CitedText string`
+
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `DocumentIndex int64`
+
+    - `DocumentTitle string`
+
+    - `EndBlockIndex int64`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `StartBlockIndex int64`
+
+      0-based index of the first cited block in the source's `content` array.
+
+    - `Type ContentBlockLocation`
+
+      - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
+
+  - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
+
+    - `CitedText string`
+
+    - `EncryptedIndex string`
+
+    - `Title string`
+
+    - `Type WebSearchResultLocation`
+
+      - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
+
+    - `URL string`
+
+  - `type BetaCitationSearchResultLocationParamResp struct{…}`
+
+    - `CitedText string`
+
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `EndBlockIndex int64`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `SearchResultIndex int64`
+
+      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+      Counted separately from `document_index`; server-side web search results are not included in this count.
+
+    - `Source string`
+
+    - `StartBlockIndex int64`
+
+      0-based index of the first cited block in the source's `content` array.
+
+    - `Title string`
+
+    - `Type SearchResultLocation`
+
+      - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
+
+### Beta Text Delta
+
+- `type BetaTextDelta struct{…}`
+
+  - `Text string`
+
+  - `Type TextDelta`
+
+    - `const TextDeltaTextDelta TextDelta = "text_delta"`
+
+### Beta Text Editor Code Execution Create Result Block
+
+- `type BetaTextEditorCodeExecutionCreateResultBlock struct{…}`
+
+  - `IsFileUpdate bool`
+
+  - `Type TextEditorCodeExecutionCreateResult`
+
+    - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
+
+### Beta Text Editor Code Execution Create Result Block Param
+
+- `type BetaTextEditorCodeExecutionCreateResultBlockParamResp struct{…}`
+
+  - `IsFileUpdate bool`
+
+  - `Type TextEditorCodeExecutionCreateResult`
+
+    - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
+
+### Beta Text Editor Code Execution Str Replace Result Block
+
+- `type BetaTextEditorCodeExecutionStrReplaceResultBlock struct{…}`
+
+  - `Lines []string`
+
+  - `NewLines int64`
+
+  - `NewStart int64`
+
+  - `OldLines int64`
+
+  - `OldStart int64`
+
+  - `Type TextEditorCodeExecutionStrReplaceResult`
+
+    - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
+
+### Beta Text Editor Code Execution Str Replace Result Block Param
+
+- `type BetaTextEditorCodeExecutionStrReplaceResultBlockParamResp struct{…}`
+
+  - `Type TextEditorCodeExecutionStrReplaceResult`
+
+    - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
+
+  - `Lines []string`
+
+  - `NewLines int64`
+
+  - `NewStart int64`
+
+  - `OldLines int64`
+
+  - `OldStart int64`
+
+### Beta Text Editor Code Execution Tool Result Block
+
+- `type BetaTextEditorCodeExecutionToolResultBlock struct{…}`
+
+  - `Content BetaTextEditorCodeExecutionToolResultBlockContentUnion`
+
+    - `type BetaTextEditorCodeExecutionToolResultError struct{…}`
+
+      - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorErrorCode`
+
+        - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeInvalidToolInput BetaTextEditorCodeExecutionToolResultErrorErrorCode = "invalid_tool_input"`
+
+        - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeUnavailable BetaTextEditorCodeExecutionToolResultErrorErrorCode = "unavailable"`
+
+        - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeTooManyRequests BetaTextEditorCodeExecutionToolResultErrorErrorCode = "too_many_requests"`
+
+        - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeExecutionTimeExceeded BetaTextEditorCodeExecutionToolResultErrorErrorCode = "execution_time_exceeded"`
+
+        - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeFileNotFound BetaTextEditorCodeExecutionToolResultErrorErrorCode = "file_not_found"`
+
+      - `ErrorMessage string`
+
+      - `Type TextEditorCodeExecutionToolResultError`
+
+        - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
+
+    - `type BetaTextEditorCodeExecutionViewResultBlock struct{…}`
+
+      - `Content string`
+
+      - `FileType BetaTextEditorCodeExecutionViewResultBlockFileType`
+
+        - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeText BetaTextEditorCodeExecutionViewResultBlockFileType = "text"`
+
+        - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeImage BetaTextEditorCodeExecutionViewResultBlockFileType = "image"`
+
+        - `const BetaTextEditorCodeExecutionViewResultBlockFileTypePDF BetaTextEditorCodeExecutionViewResultBlockFileType = "pdf"`
+
+      - `NumLines int64`
+
+      - `StartLine int64`
+
+      - `TotalLines int64`
+
+      - `Type TextEditorCodeExecutionViewResult`
+
+        - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
+
+    - `type BetaTextEditorCodeExecutionCreateResultBlock struct{…}`
+
+      - `IsFileUpdate bool`
+
+      - `Type TextEditorCodeExecutionCreateResult`
+
+        - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
+
+    - `type BetaTextEditorCodeExecutionStrReplaceResultBlock struct{…}`
+
+      - `Lines []string`
+
+      - `NewLines int64`
+
+      - `NewStart int64`
+
+      - `OldLines int64`
+
+      - `OldStart int64`
+
+      - `Type TextEditorCodeExecutionStrReplaceResult`
+
+        - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
+
+  - `ToolUseID string`
+
+  - `Type TextEditorCodeExecutionToolResult`
+
+    - `const TextEditorCodeExecutionToolResultTextEditorCodeExecutionToolResult TextEditorCodeExecutionToolResult = "text_editor_code_execution_tool_result"`
+
+### Beta Text Editor Code Execution Tool Result Block Param
+
+- `type BetaTextEditorCodeExecutionToolResultBlockParamResp struct{…}`
+
+  - `Content BetaTextEditorCodeExecutionToolResultBlockParamContentUnionResp`
+
+    - `type BetaTextEditorCodeExecutionToolResultErrorParamResp struct{…}`
+
+      - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorParamErrorCode`
+
+        - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeInvalidToolInput BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "invalid_tool_input"`
+
+        - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeUnavailable BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "unavailable"`
+
+        - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeTooManyRequests BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "too_many_requests"`
+
+        - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeExecutionTimeExceeded BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "execution_time_exceeded"`
+
+        - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeFileNotFound BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "file_not_found"`
+
+      - `Type TextEditorCodeExecutionToolResultError`
+
+        - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
+
+      - `ErrorMessage string`
+
+    - `type BetaTextEditorCodeExecutionViewResultBlockParamResp struct{…}`
+
+      - `Content string`
+
+      - `FileType BetaTextEditorCodeExecutionViewResultBlockParamFileType`
+
+        - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypeText BetaTextEditorCodeExecutionViewResultBlockParamFileType = "text"`
+
+        - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypeImage BetaTextEditorCodeExecutionViewResultBlockParamFileType = "image"`
+
+        - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypePDF BetaTextEditorCodeExecutionViewResultBlockParamFileType = "pdf"`
+
+      - `Type TextEditorCodeExecutionViewResult`
+
+        - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
+
+      - `NumLines int64`
+
+      - `StartLine int64`
+
+      - `TotalLines int64`
+
+    - `type BetaTextEditorCodeExecutionCreateResultBlockParamResp struct{…}`
+
+      - `IsFileUpdate bool`
+
+      - `Type TextEditorCodeExecutionCreateResult`
+
+        - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
+
+    - `type BetaTextEditorCodeExecutionStrReplaceResultBlockParamResp struct{…}`
+
+      - `Type TextEditorCodeExecutionStrReplaceResult`
+
+        - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
+
+      - `Lines []string`
+
+      - `NewLines int64`
+
+      - `NewStart int64`
+
+      - `OldLines int64`
+
+      - `OldStart int64`
+
+  - `ToolUseID string`
+
+  - `Type TextEditorCodeExecutionToolResult`
+
+    - `const TextEditorCodeExecutionToolResultTextEditorCodeExecutionToolResult TextEditorCodeExecutionToolResult = "text_editor_code_execution_tool_result"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+### Beta Text Editor Code Execution Tool Result Error
+
+- `type BetaTextEditorCodeExecutionToolResultError struct{…}`
+
+  - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorErrorCode`
+
+    - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeInvalidToolInput BetaTextEditorCodeExecutionToolResultErrorErrorCode = "invalid_tool_input"`
+
+    - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeUnavailable BetaTextEditorCodeExecutionToolResultErrorErrorCode = "unavailable"`
+
+    - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeTooManyRequests BetaTextEditorCodeExecutionToolResultErrorErrorCode = "too_many_requests"`
+
+    - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeExecutionTimeExceeded BetaTextEditorCodeExecutionToolResultErrorErrorCode = "execution_time_exceeded"`
+
+    - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeFileNotFound BetaTextEditorCodeExecutionToolResultErrorErrorCode = "file_not_found"`
+
+  - `ErrorMessage string`
+
+  - `Type TextEditorCodeExecutionToolResultError`
+
+    - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
+
+### Beta Text Editor Code Execution Tool Result Error Param
+
+- `type BetaTextEditorCodeExecutionToolResultErrorParamResp struct{…}`
+
+  - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorParamErrorCode`
+
+    - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeInvalidToolInput BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "invalid_tool_input"`
+
+    - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeUnavailable BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "unavailable"`
+
+    - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeTooManyRequests BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "too_many_requests"`
+
+    - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeExecutionTimeExceeded BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "execution_time_exceeded"`
+
+    - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeFileNotFound BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "file_not_found"`
+
+  - `Type TextEditorCodeExecutionToolResultError`
+
+    - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
+
+  - `ErrorMessage string`
+
+### Beta Text Editor Code Execution View Result Block
+
+- `type BetaTextEditorCodeExecutionViewResultBlock struct{…}`
+
+  - `Content string`
+
+  - `FileType BetaTextEditorCodeExecutionViewResultBlockFileType`
+
+    - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeText BetaTextEditorCodeExecutionViewResultBlockFileType = "text"`
+
+    - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeImage BetaTextEditorCodeExecutionViewResultBlockFileType = "image"`
+
+    - `const BetaTextEditorCodeExecutionViewResultBlockFileTypePDF BetaTextEditorCodeExecutionViewResultBlockFileType = "pdf"`
+
+  - `NumLines int64`
+
+  - `StartLine int64`
+
+  - `TotalLines int64`
+
+  - `Type TextEditorCodeExecutionViewResult`
+
+    - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
+
+### Beta Text Editor Code Execution View Result Block Param
+
+- `type BetaTextEditorCodeExecutionViewResultBlockParamResp struct{…}`
+
+  - `Content string`
+
+  - `FileType BetaTextEditorCodeExecutionViewResultBlockParamFileType`
+
+    - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypeText BetaTextEditorCodeExecutionViewResultBlockParamFileType = "text"`
+
+    - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypeImage BetaTextEditorCodeExecutionViewResultBlockParamFileType = "image"`
+
+    - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypePDF BetaTextEditorCodeExecutionViewResultBlockParamFileType = "pdf"`
+
+  - `Type TextEditorCodeExecutionViewResult`
+
+    - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
+
+  - `NumLines int64`
+
+  - `StartLine int64`
+
+  - `TotalLines int64`
+
+### Beta Thinking Block
+
+- `type BetaThinkingBlock struct{…}`
+
+  - `Signature string`
+
+    A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+    This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+  - `Thinking string`
+
+    The text of Claude's thinking process for this block.
+
+  - `Type Thinking`
+
+    - `const ThinkingThinking Thinking = "thinking"`
+
+### Beta Thinking Block Param
+
+- `type BetaThinkingBlockParamResp struct{…}`
+
+  - `Signature string`
+
+    The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
+
+    Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
+
+  - `Thinking string`
+
+    The `thinking` text of this block as returned by the API.
+
+  - `Type Thinking`
+
+    - `const ThinkingThinking Thinking = "thinking"`
+
+### Beta Thinking Config Adaptive
+
+- `type BetaThinkingConfigAdaptive struct{…}`
+
+  - `Type Adaptive`
+
+    - `const AdaptiveAdaptive Adaptive = "adaptive"`
+
+  - `Display BetaThinkingConfigAdaptiveDisplay`
+
+    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+    - `const BetaThinkingConfigAdaptiveDisplaySummarized BetaThinkingConfigAdaptiveDisplay = "summarized"`
+
+    - `const BetaThinkingConfigAdaptiveDisplayOmitted BetaThinkingConfigAdaptiveDisplay = "omitted"`
+
+### Beta Thinking Config Disabled
+
+- `type BetaThinkingConfigDisabled struct{…}`
+
+  - `Type Disabled`
+
+    - `const DisabledDisabled Disabled = "disabled"`
+
+### Beta Thinking Config Enabled
+
+- `type BetaThinkingConfigEnabled struct{…}`
+
+  - `BudgetTokens int64`
+
+    Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+    Must be ≥1024 and less than `max_tokens`.
+
+    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+  - `Type Enabled`
+
+    - `const EnabledEnabled Enabled = "enabled"`
+
+  - `Display BetaThinkingConfigEnabledDisplay`
+
+    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+    - `const BetaThinkingConfigEnabledDisplaySummarized BetaThinkingConfigEnabledDisplay = "summarized"`
+
+    - `const BetaThinkingConfigEnabledDisplayOmitted BetaThinkingConfigEnabledDisplay = "omitted"`
+
+### Beta Thinking Config Param
+
+- `type BetaThinkingConfigParamUnionResp interface{…}`
+
+  Configuration for enabling Claude's extended thinking.
+
+  When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
+
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+  - `type BetaThinkingConfigEnabled struct{…}`
+
+    - `BudgetTokens int64`
+
+      Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+      Must be ≥1024 and less than `max_tokens`.
+
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+    - `Type Enabled`
+
+      - `const EnabledEnabled Enabled = "enabled"`
+
+    - `Display BetaThinkingConfigEnabledDisplay`
+
+      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+      - `const BetaThinkingConfigEnabledDisplaySummarized BetaThinkingConfigEnabledDisplay = "summarized"`
+
+      - `const BetaThinkingConfigEnabledDisplayOmitted BetaThinkingConfigEnabledDisplay = "omitted"`
+
+  - `type BetaThinkingConfigDisabled struct{…}`
+
+    - `Type Disabled`
+
+      - `const DisabledDisabled Disabled = "disabled"`
+
+  - `type BetaThinkingConfigAdaptive struct{…}`
+
+    - `Type Adaptive`
+
+      - `const AdaptiveAdaptive Adaptive = "adaptive"`
+
+    - `Display BetaThinkingConfigAdaptiveDisplay`
+
+      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+      - `const BetaThinkingConfigAdaptiveDisplaySummarized BetaThinkingConfigAdaptiveDisplay = "summarized"`
+
+      - `const BetaThinkingConfigAdaptiveDisplayOmitted BetaThinkingConfigAdaptiveDisplay = "omitted"`
+
+### Beta Thinking Delta
+
+- `type BetaThinkingDelta struct{…}`
+
+  - `EstimatedTokens int64`
+
+    Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
+
+  - `Thinking string`
+
+    The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
+
+  - `Type ThinkingDelta`
+
+    - `const ThinkingDeltaThinkingDelta ThinkingDelta = "thinking_delta"`
+
+### Beta Thinking Turns
+
+- `type BetaThinkingTurns struct{…}`
+
+  - `Type ThinkingTurns`
+
+    - `const ThinkingTurnsThinkingTurns ThinkingTurns = "thinking_turns"`
+
+  - `Value int64`
+
+### Beta Token Task Budget
+
+- `type BetaTokenTaskBudget struct{…}`
+
+  User-configurable total token budget across contexts.
+
+  - `Total int64`
+
+    Total token budget across all contexts in the session.
+
+  - `Type Tokens`
+
+    The budget type. Currently only 'tokens' is supported.
+
+    - `const TokensTokens Tokens = "tokens"`
+
+  - `Remaining int64`
+
+    Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+### Beta Tool
+
+- `type BetaTool struct{…}`
+
+  - `InputSchema BetaToolInputSchema`
+
+    [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+    This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+    - `Type Object`
+
+      - `const ObjectObject Object = "object"`
+
+    - `Properties map[string, any]`
+
+    - `Required []string`
+
+  - `Name string`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolAllowedCallerDirect BetaToolAllowedCaller = "direct"`
+
+    - `const BetaToolAllowedCallerCodeExecution20250825 BetaToolAllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolAllowedCallerCodeExecution20260120 BetaToolAllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolAllowedCallerCodeExecution20260521 BetaToolAllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `Description string`
+
+    Description of what this tool does.
+
+    Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+  - `EagerInputStreaming bool`
+
+    Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+  - `InputExamples []map[string, any]`
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `Type BetaToolType`
+
+    - `const BetaToolTypeCustom BetaToolType = "custom"`
+
+### Beta Tool Bash 20241022
+
+- `type BetaToolBash20241022 struct{…}`
+
+  - `Name Bash`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const BashBash Bash = "bash"`
+
+  - `Type Bash20241022`
+
+    - `const Bash20241022Bash20241022 Bash20241022 = "bash_20241022"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolBash20241022AllowedCallerDirect BetaToolBash20241022AllowedCaller = "direct"`
+
+    - `const BetaToolBash20241022AllowedCallerCodeExecution20250825 BetaToolBash20241022AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolBash20241022AllowedCallerCodeExecution20260120 BetaToolBash20241022AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolBash20241022AllowedCallerCodeExecution20260521 BetaToolBash20241022AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `InputExamples []map[string, any]`
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Bash 20250124
+
+- `type BetaToolBash20250124 struct{…}`
+
+  - `Name Bash`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const BashBash Bash = "bash"`
+
+  - `Type Bash20250124`
+
+    - `const Bash20250124Bash20250124 Bash20250124 = "bash_20250124"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolBash20250124AllowedCallerDirect BetaToolBash20250124AllowedCaller = "direct"`
+
+    - `const BetaToolBash20250124AllowedCallerCodeExecution20250825 BetaToolBash20250124AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolBash20250124AllowedCallerCodeExecution20260120 BetaToolBash20250124AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolBash20250124AllowedCallerCodeExecution20260521 BetaToolBash20250124AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `InputExamples []map[string, any]`
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Change MCP Tool Reference
+
+- `type BetaToolChangeMCPToolReference struct{…}`
+
+  Reference to a single MCP tool by its server and remote name — the
+  same `server_name`/`name` pair `mcp_tool_use` carries.
+
+  - `Name string`
+
+  - `ServerName string`
+
+  - `Type MCPToolReference`
+
+    - `const MCPToolReferenceMCPToolReference MCPToolReference = "mcp_tool_reference"`
+
+### Beta Tool Change MCP Toolset Reference
+
+- `type BetaToolChangeMCPToolsetReference struct{…}`
+
+  Reference to every tool in the named MCP server's toolset.
+
+  - `ServerName string`
+
+  - `Type MCPToolsetReference`
+
+    - `const MCPToolsetReferenceMCPToolsetReference MCPToolsetReference = "mcp_toolset_reference"`
+
+### Beta Tool Change Tool Reference
+
+- `type BetaToolChangeToolReference struct{…}`
+
+  Reference to a single tool the caller declared directly in
+  `tools[]`. Does not accept the composed `{server}_{name}` form the
+  server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+  `mcp_toolset_reference` for those.
+
+  - `Name string`
+
+  - `Type ToolReference`
+
+    - `const ToolReferenceToolReference ToolReference = "tool_reference"`
+
+### Beta Tool Choice
+
+- `type BetaToolChoiceUnion interface{…}`
+
+  How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+
+  - `type BetaToolChoiceAuto struct{…}`
+
+    The model will automatically decide whether to use tools.
+
+    - `Type Auto`
+
+      - `const AutoAuto Auto = "auto"`
+
+    - `DisableParallelToolUse bool`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output at most one tool use.
+
+  - `type BetaToolChoiceAny struct{…}`
+
+    The model will use any available tools.
+
+    - `Type Any`
+
+      - `const AnyAny Any = "any"`
+
+    - `DisableParallelToolUse bool`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+  - `type BetaToolChoiceTool struct{…}`
+
+    The model will use the specified tool with `tool_choice.name`.
+
+    - `Name string`
+
+      The name of the tool to use.
+
+    - `Type Tool`
+
+      - `const ToolTool Tool = "tool"`
+
+    - `DisableParallelToolUse bool`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+  - `type BetaToolChoiceNone struct{…}`
+
+    The model will not be allowed to use tools.
+
+    - `Type None`
+
+      - `const NoneNone None = "none"`
+
+### Beta Tool Choice Any
+
+- `type BetaToolChoiceAny struct{…}`
+
+  The model will use any available tools.
+
+  - `Type Any`
+
+    - `const AnyAny Any = "any"`
+
+  - `DisableParallelToolUse bool`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+### Beta Tool Choice Auto
+
+- `type BetaToolChoiceAuto struct{…}`
+
+  The model will automatically decide whether to use tools.
+
+  - `Type Auto`
+
+    - `const AutoAuto Auto = "auto"`
+
+  - `DisableParallelToolUse bool`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output at most one tool use.
+
+### Beta Tool Choice None
+
+- `type BetaToolChoiceNone struct{…}`
+
+  The model will not be allowed to use tools.
+
+  - `Type None`
+
+    - `const NoneNone None = "none"`
+
+### Beta Tool Choice Tool
+
+- `type BetaToolChoiceTool struct{…}`
+
+  The model will use the specified tool with `tool_choice.name`.
+
+  - `Name string`
+
+    The name of the tool to use.
+
+  - `Type Tool`
+
+    - `const ToolTool Tool = "tool"`
+
+  - `DisableParallelToolUse bool`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+### Beta Tool Computer Use 20241022
+
+- `type BetaToolComputerUse20241022 struct{…}`
+
+  - `DisplayHeightPx int64`
+
+    The height of the display in pixels.
+
+  - `DisplayWidthPx int64`
+
+    The width of the display in pixels.
+
+  - `Name Computer`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const ComputerComputer Computer = "computer"`
+
+  - `Type Computer20241022`
+
+    - `const Computer20241022Computer20241022 Computer20241022 = "computer_20241022"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolComputerUse20241022AllowedCallerDirect BetaToolComputerUse20241022AllowedCaller = "direct"`
+
+    - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20250825 BetaToolComputerUse20241022AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20260120 BetaToolComputerUse20241022AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20260521 BetaToolComputerUse20241022AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `DisplayNumber int64`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+  - `InputExamples []map[string, any]`
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Computer Use 20250124
+
+- `type BetaToolComputerUse20250124 struct{…}`
+
+  - `DisplayHeightPx int64`
+
+    The height of the display in pixels.
+
+  - `DisplayWidthPx int64`
+
+    The width of the display in pixels.
+
+  - `Name Computer`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const ComputerComputer Computer = "computer"`
+
+  - `Type Computer20250124`
+
+    - `const Computer20250124Computer20250124 Computer20250124 = "computer_20250124"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolComputerUse20250124AllowedCallerDirect BetaToolComputerUse20250124AllowedCaller = "direct"`
+
+    - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20250825 BetaToolComputerUse20250124AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260120 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260521 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `DisplayNumber int64`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+  - `InputExamples []map[string, any]`
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Computer Use 20251124
+
+- `type BetaToolComputerUse20251124 struct{…}`
+
+  - `DisplayHeightPx int64`
+
+    The height of the display in pixels.
+
+  - `DisplayWidthPx int64`
+
+    The width of the display in pixels.
+
+  - `Name Computer`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const ComputerComputer Computer = "computer"`
+
+  - `Type Computer20251124`
+
+    - `const Computer20251124Computer20251124 Computer20251124 = "computer_20251124"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolComputerUse20251124AllowedCallerDirect BetaToolComputerUse20251124AllowedCaller = "direct"`
+
+    - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20250825 BetaToolComputerUse20251124AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260120 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260521 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `DisplayNumber int64`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+  - `EnableZoom bool`
+
+    Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+  - `InputExamples []map[string, any]`
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Reference Block
+
+- `type BetaToolReferenceBlock struct{…}`
+
+  - `ToolName string`
+
+  - `Type ToolReference`
+
+    - `const ToolReferenceToolReference ToolReference = "tool_reference"`
+
+### Beta Tool Reference Block Param
+
+- `type BetaToolReferenceBlockParamResp struct{…}`
+
+  Tool reference block that can be included in tool_result content.
+
+  - `ToolName string`
+
+  - `Type ToolReference`
+
+    - `const ToolReferenceToolReference ToolReference = "tool_reference"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+### Beta Tool Result Block Param
+
+- `type BetaToolResultBlockParamResp struct{…}`
+
+  - `ToolUseID string`
+
+  - `Type ToolResult`
+
+    - `const ToolResultToolResult ToolResult = "tool_result"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `Content []BetaToolResultBlockParamContentUnionResp`
+
+    - `[]BetaToolResultBlockParamContentUnionResp`
+
+      - `type BetaTextBlockParamResp struct{…}`
+
+        - `Text string`
+
+        - `Type Text`
+
+          - `const TextText Text = "text"`
+
+        - `CacheControl BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+        - `Citations []BetaTextCitationParamUnionResp`
+
+          - `type BetaCitationCharLocationParamResp struct{…}`
+
+            - `CitedText string`
+
+            - `DocumentIndex int64`
+
+            - `DocumentTitle string`
+
+            - `EndCharIndex int64`
+
+            - `StartCharIndex int64`
+
+            - `Type CharLocation`
+
+              - `const CharLocationCharLocation CharLocation = "char_location"`
+
+          - `type BetaCitationPageLocationParamResp struct{…}`
+
+            - `CitedText string`
+
+            - `DocumentIndex int64`
+
+            - `DocumentTitle string`
+
+            - `EndPageNumber int64`
+
+            - `StartPageNumber int64`
+
+            - `Type PageLocation`
+
+              - `const PageLocationPageLocation PageLocation = "page_location"`
+
+          - `type BetaCitationContentBlockLocationParamResp struct{…}`
+
+            - `CitedText string`
+
+              The full text of the cited block range, concatenated.
+
+              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+            - `DocumentIndex int64`
+
+            - `DocumentTitle string`
+
+            - `EndBlockIndex int64`
+
+              Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+            - `StartBlockIndex int64`
+
+              0-based index of the first cited block in the source's `content` array.
+
+            - `Type ContentBlockLocation`
+
+              - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
+
+          - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
+
+            - `CitedText string`
+
+            - `EncryptedIndex string`
+
+            - `Title string`
+
+            - `Type WebSearchResultLocation`
+
+              - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
+
+            - `URL string`
+
+          - `type BetaCitationSearchResultLocationParamResp struct{…}`
+
+            - `CitedText string`
+
+              The full text of the cited block range, concatenated.
+
+              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+            - `EndBlockIndex int64`
+
+              Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+            - `SearchResultIndex int64`
+
+              0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+              Counted separately from `document_index`; server-side web search results are not included in this count.
+
+            - `Source string`
+
+            - `StartBlockIndex int64`
+
+              0-based index of the first cited block in the source's `content` array.
+
+            - `Title string`
+
+            - `Type SearchResultLocation`
+
+              - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
+
+      - `type BetaImageBlockParamResp struct{…}`
+
+        - `Source BetaImageBlockParamSourceUnionResp`
+
+          - `type BetaBase64ImageSource struct{…}`
+
+            - `Data string`
+
+            - `MediaType BetaBase64ImageSourceMediaType`
+
+              - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
+
+              - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
+
+              - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
+
+              - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
+
+            - `Type Base64`
+
+              - `const Base64Base64 Base64 = "base64"`
+
+          - `type BetaURLImageSource struct{…}`
+
+            - `Type URL`
+
+              - `const URLURL URL = "url"`
+
+            - `URL string`
+
+          - `type BetaFileImageSource struct{…}`
+
+            - `FileID string`
+
+            - `Type File`
+
+              - `const FileFile File = "file"`
+
+        - `Type Image`
+
+          - `const ImageImage Image = "image"`
+
+        - `CacheControl BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+        - `Transformations BetaImageTransformationsParamResp`
+
+          Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+          - `OversizedImage BetaImageTransformationsParamOversizedImage`
+
+            What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+            - `const BetaImageTransformationsParamOversizedImageDownsize BetaImageTransformationsParamOversizedImage = "downsize"`
+
+            - `const BetaImageTransformationsParamOversizedImageError BetaImageTransformationsParamOversizedImage = "error"`
+
+      - `type BetaSearchResultBlockParamResp struct{…}`
+
+        - `Content []BetaTextBlockParamResp`
+
+          - `Text string`
+
+          - `Type Text`
+
+          - `CacheControl BetaCacheControlEphemeral`
+
+            Create a cache control breakpoint at this content block.
+
+          - `Citations []BetaTextCitationParamUnionResp`
+
+        - `Source string`
+
+        - `Title string`
+
+        - `Type SearchResult`
+
+          - `const SearchResultSearchResult SearchResult = "search_result"`
+
+        - `CacheControl BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+        - `Citations BetaCitationsConfigParamResp`
+
+          - `Enabled bool`
+
+      - `type BetaRequestDocumentBlock struct{…}`
+
+        - `Source BetaRequestDocumentBlockSourceUnion`
+
+          - `type BetaBase64PDFSource struct{…}`
+
+            - `Data string`
+
+            - `MediaType ApplicationPDF`
+
+              - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
+
+            - `Type Base64`
+
+              - `const Base64Base64 Base64 = "base64"`
+
+          - `type BetaPlainTextSource struct{…}`
+
+            - `Data string`
+
+            - `MediaType TextPlain`
+
+              - `const TextPlainTextPlain TextPlain = "text/plain"`
+
+            - `Type Text`
+
+              - `const TextText Text = "text"`
+
+          - `type BetaContentBlockSource struct{…}`
+
+            - `Content BetaContentBlockSourceContentUnion`
+
+              - `string`
+
+              - `[]BetaContentBlockSourceContentUnion`
+
+                - `type BetaTextBlockParamResp struct{…}`
+
+                - `type BetaImageBlockParamResp struct{…}`
+
+            - `Type Content`
+
+              - `const ContentContent Content = "content"`
+
+          - `type BetaURLPDFSource struct{…}`
+
+            - `Type URL`
+
+              - `const URLURL URL = "url"`
+
+            - `URL string`
+
+          - `type BetaFileDocumentSource struct{…}`
+
+            - `FileID string`
+
+            - `Type File`
+
+              - `const FileFile File = "file"`
+
+        - `Type Document`
+
+          - `const DocumentDocument Document = "document"`
+
+        - `CacheControl BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+        - `Citations BetaCitationsConfigParamResp`
+
+        - `Context string`
+
+        - `Title string`
+
+      - `type BetaToolReferenceBlockParamResp struct{…}`
+
+        Tool reference block that can be included in tool_result content.
+
+        - `ToolName string`
+
+        - `Type ToolReference`
+
+          - `const ToolReferenceToolReference ToolReference = "tool_reference"`
+
+        - `CacheControl BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+      - `type BetaBrowserStateBlockParamResp struct{…}`
+
+        The caller's browser state after a browser toolset member call —
+        the full inventory of open tabs, which tab is active, and any side
+        effects (tabs opened, download state changes) the call produced.
+
+        At most one per `tool_result`, only on a non-error result answering a
+        browser toolset member `tool_use`. The server renders the
+        model-visible text from it; the model never sees the raw fields.
+
+        - `Tabs []BetaBrowserStateTabEntry`
+
+          All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+          - `TabID string`
+
+            The caller-assigned identifier for this tab, unique within the inventory.
+
+          - `Title string`
+
+            The title of the page the tab is showing. May be empty.
+
+          - `URL string`
+
+            The URL of the page the tab is showing. May be empty.
+
+          - `Active bool`
+
+            Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+        - `Type BrowserState`
+
+          - `const BrowserStateBrowserState BrowserState = "browser_state"`
+
+        - `CacheControl BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+        - `StateChanges []BetaBrowserStateChangeUnion`
+
+          Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+          - `type BetaBrowserStateChangeTabOpened struct{…}`
+
+            A tab this call's execution opened that remains open at its end —
+            the creation delta of the `tabs` inventory, not an event log.
+
+            Carries only the `tab_id`; the tab's `title` and `url` live on its
+            `tabs` entry, which must include the same `tab_id`. A tab opened
+            during a failed call gets no deferred `tab_opened`; it simply appears
+            in the next result's `tabs` inventory.
+
+            - `TabID string`
+
+              The `tab_id` of the opened tab, present in `tabs`.
+
+            - `Type TabOpened`
+
+              - `const TabOpenedTabOpened TabOpened = "tab_opened"`
+
+          - `type BetaBrowserStateChangeDownloadStarted struct{…}`
+
+            A file download that started during this call.
+
+            - `DownloadID string`
+
+              The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+            - `Type DownloadStarted`
+
+              - `const DownloadStartedDownloadStarted DownloadStarted = "download_started"`
+
+            - `URL string`
+
+              The final post-redirect URL the download was served from.
+
+          - `type BetaBrowserStateChangeDownloadCompleted struct{…}`
+
+            A file download that finished during this call, reported with the
+            same `download_id` as its `download_started` — or without a prior
+            `download_started`, when the download finished during the call that
+            started it (at most one state change per `download_id` per result).
+
+            - `DownloadID string`
+
+              The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+            - `Type DownloadCompleted`
+
+              - `const DownloadCompletedDownloadCompleted DownloadCompleted = "download_completed"`
+
+            - `URL string`
+
+              The final post-redirect URL the download was served from.
+
+            - `Path string`
+
+              Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+            - `SizeBytes int64`
+
+              The completed download's size.
+
+          - `type BetaBrowserStateChangeDownloadFailed struct{…}`
+
+            A file download that failed — or was cancelled — during this call.
+
+            - `DownloadID string`
+
+              The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+            - `Type DownloadFailed`
+
+              - `const DownloadFailedDownloadFailed DownloadFailed = "download_failed"`
+
+            - `URL string`
+
+              The final post-redirect URL the download was served from.
+
+            - `Error string`
+
+              The failure or cancellation detail, when known.
+
+  - `IsError bool`
+
+  - `ToolsetName string`
+
+    For a toolset member tool_result, the toolset family of the paired tool_use.
+
+### Beta Tool Search Tool Bm25 20251119
+
+- `type BetaToolSearchToolBm25_20251119 struct{…}`
+
+  - `Name ToolSearchToolBm25`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const ToolSearchToolBm25ToolSearchToolBm25 ToolSearchToolBm25 = "tool_search_tool_bm25"`
+
+  - `Type BetaToolSearchToolBm25_20251119Type`
+
+    - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
+
+    - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolSearchToolBm25_20251119AllowedCallerDirect BetaToolSearchToolBm25_20251119AllowedCaller = "direct"`
+
+    - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260120 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Search Tool Regex 20251119
+
+- `type BetaToolSearchToolRegex20251119 struct{…}`
+
+  - `Name ToolSearchToolRegex`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const ToolSearchToolRegexToolSearchToolRegex ToolSearchToolRegex = "tool_search_tool_regex"`
+
+  - `Type BetaToolSearchToolRegex20251119Type`
+
+    - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
+
+    - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolSearchToolRegex20251119AllowedCallerDirect BetaToolSearchToolRegex20251119AllowedCaller = "direct"`
+
+    - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20260120 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Search Tool Result Block
+
+- `type BetaToolSearchToolResultBlock struct{…}`
+
+  - `Content BetaToolSearchToolResultBlockContentUnion`
+
+    - `type BetaToolSearchToolResultError struct{…}`
+
+      - `ErrorCode BetaToolSearchToolResultErrorErrorCode`
+
+        - `const BetaToolSearchToolResultErrorErrorCodeInvalidToolInput BetaToolSearchToolResultErrorErrorCode = "invalid_tool_input"`
+
+        - `const BetaToolSearchToolResultErrorErrorCodeUnavailable BetaToolSearchToolResultErrorErrorCode = "unavailable"`
+
+        - `const BetaToolSearchToolResultErrorErrorCodeTooManyRequests BetaToolSearchToolResultErrorErrorCode = "too_many_requests"`
+
+        - `const BetaToolSearchToolResultErrorErrorCodeExecutionTimeExceeded BetaToolSearchToolResultErrorErrorCode = "execution_time_exceeded"`
+
+      - `ErrorMessage string`
+
+      - `Type ToolSearchToolResultError`
+
+        - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
+
+    - `type BetaToolSearchToolSearchResultBlock struct{…}`
+
+      - `ToolReferences []BetaToolReferenceBlock`
+
+        - `ToolName string`
+
+        - `Type ToolReference`
+
+          - `const ToolReferenceToolReference ToolReference = "tool_reference"`
+
+      - `Type ToolSearchToolSearchResult`
+
+        - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
+
+  - `ToolUseID string`
+
+  - `Type ToolSearchToolResult`
+
+    - `const ToolSearchToolResultToolSearchToolResult ToolSearchToolResult = "tool_search_tool_result"`
+
+### Beta Tool Search Tool Result Block Param
+
+- `type BetaToolSearchToolResultBlockParamResp struct{…}`
+
+  - `Content BetaToolSearchToolResultBlockParamContentUnionResp`
+
+    - `type BetaToolSearchToolResultErrorParamResp struct{…}`
+
+      - `ErrorCode BetaToolSearchToolResultErrorParamErrorCode`
+
+        - `const BetaToolSearchToolResultErrorParamErrorCodeInvalidToolInput BetaToolSearchToolResultErrorParamErrorCode = "invalid_tool_input"`
+
+        - `const BetaToolSearchToolResultErrorParamErrorCodeUnavailable BetaToolSearchToolResultErrorParamErrorCode = "unavailable"`
+
+        - `const BetaToolSearchToolResultErrorParamErrorCodeTooManyRequests BetaToolSearchToolResultErrorParamErrorCode = "too_many_requests"`
+
+        - `const BetaToolSearchToolResultErrorParamErrorCodeExecutionTimeExceeded BetaToolSearchToolResultErrorParamErrorCode = "execution_time_exceeded"`
+
+      - `Type ToolSearchToolResultError`
+
+        - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
+
+      - `ErrorMessage string`
+
+    - `type BetaToolSearchToolSearchResultBlockParamResp struct{…}`
+
+      - `ToolReferences []BetaToolReferenceBlockParamResp`
+
+        - `ToolName string`
+
+        - `Type ToolReference`
+
+          - `const ToolReferenceToolReference ToolReference = "tool_reference"`
+
+        - `CacheControl BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+          - `Type Ephemeral`
+
+            - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+          - `TTL BetaCacheControlEphemeralTTL`
+
+            The time-to-live for the cache control breakpoint.
+
+            This may be one the following values:
+
+            - `5m`: 5 minutes
+            - `1h`: 1 hour
+
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+            - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+            - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+      - `Type ToolSearchToolSearchResult`
+
+        - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
+
+  - `ToolUseID string`
+
+  - `Type ToolSearchToolResult`
+
+    - `const ToolSearchToolResultToolSearchToolResult ToolSearchToolResult = "tool_search_tool_result"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+### Beta Tool Search Tool Result Error
+
+- `type BetaToolSearchToolResultError struct{…}`
+
+  - `ErrorCode BetaToolSearchToolResultErrorErrorCode`
+
+    - `const BetaToolSearchToolResultErrorErrorCodeInvalidToolInput BetaToolSearchToolResultErrorErrorCode = "invalid_tool_input"`
+
+    - `const BetaToolSearchToolResultErrorErrorCodeUnavailable BetaToolSearchToolResultErrorErrorCode = "unavailable"`
+
+    - `const BetaToolSearchToolResultErrorErrorCodeTooManyRequests BetaToolSearchToolResultErrorErrorCode = "too_many_requests"`
+
+    - `const BetaToolSearchToolResultErrorErrorCodeExecutionTimeExceeded BetaToolSearchToolResultErrorErrorCode = "execution_time_exceeded"`
+
+  - `ErrorMessage string`
+
+  - `Type ToolSearchToolResultError`
+
+    - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
+
+### Beta Tool Search Tool Result Error Param
+
+- `type BetaToolSearchToolResultErrorParamResp struct{…}`
+
+  - `ErrorCode BetaToolSearchToolResultErrorParamErrorCode`
+
+    - `const BetaToolSearchToolResultErrorParamErrorCodeInvalidToolInput BetaToolSearchToolResultErrorParamErrorCode = "invalid_tool_input"`
+
+    - `const BetaToolSearchToolResultErrorParamErrorCodeUnavailable BetaToolSearchToolResultErrorParamErrorCode = "unavailable"`
+
+    - `const BetaToolSearchToolResultErrorParamErrorCodeTooManyRequests BetaToolSearchToolResultErrorParamErrorCode = "too_many_requests"`
+
+    - `const BetaToolSearchToolResultErrorParamErrorCodeExecutionTimeExceeded BetaToolSearchToolResultErrorParamErrorCode = "execution_time_exceeded"`
+
+  - `Type ToolSearchToolResultError`
+
+    - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
+
+  - `ErrorMessage string`
+
+### Beta Tool Search Tool Search Result Block
+
+- `type BetaToolSearchToolSearchResultBlock struct{…}`
+
+  - `ToolReferences []BetaToolReferenceBlock`
+
+    - `ToolName string`
+
+    - `Type ToolReference`
+
+      - `const ToolReferenceToolReference ToolReference = "tool_reference"`
+
+  - `Type ToolSearchToolSearchResult`
+
+    - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
+
+### Beta Tool Search Tool Search Result Block Param
+
+- `type BetaToolSearchToolSearchResultBlockParamResp struct{…}`
+
+  - `ToolReferences []BetaToolReferenceBlockParamResp`
+
+    - `ToolName string`
+
+    - `Type ToolReference`
+
+      - `const ToolReferenceToolReference ToolReference = "tool_reference"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+      - `Type Ephemeral`
+
+        - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+      - `TTL BetaCacheControlEphemeralTTL`
+
+        The time-to-live for the cache control breakpoint.
+
+        This may be one the following values:
+
+        - `5m`: 5 minutes
+        - `1h`: 1 hour
+
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `Type ToolSearchToolSearchResult`
+
+    - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
+
+### Beta Tool Text Editor 20241022
+
+- `type BetaToolTextEditor20241022 struct{…}`
+
+  - `Name StrReplaceEditor`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const StrReplaceEditorStrReplaceEditor StrReplaceEditor = "str_replace_editor"`
+
+  - `Type TextEditor20241022`
+
+    - `const TextEditor20241022TextEditor20241022 TextEditor20241022 = "text_editor_20241022"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolTextEditor20241022AllowedCallerDirect BetaToolTextEditor20241022AllowedCaller = "direct"`
+
+    - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20250825 BetaToolTextEditor20241022AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20260120 BetaToolTextEditor20241022AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20260521 BetaToolTextEditor20241022AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `InputExamples []map[string, any]`
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Text Editor 20250124
+
+- `type BetaToolTextEditor20250124 struct{…}`
+
+  - `Name StrReplaceEditor`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const StrReplaceEditorStrReplaceEditor StrReplaceEditor = "str_replace_editor"`
+
+  - `Type TextEditor20250124`
+
+    - `const TextEditor20250124TextEditor20250124 TextEditor20250124 = "text_editor_20250124"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolTextEditor20250124AllowedCallerDirect BetaToolTextEditor20250124AllowedCaller = "direct"`
+
+    - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20250825 BetaToolTextEditor20250124AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20260120 BetaToolTextEditor20250124AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20260521 BetaToolTextEditor20250124AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `InputExamples []map[string, any]`
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Text Editor 20250429
+
+- `type BetaToolTextEditor20250429 struct{…}`
+
+  - `Name StrReplaceBasedEditTool`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const StrReplaceBasedEditToolStrReplaceBasedEditTool StrReplaceBasedEditTool = "str_replace_based_edit_tool"`
+
+  - `Type TextEditor20250429`
+
+    - `const TextEditor20250429TextEditor20250429 TextEditor20250429 = "text_editor_20250429"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolTextEditor20250429AllowedCallerDirect BetaToolTextEditor20250429AllowedCaller = "direct"`
+
+    - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20250825 BetaToolTextEditor20250429AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20260120 BetaToolTextEditor20250429AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20260521 BetaToolTextEditor20250429AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `InputExamples []map[string, any]`
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Text Editor 20250728
+
+- `type BetaToolTextEditor20250728 struct{…}`
+
+  - `Name StrReplaceBasedEditTool`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const StrReplaceBasedEditToolStrReplaceBasedEditTool StrReplaceBasedEditTool = "str_replace_based_edit_tool"`
+
+  - `Type TextEditor20250728`
+
+    - `const TextEditor20250728TextEditor20250728 TextEditor20250728 = "text_editor_20250728"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaToolTextEditor20250728AllowedCallerDirect BetaToolTextEditor20250728AllowedCaller = "direct"`
+
+    - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20250825 BetaToolTextEditor20250728AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20260120 BetaToolTextEditor20250728AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20260521 BetaToolTextEditor20250728AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `InputExamples []map[string, any]`
+
+  - `MaxCharacters int64`
+
+    Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+  - `Strict bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Union
+
+- `type BetaToolUnion interface{…}`
+
+  Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+  - `type BetaTool struct{…}`
+
+    - `InputSchema BetaToolInputSchema`
+
+      [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+      This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+      - `Type Object`
+
+        - `const ObjectObject Object = "object"`
+
+      - `Properties map[string, any]`
+
+      - `Required []string`
+
+    - `Name string`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolAllowedCallerDirect BetaToolAllowedCaller = "direct"`
+
+      - `const BetaToolAllowedCallerCodeExecution20250825 BetaToolAllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolAllowedCallerCodeExecution20260120 BetaToolAllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolAllowedCallerCodeExecution20260521 BetaToolAllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+      - `Type Ephemeral`
+
+        - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+      - `TTL BetaCacheControlEphemeralTTL`
+
+        The time-to-live for the cache control breakpoint.
+
+        This may be one the following values:
+
+        - `5m`: 5 minutes
+        - `1h`: 1 hour
+
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `Description string`
+
+      Description of what this tool does.
+
+      Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+    - `EagerInputStreaming bool`
+
+      Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+    - `InputExamples []map[string, any]`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `Type BetaToolType`
+
+      - `const BetaToolTypeCustom BetaToolType = "custom"`
+
+  - `type BetaToolBash20241022 struct{…}`
+
+    - `Name Bash`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const BashBash Bash = "bash"`
+
+    - `Type Bash20241022`
+
+      - `const Bash20241022Bash20241022 Bash20241022 = "bash_20241022"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolBash20241022AllowedCallerDirect BetaToolBash20241022AllowedCaller = "direct"`
+
+      - `const BetaToolBash20241022AllowedCallerCodeExecution20250825 BetaToolBash20241022AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolBash20241022AllowedCallerCodeExecution20260120 BetaToolBash20241022AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolBash20241022AllowedCallerCodeExecution20260521 BetaToolBash20241022AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `InputExamples []map[string, any]`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaToolBash20250124 struct{…}`
+
+    - `Name Bash`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const BashBash Bash = "bash"`
+
+    - `Type Bash20250124`
+
+      - `const Bash20250124Bash20250124 Bash20250124 = "bash_20250124"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolBash20250124AllowedCallerDirect BetaToolBash20250124AllowedCaller = "direct"`
+
+      - `const BetaToolBash20250124AllowedCallerCodeExecution20250825 BetaToolBash20250124AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolBash20250124AllowedCallerCodeExecution20260120 BetaToolBash20250124AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolBash20250124AllowedCallerCodeExecution20260521 BetaToolBash20250124AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `InputExamples []map[string, any]`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaCodeExecutionTool20250522 struct{…}`
+
+    - `Name CodeExecution`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
+
+    - `Type CodeExecution20250522`
+
+      - `const CodeExecution20250522CodeExecution20250522 CodeExecution20250522 = "code_execution_20250522"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaCodeExecutionTool20250522AllowedCallerDirect BetaCodeExecutionTool20250522AllowedCaller = "direct"`
+
+      - `const BetaCodeExecutionTool20250522AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20250522AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaCodeExecutionTool20250522AllowedCallerCodeExecution20260120 BetaCodeExecutionTool20250522AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaCodeExecutionTool20250522AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20250522AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaCodeExecutionTool20250825 struct{…}`
+
+    - `Name CodeExecution`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
+
+    - `Type CodeExecution20250825`
+
+      - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaCodeExecutionTool20250825AllowedCallerDirect BetaCodeExecutionTool20250825AllowedCaller = "direct"`
+
+      - `const BetaCodeExecutionTool20250825AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20250825AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaCodeExecutionTool20250825AllowedCallerCodeExecution20260120 BetaCodeExecutionTool20250825AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaCodeExecutionTool20250825AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20250825AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaCodeExecutionTool20260120 struct{…}`
+
+    Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+    - `Name CodeExecution`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
+
+    - `Type CodeExecution20260120`
+
+      - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaCodeExecutionTool20260120AllowedCallerDirect BetaCodeExecutionTool20260120AllowedCaller = "direct"`
+
+      - `const BetaCodeExecutionTool20260120AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20260120AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaCodeExecutionTool20260120AllowedCallerCodeExecution20260120 BetaCodeExecutionTool20260120AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaCodeExecutionTool20260120AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20260120AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaCodeExecutionTool20260521 struct{…}`
+
+    Code execution tool with REPL state persistence.
+
+    - `Name CodeExecution`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
+
+    - `Type CodeExecution20260521`
+
+      - `const CodeExecution20260521CodeExecution20260521 CodeExecution20260521 = "code_execution_20260521"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaCodeExecutionTool20260521AllowedCallerDirect BetaCodeExecutionTool20260521AllowedCaller = "direct"`
+
+      - `const BetaCodeExecutionTool20260521AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20260521AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaCodeExecutionTool20260521AllowedCallerCodeExecution20260120 BetaCodeExecutionTool20260521AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaCodeExecutionTool20260521AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20260521AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaBrowserToolset20260801 struct{…}`
+
+    The browser toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the browser tool family. The model is served
+    the family's tool with any members disabled via `configs` removed
+    from its schema.
+
+    - `Type BrowserToolset20260801`
+
+      - `const BrowserToolset20260801BrowserToolset20260801 BrowserToolset20260801 = "browser_toolset_20260801"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaBrowserToolset20260801AllowedCallerDirect BetaBrowserToolset20260801AllowedCaller = "direct"`
+
+      - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20250825 BetaBrowserToolset20260801AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20260120 BetaBrowserToolset20260801AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20260521 BetaBrowserToolset20260801AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `Configs BetaBrowserToolsetConfigs`
+
+      Per-member configuration for `browser_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+      - `CloseTab BetaBrowserCloseTabConfig`
+
+        `close_tab`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `DoubleClick BetaBrowserDoubleClickConfig`
+
+        `double_click`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `FileUpload BetaBrowserFileUploadConfig`
+
+        `file_upload`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Find BetaBrowserFindConfig`
+
+        `find`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `FormInput BetaBrowserFormInputConfig`
+
+        `form_input`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `GetPageText BetaBrowserGetPageTextConfig`
+
+        `get_page_text`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `HoldKey BetaBrowserHoldKeyConfig`
+
+        `hold_key`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Hover BetaBrowserHoverConfig`
+
+        `hover`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `JavascriptExec BetaBrowserJavascriptExecConfig`
+
+        `javascript_exec`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Key BetaBrowserKeyConfig`
+
+        `key`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `LeftClick BetaBrowserLeftClickConfig`
+
+        `left_click`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `LeftClickDrag BetaBrowserLeftClickDragConfig`
+
+        `left_click_drag`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `LeftMouseDown BetaBrowserLeftMouseDownConfig`
+
+        `left_mouse_down`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `LeftMouseUp BetaBrowserLeftMouseUpConfig`
+
+        `left_mouse_up`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `ListTabs BetaBrowserListTabsConfig`
+
+        `list_tabs`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `MiddleClick BetaBrowserMiddleClickConfig`
+
+        `middle_click`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `MouseMove BetaBrowserMouseMoveConfig`
+
+        `mouse_move`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Navigate BetaBrowserNavigateConfig`
+
+        `navigate`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `NewTab BetaBrowserNewTabConfig`
+
+        `new_tab`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `ReadConsole BetaBrowserReadConsoleConfig`
+
+        `read_console`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `ReadNetwork BetaBrowserReadNetworkConfig`
+
+        `read_network`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `ReadPage BetaBrowserReadPageConfig`
+
+        `read_page`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `RightClick BetaBrowserRightClickConfig`
+
+        `right_click`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Screenshot BetaBrowserScreenshotConfig`
+
+        `screenshot`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Scroll BetaBrowserScrollConfig`
+
+        `scroll`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `ScrollTo BetaBrowserScrollToConfig`
+
+        `scroll_to`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `SwitchTab BetaBrowserSwitchTabConfig`
+
+        `switch_tab`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `TripleClick BetaBrowserTripleClickConfig`
+
+        `triple_click`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Type BetaBrowserTypeConfig`
+
+        `type`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Wait BetaBrowserWaitConfig`
+
+        `wait`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Zoom BetaBrowserZoomConfig`
+
+        `zoom`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `type BetaToolComputerUse20241022 struct{…}`
+
+    - `DisplayHeightPx int64`
+
+      The height of the display in pixels.
+
+    - `DisplayWidthPx int64`
+
+      The width of the display in pixels.
+
+    - `Name Computer`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const ComputerComputer Computer = "computer"`
+
+    - `Type Computer20241022`
+
+      - `const Computer20241022Computer20241022 Computer20241022 = "computer_20241022"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolComputerUse20241022AllowedCallerDirect BetaToolComputerUse20241022AllowedCaller = "direct"`
+
+      - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20250825 BetaToolComputerUse20241022AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20260120 BetaToolComputerUse20241022AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20260521 BetaToolComputerUse20241022AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `DisplayNumber int64`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+    - `InputExamples []map[string, any]`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaMemoryTool20250818 struct{…}`
+
+    - `Name Memory`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const MemoryMemory Memory = "memory"`
+
+    - `Type Memory20250818`
+
+      - `const Memory20250818Memory20250818 Memory20250818 = "memory_20250818"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaMemoryTool20250818AllowedCallerDirect BetaMemoryTool20250818AllowedCaller = "direct"`
+
+      - `const BetaMemoryTool20250818AllowedCallerCodeExecution20250825 BetaMemoryTool20250818AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaMemoryTool20250818AllowedCallerCodeExecution20260120 BetaMemoryTool20250818AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaMemoryTool20250818AllowedCallerCodeExecution20260521 BetaMemoryTool20250818AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `InputExamples []map[string, any]`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaToolComputerUse20250124 struct{…}`
+
+    - `DisplayHeightPx int64`
+
+      The height of the display in pixels.
+
+    - `DisplayWidthPx int64`
+
+      The width of the display in pixels.
+
+    - `Name Computer`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const ComputerComputer Computer = "computer"`
+
+    - `Type Computer20250124`
+
+      - `const Computer20250124Computer20250124 Computer20250124 = "computer_20250124"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolComputerUse20250124AllowedCallerDirect BetaToolComputerUse20250124AllowedCaller = "direct"`
+
+      - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20250825 BetaToolComputerUse20250124AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260120 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260521 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `DisplayNumber int64`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+    - `InputExamples []map[string, any]`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaToolTextEditor20241022 struct{…}`
+
+    - `Name StrReplaceEditor`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const StrReplaceEditorStrReplaceEditor StrReplaceEditor = "str_replace_editor"`
+
+    - `Type TextEditor20241022`
+
+      - `const TextEditor20241022TextEditor20241022 TextEditor20241022 = "text_editor_20241022"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolTextEditor20241022AllowedCallerDirect BetaToolTextEditor20241022AllowedCaller = "direct"`
+
+      - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20250825 BetaToolTextEditor20241022AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20260120 BetaToolTextEditor20241022AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20260521 BetaToolTextEditor20241022AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `InputExamples []map[string, any]`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaToolComputerUse20251124 struct{…}`
+
+    - `DisplayHeightPx int64`
+
+      The height of the display in pixels.
+
+    - `DisplayWidthPx int64`
+
+      The width of the display in pixels.
+
+    - `Name Computer`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const ComputerComputer Computer = "computer"`
+
+    - `Type Computer20251124`
+
+      - `const Computer20251124Computer20251124 Computer20251124 = "computer_20251124"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolComputerUse20251124AllowedCallerDirect BetaToolComputerUse20251124AllowedCaller = "direct"`
+
+      - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20250825 BetaToolComputerUse20251124AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260120 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260521 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `DisplayNumber int64`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+    - `EnableZoom bool`
+
+      Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+    - `InputExamples []map[string, any]`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaComputerToolset20260801 struct{…}`
+
+    The computer toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the computer tool family. The model is
+    served the family's tool with any members disabled via `configs`
+    removed from its schema. Every member is enabled by default, zoom
+    included. The single-tool options `display_number` and
+    `enable_zoom` are not fields of a toolset entry — it carries only
+    `type`, `configs`, and `cache_control`; zoom is controlled
+    via `configs.zoom.enabled`.
+
+    - `Type ComputerToolset20260801`
+
+      - `const ComputerToolset20260801ComputerToolset20260801 ComputerToolset20260801 = "computer_toolset_20260801"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaComputerToolset20260801AllowedCallerDirect BetaComputerToolset20260801AllowedCaller = "direct"`
+
+      - `const BetaComputerToolset20260801AllowedCallerCodeExecution20250825 BetaComputerToolset20260801AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaComputerToolset20260801AllowedCallerCodeExecution20260120 BetaComputerToolset20260801AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaComputerToolset20260801AllowedCallerCodeExecution20260521 BetaComputerToolset20260801AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `Configs BetaComputerToolsetConfigs`
+
+      Per-member configuration for `computer_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+      - `CursorPosition BetaComputerCursorPositionConfig`
+
+        `cursor_position`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `DoubleClick BetaComputerDoubleClickConfig`
+
+        `double_click`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `HoldKey BetaComputerHoldKeyConfig`
+
+        `hold_key`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Key BetaComputerKeyConfig`
+
+        `key`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `LeftClick BetaComputerLeftClickConfig`
+
+        `left_click`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `LeftClickDrag BetaComputerLeftClickDragConfig`
+
+        `left_click_drag`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `LeftMouseDown BetaComputerLeftMouseDownConfig`
+
+        `left_mouse_down`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `LeftMouseUp BetaComputerLeftMouseUpConfig`
+
+        `left_mouse_up`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `MiddleClick BetaComputerMiddleClickConfig`
+
+        `middle_click`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `MouseMove BetaComputerMouseMoveConfig`
+
+        `mouse_move`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `RightClick BetaComputerRightClickConfig`
+
+        `right_click`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Screenshot BetaComputerScreenshotConfig`
+
+        `screenshot`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Scroll BetaComputerScrollConfig`
+
+        `scroll`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `TripleClick BetaComputerTripleClickConfig`
+
+        `triple_click`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Type BetaComputerTypeConfig`
+
+        `type`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Wait BetaComputerWaitConfig`
+
+        `wait`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `Zoom BetaComputerZoomConfig`
+
+        `zoom`'s config overrides.
+
+        - `DeferLoading bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Enabled bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `type BetaToolTextEditor20250124 struct{…}`
+
+    - `Name StrReplaceEditor`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const StrReplaceEditorStrReplaceEditor StrReplaceEditor = "str_replace_editor"`
+
+    - `Type TextEditor20250124`
+
+      - `const TextEditor20250124TextEditor20250124 TextEditor20250124 = "text_editor_20250124"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolTextEditor20250124AllowedCallerDirect BetaToolTextEditor20250124AllowedCaller = "direct"`
+
+      - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20250825 BetaToolTextEditor20250124AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20260120 BetaToolTextEditor20250124AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20260521 BetaToolTextEditor20250124AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `InputExamples []map[string, any]`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaToolTextEditor20250429 struct{…}`
+
+    - `Name StrReplaceBasedEditTool`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const StrReplaceBasedEditToolStrReplaceBasedEditTool StrReplaceBasedEditTool = "str_replace_based_edit_tool"`
+
+    - `Type TextEditor20250429`
+
+      - `const TextEditor20250429TextEditor20250429 TextEditor20250429 = "text_editor_20250429"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolTextEditor20250429AllowedCallerDirect BetaToolTextEditor20250429AllowedCaller = "direct"`
+
+      - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20250825 BetaToolTextEditor20250429AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20260120 BetaToolTextEditor20250429AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20260521 BetaToolTextEditor20250429AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `InputExamples []map[string, any]`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaToolTextEditor20250728 struct{…}`
+
+    - `Name StrReplaceBasedEditTool`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const StrReplaceBasedEditToolStrReplaceBasedEditTool StrReplaceBasedEditTool = "str_replace_based_edit_tool"`
+
+    - `Type TextEditor20250728`
+
+      - `const TextEditor20250728TextEditor20250728 TextEditor20250728 = "text_editor_20250728"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolTextEditor20250728AllowedCallerDirect BetaToolTextEditor20250728AllowedCaller = "direct"`
+
+      - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20250825 BetaToolTextEditor20250728AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20260120 BetaToolTextEditor20250728AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20260521 BetaToolTextEditor20250728AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `InputExamples []map[string, any]`
+
+    - `MaxCharacters int64`
+
+      Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaWebSearchTool20250305 struct{…}`
+
+    - `Name WebSearch`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const WebSearchWebSearch WebSearch = "web_search"`
+
+    - `Type WebSearch20250305`
+
+      - `const WebSearch20250305WebSearch20250305 WebSearch20250305 = "web_search_20250305"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaWebSearchTool20250305AllowedCallerDirect BetaWebSearchTool20250305AllowedCaller = "direct"`
+
+      - `const BetaWebSearchTool20250305AllowedCallerCodeExecution20250825 BetaWebSearchTool20250305AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaWebSearchTool20250305AllowedCallerCodeExecution20260120 BetaWebSearchTool20250305AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaWebSearchTool20250305AllowedCallerCodeExecution20260521 BetaWebSearchTool20250305AllowedCaller = "code_execution_20260521"`
+
+    - `AllowedDomains []string`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `BlockedDomains []string`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `MaxUses int64`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `UserLocation BetaUserLocation`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+      - `Type Approximate`
+
+        - `const ApproximateApproximate Approximate = "approximate"`
+
+      - `City string`
+
+        The city of the user.
+
+      - `Country string`
+
+        The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+      - `Region string`
+
+        The region of the user.
+
+      - `Timezone string`
+
+        The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+  - `type BetaWebFetchTool20250910 struct{…}`
+
+    - `Name WebFetch`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+    - `Type WebFetch20250910`
+
+      - `const WebFetch20250910WebFetch20250910 WebFetch20250910 = "web_fetch_20250910"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaWebFetchTool20250910AllowedCallerDirect BetaWebFetchTool20250910AllowedCaller = "direct"`
+
+      - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20250825 BetaWebFetchTool20250910AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20260120 BetaWebFetchTool20250910AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20260521 BetaWebFetchTool20250910AllowedCaller = "code_execution_20260521"`
+
+    - `AllowedDomains []string`
+
+      List of domains to allow fetching from
+
+    - `BlockedDomains []string`
+
+      List of domains to block fetching from
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `Citations BetaCitationsConfigParamResp`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `Enabled bool`
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `MaxContentTokens int64`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `MaxUses int64`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaWebSearchTool20260209 struct{…}`
+
+    - `Name WebSearch`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const WebSearchWebSearch WebSearch = "web_search"`
+
+    - `Type WebSearch20260209`
+
+      - `const WebSearch20260209WebSearch20260209 WebSearch20260209 = "web_search_20260209"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaWebSearchTool20260209AllowedCallerDirect BetaWebSearchTool20260209AllowedCaller = "direct"`
+
+      - `const BetaWebSearchTool20260209AllowedCallerCodeExecution20250825 BetaWebSearchTool20260209AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaWebSearchTool20260209AllowedCallerCodeExecution20260120 BetaWebSearchTool20260209AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaWebSearchTool20260209AllowedCallerCodeExecution20260521 BetaWebSearchTool20260209AllowedCaller = "code_execution_20260521"`
+
+    - `AllowedDomains []string`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `BlockedDomains []string`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `MaxUses int64`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `UserLocation BetaUserLocation`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `type BetaWebFetchTool20260209 struct{…}`
+
+    - `Name WebFetch`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+    - `Type WebFetch20260209`
+
+      - `const WebFetch20260209WebFetch20260209 WebFetch20260209 = "web_fetch_20260209"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaWebFetchTool20260209AllowedCallerDirect BetaWebFetchTool20260209AllowedCaller = "direct"`
+
+      - `const BetaWebFetchTool20260209AllowedCallerCodeExecution20250825 BetaWebFetchTool20260209AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaWebFetchTool20260209AllowedCallerCodeExecution20260120 BetaWebFetchTool20260209AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaWebFetchTool20260209AllowedCallerCodeExecution20260521 BetaWebFetchTool20260209AllowedCaller = "code_execution_20260521"`
+
+    - `AllowedDomains []string`
+
+      List of domains to allow fetching from
+
+    - `BlockedDomains []string`
+
+      List of domains to block fetching from
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `Citations BetaCitationsConfigParamResp`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `MaxContentTokens int64`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `MaxUses int64`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaWebFetchTool20260309 struct{…}`
+
+    Web fetch tool with use_cache parameter for bypassing cached content.
+
+    - `Name WebFetch`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+    - `Type WebFetch20260309`
+
+      - `const WebFetch20260309WebFetch20260309 WebFetch20260309 = "web_fetch_20260309"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaWebFetchTool20260309AllowedCallerDirect BetaWebFetchTool20260309AllowedCaller = "direct"`
+
+      - `const BetaWebFetchTool20260309AllowedCallerCodeExecution20250825 BetaWebFetchTool20260309AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaWebFetchTool20260309AllowedCallerCodeExecution20260120 BetaWebFetchTool20260309AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaWebFetchTool20260309AllowedCallerCodeExecution20260521 BetaWebFetchTool20260309AllowedCaller = "code_execution_20260521"`
+
+    - `AllowedDomains []string`
+
+      List of domains to allow fetching from
+
+    - `BlockedDomains []string`
+
+      List of domains to block fetching from
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `Citations BetaCitationsConfigParamResp`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `MaxContentTokens int64`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `MaxUses int64`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `UseCache bool`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+  - `type BetaWebSearchTool20260318 struct{…}`
+
+    - `Name WebSearch`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const WebSearchWebSearch WebSearch = "web_search"`
+
+    - `Type WebSearch20260318`
+
+      - `const WebSearch20260318WebSearch20260318 WebSearch20260318 = "web_search_20260318"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaWebSearchTool20260318AllowedCallerDirect BetaWebSearchTool20260318AllowedCaller = "direct"`
+
+      - `const BetaWebSearchTool20260318AllowedCallerCodeExecution20250825 BetaWebSearchTool20260318AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaWebSearchTool20260318AllowedCallerCodeExecution20260120 BetaWebSearchTool20260318AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaWebSearchTool20260318AllowedCallerCodeExecution20260521 BetaWebSearchTool20260318AllowedCaller = "code_execution_20260521"`
+
+    - `AllowedDomains []string`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `BlockedDomains []string`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `MaxUses int64`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `const BetaWebSearchTool20260318ResponseInclusionFull BetaWebSearchTool20260318ResponseInclusion = "full"`
+
+      - `const BetaWebSearchTool20260318ResponseInclusionExcluded BetaWebSearchTool20260318ResponseInclusion = "excluded"`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `UserLocation BetaUserLocation`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `type BetaWebFetchTool20260318 struct{…}`
+
+    - `Name WebFetch`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+    - `Type WebFetch20260318`
+
+      - `const WebFetch20260318WebFetch20260318 WebFetch20260318 = "web_fetch_20260318"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaWebFetchTool20260318AllowedCallerDirect BetaWebFetchTool20260318AllowedCaller = "direct"`
+
+      - `const BetaWebFetchTool20260318AllowedCallerCodeExecution20250825 BetaWebFetchTool20260318AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaWebFetchTool20260318AllowedCallerCodeExecution20260120 BetaWebFetchTool20260318AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaWebFetchTool20260318AllowedCallerCodeExecution20260521 BetaWebFetchTool20260318AllowedCaller = "code_execution_20260521"`
+
+    - `AllowedDomains []string`
+
+      List of domains to allow fetching from
+
+    - `BlockedDomains []string`
+
+      List of domains to block fetching from
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `Citations BetaCitationsConfigParamResp`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `MaxContentTokens int64`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `MaxUses int64`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `const BetaWebFetchTool20260318ResponseInclusionFull BetaWebFetchTool20260318ResponseInclusion = "full"`
+
+      - `const BetaWebFetchTool20260318ResponseInclusionExcluded BetaWebFetchTool20260318ResponseInclusion = "excluded"`
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `UseCache bool`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+  - `type BetaAdvisorTool20260301 struct{…}`
+
+    - `Model Model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `type Model string`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
+        - `const ModelClaudeFable5 Model = "claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `const ModelClaudeMythos5 Model = "claude-mythos-5"`
+
+          Most capable model for cybersecurity and biology research
+
+        - `const ModelClaudeOpus5 Model = "claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+          New class of intelligence, strongest in coding and cybersecurity
+
+        - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
+
+          Best combination of speed and intelligence
+
+        - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
+
+          Fastest model with near-frontier intelligence
+
+        - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
+
+          Fastest model with near-frontier intelligence
+
+        - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+          High-performance model for agents and coding
+
+        - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+      - `string`
+
+    - `Name Advisor`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const AdvisorAdvisor Advisor = "advisor"`
+
+    - `Type Advisor20260301`
+
+      - `const Advisor20260301Advisor20260301 Advisor20260301 = "advisor_20260301"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaAdvisorTool20260301AllowedCallerDirect BetaAdvisorTool20260301AllowedCaller = "direct"`
+
+      - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20250825 BetaAdvisorTool20260301AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20260120 BetaAdvisorTool20260301AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20260521 BetaAdvisorTool20260301AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `Caching BetaCacheControlEphemeral`
+
+      Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `MaxTokens int64`
+
+      Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+    - `MaxUses int64`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaToolSearchToolBm25_20251119 struct{…}`
+
+    - `Name ToolSearchToolBm25`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const ToolSearchToolBm25ToolSearchToolBm25 ToolSearchToolBm25 = "tool_search_tool_bm25"`
+
+    - `Type BetaToolSearchToolBm25_20251119Type`
+
+      - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
+
+      - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolSearchToolBm25_20251119AllowedCallerDirect BetaToolSearchToolBm25_20251119AllowedCaller = "direct"`
+
+      - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260120 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaToolSearchToolRegex20251119 struct{…}`
+
+    - `Name ToolSearchToolRegex`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `const ToolSearchToolRegexToolSearchToolRegex ToolSearchToolRegex = "tool_search_tool_regex"`
+
+    - `Type BetaToolSearchToolRegex20251119Type`
+
+      - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
+
+      - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
+
+    - `AllowedCallers []string`
+
+      - `const BetaToolSearchToolRegex20251119AllowedCallerDirect BetaToolSearchToolRegex20251119AllowedCaller = "direct"`
+
+      - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20250825"`
+
+      - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20260120 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20260120"`
+
+      - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20260521"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `DeferLoading bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `Strict bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `type BetaMCPToolset struct{…}`
+
+    Configuration for a group of tools from an MCP server.
+
+    Allows configuring enabled status and defer_loading for all tools
+    from an MCP server, with optional per-tool overrides.
+
+    - `MCPServerName string`
+
+      Name of the MCP server to configure tools for
+
+    - `Type MCPToolset`
+
+      - `const MCPToolsetMCPToolset MCPToolset = "mcp_toolset"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `Configs map[string, BetaMCPToolConfig]`
+
+      Configuration overrides for specific tools, keyed by tool name
+
+      - `DeferLoading bool`
+
+      - `Enabled bool`
+
+    - `DefaultConfig BetaMCPToolDefaultConfig`
+
+      Default configuration applied to all tools from this server
+
+      - `DeferLoading bool`
+
+      - `Enabled bool`
+
+### Beta Tool Use Block
+
+- `type BetaToolUseBlock struct{…}`
+
+  - `ID string`
+
+  - `Input map[string, any]`
+
+  - `Name string`
+
+  - `Type ToolUse`
+
+    - `const ToolUseToolUse ToolUse = "tool_use"`
+
+  - `Caller BetaToolUseBlockCallerUnion`
+
+    Tool invocation directly from the model.
+
+    - `type BetaDirectCaller struct{…}`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+        - `const DirectDirect Direct = "direct"`
+
+    - `type BetaServerToolCaller struct{…}`
+
+      Tool invocation generated by a server-side tool.
+
+      - `ToolID string`
+
+      - `Type CodeExecution20250825`
+
+        - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
+
+    - `type BetaServerToolCaller20260120 struct{…}`
+
+      - `ToolID string`
+
+      - `Type CodeExecution20260120`
+
+        - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
+
+  - `ToolsetName string`
+
+    For a toolset member tool_use, the toolset family.
+
+### Beta Tool Use Block Param
+
+- `type BetaToolUseBlockParamResp struct{…}`
+
+  - `ID string`
+
+  - `Input map[string, any]`
+
+  - `Name string`
+
+  - `Type ToolUse`
+
+    - `const ToolUseToolUse ToolUse = "tool_use"`
+
+  - `CacheControl BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+    - `TTL BetaCacheControlEphemeralTTL`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `Caller BetaToolUseBlockParamCallerUnionResp`
+
+    Tool invocation directly from the model.
+
+    - `type BetaDirectCaller struct{…}`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+        - `const DirectDirect Direct = "direct"`
+
+    - `type BetaServerToolCaller struct{…}`
+
+      Tool invocation generated by a server-side tool.
+
+      - `ToolID string`
+
+      - `Type CodeExecution20250825`
+
+        - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
+
+    - `type BetaServerToolCaller20260120 struct{…}`
+
+      - `ToolID string`
+
+      - `Type CodeExecution20260120`
+
+        - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
+
+  - `ToolsetName string`
+
+    For a toolset member tool_use, the toolset family this member belongs to.
+
+### Beta Tool Uses Keep
+
+- `type BetaToolUsesKeep struct{…}`
+
+  - `Type ToolUses`
+
+    - `const ToolUsesToolUses ToolUses = "tool_uses"`
+
+  - `Value int64`
+
+### Beta Tool Uses Trigger
+
+- `type BetaToolUsesTrigger struct{…}`
+
+  - `Type ToolUses`
+
+    - `const ToolUsesToolUses ToolUses = "tool_uses"`
+
+  - `Value int64`
+
+### Beta URL Image Source
+
+- `type BetaURLImageSource struct{…}`
+
+  - `Type URL`
+
+    - `const URLURL URL = "url"`
+
+  - `URL string`
+
+### Beta URL PDF Source
+
+- `type BetaURLPDFSource struct{…}`
+
+  - `Type URL`
+
+    - `const URLURL URL = "url"`
+
+  - `URL string`
+
+### Beta Usage
+
+- `type BetaUsage struct{…}`
+
+  - `CacheCreation BetaCacheCreation`
+
+    Breakdown of cached tokens by TTL
+
+    - `Ephemeral1hInputTokens int64`
+
+      The number of input tokens used to create the 1 hour cache entry.
+
+    - `Ephemeral5mInputTokens int64`
+
+      The number of input tokens used to create the 5 minute cache entry.
+
+  - `CacheCreationInputTokens int64`
+
+    The number of input tokens used to create the cache entry.
+
+  - `CacheReadInputTokens int64`
+
+    The number of input tokens read from the cache.
+
+  - `FallbackCredit BetaFallbackCreditUsage`
+
+    Outcome of the `fallback_credit_token` presented on this request.
+
+    - `Status BetaFallbackCreditUsageStatusUnion`
+
+      Whether the fallback-credit reprice was applied to this response's billing.
+
+      A union discriminated on `type`. `redeemed`: the retry is billed as if
+      the conversation had been on the retry model all along — including when the
+      resulting shift is zero because there was nothing to move. `not_applied`:
+      no reprice was applied; the arm's `reason` says why.
+
+      - `type BetaFallbackCreditRedeemed struct{…}`
+
+        The reprice was applied: the retry is billed as if the conversation
+        had been on the retry model all along.
+
+        - `Type Redeemed`
+
+          - `const RedeemedRedeemed Redeemed = "redeemed"`
+
+      - `type BetaFallbackCreditNotApplied struct{…}`
+
+        No reprice was applied; `reason` says why.
+
+        - `Reason BetaFallbackCreditNotAppliedReason`
+
+          Why the reprice was not applied.
+
+          A closed enum; additions to the redemption-check vocabulary arrive as
+          deliberate schema updates.
+
+          - `const BetaFallbackCreditNotAppliedReasonBodyMismatch BetaFallbackCreditNotAppliedReason = "body_mismatch"`
+
+          - `const BetaFallbackCreditNotAppliedReasonContinuationExcluded BetaFallbackCreditNotAppliedReason = "continuation_excluded"`
+
+          - `const BetaFallbackCreditNotAppliedReasonContinuationOnly BetaFallbackCreditNotAppliedReason = "continuation_only"`
+
+          - `const BetaFallbackCreditNotAppliedReasonExpired BetaFallbackCreditNotAppliedReason = "expired"`
+
+          - `const BetaFallbackCreditNotAppliedReasonInvalidTargetModel BetaFallbackCreditNotAppliedReason = "invalid_target_model"`
+
+          - `const BetaFallbackCreditNotAppliedReasonNotEnabled BetaFallbackCreditNotAppliedReason = "not_enabled"`
+
+          - `const BetaFallbackCreditNotAppliedReasonRepriceUnavailable BetaFallbackCreditNotAppliedReason = "reprice_unavailable"`
+
+          - `const BetaFallbackCreditNotAppliedReasonTemporarilyUnavailable BetaFallbackCreditNotAppliedReason = "temporarily_unavailable"`
+
+          - `const BetaFallbackCreditNotAppliedReasonVariantFieldsPresent BetaFallbackCreditNotAppliedReason = "variant_fields_present"`
+
+          - `const BetaFallbackCreditNotAppliedReasonWrongOrganization BetaFallbackCreditNotAppliedReason = "wrong_organization"`
+
+          - `const BetaFallbackCreditNotAppliedReasonWrongPlatform BetaFallbackCreditNotAppliedReason = "wrong_platform"`
+
+          - `const BetaFallbackCreditNotAppliedReasonWrongWorkspace BetaFallbackCreditNotAppliedReason = "wrong_workspace"`
+
+        - `Type NotApplied`
+
+          - `const NotAppliedNotApplied NotApplied = "not_applied"`
+
+        - `RemoveToRedeem []string`
+
+          Request fields to remove before retrying, so the retry can redeem this
+          token.
+
+          Present exactly when `reason` is `variant_fields_present` — never null,
+          never an empty array; absent otherwise. Fields are named only from your own request, and only after
+          the sealed variant hash matched. A served best-effort retry has already
+          been billed at normal price; nothing redeems retroactively, but a corrected
+          re-send inside the token's five-minute window can still redeem.
+
+  - `InferenceGeo string`
+
+    The geographic region where inference was performed for this request.
+
+  - `InputTokens int64`
+
+    The number of input tokens which were used.
+
+  - `Iterations BetaIterationsUsage`
+
+    Per-iteration token usage breakdown.
+
+    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
+    - Determine which iterations exceeded long context thresholds (>=200k tokens)
+    - Calculate the true context window size from the last iteration
+    - Understand token accumulation across server-side tool use loops
+
+    - `type BetaMessageIterationUsage struct{…}`
+
+      Token usage for a sampling iteration.
+
+      - `CacheCreation BetaCacheCreation`
+
+        Breakdown of cached tokens by TTL
+
+      - `CacheCreationInputTokens int64`
+
+        The number of input tokens used to create the cache entry.
+
+      - `CacheReadInputTokens int64`
+
+        The number of input tokens read from the cache.
+
+      - `InputTokens int64`
+
+        The number of input tokens which were used.
+
+      - `Model Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `type Model string`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
+          - `const ModelClaudeFable5 Model = "claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `const ModelClaudeMythos5 Model = "claude-mythos-5"`
+
+            Most capable model for cybersecurity and biology research
+
+          - `const ModelClaudeOpus5 Model = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+            New class of intelligence, strongest in coding and cybersecurity
+
+          - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
+
+        - `string`
+
+      - `OutputTokens int64`
+
+        The number of output tokens which were used.
+
+      - `Type Message`
+
+        Usage for a sampling iteration
+
+        - `const MessageMessage Message = "message"`
+
+    - `type BetaCompactionIterationUsage struct{…}`
+
+      Token usage for a compaction iteration.
+
+      - `CacheCreation BetaCacheCreation`
+
+        Breakdown of cached tokens by TTL
+
+      - `CacheCreationInputTokens int64`
+
+        The number of input tokens used to create the cache entry.
+
+      - `CacheReadInputTokens int64`
+
+        The number of input tokens read from the cache.
+
+      - `InputTokens int64`
+
+        The number of input tokens which were used.
+
+      - `OutputTokens int64`
+
+        The number of output tokens which were used.
+
+      - `Type Compaction`
+
+        Usage for a compaction iteration
+
+        - `const CompactionCompaction Compaction = "compaction"`
+
+    - `type BetaAdvisorMessageIterationUsage struct{…}`
+
+      Token usage for an advisor sub-inference iteration.
+
+      - `CacheCreation BetaCacheCreation`
+
+        Breakdown of cached tokens by TTL
+
+      - `CacheCreationInputTokens int64`
+
+        The number of input tokens used to create the cache entry.
+
+      - `CacheReadInputTokens int64`
+
+        The number of input tokens read from the cache.
+
+      - `InputTokens int64`
+
+        The number of input tokens which were used.
+
+      - `Model Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `OutputTokens int64`
+
+        The number of output tokens which were used.
+
+      - `Type AdvisorMessage`
+
+        Usage for an advisor sub-inference iteration
+
+        - `const AdvisorMessageAdvisorMessage AdvisorMessage = "advisor_message"`
+
+    - `type BetaFallbackMessageIterationUsage struct{…}`
+
+      Token usage for the fallback-model attempt of a server-side fallback request.
+
+      Produced in place of a `message` entry for whichever hop served the
+      response. A declined hop produces the existing `message` entry. Whether
+      a fallback model served the response is signalled by the presence of this
+      entry in `usage.iterations`.
+
+      - `CacheCreation BetaCacheCreation`
+
+        Breakdown of cached tokens by TTL
+
+      - `CacheCreationInputTokens int64`
+
+        The number of input tokens used to create the cache entry.
+
+      - `CacheReadInputTokens int64`
+
+        The number of input tokens read from the cache.
+
+      - `InputTokens int64`
+
+        The number of input tokens which were used.
+
+      - `Model Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `OutputTokens int64`
+
+        The number of output tokens which were used.
+
+      - `Type FallbackMessage`
+
+        Usage for the fallback-model attempt that served the response
+
+        - `const FallbackMessageFallbackMessage FallbackMessage = "fallback_message"`
+
+  - `OutputTokens int64`
+
+    The number of output tokens which were used.
+
+  - `OutputTokensDetails BetaOutputTokensDetails`
+
+    Breakdown of output tokens by category.
+
+    `output_tokens` remains the inclusive, authoritative total used for billing.
+    This object provides a read-only decomposition for observability — for example,
+    how many of the billed output tokens were spent on internal reasoning that may
+    have been summarized before being returned to you.
+
+    - `ThinkingTokens int64`
+
+      Number of output tokens the model generated as internal reasoning, including
+      the thinking-block delimiter tokens.
+
+      Reflects the raw reasoning the model produced, not the (possibly shorter)
+      summarized thinking text returned in the response body. Computed by
+      re-tokenizing the raw reasoning text, so it may differ from the model's exact
+      generation count by a small number of tokens. Always ≤ `output_tokens`;
+      `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
+  - `ServerToolUse BetaServerToolUsage`
+
+    The number of server tool requests.
+
+    - `WebFetchRequests int64`
+
+      The number of web fetch tool requests.
+
+    - `WebSearchRequests int64`
+
+      The number of web search tool requests.
+
+  - `ServiceTier BetaUsageServiceTier`
+
+    If the request used the priority, standard, or batch tier.
+
+    - `const BetaUsageServiceTierStandard BetaUsageServiceTier = "standard"`
+
+    - `const BetaUsageServiceTierPriority BetaUsageServiceTier = "priority"`
+
+    - `const BetaUsageServiceTierBatch BetaUsageServiceTier = "batch"`
+
+  - `Speed BetaUsageSpeed`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+    - `const BetaUsageSpeedStandard BetaUsageSpeed = "standard"`
+
+    - `const BetaUsageSpeedFast BetaUsageSpeed = "fast"`
+
+### Beta User Location
+
+- `type BetaUserLocation struct{…}`
+
+  - `Type Approximate`
+
+    - `const ApproximateApproximate Approximate = "approximate"`
+
+  - `City string`
+
+    The city of the user.
+
+  - `Country string`
+
+    The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+  - `Region string`
+
+    The region of the user.
+
+  - `Timezone string`
+
+    The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+### Beta Web Fetch Block
+
+- `type BetaWebFetchBlock struct{…}`
+
+  - `Content BetaDocumentBlock`
+
+    - `Citations BetaCitationConfig`
+
+      Citation configuration for the document
+
+      - `Enabled bool`
+
+    - `Source BetaDocumentBlockSourceUnion`
+
+      - `type BetaBase64PDFSource struct{…}`
+
+        - `Data string`
+
+        - `MediaType ApplicationPDF`
+
+          - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
+
+        - `Type Base64`
+
+          - `const Base64Base64 Base64 = "base64"`
+
+      - `type BetaPlainTextSource struct{…}`
+
+        - `Data string`
+
+        - `MediaType TextPlain`
+
+          - `const TextPlainTextPlain TextPlain = "text/plain"`
+
+        - `Type Text`
+
+          - `const TextText Text = "text"`
+
+    - `Title string`
+
+      The title of the document
+
+    - `Type Document`
+
+      - `const DocumentDocument Document = "document"`
+
+  - `RetrievedAt string`
+
+    ISO 8601 timestamp when the content was retrieved
+
+  - `Type WebFetchResult`
+
+    - `const WebFetchResultWebFetchResult WebFetchResult = "web_fetch_result"`
+
+  - `URL string`
+
+    Fetched content URL
+
+### Beta Web Fetch Block Param
+
+- `type BetaWebFetchBlockParamResp struct{…}`
+
+  - `Content BetaRequestDocumentBlock`
+
+    - `Source BetaRequestDocumentBlockSourceUnion`
+
+      - `type BetaBase64PDFSource struct{…}`
+
+        - `Data string`
+
+        - `MediaType ApplicationPDF`
+
+          - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
+
+        - `Type Base64`
+
+          - `const Base64Base64 Base64 = "base64"`
+
+      - `type BetaPlainTextSource struct{…}`
+
+        - `Data string`
+
+        - `MediaType TextPlain`
+
+          - `const TextPlainTextPlain TextPlain = "text/plain"`
+
+        - `Type Text`
+
+          - `const TextText Text = "text"`
+
+      - `type BetaContentBlockSource struct{…}`
+
+        - `Content BetaContentBlockSourceContentUnion`
+
+          - `string`
+
+          - `[]BetaContentBlockSourceContentUnion`
+
+            - `type BetaTextBlockParamResp struct{…}`
+
+              - `Text string`
+
+              - `Type Text`
+
+                - `const TextText Text = "text"`
+
+              - `CacheControl BetaCacheControlEphemeral`
+
+                Create a cache control breakpoint at this content block.
+
+                - `Type Ephemeral`
+
+                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
+
+                - `TTL BetaCacheControlEphemeralTTL`
+
+                  The time-to-live for the cache control breakpoint.
+
+                  This may be one the following values:
+
+                  - `5m`: 5 minutes
+                  - `1h`: 1 hour
+
+                  Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+              - `Citations []BetaTextCitationParamUnionResp`
+
+                - `type BetaCitationCharLocationParamResp struct{…}`
+
+                  - `CitedText string`
+
+                  - `DocumentIndex int64`
+
+                  - `DocumentTitle string`
+
+                  - `EndCharIndex int64`
+
+                  - `StartCharIndex int64`
+
+                  - `Type CharLocation`
+
+                    - `const CharLocationCharLocation CharLocation = "char_location"`
+
+                - `type BetaCitationPageLocationParamResp struct{…}`
+
+                  - `CitedText string`
+
+                  - `DocumentIndex int64`
+
+                  - `DocumentTitle string`
+
+                  - `EndPageNumber int64`
+
+                  - `StartPageNumber int64`
+
+                  - `Type PageLocation`
+
+                    - `const PageLocationPageLocation PageLocation = "page_location"`
+
+                - `type BetaCitationContentBlockLocationParamResp struct{…}`
+
+                  - `CitedText string`
+
+                    The full text of the cited block range, concatenated.
+
+                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                  - `DocumentIndex int64`
+
+                  - `DocumentTitle string`
+
+                  - `EndBlockIndex int64`
+
+                    Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                  - `StartBlockIndex int64`
+
+                    0-based index of the first cited block in the source's `content` array.
+
+                  - `Type ContentBlockLocation`
+
+                    - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
+
+                - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
+
+                  - `CitedText string`
+
+                  - `EncryptedIndex string`
+
+                  - `Title string`
+
+                  - `Type WebSearchResultLocation`
+
+                    - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
+
+                  - `URL string`
+
+                - `type BetaCitationSearchResultLocationParamResp struct{…}`
+
+                  - `CitedText string`
+
+                    The full text of the cited block range, concatenated.
+
+                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                  - `EndBlockIndex int64`
+
+                    Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                  - `SearchResultIndex int64`
+
+                    0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                    Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                  - `Source string`
+
+                  - `StartBlockIndex int64`
+
+                    0-based index of the first cited block in the source's `content` array.
+
+                  - `Title string`
+
+                  - `Type SearchResultLocation`
+
+                    - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
+
+            - `type BetaImageBlockParamResp struct{…}`
+
+              - `Source BetaImageBlockParamSourceUnionResp`
+
+                - `type BetaBase64ImageSource struct{…}`
+
+                  - `Data string`
+
+                  - `MediaType BetaBase64ImageSourceMediaType`
+
+                    - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
+
+                    - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
+
+                    - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
+
+                    - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
+
+                  - `Type Base64`
+
+                    - `const Base64Base64 Base64 = "base64"`
+
+                - `type BetaURLImageSource struct{…}`
+
+                  - `Type URL`
+
+                    - `const URLURL URL = "url"`
+
+                  - `URL string`
+
+                - `type BetaFileImageSource struct{…}`
+
+                  - `FileID string`
+
+                  - `Type File`
+
+                    - `const FileFile File = "file"`
+
+              - `Type Image`
+
+                - `const ImageImage Image = "image"`
+
+              - `CacheControl BetaCacheControlEphemeral`
+
+                Create a cache control breakpoint at this content block.
+
+              - `Transformations BetaImageTransformationsParamResp`
+
+                Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+                - `OversizedImage BetaImageTransformationsParamOversizedImage`
+
+                  What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                  - `const BetaImageTransformationsParamOversizedImageDownsize BetaImageTransformationsParamOversizedImage = "downsize"`
+
+                  - `const BetaImageTransformationsParamOversizedImageError BetaImageTransformationsParamOversizedImage = "error"`
+
+        - `Type Content`
+
+          - `const ContentContent Content = "content"`
+
+      - `type BetaURLPDFSource struct{…}`
+
+        - `Type URL`
+
+          - `const URLURL URL = "url"`
+
+        - `URL string`
+
+      - `type BetaFileDocumentSource struct{…}`
+
+        - `FileID string`
+
+        - `Type File`
+
+          - `const FileFile File = "file"`
+
+    - `Type Document`
+
+      - `const DocumentDocument Document = "document"`
+
+    - `CacheControl BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `Citations BetaCitationsConfigParamResp`
+
+      - `Enabled bool`
+
+    - `Context string`
+
+    - `Title string`
+
+  - `Type WebFetchResult`
+
+    - `const WebFetchResultWebFetchResult WebFetchResult = "web_fetch_result"`
+
+  - `URL string`
+
+    Fetched content URL
+
+  - `RetrievedAt string`
+
+    ISO 8601 timestamp when the content was retrieved
+
+### Beta Web Fetch Tool 20250910
+
+- `type BetaWebFetchTool20250910 struct{…}`
+
+  - `Name WebFetch`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+  - `Type WebFetch20250910`
+
+    - `const WebFetch20250910WebFetch20250910 WebFetch20250910 = "web_fetch_20250910"`
+
+  - `AllowedCallers []string`
+
+    - `const BetaWebFetchTool20250910AllowedCallerDirect BetaWebFetchTool20250910AllowedCaller = "direct"`
+
+    - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20250825 BetaWebFetchTool20250910AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20260120 BetaWebFetchTool20250910AllowedCaller = "code_execution_20260120"`
+
     - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20260521 BetaWebFetchTool20250910AllowedCaller = "code_execution_20260521"`
 
   - `AllowedDomains []string`
@@ -689,6 +5934,18 @@
                   - `CacheControl BetaCacheControlEphemeral`
 
                     Create a cache control breakpoint at this content block.
+
+                  - `Transformations BetaImageTransformationsParamResp`
+
+                    Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+                    - `OversizedImage BetaImageTransformationsParamOversizedImage`
+
+                      What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                      - `const BetaImageTransformationsParamOversizedImageDownsize BetaImageTransformationsParamOversizedImage = "downsize"`
+
+                      - `const BetaImageTransformationsParamOversizedImageError BetaImageTransformationsParamOversizedImage = "error"`
 
             - `Type Content`
 
@@ -1768,6 +7025,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
+              - `Transformations BetaImageTransformationsParamResp`
+
+                Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+                - `OversizedImage BetaImageTransformationsParamOversizedImage`
+
+                  What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                  - `const BetaImageTransformationsParamOversizedImageDownsize BetaImageTransformationsParamOversizedImage = "downsize"`
+
+                  - `const BetaImageTransformationsParamOversizedImageError BetaImageTransformationsParamOversizedImage = "error"`
+
             - `type BetaRequestDocumentBlock struct{…}`
 
               - `Source BetaRequestDocumentBlockSourceUnion`
@@ -1944,6 +7213,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
+              - `ToolsetName string`
+
+                For a toolset member tool_use, the toolset family this member belongs to.
+
             - `type BetaToolResultBlockParamResp struct{…}`
 
               - `ToolUseID string`
@@ -1982,7 +7255,134 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       Create a cache control breakpoint at this content block.
 
+                  - `type BetaBrowserStateBlockParamResp struct{…}`
+
+                    The caller's browser state after a browser toolset member call —
+                    the full inventory of open tabs, which tab is active, and any side
+                    effects (tabs opened, download state changes) the call produced.
+
+                    At most one per `tool_result`, only on a non-error result answering a
+                    browser toolset member `tool_use`. The server renders the
+                    model-visible text from it; the model never sees the raw fields.
+
+                    - `Tabs []BetaBrowserStateTabEntry`
+
+                      All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+                      - `TabID string`
+
+                        The caller-assigned identifier for this tab, unique within the inventory.
+
+                      - `Title string`
+
+                        The title of the page the tab is showing. May be empty.
+
+                      - `URL string`
+
+                        The URL of the page the tab is showing. May be empty.
+
+                      - `Active bool`
+
+                        Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+                    - `Type BrowserState`
+
+                      - `const BrowserStateBrowserState BrowserState = "browser_state"`
+
+                    - `CacheControl BetaCacheControlEphemeral`
+
+                      Create a cache control breakpoint at this content block.
+
+                    - `StateChanges []BetaBrowserStateChangeUnion`
+
+                      Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                      - `type BetaBrowserStateChangeTabOpened struct{…}`
+
+                        A tab this call's execution opened that remains open at its end —
+                        the creation delta of the `tabs` inventory, not an event log.
+
+                        Carries only the `tab_id`; the tab's `title` and `url` live on its
+                        `tabs` entry, which must include the same `tab_id`. A tab opened
+                        during a failed call gets no deferred `tab_opened`; it simply appears
+                        in the next result's `tabs` inventory.
+
+                        - `TabID string`
+
+                          The `tab_id` of the opened tab, present in `tabs`.
+
+                        - `Type TabOpened`
+
+                          - `const TabOpenedTabOpened TabOpened = "tab_opened"`
+
+                      - `type BetaBrowserStateChangeDownloadStarted struct{…}`
+
+                        A file download that started during this call.
+
+                        - `DownloadID string`
+
+                          The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                        - `Type DownloadStarted`
+
+                          - `const DownloadStartedDownloadStarted DownloadStarted = "download_started"`
+
+                        - `URL string`
+
+                          The final post-redirect URL the download was served from.
+
+                      - `type BetaBrowserStateChangeDownloadCompleted struct{…}`
+
+                        A file download that finished during this call, reported with the
+                        same `download_id` as its `download_started` — or without a prior
+                        `download_started`, when the download finished during the call that
+                        started it (at most one state change per `download_id` per result).
+
+                        - `DownloadID string`
+
+                          The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                        - `Type DownloadCompleted`
+
+                          - `const DownloadCompletedDownloadCompleted DownloadCompleted = "download_completed"`
+
+                        - `URL string`
+
+                          The final post-redirect URL the download was served from.
+
+                        - `Path string`
+
+                          Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+                        - `SizeBytes int64`
+
+                          The completed download's size.
+
+                      - `type BetaBrowserStateChangeDownloadFailed struct{…}`
+
+                        A file download that failed — or was cancelled — during this call.
+
+                        - `DownloadID string`
+
+                          The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                        - `Type DownloadFailed`
+
+                          - `const DownloadFailedDownloadFailed DownloadFailed = "download_failed"`
+
+                        - `URL string`
+
+                          The final post-redirect URL the download was served from.
+
+                        - `Error string`
+
+                          The failure or cancellation detail, when known.
+
               - `IsError bool`
+
+              - `ToolsetName string`
+
+                For a toolset member tool_result, the toolset family of the paired tool_use.
 
             - `type BetaServerToolUseBlockParamResp struct{…}`
 
@@ -2563,125 +7963,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Opaque metadata from prior compaction, to be round-tripped verbatim
 
-            - `type BetaMidConversationSystemBlockParamResp struct{…}`
-
-              System instructions that appear mid-conversation.
-
-              Use this block to provide or update system-level instructions at a specific
-              point in the conversation, rather than only via the top-level `system` parameter.
-
-              - `Content []BetaMidConversationSystemBlockParamContentUnionResp`
-
-                System instruction text blocks.
-
-                - `type BetaTextBlockParamResp struct{…}`
-
-                - `type BetaRequestToolAdditionBlock struct{…}`
-
-                  Mid-conversation directive to surface a declared tool.
-
-                  `tool` references a tool (or MCP toolset) by name from the request's
-                  `tools`; it is offered to the model from this point in the
-                  conversation onward.
-
-                  - `Tool BetaRequestToolAdditionBlockToolUnion`
-
-                    Reference to a single tool the caller declared directly in
-                    `tools[]`. Does not accept the composed `{server}_{name}` form the
-                    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-                    `mcp_toolset_reference` for those.
-
-                    - `type BetaToolChangeToolReference struct{…}`
-
-                      Reference to a single tool the caller declared directly in
-                      `tools[]`. Does not accept the composed `{server}_{name}` form the
-                      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-                      `mcp_toolset_reference` for those.
-
-                      - `Name string`
-
-                      - `Type ToolReference`
-
-                        - `const ToolReferenceToolReference ToolReference = "tool_reference"`
-
-                    - `type BetaToolChangeMCPToolReference struct{…}`
-
-                      Reference to a single MCP tool by its server and remote name — the
-                      same `server_name`/`name` pair `mcp_tool_use` carries.
-
-                      - `Name string`
-
-                      - `ServerName string`
-
-                      - `Type MCPToolReference`
-
-                        - `const MCPToolReferenceMCPToolReference MCPToolReference = "mcp_tool_reference"`
-
-                    - `type BetaToolChangeMCPToolsetReference struct{…}`
-
-                      Reference to every tool in the named MCP server's toolset.
-
-                      - `ServerName string`
-
-                      - `Type MCPToolsetReference`
-
-                        - `const MCPToolsetReferenceMCPToolsetReference MCPToolsetReference = "mcp_toolset_reference"`
-
-                  - `Type ToolAddition`
-
-                    - `const ToolAdditionToolAddition ToolAddition = "tool_addition"`
-
-                  - `CacheControl BetaCacheControlEphemeral`
-
-                    Create a cache control breakpoint at this content block.
-
-                - `type BetaRequestToolRemovalBlock struct{…}`
-
-                  Mid-conversation directive to withdraw a tool.
-
-                  `tool` references a tool (or MCP toolset) by name from the request's
-                  `tools`; it is no longer offered to the model from this point in the
-                  conversation onward.
-
-                  - `Tool BetaRequestToolRemovalBlockToolUnion`
-
-                    Reference to a single tool the caller declared directly in
-                    `tools[]`. Does not accept the composed `{server}_{name}` form the
-                    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-                    `mcp_toolset_reference` for those.
-
-                    - `type BetaToolChangeToolReference struct{…}`
-
-                      Reference to a single tool the caller declared directly in
-                      `tools[]`. Does not accept the composed `{server}_{name}` form the
-                      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-                      `mcp_toolset_reference` for those.
-
-                    - `type BetaToolChangeMCPToolReference struct{…}`
-
-                      Reference to a single MCP tool by its server and remote name — the
-                      same `server_name`/`name` pair `mcp_tool_use` carries.
-
-                    - `type BetaToolChangeMCPToolsetReference struct{…}`
-
-                      Reference to every tool in the named MCP server's toolset.
-
-                  - `Type ToolRemoval`
-
-                    - `const ToolRemovalToolRemoval ToolRemoval = "tool_removal"`
-
-                  - `CacheControl BetaCacheControlEphemeral`
-
-                    Create a cache control breakpoint at this content block.
-
-              - `Type MidConvSystem`
-
-                - `const MidConvSystemMidConvSystem MidConvSystem = "mid_conv_system"`
-
-              - `CacheControl BetaCacheControlEphemeral`
-
-                Create a cache control breakpoint at this content block.
-
             - `type BetaRequestToolAdditionBlock struct{…}`
 
               Mid-conversation directive to surface a declared tool.
@@ -2690,6 +7971,57 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               `tools`; it is offered to the model from this point in the
               conversation onward.
 
+              - `Tool BetaRequestToolAdditionBlockToolUnion`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+                - `type BetaToolChangeToolReference struct{…}`
+
+                  Reference to a single tool the caller declared directly in
+                  `tools[]`. Does not accept the composed `{server}_{name}` form the
+                  server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                  `mcp_toolset_reference` for those.
+
+                  - `Name string`
+
+                  - `Type ToolReference`
+
+                    - `const ToolReferenceToolReference ToolReference = "tool_reference"`
+
+                - `type BetaToolChangeMCPToolReference struct{…}`
+
+                  Reference to a single MCP tool by its server and remote name — the
+                  same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                  - `Name string`
+
+                  - `ServerName string`
+
+                  - `Type MCPToolReference`
+
+                    - `const MCPToolReferenceMCPToolReference MCPToolReference = "mcp_tool_reference"`
+
+                - `type BetaToolChangeMCPToolsetReference struct{…}`
+
+                  Reference to every tool in the named MCP server's toolset.
+
+                  - `ServerName string`
+
+                  - `Type MCPToolsetReference`
+
+                    - `const MCPToolsetReferenceMCPToolsetReference MCPToolsetReference = "mcp_toolset_reference"`
+
+              - `Type ToolAddition`
+
+                - `const ToolAdditionToolAddition ToolAddition = "tool_addition"`
+
+              - `CacheControl BetaCacheControlEphemeral`
+
+                Create a cache control breakpoint at this content block.
+
             - `type BetaRequestToolRemovalBlock struct{…}`
 
               Mid-conversation directive to withdraw a tool.
@@ -2697,6 +8029,37 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               `tool` references a tool (or MCP toolset) by name from the request's
               `tools`; it is no longer offered to the model from this point in the
               conversation onward.
+
+              - `Tool BetaRequestToolRemovalBlockToolUnion`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+                - `type BetaToolChangeToolReference struct{…}`
+
+                  Reference to a single tool the caller declared directly in
+                  `tools[]`. Does not accept the composed `{server}_{name}` form the
+                  server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                  `mcp_toolset_reference` for those.
+
+                - `type BetaToolChangeMCPToolReference struct{…}`
+
+                  Reference to a single MCP tool by its server and remote name — the
+                  same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                - `type BetaToolChangeMCPToolsetReference struct{…}`
+
+                  Reference to every tool in the named MCP server's toolset.
+
+              - `Type ToolRemoval`
+
+                - `const ToolRemovalToolRemoval ToolRemoval = "tool_removal"`
+
+              - `CacheControl BetaCacheControlEphemeral`
+
+                Create a cache control breakpoint at this content block.
 
             - `type BetaFallbackBlockParamResp struct{…}`
 
@@ -3666,6 +9029,412 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
+        - `type BetaBrowserToolset20260801 struct{…}`
+
+          The browser toolset: a single `tools[]` entry (carrying no
+          `name`) that declares the browser tool family. The model is served
+          the family's tool with any members disabled via `configs` removed
+          from its schema.
+
+          - `Type BrowserToolset20260801`
+
+            - `const BrowserToolset20260801BrowserToolset20260801 BrowserToolset20260801 = "browser_toolset_20260801"`
+
+          - `AllowedCallers []string`
+
+            - `const BetaBrowserToolset20260801AllowedCallerDirect BetaBrowserToolset20260801AllowedCaller = "direct"`
+
+            - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20250825 BetaBrowserToolset20260801AllowedCaller = "code_execution_20250825"`
+
+            - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20260120 BetaBrowserToolset20260801AllowedCaller = "code_execution_20260120"`
+
+            - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20260521 BetaBrowserToolset20260801AllowedCaller = "code_execution_20260521"`
+
+          - `CacheControl BetaCacheControlEphemeral`
+
+            Create a cache control breakpoint at this content block.
+
+          - `Configs BetaBrowserToolsetConfigs`
+
+            Per-member configuration for `browser_toolset_20260801`: one
+            optional field per member tool, keyed by the member name — the same
+            name the member's `tool_use` blocks carry. Every member is an
+            accepted key, and a member's defaults apply wherever its key is
+            absent. Unknown keys are rejected: the field set is this toolset
+            version's complete member set.
+
+            - `CloseTab BetaBrowserCloseTabConfig`
+
+              `close_tab`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `DoubleClick BetaBrowserDoubleClickConfig`
+
+              `double_click`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `FileUpload BetaBrowserFileUploadConfig`
+
+              `file_upload`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Find BetaBrowserFindConfig`
+
+              `find`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `FormInput BetaBrowserFormInputConfig`
+
+              `form_input`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `GetPageText BetaBrowserGetPageTextConfig`
+
+              `get_page_text`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `HoldKey BetaBrowserHoldKeyConfig`
+
+              `hold_key`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Hover BetaBrowserHoverConfig`
+
+              `hover`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `JavascriptExec BetaBrowserJavascriptExecConfig`
+
+              `javascript_exec`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Key BetaBrowserKeyConfig`
+
+              `key`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `LeftClick BetaBrowserLeftClickConfig`
+
+              `left_click`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `LeftClickDrag BetaBrowserLeftClickDragConfig`
+
+              `left_click_drag`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `LeftMouseDown BetaBrowserLeftMouseDownConfig`
+
+              `left_mouse_down`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `LeftMouseUp BetaBrowserLeftMouseUpConfig`
+
+              `left_mouse_up`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ListTabs BetaBrowserListTabsConfig`
+
+              `list_tabs`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `MiddleClick BetaBrowserMiddleClickConfig`
+
+              `middle_click`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `MouseMove BetaBrowserMouseMoveConfig`
+
+              `mouse_move`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Navigate BetaBrowserNavigateConfig`
+
+              `navigate`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `NewTab BetaBrowserNewTabConfig`
+
+              `new_tab`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ReadConsole BetaBrowserReadConsoleConfig`
+
+              `read_console`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ReadNetwork BetaBrowserReadNetworkConfig`
+
+              `read_network`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ReadPage BetaBrowserReadPageConfig`
+
+              `read_page`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `RightClick BetaBrowserRightClickConfig`
+
+              `right_click`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Screenshot BetaBrowserScreenshotConfig`
+
+              `screenshot`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Scroll BetaBrowserScrollConfig`
+
+              `scroll`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ScrollTo BetaBrowserScrollToConfig`
+
+              `scroll_to`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `SwitchTab BetaBrowserSwitchTabConfig`
+
+              `switch_tab`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `TripleClick BetaBrowserTripleClickConfig`
+
+              `triple_click`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Type BetaBrowserTypeConfig`
+
+              `type`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Wait BetaBrowserWaitConfig`
+
+              `wait`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Zoom BetaBrowserZoomConfig`
+
+              `zoom`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
         - `type BetaToolComputerUse20241022 struct{…}`
 
           - `DisplayHeightPx int64`
@@ -3895,6 +9664,248 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `Strict bool`
 
             When true, guarantees schema validation on tool names and inputs
+
+        - `type BetaComputerToolset20260801 struct{…}`
+
+          The computer toolset: a single `tools[]` entry (carrying no
+          `name`) that declares the computer tool family. The model is
+          served the family's tool with any members disabled via `configs`
+          removed from its schema. Every member is enabled by default, zoom
+          included. The single-tool options `display_number` and
+          `enable_zoom` are not fields of a toolset entry — it carries only
+          `type`, `configs`, and `cache_control`; zoom is controlled
+          via `configs.zoom.enabled`.
+
+          - `Type ComputerToolset20260801`
+
+            - `const ComputerToolset20260801ComputerToolset20260801 ComputerToolset20260801 = "computer_toolset_20260801"`
+
+          - `AllowedCallers []string`
+
+            - `const BetaComputerToolset20260801AllowedCallerDirect BetaComputerToolset20260801AllowedCaller = "direct"`
+
+            - `const BetaComputerToolset20260801AllowedCallerCodeExecution20250825 BetaComputerToolset20260801AllowedCaller = "code_execution_20250825"`
+
+            - `const BetaComputerToolset20260801AllowedCallerCodeExecution20260120 BetaComputerToolset20260801AllowedCaller = "code_execution_20260120"`
+
+            - `const BetaComputerToolset20260801AllowedCallerCodeExecution20260521 BetaComputerToolset20260801AllowedCaller = "code_execution_20260521"`
+
+          - `CacheControl BetaCacheControlEphemeral`
+
+            Create a cache control breakpoint at this content block.
+
+          - `Configs BetaComputerToolsetConfigs`
+
+            Per-member configuration for `computer_toolset_20260801`: one
+            optional field per member tool, keyed by the member name — the same
+            name the member's `tool_use` blocks carry. Every member is an
+            accepted key, and a member's defaults apply wherever its key is
+            absent. Unknown keys are rejected: the field set is this toolset
+            version's complete member set.
+
+            - `CursorPosition BetaComputerCursorPositionConfig`
+
+              `cursor_position`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `DoubleClick BetaComputerDoubleClickConfig`
+
+              `double_click`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `HoldKey BetaComputerHoldKeyConfig`
+
+              `hold_key`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Key BetaComputerKeyConfig`
+
+              `key`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `LeftClick BetaComputerLeftClickConfig`
+
+              `left_click`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `LeftClickDrag BetaComputerLeftClickDragConfig`
+
+              `left_click_drag`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `LeftMouseDown BetaComputerLeftMouseDownConfig`
+
+              `left_mouse_down`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `LeftMouseUp BetaComputerLeftMouseUpConfig`
+
+              `left_mouse_up`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `MiddleClick BetaComputerMiddleClickConfig`
+
+              `middle_click`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `MouseMove BetaComputerMouseMoveConfig`
+
+              `mouse_move`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `RightClick BetaComputerRightClickConfig`
+
+              `right_click`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Screenshot BetaComputerScreenshotConfig`
+
+              `screenshot`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Scroll BetaComputerScrollConfig`
+
+              `scroll`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `TripleClick BetaComputerTripleClickConfig`
+
+              `triple_click`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Type BetaComputerTypeConfig`
+
+              `type`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Wait BetaComputerWaitConfig`
+
+              `wait`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Zoom BetaComputerZoomConfig`
+
+              `zoom`'s config overrides.
+
+              - `DeferLoading bool`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `type BetaToolTextEditor20250124 struct{…}`
 
@@ -4673,6 +10684,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -4819,7 +10832,7 @@ func main() {
 					}},
 					Role: anthropic.BetaMessageParamRoleUser,
 				}},
-				Model: anthropic.ModelClaudeOpus4_6,
+				Model: anthropic.ModelClaudeOpus5,
 			},
 		}},
 	})
@@ -4922,6 +10935,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -5167,6 +11182,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -5406,6 +11423,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -5642,6 +11661,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -5789,6 +11810,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -6098,6 +12121,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `Type CodeExecution20260120`
 
                   - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
+
+            - `ToolsetName string`
+
+              For a toolset member tool_use, the toolset family.
 
           - `type BetaServerToolUseBlock struct{…}`
 
@@ -8009,6 +14036,10 @@ func main() {
 
                   - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
+            - `ToolsetName string`
+
+              For a toolset member tool_use, the toolset family.
+
           - `type BetaServerToolUseBlock struct{…}`
 
             - `ID string`
@@ -9695,6 +15726,10 @@ func main() {
 
                 - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
+          - `ToolsetName string`
+
+            For a toolset member tool_use, the toolset family.
+
         - `type BetaServerToolUseBlock struct{…}`
 
           - `ID string`
@@ -11343,6 +17378,10 @@ func main() {
 
               - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
+        - `ToolsetName string`
+
+          For a toolset member tool_use, the toolset family.
+
       - `type BetaServerToolUseBlock struct{…}`
 
         - `ID string`
@@ -12636,7 +18675,7 @@ Create Agent
 
   - `Model param.Field[BetaManagedAgentsModelConfigParamsResp]`
 
-    Body param: Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control
+    Body param: Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control
 
     - `type BetaManagedAgentsModelConfigParamsResp struct{…}`
 
@@ -13064,6 +19103,8 @@ Create Agent
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -13477,7 +19518,7 @@ func main() {
 	)
 	betaManagedAgentsAgent, err := client.Beta.Agents.New(context.TODO(), anthropic.BetaAgentNewParams{
 		Model: anthropic.BetaManagedAgentsModelConfigParams{
-			ID: anthropic.BetaManagedAgentsModelClaudeOpus4_8,
+			ID: anthropic.BetaManagedAgentsModelClaudeOpus5,
 		},
 		Name: "My First Agent",
 	})
@@ -13507,7 +19548,7 @@ func main() {
     "foo": "bar"
   },
   "model": {
-    "id": "claude-sonnet-4-6",
+    "id": "claude-opus-5",
     "effort": {
       "type": "low"
     },
@@ -13647,6 +19688,8 @@ List Agents
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -14088,7 +20131,7 @@ func main() {
         "foo": "bar"
       },
       "model": {
-        "id": "claude-sonnet-4-6",
+        "id": "claude-opus-5",
         "effort": {
           "type": "low"
         },
@@ -14217,6 +20260,8 @@ Get Agent
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -14660,7 +20705,7 @@ func main() {
     "foo": "bar"
   },
   "model": {
-    "id": "claude-sonnet-4-6",
+    "id": "claude-opus-5",
     "effort": {
       "type": "low"
     },
@@ -14757,7 +20802,7 @@ Update Agent
 
   - `Model param.Field[BetaManagedAgentsModelConfigParamsResp]`
 
-    Body param: Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
+    Body param: Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
 
     - `type BetaManagedAgentsModelConfigParamsResp struct{…}`
 
@@ -15164,6 +21209,8 @@ Update Agent
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -15609,7 +21656,7 @@ func main() {
     "foo": "bar"
   },
   "model": {
-    "id": "claude-sonnet-4-6",
+    "id": "claude-opus-5",
     "effort": {
       "type": "low"
     },
@@ -15731,6 +21778,8 @@ Archive Agent
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -16174,7 +22223,7 @@ func main() {
     "foo": "bar"
   },
   "model": {
-    "id": "claude-sonnet-4-6",
+    "id": "claude-opus-5",
     "effort": {
       "type": "low"
     },
@@ -18401,6 +24450,8 @@ List Agent Versions
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -18845,7 +24896,7 @@ func main() {
         "foo": "bar"
       },
       "model": {
-        "id": "claude-sonnet-4-6",
+        "id": "claude-opus-5",
         "effort": {
           "type": "low"
         },
@@ -19093,6 +25144,8 @@ Create a new environment with the specified configuration.
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -19229,7 +25282,7 @@ Create a new environment with the specified configuration.
 
   - `Description string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `Metadata map[string, string]`
 
@@ -19409,6 +25462,8 @@ List environments with pagination support.
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -19545,7 +25600,7 @@ List environments with pagination support.
 
   - `Description string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `Metadata map[string, string]`
 
@@ -19718,6 +25773,8 @@ Retrieve a specific environment by ID.
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -19854,7 +25911,7 @@ Retrieve a specific environment by ID.
 
   - `Description string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `Metadata map[string, string]`
 
@@ -20078,7 +26135,7 @@ Update an existing environment's configuration.
 
   - `Description param.Field[string]`
 
-    Body param: Updated description of the environment
+    Body param: Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
 
   - `Metadata param.Field[map[string, string]]`
 
@@ -20147,6 +26204,8 @@ Update an existing environment's configuration.
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -20284,7 +26343,7 @@ Update an existing environment's configuration.
 
   - `Description string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `Metadata map[string, string]`
 
@@ -20456,6 +26515,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -20598,6 +26659,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -20734,7 +26797,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   - `Description string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `Metadata map[string, string]`
 
@@ -21128,7 +27191,7 @@ func main() {
 
   - `Description string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `Metadata map[string, string]`
 
@@ -21407,6 +27470,8 @@ Retrieve detailed information about a specific work item.
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -21645,6 +27710,8 @@ Long poll for work items in the queue.
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -21880,6 +27947,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -22123,6 +28192,8 @@ Record a heartbeat for a work item to maintain the lease.
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -22301,6 +28372,8 @@ Stop a work item, initiating graceful or forced shutdown.
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -22540,6 +28613,8 @@ List work items in an environment.
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -22782,6 +28857,8 @@ Update work item metadata with merge semantics.
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -23014,6 +29091,8 @@ Get statistics about the work queue for an environment.
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -23455,7 +29534,7 @@ Create Session
 
       - `Model BetaManagedAgentsModelConfigParamsResp`
 
-        Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+        Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
         - `type BetaManagedAgentsModelConfigParamsResp struct{…}`
 
@@ -23972,6475 +30051,3 @@ Create Session
           - `Type BetaManagedAgentsRedactedBlockType`
 
             - `const BetaManagedAgentsRedactedBlockTypeRedacted BetaManagedAgentsRedactedBlockType = "redacted"`
-
-      - `Type BetaManagedAgentsUserMessageEventParamsType`
-
-        - `const BetaManagedAgentsUserMessageEventParamsTypeUserMessage BetaManagedAgentsUserMessageEventParamsType = "user.message"`
-
-    - `type BetaManagedAgentsUserDefineOutcomeEventParams struct{…}`
-
-      Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
-
-      - `Description string`
-
-        What the agent should produce. This is the task specification.
-
-      - `Rubric BetaManagedAgentsUserDefineOutcomeEventParamsRubricUnionResp`
-
-        Rubric for grading the quality of an outcome.
-
-        - `type BetaManagedAgentsFileRubricParams struct{…}`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `FileID string`
-
-            ID of the rubric file.
-
-          - `Type BetaManagedAgentsFileRubricParamsType`
-
-            - `const BetaManagedAgentsFileRubricParamsTypeFile BetaManagedAgentsFileRubricParamsType = "file"`
-
-        - `type BetaManagedAgentsTextRubricParams struct{…}`
-
-          Rubric content provided inline as text.
-
-          - `Content string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
-
-          - `Type BetaManagedAgentsTextRubricParamsType`
-
-            - `const BetaManagedAgentsTextRubricParamsTypeText BetaManagedAgentsTextRubricParamsType = "text"`
-
-      - `Type BetaManagedAgentsUserDefineOutcomeEventParamsType`
-
-        - `const BetaManagedAgentsUserDefineOutcomeEventParamsTypeUserDefineOutcome BetaManagedAgentsUserDefineOutcomeEventParamsType = "user.define_outcome"`
-
-      - `MaxIterations int64`
-
-        Eval→revision cycles before giving up. Default 3, max 20.
-
-  - `Metadata param.Field[map[string, string]]`
-
-    Body param: Arbitrary key-value metadata attached to the session. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-  - `Resources param.Field[[]BetaSessionNewParamsResourceUnion]`
-
-    Body param: Resources (e.g. repositories, files) to mount into the session's container.
-
-    - `type BetaManagedAgentsGitHubRepositoryResourceParamsResp struct{…}`
-
-      Mount a GitHub repository into the session's container.
-
-      - `AuthorizationToken string`
-
-        GitHub authorization token used to clone the repository.
-
-      - `Type BetaManagedAgentsGitHubRepositoryResourceParamsType`
-
-        - `const BetaManagedAgentsGitHubRepositoryResourceParamsTypeGitHubRepository BetaManagedAgentsGitHubRepositoryResourceParamsType = "github_repository"`
-
-      - `URL string`
-
-        Github URL of the repository
-
-      - `Checkout BetaManagedAgentsGitHubRepositoryResourceParamsCheckoutUnionResp`
-
-        Branch or commit to check out. Defaults to the repository's default branch.
-
-        - `type BetaManagedAgentsBranchCheckout struct{…}`
-
-          - `Name string`
-
-            Branch name to check out.
-
-          - `Type BetaManagedAgentsBranchCheckoutType`
-
-            - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
-
-        - `type BetaManagedAgentsCommitCheckout struct{…}`
-
-          - `Sha string`
-
-            Full commit SHA to check out.
-
-          - `Type BetaManagedAgentsCommitCheckoutType`
-
-            - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
-
-      - `MountPath string`
-
-        Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-    - `type BetaManagedAgentsFileResourceParamsResp struct{…}`
-
-      Mount a file uploaded via the Files API into the session.
-
-      - `FileID string`
-
-        ID of a previously uploaded file.
-
-      - `Type BetaManagedAgentsFileResourceParamsType`
-
-        - `const BetaManagedAgentsFileResourceParamsTypeFile BetaManagedAgentsFileResourceParamsType = "file"`
-
-      - `MountPath string`
-
-        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-    - `type BetaManagedAgentsMemoryStoreResourceParamResp struct{…}`
-
-      Parameters for attaching a memory store to an agent session.
-
-      - `MemoryStoreID string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type BetaManagedAgentsMemoryStoreResourceParamType`
-
-        - `const BetaManagedAgentsMemoryStoreResourceParamTypeMemoryStore BetaManagedAgentsMemoryStoreResourceParamType = "memory_store"`
-
-      - `Access BetaManagedAgentsMemoryStoreResourceParamAccess`
-
-        Access mode for an attached memory store.
-
-        - `const BetaManagedAgentsMemoryStoreResourceParamAccessReadWrite BetaManagedAgentsMemoryStoreResourceParamAccess = "read_write"`
-
-        - `const BetaManagedAgentsMemoryStoreResourceParamAccessReadOnly BetaManagedAgentsMemoryStoreResourceParamAccess = "read_only"`
-
-      - `Instructions string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-  - `Title param.Field[string]`
-
-    Body param: Human-readable session title.
-
-  - `VaultIDs param.Field[[]string]`
-
-    Body param: Vault IDs for stored credentials the agent can use during the session.
-
-  - `Betas param.Field[[]AnthropicBeta]`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `string`
-
-    - `type AnthropicBeta string`
-
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `type BetaManagedAgentsSession struct{…}`
-
-  A Managed Agents `session`.
-
-  - `ID string`
-
-  - `Agent BetaManagedAgentsSessionAgent`
-
-    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-    - `ID string`
-
-    - `Description string`
-
-    - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-      - `Name string`
-
-      - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-        - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
-
-      - `URL string`
-
-    - `Model BetaManagedAgentsModelConfig`
-
-      Model identifier and configuration.
-
-      - `ID BetaManagedAgentsModel`
-
-        The model that will power your agent.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `type BetaManagedAgentsModel string`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
-
-            High-performance model for coding and agents
-
-          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
-
-            Best combination of speed and intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
-        - `string`
-
-      - `Effort BetaManagedAgentsModelConfigEffortUnion`
-
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-        - `type BetaManagedAgentsEffortLow struct{…}`
-
-          Low effort. Favors latency over reasoning depth.
-
-          - `Type BetaManagedAgentsEffortLowType`
-
-            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
-
-        - `type BetaManagedAgentsEffortMedium struct{…}`
-
-          Medium effort. Balances latency and reasoning depth.
-
-          - `Type BetaManagedAgentsEffortMediumType`
-
-            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
-
-        - `type BetaManagedAgentsEffortHigh struct{…}`
-
-          High effort. Favors reasoning depth.
-
-          - `Type BetaManagedAgentsEffortHighType`
-
-            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
-
-        - `type BetaManagedAgentsEffortXhigh struct{…}`
-
-          Extra-high effort. Not all models accept this level.
-
-          - `Type BetaManagedAgentsEffortXhighType`
-
-            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
-
-        - `type BetaManagedAgentsEffortMax struct{…}`
-
-          Maximum effort. Favors reasoning depth over latency.
-
-          - `Type BetaManagedAgentsEffortMaxType`
-
-            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
-
-      - `InferenceGeo string`
-
-        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-      - `Speed BetaManagedAgentsModelConfigSpeed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
-
-        - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
-
-    - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
-
-      Resolved coordinator topology with full agent definitions for each roster member.
-
-      - `Agents []BetaManagedAgentsSessionMultiagentCoordinatorAgentUnion`
-
-        Full `agent` definitions the coordinator may spawn as session threads.
-
-        - `type BetaManagedAgentsSessionThreadAgent struct{…}`
-
-          Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-          - `ID string`
-
-          - `Description string`
-
-          - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-            - `Name string`
-
-            - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-            - `URL string`
-
-          - `Model BetaManagedAgentsModelConfig`
-
-            Model identifier and configuration.
-
-          - `Name string`
-
-          - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
-
-            - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-              A resolved Anthropic-managed skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsAnthropicSkillType`
-
-                - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
-
-              - `Version string`
-
-            - `type BetaManagedAgentsCustomSkill struct{…}`
-
-              A resolved user-created custom skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsCustomSkillType`
-
-                - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
-
-              - `Version string`
-
-          - `System string`
-
-          - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
-
-            - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-              - `Configs []BetaManagedAgentsAgentToolConfig`
-
-                - `Enabled bool`
-
-                - `Name BetaManagedAgentsAgentToolConfigName`
-
-                  Built-in agent tool identifier.
-
-                  - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                    - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-                    - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
-              - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                Resolved default configuration for agent tools.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `Type BetaManagedAgentsAgentToolset20260401Type`
-
-                - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
-
-            - `type BetaManagedAgentsMCPToolset struct{…}`
-
-              - `Configs []BetaManagedAgentsMCPToolConfig`
-
-                - `Enabled bool`
-
-                - `Name string`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                Resolved default configuration for all tools from an MCP server.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `MCPServerName string`
-
-              - `Type BetaManagedAgentsMCPToolsetType`
-
-                - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
-
-            - `type BetaManagedAgentsCustomTool struct{…}`
-
-              A custom tool as returned in API responses.
-
-              - `Description string`
-
-              - `InputSchema BetaManagedAgentsCustomToolInputSchema`
-
-                JSON Schema for custom tool input parameters.
-
-                - `Type Object`
-
-                  - `const ObjectObject Object = "object"`
-
-                - `Properties map[string, any]`
-
-                - `Required []string`
-
-              - `Name string`
-
-              - `Type BetaManagedAgentsCustomToolType`
-
-                - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
-
-          - `Type BetaManagedAgentsSessionThreadAgentType`
-
-            - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
-
-          - `Version int64`
-
-        - `type BetaManagedAgentsAdvisor struct{…}`
-
-          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-          - `Model string`
-
-            The advisor model id.
-
-          - `Type BetaManagedAgentsAdvisorType`
-
-            - `const BetaManagedAgentsAdvisorTypeAdvisor BetaManagedAgentsAdvisorType = "advisor"`
-
-      - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
-
-        - `const BetaManagedAgentsSessionMultiagentCoordinatorTypeCoordinator BetaManagedAgentsSessionMultiagentCoordinatorType = "coordinator"`
-
-    - `Name string`
-
-    - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
-
-      - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-        A resolved Anthropic-managed skill.
-
-      - `type BetaManagedAgentsCustomSkill struct{…}`
-
-        A resolved user-created custom skill.
-
-    - `System string`
-
-    - `Tools []BetaManagedAgentsSessionAgentToolUnion`
-
-      - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-      - `type BetaManagedAgentsMCPToolset struct{…}`
-
-      - `type BetaManagedAgentsCustomTool struct{…}`
-
-        A custom tool as returned in API responses.
-
-    - `Type BetaManagedAgentsSessionAgentType`
-
-      - `const BetaManagedAgentsSessionAgentTypeAgent BetaManagedAgentsSessionAgentType = "agent"`
-
-    - `Version int64`
-
-  - `ArchivedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Budget BetaManagedAgentsBudgetLimit`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `MaxListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-      - `Amount string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `Currency BetaCurrency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-        - `const BetaCurrencyUsd BetaCurrency = "USD"`
-
-    - `Type BetaManagedAgentsBudgetLimitType`
-
-      - `const BetaManagedAgentsBudgetLimitTypeLimit BetaManagedAgentsBudgetLimitType = "limit"`
-
-  - `CreatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `EnvironmentID string`
-
-  - `Metadata map[string, string]`
-
-  - `OutcomeEvaluations []BetaManagedAgentsOutcomeEvaluationResource`
-
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
-
-    - `CompletedAt Time`
-
-      A timestamp in RFC 3339 format
-
-    - `Description string`
-
-      What the agent should produce.
-
-    - `Explanation string`
-
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
-
-    - `Iteration int64`
-
-      0-indexed revision cycle the outcome is currently on.
-
-    - `OutcomeID string`
-
-      Server-generated outc_ ID for this outcome.
-
-    - `Result string`
-
-      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
-
-    - `Type BetaManagedAgentsOutcomeEvaluationResourceType`
-
-      - `const BetaManagedAgentsOutcomeEvaluationResourceTypeOutcomeEvaluation BetaManagedAgentsOutcomeEvaluationResourceType = "outcome_evaluation"`
-
-  - `Resources []BetaManagedAgentsSessionResourceUnion`
-
-    - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsGitHubRepositoryResourceType`
-
-        - `const BetaManagedAgentsGitHubRepositoryResourceTypeGitHubRepository BetaManagedAgentsGitHubRepositoryResourceType = "github_repository"`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `URL string`
-
-      - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion`
-
-        - `type BetaManagedAgentsBranchCheckout struct{…}`
-
-          - `Name string`
-
-            Branch name to check out.
-
-          - `Type BetaManagedAgentsBranchCheckoutType`
-
-            - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
-
-        - `type BetaManagedAgentsCommitCheckout struct{…}`
-
-          - `Sha string`
-
-            Full commit SHA to check out.
-
-          - `Type BetaManagedAgentsCommitCheckoutType`
-
-            - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
-
-    - `type BetaManagedAgentsFileResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `FileID string`
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsFileResourceType`
-
-        - `const BetaManagedAgentsFileResourceTypeFile BetaManagedAgentsFileResourceType = "file"`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-    - `type BetaManagedAgentsMemoryStoreResource struct{…}`
-
-      A memory store attached to an agent session.
-
-      - `MemoryStoreID string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type BetaManagedAgentsMemoryStoreResourceType`
-
-        - `const BetaManagedAgentsMemoryStoreResourceTypeMemoryStore BetaManagedAgentsMemoryStoreResourceType = "memory_store"`
-
-      - `Access BetaManagedAgentsMemoryStoreResourceAccess`
-
-        Access mode for an attached memory store.
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadWrite BetaManagedAgentsMemoryStoreResourceAccess = "read_write"`
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadOnly BetaManagedAgentsMemoryStoreResourceAccess = "read_only"`
-
-      - `Description string`
-
-        Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
-
-      - `Instructions string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-      - `MountPath string`
-
-        Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
-
-      - `Name string`
-
-        Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
-
-  - `Stats BetaManagedAgentsSessionStats`
-
-    Timing statistics for a session.
-
-    - `ActiveSeconds float64`
-
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
-
-    - `DurationSeconds float64`
-
-      Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
-
-  - `Status BetaManagedAgentsSessionStatus`
-
-    SessionStatus enum
-
-    - `const BetaManagedAgentsSessionStatusRescheduling BetaManagedAgentsSessionStatus = "rescheduling"`
-
-    - `const BetaManagedAgentsSessionStatusRunning BetaManagedAgentsSessionStatus = "running"`
-
-    - `const BetaManagedAgentsSessionStatusIdle BetaManagedAgentsSessionStatus = "idle"`
-
-    - `const BetaManagedAgentsSessionStatusTerminated BetaManagedAgentsSessionStatus = "terminated"`
-
-  - `Title string`
-
-  - `Type BetaManagedAgentsSessionType`
-
-    - `const BetaManagedAgentsSessionTypeSession BetaManagedAgentsSessionType = "session"`
-
-  - `UpdatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Usage BetaManagedAgentsSessionUsage`
-
-    Cumulative token usage for a session across all turns.
-
-    - `ActiveSeconds float64`
-
-      Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
-
-    - `CacheCreation BetaManagedAgentsCacheCreationUsage`
-
-      Prompt-cache creation token usage broken down by cache lifetime.
-
-      - `Ephemeral1hInputTokens int64`
-
-        Tokens used to create 1-hour ephemeral cache entries.
-
-      - `Ephemeral5mInputTokens int64`
-
-        Tokens used to create 5-minute ephemeral cache entries.
-
-    - `CacheReadInputTokens int64`
-
-      Total tokens read from prompt cache.
-
-    - `InputTokens int64`
-
-      Total input tokens consumed across all turns.
-
-    - `ListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-    - `OutputTokens int64`
-
-      Total output tokens generated across all turns.
-
-    - `ServerToolUse BetaManagedAgentsServerToolUsage`
-
-      Cumulative count of server-executed tool invocations, broken down by tool.
-
-      - `WebFetchRequests int64`
-
-        Number of server-executed web fetch requests.
-
-      - `WebSearchRequests int64`
-
-        Number of server-executed web search requests.
-
-  - `VaultIDs []string`
-
-    Vault IDs attached to the session at creation. Empty when no vaults were supplied.
-
-  - `DeploymentID string`
-
-    Deployment ID when the session was created from a deployment reference. Null otherwise.
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaManagedAgentsSession, err := client.Beta.Sessions.New(context.TODO(), anthropic.BetaSessionNewParams{
-		Agent: anthropic.BetaSessionNewParamsAgentUnion{
-			OfString: anthropic.String("agent_011CZkYpogX7uDKUyvBTophP"),
-		},
-		EnvironmentID: "env_011CZkZ9X2dpNyB7HsEFoRfW",
-	})
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaManagedAgentsSession.ID)
-}
-```
-
-#### Response
-
-```json
-{
-  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "description": "A general-purpose starter agent.",
-    "mcp_servers": [
-      {
-        "name": "example-mcp",
-        "type": "url",
-        "url": "https://example-server.modelcontextprotocol.io/sse"
-      }
-    ],
-    "model": {
-      "id": "claude-sonnet-4-6",
-      "effort": {
-        "type": "low"
-      },
-      "inference_geo": "inference_geo",
-      "speed": "standard"
-    },
-    "multiagent": {
-      "agents": [
-        {
-          "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-          "description": "A focused research subagent.",
-          "mcp_servers": [
-            {
-              "name": "example-mcp",
-              "type": "url",
-              "url": "https://example-server.modelcontextprotocol.io/sse"
-            }
-          ],
-          "model": {
-            "id": "claude-sonnet-4-6",
-            "effort": {
-              "type": "low"
-            },
-            "inference_geo": "inference_geo",
-            "speed": "standard"
-          },
-          "name": "Researcher",
-          "skills": [
-            {
-              "skill_id": "xlsx",
-              "type": "anthropic",
-              "version": "1"
-            }
-          ],
-          "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
-          "tools": [
-            {
-              "configs": [
-                {
-                  "enabled": true,
-                  "name": "bash",
-                  "permission_policy": {
-                    "type": "always_allow"
-                  }
-                }
-              ],
-              "default_config": {
-                "enabled": true,
-                "permission_policy": {
-                  "type": "always_ask"
-                }
-              },
-              "type": "agent_toolset_20260401"
-            }
-          ],
-          "type": "agent",
-          "version": 1
-        }
-      ],
-      "type": "coordinator"
-    },
-    "name": "My First Agent",
-    "skills": [
-      {
-        "skill_id": "xlsx",
-        "type": "anthropic",
-        "version": "1"
-      },
-      {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
-        "type": "custom",
-        "version": "2"
-      }
-    ],
-    "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
-    "tools": [
-      {
-        "configs": [
-          {
-            "enabled": true,
-            "name": "bash",
-            "permission_policy": {
-              "type": "always_allow"
-            }
-          }
-        ],
-        "default_config": {
-          "enabled": true,
-          "permission_policy": {
-            "type": "always_ask"
-          }
-        },
-        "type": "agent_toolset_20260401"
-      }
-    ],
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "metadata": {},
-  "outcome_evaluations": [
-    {
-      "completed_at": "2026-03-15T10:02:31Z",
-      "description": "Produce a 2-page summary as summary.md",
-      "explanation": "All five sections present with inline citations.",
-      "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
-      "result": "satisfied",
-      "type": "outcome_evaluation"
-    }
-  ],
-  "resources": [
-    {
-      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
-      "created_at": "2026-03-15T10:00:00Z",
-      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
-      "mount_path": "/uploads/receipt.pdf",
-      "type": "file",
-      "updated_at": "2026-03-15T10:00:00Z"
-    },
-    {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
-      "created_at": "2026-03-15T10:00:00Z",
-      "mount_path": "/workspace/example-repo",
-      "type": "github_repository",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "url": "https://github.com/example-org/example-repo",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      }
-    }
-  ],
-  "stats": {
-    "active_seconds": 0,
-    "duration_seconds": 0
-  },
-  "status": "idle",
-  "title": "Order #1234 inquiry",
-  "type": "session",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "usage": {
-    "active_seconds": 0,
-    "cache_creation": {
-      "ephemeral_1h_input_tokens": 0,
-      "ephemeral_5m_input_tokens": 0
-    },
-    "cache_read_input_tokens": 0,
-    "input_tokens": 0,
-    "list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "output_tokens": 0,
-    "server_tool_use": {
-      "web_fetch_requests": 0,
-      "web_search_requests": 3
-    }
-  },
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "deployment_id": "deployment_id"
-}
-```
-
-## List Sessions
-
-`client.Beta.Sessions.List(ctx, params) (*BidirectionalPageCursor[BetaManagedAgentsSession], error)`
-
-**get** `/v1/sessions`
-
-List Sessions
-
-### Parameters
-
-- `params BetaSessionListParams`
-
-  - `AgentID param.Field[string]`
-
-    Query param: Filter sessions created with this agent ID.
-
-  - `AgentVersion param.Field[int64]`
-
-    Query param: Filter by agent version. Only applies when agent_id is also set.
-
-  - `CreatedAtGt param.Field[Time]`
-
-    Query param: Return sessions created after this time (exclusive).
-
-  - `CreatedAtGte param.Field[Time]`
-
-    Query param: Return sessions created at or after this time (inclusive).
-
-  - `CreatedAtLt param.Field[Time]`
-
-    Query param: Return sessions created before this time (exclusive).
-
-  - `CreatedAtLte param.Field[Time]`
-
-    Query param: Return sessions created at or before this time (inclusive).
-
-  - `DeploymentID param.Field[string]`
-
-    Query param: Filter sessions created by this deployment ID.
-
-  - `IncludeArchived param.Field[bool]`
-
-    Query param: When true, includes archived sessions. Default: false (exclude archived).
-
-  - `Limit param.Field[int64]`
-
-    Query param: Maximum number of results to return.
-
-  - `MemoryStoreID param.Field[string]`
-
-    Query param: Filter sessions whose resources contain a memory_store with this memory store ID.
-
-  - `Order param.Field[BetaSessionListParamsOrder]`
-
-    Query param: Sort direction for results, ordered by created_at. Defaults to desc (newest first).
-
-    - `const BetaSessionListParamsOrderAsc BetaSessionListParamsOrder = "asc"`
-
-    - `const BetaSessionListParamsOrderDesc BetaSessionListParamsOrder = "desc"`
-
-  - `Page param.Field[string]`
-
-    Query param: Opaque pagination cursor from a previous response.
-
-  - `Statuses param.Field[[]string]`
-
-    Query param: Filter by session status. Repeat the parameter to match any of multiple statuses.
-
-    - `const BetaSessionListParamsStatusRescheduling BetaSessionListParamsStatus = "rescheduling"`
-
-    - `const BetaSessionListParamsStatusRunning BetaSessionListParamsStatus = "running"`
-
-    - `const BetaSessionListParamsStatusIdle BetaSessionListParamsStatus = "idle"`
-
-    - `const BetaSessionListParamsStatusTerminated BetaSessionListParamsStatus = "terminated"`
-
-  - `Betas param.Field[[]AnthropicBeta]`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `string`
-
-    - `type AnthropicBeta string`
-
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `type BetaManagedAgentsSession struct{…}`
-
-  A Managed Agents `session`.
-
-  - `ID string`
-
-  - `Agent BetaManagedAgentsSessionAgent`
-
-    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-    - `ID string`
-
-    - `Description string`
-
-    - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-      - `Name string`
-
-      - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-        - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
-
-      - `URL string`
-
-    - `Model BetaManagedAgentsModelConfig`
-
-      Model identifier and configuration.
-
-      - `ID BetaManagedAgentsModel`
-
-        The model that will power your agent.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `type BetaManagedAgentsModel string`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
-
-            High-performance model for coding and agents
-
-          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
-
-            Best combination of speed and intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
-        - `string`
-
-      - `Effort BetaManagedAgentsModelConfigEffortUnion`
-
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-        - `type BetaManagedAgentsEffortLow struct{…}`
-
-          Low effort. Favors latency over reasoning depth.
-
-          - `Type BetaManagedAgentsEffortLowType`
-
-            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
-
-        - `type BetaManagedAgentsEffortMedium struct{…}`
-
-          Medium effort. Balances latency and reasoning depth.
-
-          - `Type BetaManagedAgentsEffortMediumType`
-
-            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
-
-        - `type BetaManagedAgentsEffortHigh struct{…}`
-
-          High effort. Favors reasoning depth.
-
-          - `Type BetaManagedAgentsEffortHighType`
-
-            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
-
-        - `type BetaManagedAgentsEffortXhigh struct{…}`
-
-          Extra-high effort. Not all models accept this level.
-
-          - `Type BetaManagedAgentsEffortXhighType`
-
-            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
-
-        - `type BetaManagedAgentsEffortMax struct{…}`
-
-          Maximum effort. Favors reasoning depth over latency.
-
-          - `Type BetaManagedAgentsEffortMaxType`
-
-            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
-
-      - `InferenceGeo string`
-
-        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-      - `Speed BetaManagedAgentsModelConfigSpeed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
-
-        - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
-
-    - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
-
-      Resolved coordinator topology with full agent definitions for each roster member.
-
-      - `Agents []BetaManagedAgentsSessionMultiagentCoordinatorAgentUnion`
-
-        Full `agent` definitions the coordinator may spawn as session threads.
-
-        - `type BetaManagedAgentsSessionThreadAgent struct{…}`
-
-          Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-          - `ID string`
-
-          - `Description string`
-
-          - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-            - `Name string`
-
-            - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-            - `URL string`
-
-          - `Model BetaManagedAgentsModelConfig`
-
-            Model identifier and configuration.
-
-          - `Name string`
-
-          - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
-
-            - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-              A resolved Anthropic-managed skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsAnthropicSkillType`
-
-                - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
-
-              - `Version string`
-
-            - `type BetaManagedAgentsCustomSkill struct{…}`
-
-              A resolved user-created custom skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsCustomSkillType`
-
-                - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
-
-              - `Version string`
-
-          - `System string`
-
-          - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
-
-            - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-              - `Configs []BetaManagedAgentsAgentToolConfig`
-
-                - `Enabled bool`
-
-                - `Name BetaManagedAgentsAgentToolConfigName`
-
-                  Built-in agent tool identifier.
-
-                  - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                    - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-                    - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
-              - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                Resolved default configuration for agent tools.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `Type BetaManagedAgentsAgentToolset20260401Type`
-
-                - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
-
-            - `type BetaManagedAgentsMCPToolset struct{…}`
-
-              - `Configs []BetaManagedAgentsMCPToolConfig`
-
-                - `Enabled bool`
-
-                - `Name string`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                Resolved default configuration for all tools from an MCP server.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `MCPServerName string`
-
-              - `Type BetaManagedAgentsMCPToolsetType`
-
-                - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
-
-            - `type BetaManagedAgentsCustomTool struct{…}`
-
-              A custom tool as returned in API responses.
-
-              - `Description string`
-
-              - `InputSchema BetaManagedAgentsCustomToolInputSchema`
-
-                JSON Schema for custom tool input parameters.
-
-                - `Type Object`
-
-                  - `const ObjectObject Object = "object"`
-
-                - `Properties map[string, any]`
-
-                - `Required []string`
-
-              - `Name string`
-
-              - `Type BetaManagedAgentsCustomToolType`
-
-                - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
-
-          - `Type BetaManagedAgentsSessionThreadAgentType`
-
-            - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
-
-          - `Version int64`
-
-        - `type BetaManagedAgentsAdvisor struct{…}`
-
-          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-          - `Model string`
-
-            The advisor model id.
-
-          - `Type BetaManagedAgentsAdvisorType`
-
-            - `const BetaManagedAgentsAdvisorTypeAdvisor BetaManagedAgentsAdvisorType = "advisor"`
-
-      - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
-
-        - `const BetaManagedAgentsSessionMultiagentCoordinatorTypeCoordinator BetaManagedAgentsSessionMultiagentCoordinatorType = "coordinator"`
-
-    - `Name string`
-
-    - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
-
-      - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-        A resolved Anthropic-managed skill.
-
-      - `type BetaManagedAgentsCustomSkill struct{…}`
-
-        A resolved user-created custom skill.
-
-    - `System string`
-
-    - `Tools []BetaManagedAgentsSessionAgentToolUnion`
-
-      - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-      - `type BetaManagedAgentsMCPToolset struct{…}`
-
-      - `type BetaManagedAgentsCustomTool struct{…}`
-
-        A custom tool as returned in API responses.
-
-    - `Type BetaManagedAgentsSessionAgentType`
-
-      - `const BetaManagedAgentsSessionAgentTypeAgent BetaManagedAgentsSessionAgentType = "agent"`
-
-    - `Version int64`
-
-  - `ArchivedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Budget BetaManagedAgentsBudgetLimit`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `MaxListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-      - `Amount string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `Currency BetaCurrency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-        - `const BetaCurrencyUsd BetaCurrency = "USD"`
-
-    - `Type BetaManagedAgentsBudgetLimitType`
-
-      - `const BetaManagedAgentsBudgetLimitTypeLimit BetaManagedAgentsBudgetLimitType = "limit"`
-
-  - `CreatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `EnvironmentID string`
-
-  - `Metadata map[string, string]`
-
-  - `OutcomeEvaluations []BetaManagedAgentsOutcomeEvaluationResource`
-
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
-
-    - `CompletedAt Time`
-
-      A timestamp in RFC 3339 format
-
-    - `Description string`
-
-      What the agent should produce.
-
-    - `Explanation string`
-
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
-
-    - `Iteration int64`
-
-      0-indexed revision cycle the outcome is currently on.
-
-    - `OutcomeID string`
-
-      Server-generated outc_ ID for this outcome.
-
-    - `Result string`
-
-      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
-
-    - `Type BetaManagedAgentsOutcomeEvaluationResourceType`
-
-      - `const BetaManagedAgentsOutcomeEvaluationResourceTypeOutcomeEvaluation BetaManagedAgentsOutcomeEvaluationResourceType = "outcome_evaluation"`
-
-  - `Resources []BetaManagedAgentsSessionResourceUnion`
-
-    - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsGitHubRepositoryResourceType`
-
-        - `const BetaManagedAgentsGitHubRepositoryResourceTypeGitHubRepository BetaManagedAgentsGitHubRepositoryResourceType = "github_repository"`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `URL string`
-
-      - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion`
-
-        - `type BetaManagedAgentsBranchCheckout struct{…}`
-
-          - `Name string`
-
-            Branch name to check out.
-
-          - `Type BetaManagedAgentsBranchCheckoutType`
-
-            - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
-
-        - `type BetaManagedAgentsCommitCheckout struct{…}`
-
-          - `Sha string`
-
-            Full commit SHA to check out.
-
-          - `Type BetaManagedAgentsCommitCheckoutType`
-
-            - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
-
-    - `type BetaManagedAgentsFileResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `FileID string`
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsFileResourceType`
-
-        - `const BetaManagedAgentsFileResourceTypeFile BetaManagedAgentsFileResourceType = "file"`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-    - `type BetaManagedAgentsMemoryStoreResource struct{…}`
-
-      A memory store attached to an agent session.
-
-      - `MemoryStoreID string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type BetaManagedAgentsMemoryStoreResourceType`
-
-        - `const BetaManagedAgentsMemoryStoreResourceTypeMemoryStore BetaManagedAgentsMemoryStoreResourceType = "memory_store"`
-
-      - `Access BetaManagedAgentsMemoryStoreResourceAccess`
-
-        Access mode for an attached memory store.
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadWrite BetaManagedAgentsMemoryStoreResourceAccess = "read_write"`
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadOnly BetaManagedAgentsMemoryStoreResourceAccess = "read_only"`
-
-      - `Description string`
-
-        Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
-
-      - `Instructions string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-      - `MountPath string`
-
-        Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
-
-      - `Name string`
-
-        Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
-
-  - `Stats BetaManagedAgentsSessionStats`
-
-    Timing statistics for a session.
-
-    - `ActiveSeconds float64`
-
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
-
-    - `DurationSeconds float64`
-
-      Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
-
-  - `Status BetaManagedAgentsSessionStatus`
-
-    SessionStatus enum
-
-    - `const BetaManagedAgentsSessionStatusRescheduling BetaManagedAgentsSessionStatus = "rescheduling"`
-
-    - `const BetaManagedAgentsSessionStatusRunning BetaManagedAgentsSessionStatus = "running"`
-
-    - `const BetaManagedAgentsSessionStatusIdle BetaManagedAgentsSessionStatus = "idle"`
-
-    - `const BetaManagedAgentsSessionStatusTerminated BetaManagedAgentsSessionStatus = "terminated"`
-
-  - `Title string`
-
-  - `Type BetaManagedAgentsSessionType`
-
-    - `const BetaManagedAgentsSessionTypeSession BetaManagedAgentsSessionType = "session"`
-
-  - `UpdatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Usage BetaManagedAgentsSessionUsage`
-
-    Cumulative token usage for a session across all turns.
-
-    - `ActiveSeconds float64`
-
-      Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
-
-    - `CacheCreation BetaManagedAgentsCacheCreationUsage`
-
-      Prompt-cache creation token usage broken down by cache lifetime.
-
-      - `Ephemeral1hInputTokens int64`
-
-        Tokens used to create 1-hour ephemeral cache entries.
-
-      - `Ephemeral5mInputTokens int64`
-
-        Tokens used to create 5-minute ephemeral cache entries.
-
-    - `CacheReadInputTokens int64`
-
-      Total tokens read from prompt cache.
-
-    - `InputTokens int64`
-
-      Total input tokens consumed across all turns.
-
-    - `ListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-    - `OutputTokens int64`
-
-      Total output tokens generated across all turns.
-
-    - `ServerToolUse BetaManagedAgentsServerToolUsage`
-
-      Cumulative count of server-executed tool invocations, broken down by tool.
-
-      - `WebFetchRequests int64`
-
-        Number of server-executed web fetch requests.
-
-      - `WebSearchRequests int64`
-
-        Number of server-executed web search requests.
-
-  - `VaultIDs []string`
-
-    Vault IDs attached to the session at creation. Empty when no vaults were supplied.
-
-  - `DeploymentID string`
-
-    Deployment ID when the session was created from a deployment reference. Null otherwise.
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	page, err := client.Beta.Sessions.List(context.TODO(), anthropic.BetaSessionListParams{})
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", page)
-}
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
-      "agent": {
-        "id": "agent_011CZkYpogX7uDKUyvBTophP",
-        "description": "A general-purpose starter agent.",
-        "mcp_servers": [
-          {
-            "name": "example-mcp",
-            "type": "url",
-            "url": "https://example-server.modelcontextprotocol.io/sse"
-          }
-        ],
-        "model": {
-          "id": "claude-sonnet-4-6",
-          "effort": {
-            "type": "low"
-          },
-          "inference_geo": "inference_geo",
-          "speed": "standard"
-        },
-        "multiagent": {
-          "agents": [
-            {
-              "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-              "description": "A focused research subagent.",
-              "mcp_servers": [
-                {
-                  "name": "example-mcp",
-                  "type": "url",
-                  "url": "https://example-server.modelcontextprotocol.io/sse"
-                }
-              ],
-              "model": {
-                "id": "claude-sonnet-4-6",
-                "effort": {
-                  "type": "low"
-                },
-                "inference_geo": "inference_geo",
-                "speed": "standard"
-              },
-              "name": "Researcher",
-              "skills": [
-                {
-                  "skill_id": "xlsx",
-                  "type": "anthropic",
-                  "version": "1"
-                }
-              ],
-              "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
-              "tools": [
-                {
-                  "configs": [
-                    {
-                      "enabled": true,
-                      "name": "bash",
-                      "permission_policy": {
-                        "type": "always_allow"
-                      }
-                    }
-                  ],
-                  "default_config": {
-                    "enabled": true,
-                    "permission_policy": {
-                      "type": "always_ask"
-                    }
-                  },
-                  "type": "agent_toolset_20260401"
-                }
-              ],
-              "type": "agent",
-              "version": 1
-            }
-          ],
-          "type": "coordinator"
-        },
-        "name": "My First Agent",
-        "skills": [
-          {
-            "skill_id": "xlsx",
-            "type": "anthropic",
-            "version": "1"
-          },
-          {
-            "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
-            "type": "custom",
-            "version": "2"
-          }
-        ],
-        "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
-        "tools": [
-          {
-            "configs": [
-              {
-                "enabled": true,
-                "name": "bash",
-                "permission_policy": {
-                  "type": "always_allow"
-                }
-              }
-            ],
-            "default_config": {
-              "enabled": true,
-              "permission_policy": {
-                "type": "always_ask"
-              }
-            },
-            "type": "agent_toolset_20260401"
-          }
-        ],
-        "type": "agent",
-        "version": 1
-      },
-      "archived_at": null,
-      "budget": {
-        "max_list_cost": {
-          "amount": "2500",
-          "currency": "USD"
-        },
-        "type": "limit"
-      },
-      "created_at": "2026-03-15T10:00:00Z",
-      "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-      "metadata": {},
-      "outcome_evaluations": [
-        {
-          "completed_at": "2026-03-15T10:02:31Z",
-          "description": "Produce a 2-page summary as summary.md",
-          "explanation": "All five sections present with inline citations.",
-          "iteration": 0,
-          "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
-          "result": "satisfied",
-          "type": "outcome_evaluation"
-        }
-      ],
-      "resources": [
-        {
-          "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
-          "created_at": "2026-03-15T10:00:00Z",
-          "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
-          "mount_path": "/uploads/receipt.pdf",
-          "type": "file",
-          "updated_at": "2026-03-15T10:00:00Z"
-        },
-        {
-          "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
-          "created_at": "2026-03-15T10:00:00Z",
-          "mount_path": "/workspace/example-repo",
-          "type": "github_repository",
-          "updated_at": "2026-03-15T10:00:00Z",
-          "url": "https://github.com/example-org/example-repo",
-          "checkout": {
-            "name": "main",
-            "type": "branch"
-          }
-        }
-      ],
-      "stats": {
-        "active_seconds": 0,
-        "duration_seconds": 0
-      },
-      "status": "idle",
-      "title": "Order #1234 inquiry",
-      "type": "session",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "usage": {
-        "active_seconds": 0,
-        "cache_creation": {
-          "ephemeral_1h_input_tokens": 0,
-          "ephemeral_5m_input_tokens": 0
-        },
-        "cache_read_input_tokens": 0,
-        "input_tokens": 0,
-        "list_cost": {
-          "amount": "2500",
-          "currency": "USD"
-        },
-        "output_tokens": 0,
-        "server_tool_use": {
-          "web_fetch_requests": 0,
-          "web_search_requests": 3
-        }
-      },
-      "vault_ids": [
-        "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-      ],
-      "deployment_id": "deployment_id"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo=",
-  "prev_page": "page_MjAyNS0wNS0xM1QwMDowMDowMFo="
-}
-```
-
-## Get Session
-
-`client.Beta.Sessions.Get(ctx, sessionID, query) (*BetaManagedAgentsSession, error)`
-
-**get** `/v1/sessions/{session_id}`
-
-Get Session
-
-### Parameters
-
-- `sessionID string`
-
-- `query BetaSessionGetParams`
-
-  - `Betas param.Field[[]AnthropicBeta]`
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `string`
-
-    - `type AnthropicBeta string`
-
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `type BetaManagedAgentsSession struct{…}`
-
-  A Managed Agents `session`.
-
-  - `ID string`
-
-  - `Agent BetaManagedAgentsSessionAgent`
-
-    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-    - `ID string`
-
-    - `Description string`
-
-    - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-      - `Name string`
-
-      - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-        - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
-
-      - `URL string`
-
-    - `Model BetaManagedAgentsModelConfig`
-
-      Model identifier and configuration.
-
-      - `ID BetaManagedAgentsModel`
-
-        The model that will power your agent.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `type BetaManagedAgentsModel string`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
-
-            High-performance model for coding and agents
-
-          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
-
-            Best combination of speed and intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
-        - `string`
-
-      - `Effort BetaManagedAgentsModelConfigEffortUnion`
-
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-        - `type BetaManagedAgentsEffortLow struct{…}`
-
-          Low effort. Favors latency over reasoning depth.
-
-          - `Type BetaManagedAgentsEffortLowType`
-
-            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
-
-        - `type BetaManagedAgentsEffortMedium struct{…}`
-
-          Medium effort. Balances latency and reasoning depth.
-
-          - `Type BetaManagedAgentsEffortMediumType`
-
-            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
-
-        - `type BetaManagedAgentsEffortHigh struct{…}`
-
-          High effort. Favors reasoning depth.
-
-          - `Type BetaManagedAgentsEffortHighType`
-
-            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
-
-        - `type BetaManagedAgentsEffortXhigh struct{…}`
-
-          Extra-high effort. Not all models accept this level.
-
-          - `Type BetaManagedAgentsEffortXhighType`
-
-            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
-
-        - `type BetaManagedAgentsEffortMax struct{…}`
-
-          Maximum effort. Favors reasoning depth over latency.
-
-          - `Type BetaManagedAgentsEffortMaxType`
-
-            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
-
-      - `InferenceGeo string`
-
-        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-      - `Speed BetaManagedAgentsModelConfigSpeed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
-
-        - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
-
-    - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
-
-      Resolved coordinator topology with full agent definitions for each roster member.
-
-      - `Agents []BetaManagedAgentsSessionMultiagentCoordinatorAgentUnion`
-
-        Full `agent` definitions the coordinator may spawn as session threads.
-
-        - `type BetaManagedAgentsSessionThreadAgent struct{…}`
-
-          Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-          - `ID string`
-
-          - `Description string`
-
-          - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-            - `Name string`
-
-            - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-            - `URL string`
-
-          - `Model BetaManagedAgentsModelConfig`
-
-            Model identifier and configuration.
-
-          - `Name string`
-
-          - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
-
-            - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-              A resolved Anthropic-managed skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsAnthropicSkillType`
-
-                - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
-
-              - `Version string`
-
-            - `type BetaManagedAgentsCustomSkill struct{…}`
-
-              A resolved user-created custom skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsCustomSkillType`
-
-                - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
-
-              - `Version string`
-
-          - `System string`
-
-          - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
-
-            - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-              - `Configs []BetaManagedAgentsAgentToolConfig`
-
-                - `Enabled bool`
-
-                - `Name BetaManagedAgentsAgentToolConfigName`
-
-                  Built-in agent tool identifier.
-
-                  - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                    - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-                    - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
-              - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                Resolved default configuration for agent tools.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `Type BetaManagedAgentsAgentToolset20260401Type`
-
-                - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
-
-            - `type BetaManagedAgentsMCPToolset struct{…}`
-
-              - `Configs []BetaManagedAgentsMCPToolConfig`
-
-                - `Enabled bool`
-
-                - `Name string`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                Resolved default configuration for all tools from an MCP server.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `MCPServerName string`
-
-              - `Type BetaManagedAgentsMCPToolsetType`
-
-                - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
-
-            - `type BetaManagedAgentsCustomTool struct{…}`
-
-              A custom tool as returned in API responses.
-
-              - `Description string`
-
-              - `InputSchema BetaManagedAgentsCustomToolInputSchema`
-
-                JSON Schema for custom tool input parameters.
-
-                - `Type Object`
-
-                  - `const ObjectObject Object = "object"`
-
-                - `Properties map[string, any]`
-
-                - `Required []string`
-
-              - `Name string`
-
-              - `Type BetaManagedAgentsCustomToolType`
-
-                - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
-
-          - `Type BetaManagedAgentsSessionThreadAgentType`
-
-            - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
-
-          - `Version int64`
-
-        - `type BetaManagedAgentsAdvisor struct{…}`
-
-          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-          - `Model string`
-
-            The advisor model id.
-
-          - `Type BetaManagedAgentsAdvisorType`
-
-            - `const BetaManagedAgentsAdvisorTypeAdvisor BetaManagedAgentsAdvisorType = "advisor"`
-
-      - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
-
-        - `const BetaManagedAgentsSessionMultiagentCoordinatorTypeCoordinator BetaManagedAgentsSessionMultiagentCoordinatorType = "coordinator"`
-
-    - `Name string`
-
-    - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
-
-      - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-        A resolved Anthropic-managed skill.
-
-      - `type BetaManagedAgentsCustomSkill struct{…}`
-
-        A resolved user-created custom skill.
-
-    - `System string`
-
-    - `Tools []BetaManagedAgentsSessionAgentToolUnion`
-
-      - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-      - `type BetaManagedAgentsMCPToolset struct{…}`
-
-      - `type BetaManagedAgentsCustomTool struct{…}`
-
-        A custom tool as returned in API responses.
-
-    - `Type BetaManagedAgentsSessionAgentType`
-
-      - `const BetaManagedAgentsSessionAgentTypeAgent BetaManagedAgentsSessionAgentType = "agent"`
-
-    - `Version int64`
-
-  - `ArchivedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Budget BetaManagedAgentsBudgetLimit`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `MaxListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-      - `Amount string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `Currency BetaCurrency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-        - `const BetaCurrencyUsd BetaCurrency = "USD"`
-
-    - `Type BetaManagedAgentsBudgetLimitType`
-
-      - `const BetaManagedAgentsBudgetLimitTypeLimit BetaManagedAgentsBudgetLimitType = "limit"`
-
-  - `CreatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `EnvironmentID string`
-
-  - `Metadata map[string, string]`
-
-  - `OutcomeEvaluations []BetaManagedAgentsOutcomeEvaluationResource`
-
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
-
-    - `CompletedAt Time`
-
-      A timestamp in RFC 3339 format
-
-    - `Description string`
-
-      What the agent should produce.
-
-    - `Explanation string`
-
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
-
-    - `Iteration int64`
-
-      0-indexed revision cycle the outcome is currently on.
-
-    - `OutcomeID string`
-
-      Server-generated outc_ ID for this outcome.
-
-    - `Result string`
-
-      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
-
-    - `Type BetaManagedAgentsOutcomeEvaluationResourceType`
-
-      - `const BetaManagedAgentsOutcomeEvaluationResourceTypeOutcomeEvaluation BetaManagedAgentsOutcomeEvaluationResourceType = "outcome_evaluation"`
-
-  - `Resources []BetaManagedAgentsSessionResourceUnion`
-
-    - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsGitHubRepositoryResourceType`
-
-        - `const BetaManagedAgentsGitHubRepositoryResourceTypeGitHubRepository BetaManagedAgentsGitHubRepositoryResourceType = "github_repository"`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `URL string`
-
-      - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion`
-
-        - `type BetaManagedAgentsBranchCheckout struct{…}`
-
-          - `Name string`
-
-            Branch name to check out.
-
-          - `Type BetaManagedAgentsBranchCheckoutType`
-
-            - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
-
-        - `type BetaManagedAgentsCommitCheckout struct{…}`
-
-          - `Sha string`
-
-            Full commit SHA to check out.
-
-          - `Type BetaManagedAgentsCommitCheckoutType`
-
-            - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
-
-    - `type BetaManagedAgentsFileResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `FileID string`
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsFileResourceType`
-
-        - `const BetaManagedAgentsFileResourceTypeFile BetaManagedAgentsFileResourceType = "file"`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-    - `type BetaManagedAgentsMemoryStoreResource struct{…}`
-
-      A memory store attached to an agent session.
-
-      - `MemoryStoreID string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type BetaManagedAgentsMemoryStoreResourceType`
-
-        - `const BetaManagedAgentsMemoryStoreResourceTypeMemoryStore BetaManagedAgentsMemoryStoreResourceType = "memory_store"`
-
-      - `Access BetaManagedAgentsMemoryStoreResourceAccess`
-
-        Access mode for an attached memory store.
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadWrite BetaManagedAgentsMemoryStoreResourceAccess = "read_write"`
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadOnly BetaManagedAgentsMemoryStoreResourceAccess = "read_only"`
-
-      - `Description string`
-
-        Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
-
-      - `Instructions string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-      - `MountPath string`
-
-        Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
-
-      - `Name string`
-
-        Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
-
-  - `Stats BetaManagedAgentsSessionStats`
-
-    Timing statistics for a session.
-
-    - `ActiveSeconds float64`
-
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
-
-    - `DurationSeconds float64`
-
-      Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
-
-  - `Status BetaManagedAgentsSessionStatus`
-
-    SessionStatus enum
-
-    - `const BetaManagedAgentsSessionStatusRescheduling BetaManagedAgentsSessionStatus = "rescheduling"`
-
-    - `const BetaManagedAgentsSessionStatusRunning BetaManagedAgentsSessionStatus = "running"`
-
-    - `const BetaManagedAgentsSessionStatusIdle BetaManagedAgentsSessionStatus = "idle"`
-
-    - `const BetaManagedAgentsSessionStatusTerminated BetaManagedAgentsSessionStatus = "terminated"`
-
-  - `Title string`
-
-  - `Type BetaManagedAgentsSessionType`
-
-    - `const BetaManagedAgentsSessionTypeSession BetaManagedAgentsSessionType = "session"`
-
-  - `UpdatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Usage BetaManagedAgentsSessionUsage`
-
-    Cumulative token usage for a session across all turns.
-
-    - `ActiveSeconds float64`
-
-      Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
-
-    - `CacheCreation BetaManagedAgentsCacheCreationUsage`
-
-      Prompt-cache creation token usage broken down by cache lifetime.
-
-      - `Ephemeral1hInputTokens int64`
-
-        Tokens used to create 1-hour ephemeral cache entries.
-
-      - `Ephemeral5mInputTokens int64`
-
-        Tokens used to create 5-minute ephemeral cache entries.
-
-    - `CacheReadInputTokens int64`
-
-      Total tokens read from prompt cache.
-
-    - `InputTokens int64`
-
-      Total input tokens consumed across all turns.
-
-    - `ListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-    - `OutputTokens int64`
-
-      Total output tokens generated across all turns.
-
-    - `ServerToolUse BetaManagedAgentsServerToolUsage`
-
-      Cumulative count of server-executed tool invocations, broken down by tool.
-
-      - `WebFetchRequests int64`
-
-        Number of server-executed web fetch requests.
-
-      - `WebSearchRequests int64`
-
-        Number of server-executed web search requests.
-
-  - `VaultIDs []string`
-
-    Vault IDs attached to the session at creation. Empty when no vaults were supplied.
-
-  - `DeploymentID string`
-
-    Deployment ID when the session was created from a deployment reference. Null otherwise.
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaManagedAgentsSession, err := client.Beta.Sessions.Get(
-		context.TODO(),
-		"sesn_011CZkZAtmR3yMPDzynEDxu7",
-		anthropic.BetaSessionGetParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaManagedAgentsSession.ID)
-}
-```
-
-#### Response
-
-```json
-{
-  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "description": "A general-purpose starter agent.",
-    "mcp_servers": [
-      {
-        "name": "example-mcp",
-        "type": "url",
-        "url": "https://example-server.modelcontextprotocol.io/sse"
-      }
-    ],
-    "model": {
-      "id": "claude-sonnet-4-6",
-      "effort": {
-        "type": "low"
-      },
-      "inference_geo": "inference_geo",
-      "speed": "standard"
-    },
-    "multiagent": {
-      "agents": [
-        {
-          "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-          "description": "A focused research subagent.",
-          "mcp_servers": [
-            {
-              "name": "example-mcp",
-              "type": "url",
-              "url": "https://example-server.modelcontextprotocol.io/sse"
-            }
-          ],
-          "model": {
-            "id": "claude-sonnet-4-6",
-            "effort": {
-              "type": "low"
-            },
-            "inference_geo": "inference_geo",
-            "speed": "standard"
-          },
-          "name": "Researcher",
-          "skills": [
-            {
-              "skill_id": "xlsx",
-              "type": "anthropic",
-              "version": "1"
-            }
-          ],
-          "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
-          "tools": [
-            {
-              "configs": [
-                {
-                  "enabled": true,
-                  "name": "bash",
-                  "permission_policy": {
-                    "type": "always_allow"
-                  }
-                }
-              ],
-              "default_config": {
-                "enabled": true,
-                "permission_policy": {
-                  "type": "always_ask"
-                }
-              },
-              "type": "agent_toolset_20260401"
-            }
-          ],
-          "type": "agent",
-          "version": 1
-        }
-      ],
-      "type": "coordinator"
-    },
-    "name": "My First Agent",
-    "skills": [
-      {
-        "skill_id": "xlsx",
-        "type": "anthropic",
-        "version": "1"
-      },
-      {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
-        "type": "custom",
-        "version": "2"
-      }
-    ],
-    "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
-    "tools": [
-      {
-        "configs": [
-          {
-            "enabled": true,
-            "name": "bash",
-            "permission_policy": {
-              "type": "always_allow"
-            }
-          }
-        ],
-        "default_config": {
-          "enabled": true,
-          "permission_policy": {
-            "type": "always_ask"
-          }
-        },
-        "type": "agent_toolset_20260401"
-      }
-    ],
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "metadata": {},
-  "outcome_evaluations": [
-    {
-      "completed_at": "2026-03-15T10:02:31Z",
-      "description": "Produce a 2-page summary as summary.md",
-      "explanation": "All five sections present with inline citations.",
-      "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
-      "result": "satisfied",
-      "type": "outcome_evaluation"
-    }
-  ],
-  "resources": [
-    {
-      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
-      "created_at": "2026-03-15T10:00:00Z",
-      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
-      "mount_path": "/uploads/receipt.pdf",
-      "type": "file",
-      "updated_at": "2026-03-15T10:00:00Z"
-    },
-    {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
-      "created_at": "2026-03-15T10:00:00Z",
-      "mount_path": "/workspace/example-repo",
-      "type": "github_repository",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "url": "https://github.com/example-org/example-repo",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      }
-    }
-  ],
-  "stats": {
-    "active_seconds": 0,
-    "duration_seconds": 0
-  },
-  "status": "idle",
-  "title": "Order #1234 inquiry",
-  "type": "session",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "usage": {
-    "active_seconds": 0,
-    "cache_creation": {
-      "ephemeral_1h_input_tokens": 0,
-      "ephemeral_5m_input_tokens": 0
-    },
-    "cache_read_input_tokens": 0,
-    "input_tokens": 0,
-    "list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "output_tokens": 0,
-    "server_tool_use": {
-      "web_fetch_requests": 0,
-      "web_search_requests": 3
-    }
-  },
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "deployment_id": "deployment_id"
-}
-```
-
-## Update Session
-
-`client.Beta.Sessions.Update(ctx, sessionID, params) (*BetaManagedAgentsSession, error)`
-
-**post** `/v1/sessions/{session_id}`
-
-Update Session
-
-### Parameters
-
-- `sessionID string`
-
-- `params BetaSessionUpdateParams`
-
-  - `Agent param.Field[BetaManagedAgentsSessionAgentUpdate]`
-
-    Body param: Mid-session agent configuration update. Only `tools` and `mcp_servers` are updatable. Full replacement: the provided array becomes the new value. To preserve existing entries, GET the session, modify the array, and POST it back.
-
-  - `Budget param.Field[BetaManagedAgentsBudgetLimit]`
-
-    Body param: A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-  - `Metadata param.Field[map[string, string]]`
-
-    Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve.
-
-  - `Title param.Field[string]`
-
-    Body param: Human-readable session title.
-
-  - `VaultIDs param.Field[[]string]`
-
-    Body param: Vault IDs (`vlt_*`) to attach to the session. Not yet supported; requests setting this field are rejected. Reserved for future use.
-
-  - `Betas param.Field[[]AnthropicBeta]`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `string`
-
-    - `type AnthropicBeta string`
-
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `type BetaManagedAgentsSession struct{…}`
-
-  A Managed Agents `session`.
-
-  - `ID string`
-
-  - `Agent BetaManagedAgentsSessionAgent`
-
-    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-    - `ID string`
-
-    - `Description string`
-
-    - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-      - `Name string`
-
-      - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-        - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
-
-      - `URL string`
-
-    - `Model BetaManagedAgentsModelConfig`
-
-      Model identifier and configuration.
-
-      - `ID BetaManagedAgentsModel`
-
-        The model that will power your agent.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `type BetaManagedAgentsModel string`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
-
-            High-performance model for coding and agents
-
-          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
-
-            Best combination of speed and intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
-        - `string`
-
-      - `Effort BetaManagedAgentsModelConfigEffortUnion`
-
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-        - `type BetaManagedAgentsEffortLow struct{…}`
-
-          Low effort. Favors latency over reasoning depth.
-
-          - `Type BetaManagedAgentsEffortLowType`
-
-            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
-
-        - `type BetaManagedAgentsEffortMedium struct{…}`
-
-          Medium effort. Balances latency and reasoning depth.
-
-          - `Type BetaManagedAgentsEffortMediumType`
-
-            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
-
-        - `type BetaManagedAgentsEffortHigh struct{…}`
-
-          High effort. Favors reasoning depth.
-
-          - `Type BetaManagedAgentsEffortHighType`
-
-            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
-
-        - `type BetaManagedAgentsEffortXhigh struct{…}`
-
-          Extra-high effort. Not all models accept this level.
-
-          - `Type BetaManagedAgentsEffortXhighType`
-
-            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
-
-        - `type BetaManagedAgentsEffortMax struct{…}`
-
-          Maximum effort. Favors reasoning depth over latency.
-
-          - `Type BetaManagedAgentsEffortMaxType`
-
-            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
-
-      - `InferenceGeo string`
-
-        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-      - `Speed BetaManagedAgentsModelConfigSpeed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
-
-        - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
-
-    - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
-
-      Resolved coordinator topology with full agent definitions for each roster member.
-
-      - `Agents []BetaManagedAgentsSessionMultiagentCoordinatorAgentUnion`
-
-        Full `agent` definitions the coordinator may spawn as session threads.
-
-        - `type BetaManagedAgentsSessionThreadAgent struct{…}`
-
-          Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-          - `ID string`
-
-          - `Description string`
-
-          - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-            - `Name string`
-
-            - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-            - `URL string`
-
-          - `Model BetaManagedAgentsModelConfig`
-
-            Model identifier and configuration.
-
-          - `Name string`
-
-          - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
-
-            - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-              A resolved Anthropic-managed skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsAnthropicSkillType`
-
-                - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
-
-              - `Version string`
-
-            - `type BetaManagedAgentsCustomSkill struct{…}`
-
-              A resolved user-created custom skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsCustomSkillType`
-
-                - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
-
-              - `Version string`
-
-          - `System string`
-
-          - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
-
-            - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-              - `Configs []BetaManagedAgentsAgentToolConfig`
-
-                - `Enabled bool`
-
-                - `Name BetaManagedAgentsAgentToolConfigName`
-
-                  Built-in agent tool identifier.
-
-                  - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                    - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-                    - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
-              - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                Resolved default configuration for agent tools.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `Type BetaManagedAgentsAgentToolset20260401Type`
-
-                - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
-
-            - `type BetaManagedAgentsMCPToolset struct{…}`
-
-              - `Configs []BetaManagedAgentsMCPToolConfig`
-
-                - `Enabled bool`
-
-                - `Name string`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                Resolved default configuration for all tools from an MCP server.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `MCPServerName string`
-
-              - `Type BetaManagedAgentsMCPToolsetType`
-
-                - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
-
-            - `type BetaManagedAgentsCustomTool struct{…}`
-
-              A custom tool as returned in API responses.
-
-              - `Description string`
-
-              - `InputSchema BetaManagedAgentsCustomToolInputSchema`
-
-                JSON Schema for custom tool input parameters.
-
-                - `Type Object`
-
-                  - `const ObjectObject Object = "object"`
-
-                - `Properties map[string, any]`
-
-                - `Required []string`
-
-              - `Name string`
-
-              - `Type BetaManagedAgentsCustomToolType`
-
-                - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
-
-          - `Type BetaManagedAgentsSessionThreadAgentType`
-
-            - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
-
-          - `Version int64`
-
-        - `type BetaManagedAgentsAdvisor struct{…}`
-
-          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-          - `Model string`
-
-            The advisor model id.
-
-          - `Type BetaManagedAgentsAdvisorType`
-
-            - `const BetaManagedAgentsAdvisorTypeAdvisor BetaManagedAgentsAdvisorType = "advisor"`
-
-      - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
-
-        - `const BetaManagedAgentsSessionMultiagentCoordinatorTypeCoordinator BetaManagedAgentsSessionMultiagentCoordinatorType = "coordinator"`
-
-    - `Name string`
-
-    - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
-
-      - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-        A resolved Anthropic-managed skill.
-
-      - `type BetaManagedAgentsCustomSkill struct{…}`
-
-        A resolved user-created custom skill.
-
-    - `System string`
-
-    - `Tools []BetaManagedAgentsSessionAgentToolUnion`
-
-      - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-      - `type BetaManagedAgentsMCPToolset struct{…}`
-
-      - `type BetaManagedAgentsCustomTool struct{…}`
-
-        A custom tool as returned in API responses.
-
-    - `Type BetaManagedAgentsSessionAgentType`
-
-      - `const BetaManagedAgentsSessionAgentTypeAgent BetaManagedAgentsSessionAgentType = "agent"`
-
-    - `Version int64`
-
-  - `ArchivedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Budget BetaManagedAgentsBudgetLimit`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `MaxListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-      - `Amount string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `Currency BetaCurrency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-        - `const BetaCurrencyUsd BetaCurrency = "USD"`
-
-    - `Type BetaManagedAgentsBudgetLimitType`
-
-      - `const BetaManagedAgentsBudgetLimitTypeLimit BetaManagedAgentsBudgetLimitType = "limit"`
-
-  - `CreatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `EnvironmentID string`
-
-  - `Metadata map[string, string]`
-
-  - `OutcomeEvaluations []BetaManagedAgentsOutcomeEvaluationResource`
-
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
-
-    - `CompletedAt Time`
-
-      A timestamp in RFC 3339 format
-
-    - `Description string`
-
-      What the agent should produce.
-
-    - `Explanation string`
-
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
-
-    - `Iteration int64`
-
-      0-indexed revision cycle the outcome is currently on.
-
-    - `OutcomeID string`
-
-      Server-generated outc_ ID for this outcome.
-
-    - `Result string`
-
-      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
-
-    - `Type BetaManagedAgentsOutcomeEvaluationResourceType`
-
-      - `const BetaManagedAgentsOutcomeEvaluationResourceTypeOutcomeEvaluation BetaManagedAgentsOutcomeEvaluationResourceType = "outcome_evaluation"`
-
-  - `Resources []BetaManagedAgentsSessionResourceUnion`
-
-    - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsGitHubRepositoryResourceType`
-
-        - `const BetaManagedAgentsGitHubRepositoryResourceTypeGitHubRepository BetaManagedAgentsGitHubRepositoryResourceType = "github_repository"`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `URL string`
-
-      - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion`
-
-        - `type BetaManagedAgentsBranchCheckout struct{…}`
-
-          - `Name string`
-
-            Branch name to check out.
-
-          - `Type BetaManagedAgentsBranchCheckoutType`
-
-            - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
-
-        - `type BetaManagedAgentsCommitCheckout struct{…}`
-
-          - `Sha string`
-
-            Full commit SHA to check out.
-
-          - `Type BetaManagedAgentsCommitCheckoutType`
-
-            - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
-
-    - `type BetaManagedAgentsFileResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `FileID string`
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsFileResourceType`
-
-        - `const BetaManagedAgentsFileResourceTypeFile BetaManagedAgentsFileResourceType = "file"`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-    - `type BetaManagedAgentsMemoryStoreResource struct{…}`
-
-      A memory store attached to an agent session.
-
-      - `MemoryStoreID string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type BetaManagedAgentsMemoryStoreResourceType`
-
-        - `const BetaManagedAgentsMemoryStoreResourceTypeMemoryStore BetaManagedAgentsMemoryStoreResourceType = "memory_store"`
-
-      - `Access BetaManagedAgentsMemoryStoreResourceAccess`
-
-        Access mode for an attached memory store.
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadWrite BetaManagedAgentsMemoryStoreResourceAccess = "read_write"`
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadOnly BetaManagedAgentsMemoryStoreResourceAccess = "read_only"`
-
-      - `Description string`
-
-        Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
-
-      - `Instructions string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-      - `MountPath string`
-
-        Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
-
-      - `Name string`
-
-        Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
-
-  - `Stats BetaManagedAgentsSessionStats`
-
-    Timing statistics for a session.
-
-    - `ActiveSeconds float64`
-
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
-
-    - `DurationSeconds float64`
-
-      Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
-
-  - `Status BetaManagedAgentsSessionStatus`
-
-    SessionStatus enum
-
-    - `const BetaManagedAgentsSessionStatusRescheduling BetaManagedAgentsSessionStatus = "rescheduling"`
-
-    - `const BetaManagedAgentsSessionStatusRunning BetaManagedAgentsSessionStatus = "running"`
-
-    - `const BetaManagedAgentsSessionStatusIdle BetaManagedAgentsSessionStatus = "idle"`
-
-    - `const BetaManagedAgentsSessionStatusTerminated BetaManagedAgentsSessionStatus = "terminated"`
-
-  - `Title string`
-
-  - `Type BetaManagedAgentsSessionType`
-
-    - `const BetaManagedAgentsSessionTypeSession BetaManagedAgentsSessionType = "session"`
-
-  - `UpdatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Usage BetaManagedAgentsSessionUsage`
-
-    Cumulative token usage for a session across all turns.
-
-    - `ActiveSeconds float64`
-
-      Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
-
-    - `CacheCreation BetaManagedAgentsCacheCreationUsage`
-
-      Prompt-cache creation token usage broken down by cache lifetime.
-
-      - `Ephemeral1hInputTokens int64`
-
-        Tokens used to create 1-hour ephemeral cache entries.
-
-      - `Ephemeral5mInputTokens int64`
-
-        Tokens used to create 5-minute ephemeral cache entries.
-
-    - `CacheReadInputTokens int64`
-
-      Total tokens read from prompt cache.
-
-    - `InputTokens int64`
-
-      Total input tokens consumed across all turns.
-
-    - `ListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-    - `OutputTokens int64`
-
-      Total output tokens generated across all turns.
-
-    - `ServerToolUse BetaManagedAgentsServerToolUsage`
-
-      Cumulative count of server-executed tool invocations, broken down by tool.
-
-      - `WebFetchRequests int64`
-
-        Number of server-executed web fetch requests.
-
-      - `WebSearchRequests int64`
-
-        Number of server-executed web search requests.
-
-  - `VaultIDs []string`
-
-    Vault IDs attached to the session at creation. Empty when no vaults were supplied.
-
-  - `DeploymentID string`
-
-    Deployment ID when the session was created from a deployment reference. Null otherwise.
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaManagedAgentsSession, err := client.Beta.Sessions.Update(
-		context.TODO(),
-		"sesn_011CZkZAtmR3yMPDzynEDxu7",
-		anthropic.BetaSessionUpdateParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaManagedAgentsSession.ID)
-}
-```
-
-#### Response
-
-```json
-{
-  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "description": "A general-purpose starter agent.",
-    "mcp_servers": [
-      {
-        "name": "example-mcp",
-        "type": "url",
-        "url": "https://example-server.modelcontextprotocol.io/sse"
-      }
-    ],
-    "model": {
-      "id": "claude-sonnet-4-6",
-      "effort": {
-        "type": "low"
-      },
-      "inference_geo": "inference_geo",
-      "speed": "standard"
-    },
-    "multiagent": {
-      "agents": [
-        {
-          "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-          "description": "A focused research subagent.",
-          "mcp_servers": [
-            {
-              "name": "example-mcp",
-              "type": "url",
-              "url": "https://example-server.modelcontextprotocol.io/sse"
-            }
-          ],
-          "model": {
-            "id": "claude-sonnet-4-6",
-            "effort": {
-              "type": "low"
-            },
-            "inference_geo": "inference_geo",
-            "speed": "standard"
-          },
-          "name": "Researcher",
-          "skills": [
-            {
-              "skill_id": "xlsx",
-              "type": "anthropic",
-              "version": "1"
-            }
-          ],
-          "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
-          "tools": [
-            {
-              "configs": [
-                {
-                  "enabled": true,
-                  "name": "bash",
-                  "permission_policy": {
-                    "type": "always_allow"
-                  }
-                }
-              ],
-              "default_config": {
-                "enabled": true,
-                "permission_policy": {
-                  "type": "always_ask"
-                }
-              },
-              "type": "agent_toolset_20260401"
-            }
-          ],
-          "type": "agent",
-          "version": 1
-        }
-      ],
-      "type": "coordinator"
-    },
-    "name": "My First Agent",
-    "skills": [
-      {
-        "skill_id": "xlsx",
-        "type": "anthropic",
-        "version": "1"
-      },
-      {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
-        "type": "custom",
-        "version": "2"
-      }
-    ],
-    "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
-    "tools": [
-      {
-        "configs": [
-          {
-            "enabled": true,
-            "name": "bash",
-            "permission_policy": {
-              "type": "always_allow"
-            }
-          }
-        ],
-        "default_config": {
-          "enabled": true,
-          "permission_policy": {
-            "type": "always_ask"
-          }
-        },
-        "type": "agent_toolset_20260401"
-      }
-    ],
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "metadata": {},
-  "outcome_evaluations": [
-    {
-      "completed_at": "2026-03-15T10:02:31Z",
-      "description": "Produce a 2-page summary as summary.md",
-      "explanation": "All five sections present with inline citations.",
-      "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
-      "result": "satisfied",
-      "type": "outcome_evaluation"
-    }
-  ],
-  "resources": [
-    {
-      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
-      "created_at": "2026-03-15T10:00:00Z",
-      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
-      "mount_path": "/uploads/receipt.pdf",
-      "type": "file",
-      "updated_at": "2026-03-15T10:00:00Z"
-    },
-    {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
-      "created_at": "2026-03-15T10:00:00Z",
-      "mount_path": "/workspace/example-repo",
-      "type": "github_repository",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "url": "https://github.com/example-org/example-repo",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      }
-    }
-  ],
-  "stats": {
-    "active_seconds": 0,
-    "duration_seconds": 0
-  },
-  "status": "idle",
-  "title": "Order #1234 inquiry",
-  "type": "session",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "usage": {
-    "active_seconds": 0,
-    "cache_creation": {
-      "ephemeral_1h_input_tokens": 0,
-      "ephemeral_5m_input_tokens": 0
-    },
-    "cache_read_input_tokens": 0,
-    "input_tokens": 0,
-    "list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "output_tokens": 0,
-    "server_tool_use": {
-      "web_fetch_requests": 0,
-      "web_search_requests": 3
-    }
-  },
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "deployment_id": "deployment_id"
-}
-```
-
-## Delete Session
-
-`client.Beta.Sessions.Delete(ctx, sessionID, body) (*BetaManagedAgentsDeletedSession, error)`
-
-**delete** `/v1/sessions/{session_id}`
-
-Delete Session
-
-### Parameters
-
-- `sessionID string`
-
-- `body BetaSessionDeleteParams`
-
-  - `Betas param.Field[[]AnthropicBeta]`
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `string`
-
-    - `type AnthropicBeta string`
-
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `type BetaManagedAgentsDeletedSession struct{…}`
-
-  Confirmation that a `session` has been permanently deleted.
-
-  - `ID string`
-
-  - `Type BetaManagedAgentsDeletedSessionType`
-
-    - `const BetaManagedAgentsDeletedSessionTypeSessionDeleted BetaManagedAgentsDeletedSessionType = "session_deleted"`
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaManagedAgentsDeletedSession, err := client.Beta.Sessions.Delete(
-		context.TODO(),
-		"sesn_011CZkZAtmR3yMPDzynEDxu7",
-		anthropic.BetaSessionDeleteParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaManagedAgentsDeletedSession.ID)
-}
-```
-
-#### Response
-
-```json
-{
-  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
-  "type": "session_deleted"
-}
-```
-
-## Archive Session
-
-`client.Beta.Sessions.Archive(ctx, sessionID, body) (*BetaManagedAgentsSession, error)`
-
-**post** `/v1/sessions/{session_id}/archive`
-
-Archive Session
-
-### Parameters
-
-- `sessionID string`
-
-- `body BetaSessionArchiveParams`
-
-  - `Betas param.Field[[]AnthropicBeta]`
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `string`
-
-    - `type AnthropicBeta string`
-
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `type BetaManagedAgentsSession struct{…}`
-
-  A Managed Agents `session`.
-
-  - `ID string`
-
-  - `Agent BetaManagedAgentsSessionAgent`
-
-    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-    - `ID string`
-
-    - `Description string`
-
-    - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-      - `Name string`
-
-      - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-        - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
-
-      - `URL string`
-
-    - `Model BetaManagedAgentsModelConfig`
-
-      Model identifier and configuration.
-
-      - `ID BetaManagedAgentsModel`
-
-        The model that will power your agent.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `type BetaManagedAgentsModel string`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
-
-            High-performance model for coding and agents
-
-          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
-
-            Best combination of speed and intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
-        - `string`
-
-      - `Effort BetaManagedAgentsModelConfigEffortUnion`
-
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-        - `type BetaManagedAgentsEffortLow struct{…}`
-
-          Low effort. Favors latency over reasoning depth.
-
-          - `Type BetaManagedAgentsEffortLowType`
-
-            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
-
-        - `type BetaManagedAgentsEffortMedium struct{…}`
-
-          Medium effort. Balances latency and reasoning depth.
-
-          - `Type BetaManagedAgentsEffortMediumType`
-
-            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
-
-        - `type BetaManagedAgentsEffortHigh struct{…}`
-
-          High effort. Favors reasoning depth.
-
-          - `Type BetaManagedAgentsEffortHighType`
-
-            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
-
-        - `type BetaManagedAgentsEffortXhigh struct{…}`
-
-          Extra-high effort. Not all models accept this level.
-
-          - `Type BetaManagedAgentsEffortXhighType`
-
-            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
-
-        - `type BetaManagedAgentsEffortMax struct{…}`
-
-          Maximum effort. Favors reasoning depth over latency.
-
-          - `Type BetaManagedAgentsEffortMaxType`
-
-            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
-
-      - `InferenceGeo string`
-
-        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-      - `Speed BetaManagedAgentsModelConfigSpeed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
-
-        - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
-
-    - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
-
-      Resolved coordinator topology with full agent definitions for each roster member.
-
-      - `Agents []BetaManagedAgentsSessionMultiagentCoordinatorAgentUnion`
-
-        Full `agent` definitions the coordinator may spawn as session threads.
-
-        - `type BetaManagedAgentsSessionThreadAgent struct{…}`
-
-          Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-          - `ID string`
-
-          - `Description string`
-
-          - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-            - `Name string`
-
-            - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-            - `URL string`
-
-          - `Model BetaManagedAgentsModelConfig`
-
-            Model identifier and configuration.
-
-          - `Name string`
-
-          - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
-
-            - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-              A resolved Anthropic-managed skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsAnthropicSkillType`
-
-                - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
-
-              - `Version string`
-
-            - `type BetaManagedAgentsCustomSkill struct{…}`
-
-              A resolved user-created custom skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsCustomSkillType`
-
-                - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
-
-              - `Version string`
-
-          - `System string`
-
-          - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
-
-            - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-              - `Configs []BetaManagedAgentsAgentToolConfig`
-
-                - `Enabled bool`
-
-                - `Name BetaManagedAgentsAgentToolConfigName`
-
-                  Built-in agent tool identifier.
-
-                  - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                    - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-                    - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
-              - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                Resolved default configuration for agent tools.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `Type BetaManagedAgentsAgentToolset20260401Type`
-
-                - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
-
-            - `type BetaManagedAgentsMCPToolset struct{…}`
-
-              - `Configs []BetaManagedAgentsMCPToolConfig`
-
-                - `Enabled bool`
-
-                - `Name string`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                Resolved default configuration for all tools from an MCP server.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `MCPServerName string`
-
-              - `Type BetaManagedAgentsMCPToolsetType`
-
-                - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
-
-            - `type BetaManagedAgentsCustomTool struct{…}`
-
-              A custom tool as returned in API responses.
-
-              - `Description string`
-
-              - `InputSchema BetaManagedAgentsCustomToolInputSchema`
-
-                JSON Schema for custom tool input parameters.
-
-                - `Type Object`
-
-                  - `const ObjectObject Object = "object"`
-
-                - `Properties map[string, any]`
-
-                - `Required []string`
-
-              - `Name string`
-
-              - `Type BetaManagedAgentsCustomToolType`
-
-                - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
-
-          - `Type BetaManagedAgentsSessionThreadAgentType`
-
-            - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
-
-          - `Version int64`
-
-        - `type BetaManagedAgentsAdvisor struct{…}`
-
-          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-          - `Model string`
-
-            The advisor model id.
-
-          - `Type BetaManagedAgentsAdvisorType`
-
-            - `const BetaManagedAgentsAdvisorTypeAdvisor BetaManagedAgentsAdvisorType = "advisor"`
-
-      - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
-
-        - `const BetaManagedAgentsSessionMultiagentCoordinatorTypeCoordinator BetaManagedAgentsSessionMultiagentCoordinatorType = "coordinator"`
-
-    - `Name string`
-
-    - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
-
-      - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-        A resolved Anthropic-managed skill.
-
-      - `type BetaManagedAgentsCustomSkill struct{…}`
-
-        A resolved user-created custom skill.
-
-    - `System string`
-
-    - `Tools []BetaManagedAgentsSessionAgentToolUnion`
-
-      - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-      - `type BetaManagedAgentsMCPToolset struct{…}`
-
-      - `type BetaManagedAgentsCustomTool struct{…}`
-
-        A custom tool as returned in API responses.
-
-    - `Type BetaManagedAgentsSessionAgentType`
-
-      - `const BetaManagedAgentsSessionAgentTypeAgent BetaManagedAgentsSessionAgentType = "agent"`
-
-    - `Version int64`
-
-  - `ArchivedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Budget BetaManagedAgentsBudgetLimit`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `MaxListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-      - `Amount string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `Currency BetaCurrency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-        - `const BetaCurrencyUsd BetaCurrency = "USD"`
-
-    - `Type BetaManagedAgentsBudgetLimitType`
-
-      - `const BetaManagedAgentsBudgetLimitTypeLimit BetaManagedAgentsBudgetLimitType = "limit"`
-
-  - `CreatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `EnvironmentID string`
-
-  - `Metadata map[string, string]`
-
-  - `OutcomeEvaluations []BetaManagedAgentsOutcomeEvaluationResource`
-
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
-
-    - `CompletedAt Time`
-
-      A timestamp in RFC 3339 format
-
-    - `Description string`
-
-      What the agent should produce.
-
-    - `Explanation string`
-
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
-
-    - `Iteration int64`
-
-      0-indexed revision cycle the outcome is currently on.
-
-    - `OutcomeID string`
-
-      Server-generated outc_ ID for this outcome.
-
-    - `Result string`
-
-      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
-
-    - `Type BetaManagedAgentsOutcomeEvaluationResourceType`
-
-      - `const BetaManagedAgentsOutcomeEvaluationResourceTypeOutcomeEvaluation BetaManagedAgentsOutcomeEvaluationResourceType = "outcome_evaluation"`
-
-  - `Resources []BetaManagedAgentsSessionResourceUnion`
-
-    - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsGitHubRepositoryResourceType`
-
-        - `const BetaManagedAgentsGitHubRepositoryResourceTypeGitHubRepository BetaManagedAgentsGitHubRepositoryResourceType = "github_repository"`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `URL string`
-
-      - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion`
-
-        - `type BetaManagedAgentsBranchCheckout struct{…}`
-
-          - `Name string`
-
-            Branch name to check out.
-
-          - `Type BetaManagedAgentsBranchCheckoutType`
-
-            - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
-
-        - `type BetaManagedAgentsCommitCheckout struct{…}`
-
-          - `Sha string`
-
-            Full commit SHA to check out.
-
-          - `Type BetaManagedAgentsCommitCheckoutType`
-
-            - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
-
-    - `type BetaManagedAgentsFileResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-      - `FileID string`
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsFileResourceType`
-
-        - `const BetaManagedAgentsFileResourceTypeFile BetaManagedAgentsFileResourceType = "file"`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-    - `type BetaManagedAgentsMemoryStoreResource struct{…}`
-
-      A memory store attached to an agent session.
-
-      - `MemoryStoreID string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type BetaManagedAgentsMemoryStoreResourceType`
-
-        - `const BetaManagedAgentsMemoryStoreResourceTypeMemoryStore BetaManagedAgentsMemoryStoreResourceType = "memory_store"`
-
-      - `Access BetaManagedAgentsMemoryStoreResourceAccess`
-
-        Access mode for an attached memory store.
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadWrite BetaManagedAgentsMemoryStoreResourceAccess = "read_write"`
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadOnly BetaManagedAgentsMemoryStoreResourceAccess = "read_only"`
-
-      - `Description string`
-
-        Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
-
-      - `Instructions string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-      - `MountPath string`
-
-        Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
-
-      - `Name string`
-
-        Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
-
-  - `Stats BetaManagedAgentsSessionStats`
-
-    Timing statistics for a session.
-
-    - `ActiveSeconds float64`
-
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
-
-    - `DurationSeconds float64`
-
-      Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
-
-  - `Status BetaManagedAgentsSessionStatus`
-
-    SessionStatus enum
-
-    - `const BetaManagedAgentsSessionStatusRescheduling BetaManagedAgentsSessionStatus = "rescheduling"`
-
-    - `const BetaManagedAgentsSessionStatusRunning BetaManagedAgentsSessionStatus = "running"`
-
-    - `const BetaManagedAgentsSessionStatusIdle BetaManagedAgentsSessionStatus = "idle"`
-
-    - `const BetaManagedAgentsSessionStatusTerminated BetaManagedAgentsSessionStatus = "terminated"`
-
-  - `Title string`
-
-  - `Type BetaManagedAgentsSessionType`
-
-    - `const BetaManagedAgentsSessionTypeSession BetaManagedAgentsSessionType = "session"`
-
-  - `UpdatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Usage BetaManagedAgentsSessionUsage`
-
-    Cumulative token usage for a session across all turns.
-
-    - `ActiveSeconds float64`
-
-      Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
-
-    - `CacheCreation BetaManagedAgentsCacheCreationUsage`
-
-      Prompt-cache creation token usage broken down by cache lifetime.
-
-      - `Ephemeral1hInputTokens int64`
-
-        Tokens used to create 1-hour ephemeral cache entries.
-
-      - `Ephemeral5mInputTokens int64`
-
-        Tokens used to create 5-minute ephemeral cache entries.
-
-    - `CacheReadInputTokens int64`
-
-      Total tokens read from prompt cache.
-
-    - `InputTokens int64`
-
-      Total input tokens consumed across all turns.
-
-    - `ListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-    - `OutputTokens int64`
-
-      Total output tokens generated across all turns.
-
-    - `ServerToolUse BetaManagedAgentsServerToolUsage`
-
-      Cumulative count of server-executed tool invocations, broken down by tool.
-
-      - `WebFetchRequests int64`
-
-        Number of server-executed web fetch requests.
-
-      - `WebSearchRequests int64`
-
-        Number of server-executed web search requests.
-
-  - `VaultIDs []string`
-
-    Vault IDs attached to the session at creation. Empty when no vaults were supplied.
-
-  - `DeploymentID string`
-
-    Deployment ID when the session was created from a deployment reference. Null otherwise.
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaManagedAgentsSession, err := client.Beta.Sessions.Archive(
-		context.TODO(),
-		"sesn_011CZkZAtmR3yMPDzynEDxu7",
-		anthropic.BetaSessionArchiveParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaManagedAgentsSession.ID)
-}
-```
-
-#### Response
-
-```json
-{
-  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "description": "A general-purpose starter agent.",
-    "mcp_servers": [
-      {
-        "name": "example-mcp",
-        "type": "url",
-        "url": "https://example-server.modelcontextprotocol.io/sse"
-      }
-    ],
-    "model": {
-      "id": "claude-sonnet-4-6",
-      "effort": {
-        "type": "low"
-      },
-      "inference_geo": "inference_geo",
-      "speed": "standard"
-    },
-    "multiagent": {
-      "agents": [
-        {
-          "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-          "description": "A focused research subagent.",
-          "mcp_servers": [
-            {
-              "name": "example-mcp",
-              "type": "url",
-              "url": "https://example-server.modelcontextprotocol.io/sse"
-            }
-          ],
-          "model": {
-            "id": "claude-sonnet-4-6",
-            "effort": {
-              "type": "low"
-            },
-            "inference_geo": "inference_geo",
-            "speed": "standard"
-          },
-          "name": "Researcher",
-          "skills": [
-            {
-              "skill_id": "xlsx",
-              "type": "anthropic",
-              "version": "1"
-            }
-          ],
-          "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
-          "tools": [
-            {
-              "configs": [
-                {
-                  "enabled": true,
-                  "name": "bash",
-                  "permission_policy": {
-                    "type": "always_allow"
-                  }
-                }
-              ],
-              "default_config": {
-                "enabled": true,
-                "permission_policy": {
-                  "type": "always_ask"
-                }
-              },
-              "type": "agent_toolset_20260401"
-            }
-          ],
-          "type": "agent",
-          "version": 1
-        }
-      ],
-      "type": "coordinator"
-    },
-    "name": "My First Agent",
-    "skills": [
-      {
-        "skill_id": "xlsx",
-        "type": "anthropic",
-        "version": "1"
-      },
-      {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
-        "type": "custom",
-        "version": "2"
-      }
-    ],
-    "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
-    "tools": [
-      {
-        "configs": [
-          {
-            "enabled": true,
-            "name": "bash",
-            "permission_policy": {
-              "type": "always_allow"
-            }
-          }
-        ],
-        "default_config": {
-          "enabled": true,
-          "permission_policy": {
-            "type": "always_ask"
-          }
-        },
-        "type": "agent_toolset_20260401"
-      }
-    ],
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "metadata": {},
-  "outcome_evaluations": [
-    {
-      "completed_at": "2026-03-15T10:02:31Z",
-      "description": "Produce a 2-page summary as summary.md",
-      "explanation": "All five sections present with inline citations.",
-      "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
-      "result": "satisfied",
-      "type": "outcome_evaluation"
-    }
-  ],
-  "resources": [
-    {
-      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
-      "created_at": "2026-03-15T10:00:00Z",
-      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
-      "mount_path": "/uploads/receipt.pdf",
-      "type": "file",
-      "updated_at": "2026-03-15T10:00:00Z"
-    },
-    {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
-      "created_at": "2026-03-15T10:00:00Z",
-      "mount_path": "/workspace/example-repo",
-      "type": "github_repository",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "url": "https://github.com/example-org/example-repo",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      }
-    }
-  ],
-  "stats": {
-    "active_seconds": 0,
-    "duration_seconds": 0
-  },
-  "status": "idle",
-  "title": "Order #1234 inquiry",
-  "type": "session",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "usage": {
-    "active_seconds": 0,
-    "cache_creation": {
-      "ephemeral_1h_input_tokens": 0,
-      "ephemeral_5m_input_tokens": 0
-    },
-    "cache_read_input_tokens": 0,
-    "input_tokens": 0,
-    "list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "output_tokens": 0,
-    "server_tool_use": {
-      "web_fetch_requests": 0,
-      "web_search_requests": 3
-    }
-  },
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "deployment_id": "deployment_id"
-}
-```
-
-## Domain Types
-
-### Beta Managed Agents Advisor Params
-
-- `type BetaManagedAgentsAdvisorParamsResp struct{…}`
-
-  Platform advisor roster entry: a model the session's primary thread may consult mid-turn. At most one per roster; the entry occupies the roster name `anthropic.advisor`.
-
-  - `Model string`
-
-    A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
-
-  - `Type BetaManagedAgentsAdvisorParamsType`
-
-    - `const BetaManagedAgentsAdvisorParamsTypeAdvisor BetaManagedAgentsAdvisorParamsType = "advisor"`
-
-### Beta Managed Agents Agent Message Preview
-
-- `type BetaManagedAgentsAgentMessagePreview struct{…}`
-
-  - `ID string`
-
-    The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
-
-  - `Type BetaManagedAgentsAgentMessagePreviewType`
-
-    - `const BetaManagedAgentsAgentMessagePreviewTypeAgentMessage BetaManagedAgentsAgentMessagePreviewType = "agent.message"`
-
-### Beta Managed Agents Agent Params
-
-- `type BetaManagedAgentsAgentParamsResp struct{…}`
-
-  Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
-
-  - `ID string`
-
-    The `agent` ID.
-
-  - `Type BetaManagedAgentsAgentParamsType`
-
-    - `const BetaManagedAgentsAgentParamsTypeAgent BetaManagedAgentsAgentParamsType = "agent"`
-
-  - `Version int64`
-
-    The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
-
-### Beta Managed Agents Agent Thinking Preview
-
-- `type BetaManagedAgentsAgentThinkingPreview struct{…}`
-
-  - `ID string`
-
-    The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
-
-  - `Type BetaManagedAgentsAgentThinkingPreviewType`
-
-    - `const BetaManagedAgentsAgentThinkingPreviewTypeAgentThinking BetaManagedAgentsAgentThinkingPreviewType = "agent.thinking"`
-
-### Beta Managed Agents Agent With Overrides Params
-
-- `type BetaManagedAgentsAgentWithOverridesParamsResp struct{…}`
-
-  Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
-
-  - `ID string`
-
-    The `agent` ID.
-
-  - `Type BetaManagedAgentsAgentWithOverridesParamsType`
-
-    - `const BetaManagedAgentsAgentWithOverridesParamsTypeAgentWithOverrides BetaManagedAgentsAgentWithOverridesParamsType = "agent_with_overrides"`
-
-  - `MCPServers []BetaManagedAgentsURLMCPServerParamsResp`
-
-    Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
-
-    - `Name string`
-
-      Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
-
-    - `Type BetaManagedAgentsURLMCPServerParamsType`
-
-      - `const BetaManagedAgentsURLMCPServerParamsTypeURL BetaManagedAgentsURLMCPServerParamsType = "url"`
-
-    - `URL string`
-
-      Endpoint URL for the MCP server.
-
-  - `Model BetaManagedAgentsModelConfigParamsResp`
-
-    Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
-
-    - `type BetaManagedAgentsModelConfigParamsResp struct{…}`
-
-      An object that defines additional configuration control over model use
-
-      - `ID BetaManagedAgentsModel`
-
-        The model that will power your agent.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `type BetaManagedAgentsModel string`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
-
-            High-performance model for coding and agents
-
-          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
-
-            Best combination of speed and intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
-        - `string`
-
-      - `Effort BetaManagedAgentsModelConfigParamsEffortUnionResp`
-
-        How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
-
-        - `string`
-
-          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelLow BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "low"`
-
-          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelMedium BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "medium"`
-
-          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelHigh BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "high"`
-
-          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelXhigh BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "xhigh"`
-
-          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelMax BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "max"`
-
-        - `type BetaManagedAgentsEffortLow struct{…}`
-
-          Low effort. Favors latency over reasoning depth.
-
-          - `Type BetaManagedAgentsEffortLowType`
-
-            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
-
-        - `type BetaManagedAgentsEffortMedium struct{…}`
-
-          Medium effort. Balances latency and reasoning depth.
-
-          - `Type BetaManagedAgentsEffortMediumType`
-
-            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
-
-        - `type BetaManagedAgentsEffortHigh struct{…}`
-
-          High effort. Favors reasoning depth.
-
-          - `Type BetaManagedAgentsEffortHighType`
-
-            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
-
-        - `type BetaManagedAgentsEffortXhigh struct{…}`
-
-          Extra-high effort. Not all models accept this level.
-
-          - `Type BetaManagedAgentsEffortXhighType`
-
-            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
-
-        - `type BetaManagedAgentsEffortMax struct{…}`
-
-          Maximum effort. Favors reasoning depth over latency.
-
-          - `Type BetaManagedAgentsEffortMaxType`
-
-            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
-
-      - `InferenceGeo string`
-
-        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo. On update, `model` is whole-object replacement — omitting inference_geo clears it.
-
-      - `Speed BetaManagedAgentsModelConfigParamsSpeed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `const BetaManagedAgentsModelConfigParamsSpeedStandard BetaManagedAgentsModelConfigParamsSpeed = "standard"`
-
-        - `const BetaManagedAgentsModelConfigParamsSpeedFast BetaManagedAgentsModelConfigParamsSpeed = "fast"`
-
-  - `Skills []BetaManagedAgentsSkillParamsUnionResp`
-
-    Replacement skill list. Full replacement: the provided array becomes the skills. Send an empty array to clear; omit to preserve the agent's skills.
-
-    - `type BetaManagedAgentsAnthropicSkillParamsResp struct{…}`
-
-      An Anthropic-managed skill.
-
-      - `SkillID string`
-
-        Identifier of the Anthropic skill (e.g., "xlsx").
-
-      - `Type BetaManagedAgentsAnthropicSkillParamsType`
-
-        - `const BetaManagedAgentsAnthropicSkillParamsTypeAnthropic BetaManagedAgentsAnthropicSkillParamsType = "anthropic"`
-
-      - `Version string`
-
-        Version to pin. Defaults to latest if omitted.
-
-    - `type BetaManagedAgentsCustomSkillParamsResp struct{…}`
-
-      A user-created custom skill.
-
-      - `SkillID string`
-
-        Tagged ID of the custom skill (e.g., "skill_01XJ5...").
-
-      - `Type BetaManagedAgentsCustomSkillParamsType`
-
-        - `const BetaManagedAgentsCustomSkillParamsTypeCustom BetaManagedAgentsCustomSkillParamsType = "custom"`
-
-      - `Version string`
-
-        Version to pin. Defaults to latest if omitted.
-
-  - `System string`
-
-    Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
-
-  - `Tools []BetaManagedAgentsAgentWithOverridesParamsToolUnionResp`
-
-    Replacement tool list. Full replacement: the provided array becomes the tool configuration. Send an empty array to clear; omit to preserve the agent's tools.
-
-    - `type BetaManagedAgentsAgentToolset20260401ParamsResp struct{…}`
-
-      Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
-
-      - `Type BetaManagedAgentsAgentToolset20260401ParamsType`
-
-        - `const BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401ParamsType = "agent_toolset_20260401"`
-
-      - `Configs []BetaManagedAgentsAgentToolConfigParamsResp`
-
-        Per-tool configuration overrides.
-
-        - `Name BetaManagedAgentsAgentToolConfigParamsName`
-
-          Built-in agent tool identifier.
-
-          - `const BetaManagedAgentsAgentToolConfigParamsNameBash BetaManagedAgentsAgentToolConfigParamsName = "bash"`
-
-          - `const BetaManagedAgentsAgentToolConfigParamsNameEdit BetaManagedAgentsAgentToolConfigParamsName = "edit"`
-
-          - `const BetaManagedAgentsAgentToolConfigParamsNameRead BetaManagedAgentsAgentToolConfigParamsName = "read"`
-
-          - `const BetaManagedAgentsAgentToolConfigParamsNameWrite BetaManagedAgentsAgentToolConfigParamsName = "write"`
-
-          - `const BetaManagedAgentsAgentToolConfigParamsNameGlob BetaManagedAgentsAgentToolConfigParamsName = "glob"`
-
-          - `const BetaManagedAgentsAgentToolConfigParamsNameGrep BetaManagedAgentsAgentToolConfigParamsName = "grep"`
-
-          - `const BetaManagedAgentsAgentToolConfigParamsNameWebFetch BetaManagedAgentsAgentToolConfigParamsName = "web_fetch"`
-
-          - `const BetaManagedAgentsAgentToolConfigParamsNameWebSearch BetaManagedAgentsAgentToolConfigParamsName = "web_search"`
-
-        - `Enabled bool`
-
-          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
-
-        - `PermissionPolicy BetaManagedAgentsAgentToolConfigParamsPermissionPolicyUnionResp`
-
-          Permission policy for tool execution.
-
-          - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-            Tool calls are automatically approved without user confirmation.
-
-            - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-              - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
-
-          - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-            Tool calls require user confirmation before execution.
-
-            - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-              - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
-      - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfigParamsResp`
-
-        Default configuration for all tools in a toolset.
-
-        - `Enabled bool`
-
-          Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
-
-        - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigParamsPermissionPolicyUnionResp`
-
-          Permission policy for tool execution.
-
-          - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-            Tool calls are automatically approved without user confirmation.
-
-          - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-            Tool calls require user confirmation before execution.
-
-    - `type BetaManagedAgentsMCPToolsetParamsResp struct{…}`
-
-      Configuration for tools from an MCP server defined in `mcp_servers`.
-
-      - `MCPServerName string`
-
-        Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
-
-      - `Type BetaManagedAgentsMCPToolsetParamsType`
-
-        - `const BetaManagedAgentsMCPToolsetParamsTypeMCPToolset BetaManagedAgentsMCPToolsetParamsType = "mcp_toolset"`
-
-      - `Configs []BetaManagedAgentsMCPToolConfigParamsResp`
-
-        Per-tool configuration overrides.
-
-        - `Name string`
-
-          Name of the MCP tool to configure. 1-128 characters.
-
-        - `Enabled bool`
-
-          Whether this tool is enabled. Overrides the `default_config` setting.
-
-        - `PermissionPolicy BetaManagedAgentsMCPToolConfigParamsPermissionPolicyUnionResp`
-
-          Permission policy for tool execution.
-
-          - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-            Tool calls are automatically approved without user confirmation.
-
-          - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-            Tool calls require user confirmation before execution.
-
-      - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfigParamsResp`
-
-        Default configuration for all tools from an MCP server.
-
-        - `Enabled bool`
-
-          Whether tools are enabled by default. Defaults to true if not specified.
-
-        - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigParamsPermissionPolicyUnionResp`
-
-          Permission policy for tool execution.
-
-          - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-            Tool calls are automatically approved without user confirmation.
-
-          - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-            Tool calls require user confirmation before execution.
-
-    - `type BetaManagedAgentsCustomToolParamsResp struct{…}`
-
-      A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
-
-      - `Description string`
-
-        Description of what the tool does, shown to the agent to help it decide when to use the tool.
-
-      - `InputSchema BetaManagedAgentsCustomToolInputSchema`
-
-        JSON Schema for custom tool input parameters.
-
-        - `Type Object`
-
-          - `const ObjectObject Object = "object"`
-
-        - `Properties map[string, any]`
-
-        - `Required []string`
-
-      - `Name string`
-
-        Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
-
-      - `Type BetaManagedAgentsCustomToolParamsType`
-
-        - `const BetaManagedAgentsCustomToolParamsTypeCustom BetaManagedAgentsCustomToolParamsType = "custom"`
-
-  - `Version int64`
-
-    The specific `agent` version to use. Omit to use the latest version.
-
-### Beta Managed Agents Branch Checkout
-
-- `type BetaManagedAgentsBranchCheckout struct{…}`
-
-  - `Name string`
-
-    Branch name to check out.
-
-  - `Type BetaManagedAgentsBranchCheckoutType`
-
-    - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
-
-### Beta Managed Agents Budget Limit
-
-- `type BetaManagedAgentsBudgetLimit struct{…}`
-
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-  - `MaxListCost BetaMonetaryAmount`
-
-    A monetary amount in a specific currency.
-
-    - `Amount string`
-
-      Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-    - `Currency BetaCurrency`
-
-      Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-      - `const BetaCurrencyUsd BetaCurrency = "USD"`
-
-  - `Type BetaManagedAgentsBudgetLimitType`
-
-    - `const BetaManagedAgentsBudgetLimitTypeLimit BetaManagedAgentsBudgetLimitType = "limit"`
-
-### Beta Managed Agents Cache Creation Usage
-
-- `type BetaManagedAgentsCacheCreationUsage struct{…}`
-
-  Prompt-cache creation token usage broken down by cache lifetime.
-
-  - `Ephemeral1hInputTokens int64`
-
-    Tokens used to create 1-hour ephemeral cache entries.
-
-  - `Ephemeral5mInputTokens int64`
-
-    Tokens used to create 5-minute ephemeral cache entries.
-
-### Beta Managed Agents Commit Checkout
-
-- `type BetaManagedAgentsCommitCheckout struct{…}`
-
-  - `Sha string`
-
-    Full commit SHA to check out.
-
-  - `Type BetaManagedAgentsCommitCheckoutType`
-
-    - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
-
-### Beta Managed Agents Deleted Session
-
-- `type BetaManagedAgentsDeletedSession struct{…}`
-
-  Confirmation that a `session` has been permanently deleted.
-
-  - `ID string`
-
-  - `Type BetaManagedAgentsDeletedSessionType`
-
-    - `const BetaManagedAgentsDeletedSessionTypeSessionDeleted BetaManagedAgentsDeletedSessionType = "session_deleted"`
-
-### Beta Managed Agents Delta Content
-
-- `type BetaManagedAgentsDeltaContent struct{…}`
-
-  - `Content BetaManagedAgentsTextBlock`
-
-    Regular text content.
-
-    - `Text string`
-
-      The text content.
-
-    - `Type BetaManagedAgentsTextBlockType`
-
-      - `const BetaManagedAgentsTextBlockTypeText BetaManagedAgentsTextBlockType = "text"`
-
-  - `Type BetaManagedAgentsDeltaContentType`
-
-    - `const BetaManagedAgentsDeltaContentTypeContentDelta BetaManagedAgentsDeltaContentType = "content_delta"`
-
-  - `Index int64`
-
-    Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
-
-### Beta Managed Agents Delta Event
-
-- `type BetaManagedAgentsDeltaEvent struct{…}`
-
-  An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
-
-  - `Delta BetaManagedAgentsDeltaContent`
-
-    One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
-
-    - `Content BetaManagedAgentsTextBlock`
-
-      Regular text content.
-
-      - `Text string`
-
-        The text content.
-
-      - `Type BetaManagedAgentsTextBlockType`
-
-        - `const BetaManagedAgentsTextBlockTypeText BetaManagedAgentsTextBlockType = "text"`
-
-    - `Type BetaManagedAgentsDeltaContentType`
-
-      - `const BetaManagedAgentsDeltaContentTypeContentDelta BetaManagedAgentsDeltaContentType = "content_delta"`
-
-    - `Index int64`
-
-      Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
-
-  - `EventID string`
-
-    The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
-
-  - `Type BetaManagedAgentsDeltaEventType`
-
-    - `const BetaManagedAgentsDeltaEventTypeEventDelta BetaManagedAgentsDeltaEventType = "event_delta"`
-
-### Beta Managed Agents Delta Type
-
-- `type BetaManagedAgentsDeltaType string`
-
-  EventDeltaType enum
-
-  - `const BetaManagedAgentsDeltaTypeAgentMessage BetaManagedAgentsDeltaType = "agent.message"`
-
-  - `const BetaManagedAgentsDeltaTypeAgentThinking BetaManagedAgentsDeltaType = "agent.thinking"`
-
-### Beta Managed Agents File Resource Params
-
-- `type BetaManagedAgentsFileResourceParamsResp struct{…}`
-
-  Mount a file uploaded via the Files API into the session.
-
-  - `FileID string`
-
-    ID of a previously uploaded file.
-
-  - `Type BetaManagedAgentsFileResourceParamsType`
-
-    - `const BetaManagedAgentsFileResourceParamsTypeFile BetaManagedAgentsFileResourceParamsType = "file"`
-
-  - `MountPath string`
-
-    Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-### Beta Managed Agents GitHub Repository Resource Params
-
-- `type BetaManagedAgentsGitHubRepositoryResourceParamsResp struct{…}`
-
-  Mount a GitHub repository into the session's container.
-
-  - `AuthorizationToken string`
-
-    GitHub authorization token used to clone the repository.
-
-  - `Type BetaManagedAgentsGitHubRepositoryResourceParamsType`
-
-    - `const BetaManagedAgentsGitHubRepositoryResourceParamsTypeGitHubRepository BetaManagedAgentsGitHubRepositoryResourceParamsType = "github_repository"`
-
-  - `URL string`
-
-    Github URL of the repository
-
-  - `Checkout BetaManagedAgentsGitHubRepositoryResourceParamsCheckoutUnionResp`
-
-    Branch or commit to check out. Defaults to the repository's default branch.
-
-    - `type BetaManagedAgentsBranchCheckout struct{…}`
-
-      - `Name string`
-
-        Branch name to check out.
-
-      - `Type BetaManagedAgentsBranchCheckoutType`
-
-        - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
-
-    - `type BetaManagedAgentsCommitCheckout struct{…}`
-
-      - `Sha string`
-
-        Full commit SHA to check out.
-
-      - `Type BetaManagedAgentsCommitCheckoutType`
-
-        - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
-
-  - `MountPath string`
-
-    Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-### Beta Managed Agents Memory Store Resource Param
-
-- `type BetaManagedAgentsMemoryStoreResourceParamResp struct{…}`
-
-  Parameters for attaching a memory store to an agent session.
-
-  - `MemoryStoreID string`
-
-    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-  - `Type BetaManagedAgentsMemoryStoreResourceParamType`
-
-    - `const BetaManagedAgentsMemoryStoreResourceParamTypeMemoryStore BetaManagedAgentsMemoryStoreResourceParamType = "memory_store"`
-
-  - `Access BetaManagedAgentsMemoryStoreResourceParamAccess`
-
-    Access mode for an attached memory store.
-
-    - `const BetaManagedAgentsMemoryStoreResourceParamAccessReadWrite BetaManagedAgentsMemoryStoreResourceParamAccess = "read_write"`
-
-    - `const BetaManagedAgentsMemoryStoreResourceParamAccessReadOnly BetaManagedAgentsMemoryStoreResourceParamAccess = "read_only"`
-
-  - `Instructions string`
-
-    Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-### Beta Managed Agents Multiagent
-
-- `type BetaManagedAgentsMultiagent struct{…}`
-
-  Resolved coordinator topology with a concrete agent roster.
-
-  - `Agents []BetaManagedAgentsMultiagentAgentUnion`
-
-    Agents the coordinator may spawn as session threads, each resolved to a specific version.
-
-    - `type BetaManagedAgentsAgentReference struct{…}`
-
-      A resolved agent reference with a concrete version.
-
-      - `ID string`
-
-      - `Type BetaManagedAgentsAgentReferenceType`
-
-        - `const BetaManagedAgentsAgentReferenceTypeAgent BetaManagedAgentsAgentReferenceType = "agent"`
-
-      - `Version int64`
-
-    - `type BetaManagedAgentsAdvisor struct{…}`
-
-      Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-      - `Model string`
-
-        The advisor model id.
-
-      - `Type BetaManagedAgentsAdvisorType`
-
-        - `const BetaManagedAgentsAdvisorTypeAdvisor BetaManagedAgentsAdvisorType = "advisor"`
-
-  - `Type BetaManagedAgentsMultiagentType`
-
-    - `const BetaManagedAgentsMultiagentTypeCoordinator BetaManagedAgentsMultiagentType = "coordinator"`
-
-### Beta Managed Agents Multiagent Params
-
-- `type BetaManagedAgentsMultiagentParamsResp struct{…}`
-
-  A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
-
-  - `Agents []BetaManagedAgentsMultiagentRosterEntryParamsUnionResp`
-
-    Agents the coordinator may spawn as session threads. 1–20 entries. Each entry is an agent ID string, a versioned `{"type":"agent","id","version"}` reference, or `{"type":"self"}` to allow recursive self-invocation. Entries must reference distinct agents (after resolving `self` and string forms); at most one `self`. Referenced agents must exist, must not be archived, and must not themselves have `multiagent` set (depth limit 1).
-
-    - `string`
-
-    - `type BetaManagedAgentsAgentParamsResp struct{…}`
-
-      Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
-
-      - `ID string`
-
-        The `agent` ID.
-
-      - `Type BetaManagedAgentsAgentParamsType`
-
-        - `const BetaManagedAgentsAgentParamsTypeAgent BetaManagedAgentsAgentParamsType = "agent"`
-
-      - `Version int64`
-
-        The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
-
-    - `type BetaManagedAgentsMultiagentSelfParamsResp struct{…}`
-
-      Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
-
-      - `Type BetaManagedAgentsMultiagentSelfParamsType`
-
-        - `const BetaManagedAgentsMultiagentSelfParamsTypeSelf BetaManagedAgentsMultiagentSelfParamsType = "self"`
-
-    - `type BetaManagedAgentsAdvisorParamsResp struct{…}`
-
-      Platform advisor roster entry: a model the session's primary thread may consult mid-turn. At most one per roster; the entry occupies the roster name `anthropic.advisor`.
-
-      - `Model string`
-
-        A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
-
-      - `Type BetaManagedAgentsAdvisorParamsType`
-
-        - `const BetaManagedAgentsAdvisorParamsTypeAdvisor BetaManagedAgentsAdvisorParamsType = "advisor"`
-
-  - `Type BetaManagedAgentsMultiagentParamsType`
-
-    - `const BetaManagedAgentsMultiagentParamsTypeCoordinator BetaManagedAgentsMultiagentParamsType = "coordinator"`
-
-### Beta Managed Agents Multiagent Roster Entry Params
-
-- `type BetaManagedAgentsMultiagentRosterEntryParamsUnionResp interface{…}`
-
-  An entry in a multiagent roster: an agent ID string, a versioned agent reference, or `self`.
-
-  - `string`
-
-  - `type BetaManagedAgentsAgentParamsResp struct{…}`
-
-    Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
-
-    - `ID string`
-
-      The `agent` ID.
-
-    - `Type BetaManagedAgentsAgentParamsType`
-
-      - `const BetaManagedAgentsAgentParamsTypeAgent BetaManagedAgentsAgentParamsType = "agent"`
-
-    - `Version int64`
-
-      The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
-
-  - `type BetaManagedAgentsMultiagentSelfParamsResp struct{…}`
-
-    Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
-
-    - `Type BetaManagedAgentsMultiagentSelfParamsType`
-
-      - `const BetaManagedAgentsMultiagentSelfParamsTypeSelf BetaManagedAgentsMultiagentSelfParamsType = "self"`
-
-  - `type BetaManagedAgentsAdvisorParamsResp struct{…}`
-
-    Platform advisor roster entry: a model the session's primary thread may consult mid-turn. At most one per roster; the entry occupies the roster name `anthropic.advisor`.
-
-    - `Model string`
-
-      A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
-
-    - `Type BetaManagedAgentsAdvisorParamsType`
-
-      - `const BetaManagedAgentsAdvisorParamsTypeAdvisor BetaManagedAgentsAdvisorParamsType = "advisor"`
-
-### Beta Managed Agents Outcome Evaluation Resource
-
-- `type BetaManagedAgentsOutcomeEvaluationResource struct{…}`
-
-  Evaluation state for a single outcome defined via a define_outcome event.
-
-  - `CompletedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Description string`
-
-    What the agent should produce.
-
-  - `Explanation string`
-
-    Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
-
-  - `Iteration int64`
-
-    0-indexed revision cycle the outcome is currently on.
-
-  - `OutcomeID string`
-
-    Server-generated outc_ ID for this outcome.
-
-  - `Result string`
-
-    Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
-
-  - `Type BetaManagedAgentsOutcomeEvaluationResourceType`
-
-    - `const BetaManagedAgentsOutcomeEvaluationResourceTypeOutcomeEvaluation BetaManagedAgentsOutcomeEvaluationResourceType = "outcome_evaluation"`
-
-### Beta Managed Agents Server Tool Usage
-
-- `type BetaManagedAgentsServerToolUsage struct{…}`
-
-  Cumulative count of server-executed tool invocations, broken down by tool.
-
-  - `WebFetchRequests int64`
-
-    Number of server-executed web fetch requests.
-
-  - `WebSearchRequests int64`
-
-    Number of server-executed web search requests.
-
-### Beta Managed Agents Session
-
-- `type BetaManagedAgentsSession struct{…}`
-
-  A Managed Agents `session`.
-
-  - `ID string`
-
-  - `Agent BetaManagedAgentsSessionAgent`
-
-    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-    - `ID string`
-
-    - `Description string`
-
-    - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-      - `Name string`
-
-      - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-        - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
-
-      - `URL string`
-
-    - `Model BetaManagedAgentsModelConfig`
-
-      Model identifier and configuration.
-
-      - `ID BetaManagedAgentsModel`
-
-        The model that will power your agent.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `type BetaManagedAgentsModel string`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
-
-            High-performance model for coding and agents
-
-          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
-
-            Best combination of speed and intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
-        - `string`
-
-      - `Effort BetaManagedAgentsModelConfigEffortUnion`
-
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-        - `type BetaManagedAgentsEffortLow struct{…}`
-
-          Low effort. Favors latency over reasoning depth.
-
-          - `Type BetaManagedAgentsEffortLowType`
-
-            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
-
-        - `type BetaManagedAgentsEffortMedium struct{…}`
-
-          Medium effort. Balances latency and reasoning depth.
-
-          - `Type BetaManagedAgentsEffortMediumType`
-
-            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
-
-        - `type BetaManagedAgentsEffortHigh struct{…}`
-
-          High effort. Favors reasoning depth.
-
-          - `Type BetaManagedAgentsEffortHighType`
-
-            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
-
-        - `type BetaManagedAgentsEffortXhigh struct{…}`
-
-          Extra-high effort. Not all models accept this level.
-
-          - `Type BetaManagedAgentsEffortXhighType`
-
-            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
-
-        - `type BetaManagedAgentsEffortMax struct{…}`
-
-          Maximum effort. Favors reasoning depth over latency.
-
-          - `Type BetaManagedAgentsEffortMaxType`
-
-            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
-
-      - `InferenceGeo string`
-
-        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-      - `Speed BetaManagedAgentsModelConfigSpeed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
-
-        - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
-
-    - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
-
-      Resolved coordinator topology with full agent definitions for each roster member.
-
-      - `Agents []BetaManagedAgentsSessionMultiagentCoordinatorAgentUnion`
-
-        Full `agent` definitions the coordinator may spawn as session threads.
-
-        - `type BetaManagedAgentsSessionThreadAgent struct{…}`
-
-          Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-          - `ID string`
-
-          - `Description string`
-
-          - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-            - `Name string`
-
-            - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-            - `URL string`
-
-          - `Model BetaManagedAgentsModelConfig`
-
-            Model identifier and configuration.
-
-          - `Name string`
-
-          - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
-
-            - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-              A resolved Anthropic-managed skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsAnthropicSkillType`
-
-                - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
-
-              - `Version string`
-
-            - `type BetaManagedAgentsCustomSkill struct{…}`
-
-              A resolved user-created custom skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsCustomSkillType`
-
-                - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
-
-              - `Version string`
-
-          - `System string`
-
-          - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
-
-            - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-              - `Configs []BetaManagedAgentsAgentToolConfig`
-
-                - `Enabled bool`
-
-                - `Name BetaManagedAgentsAgentToolConfigName`
-
-                  Built-in agent tool identifier.
-
-                  - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
-
-                  - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                    - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-                    - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                      - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
-              - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                Resolved default configuration for agent tools.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `Type BetaManagedAgentsAgentToolset20260401Type`
-
-                - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
-
-            - `type BetaManagedAgentsMCPToolset struct{…}`
-
-              - `Configs []BetaManagedAgentsMCPToolConfig`
-
-                - `Enabled bool`
-
-                - `Name string`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                Resolved default configuration for all tools from an MCP server.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `MCPServerName string`
-
-              - `Type BetaManagedAgentsMCPToolsetType`
-
-                - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
-
-            - `type BetaManagedAgentsCustomTool struct{…}`
-
-              A custom tool as returned in API responses.
-
-              - `Description string`
-
-              - `InputSchema BetaManagedAgentsCustomToolInputSchema`
-
-                JSON Schema for custom tool input parameters.
-
-                - `Type Object`
-
-                  - `const ObjectObject Object = "object"`
-
-                - `Properties map[string, any]`
-
-                - `Required []string`
-
-              - `Name string`
-
-              - `Type BetaManagedAgentsCustomToolType`
-
-                - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
-
-          - `Type BetaManagedAgentsSessionThreadAgentType`
-
-            - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
-
-          - `Version int64`
-
-        - `type BetaManagedAgentsAdvisor struct{…}`
-
-          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-          - `Model string`
-
-            The advisor model id.
-
-          - `Type BetaManagedAgentsAdvisorType`
-
-            - `const BetaManagedAgentsAdvisorTypeAdvisor BetaManagedAgentsAdvisorType = "advisor"`
-
-      - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
-
-        - `const BetaManagedAgentsSessionMultiagentCoordinatorTypeCoordinator BetaManagedAgentsSessionMultiagentCoordinatorType = "coordinator"`
-
-    - `Name string`
-
-    - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
-
-      - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-        A resolved Anthropic-managed skill.
-
-      - `type BetaManagedAgentsCustomSkill struct{…}`
-
-        A resolved user-created custom skill.
-
-    - `System string`
-
-    - `Tools []BetaManagedAgentsSessionAgentToolUnion`
-
-      - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-      - `type BetaManagedAgentsMCPToolset struct{…}`
-
-      - `type BetaManagedAgentsCustomTool struct{…}`
-
-        A custom tool as returned in API responses.
-
-    - `Type BetaManagedAgentsSessionAgentType`
-
-      - `const BetaManagedAgentsSessionAgentTypeAgent BetaManagedAgentsSessionAgentType = "agent"`
-
-    - `Version int64`
-
-  - `ArchivedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `Budget BetaManagedAgentsBudgetLimit`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `MaxListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-      - `Amount string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `Currency BetaCurrency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-        - `const BetaCurrencyUsd BetaCurrency = "USD"`
-
-    - `Type BetaManagedAgentsBudgetLimitType`
-
-      - `const BetaManagedAgentsBudgetLimitTypeLimit BetaManagedAgentsBudgetLimitType = "limit"`
-
-  - `CreatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-  - `EnvironmentID string`
-
-  - `Metadata map[string, string]`

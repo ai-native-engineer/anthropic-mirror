@@ -6,11 +6,12 @@
 
 Browse music charts & your personalized music picks
 
+* Category
+
   No items found.
 * Used in
 
   [Claude](https://claude.ai/directory/02224ef2-6652-422e-9a70-fa93f699ab8f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Kakao Entertainment](https://kakaoent.com/)
 

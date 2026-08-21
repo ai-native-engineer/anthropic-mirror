@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/csharp/beta/files/delete
 
 ## Delete File
 
-`DeletedFile Beta.Files.Delete(FileDeleteParamsparameters, CancellationTokencancellationToken = default)`
+`BetaDeletedFile Beta.Files.Delete(FileDeleteParamsparameters, CancellationTokencancellationToken = default)`
 
 **delete** `/v1/files/{file_id}`
 
@@ -69,6 +69,8 @@ Delete File
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
 
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
@@ -93,7 +95,7 @@ Delete File
 
 ### Returns
 
-- `class DeletedFile:`
+- `class BetaDeletedFile:`
 
   - `required string ID`
 
@@ -112,9 +114,9 @@ Delete File
 ```csharp
 FileDeleteParams parameters = new() { FileID = "file_id" };
 
-var deletedFile = await client.Beta.Files.Delete(parameters);
+var betaDeletedFile = await client.Beta.Files.Delete(parameters);
 
-Console.WriteLine(deletedFile);
+Console.WriteLine(betaDeletedFile);
 ```
 
 #### Response

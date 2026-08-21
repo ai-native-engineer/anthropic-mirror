@@ -6,11 +6,12 @@
 
 Quality, classroom-ready resources for anything
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/ac43e989-c883-4773-9e70-eb640e9c908a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Diffit](https://web.diffit.me)
 

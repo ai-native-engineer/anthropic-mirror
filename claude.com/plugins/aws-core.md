@@ -7,7 +7,6 @@ Build, deploy, and operate applications on AWS. Skills to author infrastructure-
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Amazon Web Services](#)
 * Installs

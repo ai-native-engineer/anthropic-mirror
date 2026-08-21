@@ -7,7 +7,6 @@ MCP server for SAP Fiori development tools for Claude Code. Build and modify SAP
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [SAP SE](#)
 * Installs

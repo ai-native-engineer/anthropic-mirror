@@ -9,7 +9,7 @@ url: https://platform.claude.com/docs/en/api/java/beta/files
 
 ## Upload File
 
-`FileMetadata beta().files().upload(FileUploadParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaFileMetadata beta().files().upload(FileUploadParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
 **post** `/v1/files`
 
@@ -67,6 +67,8 @@ Upload File
 
     - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
 
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -95,7 +97,7 @@ Upload File
 
 ### Returns
 
-- `class FileMetadata:`
+- `class BetaFileMetadata:`
 
   - `String id`
 
@@ -152,7 +154,7 @@ package com.anthropic.example;
 
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
-import com.anthropic.models.beta.files.FileMetadata;
+import com.anthropic.models.beta.files.BetaFileMetadata;
 import com.anthropic.models.beta.files.FileUploadParams;
 import java.io.ByteArrayInputStream;
 
@@ -165,7 +167,7 @@ public final class Main {
         FileUploadParams params = FileUploadParams.builder()
             .file(new ByteArrayInputStream("Example data".getBytes()))
             .build();
-        FileMetadata fileMetadata = client.beta().files().upload(params);
+        BetaFileMetadata betaFileMetadata = client.beta().files().upload(params);
     }
 }
 ```
@@ -266,6 +268,8 @@ List Files
 
     - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
 
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -290,7 +294,7 @@ List Files
 
 ### Returns
 
-- `class FileMetadata:`
+- `class BetaFileMetadata:`
 
   - `String id`
 
@@ -450,6 +454,8 @@ Download File
 
     - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
 
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -495,7 +501,7 @@ public final class Main {
 
 ## Get File Metadata
 
-`FileMetadata beta().files().retrieveMetadata(FileRetrieveMetadataParamsparams = FileRetrieveMetadataParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaFileMetadata beta().files().retrieveMetadata(FileRetrieveMetadataParamsparams = FileRetrieveMetadataParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
 **get** `/v1/files/{file_id}`
 
@@ -557,6 +563,8 @@ Get File Metadata
 
     - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
 
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -581,7 +589,7 @@ Get File Metadata
 
 ### Returns
 
-- `class FileMetadata:`
+- `class BetaFileMetadata:`
 
   - `String id`
 
@@ -638,7 +646,7 @@ package com.anthropic.example;
 
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
-import com.anthropic.models.beta.files.FileMetadata;
+import com.anthropic.models.beta.files.BetaFileMetadata;
 import com.anthropic.models.beta.files.FileRetrieveMetadataParams;
 
 public final class Main {
@@ -647,7 +655,7 @@ public final class Main {
     public static void main(String[] args) {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
-        FileMetadata fileMetadata = client.beta().files().retrieveMetadata("file_id");
+        BetaFileMetadata betaFileMetadata = client.beta().files().retrieveMetadata("file_id");
     }
 }
 ```
@@ -672,7 +680,7 @@ public final class Main {
 
 ## Delete File
 
-`DeletedFile beta().files().delete(FileDeleteParamsparams = FileDeleteParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaDeletedFile beta().files().delete(FileDeleteParamsparams = FileDeleteParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
 **delete** `/v1/files/{file_id}`
 
@@ -734,6 +742,8 @@ Delete File
 
     - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
 
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -758,7 +768,7 @@ Delete File
 
 ### Returns
 
-- `class DeletedFile:`
+- `class BetaDeletedFile:`
 
   - `String id`
 
@@ -779,7 +789,7 @@ package com.anthropic.example;
 
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
-import com.anthropic.models.beta.files.DeletedFile;
+import com.anthropic.models.beta.files.BetaDeletedFile;
 import com.anthropic.models.beta.files.FileDeleteParams;
 
 public final class Main {
@@ -788,7 +798,7 @@ public final class Main {
     public static void main(String[] args) {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
-        DeletedFile deletedFile = client.beta().files().delete("file_id");
+        BetaDeletedFile betaDeletedFile = client.beta().files().delete("file_id");
     }
 }
 ```
@@ -804,23 +814,9 @@ public final class Main {
 
 ## Domain Types
 
-### Beta File Scope
+### Beta Deleted File
 
-- `class BetaFileScope:`
-
-  - `String id`
-
-    The ID of the scoping resource (e.g., the session ID).
-
-  - `JsonValue; type "session"constant`
-
-    The type of scope (e.g., `"session"`).
-
-    - `SESSION("session")`
-
-### Deleted File
-
-- `class DeletedFile:`
+- `class BetaDeletedFile:`
 
   - `String id`
 
@@ -834,9 +830,9 @@ public final class Main {
 
     - `FILE_DELETED("file_deleted")`
 
-### File Metadata
+### Beta File Metadata
 
-- `class FileMetadata:`
+- `class BetaFileMetadata:`
 
   - `String id`
 
@@ -885,3 +881,17 @@ public final class Main {
       The type of scope (e.g., `"session"`).
 
       - `SESSION("session")`
+
+### Beta File Scope
+
+- `class BetaFileScope:`
+
+  - `String id`
+
+    The ID of the scoping resource (e.g., the session ID).
+
+  - `JsonValue; type "session"constant`
+
+    The type of scope (e.g., `"session"`).
+
+    - `SESSION("session")`

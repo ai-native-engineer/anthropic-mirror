@@ -7,7 +7,6 @@ SAPUI5 / OpenUI5 plugin for Claude. Convert JavaScript based UI5 projects to Typ
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   2089

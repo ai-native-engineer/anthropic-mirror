@@ -6,11 +6,12 @@
 
 Food delivery & Reservations
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/9fdea30e-d57f-44d0-a60e-b4c8a8d5b1ef)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [DoorDash](https://www.doordash.com/)
 

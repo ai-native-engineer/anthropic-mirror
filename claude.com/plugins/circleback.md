@@ -7,7 +7,6 @@ Circleback conversational context integration. Search and access meetings, email
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Circleback](https://circleback.ai)
 * Installs

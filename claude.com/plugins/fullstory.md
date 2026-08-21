@@ -7,7 +7,6 @@ Connect Claude to Fullstory to query behavioral analytics, session replays, and 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Fullstory](#)
 * Installs

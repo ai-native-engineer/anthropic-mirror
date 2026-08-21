@@ -39,5 +39,3 @@ As part of this Safety by Design effort, Anthropic is [committed to the Safety b
 * Leverage Open Source Intelligence (OSINT) capabilities to understand how our platforms, products and models are potentially being abused by bad actors.
 
 More detailed information about the principles which we and other organizations have signed up to can be found in the white paper: [Safety by Design for Generative AI: Preventing Child Sexual Abuse](https://info.thorn.org/hubfs/thorn-safety-by-design-for-generative-AI.pdf).
-
-Aligning on child safety principles \ Anthropic

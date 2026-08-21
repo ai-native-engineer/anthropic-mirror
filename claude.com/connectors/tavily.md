@@ -6,11 +6,12 @@
 
 Connect your AI agents to the web
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/d8a25d2a-e5ea-4860-b990-277244df5417)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Tavily](https://www.tavily.com)
 

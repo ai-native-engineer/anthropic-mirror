@@ -6,11 +6,12 @@
 
 Access your Xero financials from any conversation
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/4c1fcb68-c482-46c5-a677-659eaf2f2c85)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Xero Limited](https://www.xero.com/)
 

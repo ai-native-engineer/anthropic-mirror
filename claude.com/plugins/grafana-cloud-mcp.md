@@ -7,7 +7,6 @@ Hosted MCP server for AI-assisted Grafana Cloud observability — no local insta
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Grafana](#)
 * Installs

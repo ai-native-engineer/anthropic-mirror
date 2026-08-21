@@ -17,7 +17,7 @@ Whether you are just starting the process of setting up safeguards for your API 
 * Create customization frameworks that restrict end-user interactions with Claude to a limited set of prompts or only allow Claude to review a specific knowledge corpus that you already have, which will decrease the ability of users to engage in violative behavior.
 * Enable additional safety filters - free real-time moderation tooling built by Anthropic for helping detect potentially harmful prompts and managing real-time actions to reduce harm
 
-  + For more information about how to enable our additional safety filters, please reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#c8bdbbadbabba9aeadbcb188a9a6bca0baa7b8a1abe6aba7a5).
+  + For more information about how to enable our additional safety filters, please reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#720701170001131417060b32131c061a001d021b115c111d1f).
 * *For Bedrock Customers:*
 
   + Activate your private S3 bucket in order to store prompts and completions for your own evaluation

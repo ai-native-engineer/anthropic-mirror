@@ -7,7 +7,6 @@ OpenTelemetry observability for Claude Code sessions. Captures tool calls, LLM i
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Dash0](#)
 * Installs

@@ -6,13 +6,14 @@
 
 Manage, transform and deliver your images & videos
 
+* Category
+
   Data
 
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/c93e842b-830f-4b4a-bbd1-6e3af0199a8f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Cloudinary](https://cloudinary.com/)
 

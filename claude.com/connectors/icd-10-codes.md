@@ -6,11 +6,12 @@
 
 Access ICD-10-CM and ICD-10-PCS code sets
 
+* Category
+
   Health and wellness
 * Used in
 
   [Claude](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-icd-10-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 

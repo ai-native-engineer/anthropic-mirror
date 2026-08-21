@@ -8,7 +8,6 @@ Rust language server for code intelligence and analysis
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

@@ -6,11 +6,12 @@
 
 Build powerful communications and customer engagement
 
+* Category
+
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/0f28b719-ce6a-4597-83a6-ff5b2d5b17c5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Twilio](https://twilio.com)
 

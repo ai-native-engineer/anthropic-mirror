@@ -7,7 +7,6 @@ Asana integration: Create and manage tasks, search projects, update assignments,
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Asana](https://asana.com)
 * Installs

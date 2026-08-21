@@ -7,7 +7,6 @@ Ad management for Google, Meta, TikTok & LinkedIn. 91 tools for keyword research
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Adspirer](https://www.adspirer.com)
 * Installs

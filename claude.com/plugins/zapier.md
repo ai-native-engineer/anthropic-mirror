@@ -7,7 +7,6 @@ Connect 8,000+ apps to your AI workflow. Discover, enable, and execute Zapier ac
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   3302

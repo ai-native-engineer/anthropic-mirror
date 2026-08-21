@@ -7,7 +7,6 @@ Claude learns brainstorming, subagent development with code review, debugging, T
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Jesse Vincent](https://github.com/obra/superpowers)
 * Installs

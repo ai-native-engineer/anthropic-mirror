@@ -6,11 +6,12 @@
 
 Access the HF Hub and thousands of Gradio Apps
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/37ed56d5-9d61-4fd4-ad00-b9134c694296)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [HuggingFace](https://huggingface.co)
 

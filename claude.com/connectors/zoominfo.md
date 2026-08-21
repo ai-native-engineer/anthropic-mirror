@@ -6,11 +6,12 @@
 
 Enrich contacts & accounts with GTM intelligence
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/f2cdf1b8-2f75-48a4-8d8c-8d9cce1b8643)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [ZoomInfo Technologies Inc.](https://www.zoominfo.com/)
 

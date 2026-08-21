@@ -6,11 +6,12 @@
 
 Job search made easy
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/8f48727e-897b-4012-8427-147b4ce5719a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [ZipRecruiter Inc.](https://www.ziprecruiter.com/)
 

@@ -7,7 +7,6 @@ Official JFrog plugin. Connect Claude Code to JFrog to manage, secure and govern
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [JFrog](https://jfrog.com/)
 * Installs

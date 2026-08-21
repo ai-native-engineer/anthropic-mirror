@@ -6,11 +6,12 @@
 
 Manage documents, send signature requests, and convert Markdown to PDF
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/b04d70ca-c220-4d15-b7c9-e2eb6ace0a2c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Lumin PDF](https://www.luminpdf.com)
 

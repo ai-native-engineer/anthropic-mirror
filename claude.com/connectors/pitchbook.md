@@ -6,11 +6,12 @@
 
 PitchBook data, embedded in the way you work.
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/79c545e3-8878-4557-bcbb-3add11c86890)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [PitchBook](https://pitchbook.com/)
 

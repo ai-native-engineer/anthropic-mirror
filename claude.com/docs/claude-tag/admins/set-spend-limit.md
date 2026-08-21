@@ -8,13 +8,14 @@
 
 [Skip to main content](#content-area)
 
-[1 · Pair workspace](https://claude.com/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/claude-tag/admins/add-connections)[3 · Spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit)[4 · See it work](https://claude.com/docs/claude-tag/admins/test-it)
+[1 · Pair workspace](https://claude.com/docs/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/docs/claude-tag/admins/add-connections)[3 · Spend limit](https://claude.com/docs/docs/claude-tag/admins/set-spend-limit)[4 · See it work](https://claude.com/docs/docs/claude-tag/admins/test-it)
 
 Work Claude does in channels bills to your **organization’s usage balance**, not to individual seats. The **spend limit** is a cap you set on how much of that balance Claude Tag can use each billing period.
 
 | Work | Bills to | Capped by |
 | --- | --- | --- |
 | Channel work | Your organization’s usage balance | The spend limit, plus any [per-channel limits](https://claude.com/docs/claude-tag/admins/restrict-access#set-spend-limits) |
+| Reading a channel, [deciding whether to reply](https://claude.com/docs/claude-tag/users/when-claude-responds#what-claude-does-with-a-channel-message), and short replies from what Claude already knows | Nothing | Not counted toward any limit. A working session Claude starts from the channel is channel work, above |
 | A DM with Claude | The sender’s own seat | The seat’s usual limits, not the spend limit |
 
 ##  Whether this step is required depends on your plan

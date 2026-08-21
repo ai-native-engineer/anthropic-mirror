@@ -7,7 +7,6 @@ Official Claude plugin for MongoDB (MCP Server + Skills). Connect to databases, 
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   8702

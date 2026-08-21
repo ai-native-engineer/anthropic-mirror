@@ -12,7 +12,7 @@ Claude Tag’s behavior is shaped by four layers, each set in a different place:
 
 | Layer | What it is | Who sets it | Where |
 | --- | --- | --- | --- |
-| **Connections** | Credentials for the systems Claude can reach (GitHub, Drive, Datadog, your APIs) | Owner | [Access bundles](https://claude.com/docs/claude-tag/admins/add-connections) |
+| **Connections** | Credentials for the systems Claude can reach (GitHub, Drive, Datadog, your APIs) | Owner; a [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) for their assigned channels | [Access bundles](https://claude.com/docs/claude-tag/admins/add-connections), or the channel’s Configure page for a channel manager |
 | **Plugins and skills** | Instructions that teach Claude how to use a tool or follow a process. A plugin bundles one or more [skills](https://code.claude.com/docs/en/skills). | Owner | [Bundle Plugins tab](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins) or a [skills repository](https://claude.com/docs/claude-tag/admins/skills-repo) |
 | **Custom instructions** | Standing guidance read in every session at a scope (team conventions, output formats). Outranks channel memory. | Owner for any scope; channel members for the channel scope, from the [Configure page](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel) | [Per-scope instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions) |
 | **Channel memory** | Facts Claude saves while working in a channel | Anyone in the channel | By [telling Claude](https://claude.com/docs/claude-tag/users/memory) |
@@ -31,7 +31,7 @@ Access and organization-wide behavior are set at [`claude.ai/admin-settings/clau
 | Connections | Which systems it can reach from each channel | [Add connections](https://claude.com/docs/claude-tag/admins/add-connections) |
 | Default model | Which Claude model handles sessions in a scope | [Choose the model for a scope](#choose-the-model-for-a-scope) |
 | Auto mode allow rules | Actions pre-approved in a scope’s sessions that Claude’s permission checker would otherwise flag or stop | [Auto mode allow rules](#auto-mode-allow-rules) |
-| Environment | Which cloud environment a scope’s sessions run in. Only [organization-shared environments](https://code.claude.com/docs/en/cloud-environments#organization-shared-environments) appear in the picker, because Claude runs channel sessions with no user account attached. | [Channel environment troubleshooting](https://claude.com/docs/claude-tag/admins/troubleshooting#channel-sessions-use-the-wrong-environment-or-can%E2%80%99t-find-one) |
+| Environment | Which cloud environment a scope’s sessions run in. The picker shows [organization-shared cloud environments](https://code.claude.com/docs/en/cloud-environments#organization-shared-environments), plus runner pools for organizations that use [self-hosted environments](https://code.claude.com/docs/en/self-hosted-environments-quickstart). Environments on an individual account never appear, because Claude runs channel sessions with no user account attached. | [Channel environment troubleshooting](https://claude.com/docs/claude-tag/admins/troubleshooting#channel-sessions-use-the-wrong-environment-or-can%E2%80%99t-find-one) |
 | Claude Tag version | Which generation answers (New, Legacy, or Off) in a scope | [Migrate from the earlier Claude in Slack](https://claude.com/docs/claude-tag/admins/restrict-access#migrate-from-the-earlier-claude-in-slack) |
 
 ###  Channel connections are separate from personal connectors
@@ -53,6 +53,8 @@ Everything in the table below is open to channel members, with no admin involved
 
 Changes in the table above are saved to channel memory; verify one stuck by asking what it remembers.
 Members can also tailor how Claude works in the channel from its Configure page on claude.ai. The **Configure** link in the footer of any Claude reply opens it, and if a member sends [`@Claude !configure`](https://claude.com/docs/claude-tag/users/commands#get-the-link-to-configure-a-channel) in the channel, Claude replies with a link to it. Anyone in the channel who is also a member of your Claude organization can edit settings for that channel there, unless an admin has [restricted editing to admins](https://claude.com/docs/claude-tag/admins/attach-to-scope#restrict-who-can-set-channel-instructions). The **Channel instructions** field on that page holds standing guidance that outranks memory. See [configure Claude for a channel](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel).
+The Configure page also shows the channel’s resolved access, read-only. Its **Connections** tab lists the channel’s resolved connections, which admins set in admin settings. Its **Routines** tab lists the channel’s [routines](https://claude.com/docs/claude-tag/users/proactivity) with each one’s schedule, status, and last run.
+On the Enterprise plan, an Owner can name [channel managers](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) for a channel. They set the channel’s default model, repositories, and connections from the same page.
 
 ##  Choose the model for a scope
 

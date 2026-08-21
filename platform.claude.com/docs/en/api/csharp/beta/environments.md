@@ -181,6 +181,8 @@ Create a new environment with the specified configuration.
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
 
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
@@ -307,9 +309,9 @@ Create a new environment with the specified configuration.
 
     RFC 3339 timestamp when environment was created
 
-  - `required string Description`
+  - `required string? Description`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `required IReadOnlyDictionary<string, string> Metadata`
 
@@ -466,6 +468,8 @@ List environments with pagination support.
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
 
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
@@ -599,9 +603,9 @@ List environments with pagination support.
 
       RFC 3339 timestamp when environment was created
 
-    - `required string Description`
+    - `required string? Description`
 
-      User-provided description for the environment
+      User-provided description for the environment; null when unset
 
     - `required IReadOnlyDictionary<string, string> Metadata`
 
@@ -759,6 +763,8 @@ Retrieve a specific environment by ID.
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
 
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
@@ -885,9 +891,9 @@ Retrieve a specific environment by ID.
 
     RFC 3339 timestamp when environment was created
 
-  - `required string Description`
+  - `required string? Description`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `required IReadOnlyDictionary<string, string> Metadata`
 
@@ -1087,7 +1093,7 @@ Update an existing environment's configuration.
 
   - `string? description`
 
-    Body param: Updated description of the environment
+    Body param: Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
 
   - `IReadOnlyDictionary<string, string> metadata`
 
@@ -1152,6 +1158,8 @@ Update an existing environment's configuration.
     - `"output-300k-2026-03-24"Output300k2026_03_24`
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
+
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
 
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
@@ -1279,9 +1287,9 @@ Update an existing environment's configuration.
 
     RFC 3339 timestamp when environment was created
 
-  - `required string Description`
+  - `required string? Description`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `required IReadOnlyDictionary<string, string> Metadata`
 
@@ -1431,6 +1439,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
 
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
@@ -1552,6 +1562,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
     - `"output-300k-2026-03-24"Output300k2026_03_24`
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
+
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
 
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
@@ -1679,9 +1691,9 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     RFC 3339 timestamp when environment was created
 
-  - `required string Description`
+  - `required string? Description`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `required IReadOnlyDictionary<string, string> Metadata`
 
@@ -2035,9 +2047,9 @@ Console.WriteLine(betaEnvironment);
 
     RFC 3339 timestamp when environment was created
 
-  - `required string Description`
+  - `required string? Description`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `required IReadOnlyDictionary<string, string> Metadata`
 
@@ -2302,6 +2314,8 @@ Retrieve detailed information about a specific work item.
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
 
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
@@ -2517,6 +2531,8 @@ Long poll for work items in the queue.
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
 
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
@@ -2730,6 +2746,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
     - `"output-300k-2026-03-24"Output300k2026_03_24`
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
+
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
 
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
@@ -2950,6 +2968,8 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
 
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
@@ -3107,6 +3127,8 @@ Stop a work item, initiating graceful or forced shutdown.
     - `"output-300k-2026-03-24"Output300k2026_03_24`
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
+
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
 
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
@@ -3322,6 +3344,8 @@ List work items in an environment.
     - `"output-300k-2026-03-24"Output300k2026_03_24`
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
+
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
 
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
@@ -3548,6 +3572,8 @@ Update work item metadata with merge semantics.
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
 
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
@@ -3751,6 +3777,8 @@ Get statistics about the work queue for an environment.
     - `"output-300k-2026-03-24"Output300k2026_03_24`
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
+
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
 
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 

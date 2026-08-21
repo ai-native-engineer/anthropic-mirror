@@ -7,7 +7,6 @@ Create, edit, review, resize, and brand-check Canva designs with the Canva MCP s
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Canva](https://www.canva.com)
 * Installs

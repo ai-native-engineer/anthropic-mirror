@@ -6,13 +6,14 @@
 
 Create flowcharts, mindmaps, wireframes and diagrams
 
+* Category
+
   Design
 
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/9b75f9c6-c443-4b88-96ff-f33234d4f135)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Whimsical](https://whimsical.com)
 

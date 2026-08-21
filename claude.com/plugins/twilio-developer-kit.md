@@ -7,7 +7,6 @@ Twilio Skills provide procedural knowledge for AI coding agents
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Twilio](https://twilio.com)
 * Installs

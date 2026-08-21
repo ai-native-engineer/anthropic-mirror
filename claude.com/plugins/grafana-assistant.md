@@ -7,7 +7,6 @@ Skills and rules for developing and using the Grafana Assistant app and CLI.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Grafana](#)
 * Installs

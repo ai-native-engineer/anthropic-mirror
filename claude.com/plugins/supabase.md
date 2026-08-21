@@ -7,7 +7,6 @@ Supabase MCP: Database ops, auth, storage, real-time. Manage projects, run SQL, 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Supabase](https://supabase.com)
 * Installs

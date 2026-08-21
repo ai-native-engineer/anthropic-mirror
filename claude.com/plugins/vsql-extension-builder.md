@@ -7,7 +7,6 @@ Builds a VillageSQL extension for MySQL end-to-end through a 7-phase persona-dri
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [VillageSQL](https://github.com/villagesql)
 * Installs

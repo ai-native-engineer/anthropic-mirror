@@ -6,11 +6,12 @@
 
 Compare hotels, then book direct
 
+* Category
+
   No items found.
 * Used in
 
   [Claude](https://claude.ai/directory/97369a45-f230-4124-9b9b-2944a26bca46)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [DirectBooker, Inc](https://www.directbooker.ai)
 

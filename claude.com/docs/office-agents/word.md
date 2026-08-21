@@ -9,8 +9,6 @@ styles.
 Claude for Word is generally available to Pro, Max, Team,
 and Enterprise plans.
 
-##  What you can do
-
 With Claude for Word, you can:
 
 * Ask questions about your document and get answers with clickable
@@ -30,8 +28,6 @@ With Claude for Word, you can:
 
 ##  Get started with Claude for Word
 
-###  Supported versions
-
 Claude for Word runs on the following Word builds.
 
 * Word on the web
@@ -39,58 +35,23 @@ Claude for Word runs on the following Word builds.
   build 15202.10000 or later
 * Word on Mac, version 16.61, build 22040100 or later
 
-###  Install for yourself
-
-Open the marketplace listing
-
 Go to the [Claude for Microsoft 365 listing on Microsoft AppSource](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview).
-
-Install the add-in
-
-Select “Get it now” to install.
 
 Sign in
 
 Open Word, activate the add-in, and sign in with your Claude
 account.
 
-###  Deploy to your organization
-
 Organization admins can deploy Claude for Word through the Microsoft
 365 Admin Center.
 
-Allow Office Store access
-
-In the [Microsoft 365 Admin Center](https://admin.microsoft.com), go
-to Settings, Org Settings, User owned apps and services, and turn on
-[“Let users access the Office Store”](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-addins-in-the-admin-center).
-
-Open Integrated apps
-
 Go to Settings, Integrated apps, Add-ins.
 
-Find the add-in
-
 Search for “Claude for Microsoft 365” in Microsoft AppSource.
-
-4
-
-Deploy
 
 Assign the add-in to your organization or to specific users or
 groups. Share [Microsoft’s deployment guide](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins)
 with your team for activation steps.
-
-If your organization uses Microsoft Entra Privileged Identity
-Management (PIM) for admin roles, the Integrated apps page does not
-recognize roles activated through PIM, so deployment fails. This is a
-[known Microsoft issue](https://learn.microsoft.com/en-us/office/dev/add-ins/resources/resources-office-add-in-known-issues),
-tracking ID 11126536. To work around it, deploy from an admin account
-with the required role assigned as permanently active rather than
-PIM-eligible. See
-[Microsoft’s troubleshooting guidance](https://learn.microsoft.com/en-us/troubleshoot/microsoft-365/admin/miscellaneous/cannot-deploy-add-in-integrated-apps-menu).
-Individual users can still
-[install the add-in themselves](#install-for-yourself).
 
 After deployment, users can activate the Claude add-in from Tools,
 Add-ins on Mac or Home, Add-ins on Windows, sign in, and start working.
@@ -119,14 +80,12 @@ Upload the custom add-in
 Select “Upload custom apps”, choose “Office Add-in”, then
 “I have a manifest file on this device”. Upload the manifest.
 
-4
-
 Assign users
 
 Choose entire organization, specific users, specific groups, or just
 yourself for admin testing.
 
-Deploy
+5
 
 Review settings and select “Deploy”. The add-in is available within
 minutes. Full organization rollout can take up to 24 hours.
@@ -134,12 +93,9 @@ minutes. Full organization rollout can take up to 24 hours.
 After deployment, users see Claude in Word’s Home ribbon and sign in
 with their Claude credentials on first use.
 
-###  Connect through a third-party platform
-
 If your organization routes AI traffic through Amazon Bedrock, Google Cloud
 Vertex AI, Azure AI Foundry, or an LLM gateway, your admin can deploy
 the add-in without individual Claude accounts. See
-[Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms).
 
 ##  Key features
 
@@ -247,12 +203,9 @@ workflow.
 Instructions you set in Word only apply to Word. They are separate from
 Instructions you set in Excel or PowerPoint.
 
-##  Work across M365 apps
-
 Claude for Word shares context with Claude for Excel, PowerPoint, and
 Outlook, so a single conversation can span your open document,
 workbook, deck, and inbox. See
-[Work across M365 apps](https://claude.com/docs/office-agents/work-across-apps).
 
 ##  Context and session management
 
@@ -281,14 +234,10 @@ admin’s configuration instead of your Claude.ai model access settings.
 See [Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms)
 for details.
 
-##  Data handling
-
 Inputs and outputs are deleted on the backend within 30 days of receipt
 or generation, except in cases outlined in
-[How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data).
 Data is cached for a number of hours after deletion so users can access
 context in recently closed documents.
-Chat history is stored locally in your browser using IndexedDB.
 Conversations are not stored on Anthropic’s servers, are not synced
 across devices, and can be cleared from Settings at any time.
 Reinstalling the add-in or switching between Claude add-ins does not
@@ -301,8 +250,6 @@ Claude reads the content of your currently open document, including
 text, comments, tracked changes, footnotes, tables, and bookmarks. It
 only accesses the document you have open in Word. For highly sensitive
 or regulated data, follow your organization’s data handling policies.
-
-##  Current limitations
 
 Claude for Word is not recommended for:
 

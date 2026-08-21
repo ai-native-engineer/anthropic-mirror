@@ -5,7 +5,7 @@ If you receive the following message, "The email you used is either associated w
 If your previous account was disabled for [Usage Policy violations](https://www.anthropic.com/legal/aup), you won't be able to create new accounts with the email address associated with the disabled account, regardless of waiting period.
 
 * [Safeguards warnings and appeals](https://support.claude.com/en/articles/8241253-safeguards-warnings-and-appeals)
-* [How can I delete my Claude account?](https://support.claude.com/en/articles/9028421-how-can-i-delete-my-claude-account)
+* [Delete your Claude account](https://support.claude.com/en/articles/9028421-delete-your-claude-account)
 * [Creating and managing Workspaces in the Claude Console](https://support.claude.com/en/articles/9796807-creating-and-managing-workspaces-in-the-claude-console)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
 * [Log in to your Console account](https://support.claude.com/en/articles/13371040-log-in-to-your-console-account)

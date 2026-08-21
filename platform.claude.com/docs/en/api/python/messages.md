@@ -82,11 +82,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   There is a limit of 100,000 messages in a single request.
 
-  - `content: Union[str, List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 15 more]]]`
+  - `content: Union[str, List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 14 more]]]`
 
     - `str`
 
-    - `List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 15 more]]`
+    - `List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 14 more]]`
 
       - `class TextBlockParam: …`
 
@@ -255,6 +255,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `url: str`
 
+          - `class FileImageSource: …`
+
+            - `file_id: str`
+
+            - `type: Literal["file"]`
+
+              - `"file"`
+
         - `type: Literal["image"]`
 
           - `"image"`
@@ -262,6 +270,18 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `cache_control: Optional[CacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
+
+        - `transformations: Optional[ImageTransformationsParam]`
+
+          Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+          - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+            What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+            - `"downsize"`
+
+            - `"error"`
 
       - `class DocumentBlockParam: …`
 
@@ -314,6 +334,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               - `"url"`
 
             - `url: str`
+
+          - `class FileDocumentSource: …`
+
+            - `file_id: str`
+
+            - `type: Literal["file"]`
+
+              - `"file"`
 
         - `type: Literal["document"]`
 
@@ -431,6 +459,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `"code_execution_20260120"`
 
+        - `toolset_name: Optional[str]`
+
+          For a toolset member tool_use, the toolset family this member belongs to.
+
       - `class ToolResultBlockParam: …`
 
         - `tool_use_id: str`
@@ -471,7 +503,134 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 Create a cache control breakpoint at this content block.
 
+            - `class BrowserStateBlockParam: …`
+
+              The caller's browser state after a browser toolset member call —
+              the full inventory of open tabs, which tab is active, and any side
+              effects (tabs opened, download state changes) the call produced.
+
+              At most one per `tool_result`, only on a non-error result answering a
+              browser toolset member `tool_use`. The server renders the
+              model-visible text from it; the model never sees the raw fields.
+
+              - `tabs: List[BrowserStateTabEntry]`
+
+                All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+                - `tab_id: str`
+
+                  The caller-assigned identifier for this tab, unique within the inventory.
+
+                - `title: str`
+
+                  The title of the page the tab is showing. May be empty.
+
+                - `url: str`
+
+                  The URL of the page the tab is showing. May be empty.
+
+                - `active: Optional[bool]`
+
+                  Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+              - `type: Literal["browser_state"]`
+
+                - `"browser_state"`
+
+              - `cache_control: Optional[CacheControlEphemeral]`
+
+                Create a cache control breakpoint at this content block.
+
+              - `state_changes: Optional[List[BrowserStateChange]]`
+
+                Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                - `class BrowserStateChangeTabOpened: …`
+
+                  A tab this call's execution opened that remains open at its end —
+                  the creation delta of the `tabs` inventory, not an event log.
+
+                  Carries only the `tab_id`; the tab's `title` and `url` live on its
+                  `tabs` entry, which must include the same `tab_id`. A tab opened
+                  during a failed call gets no deferred `tab_opened`; it simply appears
+                  in the next result's `tabs` inventory.
+
+                  - `tab_id: str`
+
+                    The `tab_id` of the opened tab, present in `tabs`.
+
+                  - `type: Literal["tab_opened"]`
+
+                    - `"tab_opened"`
+
+                - `class BrowserStateChangeDownloadStarted: …`
+
+                  A file download that started during this call.
+
+                  - `download_id: str`
+
+                    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                  - `type: Literal["download_started"]`
+
+                    - `"download_started"`
+
+                  - `url: str`
+
+                    The final post-redirect URL the download was served from.
+
+                - `class BrowserStateChangeDownloadCompleted: …`
+
+                  A file download that finished during this call, reported with the
+                  same `download_id` as its `download_started` — or without a prior
+                  `download_started`, when the download finished during the call that
+                  started it (at most one state change per `download_id` per result).
+
+                  - `download_id: str`
+
+                    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                  - `type: Literal["download_completed"]`
+
+                    - `"download_completed"`
+
+                  - `url: str`
+
+                    The final post-redirect URL the download was served from.
+
+                  - `path: Optional[str]`
+
+                    Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+                  - `size_bytes: Optional[int]`
+
+                    The completed download's size.
+
+                - `class BrowserStateChangeDownloadFailed: …`
+
+                  A file download that failed — or was cancelled — during this call.
+
+                  - `download_id: str`
+
+                    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                  - `type: Literal["download_failed"]`
+
+                    - `"download_failed"`
+
+                  - `url: str`
+
+                    The final post-redirect URL the download was served from.
+
+                  - `error: Optional[str]`
+
+                    The failure or cancellation detail, when known.
+
         - `is_error: Optional[bool]`
+
+        - `toolset_name: Optional[str]`
+
+          For a toolset member tool_result, the toolset family of the paired tool_use.
 
       - `class ServerToolUseBlockParam: …`
 
@@ -916,35 +1075,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Create a cache control breakpoint at this content block.
 
-      - `class MidConversationSystemBlockParam: …`
-
-        System instructions that appear mid-conversation.
-
-        Use this block to provide or update system-level instructions at a specific
-        point in the conversation, rather than only via the top-level `system` parameter.
-
-        - `content: List[TextBlockParam]`
-
-          System instruction text blocks.
-
-          - `text: str`
-
-          - `type: Literal["text"]`
-
-          - `cache_control: Optional[CacheControlEphemeral]`
-
-            Create a cache control breakpoint at this content block.
-
-          - `citations: Optional[List[TextCitationParam]]`
-
-        - `type: Literal["mid_conv_system"]`
-
-          - `"mid_conv_system"`
-
-        - `cache_control: Optional[CacheControlEphemeral]`
-
-          Create a cache control breakpoint at this content block.
-
   - `role: Literal["user", "assistant", "system"]`
 
     - `"user"`
@@ -1047,9 +1177,39 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-- `container: Optional[str]`
+- `container: Optional[MessageCreateParamsContainerParam]`
 
   Container identifier for reuse across requests.
+
+  - `class ContainerParams: …`
+
+    Container parameters with skills to be loaded.
+
+    - `id: Optional[str]`
+
+      Container id
+
+    - `skills: Optional[List[SkillParams]]`
+
+      List of skills to load in the container
+
+      - `skill_id: str`
+
+        Skill ID
+
+      - `type: Literal["anthropic", "custom"]`
+
+        Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+        - `"anthropic"`
+
+        - `"custom"`
+
+      - `version: Optional[str]`
+
+        Skill version or 'latest' for most recent version
+
+  - `str`
 
 - `inference_geo: Optional[str]`
 
@@ -1567,6 +1727,412 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       When true, guarantees schema validation on tool names and inputs
 
+  - `class BrowserToolset20260801: …`
+
+    The browser toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the browser tool family. The model is served
+    the family's tool with any members disabled via `configs` removed
+    from its schema.
+
+    - `type: Literal["browser_toolset_20260801"]`
+
+      - `"browser_toolset_20260801"`
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[CacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[BrowserToolsetConfigs]`
+
+      Per-member configuration for `browser_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+      - `close_tab: Optional[BrowserCloseTabConfig]`
+
+        `close_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: Optional[BrowserDoubleClickConfig]`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `file_upload: Optional[BrowserFileUploadConfig]`
+
+        `file_upload`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `find: Optional[BrowserFindConfig]`
+
+        `find`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `form_input: Optional[BrowserFormInputConfig]`
+
+        `form_input`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `get_page_text: Optional[BrowserGetPageTextConfig]`
+
+        `get_page_text`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: Optional[BrowserHoldKeyConfig]`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hover: Optional[BrowserHoverConfig]`
+
+        `hover`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `javascript_exec: Optional[BrowserJavascriptExecConfig]`
+
+        `javascript_exec`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: Optional[BrowserKeyConfig]`
+
+        `key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: Optional[BrowserLeftClickConfig]`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: Optional[BrowserLeftClickDragConfig]`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: Optional[BrowserLeftMouseDownConfig]`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: Optional[BrowserLeftMouseUpConfig]`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `list_tabs: Optional[BrowserListTabsConfig]`
+
+        `list_tabs`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: Optional[BrowserMiddleClickConfig]`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: Optional[BrowserMouseMoveConfig]`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `navigate: Optional[BrowserNavigateConfig]`
+
+        `navigate`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `new_tab: Optional[BrowserNewTabConfig]`
+
+        `new_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_console: Optional[BrowserReadConsoleConfig]`
+
+        `read_console`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_network: Optional[BrowserReadNetworkConfig]`
+
+        `read_network`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_page: Optional[BrowserReadPageConfig]`
+
+        `read_page`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: Optional[BrowserRightClickConfig]`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: Optional[BrowserScreenshotConfig]`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: Optional[BrowserScrollConfig]`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll_to: Optional[BrowserScrollToConfig]`
+
+        `scroll_to`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `switch_tab: Optional[BrowserSwitchTabConfig]`
+
+        `switch_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: Optional[BrowserTripleClickConfig]`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `type: Optional[BrowserTypeConfig]`
+
+        `type`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: Optional[BrowserWaitConfig]`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: Optional[BrowserZoomConfig]`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
   - `class MemoryTool20250818: …`
 
     - `name: Literal["memory"]`
@@ -1604,6 +2170,248 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
+
+  - `class ComputerToolset20260801: …`
+
+    The computer toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the computer tool family. The model is
+    served the family's tool with any members disabled via `configs`
+    removed from its schema. Every member is enabled by default, zoom
+    included. The single-tool options `display_number` and
+    `enable_zoom` are not fields of a toolset entry — it carries only
+    `type`, `configs`, and `cache_control`; zoom is controlled
+    via `configs.zoom.enabled`.
+
+    - `type: Literal["computer_toolset_20260801"]`
+
+      - `"computer_toolset_20260801"`
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[CacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[ComputerToolsetConfigs]`
+
+      Per-member configuration for `computer_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+      - `cursor_position: Optional[ComputerCursorPositionConfig]`
+
+        `cursor_position`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: Optional[ComputerDoubleClickConfig]`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: Optional[ComputerHoldKeyConfig]`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: Optional[ComputerKeyConfig]`
+
+        `key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: Optional[ComputerLeftClickConfig]`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: Optional[ComputerLeftClickDragConfig]`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: Optional[ComputerLeftMouseDownConfig]`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: Optional[ComputerLeftMouseUpConfig]`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: Optional[ComputerMiddleClickConfig]`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: Optional[ComputerMouseMoveConfig]`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: Optional[ComputerRightClickConfig]`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: Optional[ComputerScreenshotConfig]`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: Optional[ComputerScrollConfig]`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: Optional[ComputerTripleClickConfig]`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `type: Optional[ComputerTypeConfig]`
+
+        `type`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: Optional[ComputerWaitConfig]`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: Optional[ComputerZoomConfig]`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
   - `class ToolTextEditor20250124: …`
 
@@ -2267,6 +3075,26 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The time at which the container will expire.
 
+    - `skills: Optional[List[ContainerSkill]]`
+
+      Skills loaded in the container
+
+      - `skill_id: str`
+
+        Skill ID
+
+      - `type: Literal["anthropic", "custom"]`
+
+        Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+        - `"anthropic"`
+
+        - `"custom"`
+
+      - `version: str`
+
+        Skill version or 'latest' for most recent version
+
   - `content: List[ContentBlock]`
 
     Content generated by the model.
@@ -2493,6 +3321,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `type: Literal["tool_use"]`
 
         - `"tool_use"`
+
+      - `toolset_name: Optional[str]`
+
+        For a toolset member tool_use, the toolset family.
 
     - `class ServerToolUseBlock: …`
 
@@ -3227,7 +4059,7 @@ message = client.messages.create(
             "role": "user",
         }
     ],
-    model="claude-opus-4-6",
+    model="claude-opus-5",
 )
 print(message.id)
 ```
@@ -3239,7 +4071,14 @@ print(message.id)
   "id": "msg_013Zva2CMHLNnXjNJJKqJ2EF",
   "container": {
     "id": "container_011CpZohnwH4vuy7gazohgSP",
-    "expires_at": "2019-12-27T18:11:19.117Z"
+    "expires_at": "2019-12-27T18:11:19.117Z",
+    "skills": [
+      {
+        "skill_id": "pdf",
+        "type": "anthropic",
+        "version": "latest"
+      }
+    ]
   },
   "content": [
     {
@@ -3258,7 +4097,7 @@ print(message.id)
       "type": "text"
     }
   ],
-  "model": "claude-opus-4-6",
+  "model": "claude-opus-5",
   "role": "assistant",
   "stop_details": {
     "category": "cyber",
@@ -3355,11 +4194,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   There is a limit of 100,000 messages in a single request.
 
-  - `content: Union[str, List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 15 more]]]`
+  - `content: Union[str, List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 14 more]]]`
 
     - `str`
 
-    - `List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 15 more]]`
+    - `List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 14 more]]`
 
       - `class TextBlockParam: …`
 
@@ -3528,6 +4367,14 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `url: str`
 
+          - `class FileImageSource: …`
+
+            - `file_id: str`
+
+            - `type: Literal["file"]`
+
+              - `"file"`
+
         - `type: Literal["image"]`
 
           - `"image"`
@@ -3535,6 +4382,18 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         - `cache_control: Optional[CacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
+
+        - `transformations: Optional[ImageTransformationsParam]`
+
+          Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+          - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+            What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+            - `"downsize"`
+
+            - `"error"`
 
       - `class DocumentBlockParam: …`
 
@@ -3587,6 +4446,14 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
               - `"url"`
 
             - `url: str`
+
+          - `class FileDocumentSource: …`
+
+            - `file_id: str`
+
+            - `type: Literal["file"]`
+
+              - `"file"`
 
         - `type: Literal["document"]`
 
@@ -3704,6 +4571,10 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `"code_execution_20260120"`
 
+        - `toolset_name: Optional[str]`
+
+          For a toolset member tool_use, the toolset family this member belongs to.
+
       - `class ToolResultBlockParam: …`
 
         - `tool_use_id: str`
@@ -3744,7 +4615,134 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 Create a cache control breakpoint at this content block.
 
+            - `class BrowserStateBlockParam: …`
+
+              The caller's browser state after a browser toolset member call —
+              the full inventory of open tabs, which tab is active, and any side
+              effects (tabs opened, download state changes) the call produced.
+
+              At most one per `tool_result`, only on a non-error result answering a
+              browser toolset member `tool_use`. The server renders the
+              model-visible text from it; the model never sees the raw fields.
+
+              - `tabs: List[BrowserStateTabEntry]`
+
+                All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+                - `tab_id: str`
+
+                  The caller-assigned identifier for this tab, unique within the inventory.
+
+                - `title: str`
+
+                  The title of the page the tab is showing. May be empty.
+
+                - `url: str`
+
+                  The URL of the page the tab is showing. May be empty.
+
+                - `active: Optional[bool]`
+
+                  Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+              - `type: Literal["browser_state"]`
+
+                - `"browser_state"`
+
+              - `cache_control: Optional[CacheControlEphemeral]`
+
+                Create a cache control breakpoint at this content block.
+
+              - `state_changes: Optional[List[BrowserStateChange]]`
+
+                Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                - `class BrowserStateChangeTabOpened: …`
+
+                  A tab this call's execution opened that remains open at its end —
+                  the creation delta of the `tabs` inventory, not an event log.
+
+                  Carries only the `tab_id`; the tab's `title` and `url` live on its
+                  `tabs` entry, which must include the same `tab_id`. A tab opened
+                  during a failed call gets no deferred `tab_opened`; it simply appears
+                  in the next result's `tabs` inventory.
+
+                  - `tab_id: str`
+
+                    The `tab_id` of the opened tab, present in `tabs`.
+
+                  - `type: Literal["tab_opened"]`
+
+                    - `"tab_opened"`
+
+                - `class BrowserStateChangeDownloadStarted: …`
+
+                  A file download that started during this call.
+
+                  - `download_id: str`
+
+                    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                  - `type: Literal["download_started"]`
+
+                    - `"download_started"`
+
+                  - `url: str`
+
+                    The final post-redirect URL the download was served from.
+
+                - `class BrowserStateChangeDownloadCompleted: …`
+
+                  A file download that finished during this call, reported with the
+                  same `download_id` as its `download_started` — or without a prior
+                  `download_started`, when the download finished during the call that
+                  started it (at most one state change per `download_id` per result).
+
+                  - `download_id: str`
+
+                    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                  - `type: Literal["download_completed"]`
+
+                    - `"download_completed"`
+
+                  - `url: str`
+
+                    The final post-redirect URL the download was served from.
+
+                  - `path: Optional[str]`
+
+                    Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+                  - `size_bytes: Optional[int]`
+
+                    The completed download's size.
+
+                - `class BrowserStateChangeDownloadFailed: …`
+
+                  A file download that failed — or was cancelled — during this call.
+
+                  - `download_id: str`
+
+                    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                  - `type: Literal["download_failed"]`
+
+                    - `"download_failed"`
+
+                  - `url: str`
+
+                    The final post-redirect URL the download was served from.
+
+                  - `error: Optional[str]`
+
+                    The failure or cancellation detail, when known.
+
         - `is_error: Optional[bool]`
+
+        - `toolset_name: Optional[str]`
+
+          For a toolset member tool_result, the toolset family of the paired tool_use.
 
       - `class ServerToolUseBlockParam: …`
 
@@ -4184,35 +5182,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         - `type: Literal["container_upload"]`
 
           - `"container_upload"`
-
-        - `cache_control: Optional[CacheControlEphemeral]`
-
-          Create a cache control breakpoint at this content block.
-
-      - `class MidConversationSystemBlockParam: …`
-
-        System instructions that appear mid-conversation.
-
-        Use this block to provide or update system-level instructions at a specific
-        point in the conversation, rather than only via the top-level `system` parameter.
-
-        - `content: List[TextBlockParam]`
-
-          System instruction text blocks.
-
-          - `text: str`
-
-          - `type: Literal["text"]`
-
-          - `cache_control: Optional[CacheControlEphemeral]`
-
-            Create a cache control breakpoint at this content block.
-
-          - `citations: Optional[List[TextCitationParam]]`
-
-        - `type: Literal["mid_conv_system"]`
-
-          - `"mid_conv_system"`
 
         - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -4788,6 +5757,412 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
+  - `class BrowserToolset20260801: …`
+
+    The browser toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the browser tool family. The model is served
+    the family's tool with any members disabled via `configs` removed
+    from its schema.
+
+    - `type: Literal["browser_toolset_20260801"]`
+
+      - `"browser_toolset_20260801"`
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[CacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[BrowserToolsetConfigs]`
+
+      Per-member configuration for `browser_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+      - `close_tab: Optional[BrowserCloseTabConfig]`
+
+        `close_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: Optional[BrowserDoubleClickConfig]`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `file_upload: Optional[BrowserFileUploadConfig]`
+
+        `file_upload`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `find: Optional[BrowserFindConfig]`
+
+        `find`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `form_input: Optional[BrowserFormInputConfig]`
+
+        `form_input`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `get_page_text: Optional[BrowserGetPageTextConfig]`
+
+        `get_page_text`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: Optional[BrowserHoldKeyConfig]`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hover: Optional[BrowserHoverConfig]`
+
+        `hover`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `javascript_exec: Optional[BrowserJavascriptExecConfig]`
+
+        `javascript_exec`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: Optional[BrowserKeyConfig]`
+
+        `key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: Optional[BrowserLeftClickConfig]`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: Optional[BrowserLeftClickDragConfig]`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: Optional[BrowserLeftMouseDownConfig]`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: Optional[BrowserLeftMouseUpConfig]`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `list_tabs: Optional[BrowserListTabsConfig]`
+
+        `list_tabs`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: Optional[BrowserMiddleClickConfig]`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: Optional[BrowserMouseMoveConfig]`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `navigate: Optional[BrowserNavigateConfig]`
+
+        `navigate`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `new_tab: Optional[BrowserNewTabConfig]`
+
+        `new_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_console: Optional[BrowserReadConsoleConfig]`
+
+        `read_console`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_network: Optional[BrowserReadNetworkConfig]`
+
+        `read_network`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_page: Optional[BrowserReadPageConfig]`
+
+        `read_page`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: Optional[BrowserRightClickConfig]`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: Optional[BrowserScreenshotConfig]`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: Optional[BrowserScrollConfig]`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll_to: Optional[BrowserScrollToConfig]`
+
+        `scroll_to`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `switch_tab: Optional[BrowserSwitchTabConfig]`
+
+        `switch_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: Optional[BrowserTripleClickConfig]`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `type: Optional[BrowserTypeConfig]`
+
+        `type`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: Optional[BrowserWaitConfig]`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: Optional[BrowserZoomConfig]`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
   - `class MemoryTool20250818: …`
 
     - `name: Literal["memory"]`
@@ -4825,6 +6200,248 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
+
+  - `class ComputerToolset20260801: …`
+
+    The computer toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the computer tool family. The model is
+    served the family's tool with any members disabled via `configs`
+    removed from its schema. Every member is enabled by default, zoom
+    included. The single-tool options `display_number` and
+    `enable_zoom` are not fields of a toolset entry — it carries only
+    `type`, `configs`, and `cache_control`; zoom is controlled
+    via `configs.zoom.enabled`.
+
+    - `type: Literal["computer_toolset_20260801"]`
+
+      - `"computer_toolset_20260801"`
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[CacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[ComputerToolsetConfigs]`
+
+      Per-member configuration for `computer_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+      - `cursor_position: Optional[ComputerCursorPositionConfig]`
+
+        `cursor_position`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: Optional[ComputerDoubleClickConfig]`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: Optional[ComputerHoldKeyConfig]`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: Optional[ComputerKeyConfig]`
+
+        `key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: Optional[ComputerLeftClickConfig]`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: Optional[ComputerLeftClickDragConfig]`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: Optional[ComputerLeftMouseDownConfig]`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: Optional[ComputerLeftMouseUpConfig]`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: Optional[ComputerMiddleClickConfig]`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: Optional[ComputerMouseMoveConfig]`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: Optional[ComputerRightClickConfig]`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: Optional[ComputerScreenshotConfig]`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: Optional[ComputerScrollConfig]`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: Optional[ComputerTripleClickConfig]`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `type: Optional[ComputerTypeConfig]`
+
+        `type`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: Optional[ComputerWaitConfig]`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: Optional[ComputerZoomConfig]`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
   - `class ToolTextEditor20250124: …`
 
@@ -5476,7 +7093,7 @@ message_tokens_count = client.messages.count_tokens(
             "role": "user",
         }
     ],
-    model="claude-opus-4-6",
+    model="claude-opus-5",
 )
 print(message_tokens_count.input_tokens)
 ```
@@ -5765,6 +7382,1605 @@ print(message_tokens_count.input_tokens)
   - `type: Literal["bash_code_execution_tool_result_error"]`
 
     - `"bash_code_execution_tool_result_error"`
+
+### Browser Close Tab Config
+
+- `class BrowserCloseTabConfig: …`
+
+  `close_tab`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Double Click Config
+
+- `class BrowserDoubleClickConfig: …`
+
+  `double_click`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser File Upload Config
+
+- `class BrowserFileUploadConfig: …`
+
+  `file_upload`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Find Config
+
+- `class BrowserFindConfig: …`
+
+  `find`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Form Input Config
+
+- `class BrowserFormInputConfig: …`
+
+  `form_input`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Get Page Text Config
+
+- `class BrowserGetPageTextConfig: …`
+
+  `get_page_text`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Hold Key Config
+
+- `class BrowserHoldKeyConfig: …`
+
+  `hold_key`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Hover Config
+
+- `class BrowserHoverConfig: …`
+
+  `hover`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Javascript Exec Config
+
+- `class BrowserJavascriptExecConfig: …`
+
+  `javascript_exec`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Key Config
+
+- `class BrowserKeyConfig: …`
+
+  `key`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Left Click Config
+
+- `class BrowserLeftClickConfig: …`
+
+  `left_click`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Left Click Drag Config
+
+- `class BrowserLeftClickDragConfig: …`
+
+  `left_click_drag`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Left Mouse Down Config
+
+- `class BrowserLeftMouseDownConfig: …`
+
+  `left_mouse_down`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Left Mouse Up Config
+
+- `class BrowserLeftMouseUpConfig: …`
+
+  `left_mouse_up`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser List Tabs Config
+
+- `class BrowserListTabsConfig: …`
+
+  `list_tabs`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Middle Click Config
+
+- `class BrowserMiddleClickConfig: …`
+
+  `middle_click`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Mouse Move Config
+
+- `class BrowserMouseMoveConfig: …`
+
+  `mouse_move`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Navigate Config
+
+- `class BrowserNavigateConfig: …`
+
+  `navigate`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser New Tab Config
+
+- `class BrowserNewTabConfig: …`
+
+  `new_tab`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Read Console Config
+
+- `class BrowserReadConsoleConfig: …`
+
+  `read_console`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Read Network Config
+
+- `class BrowserReadNetworkConfig: …`
+
+  `read_network`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Read Page Config
+
+- `class BrowserReadPageConfig: …`
+
+  `read_page`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Right Click Config
+
+- `class BrowserRightClickConfig: …`
+
+  `right_click`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Screenshot Config
+
+- `class BrowserScreenshotConfig: …`
+
+  `screenshot`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Scroll Config
+
+- `class BrowserScrollConfig: …`
+
+  `scroll`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Scroll To Config
+
+- `class BrowserScrollToConfig: …`
+
+  `scroll_to`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser State Block Param
+
+- `class BrowserStateBlockParam: …`
+
+  The caller's browser state after a browser toolset member call —
+  the full inventory of open tabs, which tab is active, and any side
+  effects (tabs opened, download state changes) the call produced.
+
+  At most one per `tool_result`, only on a non-error result answering a
+  browser toolset member `tool_use`. The server renders the
+  model-visible text from it; the model never sees the raw fields.
+
+  - `tabs: List[BrowserStateTabEntry]`
+
+    All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+    - `tab_id: str`
+
+      The caller-assigned identifier for this tab, unique within the inventory.
+
+    - `title: str`
+
+      The title of the page the tab is showing. May be empty.
+
+    - `url: str`
+
+      The URL of the page the tab is showing. May be empty.
+
+    - `active: Optional[bool]`
+
+      Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+  - `type: Literal["browser_state"]`
+
+    - `"browser_state"`
+
+  - `cache_control: Optional[CacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+      - `"ephemeral"`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `state_changes: Optional[List[BrowserStateChange]]`
+
+    Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+    - `class BrowserStateChangeTabOpened: …`
+
+      A tab this call's execution opened that remains open at its end —
+      the creation delta of the `tabs` inventory, not an event log.
+
+      Carries only the `tab_id`; the tab's `title` and `url` live on its
+      `tabs` entry, which must include the same `tab_id`. A tab opened
+      during a failed call gets no deferred `tab_opened`; it simply appears
+      in the next result's `tabs` inventory.
+
+      - `tab_id: str`
+
+        The `tab_id` of the opened tab, present in `tabs`.
+
+      - `type: Literal["tab_opened"]`
+
+        - `"tab_opened"`
+
+    - `class BrowserStateChangeDownloadStarted: …`
+
+      A file download that started during this call.
+
+      - `download_id: str`
+
+        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+      - `type: Literal["download_started"]`
+
+        - `"download_started"`
+
+      - `url: str`
+
+        The final post-redirect URL the download was served from.
+
+    - `class BrowserStateChangeDownloadCompleted: …`
+
+      A file download that finished during this call, reported with the
+      same `download_id` as its `download_started` — or without a prior
+      `download_started`, when the download finished during the call that
+      started it (at most one state change per `download_id` per result).
+
+      - `download_id: str`
+
+        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+      - `type: Literal["download_completed"]`
+
+        - `"download_completed"`
+
+      - `url: str`
+
+        The final post-redirect URL the download was served from.
+
+      - `path: Optional[str]`
+
+        Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+      - `size_bytes: Optional[int]`
+
+        The completed download's size.
+
+    - `class BrowserStateChangeDownloadFailed: …`
+
+      A file download that failed — or was cancelled — during this call.
+
+      - `download_id: str`
+
+        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+      - `type: Literal["download_failed"]`
+
+        - `"download_failed"`
+
+      - `url: str`
+
+        The final post-redirect URL the download was served from.
+
+      - `error: Optional[str]`
+
+        The failure or cancellation detail, when known.
+
+### Browser State Change
+
+- `BrowserStateChange`
+
+  A tab this call's execution opened that remains open at its end —
+  the creation delta of the `tabs` inventory, not an event log.
+
+  Carries only the `tab_id`; the tab's `title` and `url` live on its
+  `tabs` entry, which must include the same `tab_id`. A tab opened
+  during a failed call gets no deferred `tab_opened`; it simply appears
+  in the next result's `tabs` inventory.
+
+  - `class BrowserStateChangeTabOpened: …`
+
+    A tab this call's execution opened that remains open at its end —
+    the creation delta of the `tabs` inventory, not an event log.
+
+    Carries only the `tab_id`; the tab's `title` and `url` live on its
+    `tabs` entry, which must include the same `tab_id`. A tab opened
+    during a failed call gets no deferred `tab_opened`; it simply appears
+    in the next result's `tabs` inventory.
+
+    - `tab_id: str`
+
+      The `tab_id` of the opened tab, present in `tabs`.
+
+    - `type: Literal["tab_opened"]`
+
+      - `"tab_opened"`
+
+  - `class BrowserStateChangeDownloadStarted: …`
+
+    A file download that started during this call.
+
+    - `download_id: str`
+
+      The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+    - `type: Literal["download_started"]`
+
+      - `"download_started"`
+
+    - `url: str`
+
+      The final post-redirect URL the download was served from.
+
+  - `class BrowserStateChangeDownloadCompleted: …`
+
+    A file download that finished during this call, reported with the
+    same `download_id` as its `download_started` — or without a prior
+    `download_started`, when the download finished during the call that
+    started it (at most one state change per `download_id` per result).
+
+    - `download_id: str`
+
+      The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+    - `type: Literal["download_completed"]`
+
+      - `"download_completed"`
+
+    - `url: str`
+
+      The final post-redirect URL the download was served from.
+
+    - `path: Optional[str]`
+
+      Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+    - `size_bytes: Optional[int]`
+
+      The completed download's size.
+
+  - `class BrowserStateChangeDownloadFailed: …`
+
+    A file download that failed — or was cancelled — during this call.
+
+    - `download_id: str`
+
+      The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+    - `type: Literal["download_failed"]`
+
+      - `"download_failed"`
+
+    - `url: str`
+
+      The final post-redirect URL the download was served from.
+
+    - `error: Optional[str]`
+
+      The failure or cancellation detail, when known.
+
+### Browser State Change Download Completed
+
+- `class BrowserStateChangeDownloadCompleted: …`
+
+  A file download that finished during this call, reported with the
+  same `download_id` as its `download_started` — or without a prior
+  `download_started`, when the download finished during the call that
+  started it (at most one state change per `download_id` per result).
+
+  - `download_id: str`
+
+    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+  - `type: Literal["download_completed"]`
+
+    - `"download_completed"`
+
+  - `url: str`
+
+    The final post-redirect URL the download was served from.
+
+  - `path: Optional[str]`
+
+    Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+  - `size_bytes: Optional[int]`
+
+    The completed download's size.
+
+### Browser State Change Download Failed
+
+- `class BrowserStateChangeDownloadFailed: …`
+
+  A file download that failed — or was cancelled — during this call.
+
+  - `download_id: str`
+
+    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+  - `type: Literal["download_failed"]`
+
+    - `"download_failed"`
+
+  - `url: str`
+
+    The final post-redirect URL the download was served from.
+
+  - `error: Optional[str]`
+
+    The failure or cancellation detail, when known.
+
+### Browser State Change Download Started
+
+- `class BrowserStateChangeDownloadStarted: …`
+
+  A file download that started during this call.
+
+  - `download_id: str`
+
+    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+  - `type: Literal["download_started"]`
+
+    - `"download_started"`
+
+  - `url: str`
+
+    The final post-redirect URL the download was served from.
+
+### Browser State Change Tab Opened
+
+- `class BrowserStateChangeTabOpened: …`
+
+  A tab this call's execution opened that remains open at its end —
+  the creation delta of the `tabs` inventory, not an event log.
+
+  Carries only the `tab_id`; the tab's `title` and `url` live on its
+  `tabs` entry, which must include the same `tab_id`. A tab opened
+  during a failed call gets no deferred `tab_opened`; it simply appears
+  in the next result's `tabs` inventory.
+
+  - `tab_id: str`
+
+    The `tab_id` of the opened tab, present in `tabs`.
+
+  - `type: Literal["tab_opened"]`
+
+    - `"tab_opened"`
+
+### Browser State Tab Entry
+
+- `class BrowserStateTabEntry: …`
+
+  One open browser tab reported in a `browser_state` block's `tabs`
+  inventory.
+
+  `tab_id` is the caller-assigned identifier for the tab; `title` and
+  `url` describe the page the tab is currently showing and may be empty
+  strings (a blank tab legitimately has both empty). `active` marks the
+  tab that is active after this call; whenever `tabs` is non-empty,
+  exactly one entry is marked.
+
+  - `tab_id: str`
+
+    The caller-assigned identifier for this tab, unique within the inventory.
+
+  - `title: str`
+
+    The title of the page the tab is showing. May be empty.
+
+  - `url: str`
+
+    The URL of the page the tab is showing. May be empty.
+
+  - `active: Optional[bool]`
+
+    Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+### Browser Switch Tab Config
+
+- `class BrowserSwitchTabConfig: …`
+
+  `switch_tab`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Toolset 20260801
+
+- `class BrowserToolset20260801: …`
+
+  The browser toolset: a single `tools[]` entry (carrying no
+  `name`) that declares the browser tool family. The model is served
+  the family's tool with any members disabled via `configs` removed
+  from its schema.
+
+  - `type: Literal["browser_toolset_20260801"]`
+
+    - `"browser_toolset_20260801"`
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: Optional[CacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+      - `"ephemeral"`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `configs: Optional[BrowserToolsetConfigs]`
+
+    Per-member configuration for `browser_toolset_20260801`: one
+    optional field per member tool, keyed by the member name — the same
+    name the member's `tool_use` blocks carry. Every member is an
+    accepted key, and a member's defaults apply wherever its key is
+    absent. Unknown keys are rejected: the field set is this toolset
+    version's complete member set.
+
+    - `close_tab: Optional[BrowserCloseTabConfig]`
+
+      `close_tab`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `double_click: Optional[BrowserDoubleClickConfig]`
+
+      `double_click`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `file_upload: Optional[BrowserFileUploadConfig]`
+
+      `file_upload`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `find: Optional[BrowserFindConfig]`
+
+      `find`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `form_input: Optional[BrowserFormInputConfig]`
+
+      `form_input`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `get_page_text: Optional[BrowserGetPageTextConfig]`
+
+      `get_page_text`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `hold_key: Optional[BrowserHoldKeyConfig]`
+
+      `hold_key`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `hover: Optional[BrowserHoverConfig]`
+
+      `hover`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `javascript_exec: Optional[BrowserJavascriptExecConfig]`
+
+      `javascript_exec`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `key: Optional[BrowserKeyConfig]`
+
+      `key`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `left_click: Optional[BrowserLeftClickConfig]`
+
+      `left_click`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `left_click_drag: Optional[BrowserLeftClickDragConfig]`
+
+      `left_click_drag`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `left_mouse_down: Optional[BrowserLeftMouseDownConfig]`
+
+      `left_mouse_down`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `left_mouse_up: Optional[BrowserLeftMouseUpConfig]`
+
+      `left_mouse_up`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `list_tabs: Optional[BrowserListTabsConfig]`
+
+      `list_tabs`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `middle_click: Optional[BrowserMiddleClickConfig]`
+
+      `middle_click`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `mouse_move: Optional[BrowserMouseMoveConfig]`
+
+      `mouse_move`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `navigate: Optional[BrowserNavigateConfig]`
+
+      `navigate`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `new_tab: Optional[BrowserNewTabConfig]`
+
+      `new_tab`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `read_console: Optional[BrowserReadConsoleConfig]`
+
+      `read_console`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `read_network: Optional[BrowserReadNetworkConfig]`
+
+      `read_network`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `read_page: Optional[BrowserReadPageConfig]`
+
+      `read_page`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `right_click: Optional[BrowserRightClickConfig]`
+
+      `right_click`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `screenshot: Optional[BrowserScreenshotConfig]`
+
+      `screenshot`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `scroll: Optional[BrowserScrollConfig]`
+
+      `scroll`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `scroll_to: Optional[BrowserScrollToConfig]`
+
+      `scroll_to`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `switch_tab: Optional[BrowserSwitchTabConfig]`
+
+      `switch_tab`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `triple_click: Optional[BrowserTripleClickConfig]`
+
+      `triple_click`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `type: Optional[BrowserTypeConfig]`
+
+      `type`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `wait: Optional[BrowserWaitConfig]`
+
+      `wait`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `zoom: Optional[BrowserZoomConfig]`
+
+      `zoom`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Toolset Configs
+
+- `class BrowserToolsetConfigs: …`
+
+  Per-member configuration for `browser_toolset_20260801`: one
+  optional field per member tool, keyed by the member name — the same
+  name the member's `tool_use` blocks carry. Every member is an
+  accepted key, and a member's defaults apply wherever its key is
+  absent. Unknown keys are rejected: the field set is this toolset
+  version's complete member set.
+
+  - `close_tab: Optional[BrowserCloseTabConfig]`
+
+    `close_tab`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `double_click: Optional[BrowserDoubleClickConfig]`
+
+    `double_click`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `file_upload: Optional[BrowserFileUploadConfig]`
+
+    `file_upload`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `find: Optional[BrowserFindConfig]`
+
+    `find`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `form_input: Optional[BrowserFormInputConfig]`
+
+    `form_input`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `get_page_text: Optional[BrowserGetPageTextConfig]`
+
+    `get_page_text`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `hold_key: Optional[BrowserHoldKeyConfig]`
+
+    `hold_key`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `hover: Optional[BrowserHoverConfig]`
+
+    `hover`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `javascript_exec: Optional[BrowserJavascriptExecConfig]`
+
+    `javascript_exec`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `key: Optional[BrowserKeyConfig]`
+
+    `key`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `left_click: Optional[BrowserLeftClickConfig]`
+
+    `left_click`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `left_click_drag: Optional[BrowserLeftClickDragConfig]`
+
+    `left_click_drag`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `left_mouse_down: Optional[BrowserLeftMouseDownConfig]`
+
+    `left_mouse_down`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `left_mouse_up: Optional[BrowserLeftMouseUpConfig]`
+
+    `left_mouse_up`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `list_tabs: Optional[BrowserListTabsConfig]`
+
+    `list_tabs`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `middle_click: Optional[BrowserMiddleClickConfig]`
+
+    `middle_click`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `mouse_move: Optional[BrowserMouseMoveConfig]`
+
+    `mouse_move`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `navigate: Optional[BrowserNavigateConfig]`
+
+    `navigate`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `new_tab: Optional[BrowserNewTabConfig]`
+
+    `new_tab`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `read_console: Optional[BrowserReadConsoleConfig]`
+
+    `read_console`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `read_network: Optional[BrowserReadNetworkConfig]`
+
+    `read_network`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `read_page: Optional[BrowserReadPageConfig]`
+
+    `read_page`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `right_click: Optional[BrowserRightClickConfig]`
+
+    `right_click`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `screenshot: Optional[BrowserScreenshotConfig]`
+
+    `screenshot`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `scroll: Optional[BrowserScrollConfig]`
+
+    `scroll`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `scroll_to: Optional[BrowserScrollToConfig]`
+
+    `scroll_to`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `switch_tab: Optional[BrowserSwitchTabConfig]`
+
+    `switch_tab`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `triple_click: Optional[BrowserTripleClickConfig]`
+
+    `triple_click`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `type: Optional[BrowserTypeConfig]`
+
+    `type`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `wait: Optional[BrowserWaitConfig]`
+
+    `wait`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `zoom: Optional[BrowserZoomConfig]`
+
+    `zoom`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Triple Click Config
+
+- `class BrowserTripleClickConfig: …`
+
+  `triple_click`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Type Config
+
+- `class BrowserTypeConfig: …`
+
+  `type`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Wait Config
+
+- `class BrowserWaitConfig: …`
+
+  `wait`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Zoom Config
+
+- `class BrowserZoomConfig: …`
+
+  `zoom`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
 ### Cache Control Ephemeral
 
@@ -6798,6 +10014,722 @@ print(message_tokens_count.input_tokens)
 
     - `"code_execution_tool_result_error"`
 
+### Computer Cursor Position Config
+
+- `class ComputerCursorPositionConfig: …`
+
+  `cursor_position`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Double Click Config
+
+- `class ComputerDoubleClickConfig: …`
+
+  `double_click`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Hold Key Config
+
+- `class ComputerHoldKeyConfig: …`
+
+  `hold_key`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Key Config
+
+- `class ComputerKeyConfig: …`
+
+  `key`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Left Click Config
+
+- `class ComputerLeftClickConfig: …`
+
+  `left_click`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Left Click Drag Config
+
+- `class ComputerLeftClickDragConfig: …`
+
+  `left_click_drag`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Left Mouse Down Config
+
+- `class ComputerLeftMouseDownConfig: …`
+
+  `left_mouse_down`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Left Mouse Up Config
+
+- `class ComputerLeftMouseUpConfig: …`
+
+  `left_mouse_up`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Middle Click Config
+
+- `class ComputerMiddleClickConfig: …`
+
+  `middle_click`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Mouse Move Config
+
+- `class ComputerMouseMoveConfig: …`
+
+  `mouse_move`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Right Click Config
+
+- `class ComputerRightClickConfig: …`
+
+  `right_click`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Screenshot Config
+
+- `class ComputerScreenshotConfig: …`
+
+  `screenshot`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Scroll Config
+
+- `class ComputerScrollConfig: …`
+
+  `scroll`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Toolset 20260801
+
+- `class ComputerToolset20260801: …`
+
+  The computer toolset: a single `tools[]` entry (carrying no
+  `name`) that declares the computer tool family. The model is
+  served the family's tool with any members disabled via `configs`
+  removed from its schema. Every member is enabled by default, zoom
+  included. The single-tool options `display_number` and
+  `enable_zoom` are not fields of a toolset entry — it carries only
+  `type`, `configs`, and `cache_control`; zoom is controlled
+  via `configs.zoom.enabled`.
+
+  - `type: Literal["computer_toolset_20260801"]`
+
+    - `"computer_toolset_20260801"`
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: Optional[CacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+      - `"ephemeral"`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `configs: Optional[ComputerToolsetConfigs]`
+
+    Per-member configuration for `computer_toolset_20260801`: one
+    optional field per member tool, keyed by the member name — the same
+    name the member's `tool_use` blocks carry. Every member is an
+    accepted key, and a member's defaults apply wherever its key is
+    absent. Unknown keys are rejected: the field set is this toolset
+    version's complete member set.
+
+    - `cursor_position: Optional[ComputerCursorPositionConfig]`
+
+      `cursor_position`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `double_click: Optional[ComputerDoubleClickConfig]`
+
+      `double_click`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `hold_key: Optional[ComputerHoldKeyConfig]`
+
+      `hold_key`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `key: Optional[ComputerKeyConfig]`
+
+      `key`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `left_click: Optional[ComputerLeftClickConfig]`
+
+      `left_click`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `left_click_drag: Optional[ComputerLeftClickDragConfig]`
+
+      `left_click_drag`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `left_mouse_down: Optional[ComputerLeftMouseDownConfig]`
+
+      `left_mouse_down`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `left_mouse_up: Optional[ComputerLeftMouseUpConfig]`
+
+      `left_mouse_up`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `middle_click: Optional[ComputerMiddleClickConfig]`
+
+      `middle_click`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `mouse_move: Optional[ComputerMouseMoveConfig]`
+
+      `mouse_move`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `right_click: Optional[ComputerRightClickConfig]`
+
+      `right_click`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `screenshot: Optional[ComputerScreenshotConfig]`
+
+      `screenshot`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `scroll: Optional[ComputerScrollConfig]`
+
+      `scroll`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `triple_click: Optional[ComputerTripleClickConfig]`
+
+      `triple_click`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `type: Optional[ComputerTypeConfig]`
+
+      `type`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `wait: Optional[ComputerWaitConfig]`
+
+      `wait`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `zoom: Optional[ComputerZoomConfig]`
+
+      `zoom`'s config overrides.
+
+      - `defer_loading: Optional[bool]`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `enabled: Optional[bool]`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Toolset Configs
+
+- `class ComputerToolsetConfigs: …`
+
+  Per-member configuration for `computer_toolset_20260801`: one
+  optional field per member tool, keyed by the member name — the same
+  name the member's `tool_use` blocks carry. Every member is an
+  accepted key, and a member's defaults apply wherever its key is
+  absent. Unknown keys are rejected: the field set is this toolset
+  version's complete member set.
+
+  - `cursor_position: Optional[ComputerCursorPositionConfig]`
+
+    `cursor_position`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `double_click: Optional[ComputerDoubleClickConfig]`
+
+    `double_click`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `hold_key: Optional[ComputerHoldKeyConfig]`
+
+    `hold_key`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `key: Optional[ComputerKeyConfig]`
+
+    `key`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `left_click: Optional[ComputerLeftClickConfig]`
+
+    `left_click`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `left_click_drag: Optional[ComputerLeftClickDragConfig]`
+
+    `left_click_drag`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `left_mouse_down: Optional[ComputerLeftMouseDownConfig]`
+
+    `left_mouse_down`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `left_mouse_up: Optional[ComputerLeftMouseUpConfig]`
+
+    `left_mouse_up`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `middle_click: Optional[ComputerMiddleClickConfig]`
+
+    `middle_click`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `mouse_move: Optional[ComputerMouseMoveConfig]`
+
+    `mouse_move`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `right_click: Optional[ComputerRightClickConfig]`
+
+    `right_click`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `screenshot: Optional[ComputerScreenshotConfig]`
+
+    `screenshot`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `scroll: Optional[ComputerScrollConfig]`
+
+    `scroll`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `triple_click: Optional[ComputerTripleClickConfig]`
+
+    `triple_click`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `type: Optional[ComputerTypeConfig]`
+
+    `type`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `wait: Optional[ComputerWaitConfig]`
+
+    `wait`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `zoom: Optional[ComputerZoomConfig]`
+
+    `zoom`'s config overrides.
+
+    - `defer_loading: Optional[bool]`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `enabled: Optional[bool]`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Triple Click Config
+
+- `class ComputerTripleClickConfig: …`
+
+  `triple_click`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Type Config
+
+- `class ComputerTypeConfig: …`
+
+  `type`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Wait Config
+
+- `class ComputerWaitConfig: …`
+
+  `wait`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Zoom Config
+
+- `class ComputerZoomConfig: …`
+
+  `zoom`'s config overrides.
+
+  - `defer_loading: Optional[bool]`
+
+    Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+  - `enabled: Optional[bool]`
+
+    Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
 ### Container
 
 - `class Container: …`
@@ -6811,6 +10743,78 @@ print(message_tokens_count.input_tokens)
   - `expires_at: datetime`
 
     The time at which the container will expire.
+
+  - `skills: Optional[List[ContainerSkill]]`
+
+    Skills loaded in the container
+
+    - `skill_id: str`
+
+      Skill ID
+
+    - `type: Literal["anthropic", "custom"]`
+
+      Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+      - `"anthropic"`
+
+      - `"custom"`
+
+    - `version: str`
+
+      Skill version or 'latest' for most recent version
+
+### Container Params
+
+- `class ContainerParams: …`
+
+  Container parameters with skills to be loaded.
+
+  - `id: Optional[str]`
+
+    Container id
+
+  - `skills: Optional[List[SkillParams]]`
+
+    List of skills to load in the container
+
+    - `skill_id: str`
+
+      Skill ID
+
+    - `type: Literal["anthropic", "custom"]`
+
+      Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+      - `"anthropic"`
+
+      - `"custom"`
+
+    - `version: Optional[str]`
+
+      Skill version or 'latest' for most recent version
+
+### Container Skill
+
+- `class ContainerSkill: …`
+
+  A skill that was loaded in a container (response model).
+
+  - `skill_id: str`
+
+    Skill ID
+
+  - `type: Literal["anthropic", "custom"]`
+
+    Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+    - `"anthropic"`
+
+    - `"custom"`
+
+  - `version: str`
+
+    Skill version or 'latest' for most recent version
 
 ### Container Upload Block
 
@@ -7063,6 +11067,10 @@ print(message_tokens_count.input_tokens)
     - `type: Literal["tool_use"]`
 
       - `"tool_use"`
+
+    - `toolset_name: Optional[str]`
+
+      For a toolset member tool_use, the toolset family.
 
   - `class ServerToolUseBlock: …`
 
@@ -7514,7 +11522,7 @@ print(message_tokens_count.input_tokens)
 
 ### Content Block Param
 
-- `Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 14 more]`
+- `Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 13 more]`
 
   Regular text content.
 
@@ -7685,6 +11693,14 @@ print(message_tokens_count.input_tokens)
 
         - `url: str`
 
+      - `class FileImageSource: …`
+
+        - `file_id: str`
+
+        - `type: Literal["file"]`
+
+          - `"file"`
+
     - `type: Literal["image"]`
 
       - `"image"`
@@ -7692,6 +11708,18 @@ print(message_tokens_count.input_tokens)
     - `cache_control: Optional[CacheControlEphemeral]`
 
       Create a cache control breakpoint at this content block.
+
+    - `transformations: Optional[ImageTransformationsParam]`
+
+      Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+      - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+        What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+        - `"downsize"`
+
+        - `"error"`
 
   - `class DocumentBlockParam: …`
 
@@ -7744,6 +11772,14 @@ print(message_tokens_count.input_tokens)
           - `"url"`
 
         - `url: str`
+
+      - `class FileDocumentSource: …`
+
+        - `file_id: str`
+
+        - `type: Literal["file"]`
+
+          - `"file"`
 
     - `type: Literal["document"]`
 
@@ -7861,6 +11897,10 @@ print(message_tokens_count.input_tokens)
 
           - `"code_execution_20260120"`
 
+    - `toolset_name: Optional[str]`
+
+      For a toolset member tool_use, the toolset family this member belongs to.
+
   - `class ToolResultBlockParam: …`
 
     - `tool_use_id: str`
@@ -7901,7 +11941,134 @@ print(message_tokens_count.input_tokens)
 
             Create a cache control breakpoint at this content block.
 
+        - `class BrowserStateBlockParam: …`
+
+          The caller's browser state after a browser toolset member call —
+          the full inventory of open tabs, which tab is active, and any side
+          effects (tabs opened, download state changes) the call produced.
+
+          At most one per `tool_result`, only on a non-error result answering a
+          browser toolset member `tool_use`. The server renders the
+          model-visible text from it; the model never sees the raw fields.
+
+          - `tabs: List[BrowserStateTabEntry]`
+
+            All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+            - `tab_id: str`
+
+              The caller-assigned identifier for this tab, unique within the inventory.
+
+            - `title: str`
+
+              The title of the page the tab is showing. May be empty.
+
+            - `url: str`
+
+              The URL of the page the tab is showing. May be empty.
+
+            - `active: Optional[bool]`
+
+              Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+          - `type: Literal["browser_state"]`
+
+            - `"browser_state"`
+
+          - `cache_control: Optional[CacheControlEphemeral]`
+
+            Create a cache control breakpoint at this content block.
+
+          - `state_changes: Optional[List[BrowserStateChange]]`
+
+            Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+            - `class BrowserStateChangeTabOpened: …`
+
+              A tab this call's execution opened that remains open at its end —
+              the creation delta of the `tabs` inventory, not an event log.
+
+              Carries only the `tab_id`; the tab's `title` and `url` live on its
+              `tabs` entry, which must include the same `tab_id`. A tab opened
+              during a failed call gets no deferred `tab_opened`; it simply appears
+              in the next result's `tabs` inventory.
+
+              - `tab_id: str`
+
+                The `tab_id` of the opened tab, present in `tabs`.
+
+              - `type: Literal["tab_opened"]`
+
+                - `"tab_opened"`
+
+            - `class BrowserStateChangeDownloadStarted: …`
+
+              A file download that started during this call.
+
+              - `download_id: str`
+
+                The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+              - `type: Literal["download_started"]`
+
+                - `"download_started"`
+
+              - `url: str`
+
+                The final post-redirect URL the download was served from.
+
+            - `class BrowserStateChangeDownloadCompleted: …`
+
+              A file download that finished during this call, reported with the
+              same `download_id` as its `download_started` — or without a prior
+              `download_started`, when the download finished during the call that
+              started it (at most one state change per `download_id` per result).
+
+              - `download_id: str`
+
+                The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+              - `type: Literal["download_completed"]`
+
+                - `"download_completed"`
+
+              - `url: str`
+
+                The final post-redirect URL the download was served from.
+
+              - `path: Optional[str]`
+
+                Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+              - `size_bytes: Optional[int]`
+
+                The completed download's size.
+
+            - `class BrowserStateChangeDownloadFailed: …`
+
+              A file download that failed — or was cancelled — during this call.
+
+              - `download_id: str`
+
+                The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+              - `type: Literal["download_failed"]`
+
+                - `"download_failed"`
+
+              - `url: str`
+
+                The final post-redirect URL the download was served from.
+
+              - `error: Optional[str]`
+
+                The failure or cancellation detail, when known.
+
     - `is_error: Optional[bool]`
+
+    - `toolset_name: Optional[str]`
+
+      For a toolset member tool_result, the toolset family of the paired tool_use.
 
   - `class ServerToolUseBlockParam: …`
 
@@ -8346,35 +12513,6 @@ print(message_tokens_count.input_tokens)
 
       Create a cache control breakpoint at this content block.
 
-  - `class MidConversationSystemBlockParam: …`
-
-    System instructions that appear mid-conversation.
-
-    Use this block to provide or update system-level instructions at a specific
-    point in the conversation, rather than only via the top-level `system` parameter.
-
-    - `content: List[TextBlockParam]`
-
-      System instruction text blocks.
-
-      - `text: str`
-
-      - `type: Literal["text"]`
-
-      - `cache_control: Optional[CacheControlEphemeral]`
-
-        Create a cache control breakpoint at this content block.
-
-      - `citations: Optional[List[TextCitationParam]]`
-
-    - `type: Literal["mid_conv_system"]`
-
-      - `"mid_conv_system"`
-
-    - `cache_control: Optional[CacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
 ### Content Block Source
 
 - `class ContentBlockSource: …`
@@ -8552,6 +12690,14 @@ print(message_tokens_count.input_tokens)
 
             - `url: str`
 
+          - `class FileImageSource: …`
+
+            - `file_id: str`
+
+            - `type: Literal["file"]`
+
+              - `"file"`
+
         - `type: Literal["image"]`
 
           - `"image"`
@@ -8559,6 +12705,18 @@ print(message_tokens_count.input_tokens)
         - `cache_control: Optional[CacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
+
+        - `transformations: Optional[ImageTransformationsParam]`
+
+          Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+          - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+            What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+            - `"downsize"`
+
+            - `"error"`
 
   - `type: Literal["content"]`
 
@@ -8735,6 +12893,14 @@ print(message_tokens_count.input_tokens)
 
         - `url: str`
 
+      - `class FileImageSource: …`
+
+        - `file_id: str`
+
+        - `type: Literal["file"]`
+
+          - `"file"`
+
     - `type: Literal["image"]`
 
       - `"image"`
@@ -8742,6 +12908,18 @@ print(message_tokens_count.input_tokens)
     - `cache_control: Optional[CacheControlEphemeral]`
 
       Create a cache control breakpoint at this content block.
+
+    - `transformations: Optional[ImageTransformationsParam]`
+
+      Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+      - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+        What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+        - `"downsize"`
+
+        - `"error"`
 
 ### Direct Caller
 
@@ -9002,6 +13180,14 @@ print(message_tokens_count.input_tokens)
 
                 - `url: str`
 
+              - `class FileImageSource: …`
+
+                - `file_id: str`
+
+                - `type: Literal["file"]`
+
+                  - `"file"`
+
             - `type: Literal["image"]`
 
               - `"image"`
@@ -9009,6 +13195,18 @@ print(message_tokens_count.input_tokens)
             - `cache_control: Optional[CacheControlEphemeral]`
 
               Create a cache control breakpoint at this content block.
+
+            - `transformations: Optional[ImageTransformationsParam]`
+
+              Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+              - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+                What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                - `"downsize"`
+
+                - `"error"`
 
       - `type: Literal["content"]`
 
@@ -9021,6 +13219,14 @@ print(message_tokens_count.input_tokens)
         - `"url"`
 
       - `url: str`
+
+    - `class FileDocumentSource: …`
+
+      - `file_id: str`
+
+      - `type: Literal["file"]`
+
+        - `"file"`
 
   - `type: Literal["document"]`
 
@@ -9086,6 +13292,26 @@ print(message_tokens_count.input_tokens)
 
     - `"encrypted_code_execution_result"`
 
+### File Document Source
+
+- `class FileDocumentSource: …`
+
+  - `file_id: str`
+
+  - `type: Literal["file"]`
+
+    - `"file"`
+
+### File Image Source
+
+- `class FileImageSource: …`
+
+  - `file_id: str`
+
+  - `type: Literal["file"]`
+
+    - `"file"`
+
 ### Image Block Param
 
 - `class ImageBlockParam: …`
@@ -9118,6 +13344,14 @@ print(message_tokens_count.input_tokens)
 
       - `url: str`
 
+    - `class FileImageSource: …`
+
+      - `file_id: str`
+
+      - `type: Literal["file"]`
+
+        - `"file"`
+
   - `type: Literal["image"]`
 
     - `"image"`
@@ -9144,6 +13378,32 @@ print(message_tokens_count.input_tokens)
       - `"5m"`
 
       - `"1h"`
+
+  - `transformations: Optional[ImageTransformationsParam]`
+
+    Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+    - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+      What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+      - `"downsize"`
+
+      - `"error"`
+
+### Image Transformations Param
+
+- `class ImageTransformationsParam: …`
+
+  Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+  - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+    What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+    - `"downsize"`
+
+    - `"error"`
 
 ### Input JSON Delta
 
@@ -9247,6 +13507,26 @@ print(message_tokens_count.input_tokens)
     - `expires_at: datetime`
 
       The time at which the container will expire.
+
+    - `skills: Optional[List[ContainerSkill]]`
+
+      Skills loaded in the container
+
+      - `skill_id: str`
+
+        Skill ID
+
+      - `type: Literal["anthropic", "custom"]`
+
+        Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+        - `"anthropic"`
+
+        - `"custom"`
+
+      - `version: str`
+
+        Skill version or 'latest' for most recent version
 
   - `content: List[ContentBlock]`
 
@@ -9474,6 +13754,10 @@ print(message_tokens_count.input_tokens)
       - `type: Literal["tool_use"]`
 
         - `"tool_use"`
+
+      - `toolset_name: Optional[str]`
+
+        For a toolset member tool_use, the toolset family.
 
     - `class ServerToolUseBlock: …`
 
@@ -10460,6 +14744,412 @@ print(message_tokens_count.input_tokens)
 
       When true, guarantees schema validation on tool names and inputs
 
+  - `class BrowserToolset20260801: …`
+
+    The browser toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the browser tool family. The model is served
+    the family's tool with any members disabled via `configs` removed
+    from its schema.
+
+    - `type: Literal["browser_toolset_20260801"]`
+
+      - `"browser_toolset_20260801"`
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[CacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[BrowserToolsetConfigs]`
+
+      Per-member configuration for `browser_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+      - `close_tab: Optional[BrowserCloseTabConfig]`
+
+        `close_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: Optional[BrowserDoubleClickConfig]`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `file_upload: Optional[BrowserFileUploadConfig]`
+
+        `file_upload`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `find: Optional[BrowserFindConfig]`
+
+        `find`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `form_input: Optional[BrowserFormInputConfig]`
+
+        `form_input`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `get_page_text: Optional[BrowserGetPageTextConfig]`
+
+        `get_page_text`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: Optional[BrowserHoldKeyConfig]`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hover: Optional[BrowserHoverConfig]`
+
+        `hover`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `javascript_exec: Optional[BrowserJavascriptExecConfig]`
+
+        `javascript_exec`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: Optional[BrowserKeyConfig]`
+
+        `key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: Optional[BrowserLeftClickConfig]`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: Optional[BrowserLeftClickDragConfig]`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: Optional[BrowserLeftMouseDownConfig]`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: Optional[BrowserLeftMouseUpConfig]`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `list_tabs: Optional[BrowserListTabsConfig]`
+
+        `list_tabs`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: Optional[BrowserMiddleClickConfig]`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: Optional[BrowserMouseMoveConfig]`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `navigate: Optional[BrowserNavigateConfig]`
+
+        `navigate`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `new_tab: Optional[BrowserNewTabConfig]`
+
+        `new_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_console: Optional[BrowserReadConsoleConfig]`
+
+        `read_console`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_network: Optional[BrowserReadNetworkConfig]`
+
+        `read_network`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_page: Optional[BrowserReadPageConfig]`
+
+        `read_page`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: Optional[BrowserRightClickConfig]`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: Optional[BrowserScreenshotConfig]`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: Optional[BrowserScrollConfig]`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll_to: Optional[BrowserScrollToConfig]`
+
+        `scroll_to`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `switch_tab: Optional[BrowserSwitchTabConfig]`
+
+        `switch_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: Optional[BrowserTripleClickConfig]`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `type: Optional[BrowserTypeConfig]`
+
+        `type`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: Optional[BrowserWaitConfig]`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: Optional[BrowserZoomConfig]`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
   - `class MemoryTool20250818: …`
 
     - `name: Literal["memory"]`
@@ -10497,6 +15187,248 @@ print(message_tokens_count.input_tokens)
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
+
+  - `class ComputerToolset20260801: …`
+
+    The computer toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the computer tool family. The model is
+    served the family's tool with any members disabled via `configs`
+    removed from its schema. Every member is enabled by default, zoom
+    included. The single-tool options `display_number` and
+    `enable_zoom` are not fields of a toolset entry — it carries only
+    `type`, `configs`, and `cache_control`; zoom is controlled
+    via `configs.zoom.enabled`.
+
+    - `type: Literal["computer_toolset_20260801"]`
+
+      - `"computer_toolset_20260801"`
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[CacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[ComputerToolsetConfigs]`
+
+      Per-member configuration for `computer_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+      - `cursor_position: Optional[ComputerCursorPositionConfig]`
+
+        `cursor_position`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: Optional[ComputerDoubleClickConfig]`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: Optional[ComputerHoldKeyConfig]`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: Optional[ComputerKeyConfig]`
+
+        `key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: Optional[ComputerLeftClickConfig]`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: Optional[ComputerLeftClickDragConfig]`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: Optional[ComputerLeftMouseDownConfig]`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: Optional[ComputerLeftMouseUpConfig]`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: Optional[ComputerMiddleClickConfig]`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: Optional[ComputerMouseMoveConfig]`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: Optional[ComputerRightClickConfig]`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: Optional[ComputerScreenshotConfig]`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: Optional[ComputerScrollConfig]`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: Optional[ComputerTripleClickConfig]`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `type: Optional[ComputerTypeConfig]`
+
+        `type`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: Optional[ComputerWaitConfig]`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: Optional[ComputerZoomConfig]`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
   - `class ToolTextEditor20250124: …`
 
@@ -11120,6 +16052,42 @@ print(message_tokens_count.input_tokens)
 
       When true, guarantees schema validation on tool names and inputs
 
+### Message Create Params Container
+
+- `Optional[MessageCreateParamsContainer]`
+
+  Container identifier for reuse across requests.
+
+  - `class ContainerParams: …`
+
+    Container parameters with skills to be loaded.
+
+    - `id: Optional[str]`
+
+      Container id
+
+    - `skills: Optional[List[SkillParams]]`
+
+      List of skills to load in the container
+
+      - `skill_id: str`
+
+        Skill ID
+
+      - `type: Literal["anthropic", "custom"]`
+
+        Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+        - `"anthropic"`
+
+        - `"custom"`
+
+      - `version: Optional[str]`
+
+        Skill version or 'latest' for most recent version
+
+  - `str`
+
 ### Message Delta Usage
 
 - `class MessageDeltaUsage: …`
@@ -11176,11 +16144,11 @@ print(message_tokens_count.input_tokens)
 
 - `class MessageParam: …`
 
-  - `content: Union[str, List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 15 more]]]`
+  - `content: Union[str, List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 14 more]]]`
 
     - `str`
 
-    - `List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 15 more]]`
+    - `List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 14 more]]`
 
       - `class TextBlockParam: …`
 
@@ -11349,6 +16317,14 @@ print(message_tokens_count.input_tokens)
 
             - `url: str`
 
+          - `class FileImageSource: …`
+
+            - `file_id: str`
+
+            - `type: Literal["file"]`
+
+              - `"file"`
+
         - `type: Literal["image"]`
 
           - `"image"`
@@ -11356,6 +16332,18 @@ print(message_tokens_count.input_tokens)
         - `cache_control: Optional[CacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
+
+        - `transformations: Optional[ImageTransformationsParam]`
+
+          Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+          - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+            What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+            - `"downsize"`
+
+            - `"error"`
 
       - `class DocumentBlockParam: …`
 
@@ -11408,6 +16396,14 @@ print(message_tokens_count.input_tokens)
               - `"url"`
 
             - `url: str`
+
+          - `class FileDocumentSource: …`
+
+            - `file_id: str`
+
+            - `type: Literal["file"]`
+
+              - `"file"`
 
         - `type: Literal["document"]`
 
@@ -11525,6 +16521,10 @@ print(message_tokens_count.input_tokens)
 
               - `"code_execution_20260120"`
 
+        - `toolset_name: Optional[str]`
+
+          For a toolset member tool_use, the toolset family this member belongs to.
+
       - `class ToolResultBlockParam: …`
 
         - `tool_use_id: str`
@@ -11565,7 +16565,134 @@ print(message_tokens_count.input_tokens)
 
                 Create a cache control breakpoint at this content block.
 
+            - `class BrowserStateBlockParam: …`
+
+              The caller's browser state after a browser toolset member call —
+              the full inventory of open tabs, which tab is active, and any side
+              effects (tabs opened, download state changes) the call produced.
+
+              At most one per `tool_result`, only on a non-error result answering a
+              browser toolset member `tool_use`. The server renders the
+              model-visible text from it; the model never sees the raw fields.
+
+              - `tabs: List[BrowserStateTabEntry]`
+
+                All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+                - `tab_id: str`
+
+                  The caller-assigned identifier for this tab, unique within the inventory.
+
+                - `title: str`
+
+                  The title of the page the tab is showing. May be empty.
+
+                - `url: str`
+
+                  The URL of the page the tab is showing. May be empty.
+
+                - `active: Optional[bool]`
+
+                  Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+              - `type: Literal["browser_state"]`
+
+                - `"browser_state"`
+
+              - `cache_control: Optional[CacheControlEphemeral]`
+
+                Create a cache control breakpoint at this content block.
+
+              - `state_changes: Optional[List[BrowserStateChange]]`
+
+                Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                - `class BrowserStateChangeTabOpened: …`
+
+                  A tab this call's execution opened that remains open at its end —
+                  the creation delta of the `tabs` inventory, not an event log.
+
+                  Carries only the `tab_id`; the tab's `title` and `url` live on its
+                  `tabs` entry, which must include the same `tab_id`. A tab opened
+                  during a failed call gets no deferred `tab_opened`; it simply appears
+                  in the next result's `tabs` inventory.
+
+                  - `tab_id: str`
+
+                    The `tab_id` of the opened tab, present in `tabs`.
+
+                  - `type: Literal["tab_opened"]`
+
+                    - `"tab_opened"`
+
+                - `class BrowserStateChangeDownloadStarted: …`
+
+                  A file download that started during this call.
+
+                  - `download_id: str`
+
+                    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                  - `type: Literal["download_started"]`
+
+                    - `"download_started"`
+
+                  - `url: str`
+
+                    The final post-redirect URL the download was served from.
+
+                - `class BrowserStateChangeDownloadCompleted: …`
+
+                  A file download that finished during this call, reported with the
+                  same `download_id` as its `download_started` — or without a prior
+                  `download_started`, when the download finished during the call that
+                  started it (at most one state change per `download_id` per result).
+
+                  - `download_id: str`
+
+                    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                  - `type: Literal["download_completed"]`
+
+                    - `"download_completed"`
+
+                  - `url: str`
+
+                    The final post-redirect URL the download was served from.
+
+                  - `path: Optional[str]`
+
+                    Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+                  - `size_bytes: Optional[int]`
+
+                    The completed download's size.
+
+                - `class BrowserStateChangeDownloadFailed: …`
+
+                  A file download that failed — or was cancelled — during this call.
+
+                  - `download_id: str`
+
+                    The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                  - `type: Literal["download_failed"]`
+
+                    - `"download_failed"`
+
+                  - `url: str`
+
+                    The final post-redirect URL the download was served from.
+
+                  - `error: Optional[str]`
+
+                    The failure or cancellation detail, when known.
+
         - `is_error: Optional[bool]`
+
+        - `toolset_name: Optional[str]`
+
+          For a toolset member tool_result, the toolset family of the paired tool_use.
 
       - `class ServerToolUseBlockParam: …`
 
@@ -12010,35 +17137,6 @@ print(message_tokens_count.input_tokens)
 
           Create a cache control breakpoint at this content block.
 
-      - `class MidConversationSystemBlockParam: …`
-
-        System instructions that appear mid-conversation.
-
-        Use this block to provide or update system-level instructions at a specific
-        point in the conversation, rather than only via the top-level `system` parameter.
-
-        - `content: List[TextBlockParam]`
-
-          System instruction text blocks.
-
-          - `text: str`
-
-          - `type: Literal["text"]`
-
-          - `cache_control: Optional[CacheControlEphemeral]`
-
-            Create a cache control breakpoint at this content block.
-
-          - `citations: Optional[List[TextCitationParam]]`
-
-        - `type: Literal["mid_conv_system"]`
-
-          - `"mid_conv_system"`
-
-        - `cache_control: Optional[CacheControlEphemeral]`
-
-          Create a cache control breakpoint at this content block.
-
   - `role: Literal["user", "assistant", "system"]`
 
     - `"user"`
@@ -12064,162 +17162,6 @@ print(message_tokens_count.input_tokens)
     An external identifier for the user who is associated with the request.
 
     This should be a uuid, hash value, or other opaque identifier. Anthropic may use this id to help detect abuse. Do not include any identifying information such as name, email address, or phone number.
-
-### Mid Conversation System Block Param
-
-- `class MidConversationSystemBlockParam: …`
-
-  System instructions that appear mid-conversation.
-
-  Use this block to provide or update system-level instructions at a specific
-  point in the conversation, rather than only via the top-level `system` parameter.
-
-  - `content: List[TextBlockParam]`
-
-    System instruction text blocks.
-
-    - `text: str`
-
-    - `type: Literal["text"]`
-
-      - `"text"`
-
-    - `cache_control: Optional[CacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: Literal["ephemeral"]`
-
-        - `"ephemeral"`
-
-      - `ttl: Optional[Literal["5m", "1h"]]`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-        - `"5m"`
-
-        - `"1h"`
-
-    - `citations: Optional[List[TextCitationParam]]`
-
-      - `class CitationCharLocationParam: …`
-
-        - `cited_text: str`
-
-        - `document_index: int`
-
-        - `document_title: Optional[str]`
-
-        - `end_char_index: int`
-
-        - `start_char_index: int`
-
-        - `type: Literal["char_location"]`
-
-          - `"char_location"`
-
-      - `class CitationPageLocationParam: …`
-
-        - `cited_text: str`
-
-        - `document_index: int`
-
-        - `document_title: Optional[str]`
-
-        - `end_page_number: int`
-
-        - `start_page_number: int`
-
-        - `type: Literal["page_location"]`
-
-          - `"page_location"`
-
-      - `class CitationContentBlockLocationParam: …`
-
-        - `cited_text: str`
-
-          The full text of the cited block range, concatenated.
-
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-        - `document_index: int`
-
-        - `document_title: Optional[str]`
-
-        - `end_block_index: int`
-
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-        - `start_block_index: int`
-
-          0-based index of the first cited block in the source's `content` array.
-
-        - `type: Literal["content_block_location"]`
-
-          - `"content_block_location"`
-
-      - `class CitationWebSearchResultLocationParam: …`
-
-        - `cited_text: str`
-
-        - `encrypted_index: str`
-
-        - `title: Optional[str]`
-
-        - `type: Literal["web_search_result_location"]`
-
-          - `"web_search_result_location"`
-
-        - `url: str`
-
-      - `class CitationSearchResultLocationParam: …`
-
-        - `cited_text: str`
-
-          The full text of the cited block range, concatenated.
-
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-        - `end_block_index: int`
-
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-        - `search_result_index: int`
-
-          0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-          Counted separately from `document_index`; server-side web search results are not included in this count.
-
-        - `source: str`
-
-        - `start_block_index: int`
-
-          0-based index of the first cited block in the source's `content` array.
-
-        - `title: Optional[str]`
-
-        - `type: Literal["search_result_location"]`
-
-          - `"search_result_location"`
-
-  - `type: Literal["mid_conv_system"]`
-
-    - `"mid_conv_system"`
-
-  - `cache_control: Optional[CacheControlEphemeral]`
-
-    Create a cache control breakpoint at this content block.
 
 ### Model
 
@@ -12902,6 +17844,10 @@ print(message_tokens_count.input_tokens)
 
         - `"tool_use"`
 
+      - `toolset_name: Optional[str]`
+
+        For a toolset member tool_use, the toolset family.
+
     - `class ServerToolUseBlock: …`
 
       - `id: str`
@@ -13384,6 +18330,26 @@ print(message_tokens_count.input_tokens)
 
         The time at which the container will expire.
 
+      - `skills: Optional[List[ContainerSkill]]`
+
+        Skills loaded in the container
+
+        - `skill_id: str`
+
+          Skill ID
+
+        - `type: Literal["anthropic", "custom"]`
+
+          Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+          - `"anthropic"`
+
+          - `"custom"`
+
+        - `version: str`
+
+          Skill version or 'latest' for most recent version
+
     - `stop_details: Optional[RefusalStopDetails]`
 
       Structured information about a refusal.
@@ -13527,6 +18493,26 @@ print(message_tokens_count.input_tokens)
       - `expires_at: datetime`
 
         The time at which the container will expire.
+
+      - `skills: Optional[List[ContainerSkill]]`
+
+        Skills loaded in the container
+
+        - `skill_id: str`
+
+          Skill ID
+
+        - `type: Literal["anthropic", "custom"]`
+
+          Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+          - `"anthropic"`
+
+          - `"custom"`
+
+        - `version: str`
+
+          Skill version or 'latest' for most recent version
 
     - `content: List[ContentBlock]`
 
@@ -13754,6 +18740,10 @@ print(message_tokens_count.input_tokens)
         - `type: Literal["tool_use"]`
 
           - `"tool_use"`
+
+        - `toolset_name: Optional[str]`
+
+          For a toolset member tool_use, the toolset family.
 
       - `class ServerToolUseBlock: …`
 
@@ -14507,6 +19497,26 @@ print(message_tokens_count.input_tokens)
 
           The time at which the container will expire.
 
+        - `skills: Optional[List[ContainerSkill]]`
+
+          Skills loaded in the container
+
+          - `skill_id: str`
+
+            Skill ID
+
+          - `type: Literal["anthropic", "custom"]`
+
+            Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+            - `"anthropic"`
+
+            - `"custom"`
+
+          - `version: str`
+
+            Skill version or 'latest' for most recent version
+
       - `content: List[ContentBlock]`
 
         Content generated by the model.
@@ -14733,6 +19743,10 @@ print(message_tokens_count.input_tokens)
           - `type: Literal["tool_use"]`
 
             - `"tool_use"`
+
+          - `toolset_name: Optional[str]`
+
+            For a toolset member tool_use, the toolset family.
 
         - `class ServerToolUseBlock: …`
 
@@ -16038,6 +21052,28 @@ print(message_tokens_count.input_tokens)
   - `type: Literal["signature_delta"]`
 
     - `"signature_delta"`
+
+### Skill Params
+
+- `class SkillParams: …`
+
+  Specification for a skill to be loaded in a container (request model).
+
+  - `skill_id: str`
+
+    Skill ID
+
+  - `type: Literal["anthropic", "custom"]`
+
+    Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+    - `"anthropic"`
+
+    - `"custom"`
+
+  - `version: Optional[str]`
+
+    Skill version or 'latest' for most recent version
 
 ### Stop Reason
 
@@ -17539,6 +22575,14 @@ print(message_tokens_count.input_tokens)
 
             - `url: str`
 
+          - `class FileImageSource: …`
+
+            - `file_id: str`
+
+            - `type: Literal["file"]`
+
+              - `"file"`
+
         - `type: Literal["image"]`
 
           - `"image"`
@@ -17546,6 +22590,18 @@ print(message_tokens_count.input_tokens)
         - `cache_control: Optional[CacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
+
+        - `transformations: Optional[ImageTransformationsParam]`
+
+          Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+          - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+            What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+            - `"downsize"`
+
+            - `"error"`
 
       - `class SearchResultBlockParam: …`
 
@@ -17629,6 +22685,14 @@ print(message_tokens_count.input_tokens)
 
             - `url: str`
 
+          - `class FileDocumentSource: …`
+
+            - `file_id: str`
+
+            - `type: Literal["file"]`
+
+              - `"file"`
+
         - `type: Literal["document"]`
 
           - `"document"`
@@ -17657,7 +22721,134 @@ print(message_tokens_count.input_tokens)
 
           Create a cache control breakpoint at this content block.
 
+      - `class BrowserStateBlockParam: …`
+
+        The caller's browser state after a browser toolset member call —
+        the full inventory of open tabs, which tab is active, and any side
+        effects (tabs opened, download state changes) the call produced.
+
+        At most one per `tool_result`, only on a non-error result answering a
+        browser toolset member `tool_use`. The server renders the
+        model-visible text from it; the model never sees the raw fields.
+
+        - `tabs: List[BrowserStateTabEntry]`
+
+          All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+          - `tab_id: str`
+
+            The caller-assigned identifier for this tab, unique within the inventory.
+
+          - `title: str`
+
+            The title of the page the tab is showing. May be empty.
+
+          - `url: str`
+
+            The URL of the page the tab is showing. May be empty.
+
+          - `active: Optional[bool]`
+
+            Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+        - `type: Literal["browser_state"]`
+
+          - `"browser_state"`
+
+        - `cache_control: Optional[CacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+        - `state_changes: Optional[List[BrowserStateChange]]`
+
+          Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+          - `class BrowserStateChangeTabOpened: …`
+
+            A tab this call's execution opened that remains open at its end —
+            the creation delta of the `tabs` inventory, not an event log.
+
+            Carries only the `tab_id`; the tab's `title` and `url` live on its
+            `tabs` entry, which must include the same `tab_id`. A tab opened
+            during a failed call gets no deferred `tab_opened`; it simply appears
+            in the next result's `tabs` inventory.
+
+            - `tab_id: str`
+
+              The `tab_id` of the opened tab, present in `tabs`.
+
+            - `type: Literal["tab_opened"]`
+
+              - `"tab_opened"`
+
+          - `class BrowserStateChangeDownloadStarted: …`
+
+            A file download that started during this call.
+
+            - `download_id: str`
+
+              The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+            - `type: Literal["download_started"]`
+
+              - `"download_started"`
+
+            - `url: str`
+
+              The final post-redirect URL the download was served from.
+
+          - `class BrowserStateChangeDownloadCompleted: …`
+
+            A file download that finished during this call, reported with the
+            same `download_id` as its `download_started` — or without a prior
+            `download_started`, when the download finished during the call that
+            started it (at most one state change per `download_id` per result).
+
+            - `download_id: str`
+
+              The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+            - `type: Literal["download_completed"]`
+
+              - `"download_completed"`
+
+            - `url: str`
+
+              The final post-redirect URL the download was served from.
+
+            - `path: Optional[str]`
+
+              Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+            - `size_bytes: Optional[int]`
+
+              The completed download's size.
+
+          - `class BrowserStateChangeDownloadFailed: …`
+
+            A file download that failed — or was cancelled — during this call.
+
+            - `download_id: str`
+
+              The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+            - `type: Literal["download_failed"]`
+
+              - `"download_failed"`
+
+            - `url: str`
+
+              The final post-redirect URL the download was served from.
+
+            - `error: Optional[str]`
+
+              The failure or cancellation detail, when known.
+
   - `is_error: Optional[bool]`
+
+  - `toolset_name: Optional[str]`
+
+    For a toolset member tool_result, the toolset family of the paired tool_use.
 
 ### Tool Search Tool Bm25 20251119
 
@@ -18451,6 +23642,412 @@ print(message_tokens_count.input_tokens)
 
       When true, guarantees schema validation on tool names and inputs
 
+  - `class BrowserToolset20260801: …`
+
+    The browser toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the browser tool family. The model is served
+    the family's tool with any members disabled via `configs` removed
+    from its schema.
+
+    - `type: Literal["browser_toolset_20260801"]`
+
+      - `"browser_toolset_20260801"`
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[CacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[BrowserToolsetConfigs]`
+
+      Per-member configuration for `browser_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+      - `close_tab: Optional[BrowserCloseTabConfig]`
+
+        `close_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: Optional[BrowserDoubleClickConfig]`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `file_upload: Optional[BrowserFileUploadConfig]`
+
+        `file_upload`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `find: Optional[BrowserFindConfig]`
+
+        `find`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `form_input: Optional[BrowserFormInputConfig]`
+
+        `form_input`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `get_page_text: Optional[BrowserGetPageTextConfig]`
+
+        `get_page_text`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: Optional[BrowserHoldKeyConfig]`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hover: Optional[BrowserHoverConfig]`
+
+        `hover`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `javascript_exec: Optional[BrowserJavascriptExecConfig]`
+
+        `javascript_exec`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: Optional[BrowserKeyConfig]`
+
+        `key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: Optional[BrowserLeftClickConfig]`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: Optional[BrowserLeftClickDragConfig]`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: Optional[BrowserLeftMouseDownConfig]`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: Optional[BrowserLeftMouseUpConfig]`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `list_tabs: Optional[BrowserListTabsConfig]`
+
+        `list_tabs`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: Optional[BrowserMiddleClickConfig]`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: Optional[BrowserMouseMoveConfig]`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `navigate: Optional[BrowserNavigateConfig]`
+
+        `navigate`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `new_tab: Optional[BrowserNewTabConfig]`
+
+        `new_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_console: Optional[BrowserReadConsoleConfig]`
+
+        `read_console`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_network: Optional[BrowserReadNetworkConfig]`
+
+        `read_network`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_page: Optional[BrowserReadPageConfig]`
+
+        `read_page`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: Optional[BrowserRightClickConfig]`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: Optional[BrowserScreenshotConfig]`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: Optional[BrowserScrollConfig]`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll_to: Optional[BrowserScrollToConfig]`
+
+        `scroll_to`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `switch_tab: Optional[BrowserSwitchTabConfig]`
+
+        `switch_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: Optional[BrowserTripleClickConfig]`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `type: Optional[BrowserTypeConfig]`
+
+        `type`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: Optional[BrowserWaitConfig]`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: Optional[BrowserZoomConfig]`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
   - `class MemoryTool20250818: …`
 
     - `name: Literal["memory"]`
@@ -18488,6 +24085,248 @@ print(message_tokens_count.input_tokens)
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
+
+  - `class ComputerToolset20260801: …`
+
+    The computer toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the computer tool family. The model is
+    served the family's tool with any members disabled via `configs`
+    removed from its schema. Every member is enabled by default, zoom
+    included. The single-tool options `display_number` and
+    `enable_zoom` are not fields of a toolset entry — it carries only
+    `type`, `configs`, and `cache_control`; zoom is controlled
+    via `configs.zoom.enabled`.
+
+    - `type: Literal["computer_toolset_20260801"]`
+
+      - `"computer_toolset_20260801"`
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[CacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[ComputerToolsetConfigs]`
+
+      Per-member configuration for `computer_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+      - `cursor_position: Optional[ComputerCursorPositionConfig]`
+
+        `cursor_position`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: Optional[ComputerDoubleClickConfig]`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: Optional[ComputerHoldKeyConfig]`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: Optional[ComputerKeyConfig]`
+
+        `key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: Optional[ComputerLeftClickConfig]`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: Optional[ComputerLeftClickDragConfig]`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: Optional[ComputerLeftMouseDownConfig]`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: Optional[ComputerLeftMouseUpConfig]`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: Optional[ComputerMiddleClickConfig]`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: Optional[ComputerMouseMoveConfig]`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: Optional[ComputerRightClickConfig]`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: Optional[ComputerScreenshotConfig]`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: Optional[ComputerScrollConfig]`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: Optional[ComputerTripleClickConfig]`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `type: Optional[ComputerTypeConfig]`
+
+        `type`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: Optional[ComputerWaitConfig]`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: Optional[ComputerZoomConfig]`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
   - `class ToolTextEditor20250124: …`
 
@@ -19155,6 +24994,10 @@ print(message_tokens_count.input_tokens)
 
     - `"tool_use"`
 
+  - `toolset_name: Optional[str]`
+
+    For a toolset member tool_use, the toolset family.
+
 ### Tool Use Block Param
 
 - `class ToolUseBlockParam: …`
@@ -19221,6 +25064,10 @@ print(message_tokens_count.input_tokens)
       - `type: Literal["code_execution_20260120"]`
 
         - `"code_execution_20260120"`
+
+  - `toolset_name: Optional[str]`
+
+    For a toolset member tool_use, the toolset family this member belongs to.
 
 ### URL Image Source
 
@@ -19609,6 +25456,14 @@ print(message_tokens_count.input_tokens)
 
                   - `url: str`
 
+                - `class FileImageSource: …`
+
+                  - `file_id: str`
+
+                  - `type: Literal["file"]`
+
+                    - `"file"`
+
               - `type: Literal["image"]`
 
                 - `"image"`
@@ -19616,6 +25471,18 @@ print(message_tokens_count.input_tokens)
               - `cache_control: Optional[CacheControlEphemeral]`
 
                 Create a cache control breakpoint at this content block.
+
+              - `transformations: Optional[ImageTransformationsParam]`
+
+                Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+                - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+                  What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                  - `"downsize"`
+
+                  - `"error"`
 
         - `type: Literal["content"]`
 
@@ -19628,6 +25495,14 @@ print(message_tokens_count.input_tokens)
           - `"url"`
 
         - `url: str`
+
+      - `class FileDocumentSource: …`
+
+        - `file_id: str`
+
+        - `type: Literal["file"]`
+
+          - `"file"`
 
     - `type: Literal["document"]`
 
@@ -20352,6 +26227,14 @@ print(message_tokens_count.input_tokens)
 
                       - `url: str`
 
+                    - `class FileImageSource: …`
+
+                      - `file_id: str`
+
+                      - `type: Literal["file"]`
+
+                        - `"file"`
+
                   - `type: Literal["image"]`
 
                     - `"image"`
@@ -20359,6 +26242,18 @@ print(message_tokens_count.input_tokens)
                   - `cache_control: Optional[CacheControlEphemeral]`
 
                     Create a cache control breakpoint at this content block.
+
+                  - `transformations: Optional[ImageTransformationsParam]`
+
+                    Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+                    - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+                      What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                      - `"downsize"`
+
+                      - `"error"`
 
             - `type: Literal["content"]`
 
@@ -20371,6 +26266,14 @@ print(message_tokens_count.input_tokens)
               - `"url"`
 
             - `url: str`
+
+          - `class FileDocumentSource: …`
+
+            - `file_id: str`
+
+            - `type: Literal["file"]`
+
+              - `"file"`
 
         - `type: Literal["document"]`
 
@@ -21241,11 +27144,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       There is a limit of 100,000 messages in a single request.
 
-      - `content: Union[str, List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 15 more]]]`
+      - `content: Union[str, List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 14 more]]]`
 
         - `str`
 
-        - `List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 15 more]]`
+        - `List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 14 more]]`
 
           - `class TextBlockParam: …`
 
@@ -21414,6 +27317,14 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `url: str`
 
+              - `class FileImageSource: …`
+
+                - `file_id: str`
+
+                - `type: Literal["file"]`
+
+                  - `"file"`
+
             - `type: Literal["image"]`
 
               - `"image"`
@@ -21421,6 +27332,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `cache_control: Optional[CacheControlEphemeral]`
 
               Create a cache control breakpoint at this content block.
+
+            - `transformations: Optional[ImageTransformationsParam]`
+
+              Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+              - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+                What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                - `"downsize"`
+
+                - `"error"`
 
           - `class DocumentBlockParam: …`
 
@@ -21473,6 +27396,14 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   - `"url"`
 
                 - `url: str`
+
+              - `class FileDocumentSource: …`
+
+                - `file_id: str`
+
+                - `type: Literal["file"]`
+
+                  - `"file"`
 
             - `type: Literal["document"]`
 
@@ -21590,6 +27521,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"code_execution_20260120"`
 
+            - `toolset_name: Optional[str]`
+
+              For a toolset member tool_use, the toolset family this member belongs to.
+
           - `class ToolResultBlockParam: …`
 
             - `tool_use_id: str`
@@ -21630,7 +27565,134 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     Create a cache control breakpoint at this content block.
 
+                - `class BrowserStateBlockParam: …`
+
+                  The caller's browser state after a browser toolset member call —
+                  the full inventory of open tabs, which tab is active, and any side
+                  effects (tabs opened, download state changes) the call produced.
+
+                  At most one per `tool_result`, only on a non-error result answering a
+                  browser toolset member `tool_use`. The server renders the
+                  model-visible text from it; the model never sees the raw fields.
+
+                  - `tabs: List[BrowserStateTabEntry]`
+
+                    All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+                    - `tab_id: str`
+
+                      The caller-assigned identifier for this tab, unique within the inventory.
+
+                    - `title: str`
+
+                      The title of the page the tab is showing. May be empty.
+
+                    - `url: str`
+
+                      The URL of the page the tab is showing. May be empty.
+
+                    - `active: Optional[bool]`
+
+                      Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+                  - `type: Literal["browser_state"]`
+
+                    - `"browser_state"`
+
+                  - `cache_control: Optional[CacheControlEphemeral]`
+
+                    Create a cache control breakpoint at this content block.
+
+                  - `state_changes: Optional[List[BrowserStateChange]]`
+
+                    Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                    - `class BrowserStateChangeTabOpened: …`
+
+                      A tab this call's execution opened that remains open at its end —
+                      the creation delta of the `tabs` inventory, not an event log.
+
+                      Carries only the `tab_id`; the tab's `title` and `url` live on its
+                      `tabs` entry, which must include the same `tab_id`. A tab opened
+                      during a failed call gets no deferred `tab_opened`; it simply appears
+                      in the next result's `tabs` inventory.
+
+                      - `tab_id: str`
+
+                        The `tab_id` of the opened tab, present in `tabs`.
+
+                      - `type: Literal["tab_opened"]`
+
+                        - `"tab_opened"`
+
+                    - `class BrowserStateChangeDownloadStarted: …`
+
+                      A file download that started during this call.
+
+                      - `download_id: str`
+
+                        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                      - `type: Literal["download_started"]`
+
+                        - `"download_started"`
+
+                      - `url: str`
+
+                        The final post-redirect URL the download was served from.
+
+                    - `class BrowserStateChangeDownloadCompleted: …`
+
+                      A file download that finished during this call, reported with the
+                      same `download_id` as its `download_started` — or without a prior
+                      `download_started`, when the download finished during the call that
+                      started it (at most one state change per `download_id` per result).
+
+                      - `download_id: str`
+
+                        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                      - `type: Literal["download_completed"]`
+
+                        - `"download_completed"`
+
+                      - `url: str`
+
+                        The final post-redirect URL the download was served from.
+
+                      - `path: Optional[str]`
+
+                        Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+                      - `size_bytes: Optional[int]`
+
+                        The completed download's size.
+
+                    - `class BrowserStateChangeDownloadFailed: …`
+
+                      A file download that failed — or was cancelled — during this call.
+
+                      - `download_id: str`
+
+                        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                      - `type: Literal["download_failed"]`
+
+                        - `"download_failed"`
+
+                      - `url: str`
+
+                        The final post-redirect URL the download was served from.
+
+                      - `error: Optional[str]`
+
+                        The failure or cancellation detail, when known.
+
             - `is_error: Optional[bool]`
+
+            - `toolset_name: Optional[str]`
+
+              For a toolset member tool_result, the toolset family of the paired tool_use.
 
           - `class ServerToolUseBlockParam: …`
 
@@ -22075,35 +28137,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Create a cache control breakpoint at this content block.
 
-          - `class MidConversationSystemBlockParam: …`
-
-            System instructions that appear mid-conversation.
-
-            Use this block to provide or update system-level instructions at a specific
-            point in the conversation, rather than only via the top-level `system` parameter.
-
-            - `content: List[TextBlockParam]`
-
-              System instruction text blocks.
-
-              - `text: str`
-
-              - `type: Literal["text"]`
-
-              - `cache_control: Optional[CacheControlEphemeral]`
-
-                Create a cache control breakpoint at this content block.
-
-              - `citations: Optional[List[TextCitationParam]]`
-
-            - `type: Literal["mid_conv_system"]`
-
-              - `"mid_conv_system"`
-
-            - `cache_control: Optional[CacheControlEphemeral]`
-
-              Create a cache control breakpoint at this content block.
-
       - `role: Literal["user", "assistant", "system"]`
 
         - `"user"`
@@ -22206,9 +28239,39 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-    - `container: Optional[str]`
+    - `container: Optional[MessageCreateParamsContainerParam]`
 
       Container identifier for reuse across requests.
+
+      - `class ContainerParams: …`
+
+        Container parameters with skills to be loaded.
+
+        - `id: Optional[str]`
+
+          Container id
+
+        - `skills: Optional[List[SkillParams]]`
+
+          List of skills to load in the container
+
+          - `skill_id: str`
+
+            Skill ID
+
+          - `type: Literal["anthropic", "custom"]`
+
+            Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+            - `"anthropic"`
+
+            - `"custom"`
+
+          - `version: Optional[str]`
+
+            Skill version or 'latest' for most recent version
+
+      - `str`
 
     - `inference_geo: Optional[str]`
 
@@ -22724,6 +28787,412 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           When true, guarantees schema validation on tool names and inputs
 
+      - `class BrowserToolset20260801: …`
+
+        The browser toolset: a single `tools[]` entry (carrying no
+        `name`) that declares the browser tool family. The model is served
+        the family's tool with any members disabled via `configs` removed
+        from its schema.
+
+        - `type: Literal["browser_toolset_20260801"]`
+
+          - `"browser_toolset_20260801"`
+
+        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: Optional[CacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+        - `configs: Optional[BrowserToolsetConfigs]`
+
+          Per-member configuration for `browser_toolset_20260801`: one
+          optional field per member tool, keyed by the member name — the same
+          name the member's `tool_use` blocks carry. Every member is an
+          accepted key, and a member's defaults apply wherever its key is
+          absent. Unknown keys are rejected: the field set is this toolset
+          version's complete member set.
+
+          - `close_tab: Optional[BrowserCloseTabConfig]`
+
+            `close_tab`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `double_click: Optional[BrowserDoubleClickConfig]`
+
+            `double_click`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `file_upload: Optional[BrowserFileUploadConfig]`
+
+            `file_upload`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `find: Optional[BrowserFindConfig]`
+
+            `find`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `form_input: Optional[BrowserFormInputConfig]`
+
+            `form_input`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `get_page_text: Optional[BrowserGetPageTextConfig]`
+
+            `get_page_text`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `hold_key: Optional[BrowserHoldKeyConfig]`
+
+            `hold_key`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `hover: Optional[BrowserHoverConfig]`
+
+            `hover`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `javascript_exec: Optional[BrowserJavascriptExecConfig]`
+
+            `javascript_exec`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `key: Optional[BrowserKeyConfig]`
+
+            `key`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_click: Optional[BrowserLeftClickConfig]`
+
+            `left_click`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_click_drag: Optional[BrowserLeftClickDragConfig]`
+
+            `left_click_drag`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_mouse_down: Optional[BrowserLeftMouseDownConfig]`
+
+            `left_mouse_down`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_mouse_up: Optional[BrowserLeftMouseUpConfig]`
+
+            `left_mouse_up`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `list_tabs: Optional[BrowserListTabsConfig]`
+
+            `list_tabs`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `middle_click: Optional[BrowserMiddleClickConfig]`
+
+            `middle_click`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `mouse_move: Optional[BrowserMouseMoveConfig]`
+
+            `mouse_move`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `navigate: Optional[BrowserNavigateConfig]`
+
+            `navigate`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `new_tab: Optional[BrowserNewTabConfig]`
+
+            `new_tab`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `read_console: Optional[BrowserReadConsoleConfig]`
+
+            `read_console`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `read_network: Optional[BrowserReadNetworkConfig]`
+
+            `read_network`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `read_page: Optional[BrowserReadPageConfig]`
+
+            `read_page`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `right_click: Optional[BrowserRightClickConfig]`
+
+            `right_click`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `screenshot: Optional[BrowserScreenshotConfig]`
+
+            `screenshot`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `scroll: Optional[BrowserScrollConfig]`
+
+            `scroll`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `scroll_to: Optional[BrowserScrollToConfig]`
+
+            `scroll_to`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `switch_tab: Optional[BrowserSwitchTabConfig]`
+
+            `switch_tab`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `triple_click: Optional[BrowserTripleClickConfig]`
+
+            `triple_click`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `type: Optional[BrowserTypeConfig]`
+
+            `type`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `wait: Optional[BrowserWaitConfig]`
+
+            `wait`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `zoom: Optional[BrowserZoomConfig]`
+
+            `zoom`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
       - `class MemoryTool20250818: …`
 
         - `name: Literal["memory"]`
@@ -22761,6 +29230,248 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `strict: Optional[bool]`
 
           When true, guarantees schema validation on tool names and inputs
+
+      - `class ComputerToolset20260801: …`
+
+        The computer toolset: a single `tools[]` entry (carrying no
+        `name`) that declares the computer tool family. The model is
+        served the family's tool with any members disabled via `configs`
+        removed from its schema. Every member is enabled by default, zoom
+        included. The single-tool options `display_number` and
+        `enable_zoom` are not fields of a toolset entry — it carries only
+        `type`, `configs`, and `cache_control`; zoom is controlled
+        via `configs.zoom.enabled`.
+
+        - `type: Literal["computer_toolset_20260801"]`
+
+          - `"computer_toolset_20260801"`
+
+        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: Optional[CacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+        - `configs: Optional[ComputerToolsetConfigs]`
+
+          Per-member configuration for `computer_toolset_20260801`: one
+          optional field per member tool, keyed by the member name — the same
+          name the member's `tool_use` blocks carry. Every member is an
+          accepted key, and a member's defaults apply wherever its key is
+          absent. Unknown keys are rejected: the field set is this toolset
+          version's complete member set.
+
+          - `cursor_position: Optional[ComputerCursorPositionConfig]`
+
+            `cursor_position`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `double_click: Optional[ComputerDoubleClickConfig]`
+
+            `double_click`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `hold_key: Optional[ComputerHoldKeyConfig]`
+
+            `hold_key`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `key: Optional[ComputerKeyConfig]`
+
+            `key`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_click: Optional[ComputerLeftClickConfig]`
+
+            `left_click`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_click_drag: Optional[ComputerLeftClickDragConfig]`
+
+            `left_click_drag`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_mouse_down: Optional[ComputerLeftMouseDownConfig]`
+
+            `left_mouse_down`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_mouse_up: Optional[ComputerLeftMouseUpConfig]`
+
+            `left_mouse_up`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `middle_click: Optional[ComputerMiddleClickConfig]`
+
+            `middle_click`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `mouse_move: Optional[ComputerMouseMoveConfig]`
+
+            `mouse_move`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `right_click: Optional[ComputerRightClickConfig]`
+
+            `right_click`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `screenshot: Optional[ComputerScreenshotConfig]`
+
+            `screenshot`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `scroll: Optional[ComputerScrollConfig]`
+
+            `scroll`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `triple_click: Optional[ComputerTripleClickConfig]`
+
+            `triple_click`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `type: Optional[ComputerTypeConfig]`
+
+            `type`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `wait: Optional[ComputerWaitConfig]`
+
+            `wait`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `zoom: Optional[ComputerZoomConfig]`
+
+            `zoom`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
       - `class ToolTextEditor20250124: …`
 
@@ -23515,7 +30226,7 @@ message_batch = client.messages.batches.create(
                         "role": "user",
                     }
                 ],
-                "model": "claude-opus-4-6",
+                "model": "claude-opus-5",
             },
         }
     ],
@@ -24120,6 +30831,26 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             The time at which the container will expire.
 
+          - `skills: Optional[List[ContainerSkill]]`
+
+            Skills loaded in the container
+
+            - `skill_id: str`
+
+              Skill ID
+
+            - `type: Literal["anthropic", "custom"]`
+
+              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+              - `"anthropic"`
+
+              - `"custom"`
+
+            - `version: str`
+
+              Skill version or 'latest' for most recent version
+
         - `content: List[ContentBlock]`
 
           Content generated by the model.
@@ -24346,6 +31077,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: Literal["tool_use"]`
 
               - `"tool_use"`
+
+            - `toolset_name: Optional[str]`
+
+              For a toolset member tool_use, the toolset family.
 
           - `class ServerToolUseBlock: …`
 
@@ -25436,6 +32171,26 @@ for batch in client.messages.batches.results(
 
             The time at which the container will expire.
 
+          - `skills: Optional[List[ContainerSkill]]`
+
+            Skills loaded in the container
+
+            - `skill_id: str`
+
+              Skill ID
+
+            - `type: Literal["anthropic", "custom"]`
+
+              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+              - `"anthropic"`
+
+              - `"custom"`
+
+            - `version: str`
+
+              Skill version or 'latest' for most recent version
+
         - `content: List[ContentBlock]`
 
           Content generated by the model.
@@ -25662,6 +32417,10 @@ for batch in client.messages.batches.results(
             - `type: Literal["tool_use"]`
 
               - `"tool_use"`
+
+            - `toolset_name: Optional[str]`
+
+              For a toolset member tool_use, the toolset family.
 
           - `class ServerToolUseBlock: …`
 
@@ -26543,6 +33302,26 @@ for batch in client.messages.batches.results(
 
           The time at which the container will expire.
 
+        - `skills: Optional[List[ContainerSkill]]`
+
+          Skills loaded in the container
+
+          - `skill_id: str`
+
+            Skill ID
+
+          - `type: Literal["anthropic", "custom"]`
+
+            Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+            - `"anthropic"`
+
+            - `"custom"`
+
+          - `version: str`
+
+            Skill version or 'latest' for most recent version
+
       - `content: List[ContentBlock]`
 
         Content generated by the model.
@@ -26769,6 +33548,10 @@ for batch in client.messages.batches.results(
           - `type: Literal["tool_use"]`
 
             - `"tool_use"`
+
+          - `toolset_name: Optional[str]`
+
+            For a toolset member tool_use, the toolset family.
 
         - `class ServerToolUseBlock: …`
 
@@ -27612,6 +34395,26 @@ for batch in client.messages.batches.results(
 
         The time at which the container will expire.
 
+      - `skills: Optional[List[ContainerSkill]]`
+
+        Skills loaded in the container
+
+        - `skill_id: str`
+
+          Skill ID
+
+        - `type: Literal["anthropic", "custom"]`
+
+          Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+          - `"anthropic"`
+
+          - `"custom"`
+
+        - `version: str`
+
+          Skill version or 'latest' for most recent version
+
     - `content: List[ContentBlock]`
 
       Content generated by the model.
@@ -27838,6 +34641,10 @@ for batch in client.messages.batches.results(
         - `type: Literal["tool_use"]`
 
           - `"tool_use"`
+
+        - `toolset_name: Optional[str]`
+
+          For a toolset member tool_use, the toolset family.
 
       - `class ServerToolUseBlock: …`
 

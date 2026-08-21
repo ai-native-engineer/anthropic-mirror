@@ -7,7 +7,6 @@ Agentforce Agent Development Life Cycle — author, discover, scaffold, deploy, 
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   1150

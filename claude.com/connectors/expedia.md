@@ -6,11 +6,12 @@
 
 Plan trips, flights and hotels
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/21506a18-96ae-40d0-9a9d-1433e08a8bc4)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Expedia Group](https://www.expedia.com/)
 

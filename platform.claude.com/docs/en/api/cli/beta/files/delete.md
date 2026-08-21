@@ -25,7 +25,7 @@ Delete File
 
 ### Returns
 
-- `deleted_file: object { id, type }`
+- `beta_deleted_file: object { id, type }`
 
   - `id: string`
 

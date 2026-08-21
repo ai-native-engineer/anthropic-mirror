@@ -6,11 +6,12 @@
 
 The Official GitHub MCP Server
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/cdf69311-bafb-4969-996e-c52b2f388265)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [GitHub](https://github.com)
 

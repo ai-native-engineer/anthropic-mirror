@@ -6,11 +6,12 @@
 
 Data from The Demographic and Health Surveys Program
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/9e5b81c6-d26f-43bb-9425-2d132ccdea40)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [ICF](https://dhsprogram.com/)
 

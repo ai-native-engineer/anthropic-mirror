@@ -7,7 +7,6 @@ Control Airwallex in Claude. Manage invoices, suppliers, and cash in plain langu
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Airwallex](#)
 * Installs

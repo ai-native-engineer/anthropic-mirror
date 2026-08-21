@@ -6,11 +6,12 @@
 
 Create and iterate 3D models for use in SketchUp
 
+* Category
+
   Design
 * Used in
 
   [Claude](https://claude.ai/directory/b982ecd1-ee51-45f0-99d9-9330a0dd8b0c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Trimble SketchUp](https://sketchup.trimble.com)
 

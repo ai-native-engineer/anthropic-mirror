@@ -6,11 +6,12 @@
 
 Explore and debug your Coralogix observability data
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/a1d8f399-3c9f-44ca-aa70-8959be5c9f9c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Coralogix](https://coralogix.com/)
 

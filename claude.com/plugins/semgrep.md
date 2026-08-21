@@ -7,7 +7,6 @@ Semgrep catches security vulnerabilities in real-time and guides Claude to write
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Semgrep](https://semgrep.dev)
 * Installs

@@ -6,13 +6,14 @@
 
 Financial fundamental data and KPIs with hyperlinks
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/67e0ebd7-f7c3-4917-b8f9-dc8c8cdcce13)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
-  [Daloopa](https://daloopa.com/)
+  [Daloopa](https://daloopa.com/?utm_campaign=2026-8-Q3-Marketing-Referrals-Claude-MCP&utm_source=claude&utm_medium=referral)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

@@ -6,11 +6,12 @@
 
 MCP Server for Zoho CRM Workflows
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/fbc6ce8e-ac9d-4b09-8b74-a69fd456bc39)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Zoho](https://www.zoho.com/mcp/)
 

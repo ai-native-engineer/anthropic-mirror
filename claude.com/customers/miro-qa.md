@@ -200,6 +200,14 @@ Video caption
 
 ## Related stories
 
+[Deepgram ships 4–10x more durable code with Claude](https://claude.com/customers/deepgram) Deepgram ships 4–10x more durable code with Claude
+
+Deepgram ships 4–10x more durable code with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/deepgram)Customer story
+
 [Office Hours: Building the case for leaders who ship with DoorDash](https://claude.com/customers/doordash-boris-office-hours) Office Hours: Building the case for leaders who ship with DoorDash
 
 Office Hours: Building the case for leaders who ship with DoorDash
@@ -223,11 +231,3 @@ Office Hours: Building for the model that doesn't exist yet
 Customer story
 
 [Customer story](https://claude.com/customers/ramp-boris-office-hours)Customer story
-
-[Wondr Health scales trusted health coaching with Claude](https://claude.com/customers/wondr-health)Wondr Health scales trusted health coaching with Claude
-
-Wondr Health scales trusted health coaching with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/wondr-health)Customer story

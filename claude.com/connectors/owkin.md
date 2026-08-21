@@ -6,11 +6,12 @@
 
 Interact with AI agents built for biology
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/bd022b03-2829-47df-b07f-b50c3541c932)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-owkin-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Owkin](https://www.owkin.com/)
 

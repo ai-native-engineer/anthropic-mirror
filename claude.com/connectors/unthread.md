@@ -6,11 +6,12 @@
 
 Manage and automate your support tickets
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/9fcc5cc5-15fe-4144-bafb-239db7e9038d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Unthread](https://unthread.io/)
 

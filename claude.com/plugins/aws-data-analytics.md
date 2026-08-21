@@ -7,7 +7,6 @@ Data lake, analytics, and ETL workflows with S3 Tables, AWS Glue, and Athena.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Amazon Web Services](#)
 * Installs

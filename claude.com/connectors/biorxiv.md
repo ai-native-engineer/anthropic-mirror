@@ -6,13 +6,14 @@
 
 Access to bioRxiv and medRxiv preprint data
 
+* Category
+
   Life sciences and healthcare
 
   Education
 * Used in
 
   [Claude](https://claude.ai/directory/ae97efbb-8a1a-4c03-9e86-6925f002703a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-biorxiv-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 

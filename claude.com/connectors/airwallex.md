@@ -6,11 +6,12 @@
 
 Integrate with the Airwallex Platform using Claude
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/f9e2f745-d688-42a7-8c79-98fe7990dc03)[Claude desktop app](https://claude.ai/directory/ant.dir.gh.airwallex.airwallex-mcp)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Airwallex](https://www.airwallex.com/)
 

@@ -6,11 +6,12 @@
 
 Business Finances made simple
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Intuit QuickBooks](https://quickbooks.intuit.com/)
 

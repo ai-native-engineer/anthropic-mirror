@@ -7,7 +7,6 @@ Control Unreal Editor via Claude Code MCP. Hundreds of tools across 30+ toolsets
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Epic Games](https://github.com/EpicGames)
 * Installs

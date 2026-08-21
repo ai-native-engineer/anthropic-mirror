@@ -7,7 +7,6 @@ Build, train, evaluate, and use open source AI models, datasets, and spaces.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Hugging Face](https://huggingface.co)
 * Installs

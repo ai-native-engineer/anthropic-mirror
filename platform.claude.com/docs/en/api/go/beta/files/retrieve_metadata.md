@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/go/beta/files/retrieve_metadata
 
 ## Get File Metadata
 
-`client.Beta.Files.GetMetadata(ctx, fileID, query) (*FileMetadata, error)`
+`client.Beta.Files.GetMetadata(ctx, fileID, query) (*BetaFileMetadata, error)`
 
 **get** `/v1/files/{file_id}`
 
@@ -73,6 +73,8 @@ Get File Metadata
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -97,7 +99,7 @@ Get File Metadata
 
 ### Returns
 
-- `type FileMetadata struct{…}`
+- `type BetaFileMetadata struct{…}`
 
   - `ID string`
 
@@ -164,7 +166,7 @@ func main() {
 	client := anthropic.NewClient(
 		option.WithAPIKey("my-anthropic-api-key"),
 	)
-	fileMetadata, err := client.Beta.Files.GetMetadata(
+	betaFileMetadata, err := client.Beta.Files.GetMetadata(
 		context.TODO(),
 		"file_id",
 		anthropic.BetaFileGetMetadataParams{},
@@ -172,7 +174,7 @@ func main() {
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Printf("%+v\n", fileMetadata.ID)
+	fmt.Printf("%+v\n", betaFileMetadata.ID)
 }
 ```
 

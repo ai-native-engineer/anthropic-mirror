@@ -8,7 +8,6 @@ Java language server (Eclipse JDT.LS) for code intelligence
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

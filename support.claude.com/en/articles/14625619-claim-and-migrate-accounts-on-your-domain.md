@@ -65,6 +65,7 @@ New accounts created on the domain after domain capture is enabled go directly t
 
 ## What’s not supported
 
+* Migrating data into organizations with HIPAA readiness or customer-managed encryption keys (CMEK) turned on. You can still claim your domain, and people on it are notified as usual, but they can only join fresh. Nothing from their personal accounts moves over. Learn more about **[HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973)** and **[customer-managed encryption keys](https://support.claude.com/en/articles/15505325)**.
 * Claiming Team plan accounts. Only individual accounts (Free, Pro, Max) can be claimed.
 * Setting a custom migration deadline. The window is always 30 days.
 * Canceling App Store subscriptions. People who purchased Pro or Max through the Apple App Store need to cancel their subscription themselves through their Apple ID settings. For details, see **[Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626)**.

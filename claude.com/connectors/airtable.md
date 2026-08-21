@@ -6,11 +6,12 @@
 
 Bring your structured data to Claude
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/cb504fab-e494-490f-bff8-bb3ab23a2209)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Airtable](https://airtable.com/)
 

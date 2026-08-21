@@ -7,7 +7,6 @@ Access Confidence feature flags, experiments, and migration tools directly from 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Spotify Confidence](https://confidence.spotify.com)
 * Installs

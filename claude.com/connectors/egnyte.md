@@ -6,11 +6,12 @@
 
 Securely access and analyze Egnyte content.
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/5b938bac-8286-4844-bc51-d303f7c6cbde)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Egnyte](https://egnyte.com)
 

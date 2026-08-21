@@ -6,13 +6,14 @@
 
 Yale's harmonized US public health surveillance data
 
+* Category
+
   Life sciences and healthcare
 
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/cd7d9174-5546-440a-822d-1e9026e7334c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Yale School of Public Health](https://www.pophive.org)
 

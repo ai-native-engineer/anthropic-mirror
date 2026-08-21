@@ -6,11 +6,12 @@
 
 Pull Profound Visibility, Citation, & AI Bot Visit Data
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/4738c35b-a9cc-4378-8bb2-ad09a1a23b5b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Profound](https://tryprofound.com/)
 

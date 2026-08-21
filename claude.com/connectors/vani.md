@@ -6,11 +6,12 @@
 
 Search, create, edit, and share Vani Spaces
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/9411aa63-2ca4-40be-8cb4-26b3f9f41aab)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Zoho Corporation Pvt. Ltd](https://zoho.com)
 

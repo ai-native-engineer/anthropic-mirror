@@ -6,11 +6,12 @@
 
 Analyze, debug, and manage projects and deployments
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Vercel](https://vercel.com)
 

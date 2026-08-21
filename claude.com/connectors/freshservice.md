@@ -6,11 +6,12 @@
 
 Manage tickets, assets, changes, and IT requests
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/0625e715-7ebc-479c-9f6f-f643ad1d77b0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Freshworks](https://www.freshworks.com)
 

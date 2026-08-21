@@ -6,11 +6,12 @@
 
 Zoho Books MCP for Smart Finance Ops
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/9e4a3416-f5b4-4a89-8e3a-a4955fa17475)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Zoho](https://www.zoho.com/mcp/)
 

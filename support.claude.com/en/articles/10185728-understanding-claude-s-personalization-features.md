@@ -1,6 +1,6 @@
 <!-- source: https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features -->
 
-Claude offers several ways to personalize your experience: profile instructions, project instructions, and styles. Each serves a different purpose in helping Claude better understand and meet your needs.
+Claude offers several ways to personalize your experience. Each serves a different purpose in helping Claude better understand and meet your needs.
 
 ## Instructions for Claude
 
@@ -58,12 +58,12 @@ For more information, see **[What are skills?](https://support.claude.com/en/art
 
 * Use profile instructions for account-wide settings that affect all your interactions with Claude.
 * Use project instructions when you need specific guidance or context for a particular project (paid plans only).
-* Use styles when you want to customize how Claude formats and delivers its responses.
+* Use skills when you want to customize how Claude formats and delivers its responses.
 
 You can use these features independently or in combination to create the most effective experience for your needs.
 
 * [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
-* [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

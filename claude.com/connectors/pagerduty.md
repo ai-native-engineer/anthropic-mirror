@@ -6,11 +6,12 @@
 
 Manage incidents, services and on-call schedules
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/fc41b5e5-97bc-4c80-af18-e3a9442b655b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [PagerDuty](https://www.pagerduty.com)
 

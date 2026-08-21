@@ -7,7 +7,6 @@ CLI skills for shell, scripting, CI/CD via `sup` CLI (PyPI: superset-sup). CLI w
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Preset](#)
 * Installs

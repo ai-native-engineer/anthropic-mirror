@@ -6,11 +6,12 @@
 
 Ask AI about your sales calls, deals & pipeline
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/2273f645-4b1d-4842-a52f-c0032296ccad)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Sybill Inc.](https://www.sybill.ai)
 

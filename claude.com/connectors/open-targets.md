@@ -6,11 +6,12 @@
 
 Drug target discovery and prioritisation platform
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/097ab77c-338a-421c-8ba7-3960c928a540)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-open-targets-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Open Targets](https://www.opentargets.org)
 

@@ -7,7 +7,6 @@ Skills for the Cloudflare developer platform: Workers, Durable Objects, Agents S
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   17653

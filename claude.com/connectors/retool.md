@@ -6,11 +6,12 @@
 
 Build production apps and manage Retool with AI agents
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/632e260d-ae22-4f20-82f1-0495f0149125)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Retool, Inc](https://retool.com)
 

@@ -6,11 +6,12 @@
 
 Manage, update and move work forward from Claude
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/baa35676-3f79-4728-aec9-b37870c73deb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Wrike](https://www.wrike.com)
 

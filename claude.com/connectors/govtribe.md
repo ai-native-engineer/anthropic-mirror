@@ -6,11 +6,12 @@
 
 Search government procurement & spending data
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/f40e6edf-6955-4810-848b-19d98b2f4f4e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Government Executive Media Group LLC](https://govtribe.com)
 

@@ -6,11 +6,12 @@
 
 Craft content that wins AI search
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/3d915617-ebcc-489f-b603-57ec21f7d1d0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [AirOps](https://www.airops.com/)
 

@@ -7,7 +7,6 @@ Voila API: shipment creation, tracking, history, manifesting, webhooks, Sorted/P
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Thomas Sedman](https://github.com/TSedmanDC)
 * Installs

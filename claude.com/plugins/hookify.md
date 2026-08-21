@@ -8,7 +8,6 @@ Create custom hooks via markdown to prevent unwanted behaviors from conversation
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

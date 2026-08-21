@@ -6,11 +6,12 @@
 
 Inject precise, real-time computation and knowledge
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/de1d1dc7-ec10-459d-b511-797982834b43)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Wolfram Research](https://www.wolfram.com/)
 

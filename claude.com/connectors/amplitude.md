@@ -6,11 +6,12 @@
 
 Give your teams powerful behavioral insights
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/8e40fa13-4654-4387-bbad-12b8ecc81351)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Amplitude](https://amplitude.com/)
 

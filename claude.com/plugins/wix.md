@@ -7,7 +7,6 @@ Build, manage, and deploy Wix sites and apps. CLI development skills for dashboa
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Wix](https://dev.wix.com)
 * Installs

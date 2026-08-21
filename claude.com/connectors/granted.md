@@ -6,13 +6,14 @@
 
 Discover every grant opportunity in existence.
 
+* Category
+
   Nonprofit
 
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Granted AI](https://grantedai.com/)
 

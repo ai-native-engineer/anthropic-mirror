@@ -7,7 +7,6 @@ Telegram messaging bridge with built-in access control. Manage pairing, allowlis
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   100332

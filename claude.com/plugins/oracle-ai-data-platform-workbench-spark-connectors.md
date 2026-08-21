@@ -7,7 +7,6 @@ Oracle AI Data Platform Workbench Spark connectors for Claude Code. 18 connector
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Oracle](#)
 * Installs

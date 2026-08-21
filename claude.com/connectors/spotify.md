@@ -6,11 +6,12 @@
 
 Music and podcast recommendations, just for you.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/86925244-b3bb-415b-b7e8-6e3cd1392247)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Spotify](https://www.spotify.com)
 

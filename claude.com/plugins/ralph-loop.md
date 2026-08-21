@@ -8,7 +8,6 @@ Interactive AI loops for iterative development using the Ralph Wiggum technique:
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

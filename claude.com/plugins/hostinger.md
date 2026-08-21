@@ -7,7 +7,6 @@ Manage Hostinger services: Websites, Domains, Ecommerce, Email, Subscriptions, V
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Hostinger](#)
 * Installs

@@ -7,7 +7,6 @@ Stripe development plugin for Claude
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Stripe](https://stripe.com)
 * Installs

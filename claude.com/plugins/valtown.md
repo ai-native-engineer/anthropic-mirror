@@ -7,7 +7,6 @@ Build and deploy on Val Town. Bundles the Val Town MCP server and platform skill
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Val Town](#)
 * Installs

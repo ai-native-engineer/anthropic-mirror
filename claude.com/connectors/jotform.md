@@ -6,13 +6,14 @@
 
 Create forms & analyze submissions inside Claude
 
+* Category
+
   Productivity
 
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/aed7e2be-868e-4046-9e12-5c917b4e6b97)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Jotform](https://jotform.com)
 

@@ -7,7 +7,6 @@ Access official Microsoft documentation, API references, and code samples for Az
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Microsoft](https://learn.microsoft.com)
 * Installs

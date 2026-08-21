@@ -22,7 +22,25 @@ Run `/tui fullscreen` inside any Claude Code conversation. The CLI saves the [`t
 
 In [screen reader mode](/docs/en/accessibility), Claude Code always uses the classic renderer except in attached [background sessions](/docs/en/agent-view), which still render fullscreen. If you run `/tui fullscreen` in any other session, Claude Code prints an explanation instead of switching and doesn't change the saved `tui` setting.
 
-The relaunched session keeps the conversation as it appears on screen. Claude Code also carries over the model you last picked with [`/model`](/docs/en/model-config#setting-your-model). If you ran [`/rewind`](/docs/en/checkpointing#rewind-and-summarize) earlier in the session, the relaunch resumes from the rewound point rather than the longer transcript saved on disk. If you rewound to before your first message, the relaunched session starts empty.
+Claude Code carries these into the relaunched session:
+
+* The conversation as it appears on screen. After a [`/rewind`](/docs/en/checkpointing#rewind-and-summarize), that means:
+  * If you rewound earlier in the session, Claude Code relaunches from the rewound point, not from the longer transcript saved on disk. For example, if you rewound past your last three messages, the relaunched session opens without them
+  * If you rewound to before your first message, Claude Code relaunches with an empty conversation
+* Your [permission mode](/docs/en/permission-modes) and [effort level](/docs/en/model-config#adjust-effort-level)
+* The model you last picked with [`/model`](/docs/en/model-config#setting-your-model)
+* Rules you passed with [`--allowed-tools` or `--disallowed-tools`](/docs/en/cli-reference#cli-flags), and your `--agent`, `--agents`, and `--append-system-prompt` flags
+
+Claude Code declines to relaunch if the session has a restriction it can't pass to the restarted process. Restrictions it can't pass include:
+
+* Launch flags such as a [`--system-prompt`](/docs/en/cli-reference#cli-flags) replacement, a [`--tools`](/docs/en/cli-reference#cli-flags) allowlist, or [`--setting-sources`](/docs/en/cli-reference#cli-flags)
+* Deny or ask rules that a [hook or SDK permission update](/docs/en/hooks#permission-update-entries) added for this session only
+
+In that case Claude Code prints [`Cannot switch renderers in this session`](/docs/en/errors#cannot-switch-renderers-in-this-session) with the reasons. It doesn't switch or save anything.
+
+<Note>
+  If you first used Claude Code before May 6, 2026 and haven't saved a `tui` setting, Claude Code may open a dialog at startup offering the switch. If you accept, Claude Code relaunches the same way `/tui fullscreen` does, carrying the same session state, and saves the setting once the relaunched session has [started successfully](#fullscreen-renderer-didnt-finish-starting).
+</Note>
 
 You can also set the `CLAUDE_CODE_NO_FLICKER` environment variable before starting Claude Code:
 
@@ -30,7 +48,7 @@ You can also set the `CLAUDE_CODE_NO_FLICKER` environment variable before starti
 CLAUDE_CODE_NO_FLICKER=1 claude
 ```
 
-The `tui` setting and the environment variable are equivalent. The `/tui` command clears `CLAUDE_CODE_NO_FLICKER` from the relaunched process so the setting it writes takes effect.
+Either one turns fullscreen rendering on. After a [failed fullscreen start](#fullscreen-renderer-didnt-finish-starting), Claude Code still honors the variable but not the setting. The `/tui` command clears `CLAUDE_CODE_NO_FLICKER` from the relaunched process so the setting it writes takes effect.
 
 ## What changes
 
@@ -67,6 +85,15 @@ Selected text copies to your clipboard automatically on mouse release. To turn t
 With Copy on select off, press `Ctrl+Shift+c` to copy manually. On terminals that support the kitty keyboard protocol, such as kitty, WezTerm, Ghostty, and iTerm2, `Cmd+c` also works. If you have a selection active, `Ctrl+c` copies instead of cancelling.
 
 With a selection active, hold `Shift` and press the arrow keys to extend it from the keyboard. `Shift+↑` and `Shift+↓` scroll the viewport when the selection reaches the top or bottom edge. `Shift+Home` and `Shift+End` extend to the start or end of the current line.
+
+In the normal prompt view, what happens to an active selection depends on the key you press:
+
+* **`Esc`**: Claude Code performs the key's usual action, such as interrupting the running response or dismissing an open dialog, and the selection stays highlighted.
+* **`PgUp`, `PgDn`, `Ctrl+Home`, `Ctrl+End`, or `Shift`, `Alt` or `Option`, or `Cmd`, `Win`, or `Super` with an arrow, `Home`, or `End` key**: the selection stays.
+* **Any other key, including plain arrow keys, `Enter`, and typed characters**: Claude Code clears the selection.
+* **A key bound to [`selection:clear`](/docs/en/keybindings#scroll-actions)**: Claude Code clears the selection, even when the key is `Esc` or another key that otherwise keeps it. The action has no default binding.
+
+In [transcript mode](#search-and-review-the-conversation), the navigation and search keys listed there also keep the selection.
 
 ## Scroll the conversation
 
@@ -153,7 +180,9 @@ Your terminal's `Cmd+f` and tmux search don't see the conversation because it li
 
 ## Clear the conversation
 
-Press `Ctrl+L` twice within two seconds to run `/clear` and start a new conversation. The first press redraws the screen and shows a hint; the second press clears the conversation. On macOS, double-pressing `Cmd+K` also runs `/clear`.
+Run `/clear` to start a new conversation. Pressing `Ctrl+L` or `Cmd+K` doesn't clear the conversation; Claude Code redraws the screen and keeps it. Before v2.1.238, Claude Code ran `/clear` when you pressed `Ctrl+L` or `Cmd+K` twice within two seconds.
+
+On iTerm2 and Terminal.app, your terminal handles `Cmd+K` itself and clears its own screen without telling Claude Code. Claude Code detects the cleared screen and repaints the conversation.
 
 ## Use with tmux
 
@@ -230,6 +259,28 @@ CLAUDE_CODE_ALT_SCREEN_FULL_REPAINT=1 claude
 ```
 
 On Windows, Claude Code already enables full repaint automatically for background sessions and [agent view](/docs/en/agent-view), so you only need to set the variable for an interactive fullscreen session you launched directly.
+
+<h3 id="fullscreen-renderer-didnt-finish-starting">
+  `Claude Code's fullscreen renderer didn't finish starting last time` appears at startup
+</h3>
+
+If a fullscreen session on this machine crashes before it has started successfully, Claude Code starts your next session in the classic renderer and prints one of two lines. A session has started successfully once it has drawn its first frame and then either stayed up for 10 seconds or you ended it with `/exit`, Ctrl+C, or Ctrl+D. The line you see tells you what Claude Code does after this session:
+
+* After one failed start, you see `Claude Code's fullscreen renderer didn't finish starting last time on this machine`. Claude Code tries fullscreen rendering again in the next session you start
+* After two failed starts, you see `Claude Code's fullscreen renderer has repeatedly failed to start on this machine`. Claude Code keeps using the classic renderer until you update Claude Code or run `/tui fullscreen`, and prints nothing in those later sessions
+
+To confirm that a failed start is why you're in the classic renderer, run `/tui` with no argument. While a failed start is the reason, the `Current renderer` line says so.
+
+To keep the classic renderer, run `/tui default`, which saves the `tui` setting without relaunching. To try fullscreen rendering again, run `/tui fullscreen`. If that session doesn't finish starting either, [report the problem](#research-preview).
+
+Before v2.1.236, Claude Code kept starting sessions in fullscreen rendering after a failed start.
+
+#### How Claude Code counts failed starts
+
+* Sessions that count: only sessions that started in fullscreen rendering because your `tui` setting says so, because you accepted the [startup dialog](#enable-fullscreen-rendering), or because your account renders fullscreen by default
+* `CLAUDE_CODE_NO_FLICKER=1`: if you set it, Claude Code renders that session fullscreen even after a failed start, and doesn't count it
+* Count reset: Claude Code counts failed starts per Claude Code version, and a successful fullscreen start resets the count
+* Startup dialog: if you accepted the dialog and the relaunched session crashed, Claude Code prints neither line and doesn't show the dialog again on this Claude Code version
 
 ## Research preview
 

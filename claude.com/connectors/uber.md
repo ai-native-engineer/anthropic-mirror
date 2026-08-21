@@ -6,11 +6,12 @@
 
 Get Uber price & time estimates for any ride option
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/cdecef4b-4a15-404c-b912-005ca366a898)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Uber](https://www.uber.com/)
 

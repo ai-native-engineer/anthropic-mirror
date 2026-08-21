@@ -8,7 +8,6 @@ Security hook warns about command injection, XSS, and unsafe code patterns when 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

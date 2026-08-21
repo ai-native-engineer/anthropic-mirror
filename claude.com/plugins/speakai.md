@@ -7,7 +7,6 @@ Search transcripts, summarize meetings, extract quotes, create clips, and manage
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Speak AI](#)
 * Installs

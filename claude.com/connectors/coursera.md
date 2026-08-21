@@ -6,11 +6,12 @@
 
 Transform your prompts into active skill-building
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/03c911b8-9789-4cb1-949b-236f9d06b2da)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Coursera](https://www.coursera.org)
 

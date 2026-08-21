@@ -6,11 +6,12 @@
 
 Anything delivered in minutes
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/6c0d8284-8bf9-4ae6-90dd-69c1680807d2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Glovo](https://glovoapp.com/)
 

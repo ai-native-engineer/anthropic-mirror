@@ -6,11 +6,12 @@
 
 Query your Ontra data directly from any AI tool
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/44c1fc8d-e5df-4846-be1d-a57db7070783)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Ontra](https://www.ontra.ai/)
 

@@ -6,11 +6,12 @@
 
 Manage planning, projects, tasks, and approvals
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/81d7db7c-e329-41ee-bc8e-48beceac2d68)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Adobe](https://business.adobe.com/)
 

@@ -6,11 +6,12 @@
 
 Build classroom activities, lessons, & more with Brisk
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/9bae1b8d-ec61-46ef-8aaf-b21aee5970e0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Brisk Teaching](https://www.briskteaching.com/)
 

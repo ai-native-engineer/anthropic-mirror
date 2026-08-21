@@ -7,7 +7,6 @@ Prisma MCP for Postgres: database management, migrations, SQL queries, and data 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Prisma](https://www.prisma.io)
 * Installs

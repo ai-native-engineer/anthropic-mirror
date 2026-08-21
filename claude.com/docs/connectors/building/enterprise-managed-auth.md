@@ -116,6 +116,10 @@ If your identity provider is Okta, refer to Okta’s [Cross App Access participa
 
 Enterprise Managed Auth is in beta. [Register interest](https://docs.google.com/forms/d/e/1FAIpQLSf1goHGNDVFK7rncYuh6wnRpWSy7eGOcgL1i8uw3oyKFO9UUA/viewform) to get onboarded for testing.
 
+##  Provide setup documentation
+
+You can publish documentation that walks an enterprise administrator through enabling Enterprise Managed Auth for your product and add its URL to [your directory listing](https://claude.com/docs/connectors/building/managing-your-listing). Claude shows the link in the Claude admin console when an administrator sets up Enterprise Managed Auth for your connector.
+
 ##  Related resources
 
 ## Authentication for connectors

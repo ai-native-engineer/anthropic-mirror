@@ -6,13 +6,14 @@
 
 Enhance responses with scholarly research and citations
 
+* Category
+
   Life sciences and healthcare
 
   Education
 * Used in
 
   [Claude](https://claude.ai/directory/ff091334-0f12-4d0e-a973-c00467dd3818)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](https://support.claude.com/en/articles/12614815-using-the-scholar-gateway-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Wiley](https://www.wiley.com/en-us/)
 

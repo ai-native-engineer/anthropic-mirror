@@ -7,7 +7,6 @@ Official Expo skills for building, deploying, upgrading, and debugging React Nat
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   15861

@@ -6,11 +6,12 @@
 
 Discuss and iterate on Magic Patterns designs
 
+* Category
+
   Design
 * Used in
 
   [Claude](https://claude.ai/directory/088e0355-cb01-44fa-ba0b-23525fde8d5a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Magic Patterns](https://www.magicpatterns.com)
 

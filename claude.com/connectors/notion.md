@@ -6,11 +6,12 @@
 
 Connect your Notion workspace to search, update, and power workflows across tools
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](http://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Notion](https://notion.com)
 

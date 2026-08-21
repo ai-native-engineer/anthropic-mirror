@@ -6,11 +6,12 @@
 
 Experience analytics platform for digital businesses
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/385882c7-2b55-4c12-b331-57babd22e643)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Contentsquare](https://www.contentsquare.com)
 

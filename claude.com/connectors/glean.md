@@ -6,11 +6,12 @@
 
 Bring enterprise context to Claude and your AI tools
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/784c4da3-8956-462f-96c1-440c6a190dcc)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Glean](https://glean.com)
 

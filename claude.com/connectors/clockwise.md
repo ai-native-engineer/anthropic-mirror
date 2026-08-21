@@ -6,11 +6,12 @@
 
 Advanced scheduling and time management for work.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/17a85e07-6e7b-46ea-a4bb-d3103f24e3bb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Clockwise](https://www.getclockwise.com/)
 

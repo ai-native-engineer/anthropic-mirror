@@ -7,7 +7,6 @@ DuckDB-powered skills for Claude Code: read any data file, attach and query Duck
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [DuckDB Foundation](#)
 * Installs

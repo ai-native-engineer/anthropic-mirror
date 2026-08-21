@@ -47,6 +47,10 @@ List memory versions
 
     Query parameter for page
 
+  - `Optional<String> serviceAccountId`
+
+    Query parameter for service_account_id
+
   - `Optional<String> sessionId`
 
     Query parameter for session_id
@@ -102,6 +106,8 @@ List memory versions
     - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
 
     - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
@@ -212,6 +218,18 @@ List memory versions
       - `String userId`
 
         ID of the user who performed the write (a `user_...` value).
+
+    - `class BetaManagedAgentsServiceAccountActor:`
+
+      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `String serviceAccountId`
+
+        ID of the service account that performed the write (a `svac_...` value).
+
+      - `JsonValue; type "service_account_actor"constant`
+
+        - `SERVICE_ACCOUNT_ACTOR("service_account_actor")`
 
   - `Optional<String> path`
 

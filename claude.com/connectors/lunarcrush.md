@@ -6,13 +6,14 @@
 
 Add real-time social media data to your searches
 
+* Category
+
   Data
 
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/837cceff-9820-4510-823f-9bdc5ef21f3a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [LunarCrush](https://lunarcrush.com/)
 

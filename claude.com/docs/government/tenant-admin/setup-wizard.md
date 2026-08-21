@@ -58,7 +58,7 @@ Click **Add** and the new organization appears in the list. You can create as ma
 ##  Step 6: Seats and spend caps
 
 This step lets you give each organization seats and, optionally, a spend cap.
-Seats control how many people in each organization can use Claude. The table shows each organization with a seat-count field for the first seat tier. Enter the number of seats each organization should have and save. For per-tier control, use the full [Seats](https://claude.com/docs/government/tenant-admin/seats) page after setup.
+Seats control how many people in each organization can use Claude. The table shows each organization with a seat-count field for the first seat tier. Enter the number of seats each organization should have and save. Saving an organization’s first seats also seats its Primary Owner, and anyone else already in it who has no seat tier, automatically. For per-tier control, use the full [Seats](https://claude.com/docs/government/tenant-admin/seats) page after setup.
 Each organization’s usage spends directly from its billing account’s balance, and you can add a spend cap to limit how much any one organization can use in a rolling window. Caps are optional. If you leave them blank, the billing account’s balance is the only limit. You can adjust both seats and caps later from the tenant [Seats](https://claude.com/docs/government/tenant-admin/seats) and [Billing](https://claude.com/docs/government/tenant-admin/credits) pages.
 
 ##  Step 7: Routing

@@ -6,11 +6,12 @@
 
 Connect and use PlayMCP servers in your toolbox
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/34269403-d1cc-468f-8c0d-4bd01e8042c8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [KAKAO](https://www.kakaocorp.com/)
 

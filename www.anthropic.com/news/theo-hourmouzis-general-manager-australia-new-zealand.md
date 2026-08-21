@@ -14,9 +14,9 @@ Our growing team in the region will deepen relationships with enterprises like C
 
 “Theo's appointment reflects the conviction we share with the Australian government that AI can drive economic growth when it’s developed and deployed responsibly,” said Chris Ciauri, Anthropic Managing Director of International. “He’s spent decades helping organisations adopt new technology, and he’ll build the team and partnerships we need to support our customers across Australia and New Zealand for the long term.”
 
-**New local partnerships**
+## New local partnerships
 
-We recently announced deep platform collaborations with Canva and Xero. [Canva](https://www.canva.com/newsroom/news/canva-claude-design/) will bring the power of Canva Design Engine and Visual Suite into the newly launched Claude Design by Anthropic Labs, and a multi-year partnership will bring Claude's AI directly into [Xero](https://www.xero.com/au/media-releases/xero-and-anthropic-collaborate/)—and Xero's financial data and tools into Claude.ai.
+We recently announced deep platform collaborations with Canva and Xero. [Canva](https://www.canva.com/newsroom/news/canva-claude-design/) will bring the power of Canva Design Engine and Visual Suite into the newly launched [Claude Design](https://www.anthropic.com/news/theo-hourmouzis-general-manager-australia-new-zealand) by Anthropic Labs, and a multi-year partnership will bring Claude's AI directly into [Xero](https://www.xero.com/au/media-releases/xero-and-anthropic-collaborate/)—and Xero's financial data and tools into Claude.ai.
 
 We're also working with YMCA South Australia as a [Claude for Nonprofits](https://www.anthropic.com/news/claude-for-nonprofits) Partner. YMCA operates across 65+ community locations with around 1,250 staff. Using Claude, YMCA SA has built custom AI skills that turn complex operational data into actionable insights, cut branded content production from hours to minutes, and brought technical work in-house that previously required external contractors.
 

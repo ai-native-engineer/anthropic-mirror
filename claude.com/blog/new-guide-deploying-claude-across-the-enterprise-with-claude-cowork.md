@@ -6,6 +6,8 @@
 
 Learn how organizations are using Claude Cowork to transform their day-to-day work, including use cases and best practices from Anthropic’s own teams.
 
+* Category
+
   No items found.
 * Product
 

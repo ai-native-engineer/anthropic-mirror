@@ -7,7 +7,6 @@ Official Bigdata.com plugin providing financial research, analytics, and intelli
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [RavenPack](#)
 * Installs

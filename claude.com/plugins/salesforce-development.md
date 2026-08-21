@@ -8,7 +8,6 @@ Salesforce's official plugin for building apps and agents on the Salesforce Plat
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Salesforce](https://www.salesforce.com)
 * Installs

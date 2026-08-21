@@ -6,11 +6,12 @@
 
 Build and query your developer portal and trigger developer workflows
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/8f5edd1c-c876-465e-a5b9-cc8e6d27dcb7)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Port IO](https://www.port.io)
 

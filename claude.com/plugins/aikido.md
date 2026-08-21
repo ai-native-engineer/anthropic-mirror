@@ -7,7 +7,6 @@ Aikido Security scanning for Claude Code — SAST, secrets, and IaC vulnerabilit
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Aikido Security](https://aikido.dev)
 * Installs

@@ -7,7 +7,6 @@ Sentry error monitoring: Access error reports, analyze stack traces, search issu
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Sentry](https://sentry.io)
 * Installs

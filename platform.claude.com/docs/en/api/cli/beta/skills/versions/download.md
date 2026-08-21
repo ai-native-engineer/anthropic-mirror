@@ -33,7 +33,7 @@ Download a skill version's content as a zip archive.
 
 ### Returns
 
-- `unnamed_schema_3: file path`
+- `unnamed_schema_5: file path`
 
 ### Example
 

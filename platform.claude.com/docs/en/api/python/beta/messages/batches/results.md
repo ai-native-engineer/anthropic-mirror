@@ -29,7 +29,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -74,6 +74,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -383,6 +385,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `type: Literal["code_execution_20260120"]`
 
                   - `"code_execution_20260120"`
+
+            - `toolset_name: Optional[str]`
+
+              For a toolset member tool_use, the toolset family.
 
           - `class BetaServerToolUseBlock: …`
 

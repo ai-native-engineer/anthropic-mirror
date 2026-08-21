@@ -8,7 +8,6 @@ Brings together Adobe Creative Cloud tools for images, vectors, design, and vide
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=adobe-for-creativity)
-* Made by
 
   [Adobe](https://www.adobe.com/)
 * Installs

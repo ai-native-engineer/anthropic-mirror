@@ -6,11 +6,12 @@
 
 See and manage everything in incident.io
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/1f80285c-87b3-496f-91b3-07ea8fc86488)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [incident.io](https://incident.io)
 

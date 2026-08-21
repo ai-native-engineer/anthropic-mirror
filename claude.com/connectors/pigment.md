@@ -6,11 +6,12 @@
 
 Analyze business data
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/505c326f-36ea-4a5a-ab99-8f86fad28af0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](https://kb.pigment.com/docs/mcp-server)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Pigment](https://www.pigment.com/)
 

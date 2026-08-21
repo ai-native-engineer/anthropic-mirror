@@ -6,11 +6,12 @@
 
 Analyze, query, and manage your Mixpanel data
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/29d60a67-6f16-489b-8a1e-efdcece8d1f6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Mixpanel](https://mixpanel.com/)
 

@@ -6,11 +6,12 @@
 
 The connected ERP for private capital
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/4b463f8b-6db0-4d0e-9693-8b39f37e4447)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Carta](https://carta.com)
 

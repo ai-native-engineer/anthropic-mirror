@@ -8,24 +8,35 @@
 
 [Skip to main content](#content-area)
 
-Claude replies without an @-mention in DMs, in any thread it’s already part of, and to channel messages it judges warrant a reply. It’s an ambient presence in the channel, and the @-mention is how you guarantee a response, not a requirement for one. Claude also [turns unprompted replies off on its own](#when-claude-quiets-itself) in a channel whose messages stop giving it anything to respond to. Any channel member can quiet Claude further, give it [standing work that posts on a schedule](https://claude.com/docs/claude-tag/users/proactivity), or remove it from the channel.
+Claude replies without an @-mention in DMs, in any thread it’s already part of, and to channel messages it judges warrant a reply. In a channel, Claude reads the messages and replies to some of them on its own, so an @-mention is how you guarantee a reply, not a requirement for one. This page covers how Claude decides whether to reply to a message nobody tagged it in, how to turn those replies off for a thread or a whole channel, and which messages never get a reply. Work Claude does on a schedule rather than in reply to a message is a [routine](https://claude.com/docs/claude-tag/users/proactivity), which has its own controls.
 
 ##  What triggers a response
 
-Where you send the message decides whether you need the mention.
+Whether Claude replies to a message without an @-mention depends on where you send it.
 
 | Where you write | Replies without an @-mention? |
 | --- | --- |
 | A DM with Claude | Always. Every message is addressed to Claude already |
 | A thread Claude is already in | Yes, unless you’ve [quieted the thread](#quiet-one-conversation). Once Claude has joined, every reply there reaches it without another mention |
-| A channel, top-level | Sometimes, when it can answer a question or pick up a task. Include `@Claude` to guarantee a reply, or [turn unprompted replies off](#quiet-the-whole-channel) |
+| A channel, top-level | Sometimes. [What Claude does with a channel message](#what-claude-does-with-a-channel-message) describes how it decides. Include `@Claude` to guarantee a reply, or [turn unprompted replies off](#quiet-the-whole-channel) |
 
-All of this is adjustable. You can [quiet a single thread](#quiet-one-conversation), [turn automatic replies off across a channel](#turn-automatic-replies-on-or-off), or tell Claude which kinds of messages to respond to.
-For work that should happen without anyone typing a message, use a [routine](https://claude.com/docs/claude-tag/users/proactivity): scheduled posts, channel watches, and pull-request subscriptions run on their own trigger and post into the channel.
+When you @-mention Claude in a channel, it reacts to your message with an emoji within a few seconds to show that it picked the message up. It then answers in a thread under your message, or starts a [working session](https://claude.com/docs/claude-tag/concepts/how-it-works) in that thread when the request needs investigation, tools, or a longer exchange. Once a working session starts, Claude shows an “is thinking…” line under your message. A reaction with no line under it means Claude picked your message up and is either still deciding or answering directly in the thread, not that it missed you.
+You can change how much Claude replies on its own. You can [quiet a single thread](#quiet-one-conversation), [turn unprompted replies off for a whole channel](#turn-automatic-replies-on-or-off), or [tell Claude which kinds of untagged messages to answer](#what-claude-does-with-a-channel-message).
+
+##  What Claude does with a channel message
+
+Claude reads every top-level message in a channel it belongs to, and the replies in the channel’s threads, whether or not anyone tagged it. For each message, it decides what to do from the channel’s recent messages, the channel’s [memory](https://claude.com/docs/claude-tag/users/memory), and any instructions your admin has set or a channel member has asked it to remember, and does one of four things.
+
+* **Nothing.** This is the usual outcome. In a channel where nobody has told Claude which kinds of messages to answer, Claude leaves untagged messages alone. The one exception is a message in which someone states a concrete need Claude can meet; Claude may then reply once, in a thread, offering to do it.
+* **A short reply in a thread under the message.** Claude replies on its own only when it already has the answer, from the channel’s history or its memory, and the answer fits in one message. Replies of this kind carry the plain name **Claude**; see [The name on a reply](#the-name-on-a-reply).
+* **A working session in the message’s thread.** When a message needs investigation, tools, or a longer exchange, Claude starts a working session there and posts the work in that thread. For an untagged message, Claude does this only when someone in the channel has told it to pick up that kind of work, as described below the list.
+* **A hand-off to work already in progress.** When a message adds to something Claude is already working on in another thread, for example a new detail about a bug it’s investigating, Claude passes the message to that working session instead of replying. Claude posts nothing in the channel when it does this; anything the new information changes, it reports in the thread where the work is happening.
+
+To have Claude answer more kinds of untagged messages in a channel, tell it which kinds, in the channel, and ask it to remember. For example, `@Claude remember for this channel: answer questions about the deploy process without waiting to be tagged` saves the instruction to channel memory, and Claude applies it to everyone’s messages there. Claude also records in channel memory whether people in the channel act on its unprompted replies or ignore them, and replies less in a channel that ignores them. [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory) covers how to see and change what it saved.
 
 ##  Turn automatic replies on or off
 
-The **Respond automatically** setting controls whether Claude replies to a channel’s messages without an @-mention. Each channel has its own. When it’s on, Claude may reply to a message it judges warrants one, as [What triggers a response](#what-triggers-a-response) describes. When it’s off, Claude replies in that channel only when someone @-mentions it.
+The **Respond automatically** setting controls whether Claude replies to a channel’s messages without an @-mention. Each channel has its own. When it’s on, Claude may reply to a message it judges warrants one, as [What Claude does with a channel message](#what-claude-does-with-a-channel-message) describes. When it’s off, Claude replies in that channel only when someone @-mentions it.
 All three places below change the same setting, so a change you make in one appears in the others.
 
 | Where | How |
@@ -34,7 +45,7 @@ All three places below change the same setting, so a change you make in one appe
 | The channel’s Configure page | Open the **Configure** link in the footer of any Claude reply and switch the **Respond automatically** toggle. See [Configure Claude for a channel](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel). |
 | The Claude Tag admin page (admins only) | At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), on the **Slack** tab under **Claude Tag’s access**, open the channel’s scope and switch **Respond automatically** in its **Advanced** settings. |
 
-The setting covers the channel’s messages, not DMs. To quiet a single thread instead of the whole channel, [ask Claude in that thread](#quiet-one-conversation). Work that runs on a schedule or an event rather than in response to a message is a [routine](https://claude.com/docs/claude-tag/users/proactivity), which has its own controls.
+The setting covers the channel’s messages, not DMs. To quiet a single thread instead of the whole channel, [ask Claude in that thread](#quiet-one-conversation).
 
 ##  The name on a reply
 
@@ -78,10 +89,10 @@ When quieting isn’t enough, end Claude’s presence in the channel.
 
 Claude can no longer read or post in that channel. Any member can run this unless your Slack admin restricts the command. Admins have further options, through full removal from the workspace, on [Restrict where Claude Tag operates](https://claude.com/docs/claude-tag/admins/restrict-access).
 
-##  When Claude quiets itself
+##  When Claude stops reading a channel
 
-When a channel’s messages stop giving Claude anything to respond to, with no questions it can answer and no tasks it can pick up, Claude turns unprompted replies off there on its own. Mentioning `@Claude` turns unprompted replies back on.
-A channel whose [**Respond automatically**](#turn-automatic-replies-on-or-off) setting is off stays that way until someone changes the setting.
+Claude counts the messages posted in a channel since it last posted there itself. When the count gets high enough, Claude stops reading that channel’s messages, and unprompted replies stop with it. Claude doesn’t announce this. To start it reading again, mention `@Claude` in the channel; the mention reaches it regardless, and once Claude posts its reply, it reads the channel’s messages again.
+If unprompted replies don’t come back after Claude answers a mention, the channel’s [**Respond automatically**](#turn-automatic-replies-on-or-off) setting is off. Answering a mention doesn’t turn the setting on, and Claude changes the setting only when a channel member asks it to, so turn it back on in any of the three places listed in that section.
 
 ##  Messages that never get a reply
 

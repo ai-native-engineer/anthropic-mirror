@@ -6,11 +6,12 @@
 
 Query Turquoise's proprietary healthcare pricing data
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/78e4613c-7869-4be4-b58f-3794060c704e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Turquoise Health](https://turquoise.health/)
 

@@ -7,7 +7,6 @@ Firebase MCP integration. Manage Firestore, authentication, functions, hosting, 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google](https://firebase.google.com)
 * Installs

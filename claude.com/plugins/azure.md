@@ -7,7 +7,6 @@ Transform Claude into an Azure expert. This plugin integrates the Azure MCP serv
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   7462

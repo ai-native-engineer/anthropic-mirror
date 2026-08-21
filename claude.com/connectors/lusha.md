@@ -6,11 +6,12 @@
 
 Find and enrich B2B contacts and companies
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/cb3b7f71-456f-4f8e-8a31-e77194d396ab)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Lusha](https://lusha.com/)
 

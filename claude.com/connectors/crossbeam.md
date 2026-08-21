@@ -6,11 +6,12 @@
 
 Explore partner data and ecosystem insights in Claude
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/42ce667a-962d-432c-b667-35f0266ac6b5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Crossbeam](https://crossbeam.com/)
 

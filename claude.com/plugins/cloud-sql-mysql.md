@@ -7,7 +7,6 @@ Connect and interact with a Cloud SQL for MySQL database and data.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google LLC](#)
 * Installs

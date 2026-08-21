@@ -6,11 +6,12 @@
 
 Give Claude full enterprise-scale codebase context.
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/c78b46d8-8b94-4008-860c-e06ddb033702)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Sourcegraph](https://sourcegraph.com)
 

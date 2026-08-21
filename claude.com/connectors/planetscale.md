@@ -6,11 +6,12 @@
 
 Authenticated access to your Postgres and MySQL DBs
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/97efeba5-ffd8-4b9c-a1d9-35978d0fdb9f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [PlanetScale](https://planetscale.com)
 

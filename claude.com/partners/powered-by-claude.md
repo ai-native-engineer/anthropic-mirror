@@ -76,6 +76,20 @@ Coding tools
 
 [See solution](https://bolt.new/)
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10b2c64ec0843006d9968b_logo_brainlabs-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10b2d4179a46a1609d518f_logo_brainlabs-dark-mode.svg)
+
+Brainlabs is an independent, AI-native media agency spanning strategy and planning, paid search, paid social, SEO, influencer, creative, and data. Brainlabs uses Claude to run marketing workflows end to end: auditing brand narrative and buyer journeys, prioritizing and refreshing content from live AI-visibility data, and building client-ready decks and campaign assets.
+
+‍
+
+Communications
+
+Data and analytics
+
+Creative content
+
+[See solution](https://www.brainlabsdigital.com/)
+
 ![Bubble logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0159fdc5e2508c9a108ed_6862cfbfa180e1158b089719_bubble.svg)![Bubble logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c015a4508483264015c2a4_6862cfbfa180e1158b089719_bubble-1.svg)
 
 Bubble is an AI app development platform that combines the speed of AI with the control of visual development so that anyone can launch powerful, scalable web and mobile apps without code.

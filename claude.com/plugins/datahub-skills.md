@@ -7,7 +7,6 @@ DataHub development and interaction toolkit with connector planning, PR review, 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [DataHub](#)
 * Installs

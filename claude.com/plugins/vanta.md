@@ -7,7 +7,6 @@ The Vanta plugin connects Claude Code to Vanta's security and compliance platfor
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Vanta](#)
 * Installs

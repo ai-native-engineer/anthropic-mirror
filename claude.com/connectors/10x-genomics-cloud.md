@@ -6,11 +6,12 @@
 
 Interact with 10x Genomics Cloud platform
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](#)[Claude desktop app](https://claude.ai/desktop/directory/ant.dir.ant.txg.mcp-server)[Claude mobile app](#)[Claude Code](https://support.claude.com/en/articles/12614803-using-the-10x-genomics-extension-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [10x Genomics](https://www.10xgenomics.com/)
 

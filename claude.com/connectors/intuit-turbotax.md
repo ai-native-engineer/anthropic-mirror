@@ -6,11 +6,12 @@
 
 Estimate tax refunds and connect with live tax experts
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/bc8d1879-ba86-4159-8d41-e9aabb156bff)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Intuit](https://turbotax.intuit.com/)
 

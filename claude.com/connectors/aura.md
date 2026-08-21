@@ -6,11 +6,12 @@
 
 Company intelligence & workforce analytics
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/d5415d15-420c-45ee-a45c-2dc56d4ccad6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Aura](https://auraintel.com)
 

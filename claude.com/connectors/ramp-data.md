@@ -6,11 +6,12 @@
 
 Search and analyze Ramp spend across 50,000+ businesses
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/165b06c0-1959-451d-a8d0-c413295b84a2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Ramp](https://ramp.com/)
 

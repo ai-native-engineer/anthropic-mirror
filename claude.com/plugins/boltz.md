@@ -7,7 +7,6 @@ Predict structures, screen molecules and proteins, and design binders with Boltz
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Boltz](#)
 * Installs

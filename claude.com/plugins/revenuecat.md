@@ -7,7 +7,6 @@ Configure RevenueCat projects, apps, products, entitlements, and offerings direc
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [RevenueCat](https://github.com/RevenueCat)
 * Installs

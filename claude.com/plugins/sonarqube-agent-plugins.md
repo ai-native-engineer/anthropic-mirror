@@ -7,7 +7,6 @@ Integrate SonarQube code quality and security analysis into Claude Code: namespa
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   1170

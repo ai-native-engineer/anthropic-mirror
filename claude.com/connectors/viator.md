@@ -6,11 +6,12 @@
 
 Book travel experiences around the world
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/0db9a2ae-1b64-4673-9af6-059f29810a34)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Viator](https://www.viator.com)
 

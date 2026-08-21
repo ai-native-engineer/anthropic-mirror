@@ -51,7 +51,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The format and length of IDs may change over time.
 
-        - `container: object { id, expires_at }`
+        - `container: object { id, expires_at, skills }`
 
           Information about the container used in the request (for the code execution tool)
 
@@ -62,6 +62,26 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `expires_at: string`
 
             The time at which the container will expire.
+
+          - `skills: array of ContainerSkill`
+
+            Skills loaded in the container
+
+            - `skill_id: string`
+
+              Skill ID
+
+            - `type: "anthropic" or "custom"`
+
+              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+              - `"anthropic"`
+
+              - `"custom"`
+
+            - `version: string`
+
+              Skill version or 'latest' for most recent version
 
         - `content: array of ContentBlock`
 
@@ -232,7 +252,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: "redacted_thinking"`
 
-          - `tool_use_block: object { id, caller, input, 2 more }`
+          - `tool_use_block: object { id, caller, input, 3 more }`
 
             - `id: string`
 
@@ -265,6 +285,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `name: string`
 
             - `type: "tool_use"`
+
+            - `toolset_name: optional string`
+
+              For a toolset member tool_use, the toolset family.
 
           - `server_tool_use_block: object { id, caller, input, 2 more }`
 

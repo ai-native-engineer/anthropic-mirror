@@ -6,11 +6,12 @@
 
 Turn Claude into your email marketing assistant
 
+* Category
+
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/5807a545-cd93-4e71-bb21-f3727bf34df1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [MailerLite](https://www.mailerlite.com)
 

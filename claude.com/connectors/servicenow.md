@@ -6,11 +6,12 @@
 
 Trigger, automate, and orchestrate enterprise workflows
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/2096eddf-af8e-4ab1-9fd4-6669f100524e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [ServiceNow](https://www.servicenow.com/)
 

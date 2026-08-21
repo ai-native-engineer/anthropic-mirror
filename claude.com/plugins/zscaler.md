@@ -7,7 +7,6 @@ Manage Zscaler cloud security platform including ZPA (private access), ZIA (inte
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Zscaler](#)
 * Installs

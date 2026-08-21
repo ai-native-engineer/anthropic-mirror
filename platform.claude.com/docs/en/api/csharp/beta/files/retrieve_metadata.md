@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/csharp/beta/files/retrieve_metadata
 
 ## Get File Metadata
 
-`FileMetadata Beta.Files.RetrieveMetadata(FileRetrieveMetadataParamsparameters, CancellationTokencancellationToken = default)`
+`BetaFileMetadata Beta.Files.RetrieveMetadata(FileRetrieveMetadataParamsparameters, CancellationTokencancellationToken = default)`
 
 **get** `/v1/files/{file_id}`
 
@@ -69,6 +69,8 @@ Get File Metadata
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
 
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
@@ -93,7 +95,7 @@ Get File Metadata
 
 ### Returns
 
-- `class FileMetadata:`
+- `class BetaFileMetadata:`
 
   - `required string ID`
 
@@ -144,9 +146,9 @@ Get File Metadata
 ```csharp
 FileRetrieveMetadataParams parameters = new() { FileID = "file_id" };
 
-var fileMetadata = await client.Beta.Files.RetrieveMetadata(parameters);
+var betaFileMetadata = await client.Beta.Files.RetrieveMetadata(parameters);
 
-Console.WriteLine(fileMetadata);
+Console.WriteLine(betaFileMetadata);
 ```
 
 #### Response

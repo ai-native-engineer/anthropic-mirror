@@ -6,11 +6,12 @@
 
 Ask for audiobook recommendations & preview audiobooks
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/ca8bc23f-101c-4ff2-9f03-26a43302e2d0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Audible](https://www.audible.com/)
 

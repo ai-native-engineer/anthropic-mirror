@@ -6,13 +6,14 @@
 
 Manage projects, boards, and workflows in monday.com
 
+* Category
+
   Sales and marketing
 
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Monday.com](https://claude.com/connectors/monday.com)
 

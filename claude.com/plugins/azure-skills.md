@@ -7,7 +7,6 @@ Microsoft Azure MCP integration for cloud resource management, deployments, and 
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   803

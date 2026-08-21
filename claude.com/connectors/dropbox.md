@@ -6,11 +6,12 @@
 
 Search, organize, and take action on your Dropbox content
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Dropbox](https://www.dropbox.com/)
 

@@ -312,6 +312,14 @@ Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
 
+How to control costs and show ROI for Claude Code on Google Cloud
+
+Sep 1, 2026
+
+2026-09-01
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/how-to-control-costs-and-show-roi-for-claude-code-on-google-cloud)
+
 Claude Science AMA: How to accelerate scientific discovery
 
 Aug 20, 2026
@@ -367,14 +375,6 @@ Jul 22, 2026
 2026-07-22
 
 [Learn more about this webinar](https://anthropic.ondemand.goldcast.io/on-demand/8e39b703-835e-45a4-9fff-f0a790f8d2ea)
-
-Building on the Claude Platform: Claude Fable 5 and model orchestration patterns
-
-Jul 22, 2026
-
-2026-07-22
-
-[Learn more about this webinar](https://anthropic.ondemand.goldcast.io/on-demand/c32e19a5-c4d7-432d-b83c-ec12c4222ab6)
 
 [Show more](https://www.anthropic.com/events?e45d281a_page=2)
 

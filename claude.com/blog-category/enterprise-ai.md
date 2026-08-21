@@ -16,6 +16,86 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
+
+Aug 20, 2026
+
+Anthropic’s approach to teaching and learning AI
+
+Product announcements
+
+Anthropic’s approach to teaching and learning AI
+
+August 20, 2026
+
+[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
+
+[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
+
+Aug 20, 2026
+
+Build production agents with computer use, the Skills API, and the Files API
+
+Product announcements
+
+Build production agents with computer use, the Skills API, and the Files API
+
+August 20, 2026
+
+[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
+
+[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
+
+Aug 19, 2026
+
+Turning conversation into knowledge: how Slack builds human-agent teams
+
+Enterprise AI
+
+Turning conversation into knowledge: how Slack builds human-agent teams
+
+August 19, 2026
+
+[Turning conversation into knowledge: how Slack builds human-agent teams](https://claude.com/blog/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams)Turning conversation into knowledge: how Slack builds human-agent teams
+
+[Turning conversation into knowledge: how Slack builds human-agent teams](#)Turning conversation into knowledge: how Slack builds human-agent teams
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
+
+Aug 18, 2026
+
+Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+Enterprise AI
+
+Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+August 18, 2026
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22949f86cd1968deb9f_33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
+
+Aug 17, 2026
+
+How ABC Legal turned every employee into a builder with Claude Managed Agents
+
+Enterprise AI
+
+How ABC Legal turned every employee into a builder with Claude Managed Agents
+
+August 17, 2026
+
+[How ABC Legal turned every employee into a builder with Claude Managed Agents](https://claude.com/blog/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents)How ABC Legal turned every employee into a builder with Claude Managed Agents
+
+[How ABC Legal turned every employee into a builder with Claude Managed Agents](#)How ABC Legal turned every employee into a builder with Claude Managed Agents
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f63175f636cba4641_c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
 
 Aug 14, 2026
@@ -176,86 +256,6 @@ July 23, 2026
 
 [Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
-
-Jul 21, 2026
-
-How Anthropic secures its AI-native software development lifecycle
-
-Claude Code
-
-How Anthropic secures its AI-native software development lifecycle
-
-July 21, 2026
-
-[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
-
-[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
-
-Jul 21, 2026
-
-How Datadog built a “universal machine tool” for Claude Code
-
-Claude Code
-
-How Datadog built a “universal machine tool” for Claude Code
-
-July 21, 2026
-
-[How Datadog built a “universal machine tool” for Claude Code](https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
-
-Jul 20, 2026
-
-Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-Enterprise AI
-
-Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-July 20, 2026
-
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
-
-Jul 17, 2026
-
-Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-Enterprise AI
-
-Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-July 17, 2026
-
-[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](https://claude.com/blog/working-at-the-frontier-cursor)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](#)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Jul 17, 2026
-
-Zero risk isn't the job: a CISO's guide to agentic AI
-
-Enterprise AI
-
-Zero risk isn't the job: a CISO's guide to agentic AI
-
-July 17, 2026
-
-[Zero risk isn't the job: a CISO's guide to agentic AI](https://claude.com/blog/ciso-guide-to-agentic-ai)Zero risk isn't the job: a CISO's guide to agentic AI
-
-[Zero risk isn't the job: a CISO's guide to agentic AI](#)Zero risk isn't the job: a CISO's guide to agentic AI
-
 [View more](https://claude.com/blog-category/enterprise-ai?1e959936_page=2)
 
 Category
@@ -263,6 +263,86 @@ Category
 Product
 
 Usecase
+
+### Anthropic’s approach to teaching and learning AI
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 20, 2026
+
+[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
+
+[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
+
+### Build production agents with computer use, the Skills API, and the Files API
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 20, 2026
+
+[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
+
+[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
+
+### Turning conversation into knowledge: how Slack builds human-agent teams
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 19, 2026
+
+[Turning conversation into knowledge: how Slack builds human-agent teams](https://claude.com/blog/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams)Turning conversation into knowledge: how Slack builds human-agent teams
+
+[Turning conversation into knowledge: how Slack builds human-agent teams](#)Turning conversation into knowledge: how Slack builds human-agent teams
+
+### Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 18, 2026
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+### How ABC Legal turned every employee into a builder with Claude Managed Agents
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 17, 2026
+
+[How ABC Legal turned every employee into a builder with Claude Managed Agents](https://claude.com/blog/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents)How ABC Legal turned every employee into a builder with Claude Managed Agents
+
+[How ABC Legal turned every employee into a builder with Claude Managed Agents](#)How ABC Legal turned every employee into a builder with Claude Managed Agents
 
 ### Maximizing the value of your Claude Code sessions
 
@@ -423,86 +503,6 @@ July 23, 2026
 [Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
 
 [Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
-
-### How Anthropic secures its AI-native software development lifecycle
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 21, 2026
-
-[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
-
-[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
-
-### How Datadog built a “universal machine tool” for Claude Code
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 21, 2026
-
-[How Datadog built a “universal machine tool” for Claude Code](https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
-
-### Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 20, 2026
-
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-### Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 17, 2026
-
-[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](https://claude.com/blog/working-at-the-frontier-cursor)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](#)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
-
-### Zero risk isn't the job: a CISO's guide to agentic AI
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 17, 2026
-
-[Zero risk isn't the job: a CISO's guide to agentic AI](https://claude.com/blog/ciso-guide-to-agentic-ai)Zero risk isn't the job: a CISO's guide to agentic AI
-
-[Zero risk isn't the job: a CISO's guide to agentic AI](#)Zero risk isn't the job: a CISO's guide to agentic AI
 
 [View more](https://claude.com/blog-category/enterprise-ai?2f226f2c_page=2)
 

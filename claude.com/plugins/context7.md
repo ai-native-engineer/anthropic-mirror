@@ -7,7 +7,6 @@ Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Upstash](https://upstash.com)
 * Installs

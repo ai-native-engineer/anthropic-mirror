@@ -8,7 +8,6 @@ Accelerate design critique, UX writing, accessibility audits, research synthesis
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=design)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

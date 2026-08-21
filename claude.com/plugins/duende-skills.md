@@ -7,7 +7,6 @@ Duende development skills and agents for Claude Code — covering OAuth/OIDC pro
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Duende Software](#)
 * Installs

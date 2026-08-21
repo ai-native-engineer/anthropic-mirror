@@ -7,7 +7,6 @@ Easily deploy managed PostgreSQL, Kafka, OpenSearch, Clickhouse, and other datab
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Aiven](#)
 * Installs

@@ -7,7 +7,6 @@ Official Carbone templating reference: tags, loops, conditions, formatters, aggr
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Carbone](https://carbone.io)
 * Installs

@@ -7,7 +7,6 @@ Video generation at scale. Generate videos, images, and audio with Runway's API 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Runway](#)
 * Installs

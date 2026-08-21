@@ -7,7 +7,6 @@ GCP cost optimization: review changes for impact and auto-apply savings using fo
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   1313

@@ -6,11 +6,12 @@
 
 Discover the right Wyndham Hotel for you, faster
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/3f8511ea-9906-414b-9b0a-34fcbd1f5587)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Wyndham Hotels and Resorts](https://www.wyndhamhotels.com)
 

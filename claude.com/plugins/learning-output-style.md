@@ -8,7 +8,6 @@ Interactive learning mode requesting meaningful code contributions at key decisi
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

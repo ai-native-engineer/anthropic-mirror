@@ -38,7 +38,7 @@ If the list is empty, your tenant has no active tenant-managed billing accounts 
 The new organization appears in the list immediately and you can click through to its organization admin view. A few follow-up steps are usually needed before people can use it:
 
 * Add a routing rule on the [Identity and access](https://claude.com/docs/government/tenant-admin/identity-and-access) page so that the right people are placed in the new organization when they sign in or are provisioned. Until a rule targets the new organization, nobody will land there automatically.
-* Give it seats on the [Seats](https://claude.com/docs/government/tenant-admin/seats) page. A newly created organization starts with no seats distributed to it.
+* Give it seats on the [Seats](https://claude.com/docs/government/tenant-admin/seats) page. A newly created organization starts with no seats distributed to it, so its Primary Owner has no seat tier and cannot use Claude yet. Saving the organization’s first seats also seats the Primary Owner, and anyone else already in it without a seat tier, automatically.
 * If you want to limit how much the new organization can spend from its billing account, set a spend cap on it on the [Billing](https://claude.com/docs/government/tenant-admin/credits) page. This is optional. With no cap, the account’s balance is the only limit.
 
 > **For organization owners:** Being named the primary owner of a new organization does **not** make you a tenant administrator. Tenant admin access is granted separately on the [Admins](https://claude.com/docs/government/tenant-admin/admins) page.

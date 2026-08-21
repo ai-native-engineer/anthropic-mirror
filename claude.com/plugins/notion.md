@@ -7,7 +7,6 @@ Notion workspace integration. Search pages, create/update documents, manage data
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Notion Labs](https://www.notion.so)
 * Installs

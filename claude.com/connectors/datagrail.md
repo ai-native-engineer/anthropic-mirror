@@ -6,11 +6,12 @@
 
 Secure, production-ready AI orchestration for privacy
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/0478ee53-a253-4655-98ee-affd0f9cf9a6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [DataGrail, Inc.](https://datagrail.io/)
 

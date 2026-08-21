@@ -116,7 +116,7 @@ Any of these fixes works:
 
 * Remove the guests from the channel. In Slack, open **Channel details** → **Members** and filter by “guests”; guests show a **guest** badge on their Slack profile.
 * Move the conversation to a channel with no guests.
-* Ask a claude.ai organization owner to allow Claude to respond in channels that include guests, and send them [the guest access setting](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-guest-channels). If you don’t know who your organization’s owners are, ask whoever set Claude up in your workspace.
+* Ask an admin of your Claude organization to change the guest setting for this channel, and send them [the guest access setting](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-guest-channels). They can let Claude reply with only the channel’s own setup, or with full access. If you don’t know who your organization’s admins are, ask whoever set Claude up in your workspace.
 
 The guest access setting restores replies, not workspace search. Claude can’t search the workspace from a channel that includes guests, even when it’s allowed to respond there. Removing the guests or moving the conversation to a channel with no guests restores search as well.
 If the fix worked, a mention in the channel gets a reply.

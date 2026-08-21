@@ -14,8 +14,8 @@ Image results are powered by Bing Image Search. Users’ prompts aren’t sent t
 
 Interactive inputs don't involve third-party services.
 
-* [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
 * [Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)
 * [Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
+* [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Visual and interactive content](https://support.claude.com/en/articles/13641943-visual-and-interactive-content)

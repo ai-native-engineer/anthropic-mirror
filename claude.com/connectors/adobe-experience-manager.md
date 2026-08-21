@@ -6,11 +6,12 @@
 
 Manage your Adobe Experience Manager content
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/e9f93fb8-37d6-4727-a129-956e5263ac3e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Adobe](https://business.adobe.com/products/experience-manager)
 

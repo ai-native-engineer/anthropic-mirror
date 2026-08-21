@@ -71,7 +71,7 @@ Use the prompts below to set channel-wide behavior that applies to every thread,
 @Claude remember for this channel: treat every top-level post as a task and pick it up without waiting for a mention.
 ```
 
-**Why it works**: Claude already [picks up untagged posts when it judges a reply is warranted](https://claude.com/docs/claude-tag/users/when-claude-responds), and it weighs this channel-memory rule in that judgment, so teammates don’t have to remember to tag Claude on posts with a concrete ask. If you don’t specify a need, or if a teammate has already claimed the task, Claude may not respond to the message. In [a channel where Claude has quieted itself](https://claude.com/docs/claude-tag/users/when-claude-responds#when-claude-quiets-itself), mention `@Claude` to turn unprompted pickup back on.
+**Why it works**: Claude already [picks up untagged posts when it judges a reply is warranted](https://claude.com/docs/claude-tag/users/when-claude-responds), and it weighs this channel-memory rule in that judgment, so teammates don’t have to remember to tag Claude on posts with a concrete ask. If you don’t specify a need, or if a teammate has already claimed the task, Claude may not respond to the message. In [a channel Claude has stopped reading](https://claude.com/docs/claude-tag/users/when-claude-responds#when-claude-stops-reading-a-channel), mention `@Claude` so that it replies and starts reading the channel again.
 
 ##  Check and correct memory
 

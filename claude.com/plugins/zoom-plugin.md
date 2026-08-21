@@ -7,7 +7,6 @@ Claude plugin for planning, building, and debugging Zoom integrations across RES
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   3246

@@ -6,13 +6,14 @@
 
 Claude for Trial Court Litigators
 
+* Category
+
   Productivity
 
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/0a45d87b-7a46-4e43-a0ce-113eb0e9f002)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Trellis](https://trellis.law)
 

@@ -7,7 +7,6 @@ Official GitHub MCP server for repo management. Create issues, manage PRs, revie
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [GitHub](https://github.com)
 * Installs

@@ -6,11 +6,12 @@
 
 Predictive intelligence on private companies
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/e7952077-b4e6-49f7-8670-ca53f8d50c40)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [CB Insights](https://www.cbinsights.com)
 

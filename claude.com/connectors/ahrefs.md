@@ -6,11 +6,12 @@
 
 SEO & AI search analytics
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/098cb32a-ba21-4770-97dd-78bb54655419)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Ahrefs Pte. Ltd.](https://ahrefs.com/)
 

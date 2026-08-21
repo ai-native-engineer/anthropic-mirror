@@ -6,6 +6,8 @@
 
 Manage your workspace, issues, tickets, customers, and more without leaving Claude.
 
+* Category
+
   Productivity
 
   Communication
@@ -14,7 +16,6 @@ Manage your workspace, issues, tickets, customers, and more without leaving Clau
 * Used in
 
   [Claude](https://claude.ai/directory/e7b562d2-7e99-42ad-bd85-b2c0a67fb323)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [DevRev](https://devrev.ai/)
 

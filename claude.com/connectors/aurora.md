@@ -6,11 +6,12 @@
 
 Search your Consilio matters, docs, and more.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/dee803ac-4887-4e73-a3c5-ab167f8f1fe8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Consilio, LLC](https://www.consilio.com)
 

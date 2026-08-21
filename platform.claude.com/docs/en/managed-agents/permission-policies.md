@@ -52,17 +52,23 @@ When creating an agent, you can apply a policy to every tool in `agent_toolset_2
     }')
   ```
 
-  ```bash CLI
-  ant beta:agents create <<'YAML'
-  name: Coding Assistant
-  model: claude-opus-5
-  tools:
-    - type: agent_toolset_20260401
-      default_config:
-        permission_policy:
-          type: always_ask
-  YAML
-  ```
+  <MultiFileExample language="cli" label="CLI">
+    ```bash CLI
+    ant beta:agents create < agent.yaml
+    ```
+
+    <File filename="agent.yaml">
+      ```yaml
+      name: Coding Assistant
+      model: claude-opus-5
+      tools:
+        - type: agent_toolset_20260401
+          default_config:
+            permission_policy:
+              type: always_ask
+      ```
+    </File>
+  </MultiFileExample>
 
   ```python Python
   agent = client.beta.agents.create(
@@ -236,23 +242,29 @@ This example connects a GitHub MCP server and allows its tools to run without co
     }')
   ```
 
-  ```bash CLI
-  ant beta:agents create <<'YAML'
-  name: Dev Assistant
-  model: claude-opus-5
-  mcp_servers:
-    - type: url
-      name: github
-      url: https://mcp.example.com/github
-  tools:
-    - type: agent_toolset_20260401
-    - type: mcp_toolset
-      mcp_server_name: github
-      default_config:
-        permission_policy:
-          type: always_allow
-  YAML
-  ```
+  <MultiFileExample language="cli" label="CLI">
+    ```bash CLI
+    ant beta:agents create < agent.yaml
+    ```
+
+    <File filename="agent.yaml">
+      ```yaml
+      name: Dev Assistant
+      model: claude-opus-5
+      mcp_servers:
+        - type: url
+          name: github
+          url: https://mcp.example.com/github
+      tools:
+        - type: agent_toolset_20260401
+        - type: mcp_toolset
+          mcp_server_name: github
+          default_config:
+            permission_policy:
+              type: always_allow
+      ```
+    </File>
+  </MultiFileExample>
 
   ```python Python
   agent = client.beta.agents.create(
@@ -543,9 +555,8 @@ Use the `configs` array to override the default for individual tools. The `name`
           },
           Configs =
           [
-              new()
+              new BetaManagedAgentsBashToolConfigParams
               {
-                  Name = "bash",
                   PermissionPolicy = new BetaManagedAgentsAlwaysAskPolicy { Type = "always_ask" },
               },
           ],
@@ -564,11 +575,12 @@ Use the `configs` array to override the default for individual tools. The `name`
   				},
   			},
   		},
-  		Configs: []anthropic.BetaManagedAgentsAgentToolConfigParams{{
-  			Name: anthropic.BetaManagedAgentsAgentToolConfigParamsNameBash,
-  			PermissionPolicy: anthropic.BetaManagedAgentsAgentToolConfigParamsPermissionPolicyUnion{
-  				OfAlwaysAsk: &anthropic.BetaManagedAgentsAlwaysAskPolicyParam{
-  					Type: anthropic.BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk,
+  		Configs: []anthropic.BetaManagedAgentsAgentToolConfigParamsUnion{{
+  			OfBash: &anthropic.BetaManagedAgentsBashToolConfigParams{
+  				PermissionPolicy: anthropic.BetaManagedAgentsBashToolConfigParamsPermissionPolicyUnion{
+  					OfAlwaysAsk: &anthropic.BetaManagedAgentsAlwaysAskPolicyParam{
+  						Type: anthropic.BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk,
+  					},
   				},
   			},
   		}},
@@ -595,8 +607,7 @@ Use the `configs` array to override the default for individual tools. The `name`
                       .build()
               )
               .addConfig(
-                  BetaManagedAgentsAgentToolConfigParams.builder()
-                      .name(BetaManagedAgentsAgentToolConfigParams.Name.BASH)
+                  BetaManagedAgentsBashToolConfigParams.builder()
                       .permissionPolicy(
                           BetaManagedAgentsAlwaysAskPolicy.builder()
                               .type(BetaManagedAgentsAlwaysAskPolicy.Type.ALWAYS_ASK)
@@ -610,7 +621,7 @@ Use the `configs` array to override the default for individual tools. The `name`
   ```
 
   ```php PHP
-  use Anthropic\Beta\Agents\BetaManagedAgentsAgentToolConfigParams;
+  use Anthropic\Beta\Agents\BetaManagedAgentsBashToolConfigParams;
   use Anthropic\Beta\Agents\BetaManagedAgentsAgentToolset20260401Params;
   use Anthropic\Beta\Agents\BetaManagedAgentsAgentToolsetDefaultConfigParams;
   use Anthropic\Beta\Agents\BetaManagedAgentsAlwaysAllowPolicy;
@@ -623,8 +634,7 @@ Use the `configs` array to override the default for individual tools. The `name`
               permissionPolicy: BetaManagedAgentsAlwaysAllowPolicy::with(type: 'always_allow'),
           ),
           configs: [
-              BetaManagedAgentsAgentToolConfigParams::with(
-                  name: 'bash',
+              BetaManagedAgentsBashToolConfigParams::with(
                   permissionPolicy: BetaManagedAgentsAlwaysAskPolicy::with(type: 'always_ask'),
               ),
           ],

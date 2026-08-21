@@ -6,11 +6,12 @@
 
 Evidence-based answers grounded in research
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/f65118b4-06cb-468a-b2c7-f203ae7b54ea)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Scite](https://scite.ai/)
 

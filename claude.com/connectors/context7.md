@@ -6,11 +6,12 @@
 
 Up-to-date docs for LLMs and AI code editors
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/37153cd7-b17c-470e-8b46-007e2859e0f3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Context7](https://context7.com)
 

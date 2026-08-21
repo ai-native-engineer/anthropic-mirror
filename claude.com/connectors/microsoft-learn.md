@@ -6,11 +6,12 @@
 
 Search trusted Microsoft docs to power your development
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/89a7ddf5-2a6b-410c-be11-aa0e1a1b35a6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Microsoft](https://learn.microsoft.com/en-us/)
 

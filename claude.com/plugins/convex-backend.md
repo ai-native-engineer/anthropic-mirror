@@ -7,7 +7,6 @@ Convex backend skill for building reactive, type-safe, production-grade backends
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Convex](#)
 * Installs

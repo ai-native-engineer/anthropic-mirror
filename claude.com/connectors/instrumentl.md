@@ -6,11 +6,12 @@
 
 Find, evaluate, and manage your grants
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/5eb73e73-c172-433d-b3ad-b91da73c9ecd)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Instrumentl](https://www.instrumentl.com/)
 

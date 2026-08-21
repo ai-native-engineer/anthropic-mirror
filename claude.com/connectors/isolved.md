@@ -6,11 +6,12 @@
 
 Manage your time off without leaving Claude
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/ca1c0a83-14fc-4796-b6a2-f4c1ed6e2383)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [isolved](https://www.isolvedhcm.com)
 

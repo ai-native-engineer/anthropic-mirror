@@ -8,7 +8,6 @@
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=apollo)
-* Made by
 
   [Apollo.io](https://www.apollo.io/)
 * Installs

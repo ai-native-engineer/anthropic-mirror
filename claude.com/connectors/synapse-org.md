@@ -6,11 +6,12 @@
 
 Search and metadata tools for Synapse scientific data
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8719)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](https://support.claude.com/en/articles/12614798-using-the-synapse-org-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Synapse.org](https://synapse.org)
 

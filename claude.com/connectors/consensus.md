@@ -6,13 +6,14 @@
 
 Explore scientific research
 
+* Category
+
   Data
 
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/65247229-f0c7-49df-9044-fcbb8b3894c6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Consensus](https://consensus.app/)
 

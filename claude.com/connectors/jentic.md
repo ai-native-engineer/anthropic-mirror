@@ -6,11 +6,12 @@
 
 One connection to access all your tools securely
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/a133f422-ff03-478f-a208-ddc460db8826)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Jentic](https://jentic.com/)
 

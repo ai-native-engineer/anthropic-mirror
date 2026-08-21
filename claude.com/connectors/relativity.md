@@ -6,11 +6,12 @@
 
 Organize Data. Discover the Truth. Act on It.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/05bc8b45-fc66-4a11-bfaa-24c60bedce1a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Relativity](https://relativity.com)
 

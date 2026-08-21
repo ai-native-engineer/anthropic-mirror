@@ -7,7 +7,6 @@ Expert assistant for Azure Cosmos DB — data modeling, query optimization, perf
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   1644

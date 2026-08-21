@@ -7,7 +7,6 @@ Apache Airflow/Astronomer: author DAGs, debug failures, trace lineage, profile t
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Astronomer](https://astronomer.io)
 * Installs

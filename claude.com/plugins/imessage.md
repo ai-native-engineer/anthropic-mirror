@@ -7,7 +7,6 @@ iMessage messaging bridge with built-in access control. Reads chat.db directly, 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

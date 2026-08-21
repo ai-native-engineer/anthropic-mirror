@@ -6,11 +6,12 @@
 
 Ask questions. Get underwriting insights from Verisk.
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/5268a4af-f0f3-4b6c-a3ad-2833920399aa)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Verisk Analytics](https://verisk.com)
 

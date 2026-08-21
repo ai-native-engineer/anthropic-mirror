@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/python/beta/files/upload
 
 ## Upload File
 
-`beta.files.upload(FileUploadParams**kwargs)  -> FileMetadata`
+`beta.files.upload(FileUploadParams**kwargs)  -> BetaFileMetadata`
 
 **post** `/v1/files`
 
@@ -25,7 +25,7 @@ Upload File
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -71,6 +71,8 @@ Upload File
 
     - `"user-profiles-2026-03-24"`
 
+    - `"user-profiles-2026-08-18"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -95,7 +97,7 @@ Upload File
 
 ### Returns
 
-- `class FileMetadata: …`
+- `class BetaFileMetadata: …`
 
   - `id: str`
 
@@ -156,10 +158,10 @@ client = Anthropic(
         "ANTHROPIC_API_KEY"
     ),  # This is the default and can be omitted
 )
-file_metadata = client.beta.files.upload(
+beta_file_metadata = client.beta.files.upload(
     file=b"Example data",
 )
-print(file_metadata.id)
+print(beta_file_metadata.id)
 ```
 
 #### Response

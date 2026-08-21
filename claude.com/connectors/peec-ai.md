@@ -6,11 +6,12 @@
 
 Analyze your brand's visibility across LLMs
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/ed56abc7-38aa-4ac9-a1a5-fbbb03a95855)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Peec AI](https://peec.ai/)
 

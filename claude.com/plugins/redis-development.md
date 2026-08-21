@@ -7,7 +7,6 @@ Redis development best practices — data structures, query engine, vector searc
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Redis](#)
 * Installs

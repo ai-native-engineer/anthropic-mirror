@@ -6,13 +6,14 @@
 
 From a single prompt, build workshops, visualize complex ideas, search across boards, and act on feedback agentically
 
+* Category
+
   Code
 
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Miro](https://miro.com/?utm_campaign=glb-27q1-nsp-pn-c2_akc-miro-mcp-launch-no-sl&utm_source=partner-sourced&utm_medium=partner&utm_term=claude-connectors&src=-partner_glb)
 

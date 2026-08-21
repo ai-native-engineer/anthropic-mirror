@@ -6,11 +6,12 @@
 
 Find and hire local pros in Claude
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/e04f289f-19d6-413c-a3d2-7ff79a4dcb04)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Thumbtack](https://www.thumbtack.com)
 

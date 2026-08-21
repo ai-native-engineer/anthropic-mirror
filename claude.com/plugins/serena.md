@@ -7,7 +7,6 @@ Semantic code analysis MCP server for intelligent code understanding, refactorin
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Oraios](https://github.com/oraios)
 * Installs

@@ -7,7 +7,6 @@ Appwrite tools for Claude Code, including SDK skills, Appwrite MCP servers, and 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Appwrite](#)
 * Installs

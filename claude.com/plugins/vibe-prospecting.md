@@ -7,7 +7,6 @@ Vibe Prospecting connects Claude to live B2B company and contact data so users c
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [vibeprospecting.ai](#)
 * Installs

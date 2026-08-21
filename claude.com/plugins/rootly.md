@@ -7,7 +7,6 @@ Full-lifecycle incident management: deploy safety, incident response, on-call ma
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Rootly](#)
 * Installs

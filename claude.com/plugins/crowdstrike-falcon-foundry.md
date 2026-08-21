@@ -7,7 +7,6 @@ CrowdStrike Falcon Foundry skills empower you to build apps that extend the Falc
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [CrowdStrike](https://www.crowdstrike.com)
 * Installs

@@ -7,7 +7,6 @@ PayPal development plugin for Claude — integrate payments, subscriptions, invo
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [PayPal](#)
 * Installs

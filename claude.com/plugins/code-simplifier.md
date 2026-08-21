@@ -8,7 +8,6 @@ Code clarity agent: simplifies and refines recently modified code while preservi
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

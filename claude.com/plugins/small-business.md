@@ -8,7 +8,6 @@ Run your small business: payroll planning, cash forecasts, month-end close, cust
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=small-business)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

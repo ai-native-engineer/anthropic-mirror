@@ -6,11 +6,12 @@
 
 Find your next hike
 
+* Category
+
   Health and wellness
 * Used in
 
   [Claude](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [AllTrails](https://www.alltrails.com)
 

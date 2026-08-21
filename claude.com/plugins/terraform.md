@@ -7,7 +7,6 @@ Terraform MCP Server: seamless integration with Terraform ecosystem for advanced
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [HashiCorp](#)
 * Installs

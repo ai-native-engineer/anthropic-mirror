@@ -6,11 +6,12 @@
 
 AI scientists with 600+ scientific tools
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](#)[Claude desktop app](https://claude.ai/directory/ant.dir.gh.tooluniverse.tooluniverse-mcp)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-tooluniverse-extension-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Zitnik Lab, Harvard Medical School](https://zitniklab.hms.harvard.edu/)
 

@@ -7,7 +7,6 @@ Social media automation CLI: schedule posts, manage integrations, upload media, 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Nevo David](https://github.com/nevo-david)
 * Installs

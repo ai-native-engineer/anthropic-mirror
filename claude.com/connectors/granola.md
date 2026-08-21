@@ -6,11 +6,12 @@
 
 The AI notepad for meetings
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/4d608ca4-1664-4ddd-be1c-c88c0ea2ec7e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Granola](https://www.granola.ai)
 

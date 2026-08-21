@@ -6,11 +6,12 @@
 
 The AI platform for recruiting.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/7bc97e97-91fb-4da8-8a81-3602c9d4150b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Metaview](https://metaview.ai)
 

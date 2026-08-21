@@ -8,7 +8,6 @@ Analyze codebases and recommend tailored Claude Code automations such as hooks, 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

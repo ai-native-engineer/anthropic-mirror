@@ -4,6 +4,8 @@
 
 # How Anthropic enables self-service data analytics with Claude
 
+* Category
+
   [Enterprise AI](https://claude.com/blog/category/enterprise-ai)
 * Product
 
@@ -21,8 +23,19 @@
   [Copy link](#)
 
   https://claude.com/blog/how-anthropic-enables-self-service-data-analytics-with-claude
+* Author(s)
 
-As many data science and data engineering teams can attest, enabling self-service business analytics has traditionally been a slog.
+  Josh Cherry
+
+  Clement Peng
+
+  Johanne Jiao
+
+  Justin Leder
+
+  Chen Chang
+
+As many data science and data engineering teams can attest, enabling self-service data analytics has traditionally been a slog.
 
 Making the data model more accessible to less technical coworkers via wide and denormalized tables often leads to overlapping views with inconsistent definitions as the business scales (and does little to bridge the gap for employees with little desire to learn SQL). Alternatively, creating more ringfenced environments for users often misses the long tail of business questions and leads to metric and dashboard bloat as teams silo their work.
 
@@ -94,7 +107,7 @@ eBook
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-## **Our agentic analytics stack**
+## **Our agentic self-service analytics stack**
 
 At Anthropic, the main way we minimize these three errors is via our agentic data stack. Each layer exists primarily to attack one or more of these problems:
 
@@ -107,6 +120,8 @@ At Anthropic, the main way we minimize these three errors is via our agentic dat
 In this section, we’ll discuss how we built each layer.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2049920443016925a3ef72_74528df2.png)
+
+> For ad-hoc questions asked directly in Slack, see how our data team deploys a [data analytics agent with Claude Tag](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions).
 
 ### **Data foundations**
 
@@ -227,7 +242,7 @@ The final step is ensuring the actual online system performance is as accurate a
 
 The failure mode none of this fully catches is the **silent** one. The answer is wrong, but looks plausible and is used without objection. Our mitigations are the provenance footer, explicit human sign-off on anything leadership-bound, and a standing eval for each domain's top KPIs that sanity-checks against the blessed dashboard daily, though we don’t have a robust solution yet.
 
-## **Getting started**
+## **Getting started with self-service analytics**
 
 If you're starting from zero, a handful of canonical datasets, a few dozen offline evals, and a thin knowledge skill will capture most of the upside; everything else in this post is what we added once those were built.
 
@@ -399,53 +414,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f63175f636cba4641_c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
 
-Aug 14, 2026
+Aug 20, 2026
 
-### Maximizing the value of your Claude Code sessions
+### Build production agents with computer use, the Skills API, and the Files API
 
-Claude Code
+Product announcements
 
-[Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
+[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
 
-[Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
+[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225485fe31f1ed2d9a1_db28a79c9f4492b8471009d4c20e900f234ece48-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
 
-Aug 13, 2026
+Aug 20, 2026
 
-### Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5
+### Anthropic’s approach to teaching and learning AI
 
-Enterprise AI
+Product announcements
 
-[Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5](#)Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5
+[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
 
-[Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5](https://claude.com/blog/how-jetbrains-evaluates-and-deploys-claude-fable-5)Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5
+[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
 
-Oct 30, 2025
+Aug 18, 2026
 
-### How Brex improves code quality and productivity with Claude Code
-
-Enterprise AI
-
-[How Brex improves code quality and productivity with Claude Code](#)How Brex improves code quality and productivity with Claude Code
-
-[How Brex improves code quality and productivity with Claude Code](https://claude.com/blog/how-brex-improves-code-quality-and-productivity-with-claude-code)How Brex improves code quality and productivity with Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f06154e381e9a1203_fb2273e9cacb0299a3ee1bf1d76d0bff95ba4e15-1000x1000.svg)
-
-Jan 26, 2026
-
-### How Anthropic's Growth Marketing team cut ad creation time from 30 minutes to 30 seconds with Claude Code
+### Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
 
 Enterprise AI
 
-[How Anthropic's Growth Marketing team cut ad creation time from 30 minutes to 30 seconds with Claude Code](#)How Anthropic's Growth Marketing team cut ad creation time from 30 minutes to 30 seconds with Claude Code
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
 
-[How Anthropic's Growth Marketing team cut ad creation time from 30 minutes to 30 seconds with Claude Code](https://claude.com/blog/how-anthropic-uses-claude-marketing)How Anthropic's Growth Marketing team cut ad creation time from 30 minutes to 30 seconds with Claude Code
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225588ad176f7c4aafd_abc884c723daea810d2e986455358281a2f94102-1000x1000.svg)
+
+Aug 7, 2026
+
+### How Anthropic's business development team uses Claude to run inbound and outbound at scale
+
+Enterprise AI
+
+[How Anthropic's business development team uses Claude to run inbound and outbound at scale](#)How Anthropic's business development team uses Claude to run inbound and outbound at scale
+
+[How Anthropic's business development team uses Claude to run inbound and outbound at scale](https://claude.com/blog/how-anthropics-business-development-team-uses-claude-to-run-inbound-and-outbound-at-scale)How Anthropic's business development team uses Claude to run inbound and outbound at scale
 
 ## Transform how your organization operates with Claude
 

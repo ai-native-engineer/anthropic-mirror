@@ -6,11 +6,12 @@
 
 Search and analyze customer feedback
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/92d00407-7fa7-49bc-8d90-55a59434099c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Unwrap AI](https://www.unwrap.ai/)
 

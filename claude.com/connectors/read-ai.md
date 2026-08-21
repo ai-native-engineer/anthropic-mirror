@@ -6,13 +6,14 @@
 
 Bring your meetings into Claude
 
+* Category
+
   Productivity
 
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/f232e067-e927-4095-927a-e0db5bc00ca6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Read AI](https://read.ai)
 

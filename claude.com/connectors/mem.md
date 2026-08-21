@@ -6,11 +6,12 @@
 
 The AI notebook for everything on your mind
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/fab5214d-eb35-4038-8271-2a0be421a086)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Mem Labs, Inc.](https://get.mem.ai/)
 

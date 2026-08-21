@@ -6,11 +6,12 @@
 
 Run reports using your metrics, dimensions, and segments
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/a1b63edd-c598-4b04-b7b0-22dd02c328a3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Adobe](https://business.adobe.com/products/adobe-analytics/customer-journey-analytics.html)
 

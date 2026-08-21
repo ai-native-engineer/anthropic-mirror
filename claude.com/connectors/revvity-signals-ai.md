@@ -6,11 +6,12 @@
 
 Natural language access to Signals electronic notebook
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/0bdf51f6-dd5d-40b8-854d-1bd2825cefe9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Revvity Signals](https://revvitysignals.com)
 

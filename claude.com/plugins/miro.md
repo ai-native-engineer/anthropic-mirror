@@ -7,7 +7,6 @@ Secure access to Miro boards. Read board context, create new boards, generate di
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Miro](https://miro.com/)
 * Installs

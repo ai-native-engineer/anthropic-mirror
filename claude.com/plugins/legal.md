@@ -8,7 +8,6 @@ Speed up contract review, NDA triage, and compliance workflows for in-house lega
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=legal)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

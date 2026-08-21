@@ -6,11 +6,12 @@
 
 Manage event types, availability, and bookings.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/d778b2f9-25f4-42a2-87ab-dbaa896deb1b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Calendly](https://calendly.com)
 

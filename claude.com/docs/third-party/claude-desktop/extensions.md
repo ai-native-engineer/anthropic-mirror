@@ -14,7 +14,7 @@ There are three layers, in order of precedence:
 | Layer | Provisioned by | Delivered via |
 | --- | --- | --- |
 | Managed MCP servers | Admin | `managedMcpServers` configuration key |
-| Organization plugins | Admin | A [plugin marketplace](#plugin-marketplaces-admin) git repository (recommended) or a [system-wide directory](#organization-plugins-admin) on each device |
+| Organization plugins | Admin | A [plugin marketplace](#plugin-marketplaces-admin) hosted in git or over HTTPS (recommended), or a [system-wide directory](#organization-plugins-admin) on each device |
 | User extensions | End user | In-app Connectors and Plugins UI |
 
 Admins can disable the user layer entirely; see [Controlling user extensions](#controlling-user-extensions).
@@ -74,7 +74,7 @@ Claude Desktop does not present a TLS client certificate when connecting to MCP 
 
 The [Claude connector directory](https://claude.com/connectors) is the canonical catalog of vetted servers. **Every connector in the directory that is not labeled “Made by Anthropic” is accessible in Claude Desktop on 3P** and can be deployed via `managedMcpServers` or installed by users. Connectors labeled “Made by Anthropic” are hosted on Anthropic infrastructure and are available only in standard Claude Desktop.
 
-Some connectors return [MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/getting-started), interactive widgets that Claude Desktop renders in place of a plain-text tool result. Each widget loads in a sandboxed iframe on `*.claudemcpcontent.com`, and setting [`disableNonessentialServices`](https://claude.com/docs/third-party/claude-desktop/configuration#disablenonessentialservices) to `true` blocks that origin, so Claude Desktop shows the connector’s text result instead of the widget. The same key also blocks artifact previews, connector favicons, and the connector directory lookup. To keep MCP Apps rendering, leave `disableNonessentialServices` unset or `false`, and allow the widget hosts listed under [Required egress paths](https://claude.com/docs/third-party/claude-desktop/telemetry#required-egress-paths) at your perimeter firewall.
+Some connectors return [MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/getting-started), interactive widgets that Claude Desktop renders in place of a plain-text tool result. Each widget loads in a sandboxed iframe on `*.claudemcpcontent.com`, and setting [`disableNonessentialServices`](https://claude.com/docs/third-party/claude-desktop/configuration#disablenonessentialservices) to `true` blocks that origin, so Claude Desktop shows the connector’s text result instead of the widget. The same key also blocks artifact previews and connector favicons. To keep MCP Apps rendering, leave `disableNonessentialServices` unset or `false`, and allow the widget hosts listed under [Required egress paths](https://claude.com/docs/third-party/claude-desktop/telemetry#required-egress-paths) at your perimeter firewall.
 
 ###  Productivity suites
 
@@ -90,12 +90,10 @@ Outlook, OneDrive, SharePoint, and Teams. Requires registering an app in your En
 
 ##  Plugin marketplaces (admin)
 
-A **plugin marketplace** is a git repository that lists one or more Claude plugins. Claude Desktop clones the repository on each device, shows the plugins under **Settings → Plugins → Organization**, and keeps them in sync with the ref you pin. You control which plugins are available, which install automatically, and which are required.
-This is the recommended way to distribute organization plugins. Use the [system-wide directory](#organization-plugins-admin) path instead when end-user devices cannot reach a git server.
+A **plugin marketplace** is a catalog file (`marketplace.json`) that lists one or more Claude plugins. You host it either as a git repository or as a plain file over HTTPS. Claude Desktop fetches it on each device, shows the plugins under **Settings → Plugins → Organization** in both **Cowork** and [**Code**](https://claude.com/docs/third-party/claude-desktop/code), and keeps them in sync with the revision you pin. You control which plugins are available, which install automatically, and which are required.
+This is the recommended way to distribute organization plugins. Use the [system-wide directory](#organization-plugins-admin) path instead when end-user devices cannot reach a git server or an HTTPS file host.
 
 Plugin marketplaces are in beta and require Claude Desktop 1.17377.1 or later.
-
-The `allowedPluginMarketplaces` key configures **Cowork** only. [**Code**](https://claude.com/docs/third-party/claude-desktop/code) reads Claude Code’s own plugin configuration on the host instead; to deploy a marketplace there, use Claude Code’s [`extraKnownMarketplaces` and `strictKnownMarketplaces`](https://code.claude.com/docs/en/plugin-marketplaces#managed-marketplace-restrictions) settings. The same marketplace repository works for both; only the configuration path differs.
 
 ###  Create the marketplace repository
 
@@ -120,9 +118,38 @@ A marketplace repository contains a `.claude-plugin/marketplace.json` file at it
 Put plugin content directly in the marketplace repository with a relative `source` path. Plugins whose `source` points at a different repository are listed in the Organization tab but are not fetched or auto-installed.
 The marketplace `name` must match `^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$` and must not be one of the reserved values `unknown`, `org`, or `org-provisioned`.
 
+###  Host the marketplace over HTTPS instead of git
+
+When end-user devices do not have git available, or when you already run an internal web server, artifact repository, or object store, you can serve the marketplace as static files over HTTPS instead. Claude Desktop downloads the manifest and each plugin archive itself, so the endpoint has no git dependency, and the fetch goes through the same proxy and TLS path as the rest of the app.
+Serve a `marketplace.json` file at any HTTPS path and package each plugin as a zip archive on the **same origin** as the manifest:
+
+marketplace.json
+
+```
+{
+  "name": "acme-internal",
+  "owner": { "name": "Acme IT" },
+  "plugins": [
+    {
+      "name": "expense-policy",
+      "description": "Answers questions about Acme travel and expense policy",
+      "source": {
+        "source": "archive",
+        "url": "https://plugins.acme.example.com/claude/expense-policy-1.3.0.zip",
+        "sha256": "9f2c04d1...b8e7 (64-character hex SHA-256 of the zip)"
+      }
+    }
+  ]
+}
+```
+
+Then add a `"source": "url"` entry to `allowedPluginMarketplaces` whose `url` points at this manifest (see the [field table](#configure-the-marketplace) below). Claude Desktop verifies each archive’s `sha256` before unpacking it. The zip must contain the plugin at its root (a single wrapping folder is tolerated), including `.claude-plugin/plugin.json`.
+Archive URLs must share the manifest’s origin. That origin is the only host you need to allow through your perimeter firewall, and the only host the [marketplace credential](#marketplace-credentials) is sent to. Plugins in the manifest with any other `source` kind, or an archive on a different origin, are listed for users but never fetched.
+If any archive in a fetch fails to download or fails its digest check, Claude Desktop installs nothing from that fetch and retries on the next sync.
+
 ###  Configure the marketplace
 
-You can add marketplaces directly in the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration): in the **Plugins** section, click **Add marketplace** and choose **Blank**, **GitHub repo**, or **Git URL**. The form validates the entry against the repository and exports the encoded JSON for you.
+You can add marketplaces directly in the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration): in the **Plugins** section, click **Add marketplace** and choose **Blank**, **GitHub repo**, **Git URL**, or **Marketplace URL**. The form validates the entry and exports the encoded JSON for you.
 
 ![In-app configuration window Plugins section showing the plugin marketplaces card with an open Add marketplace menu offering Blank, GitHub repo, and Git URL, above the organization plugins folder path with two loaded plugins.](https://mintcdn.com/claude-ai/JnLDSb03Rtghdgpj/images/third-party/config-window-plugin-marketplaces.png?fit=max&auto=format&n=JnLDSb03Rtghdgpj&q=85&s=a9bdd6d5bdbf22716340aedf1cc2d16b)
 
@@ -137,17 +164,22 @@ To write the configuration by hand instead, add the repository to the [`allowedP
 <string>[{"source":"github","repo":"acme-corp/claude-plugins","ref":"a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0","credentialKind":"userGit","installationPreference":"auto_install"}]</string>
 ```
 
-On Windows, write the same string to the `allowedPluginMarketplaces` value in the registry policy key your deployment already uses (`HKLM\SOFTWARE\Policies\Claude` for machine policy). Keep the value in the same hive as the rest of your configuration: when machine policy is present, the app ignores user policy entirely; see [Deploy the configuration](https://claude.com/docs/third-party/claude-desktop/mdm#4-deploy-the-configuration) for the exact rule. For GitLab, Bitbucket, or a self-hosted git server, use `"source": "git"` with a full HTTPS `url` instead of `repo`.
+On Windows, write the same string to the `allowedPluginMarketplaces` value in the registry policy key your deployment already uses (`HKLM\SOFTWARE\Policies\Claude` for machine policy). Keep the value in the same hive as the rest of your configuration: when machine policy is present, the app ignores user policy entirely; see [Deploy the configuration](https://claude.com/docs/third-party/claude-desktop/mdm#4-deploy-the-configuration) for the exact rule. For GitLab, Bitbucket, or a self-hosted git server, use `"source": "git"` with a full HTTPS `url` instead of `repo`. For a [marketplace hosted over HTTPS without git](#host-the-marketplace-over-https-instead-of-git), use `"source": "url"` with `url` pointing at the `marketplace.json` file:
+
+```
+[{"source":"url","url":"https://plugins.acme.example.com/claude/marketplace.json","credentialKind":"inferenceCredential","installationPreference":"available"}]
+```
 
 | Field | Description |
 | --- | --- |
-| `source` | **Required.** `"github"` (with `repo`) or `"git"` (with `url`). |
-| `repo` | GitHub repository in `owner/name` format. |
-| `url` | Full HTTPS clone URL. Use a bare URL with no embedded credentials; set `credentialKind` for authentication. |
-| `ref` | Branch name, tag name, or full 40-character commit SHA. **Required, and must be a full commit SHA,** when `installationPreference` is `"auto_install"` or `"required"`. |
-| `path` | Subdirectory containing `.claude-plugin/marketplace.json` when not at the repository root. |
-| `expectedName` | If set, the clone is rejected unless the `name` in `marketplace.json` matches this value exactly, so a change to the manifest name cannot silently replace another configured marketplace. |
-| `credentialKind` | `"anonymous"` (default), `"userGit"`, or `"credentialHelper"`. See [Marketplace credentials](#marketplace-credentials). |
+| `source` | **Required.** `"github"` (with `repo`), `"git"` (with `url`), or `"url"` (with `url` pointing at a hosted `marketplace.json`). |
+| `repo` | GitHub repository in `owner/name` format. `github` sources only. |
+| `url` | For `git` sources, the full HTTPS clone URL. For `url` sources, the HTTPS address of the `marketplace.json` file. Use a bare URL with no embedded credentials or query string, and set `credentialKind` for authentication. |
+| `ref` | Branch name, tag name, or full 40-character commit SHA. Git sources only. **Required, and must be a full commit SHA,** when `installationPreference` is `"auto_install"` or `"required"`. |
+| `path` | Subdirectory containing `.claude-plugin/marketplace.json` when not at the repository root. Git sources only. |
+| `manifestSha256` | 64-character hex SHA-256 of the exact `marketplace.json` file to accept. `url` sources only. **Required** when `installationPreference` is `"auto_install"` or `"required"`; a served manifest with any other digest is refused. |
+| `expectedName` | If set, the fetch is rejected unless the `name` in `marketplace.json` matches this value exactly, so a change to the manifest name cannot silently replace another configured marketplace. |
+| `credentialKind` | `"anonymous"` (default), `"userGit"`, `"credentialHelper"`, or (for `url` sources) `"inferenceCredential"`. See [Marketplace credentials](#marketplace-credentials). |
 | `credentialHelper` | Path to an executable that prints an access token on stdout. Required, and only valid, when `credentialKind` is `"credentialHelper"`. |
 | `installationPreference` | `"available"` (default), `"auto_install"`, or `"required"`. See [Marketplace installation preferences](#marketplace-installation-preferences). |
 
@@ -161,27 +193,55 @@ You can configure multiple marketplaces; each appears as its own sub-tab under *
 | `"auto_install"` | Every plugin is installed automatically the first time the pinned `ref` is seen. Users can uninstall individual plugins; when you later change the `ref`, each plugin is installed again at the new revision. |
 | `"required"` | Every plugin is installed automatically and re-asserted on every sync. Users cannot uninstall or disable required plugins. |
 
-`"auto_install"` and `"required"` marketplaces must pin `ref` to a full 40-character commit SHA. Claude Desktop refuses to auto-install from a branch or tag name so that the exact plugin content deployed to every device is deterministic and auditable.
+`"auto_install"` and `"required"` marketplaces must carry an admin-side content pin so the exact plugin content deployed to every device is deterministic and auditable. Git sources must set `ref` to a full 40-character commit SHA; Claude Desktop refuses to auto-install from a branch or tag name. `url` sources must set `manifestSha256` to the SHA-256 of the exact `marketplace.json` bytes and give every archive a `sha256`; Claude Desktop refuses a served manifest with a different digest and skips unpinned archives.
+
+####  Per-plugin auto-install from a trusted origin
+
+A `url` marketplace served from your deployment’s own [inference gateway](https://claude.com/docs/third-party/claude-desktop/gateway) origin (`inferenceGatewayBaseUrl`) or [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap) origin (`bootstrapUrl`) can mark individual plugins for automatic installation inside `marketplace.json` itself, without a `manifestSha256` pin in configuration. Leave the entry’s `installationPreference` at `"available"` and set `installationPreference` on each plugin you want installed automatically:
+
+marketplace.json
+
+```
+{
+  "name": "acme-internal",
+  "owner": { "name": "Acme IT" },
+  "plugins": [
+    {
+      "name": "expense-policy",
+      "installationPreference": "auto_install",
+      "source": {
+        "source": "archive",
+        "url": "https://plugins.acme.example.com/claude/expense-policy-1.3.0.zip",
+        "sha256": "9f2c04d1...b8e7"
+      }
+    }
+  ]
+}
+```
+
+Each plugin marked this way still needs a `sha256` on its archive. Claude Desktop re-fetches the manifest periodically and picks up a newly published version without a configuration change or an app relaunch. A plugin the user removes stays removed.
+Claude Desktop honors these per-plugin marks only when the manifest is served from your inference gateway’s or bootstrap server’s own origin, because those hosts already carry your deployment’s configuration and credentials. On any other origin the marks are ignored, and the marketplace behaves as `"available"`. Entry-level `"auto_install"` and `"required"` continue to require the [admin-side content pin](#marketplace-installation-preferences) on every origin.
 
 ###  Marketplace credentials
 
-Claude Desktop clones marketplace repositories on the host operating system, outside the Cowork VM. The credential is used only for this clone and is never passed into the VM or exposed to the model.
+Claude Desktop fetches marketplaces on the host operating system, outside the Cowork VM. The credential is used only for this fetch and is never passed into the VM or exposed to the model.
 
 | `credentialKind` | How it authenticates |
 | --- | --- |
-| `"anonymous"` | No credential is sent. Use for public repositories. |
-| `"userGit"` | Uses the git credential helpers already configured for the signed-in OS user (for example, `git-credential-manager`, macOS Keychain, or a GitHub CLI credential helper). Use when each user already has read access through their own account. |
-| `"credentialHelper"` | Runs the executable at `credentialHelper` and uses its trimmed stdout as the HTTPS password with username `x-access-token`. Follows the same stdout contract as an [inference credential helper](https://claude.com/docs/third-party/claude-desktop/credential-helper). |
+| `"anonymous"` | No credential is sent. Use for public repositories or unauthenticated file hosts. |
+| `"userGit"` | Uses the git credential helpers already configured for the signed-in OS user (for example, `git-credential-manager`, macOS Keychain, or a GitHub CLI credential helper). Use when each user already has read access through their own account. For `url` sources, the same credential is sent as HTTP Basic on the manifest and archive requests. |
+| `"credentialHelper"` | Runs the executable at `credentialHelper` and uses its trimmed stdout as the HTTPS password with username `x-access-token`. For `url` sources, the token is sent as `Authorization: Bearer <token>` on the manifest and archive requests. Follows the same stdout contract as an [inference credential helper](https://claude.com/docs/third-party/claude-desktop/credential-helper). |
+| `"inferenceCredential"` | `url` sources only. Sends the same `Authorization` bearer that Claude Desktop already sends to your inference gateway, so a marketplace hosted on the gateway is private to signed-in members without a separate credential. Works for [gateway single sign-on](https://claude.com/docs/third-party/claude-desktop/gateway#single-sign-on-with-your-identity-provider), a [credential helper](https://claude.com/docs/third-party/claude-desktop/credential-helper), and bearer-scheme API keys. Claude Desktop sends the credential only when the marketplace URL is on the same origin as `inferenceGatewayBaseUrl`. Until the user has signed in, or when the deployment sends the API key as `x-api-key` rather than a bearer, nothing is sent and the entry reports why in the diagnostic report. |
 
-Because the clone happens on the host, the repository does not need to be on the [`coworkEgressAllowedHosts`](https://claude.com/docs/third-party/claude-desktop/configuration#coworkegressallowedhosts) allowlist. It does need to be reachable from end-user devices.
+Because the fetch happens on the host, the marketplace host does not need to be on the [`coworkEgressAllowedHosts`](https://claude.com/docs/third-party/claude-desktop/configuration#coworkegressallowedhosts) allowlist. It does need to be reachable from end-user devices.
 
 ###  Roll out marketplace updates
 
-To push a new plugin version to your fleet, commit the change to the marketplace repository, update the `ref` in `allowedPluginMarketplaces` to the new commit SHA, and distribute the updated managed configuration. Devices sync to the new revision on the next app launch or plugin settings refresh. To remove a marketplace, delete its entry; Claude Desktop unregisters it and uninstalls its plugins on the next sync.
+For a git marketplace, commit the change to the repository, update the `ref` in `allowedPluginMarketplaces` to the new commit SHA, and distribute the updated managed configuration. For a `url` marketplace with a `manifestSha256` pin, publish the new archive, update its `url` and `sha256` in `marketplace.json`, and update `manifestSha256` in configuration to the new file’s digest. For a `url` marketplace using [per-plugin auto-install from a trusted origin](#per-plugin-auto-install-from-a-trusted-origin), publish the new `marketplace.json` and no configuration change is needed. Devices sync to the new revision on the next app launch or periodic re-fetch. To remove a marketplace, delete its entry; Claude Desktop unregisters it and uninstalls its plugins on the next sync.
 
 ##  Organization plugins (admin)
 
-For most deployments, distribute organization plugins via a [plugin marketplace](#plugin-marketplaces-admin) instead. Marketplaces let you manage plugin content in git and roll out updates by changing a single configuration value, rather than pushing files to every device. Use the directory path below when end-user devices cannot reach a git server.
+For most deployments, distribute organization plugins via a [plugin marketplace](#plugin-marketplaces-admin) instead. Marketplaces let you manage plugin content in git or on any HTTPS file host and roll out updates by changing a single configuration value, rather than pushing files to every device. Use the directory path below when end-user devices cannot reach a git server or an HTTPS file host.
 
 [Plugins](https://claude.com/docs/plugins/overview) bundle MCP connectors, skills, slash commands, hooks, and sub-agents into a single directory. On this path, admins distribute plugins by placing them in a system-wide directory on each device, typically via the same MDM or software-distribution channel used for the app itself.
 

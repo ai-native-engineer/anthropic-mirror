@@ -75,6 +75,8 @@ Redact a memory version
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -184,6 +186,18 @@ Redact a memory version
       - `UserID string`
 
         ID of the user who performed the write (a `user_...` value).
+
+    - `type BetaManagedAgentsServiceAccountActor struct{…}`
+
+      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `ServiceAccountID string`
+
+        ID of the service account that performed the write (a `svac_...` value).
+
+      - `Type ServiceAccountActor`
+
+        - `const ServiceAccountActorServiceAccountActor ServiceAccountActor = "service_account_actor"`
 
   - `Path string`
 

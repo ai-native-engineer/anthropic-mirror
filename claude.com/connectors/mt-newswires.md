@@ -6,11 +6,12 @@
 
 Trusted real-time global financial news provider
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/441c79ad-8a68-4d73-9263-7cfcadd5d8cf)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [MT Newswire](https://www.mtnewswires.com/)
 

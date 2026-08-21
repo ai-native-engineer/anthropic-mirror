@@ -8,7 +8,6 @@ Streamline recruiting, onboarding, performance reviews, compensation analysis, a
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=human-resources)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

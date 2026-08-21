@@ -7,7 +7,6 @@ Sanity content platform integration with MCP server, agent skills, and slash com
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Sanity](https://www.sanity.io)
 * Installs

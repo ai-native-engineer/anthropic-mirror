@@ -6,11 +6,12 @@
 
 Explore restaurants and dishes
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/4286fd44-6541-4f89-9c1d-33a63a9dded6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Uber](https://www.ubereats.com/)
 

@@ -7,7 +7,6 @@ Work with your Box content directly from Claude Code — search files, organize 
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   1408

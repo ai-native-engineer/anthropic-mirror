@@ -37,7 +37,7 @@ Retrieve a memory version
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -82,6 +82,8 @@ Retrieve a memory version
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -192,6 +194,18 @@ Retrieve a memory version
       - `user_id: string`
 
         ID of the user who performed the write (a `user_...` value).
+
+    - `BetaManagedAgentsServiceAccountActor`
+
+      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `service_account_id: string`
+
+        ID of the service account that performed the write (a `svac_...` value).
+
+      - `type: "service_account_actor"`
+
+        - `"service_account_actor"`
 
   - `path?: string | null`
 

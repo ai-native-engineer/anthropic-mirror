@@ -7,7 +7,6 @@ Build multimodal AI apps with Pixeltable -- tables, computed columns, embeddings
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Pixeltable](https://pixeltable.com)
 * Installs

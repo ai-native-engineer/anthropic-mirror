@@ -7,7 +7,6 @@ Databricks→AIDP migration: Automate notebooks, jobs, schedules, DDL via two-pa
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Oracle](#)
 * Installs

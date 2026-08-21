@@ -7,7 +7,6 @@ Noibu plugin connects Claude to ecommerce data and surfaces revenue issues for a
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Noibu](#)
 * Installs

@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/go/beta/files/delete
 
 ## Delete File
 
-`client.Beta.Files.Delete(ctx, fileID, body) (*DeletedFile, error)`
+`client.Beta.Files.Delete(ctx, fileID, body) (*BetaDeletedFile, error)`
 
 **delete** `/v1/files/{file_id}`
 
@@ -73,6 +73,8 @@ Delete File
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -97,19 +99,19 @@ Delete File
 
 ### Returns
 
-- `type DeletedFile struct{…}`
+- `type BetaDeletedFile struct{…}`
 
   - `ID string`
 
     ID of the deleted file.
 
-  - `Type DeletedFileType`
+  - `Type BetaDeletedFileType`
 
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
 
-    - `const DeletedFileTypeFileDeleted DeletedFileType = "file_deleted"`
+    - `const BetaDeletedFileTypeFileDeleted BetaDeletedFileType = "file_deleted"`
 
 ### Example
 
@@ -128,7 +130,7 @@ func main() {
 	client := anthropic.NewClient(
 		option.WithAPIKey("my-anthropic-api-key"),
 	)
-	deletedFile, err := client.Beta.Files.Delete(
+	betaDeletedFile, err := client.Beta.Files.Delete(
 		context.TODO(),
 		"file_id",
 		anthropic.BetaFileDeleteParams{},
@@ -136,7 +138,7 @@ func main() {
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Printf("%+v\n", deletedFile.ID)
+	fmt.Printf("%+v\n", betaDeletedFile.ID)
 }
 ```
 

@@ -6,11 +6,12 @@
 
 Interact with your Chronograph data directly in Claude
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/01744591-790c-471b-9452-f338eff230af)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Chronograph](https://www.chronograph.pe/)
 

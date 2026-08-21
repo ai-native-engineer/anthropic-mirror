@@ -20,6 +20,10 @@ The service accounts Claude acts with: the Claude app in Slack, the Claude GitHu
 
 The network layer that injects credentials into Claude’s outbound requests. The model and the sandbox are not given the key; Agent Proxy adds the credential at the network boundary when a request matches the rules an admin set. See [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy).
 
+##  Channel manager
+
+A member of your Claude organization whom an Owner has named to set up specific channels. For each channel assigned to them, a channel manager sets the default model, adds repositories their own GitHub account can write to, and manages credentials in the channel’s own bundle, without holding the Owner role. See [Delegate channel setup to channel managers](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers).
+
 ##  Channel memory
 
 Facts Claude retains while working in a channel, including facts you told it to remember and notes it writes itself. Entries from public channels are shared across the workspace; entries from private channels are saved to that channel’s own store. See [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory).

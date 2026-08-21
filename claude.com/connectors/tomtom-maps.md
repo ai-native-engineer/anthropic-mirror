@@ -6,11 +6,12 @@
 
 TomTom maps, routing, geocoding & traffic data
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/5775e1f2-124a-4f56-be6c-105a5cb33acc)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [TomTom](https://www.tomtom.com/)
 

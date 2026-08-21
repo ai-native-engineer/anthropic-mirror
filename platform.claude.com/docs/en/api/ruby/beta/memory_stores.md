@@ -35,7 +35,7 @@ Create a memory store
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -80,6 +80,8 @@ Create a memory store
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -206,7 +208,7 @@ List memory stores
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -251,6 +253,8 @@ List memory stores
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -364,7 +368,7 @@ Retrieve a memory store
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -409,6 +413,8 @@ Retrieve a memory store
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -529,7 +535,7 @@ Update a memory store
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -574,6 +580,8 @@ Update a memory store
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -682,7 +690,7 @@ Delete a memory store
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -727,6 +735,8 @@ Delete a memory store
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -803,7 +813,7 @@ Archive a memory store
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -848,6 +858,8 @@ Archive a memory store
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -1028,7 +1040,7 @@ Create a memory
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -1073,6 +1085,8 @@ Create a memory
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -1213,7 +1227,7 @@ List memories
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -1258,6 +1272,8 @@ List memories
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -1405,7 +1421,7 @@ Retrieve a memory
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -1450,6 +1466,8 @@ Retrieve a memory
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -1596,7 +1614,7 @@ Update a memory
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -1641,6 +1659,8 @@ Update a memory
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -1763,7 +1783,7 @@ Delete a memory
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -1808,6 +1828,8 @@ Delete a memory
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -2228,6 +2250,10 @@ List memory versions
 
   Query parameter for page
 
+- `service_account_id: String`
+
+  Query parameter for service_account_id
+
 - `session_id: String`
 
   Query parameter for session_id
@@ -2246,7 +2272,7 @@ List memory versions
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -2291,6 +2317,8 @@ List memory versions
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -2401,6 +2429,18 @@ List memory versions
       - `user_id: String`
 
         ID of the user who performed the write (a `user_...` value).
+
+    - `class BetaManagedAgentsServiceAccountActor`
+
+      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `service_account_id: String`
+
+        ID of the service account that performed the write (a `svac_...` value).
+
+      - `type: :service_account_actor`
+
+        - `:service_account_actor`
 
   - `path: String`
 
@@ -2485,7 +2525,7 @@ Retrieve a memory version
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -2530,6 +2570,8 @@ Retrieve a memory version
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -2640,6 +2682,18 @@ Retrieve a memory version
       - `user_id: String`
 
         ID of the user who performed the write (a `user_...` value).
+
+    - `class BetaManagedAgentsServiceAccountActor`
+
+      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `service_account_id: String`
+
+        ID of the service account that performed the write (a `svac_...` value).
+
+      - `type: :service_account_actor`
+
+        - `:service_account_actor`
 
   - `path: String`
 
@@ -2714,7 +2768,7 @@ Redact a memory version
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -2759,6 +2813,8 @@ Redact a memory version
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -2870,6 +2926,18 @@ Redact a memory version
 
         ID of the user who performed the write (a `user_...` value).
 
+    - `class BetaManagedAgentsServiceAccountActor`
+
+      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `service_account_id: String`
+
+        ID of the service account that performed the write (a `svac_...` value).
+
+      - `type: :service_account_actor`
+
+        - `:service_account_actor`
+
   - `path: String`
 
     The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
@@ -2927,7 +2995,7 @@ puts(beta_managed_agents_memory_version)
 
 ### Beta Managed Agents Actor
 
-- `BetaManagedAgentsActor = BetaManagedAgentsSessionActor | BetaManagedAgentsAPIActor | BetaManagedAgentsUserActor`
+- `BetaManagedAgentsActor = BetaManagedAgentsSessionActor | BetaManagedAgentsAPIActor | BetaManagedAgentsUserActor | BetaManagedAgentsServiceAccountActor`
 
   Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
@@ -2966,6 +3034,18 @@ puts(beta_managed_agents_memory_version)
     - `user_id: String`
 
       ID of the user who performed the write (a `user_...` value).
+
+  - `class BetaManagedAgentsServiceAccountActor`
+
+    Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+
+    - `service_account_id: String`
+
+      ID of the service account that performed the write (a `svac_...` value).
+
+    - `type: :service_account_actor`
+
+      - `:service_account_actor`
 
 ### Beta Managed Agents API Actor
 
@@ -3069,6 +3149,18 @@ puts(beta_managed_agents_memory_version)
 
         ID of the user who performed the write (a `user_...` value).
 
+    - `class BetaManagedAgentsServiceAccountActor`
+
+      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `service_account_id: String`
+
+        ID of the service account that performed the write (a `svac_...` value).
+
+      - `type: :service_account_actor`
+
+        - `:service_account_actor`
+
   - `path: String`
 
     The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
@@ -3092,6 +3184,20 @@ puts(beta_managed_agents_memory_version)
   - `:modified`
 
   - `:deleted`
+
+### Beta Managed Agents Service Account Actor
+
+- `class BetaManagedAgentsServiceAccountActor`
+
+  Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+
+  - `service_account_id: String`
+
+    ID of the service account that performed the write (a `svac_...` value).
+
+  - `type: :service_account_actor`
+
+    - `:service_account_actor`
 
 ### Beta Managed Agents Session Actor
 

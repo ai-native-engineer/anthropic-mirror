@@ -8,7 +8,6 @@ Manage tasks, plan your day, and build persistent memory of your work context.
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=productivity)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

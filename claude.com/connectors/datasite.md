@@ -6,11 +6,12 @@
 
 Manage your M&A data room from Claude
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/3a148118-6b4a-443e-9a66-9e1ec243d119)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Datasite](https://www.datasite.com/)
 

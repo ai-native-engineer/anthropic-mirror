@@ -7,7 +7,6 @@ AI-powered codebase search. Query repositories in natural language to find code,
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Greptile](https://greptile.com)
 * Installs

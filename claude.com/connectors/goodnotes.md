@@ -6,11 +6,12 @@
 
 Turn AI insights into documents
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/e261228f-7eed-410a-b7b7-f4474dc592ba)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Goodnotes](https://goodnotes.com)
 

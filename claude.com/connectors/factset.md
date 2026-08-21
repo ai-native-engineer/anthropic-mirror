@@ -6,11 +6,12 @@
 
 Access institutional-quality financial data and analytics
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/f2da5b67-41bc-4ce9-8eb8-f18ab09bde5a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [FactSet Research Systems](https://www.factset.com)
 

@@ -33,7 +33,7 @@ You use **prompts** to communicate with Claude. The best approach is to speak to
 
 Type your prompt into the chat interface and click the submit button to start a conversation with Claude. You can click the "+" button in the lower left or type "/" to view additional options and commands:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1786926600&signature=380d3bd9a94451dd64aca89f4dc7479d3aac5200855ab0323ac184c80c7cabe8&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SnDtoGH9crMELaMZPxCqMcfxsoaebKmAJhb%0AUA7bLhV6aYf9TMggYw8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1786926600&signature=380d3bd9a94451dd64aca89f4dc7479d3aac5200855ab0323ac184c80c7cabe8&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SnDtoGH9crMELaMZPxCqMcfxsoaebKmAJhb%0AUA7bLhV6aYf9TMggYw8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1787298300&signature=94357789fbfef218371cef5d28233f25dae23d10c12585283397c7b003eeab80&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SjIvY%2BC9crMELaMZPwi%2Forf4Kz62UFJ%2B441%0ACBeAFXnictCWpEayBlM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1787298300&signature=94357789fbfef218371cef5d28233f25dae23d10c12585283397c7b003eeab80&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SjIvY%2BC9crMELaMZPwi%2Forf4Kz62UFJ%2B441%0ACBeAFXnictCWpEayBlM%3D%0A)
 
 ---
 
@@ -85,8 +85,8 @@ Once you've started using Claude, you can:
 * Learn more about designing effective prompts in our **[prompt engineering documentation](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview)**.
 * For additional features and more usage, consider **[upgrading to a paid plan](https://support.claude.com/en/articles/11049762-choosing-a-claude-plan)**.
 
-* [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
 * [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
 * [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)
+* [Claude Fable 5 on your plan](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan)

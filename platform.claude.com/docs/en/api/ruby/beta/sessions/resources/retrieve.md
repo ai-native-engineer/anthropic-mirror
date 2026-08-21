@@ -25,7 +25,7 @@ Get Session Resource
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -70,6 +70,8 @@ Get Session Resource
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 

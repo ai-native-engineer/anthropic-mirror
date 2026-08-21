@@ -6,11 +6,12 @@
 
 Search, draft, and chart patents
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/064e137e-4712-4a68-abc8-c42e077f5e78)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Solve Intelligence](https://www.solveintelligence.com/)
 

@@ -7,7 +7,6 @@ Connect and interact with Firestore databases, collections, and documents.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google LLC](#)
 * Installs

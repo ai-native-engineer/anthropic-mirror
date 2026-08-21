@@ -6,11 +6,12 @@
 
 Search, compare and book flights, dynamic packages (flight + hotel) and hotels across global airlines and hotel suppliers.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/3ae97a2c-ee7f-4dba-8e0c-23662d036124)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [lastminute.com](https://www.lastminute.com/)
 

@@ -7,7 +7,6 @@ Official Convex plugin for Claude Code with bundled Convex skills, the convex-ex
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Convex](#)
 * Installs

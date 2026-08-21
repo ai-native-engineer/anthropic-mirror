@@ -6,11 +6,12 @@
 
 Secure AI access to manage your WordPress.com sites
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/e6fc4c18-ea48-4752-9912-7a13bf9999ed)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Automattic (WordPress.com)](https://wordpress.com)
 

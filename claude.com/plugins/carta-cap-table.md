@@ -7,7 +7,6 @@ Carta Cap Table plugin — skills and hooks for querying cap tables, grants, SAF
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Carta Engineering](#)
 * Installs

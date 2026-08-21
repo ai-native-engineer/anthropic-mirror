@@ -7,7 +7,6 @@ Bring Vanta's trust context and agentic workflows into Claude.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Vanta](#)
 * Installs

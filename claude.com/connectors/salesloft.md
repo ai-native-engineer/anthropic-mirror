@@ -6,11 +6,12 @@
 
 Query live data about deals, engagement, and pipeline
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/b88a0129-d984-4c48-87a1-acf028e9f035)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Salesloft](https://www.salesloft.com/)
 

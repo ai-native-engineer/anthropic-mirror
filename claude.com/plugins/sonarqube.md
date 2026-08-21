@@ -7,7 +7,6 @@ Automatically enforce SonarQube code quality and security in the agent coding lo
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [SonarSource](#)
 * Installs

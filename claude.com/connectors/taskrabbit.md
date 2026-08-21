@@ -6,11 +6,12 @@
 
 Find & book local Taskrabbit services near you
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/b2271ab7-9aff-4343-9144-3e9b87b7ca02)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Taskrabbit](https://www.taskrabbit.com/)
 

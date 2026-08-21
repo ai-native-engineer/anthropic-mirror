@@ -7,7 +7,6 @@ Agent skill for interacting with TeamCity CI/CD using the teamcity CLI. Enables 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [JetBrains](#)
 * Installs

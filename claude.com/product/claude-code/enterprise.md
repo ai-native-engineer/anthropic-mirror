@@ -1,5 +1,20 @@
 <!-- source: https://claude.com/product/claude-code/enterprise -->
 
+Featured
+
+[Next](#)Next
+
+Office Hours
+with Boris Cherny
+
+The best engineering teams are rethinking how they work with AI. Boris Cherny talks with technical leaders to uncover what's changing for their teams.
+
+Watch series
+
+[Watch series](https://claude.com/office-hours)Watch series
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a4c1969e288aef7f1eccb00_26-115-CustomerConvo-Spotify-Overhead-02.webp)
+
 # The enterprise
 coding agent for
 every environment

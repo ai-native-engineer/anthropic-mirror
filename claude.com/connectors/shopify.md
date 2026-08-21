@@ -6,11 +6,12 @@
 
 Build, manage, and analyze your Shopify store
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Shopify](https://www.shopify.com/)
 

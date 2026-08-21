@@ -7,7 +7,6 @@ Connect and interact with Spanner data using natural language.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google LLC](#)
 * Installs

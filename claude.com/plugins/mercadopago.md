@@ -7,7 +7,6 @@ Mercado Pago full-product integration toolkit. Covers online checkout (Pro, Bric
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Mercado Pago Developer Experience](#)
 * Installs

@@ -6,11 +6,12 @@
 
 Trade, invest, analyze, and manage global markets
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Interactive Brokers](https://www.interactivebrokers.com)
 

@@ -8,7 +8,6 @@ Generate a personal Claude Code impact report from your local ~/.claude/projects
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](#)
 * Installs

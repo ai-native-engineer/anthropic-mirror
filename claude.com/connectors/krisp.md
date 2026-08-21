@@ -6,11 +6,12 @@
 
 Add your meetings context via transcripts and notes
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/0543a3d3-3312-440f-ae60-789953179770)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Krisp](https://krisp.ai/)
 

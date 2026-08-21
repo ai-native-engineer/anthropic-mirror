@@ -6,11 +6,12 @@
 
 Generate, manage, and update Eraser diagrams and files
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/7643fc71-6be5-4bc1-8001-10d45239078d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Eraser](https://eraser.io)
 

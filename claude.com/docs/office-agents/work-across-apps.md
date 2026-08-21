@@ -54,8 +54,6 @@ coordinates automatically:
 
 You stay in one place while Claude does the switching.
 
-##  What you can do
-
 ###  Read and write across open apps
 
 Claude can read data from an open Excel workbook, PowerPoint
@@ -107,18 +105,13 @@ Admins can also manage member access to the Claude for Excel,
 PowerPoint, Word, and Outlook add-ins through the Microsoft 365 Admin
 Center.
 
-##  Data handling
-
 Inputs and outputs are deleted from Anthropic’s backend within 30 days
 of receipt or generation, except in cases outlined in
-[How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data).
 The Claude for M365 add-ins do not inherit custom data retention
 settings your organization may have set, and activity is not included in
 Enterprise audit logs, the Compliance API, or data exports. Chat history
 is stored locally in your browser, not on Anthropic’s servers, and can
 be cleared from Settings at any time.
-
-##  Current limitations
 
 * Claude can only read from and write to files that are currently open
   in Excel, PowerPoint, or Word, and the email or event currently open

@@ -6,11 +6,12 @@
 
 Monitor, debug, and optimize your Plaid integration
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](http://claude.ai/directory/bacac1ad-ccb1-401e-a5d7-915da9742dce)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Plaid](https://plaid.com/)
 

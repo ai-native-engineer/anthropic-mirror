@@ -8,7 +8,6 @@ Vulnerability scanning and patch generation with researcher agents and adversari
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

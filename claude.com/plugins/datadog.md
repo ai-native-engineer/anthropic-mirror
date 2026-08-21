@@ -7,7 +7,6 @@ Use Datadog directly in Claude Code through a preconfigured Datadog MCP server. 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Datadog](https://www.datadoghq.com)
 * Installs

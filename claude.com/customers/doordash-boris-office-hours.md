@@ -1075,6 +1075,14 @@ Anthropic's agentic coding tool. Claude Code understands your codebase, edits fi
 
 ## Related stories
 
+[Deepgram ships 4–10x more durable code with Claude](https://claude.com/customers/deepgram) Deepgram ships 4–10x more durable code with Claude
+
+Deepgram ships 4–10x more durable code with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/deepgram)Customer story
+
 [Office Hours: Asynchronous coding and the end of the IDE with Spotify](https://claude.com/customers/spotify-boris-office-hours) Office Hours: Asynchronous coding and the end of the IDE with Spotify
 
 Office Hours: Asynchronous coding and the end of the IDE with Spotify
@@ -1098,11 +1106,3 @@ How Miro's champions run their week with Claude Cowork
 Customer story
 
 [Customer story](https://claude.com/customers/miro-qa)Customer story
-
-[Wondr Health scales trusted health coaching with Claude](https://claude.com/customers/wondr-health)Wondr Health scales trusted health coaching with Claude
-
-Wondr Health scales trusted health coaching with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/wondr-health)Customer story

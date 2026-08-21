@@ -7,7 +7,6 @@ AI code review that catches production bugs, business logic issues & security vu
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Optimal AI](https://getoptimal.ai)
 * Installs

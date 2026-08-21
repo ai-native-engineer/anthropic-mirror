@@ -19,5 +19,3 @@ Anthropic is a Public Benefit Corporation, meaning the company was created to ba
 The LTBT has the authority to appoint members to Anthropic’s board. The Trustees advise the board and Anthropic’s leadership on critical decisions, particularly those involving the potential risks and societal impacts of AI. Bernanke’s appointment brings expertise to one of the questions Anthropic studies most closely: how AI is changing the economy. He will lend his insight to our economic research, in addition to other areas of Anthropic's work.
 
 Bernanke joins [Neil Buddy Shah](https://www.anthropic.com/news/the-long-term-benefit-trust), [Richard Fontaine](https://www.anthropic.com/news/national-security-expert-richard-fontaine-appointed-to-anthropic-s-long-term-benefit-trust), and [Mariano-Florentino Cuéllar](https://www.anthropic.com/news/mariano-florentino-long-term-benefit-trust) on the LTBT. Their collective experience spans global health, national security, law, policy, and economics.
-
-Ben Bernanke appointed to Anthropic’s Long-Term Benefit Trust \ Anthropic

@@ -47,13 +47,13 @@ Here's how to handle the `pause_turn` stop reason:
         }
       ],
       "tools": [{"type": "web_search_20250305", "name": "web_search", "max_uses": 10}]
-    }' | jq '{stop_reason, content}'
+    }'
   ```
 
   ```bash CLI
   # Initial request. If "stop_reason" in the output is "pause_turn", re-run with
   # the assistant content appended to messages (see the SDK tabs).
-  ant messages create --format json <<'YAML' | jq '{stop_reason, content}'
+  ant messages create <<'YAML'
   model: claude-opus-5
   max_tokens: 1024
   tools:
@@ -532,14 +532,14 @@ The following example enables web fetch together with a user-defined `run_comman
           }
         }
       ]
-    }' | jq '{stop_reason, content}'
+    }'
   ```
 
   ```bash CLI
   # If "stop_reason" is "tool_use" and a server_tool_use block has no matching
   # result block, run the client tools and re-run with a user message of only
   # their tool_result blocks appended (see the SDK tabs).
-  ant messages create --format json <<'YAML' | jq '{stop_reason, content}'
+  ant messages create <<'YAML'
   model: claude-opus-4-8
   max_tokens: 1024
   messages:
@@ -1066,12 +1066,16 @@ When using domain filters:
 Invalid domain formats are rejected at request time with a 400 `invalid_request_error`.
 
 <Note>
-  Request-level domain restrictions work together with any organization-level domain restrictions configured in Claude Console. Request-level `allowed_domains` must be a subset of the organization-level allowed list; entries outside it cause the API to return a validation error. Domains your organization blocks are removed from a request-level allowed list rather than returning an error.
+  Request-level domain restrictions work together with any organization-level domain restrictions configured in Claude Console. Request-level `allowed_domains` must be a subset of the organization-level allowed list; entries outside it cause the API to return a validation error. A request-level allowed list that includes a domain your organization blocks is rejected with a `400` error that names the conflicting entries.
 </Note>
 
 <Warning>
   Unicode characters in domain names can bypass domain filters through homograph attacks: `аmazon.com` (with a Cyrillic `а`) looks identical to `amazon.com` but is a different domain. Use ASCII-only domain names in allow and block lists, and audit existing entries for non-ASCII characters.
 </Warning>
+
+[Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview) uses the same `allowed_domains` and `blocked_domains` fields on the `web_search` and `web_fetch` entries of the agent toolset. On Managed Agents, each list holds at most 64 entries, domains listed for `web_fetch` cannot include a path, and fields specific to the Messages API tools, such as `max_uses`, `citations`, and `cache_control`, are not available. See [Restrict web search and web fetch domains](https://platform.claude.com/docs/en/managed-agents/tools#restrict-web-search-and-web-fetch-domains) for the full rules.
+
+Organization-level web search and web fetch settings in the Claude Console apply to Messages API requests only; they do not apply to Managed Agents sessions, which use only the per-tool lists on the agent toolset.
 
 ## Dynamic filtering with code execution
 
@@ -1100,7 +1104,7 @@ Common batch workloads include enriching a dataset with information from the web
     Fix the most common tool-use errors with symptom-to-fix diagnostic tables.
   </Card>
 
-  <Card title="Web search tool" icon="browser" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool">
+  <Card title="Web search tool" icon="magnifying-glass" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool">
     Search the web and cite results.
   </Card>
 

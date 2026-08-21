@@ -6,11 +6,12 @@
 
 Explore, query, and build with dbt projects
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/16e6608d-6830-48b2-b6a2-519f323bf8e3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [dbt Labs](https://www.getdbt.com/)
 

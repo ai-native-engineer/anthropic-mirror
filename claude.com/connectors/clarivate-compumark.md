@@ -6,11 +6,12 @@
 
 Trusted Trademark Intelligence from Clarivate CompuMark
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/d68d9615-8525-4b27-94c0-2497a64ee6d0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Clarivate](https://clarivate.com/)
 

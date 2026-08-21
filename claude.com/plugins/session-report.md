@@ -8,7 +8,6 @@ Generate an explorable HTML report of Claude Code session usage — tokens, cach
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](#)
 * Installs

@@ -6,11 +6,12 @@
 
 Unlock your meeting intelligence
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/bb74915f-d284-4590-a208-ae06447b37af)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Otter.ai](https://otter.ai)
 

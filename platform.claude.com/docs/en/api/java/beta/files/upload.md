@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/java/beta/files/upload
 
 ## Upload File
 
-`FileMetadata beta().files().upload(FileUploadParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaFileMetadata beta().files().upload(FileUploadParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
 **post** `/v1/files`
 
@@ -65,6 +65,8 @@ Upload File
 
     - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
 
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -93,7 +95,7 @@ Upload File
 
 ### Returns
 
-- `class FileMetadata:`
+- `class BetaFileMetadata:`
 
   - `String id`
 
@@ -150,7 +152,7 @@ package com.anthropic.example;
 
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
-import com.anthropic.models.beta.files.FileMetadata;
+import com.anthropic.models.beta.files.BetaFileMetadata;
 import com.anthropic.models.beta.files.FileUploadParams;
 import java.io.ByteArrayInputStream;
 
@@ -163,7 +165,7 @@ public final class Main {
         FileUploadParams params = FileUploadParams.builder()
             .file(new ByteArrayInputStream("Example data".getBytes()))
             .build();
-        FileMetadata fileMetadata = client.beta().files().upload(params);
+        BetaFileMetadata betaFileMetadata = client.beta().files().upload(params);
     }
 }
 ```

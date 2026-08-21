@@ -6,11 +6,12 @@
 
 Outside Counsel recommendations from Inhouse Counsel
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/dc0a67bc-7db2-4f4a-b391-9a46964ac5cf)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [The L Suite](https://lsuite.co)
 

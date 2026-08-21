@@ -6,11 +6,12 @@
 
 Ground your work in clean, structured U.S. primary law
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/9ce05d07-3fb2-474f-b427-d5a4496ab1ac)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Descrybe](https://descrybe.com)
 

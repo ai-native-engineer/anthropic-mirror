@@ -7,7 +7,6 @@ Connect to Cloud SQL for SQL Server
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google LLC](#)
 * Installs

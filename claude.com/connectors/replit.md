@@ -6,11 +6,12 @@
 
 Turn ideas into apps and websites instantly
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/b952bcd7-554a-460e-9c8a-a81074f9d430)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Replit](https://replit.com)
 

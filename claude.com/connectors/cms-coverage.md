@@ -6,13 +6,14 @@
 
 Access the CMS Coverage Database
 
+* Category
+
   Life sciences and healthcare
 
   Health and wellness
 * Used in
 
   [Claude](https://claude.ai/directory/2526be5d-ad2a-4441-9a4f-f728812631bf)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-cms-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 

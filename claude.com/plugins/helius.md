@@ -7,7 +7,6 @@ Build on Solana with Helius — live blockchain tools, expert coding patterns, a
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   674

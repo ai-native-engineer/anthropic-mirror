@@ -6,13 +6,14 @@
 
 Google Ads, Facebook Ads, Google Analytics, TikTok & 200+ marketing data sources
 
+* Category
+
   Sales and marketing
 
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/cc599e7b-8c59-4e89-9bf0-36d47bb9ec80)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Supermetrics](https://supermetrics.com)
 

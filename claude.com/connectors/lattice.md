@@ -6,11 +6,12 @@
 
 Lattice, wherever you work.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/9830ad9d-3a53-469b-a45c-aef16b059aa5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Lattice](https://lattice.com/)
 

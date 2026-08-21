@@ -6,11 +6,12 @@
 
 Analyze, integrate, and take action on your data
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/b03bb47d-fd87-41a0-8ca3-887ed219bc37)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Qlik](https://qlik.com)
 

@@ -6,11 +6,12 @@
 
 Create presentations, docs, socials, and sites with AI
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](#)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Gamma](https://gamma.app/about)
 

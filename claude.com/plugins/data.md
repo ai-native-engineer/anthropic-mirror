@@ -8,7 +8,6 @@ Write SQL, explore datasets, and generate insights. Build visualizations and das
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=data)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

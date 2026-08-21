@@ -8,7 +8,6 @@ Feature development workflow with agents for exploration, design, and review
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

@@ -7,7 +7,6 @@ MCP server for AI-assisted Grafana dashboard, datasource, alerting, and incident
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Grafana Labs](https://grafana.com)
 * Installs

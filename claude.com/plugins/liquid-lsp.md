@@ -7,7 +7,6 @@ LSP integration for Shopify Liquid templates via the Shopify CLI theme language 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Shopify](#)
 * Installs

@@ -6,11 +6,12 @@
 
 High-quality translation with human verification
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/88245f33-e3a7-468f-ae27-3f118bef198a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [LILT](https://lilt.com/)
 

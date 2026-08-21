@@ -179,6 +179,8 @@ Create a new environment with the specified configuration.
 
     - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
 
+    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
@@ -305,9 +307,9 @@ Create a new environment with the specified configuration.
 
     RFC 3339 timestamp when environment was created
 
-  - `required string Description`
+  - `required string? Description`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `required IReadOnlyDictionary<string, string> Metadata`
 

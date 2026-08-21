@@ -8,7 +8,6 @@ Interactive HTML playgrounds with visual controls, live preview, and prompt outp
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

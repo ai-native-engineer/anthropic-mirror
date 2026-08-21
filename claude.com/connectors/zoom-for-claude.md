@@ -6,11 +6,12 @@
 
 Search, recap, and act on your Zoom meetings
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/1ed68a66-c371-4d26-82dc-28e6c260ece8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Zoom](https://zoom.com)
 

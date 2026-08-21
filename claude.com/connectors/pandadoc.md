@@ -6,11 +6,12 @@
 
 Create, send, sign and track documents
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/56998cd4-9a3a-4f40-8aa9-5019da8bf96e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [PandaDoc](https://www.pandadoc.com)
 

@@ -7,7 +7,6 @@ Mergify CLI: manage merge queues, stacked PRs, Test Insights, merge protections,
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Mergify](#)
 * Installs

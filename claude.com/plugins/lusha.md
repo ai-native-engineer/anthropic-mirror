@@ -7,7 +7,6 @@ Access verified B2B contact and company data, buyer signals, and enrichment for 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Lusha](https://www.lusha.com/)
 * Installs

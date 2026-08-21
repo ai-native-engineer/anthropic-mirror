@@ -7,7 +7,6 @@ Skills for building data integrations using the Versori platform and versori-run
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Versori](#)
 * Installs

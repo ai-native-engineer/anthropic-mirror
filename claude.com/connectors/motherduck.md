@@ -6,11 +6,12 @@
 
 Get answers from your data
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/0929a5c7-38ce-40ab-8aad-af9ce34553c7)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [MotherDuck Corporation](https://motherduck.com/)
 

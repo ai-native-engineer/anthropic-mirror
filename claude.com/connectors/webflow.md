@@ -6,11 +6,12 @@
 
 Design pages, manage CMS content, and automate site tasks
 
+* Category
+
   Design
 * Used in
 
   [Claude](https://claude.ai/directory/092d0ef3-9fc6-4101-8f7e-c2b80e58a065)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Webflow](https://webflow.com/)
 

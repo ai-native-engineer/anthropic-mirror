@@ -6,11 +6,12 @@
 
 Query your data using natural language through Omni's semantic model
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/8e7324aa-2671-46bf-9447-5bba8ccf8c2f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Omni Analytics](https://www.omni.co/)
 

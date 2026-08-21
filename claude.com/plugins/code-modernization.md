@@ -8,7 +8,6 @@ Modernize legacy codebases (COBOL, legacy Java/C++, monolith web apps) with a st
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](#)
 * Installs

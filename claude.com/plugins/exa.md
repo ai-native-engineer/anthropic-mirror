@@ -7,7 +7,6 @@ Exa AI web search, deep research, and content extraction. Provides MCP tools and
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Exa](#)
 * Installs

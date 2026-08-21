@@ -6,11 +6,12 @@
 
 Fast search and full-text access over arXiv pre-prints
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/fa0fb2e1-c3ba-4486-b576-0881432c5a4e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [alphaXiv](https://www.alphaxiv.org/)
 

@@ -7,7 +7,6 @@ Find and verify professional email addresses, search contacts by domain, and enr
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Hunter.io](#)
 * Installs

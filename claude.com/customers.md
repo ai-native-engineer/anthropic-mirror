@@ -88,6 +88,28 @@ Grid
 
 List
 
+[View story](https://claude.com/customers/deepgram)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a84c544207da56365de9165_logo_deepgram-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a84c5496d5290209c339478_logo_deepgram-dark-mode.png)
+
+Deepgram ships 4–10x more durable code with Claude
+
+Deepgram
+
+Startup
+
+North America
+
+August 20, 2026
+
+Claude Code
+
+Claude Enterprise
+
+Software
+
+Claude Code
+
 [View story](https://claude.com/customers/league)View story
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e50faffe550cd0871c1c9_logo_league-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e50fdc2966b1ac852794a_logo_league-dark-mode.png)
@@ -384,30 +406,6 @@ Beneficial Deployments
 
 Claude Platform
 
-[View story](https://claude.com/customers/epilepsy-foundation-qa)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65c6fd705dd371878f31_Epilepsy-foundation_light.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65bf5bef5e4e2da75b45_epilepsy-foundation_dark.png)
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Epilepsy Foundation Q&A
-
-Medium
-
-AWS
-
-North America
-
-July 17, 2026
-
-Claude Platform
-
-Claude for Nonprofits
-
-Beneficial Deployments
-
-Claude Platform
-
 [View more](https://claude.com/customers?fcdaa149_page=2)
 
 1 / 18
@@ -421,6 +419,38 @@ Product
 Location
 
 Partner
+
+[View story](https://claude.com/customers/deepgram)View story
+
+### Deepgram
+
+Industry
+
+Software
+
+Company size
+
+Startup
+
+Product
+
+Claude Code
+
+Claude Enterprise
+
+Claude Code
+
+Location
+
+North America
+
+Partner
+
+August 20, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/deepgram)Read customer story
 
 [View story](https://claude.com/customers/league)View story
 
@@ -1017,38 +1047,6 @@ July 17, 2026
 Read customer story
 
 [Read customer story](https://claude.com/customers/national-domestic-workers-alliance)Read customer story
-
-[View story](https://claude.com/customers/lg-cns)View story
-
-### LG CNS
-
-Industry
-
-Professional services
-
-Company size
-
-Large
-
-Product
-
-Claude Code
-
-Claude Code
-
-Location
-
-Asia Pacific
-
-Partner
-
-AWS
-
-July 9, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/lg-cns)Read customer story
 
 [See more](https://claude.com/customers?38d7aa68_page=2)
 

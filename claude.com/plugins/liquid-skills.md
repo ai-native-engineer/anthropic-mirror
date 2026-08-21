@@ -7,7 +7,6 @@ Liquid language fundamentals, CSS/JS/HTML coding standards, and WCAG accessibili
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Shopify](#)
 * Installs

@@ -6,13 +6,14 @@
 
 AI-powered workflows for Webex meetings
 
+* Category
+
   Productivity
 
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/dfd27e26-02d5-4435-b775-28b0474067ff)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Cisco Systems, Inc](https://www.cisco.com)
 

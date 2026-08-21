@@ -6,11 +6,12 @@
 
 Find funders who support causes like yours
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/df363d23-97ef-4ccd-a36e-5369846f5506)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Kindora](https://www.kindora.co)
 

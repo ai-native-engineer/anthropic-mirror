@@ -7,7 +7,6 @@ Ship stablecoin apps faster. Best-practice skills for USDC payments, cross-chain
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Circle](#)
 * Installs

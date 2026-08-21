@@ -6,11 +6,12 @@
 
 Your GTM Copilot
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/e56221b4-925f-48bb-9176-6cd6e8fae3c1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Common Room](https://commonroom.io)
 

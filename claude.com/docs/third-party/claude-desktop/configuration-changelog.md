@@ -10,6 +10,83 @@
 
 Configuration keys by Claude Desktop release. Each section lists keys added in that release, with the MDM key name (for plist/registry deployment) and the equivalent JSON shape (for local-file or bootstrap remote configuration).
 
+v1.34493.1
+
+2026-08-21
+
+No configuration changes in this release.
+
+v1.34493.0
+
+2026-08-20
+
+No configuration changes in this release.
+
+v1.32885.1
+
+2026-08-18
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`bootstrapHeaders`](https://claude.com/docs/third-party/claude-desktop/configuration#bootstrapheaders) | `object` | Bootstrap request headers |
+| [`bootstrapHeadersHelper`](https://claude.com/docs/third-party/claude-desktop/configuration#bootstrapheadershelper) | `string` | Bootstrap headers helper script |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "bootstrap": {
+    "headers": "<object>",
+    "headersHelper": "<string>"
+  }
+}
+```
+
+**Changed:**
+
+* `managedMcpServers[].oauth` accepts a new `mode` value, `hosted`: the app signs in to that MCP server with an Anthropic-hosted client identity (Anthropic vouches for the client on each token request) instead of a client you register yourself, pinned to the exact issuer URL(s) you list in `authorizationServer`; it requires the Claude.ai sign-in and is available once the hosted signer is enabled for your organization.
+
+v1.32352.1
+
+2026-08-18
+
+No configuration changes in this release.
+
+v1.32352.0
+
+2026-08-17
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`claudeAiImport.exportEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#claudeaiimport) | `boolean` | New subfield: lets users export this computer’s chats, Cowork tasks, and Code sessions from Settings > Import & export as a zip that another install can import; no effect unless `enabled` is `true` (default `false`). |
+| [`allowedPluginMarketplaces[].manifestSha256`](https://claude.com/docs/third-party/claude-desktop/configuration#allowedpluginmarketplaces) | `string` | New subfield (beta): SHA-256 of the exact hosted `marketplace.json` a `url` marketplace may serve; required when `installationPreference` is `auto_install` or `required`, and a served manifest with any other digest is refused. |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "claudeAiImport": {
+    "exportEnabled": "<boolean>"
+  },
+  "plugins": {
+    "marketplaces": [
+      {
+        "source": "url",
+        "url": "<string>",
+        "manifestSha256": "<string>",
+        "credentialKind": "<anonymous|userGit|credentialHelper|inferenceCredential>"
+      }
+    ]
+  }
+}
+```
+
+**Changed:**
+
+* **Breaking:** Managed-config URL settings now reject values that embed credentials (`https://user:password@host…`). Configurations that relied on this fail to load until the credentials are removed; use `bootstrapHeaders` / `bootstrapHeadersHelper` (available from 1.32885.1) to send authentication instead.
+* `allowedPluginMarketplaces[].source` (beta) accepts a new `url` value: a hosted `marketplace.json` whose plugins are zip archives, fetched over HTTPS with no git on the device; set `url` to the manifest address (`repo`, `ref`, and `path` do not apply).
+* `allowedPluginMarketplaces[].credentialKind` (beta) accepts a new `inferenceCredential` value, for `url` marketplaces on the inference gateway’s own origin: fetches carry the same bearer credential the app already sends the gateway for inference.
+
 v1.30096.5
 
 2026-08-14

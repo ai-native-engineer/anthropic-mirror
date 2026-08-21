@@ -6,11 +6,12 @@
 
 Connect AI tools securely to your GitLab data
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/1ffbb474-d148-4a60-a068-b179239fb23a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [GitLab Inc.](https://about.gitlab.com/)
 

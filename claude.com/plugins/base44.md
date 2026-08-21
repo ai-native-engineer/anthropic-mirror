@@ -7,7 +7,6 @@ Build and deploy Base44 full-stack apps with CLI project management and JavaScri
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   1826

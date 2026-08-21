@@ -8,11 +8,11 @@
 
 [Skip to main content](#content-area)
 
-[1 · Pair workspace](https://claude.com/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/claude-tag/admins/add-connections)[3 · Spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit)[4 · See it work](https://claude.com/docs/claude-tag/admins/test-it)
+[1 · Pair workspace](https://claude.com/docs/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/docs/claude-tag/admins/add-connections)[3 · Spend limit](https://claude.com/docs/docs/claude-tag/admins/set-spend-limit)[4 · See it work](https://claude.com/docs/docs/claude-tag/admins/test-it)
 
 Role you needOwner in your Claude organization to create the bundle; an Admin can add credentials to a bundle that already exists. You’ll also need a credential for each service, created by you or by that service’s admin.
 
-Before this stepA [paired workspace](https://claude.com/docs/claude-tag/admins/pair-workspace)
+Before this stepA [paired workspace](https://claude.com/docs/docs/claude-tag/admins/pair-workspace)
 
 Do I need this?Optional to startYou need a connection only when Claude should act in a system beyond Slack, like querying BigQuery, reading Google Drive, or filing Linear tickets.
 
@@ -122,7 +122,7 @@ To get there, open the bundle from the scope that covers the channel, under **Cl
 * **Ports**: needed only when the service listens on something other than 443
 
 You don’t have to predict the full list up front. When a request is blocked, Claude says so in the thread and names the host; add that host here and retry; if it’s still blocked, start a fresh thread.
-Typical entries are hosts the work calls without a key, such as a docs site or a public API. Common package registries are usually already reachable through the [environment’s Trusted access default](#broad-web-access-through-the-environment), and a host that needs a credential belongs in a [connection](#add-a-connection) instead. Entries appear below the form and can be removed individually.
+Typical entries are hosts the work calls without a key, such as a docs site or a public API. Common package registries are usually already reachable through the [environment’s Trusted access default](#broad-web-access-through-the-environment), and a host that needs a credential belongs in a [connection](#add-a-connection) instead. Entries appear below the form, and each one can be edited or removed from its row.
 An Admin can edit the Domains tab on an existing bundle; creating the bundle itself needs an Owner.
 
 [Agent Proxy](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy) carries only HTTP and HTTPS. A protocol that isn’t HTTP, such as SSH, can’t cross the proxy, so listing a host here doesn’t make it reachable over SSH.

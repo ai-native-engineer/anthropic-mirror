@@ -6,11 +6,12 @@
 
 Query and analyze your Gusto data
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/cf2b53a4-45ef-4541-9425-0116d42286ca)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Gusto](https://gusto.com)
 

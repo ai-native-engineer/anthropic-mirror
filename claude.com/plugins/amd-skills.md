@@ -7,7 +7,6 @@ AMD Agent Skills: Ryzen AI for images/audio, Instinct GPUs for LLMs via vLLM, GP
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [AMD](#)
 * Installs

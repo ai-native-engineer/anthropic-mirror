@@ -6,11 +6,12 @@
 
 Access ClinicalTrials.gov data
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/49e7b000-f306-47f5-80ac-7b764d04cdbe)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-clinicaltrialsgov-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 

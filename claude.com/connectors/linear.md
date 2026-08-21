@@ -6,11 +6,12 @@
 
 Manage issues, projects & team workflows in Linear
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](http://claude.ai/directory/fa50c30c-9f62-4f94-b851-217868185db6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Linear](https://linear.app/)
 

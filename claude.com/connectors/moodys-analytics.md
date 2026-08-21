@@ -6,11 +6,12 @@
 
 Risk insights, analytics, and decision intelligence
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/83a7523b-d6c5-45f8-89de-90a2998bae49)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Moody's](https://www.moodys.com/)
 

@@ -6,11 +6,12 @@
 
 Unleash your team's best performance with Outreach AI
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/7b2bdb34-e318-4d50-893f-330a8e41d78c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Outreach](https://outreach.io)
 

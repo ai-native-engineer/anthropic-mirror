@@ -7,7 +7,6 @@ Databricks: CLI, Apps, Lakebase, Model Serving, Lakeflow, Spark pipelines, DABs,
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Databricks](#)
 * Installs

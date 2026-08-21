@@ -6,11 +6,12 @@
 
 Chat with your meetings to uncover actionable insights
 
+* Category
+
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/069b18da-5c89-4a66-941f-0cb6eae49a8d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Fellow.ai](https://fellow.ai/)
 

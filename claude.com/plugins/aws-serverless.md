@@ -7,7 +7,6 @@ Design, build, deploy, test, and debug serverless applications with AWS Serverle
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Amazon Web Services](https://aws.amazon.com)
 * Installs

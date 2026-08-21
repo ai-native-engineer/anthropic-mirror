@@ -8,7 +8,6 @@ Design and build MCP servers for Claude. Learn deployment (HTTP, MCPB, local), t
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

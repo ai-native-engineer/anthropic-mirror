@@ -6,11 +6,12 @@
 
 Trusted Regulatory Answers, by Clarivate Cortellis
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/01fef5a3-baea-4490-8a31-39b119d1d238)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Clarivate](https://clarivate.com/)
 

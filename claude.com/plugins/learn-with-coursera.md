@@ -7,7 +7,6 @@ Answer 3 questions for personalized Coursera recommendations—courses, projects
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Coursera](https://www.coursera.org)
 * Installs

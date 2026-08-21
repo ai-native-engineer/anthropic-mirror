@@ -6,11 +6,12 @@
 
 Real estate market intelligence from Yardi Matrix
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/2b245db2-8a73-491a-9849-8f44b9ce9488)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Yardi Systems Inc](https://www.yardi.com)
 

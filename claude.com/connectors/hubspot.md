@@ -6,11 +6,12 @@
 
 Chat with your CRM data to get personalized insights
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [HubSpot](https://www.hubspot.com/)
 

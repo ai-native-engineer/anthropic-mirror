@@ -1,6 +1,6 @@
 <!-- source: https://support.claude.com/en/articles/10166901-use-google-workspace-connectors -->
 
-Connect your Gmail, Google Calendar, and Google Drive to Claude so you can search emails, manage your calendar, work with documents, and save files—all without leaving the conversation.
+Connect your Gmail, Google Calendar, and Google Drive to Claude so you can search and send emails, manage your calendar, work with documents, and save files—all without leaving the conversation.
 
 Google Workspace connectors (Gmail, Google Calendar, and Google Drive) are available for all users on Claude and Claude Desktop.
 
@@ -11,7 +11,8 @@ For Team and Enterprise plans, an Owner or Primary Owner must enable these conne
 ### Gmail
 
 * **Search and read emails** using natural language queries
-* **Draft emails** with proper formatting and context — Claude creates drafts in your Gmail account, but cannot send emails on your behalf
+* **Draft emails** with proper formatting and context
+* **Send, reply to, and forward emails** from Gmail. By default, Claude asks for your approval before each of these actions. On Team and Enterprise plans, owners decide whether members can allow these actions to run without asking each time.
 * **Access email metadata**, including attachment metadata (not attachment content)
 * **Manage email organization** with labels and threads
 * **List saved drafts** in your Gmail account
@@ -27,6 +28,7 @@ For Team and Enterprise plans, an Owner or Primary Owner must enable these conne
 ### Google Drive
 
 * **Search and retrieve Google Docs** from your Drive.
+* **Share, move, and trash files** in Google Drive. By default, Claude asks for your approval before each of these actions. On Team and Enterprise plans, owners decide whether members can allow these actions to run without asking each time.
 * **Look up file metadata** and preview directly without searching first.
 * **Read** Sheets, Slides, PDFs, images, and MS Office files.
 * **Upload any file type**, with optional auto-convert to Google formats.
@@ -41,7 +43,7 @@ For Team and Enterprise plans, an Owner or Primary Owner must enable these conne
 
 ## How to use the connectors
 
-Ask Claude a question that requires access to your Gmail, Calendar, or Drive. Claude automatically detects which tools it needs and uses them to respond. Each action Claude takes on your behalf requires your explicit approval.
+Ask Claude a question that requires access to your Gmail, Calendar, or Drive. Claude automatically detects which tools it needs and uses them to respond. By default, each action Claude takes on your behalf requires your explicit approval. On Team and Enterprise plans, owners decide whether members can allow certain actions to run without asking each time.
 
 Claude's response includes citations indicating which emails, calendar events, or documents were used as sources, with links to the originals when available. You can ask follow-up questions to dig deeper into any source.
 
@@ -91,7 +93,7 @@ You can enable or disable specific connectors from below the chat interface:
 
 ### A note on Gmail permissions
 
-During authentication, Google's OAuth screen mentions email sending permissions. Claude only reads emails and creates drafts with your explicit approval. The send function is not enabled—all emails must be sent manually through your Gmail account.
+During authentication, Google's OAuth screen mentions email sending permissions. Claude can send, reply to, and forward emails, but only does so with your explicit approval by default. On Team and Enterprise plans, owners decide whether members can allow these actions to run without asking each time.
 
 ---
 
@@ -151,7 +153,7 @@ No. Claude extracts the main text content only and cannot see images, comments, 
 
 ### Can Claude send emails on my behalf?
 
-No. Claude can create email drafts, but all emails must be sent manually through your Gmail account.
+Yes. Claude can send, reply to, and forward emails from Gmail, and asks for your approval by default before each of these actions. On Team and Enterprise plans, owners decide whether members can allow these actions to run without asking each time.
 
 ### Can I opt out of using these connectors?
 
@@ -160,7 +162,7 @@ On Team and Enterprise plans, Owners and Primary Owners can disable Google Works
 Browse all available connectors in the **[Connectors Directory](https://claude.ai/directory)**.
 
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
-* [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
-* [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
+* [Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
+* [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)

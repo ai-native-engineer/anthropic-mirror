@@ -19,3 +19,5 @@ At present, this policy applies only to models that are at AI Safety Level 2 (AS
 ## Commitment to responsible AI deployment
 
 Since our founding, we have been committed to working to support effective government policies about AI. We have stressed the importance of working with governments to develop [effective testing and measurement regimes](https://www.anthropic.com/news/third-party-testing) and recently provided [pre-release access](https://www.anthropic.com/news/claude-3-5-sonnet) of Claude 3.5 Sonnet to the UK Artificial Intelligence Safety Institute (UK AISI), which conducted pre deployment testing and shared their results with US AI Safety Institute (US AISI). We believe working with governments is essential to ensuring the world safely makes the transition toward transformative AI and are committed to working toward this goal.
+
+Expanding Access to Claude for Government \ Anthropic

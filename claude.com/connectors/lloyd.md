@@ -6,11 +6,12 @@
 
 Inhouse counsel insights for members of The L Suite
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/ad1b6f45-0c2c-442c-829c-44b55ebe4075)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [The L Suite](https://lsuite.co)
 

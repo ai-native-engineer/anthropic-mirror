@@ -7,7 +7,6 @@ MCP server for AI coding agents to create, manage, and interact with Quarkus app
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Quarkus](#)
 * Installs

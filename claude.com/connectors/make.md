@@ -6,11 +6,12 @@
 
 Run Make scenarios and manage your Make account
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/038318ff-ed0d-45f8-a453-b01de0071561)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Make](https://www.make.com)
 

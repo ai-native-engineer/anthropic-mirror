@@ -6,11 +6,12 @@
 
 Retrieve both structured and unstructured data
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/ee49809c-50e1-4b24-bc17-17ce8887bfdf)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Snowflake](https://www.snowflake.com/en/)
 

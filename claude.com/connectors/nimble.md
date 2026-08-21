@@ -6,11 +6,12 @@
 
 Real-time web search & extraction for AI agents
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/41105597-badd-4563-aba3-88fe45348857)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Nimble](https://www.nimbleway.com)
 

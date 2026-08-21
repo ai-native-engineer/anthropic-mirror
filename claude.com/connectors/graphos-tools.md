@@ -6,11 +6,12 @@
 
 Search Apollo docs, specs, and best practices
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/b97d991c-e50a-4345-8aa8-8e42ec8e99bc)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Apollo GraphQL](https://www.apollographql.com)
 

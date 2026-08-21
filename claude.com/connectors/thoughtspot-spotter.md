@@ -6,11 +6,12 @@
 
 Your AI data analyst, from question to trusted insights
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/576048a9-f4be-43c6-8cdb-787897c49b03)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [ThoughtSpot](https://www.thoughtspot.com/)
 
@@ -37,6 +38,26 @@ You can use ThoughtSpot Spotter to:
 
 **Validate a number:**
 "Does the dashboard's churn rate match the underlying table?"
+
+Don’t have a ThoughtSpot instance yet? [Start a free 14-day trial →](https://www.thoughtspot.com/trial?utm_source=mcp&utm_medium=consent&tsref=MCP)
+
+Skills
+
+Analyzing data with ThoughtSpot
+
+Teaches Claude to answer data questions by querying ThoughtSpot live against any connected data source, blend results with web research for benchmarks and external context, and surface ThoughtSpot's own charts and dashboards rather than generating its own.
+
+Learn more
+
+[Learn more](https://github.com/thoughtspot/mcp-server/blob/main/skills/analyzing-data-with-thoughtspot/SKILL.md)Learn more
+
+[Next](#)Next
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+[Prev](#)Prev
+
+[Next](#)Next
 
 ## Related connectors
 

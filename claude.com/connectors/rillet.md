@@ -6,11 +6,12 @@
 
 Query your live GL and financials in plain English
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/48437749-3dd3-4811-b0d5-80984473903d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Rillet](https://www.rillet.com/)
 

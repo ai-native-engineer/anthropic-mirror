@@ -6,11 +6,12 @@
 
 Search flights, plan trips, and manage bookings
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/30765902-971c-407f-84ab-60bc5d731ede)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Turkish Airlines](https://www.turkishairlines.com/)
 

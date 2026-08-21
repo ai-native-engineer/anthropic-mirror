@@ -7,7 +7,6 @@ Figma integration: access design files, extract components, read tokens, transla
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Figma](https://figma.com)
 * Installs

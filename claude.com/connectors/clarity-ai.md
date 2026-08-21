@@ -6,11 +6,12 @@
 
 Simulate fund classifications under proposed SFDR 2.0
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/3bb23b8e-f796-4156-991b-e3f4e0b25fff)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Clarity AI](https://clarity.ai/)
 

@@ -6,11 +6,12 @@
 
 Create, query, and manage structured content in Sanity
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/118aa78d-5b78-4e2b-9191-7a6af7cf822e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Sanity](https://www.sanity.io)
 

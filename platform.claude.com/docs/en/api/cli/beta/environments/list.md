@@ -144,7 +144,7 @@ List environments with pagination support.
 
     - `description: string`
 
-      User-provided description for the environment
+      User-provided description for the environment; null when unset
 
     - `metadata: map[string]`
 

@@ -6,11 +6,12 @@
 
 Ideate, diagram, and align teams
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/0cce5c8c-7590-41d0-abbe-aa5c64961ac0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Lucid Software](https://lucid.co/)
 

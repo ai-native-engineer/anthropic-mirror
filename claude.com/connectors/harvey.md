@@ -6,11 +6,12 @@
 
 Answer legal queries, search vaults, and research
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/a428b976-7973-467f-9588-6b72643af755)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Harvey](https://www.harvey.ai/)
 

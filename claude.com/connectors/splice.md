@@ -6,11 +6,12 @@
 
 Search Splice's sounds catalog, build stacks & more!
 
+* Category
+
   Design
 * Used in
 
   [Claude](https://claude.ai/directory/0c501c77-e4a2-40a6-8fe9-f386595a7976)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Splice](https://splice.com)
 

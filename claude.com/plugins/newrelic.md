@@ -7,7 +7,6 @@ New Relic observability for Claude Code: APM, cloud costs, Kubernetes, NRQL quer
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [New Relic](#)
 * Installs

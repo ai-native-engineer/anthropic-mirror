@@ -7,7 +7,6 @@ MCP server for SAP Mobile Development Kit (MDK). Build and modify MDK applicatio
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [SAP](#)
 * Installs

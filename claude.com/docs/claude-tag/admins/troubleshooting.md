@@ -83,7 +83,7 @@ Claude replies in the channel:
 
 If the failure happens while Claude is posting a message rather than replying, there’s no fixed message; Claude describes the problem in its own words, and the underlying error it relays reads “message not delivered: Claude can’t check this channel for guests because the Slack app is missing a permission (users:read); a workspace admin must reinstall Claude to grant it.”
 **What it means**
-**Allow Claude to respond to guests** is set to **Restrict** for this channel’s [scope](https://claude.com/docs/claude-tag/concepts/glossary#scope), so Claude checks the channel for guests before replying, and this install predates the `users:read` permission that check needs.
+**Allow Claude to respond to guests** is set to **Restrict** or **Channel only** for this channel’s [scope](https://claude.com/docs/claude-tag/concepts/glossary#scope), so Claude checks the channel for guests before replying, and this install predates the `users:read` permission that check needs.
 **How to resolve**
 Re-approve the app from [Claude for Slack](https://claude.com/claude-for-slack). Don’t uninstall first; the re-approval installs over the existing app. If the fix worked, a mention in the affected channel gets a reply instead of the permission message.
 
@@ -92,10 +92,10 @@ Re-approve the app from [Claude for Slack](https://claude.com/claude-for-slack).
 **What you see**
 Slack’s audit log shows Claude joining a channel with no inviter recorded, and no one in the workspace remembers adding it.
 **What it means**
-A member selected **Add to channel** on a channel Claude suggested in a direct message. Claude’s welcome message, the introduction it posts when a member first opens a direct message with it, suggests a few public channels, each with an **Add to channel** button. Selecting one directs Claude to add itself to that channel.
-Claude performs that join with its own `channels:join` permission, so Slack’s audit log records the join as the Claude app and shows no inviter; the member’s selection is not visible in Slack’s log. Claude never joins a channel unprompted. [What the Claude Slack app can access](https://claude.com/docs/claude-tag/admins/for-slack-admins) covers how members add it.
+Either a member selected **Add to channel** on a channel Claude suggested in a direct message, or the channel’s name matches an [auto-join channel pattern](https://claude.com/docs/claude-tag/admins/restrict-access#block-or-auto-join-channels-by-name) an admin set, and Claude joined the public channel when it was created or renamed. Claude’s welcome message, the introduction it posts when a member first opens a direct message with it, suggests a few public channels, each with an **Add to channel** button. Selecting one directs Claude to add itself to that channel.
+Claude performs that join with its own `channels:join` permission, so Slack’s audit log records the join as the Claude app and shows no inviter; the member’s selection is not visible in Slack’s log. Outside those two paths, Claude never joins a channel unprompted. [What the Claude Slack app can access](https://claude.com/docs/claude-tag/admins/for-slack-admins) covers how members add it.
 **How to resolve**
-Nothing is misconfigured, and no setting changed. If Claude shouldn’t be in the channel, remove it with `/remove @Claude`, or [set the scope’s Claude Tag version to Off](https://claude.com/docs/claude-tag/admins/restrict-access#quiet-or-remove-claude-tag) so it stops responding there even if it’s added again. If you want every join in the audit log attributed to a person, ask members to add Claude with `/invite @Claude` rather than the buttons; Slack records an invite as the inviting member’s action.
+Nothing is misconfigured. If an auto-join pattern brought Claude in, review the patterns in the scope’s **Advanced** section. If Claude shouldn’t be in the channel, remove it with `/remove @Claude`, or [set the scope’s Claude Tag version to Off](https://claude.com/docs/claude-tag/admins/restrict-access#quiet-or-remove-claude-tag) so it stops responding there even if it’s added again. If you want every join in the audit log attributed to a person, ask members to add Claude with `/invite @Claude` rather than the buttons; Slack records an invite as the inviting member’s action.
 
 ##  Guest and shared channels
 
@@ -115,9 +115,9 @@ The channel includes at least one Slack guest account, and **Allow Claude to res
 Either fix works:
 
 * Remove the guests from the channel, or move the conversation to a channel with no guests; this changes no settings, so no other channel is affected.
-* Or set **Allow Claude to respond to guests** to **Allow** for the scope covering this channel. The setting is at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), on the **Slack** tab under **Claude Tag’s access**, in the scope’s collapsed **Advanced** section. **Allow** applies to every guest channel that scope covers, and guests there can see Claude’s replies and interact with it. To limit it to one channel, set it on the channel’s own scope. See [restrict guest channels](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-guest-channels) for the full exposure picture.
+* Or change **Allow Claude to respond to guests** for the scope covering this channel. **Channel only** restores replies while keeping Claude to the channel’s own instructions and access, and an Admin can set it. **Allow** gives guests the full access the scope has and needs an organization owner. The setting is at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), on the **Slack** tab under **Claude Tag’s access**, in the scope’s collapsed **Advanced** section. Either value applies to every guest channel that scope covers; to limit it to one channel, set it on the channel’s own scope. See [restrict guest channels](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-guest-channels) for what each value exposes.
 
-**Allow** restores replies, not workspace search. Claude can’t search the workspace from a channel that includes guests, even when the setting is **Allow**. Removing the guests restores search as well.
+Either value restores replies, not workspace search. Claude can’t search the workspace from a channel that includes guests, even under **Allow**. Removing the guests restores search as well.
 If the fix worked, a mention in the channel gets a reply.
 
 ###  Couldn’t check this channel just now
@@ -141,7 +141,7 @@ Claude replies in the channel:
 
 The same check also refuses requests made from another conversation, such as asking Claude to post a message in the channel, with a message ending “shared across multiple workspaces and Claude can’t verify whether it includes guests”.
 **What it means**
-This message comes from the guest check, not from workspace sharing. **Allow Claude to respond to guests** is set to **Restrict** for this channel’s scope, and the channel’s membership can’t be verified, most often because the channel is shared across an Enterprise Grid organization, so Claude declines.
+This message comes from the guest check, not from workspace sharing. **Allow Claude to respond to guests** is set to **Restrict** or **Channel only** for this channel’s scope, and the channel’s membership can’t be verified, most often because the channel is shared across an Enterprise Grid organization, so Claude declines.
 **How to resolve**
 Use a channel that belongs to a single workspace. Setting the scope’s guest setting to **Allow** removes the guest check that posts this message, but a Grid-shared channel still doesn’t behave like a single-workspace one. When its workspaces connect to different Claude organizations, Claude posts the refusal in [This channel is shared among several Claude workspaces](#this-channel-is-shared-among-several-claude-workspaces) instead of replying. When they all share your one Claude organization, Claude replies with only your organization’s default access and settings, described in [This channel is shared across several Slack workspaces](#this-channel-is-shared-across-several-slack-workspaces).
 
@@ -422,7 +422,7 @@ When Claude can name the cause, it posts one of these instead:
 | ”Hit the session rate limit — try again in a few seconds.” (or “in ~Ns” when Claude knows the wait) | Too many sessions started at once; wait, then mention Claude again |
 | A message naming a specific repository that isn’t available or isn’t configured | The repository isn’t granted for this channel; see [GitHub doesn’t work in this channel](#github-doesn%E2%80%99t-work-in-this-channel) |
 | ”That environment or repo isn’t configured for Claude Code. Check claude.ai/code and try again.” | The scope’s pinned environment isn’t set up; see [Channel sessions use the wrong environment](#channel-sessions-use-the-wrong-environment-or-can%E2%80%99t-find-one) |
-| ”Claude Code Remote is temporarily degraded. Try again shortly.” | The service that runs sessions is briefly unavailable; retry |
+| ”Claude is having trouble starting sessions right now. Try again in a minute.” | The service that runs sessions is briefly unavailable; retry |
 | ”You don’t have permission to start a session here.” | A permission check refused to start the session; when Claude knows which check failed, the message names it |
 
 **What it means**

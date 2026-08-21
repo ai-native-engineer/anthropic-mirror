@@ -12,7 +12,7 @@ To delete or rename an individual conversation:
 2. Click on the name of the conversation at the top of the screen.
 3. Select either "Delete" or "Rename" from the options that appear:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1223715553/def04b246edb8133a9f88bb73861/Screenshot%2B2023-08-08%2Bat%2B2_36_05%2BPM.png?expires=1786926600&signature=f479d8f745352d7d493ecc7cac5a59ec8f9453905bbf1cc81db46fc1520d9cb0&req=dSIlFc5%2FmIRaWvMW1HO4zYNDGCRAxJ7EZGJwx2NqSgQuI0hQCZjhVG1uh2GZ%0AiSytX2LP0%2F0D60vai5o%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1223715553/def04b246edb8133a9f88bb73861/Screenshot%2B2023-08-08%2Bat%2B2_36_05%2BPM.png?expires=1786926600&signature=f479d8f745352d7d493ecc7cac5a59ec8f9453905bbf1cc81db46fc1520d9cb0&req=dSIlFc5%2FmIRaWvMW1HO4zYNDGCRAxJ7EZGJwx2NqSgQuI0hQCZjhVG1uh2GZ%0AiSytX2LP0%2F0D60vai5o%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1223715553/def04b246edb8133a9f88bb73861/Screenshot%2B2023-08-08%2Bat%2B2_36_05%2BPM.png?expires=1787298300&signature=261aa4515fdea17af7aef6136573bcfa7bec6205232113aad0fcf73adf6a0ba2&req=dSIlFc5%2FmIRaWvMW1HO4zYNDGCVLz5DBZGJwx2NqSgR7ScFH5q%2FrDAn9qmy8%0APAdegGKG0n9ccjicm68%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1223715553/def04b246edb8133a9f88bb73861/Screenshot%2B2023-08-08%2Bat%2B2_36_05%2BPM.png?expires=1787298300&signature=261aa4515fdea17af7aef6136573bcfa7bec6205232113aad0fcf73adf6a0ba2&req=dSIlFc5%2FmIRaWvMW1HO4zYNDGCVLz5DBZGJwx2NqSgR7ScFH5q%2FrDAn9qmy8%0APAdegGKG0n9ccjicm68%3D%0A)
 
 ## Deleting Conversations in Bulk
 

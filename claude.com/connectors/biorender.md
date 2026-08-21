@@ -6,11 +6,12 @@
 
 Search for and use scientific templates and icons
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8720)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](https://support.claude.com/en/articles/12614768-getting-started-with-claude-for-life-sciences)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Biorender](https://www.biorender.com/)
 

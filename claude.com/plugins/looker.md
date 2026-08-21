@@ -7,7 +7,6 @@ Connect to Looker and interact with your data using LookML.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google LLC](#)
 * Installs

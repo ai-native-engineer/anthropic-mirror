@@ -8,7 +8,7 @@ You access Claude via:
 * **[Claude Desktop](https://claude.ai/download)**; and
 * **[Claude Console](https://platform.claude.com/)** / **[API](https://docs.claude.com/en/api/overview)**
 
-* [Get started with Claude](https://support.claude.com/en/articles/8114491-get-started-with-claude)
+* [Delete your Claude account](https://support.claude.com/en/articles/9028421-delete-your-claude-account)
 * [I have a paid Claude subscription (Pro, Max, Team, or Enterprise plans). Why do I have to pay separately to use the Claude API and Console?](https://support.claude.com/en/articles/9876003-i-have-a-paid-claude-subscription-pro-max-team-or-enterprise-plans-why-do-i-have-to-pay-separately-to-use-the-claude-api-and-console)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
 * [Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)

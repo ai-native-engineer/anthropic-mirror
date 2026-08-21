@@ -8,7 +8,6 @@ Tools to maintain CLAUDE.md - audit quality, capture learnings, and keep project
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

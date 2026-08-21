@@ -7,7 +7,6 @@ Laravel MCP server for intelligent Artisan commands, Eloquent queries, routing, 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Laravel](https://laravel.com)
 * Installs

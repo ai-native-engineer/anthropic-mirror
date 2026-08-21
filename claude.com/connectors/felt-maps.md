@@ -6,11 +6,12 @@
 
 Map and analyze your geospatial data
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/9133bf4a-0a23-402b-8b04-bd0a400fd5f9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Felt Maps](https://felt.com)
 

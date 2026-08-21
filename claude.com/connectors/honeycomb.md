@@ -6,11 +6,12 @@
 
 Query and explore observability data and SLOs
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/63125588-06e1-4567-8130-f5a26ed1d20f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Honeycomb](https://www.honeycomb.io/)
 

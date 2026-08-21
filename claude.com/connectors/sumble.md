@@ -6,11 +6,12 @@
 
 Deep research any account's teams, tech, and people
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/cec39b4a-ee57-40e4-be4e-0e9ceddcb4a0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Sumble, Inc](https://sumble.com)
 

@@ -6,11 +6,12 @@
 
 Discover live entertainment events worldwide
 
+* Category
+
   No items found.
 * Used in
 
   [Claude](https://claude.ai/directory/6e1be2c2-7237-4f8e-bf16-486799ec42a1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Fever](https://feverup.com/)
 

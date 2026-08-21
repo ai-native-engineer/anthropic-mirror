@@ -6,11 +6,12 @@
 
 Automate eSignature workflows directly from Claude
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/4bf06559-36bf-4aab-b7f7-360af4e2db86)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [airSlate Inc](https://www.airslate.com/)
 

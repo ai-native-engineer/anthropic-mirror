@@ -47,6 +47,10 @@ List memory versions
 
     Query param: Query parameter for page
 
+  - `ServiceAccountID param.Field[string]`
+
+    Query param: Query parameter for service_account_id
+
   - `SessionID param.Field[string]`
 
     Query param: Query parameter for session_id
@@ -106,6 +110,8 @@ List memory versions
       - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
@@ -216,6 +222,18 @@ List memory versions
       - `UserID string`
 
         ID of the user who performed the write (a `user_...` value).
+
+    - `type BetaManagedAgentsServiceAccountActor struct{…}`
+
+      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `ServiceAccountID string`
+
+        ID of the service account that performed the write (a `svac_...` value).
+
+      - `Type ServiceAccountActor`
+
+        - `const ServiceAccountActorServiceAccountActor ServiceAccountActor = "service_account_actor"`
 
   - `Path string`
 

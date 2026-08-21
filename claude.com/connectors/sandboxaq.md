@@ -6,11 +6,12 @@
 
 Large Quantitative Models for scientific discovery
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/171e28f5-9105-4a1b-8474-73a40df68cb6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [SandboxAQ](https://www.sandboxaq.com)
 

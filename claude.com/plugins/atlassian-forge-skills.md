@@ -7,7 +7,6 @@ Forge-focused skill bundle and MCP tooling for Atlassian Forge: scaffold apps, r
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Atlassian Labs](#)
 * Installs

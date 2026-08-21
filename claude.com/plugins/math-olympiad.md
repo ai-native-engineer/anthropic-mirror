@@ -8,7 +8,6 @@ Solve competition math (IMO, Putnam, USAMO) with adversarial verification that c
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](#)
 * Installs

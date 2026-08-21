@@ -6,11 +6,12 @@
 
 Create shareable documents, one-pagers, and decks
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/d4b6d94e-8fd7-4936-a525-a1852acd3bb4)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Send](https://www.send.co/)
 

@@ -8,8 +8,8 @@ If you aren’t seeing the latest features on Claude for Android, you may need t
 4. Under **Updates available**, tap “See details.”
 5. Tap “Update” next to Claude for Android.
 
+* [Delete your Claude account](https://support.claude.com/en/articles/9028421-delete-your-claude-account)
 * [Install Claude for Android](https://support.claude.com/en/articles/9612887-install-claude-for-android)
 * [Use the Claude widget on Android](https://support.claude.com/en/articles/10534883-use-the-claude-widget-on-android)
 * [How to update Claude for iOS](https://support.claude.com/en/articles/11825384-how-to-update-claude-for-ios)
 * [Use Claude with Android apps](https://support.claude.com/en/articles/11869629-use-claude-with-android-apps)
-* [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

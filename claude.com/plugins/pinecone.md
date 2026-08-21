@@ -7,7 +7,6 @@ Pinecone vector database integration for managing indexes, querying, and rapid p
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Pinecone](https://www.pinecone.io)
 * Installs

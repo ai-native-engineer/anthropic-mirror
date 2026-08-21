@@ -42,7 +42,7 @@ If your organization is under **Unlinked accounts**, click **Link** next to it. 
 
 ##  Grant repository access
 
-The remaining steps are in the Claude Tag admin page, not GitHub’s settings. Repository grants live on the Access bundle; editing a bundle’s Repositories tab requires the **Owner** role in your Claude organization.
+The remaining steps are in the Claude Tag admin page, not GitHub’s settings. Repository grants live on the Access bundle; editing a bundle’s Repositories tab requires the **Owner** role in your Claude organization. A [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) can also add repositories to their own channel, limited to repositories their GitHub account can write to.
 
 1
 

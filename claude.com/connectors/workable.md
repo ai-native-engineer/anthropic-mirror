@@ -6,11 +6,12 @@
 
 Your AI assistant for Hiring and HR — inside Workable
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/b788f00c-4417-40b2-9e3c-b0e916eb962f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Workable](https://www.workable.com)
 

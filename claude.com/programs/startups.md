@@ -174,6 +174,28 @@ Customer stories
 
 Inside the startups and founders using Claude. See what they shipped, and what it gave back.
 
+[View story](https://claude.com/customers/deepgram)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a84c544207da56365de9165_logo_deepgram-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a84c5496d5290209c339478_logo_deepgram-dark-mode.png)
+
+Deepgram ships 4–10x more durable code with Claude
+
+Deepgram
+
+Startup
+
+North America
+
+August 20, 2026
+
+Claude Code
+
+Claude Enterprise
+
+Software
+
+Claude Code
+
 [View story](https://claude.com/customers/vega-security)View story
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7cd9b3a32e0823cc2246db_logo_vega-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7cd9b694804d6ccb090f8f_logo_vega-dark-mode.svg)
@@ -281,26 +303,6 @@ Claude Platform
 Claude Code
 
 Software
-
-Claude Platform
-
-[View story](https://claude.com/customers/kai)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d58f7d668ee0558dc6fec_Kai%20Logo_Horizontal_Dark_Transparent%20BG.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d590a9fa9b75011957e73_Kai%20Logo_Horizontal_All%20White_Transparent%20BG.svg)
-
-Kai delivers preemptive exposure management with Claude
-
-Kai
-
-Startup
-
-AWS
-
-North America
-
-June 25, 2026
-
-Cybersecurity
 
 Claude Platform
 

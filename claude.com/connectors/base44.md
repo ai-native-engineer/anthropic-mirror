@@ -6,11 +6,12 @@
 
 Build and manage Base44 apps
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/16ebc92d-b1db-473a-82ef-015426940c4c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Base44](https://base44.com/)
 

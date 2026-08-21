@@ -7,7 +7,6 @@ Create polished audio episodes with TTS narration, rich timelines, cover images,
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Spotify](#)
 * Installs

@@ -156,6 +156,118 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
+
+Aug 20, 2026
+
+Anthropic’s approach to teaching and learning AI
+
+Product announcements
+
+Anthropic’s approach to teaching and learning AI
+
+August 20, 2026
+
+[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
+
+[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Aug 20, 2026
+
+How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+Agents
+
+How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+August 20, 2026
+
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](https://claude.com/blog/how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](#)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Aug 20, 2026
+
+The Claude Code guide for startups
+
+Claude Code
+
+The Claude Code guide for startups
+
+August 20, 2026
+
+[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
+
+[The Claude Code guide for startups](#)The Claude Code guide for startups
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
+
+Aug 20, 2026
+
+Build production agents with computer use, the Skills API, and the Files API
+
+Product announcements
+
+Build production agents with computer use, the Skills API, and the Files API
+
+August 20, 2026
+
+[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
+
+[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
+
+Aug 19, 2026
+
+Turning conversation into knowledge: how Slack builds human-agent teams
+
+Enterprise AI
+
+Turning conversation into knowledge: how Slack builds human-agent teams
+
+August 19, 2026
+
+[Turning conversation into knowledge: how Slack builds human-agent teams](https://claude.com/blog/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams)Turning conversation into knowledge: how Slack builds human-agent teams
+
+[Turning conversation into knowledge: how Slack builds human-agent teams](#)Turning conversation into knowledge: how Slack builds human-agent teams
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
+
+Aug 18, 2026
+
+Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+Enterprise AI
+
+Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+August 18, 2026
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22949f86cd1968deb9f_33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
+
+Aug 17, 2026
+
+How ABC Legal turned every employee into a builder with Claude Managed Agents
+
+Enterprise AI
+
+How ABC Legal turned every employee into a builder with Claude Managed Agents
+
+August 17, 2026
+
+[How ABC Legal turned every employee into a builder with Claude Managed Agents](https://claude.com/blog/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents)How ABC Legal turned every employee into a builder with Claude Managed Agents
+
+[How ABC Legal turned every employee into a builder with Claude Managed Agents](#)How ABC Legal turned every employee into a builder with Claude Managed Agents
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f63175f636cba4641_c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
 
 Aug 14, 2026
@@ -282,118 +394,6 @@ August 7, 2026
 
 [Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
-
-Aug 7, 2026
-
-Running auto mode in production
-
-Claude Code
-
-Running auto mode in production
-
-August 7, 2026
-
-[Running auto mode in production](https://claude.com/blog/auto-mode-in-production)Running auto mode in production
-
-[Running auto mode in production](#)Running auto mode in production
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
-
-Aug 6, 2026
-
-Millennium and Anthropic are building a digital risk analyst with Claude
-
-Enterprise AI
-
-Millennium and Anthropic are building a digital risk analyst with Claude
-
-August 6, 2026
-
-[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
-
-[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22651dd05046d0fdb0b_39c40393e610cc0a5e65f50ad12ff5ada273f792-1000x1000.svg)
-
-Aug 6, 2026
-
-Run Claude Code sessions on your own compute
-
-Product announcements
-
-Run Claude Code sessions on your own compute
-
-August 6, 2026
-
-[Run Claude Code sessions on your own compute](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)Run Claude Code sessions on your own compute
-
-[Run Claude Code sessions on your own compute](#)Run Claude Code sessions on your own compute
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
-
-Aug 5, 2026
-
-Inference hooks: inline data loss prevention for Claude Enterprise
-
-Enterprise AI
-
-Inference hooks: inline data loss prevention for Claude Enterprise
-
-August 5, 2026
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
-
-Aug 4, 2026
-
-A guide to cost visibility and control in Claude
-
-Enterprise AI
-
-A guide to cost visibility and control in Claude
-
-August 4, 2026
-
-[A guide to cost visibility and control in Claude](https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude)A guide to cost visibility and control in Claude
-
-[A guide to cost visibility and control in Claude](#)A guide to cost visibility and control in Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
-
-Jul 28, 2026
-
-Bringing MCP 2026-07-28 to Claude
-
-Product announcements
-
-Bringing MCP 2026-07-28 to Claude
-
-July 28, 2026
-
-[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
-
-[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224f466b800c4a5a016_a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
-
-Jul 24, 2026
-
-How the product designer who built Claude Design uses it to explore ideas before building them
-
-Enterprise AI
-
-How the product designer who built Claude Design uses it to explore ideas before building them
-
-July 24, 2026
-
-[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
-
-[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
-
 [View more](https://claude.com/blog?b7eea976_page=2)
 
 1 / 15
@@ -403,6 +403,118 @@ Category
 Product
 
 Usecase
+
+### Anthropic’s approach to teaching and learning AI
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 20, 2026
+
+[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
+
+[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
+
+### How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+August 20, 2026
+
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](https://claude.com/blog/how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](#)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+### The Claude Code guide for startups
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+August 20, 2026
+
+[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
+
+[The Claude Code guide for startups](#)The Claude Code guide for startups
+
+### Build production agents with computer use, the Skills API, and the Files API
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 20, 2026
+
+[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
+
+[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
+
+### Turning conversation into knowledge: how Slack builds human-agent teams
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 19, 2026
+
+[Turning conversation into knowledge: how Slack builds human-agent teams](https://claude.com/blog/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams)Turning conversation into knowledge: how Slack builds human-agent teams
+
+[Turning conversation into knowledge: how Slack builds human-agent teams](#)Turning conversation into knowledge: how Slack builds human-agent teams
+
+### Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 18, 2026
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+### How ABC Legal turned every employee into a builder with Claude Managed Agents
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 17, 2026
+
+[How ABC Legal turned every employee into a builder with Claude Managed Agents](https://claude.com/blog/how-abc-legal-turned-every-employee-into-a-builder-with-claude-managed-agents)How ABC Legal turned every employee into a builder with Claude Managed Agents
+
+[How ABC Legal turned every employee into a builder with Claude Managed Agents](#)How ABC Legal turned every employee into a builder with Claude Managed Agents
 
 ### Maximizing the value of your Claude Code sessions
 
@@ -531,118 +643,6 @@ August 7, 2026
 [Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
 
 [Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-### Running auto mode in production
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-August 7, 2026
-
-[Running auto mode in production](https://claude.com/blog/auto-mode-in-production)Running auto mode in production
-
-[Running auto mode in production](#)Running auto mode in production
-
-### Millennium and Anthropic are building a digital risk analyst with Claude
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 6, 2026
-
-[Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
-
-[Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
-
-### Run Claude Code sessions on your own compute
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 6, 2026
-
-[Run Claude Code sessions on your own compute](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)Run Claude Code sessions on your own compute
-
-[Run Claude Code sessions on your own compute](#)Run Claude Code sessions on your own compute
-
-### Inference hooks: inline data loss prevention for Claude Enterprise
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 5, 2026
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
-
-### A guide to cost visibility and control in Claude
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 4, 2026
-
-[A guide to cost visibility and control in Claude](https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude)A guide to cost visibility and control in Claude
-
-[A guide to cost visibility and control in Claude](#)A guide to cost visibility and control in Claude
-
-### Bringing MCP 2026-07-28 to Claude
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-July 28, 2026
-
-[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
-
-[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
-
-### How the product designer who built Claude Design uses it to explore ideas before building them
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 24, 2026
-
-[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
-
-[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
 
 [View more](https://claude.com/blog?d7430fcd_page=2)
 

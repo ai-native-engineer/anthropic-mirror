@@ -6,11 +6,12 @@
 
 Search and interact with your company knowledge
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/6d13e7f5-f465-498c-b7c9-b99c4bc74719)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Guru](https://www.getguru.com)
 

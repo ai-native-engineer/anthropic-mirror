@@ -7,7 +7,6 @@ Sonatype Guide MCP: supply chain intelligence & dependency security analysis wit
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Sonatype](https://guide.sonatype.com)
 * Installs

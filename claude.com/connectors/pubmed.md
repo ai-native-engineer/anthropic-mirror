@@ -6,13 +6,14 @@
 
 Search biomedical literature from PubMed
 
+* Category
+
   Life sciences and healthcare
 
   Education
 * Used in
 
   [Claude](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](https://support.claude.com/en/articles/12614801-using-the-pubmed-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 

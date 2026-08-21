@@ -7,7 +7,6 @@ Langfuse observability plugin for Claude Code — captures and exports traces, s
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Langfuse](#)
 * Installs

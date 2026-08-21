@@ -71,7 +71,7 @@ Create Session
 
       - `model?: BetaManagedAgentsModel | BetaManagedAgentsModelConfigParams`
 
-        Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+        Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
         - `BetaManagedAgentsModel = "claude-sonnet-5" | "claude-fable-5" | "claude-opus-5" | 10 more | (string & {})`
 
@@ -763,7 +763,7 @@ Create Session
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -808,6 +808,8 @@ Create Session
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -1516,7 +1518,7 @@ console.log(betaManagedAgentsSession.id);
       }
     ],
     "model": {
-      "id": "claude-sonnet-4-6",
+      "id": "claude-opus-5",
       "effort": {
         "type": "low"
       },
@@ -1536,7 +1538,7 @@ console.log(betaManagedAgentsSession.id);
             }
           ],
           "model": {
-            "id": "claude-sonnet-4-6",
+            "id": "claude-opus-5",
             "effort": {
               "type": "low"
             },
@@ -1774,7 +1776,7 @@ List Sessions
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -1819,6 +1821,8 @@ List Sessions
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -2527,7 +2531,7 @@ for await (const betaManagedAgentsSession of client.beta.sessions.list()) {
           }
         ],
         "model": {
-          "id": "claude-sonnet-4-6",
+          "id": "claude-opus-5",
           "effort": {
             "type": "low"
           },
@@ -2547,7 +2551,7 @@ for await (const betaManagedAgentsSession of client.beta.sessions.list()) {
                 }
               ],
               "model": {
-                "id": "claude-sonnet-4-6",
+                "id": "claude-opus-5",
                 "effort": {
                   "type": "low"
                 },
@@ -2727,7 +2731,7 @@ Get Session
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -2772,6 +2776,8 @@ Get Session
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -3479,7 +3485,7 @@ console.log(betaManagedAgentsSession.id);
       }
     ],
     "model": {
-      "id": "claude-sonnet-4-6",
+      "id": "claude-opus-5",
       "effort": {
         "type": "low"
       },
@@ -3499,7 +3505,7 @@ console.log(betaManagedAgentsSession.id);
             }
           ],
           "model": {
-            "id": "claude-sonnet-4-6",
+            "id": "claude-opus-5",
             "effort": {
               "type": "low"
             },
@@ -3893,7 +3899,7 @@ Update Session
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -3938,6 +3944,8 @@ Update Session
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -4645,7 +4653,7 @@ console.log(betaManagedAgentsSession.id);
       }
     ],
     "model": {
-      "id": "claude-sonnet-4-6",
+      "id": "claude-opus-5",
       "effort": {
         "type": "low"
       },
@@ -4665,7 +4673,7 @@ console.log(betaManagedAgentsSession.id);
             }
           ],
           "model": {
-            "id": "claude-sonnet-4-6",
+            "id": "claude-opus-5",
             "effort": {
               "type": "low"
             },
@@ -4841,7 +4849,7 @@ Delete Session
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -4886,6 +4894,8 @@ Delete Session
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -4966,7 +4976,7 @@ Archive Session
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -5011,6 +5021,8 @@ Archive Session
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -5718,7 +5730,7 @@ console.log(betaManagedAgentsSession.id);
       }
     ],
     "model": {
-      "id": "claude-sonnet-4-6",
+      "id": "claude-opus-5",
       "effort": {
         "type": "low"
       },
@@ -5738,7 +5750,7 @@ console.log(betaManagedAgentsSession.id);
             }
           ],
           "model": {
-            "id": "claude-sonnet-4-6",
+            "id": "claude-opus-5",
             "effort": {
               "type": "low"
             },
@@ -5984,7 +5996,7 @@ console.log(betaManagedAgentsSession.id);
 
   - `model?: BetaManagedAgentsModel | BetaManagedAgentsModelConfigParams`
 
-    Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+    Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
     - `BetaManagedAgentsModel = "claude-sonnet-5" | "claude-fable-5" | "claude-opus-5" | 10 more | (string & {})`
 
@@ -9290,7 +9302,7 @@ List Events
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -9335,6 +9347,8 @@ List Events
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -11775,7 +11789,7 @@ Send Events
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -11820,6 +11834,8 @@ Send Events
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -12360,7 +12376,7 @@ Stream Events
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -12405,6 +12421,8 @@ Stream Events
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -23182,7 +23200,7 @@ Add Session Resource
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -23227,6 +23245,8 @@ Add Session Resource
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -23330,7 +23350,7 @@ List Session Resources
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -23375,6 +23395,8 @@ List Session Resources
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -23573,7 +23595,7 @@ Get Session Resource
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -23618,6 +23640,8 @@ Get Session Resource
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -23807,7 +23831,7 @@ Update Session Resource
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -23852,6 +23876,8 @@ Update Session Resource
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -24037,7 +24063,7 @@ Delete Session Resource
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -24082,6 +24108,8 @@ Delete Session Resource
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -24603,7 +24631,7 @@ List Session Threads
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -24648,6 +24676,8 @@ List Session Threads
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -25156,7 +25186,7 @@ for await (const betaManagedAgentsSessionThread of client.beta.sessions.threads.
           }
         ],
         "model": {
-          "id": "claude-sonnet-4-6",
+          "id": "claude-opus-5",
           "effort": {
             "type": "low"
           },
@@ -25255,7 +25285,7 @@ Get Session Thread
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -25300,6 +25330,8 @@ Get Session Thread
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -25806,7 +25838,7 @@ console.log(betaManagedAgentsSessionThread.id);
       }
     ],
     "model": {
-      "id": "claude-sonnet-4-6",
+      "id": "claude-opus-5",
       "effort": {
         "type": "low"
       },
@@ -25902,7 +25934,7 @@ Archive Session Thread
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -25947,6 +25979,8 @@ Archive Session Thread
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -26453,7 +26487,7 @@ console.log(betaManagedAgentsSessionThread.id);
       }
     ],
     "model": {
-      "id": "claude-sonnet-4-6",
+      "id": "claude-opus-5",
       "effort": {
         "type": "low"
       },
@@ -29141,7 +29175,7 @@ List Session Thread Events
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -29186,6 +29220,8 @@ List Session Thread Events
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -31258,7 +31294,7 @@ Stream Session Thread Events
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 30 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -31303,6 +31339,8 @@ Stream Session Thread Events
       - `"output-300k-2026-03-24"`
 
       - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
 
       - `"advisor-tool-2026-03-01"`
 

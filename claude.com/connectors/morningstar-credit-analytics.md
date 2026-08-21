@@ -6,13 +6,14 @@
 
 Structured credit insights and analytics
 
+* Category
+
   Financial services
 
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/740dd9b1-b6ea-46b2-936f-6b9c6f19a366)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Morningstar Credit Analytics](https://credit.morningstar.com/)
 

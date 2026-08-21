@@ -6,11 +6,12 @@
 
 Analyze data and launch bioinformatics workflows
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/a00dcc51-4d67-4d8d-a411-2ab9f78244fd)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [LatchBio](https://latch.bio/)
 

@@ -8,7 +8,6 @@ Commands for git commit workflows including commit, push, and PR creation
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

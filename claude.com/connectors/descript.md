@@ -6,13 +6,14 @@
 
 Import, edit, or create video with prompts
 
+* Category
+
   Design
 
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/adcb61d5-8738-4724-a8e9-9cca7d525c3c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Descript](https://descript.com)
 

@@ -6,11 +6,12 @@
 
 Medidata provides clinical trial software solutions
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/2011b8ca-e6e5-4eed-b954-2249e521a3a9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-clinicaltrialsgov-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Medidata Solutions](https://www.medidata.com/)
 

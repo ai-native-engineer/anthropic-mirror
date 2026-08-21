@@ -41,7 +41,7 @@ List Files
 
 - `BetaFileListResponse: object { data, first_id, has_more, last_id }`
 
-  - `data: array of FileMetadata`
+  - `data: array of BetaFileMetadata`
 
     List of file metadata objects.
 

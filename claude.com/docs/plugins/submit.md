@@ -78,6 +78,7 @@ To submit please use one of our in-app submission forms:
 * **Claude.ai** — <https://claude.ai/admin-settings/directory/submissions/plugins/new>
 * **Console** — <https://platform.claude.com/plugins/submit>
 
+After you submit on claude.ai, the **Directory** page in your organization settings ([claude.ai/admin-settings/directory/submissions](https://claude.ai/admin-settings/directory/submissions)) lists your submissions with their review status.
 After your plugin is published, updates pushed to your GitHub repo are picked up automatically—CI mirrors changes to the public marketplace and runs automated screening on each update. You do not need to re-submit the form for updates.
 
 Need help building your plugin? See the [Claude Code plugin guide](https://code.claude.com/docs/en/plugins) for a complete walkthrough of plugin structure, manifests, and testing, or the [plugins reference](https://code.claude.com/docs/en/plugins-reference) for full technical specifications.

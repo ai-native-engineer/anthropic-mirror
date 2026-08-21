@@ -32,7 +32,7 @@ With Cowork, you can describe an outcome, step away, and come back to finished w
 * You control your Cowork tasks and can delete a task at any time using the "Delete" option (click "⋮" next to the task, or select tasks from your Tasks list and click the trash icon). Your Cowork task will be removed from your task history immediately, and deleted from our backend storage systems within 30 days, in accordance with our **[data retention periods](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)**.
 * Cowork via mobile and web is captured in the Compliance API. Learn more about **[retrieving remote sessions in the Compliance API](https://platform.claude.com/docs/en/manage-claude/compliance-content-data)**.
 * If you're a Team or Enterprise plan admin, you can **[use OpenTelemetry (OTel) to monitor Claude Cowork activity](https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)** across your organization.
-* Please review **[Use Cowork safely](https://support.claude.com/en/articles/13364135-using-cowork-safely)** for more information.
+* For more information, review **[Use Cowork safely](https://support.claude.com/en/articles/13364135-using-cowork-safely)**.
 
 For important limitations and considerations for Team and Enterprise organizations using Cowork, see **[Cowork for Team and Enterprise plans](https://support.claude.com/en/articles/13455879-cowork-for-team-and-enterprise-plans)**.
 
@@ -110,14 +110,12 @@ Cowork has three modes that control when Claude asks your permission before taki
 | --- | --- | --- | --- |
 |  | **Connector tool permission: "Always allow"** | **Connector tool permission: "Needs approval"** | **Connector tool permission: "Blocked"** |
 | **"Manual" mode** | Approved | Asks for permission | Denied |
-| **"Auto" mode\*** | Read-only tools are approved    For write/delete tools, Claude decides | Claude decides | Denied |
+| **"Auto" mode** | Read-only tools are approved    For write/delete tools, Claude decides | Claude decides | Denied |
 | **"Skip" mode** | Approved | Approved | Denied |
 
-*\*Currently available for Pro and Max plans only.*
+As a reminder, you control which connectors Claude can use via the "+" menu in the chat box or the **[Customize > Connectors](https://claude.ai/customize/connectors)** page.
 
-As a reminder, you control which connectors Claude can use via the + menu in the chat box or the **[Customize > Connectors](https://claude.ai/customize/connectors)** page.
-
-**Note:** On Team and Enterprise plans, your organization may require per-task approval for write-capable connector tools, so "Always allow" preferences may not apply. See **[Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans#h_1bd1fa754d)**.
+**Note:** On Team and Enterprise plans, your admin controls whether "Automatically approve" is available to your organization. It's available by default, and if your admin turns it off, the mode doesn't appear in your mode selector. Your organization may also require per-task approval for write-capable connector tools, so "Always allow" preferences may not apply. See **[Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans#h_1bd1fa754d)**.
 
 **Manually approve (Manual)**, formerly "Ask before acting." Claude pauses and asks for approval for actions. You review each request and choose Allow or Deny.
 
@@ -143,7 +141,7 @@ To set global instructions:
 2. Click "Edit" next to **Global instructions**.
 3. Type your instructions in the text box and click "Save":
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1786926600&signature=ae3a415d6850a22bca4a34be3902695912889047eed7d796d0902a51092250ab&req=diUlE8B8m4lYXfMW1HO4zcDl6t7lNFe28iWjaktE941qzd7KnttTkUd2x2%2FX%0AiXTuo3oQcqS5pqyuCJ4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1786926600&signature=ae3a415d6850a22bca4a34be3902695912889047eed7d796d0902a51092250ab&req=diUlE8B8m4lYXfMW1HO4zcDl6t7lNFe28iWjaktE941qzd7KnttTkUd2x2%2FX%0AiXTuo3oQcqS5pqyuCJ4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1787378400&signature=1f23915e9782c371111ad74e940c112b9d65fa60bfdba49e6b4ab5030643482e&req=diUlE8B8m4lYXfMW3nq%2BgcqgxG%2BD27XbY1WMqW%2FkK1ejkPq%2F%2FgmD4VVDpr87%0APryXtSd63sDxuIdFr2LO7%2BIc2i4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1787378400&signature=1f23915e9782c371111ad74e940c112b9d65fa60bfdba49e6b4ab5030643482e&req=diUlE8B8m4lYXfMW3nq%2BgcqgxG%2BD27XbY1WMqW%2FkK1ejkPq%2F%2FgmD4VVDpr87%0APryXtSd63sDxuIdFr2LO7%2BIc2i4%3D%0A)
 
 ### Folder instructions
 
@@ -177,7 +175,7 @@ If you find yourself hitting usage limits frequently when using Cowork, consider
 * Using standard chat for simpler tasks that don't require file access or extended execution.
 * Monitoring your individual usage in **[Settings > Usage](https://claude.ai/settings/usage)**.
 
-See **[Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)** for more information.
+For more information, see **[Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)**.
 
 ---
 
@@ -248,10 +246,6 @@ We're iterating on Cowork based on feedback. If you encounter issues or have sug
 ### I'm seeing "Setting up Claude's workspace" when I start Cowork; what does this mean?
 
 This message is expected and indicates that Cowork is updating to the most recent version to apply any fixes and improvements.
-
-### I don't see Cowork on web or mobile
-
-Cowork on web and mobile is rolling out gradually across paid plans. Make sure you're on an eligible plan and, on mobile, that you've updated to the latest version of the app.
 
 ### Claude stopped working on my task
 

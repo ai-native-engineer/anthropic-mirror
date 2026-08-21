@@ -7,7 +7,6 @@ Honeycomb observability: query patterns, production investigations, SLOs, OpenTe
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Honeycomb](#)
 * Installs

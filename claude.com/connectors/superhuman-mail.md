@@ -6,13 +6,14 @@
 
 The most productive email app ever, for Gmail & Outlook
 
+* Category
+
   Productivity
 
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/c0449015-4acb-47b6-b9ac-e6e98e884328)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Superhuman Mail](https://superhuman.com/products/mail)
 

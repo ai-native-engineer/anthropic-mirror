@@ -8,7 +8,6 @@ C# language server for code intelligence
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

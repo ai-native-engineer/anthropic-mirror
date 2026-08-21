@@ -7,7 +7,6 @@ Enterprise-grade auth, easy to implement. Add login, SSO, MFA, and access contro
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Auth0](https://auth0.com)
 * Installs

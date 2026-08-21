@@ -7,7 +7,6 @@ Score pre-commit diffs against PagerDuty incident history and surface deployment
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [PagerDuty](https://www.pagerduty.com)
 * Installs

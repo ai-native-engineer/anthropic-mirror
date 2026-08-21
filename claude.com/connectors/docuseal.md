@@ -6,11 +6,12 @@
 
 Sign, send & manage documents with DocuSeal
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/62270356-d0aa-46fc-a0bf-e57af079104d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [DocuSeal](https://www.docuseal.com/)
 

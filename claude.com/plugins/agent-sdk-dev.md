@@ -8,7 +8,6 @@ Development kit for working with the Claude Agent SDK
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

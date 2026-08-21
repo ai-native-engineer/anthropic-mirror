@@ -7,7 +7,6 @@ A suite of agent skills for the full GrowthBook feature flag and experimentation
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [GrowthBook](https://growthbook.io)
 * Installs

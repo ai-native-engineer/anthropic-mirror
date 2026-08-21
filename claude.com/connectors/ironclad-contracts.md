@@ -6,11 +6,12 @@
 
 Plain language search for faster contract answers
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/c5504c7c-d299-4637-a012-29ef1a2354a9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Ironclad, Inc](https://ironcladapp.com)
 

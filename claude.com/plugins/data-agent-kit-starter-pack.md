@@ -7,7 +7,6 @@ Specialized suite of skills for data engineers on Google Cloud — architect dat
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google LLC](#)
 * Installs

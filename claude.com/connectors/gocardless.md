@@ -6,11 +6,12 @@
 
 Ask about your payments, customers, and payouts
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/d242c454-3a8c-4271-8a8a-e334b111c7c5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [GoCardless](https://gocardless.com/)
 

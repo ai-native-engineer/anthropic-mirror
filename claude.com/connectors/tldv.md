@@ -6,13 +6,14 @@
 
 Fetch Transcripts & Notes from Meet, Zoom & Teams
 
+* Category
+
   Productivity
 
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/fe54565b-5acb-45b3-b27e-4f7d9752a257)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [tldx solutions GmbH](https://tldv.io)
 

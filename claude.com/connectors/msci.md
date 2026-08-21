@@ -6,11 +6,12 @@
 
 Turn data into insight
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/2cc10749-99cb-4853-a9d7-b2292ec589fc)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [MSCI Inc](https://msci.com)
 

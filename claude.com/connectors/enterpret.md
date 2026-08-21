@@ -6,11 +6,12 @@
 
 Get answers from unified feedback of your customers.
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/ce5cb342-4965-4ab1-b725-48ba06b72bbc)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Enterpret Inc](https://enterpret.com)
 

@@ -7,7 +7,6 @@ Code review agent detecting vulnerabilities, quality issues, secrets. 5,000+ ana
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [DeepSource Corp](#)
 * Installs

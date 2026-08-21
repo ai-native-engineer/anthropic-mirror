@@ -6,11 +6,12 @@
 
 Access Jira & Confluence from Claude
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](http://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Atlassian](https://www.atlassian.com/)
 

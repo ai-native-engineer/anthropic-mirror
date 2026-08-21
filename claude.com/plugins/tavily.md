@@ -7,7 +7,6 @@ Build AI applications with real-time web data using Tavily's search, extract, cr
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Tavily](https://www.tavily.com/)
 * Installs

@@ -6,11 +6,12 @@
 
 Turn scattered feedback into decisions grounded in customer evidence
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/4e29c4e5-45c5-452f-a197-128dd32be513)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Dovetail](https://dovetail.com/)
 

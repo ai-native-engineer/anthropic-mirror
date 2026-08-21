@@ -8,7 +8,6 @@ Write feature specs, plan roadmaps, and synthesize user research. Keep stakehold
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=product-management)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

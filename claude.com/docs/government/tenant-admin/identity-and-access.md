@@ -29,7 +29,7 @@ Until at least one domain is verified, the Single sign-on section’s Connect bu
 
 ##  Single sign-on
 
-Every user signs in through your agency’s identity provider (for example, Microsoft Entra, Okta, or ADFS). You register Claude for Government as an application in your identity provider, then enter your provider’s connection details here. Once connected, every sign-in is redirected to your provider.
+Every user signs in through your agency’s identity provider (for example, Microsoft Entra, Okta, or ADFS). You register Claude for Government as an application in your identity provider, then enter your provider’s connection details here. Once connected, sign-ins are redirected to your provider. A second sign-in from the same browser within a few minutes, such as connecting Claude Desktop right after signing in on the web, may not be redirected again.
 
 You need at least one verified domain before you can connect single sign-on. Until then, the Connect button is unavailable and a banner prompts you to verify a domain first. If single sign-on was already connected before your last domain was removed, the existing connection stays editable.
 

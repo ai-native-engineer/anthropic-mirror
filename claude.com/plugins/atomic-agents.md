@@ -7,7 +7,6 @@ Build AI agents with the Atomic Agents framework. Includes specialized tools and
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   17460

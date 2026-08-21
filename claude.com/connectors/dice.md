@@ -6,11 +6,12 @@
 
 Find active tech jobs on Dice
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/3035842b-464b-45f0-b8f0-1ddc01fb2eb2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Dice.com](https://www.dice.com/)
 

@@ -7,7 +7,6 @@ GoodMem: AI memory infrastructure. Python SDK and MCP tools manage embedders, sp
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [PAIR Systems](https://docs.goodmem.ai)
 * Installs

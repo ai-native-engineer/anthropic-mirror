@@ -7,7 +7,6 @@ Integrate Amazon Location Service for maps, geocoding, routing, and geospatial f
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Amazon Web Services](https://aws.amazon.com)
 * Installs

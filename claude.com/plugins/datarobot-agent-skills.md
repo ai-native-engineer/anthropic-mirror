@@ -7,7 +7,6 @@ DataRobot skills for AI/ML workflows — model training, deployment, predictions
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [DataRobot](#)
 * Installs

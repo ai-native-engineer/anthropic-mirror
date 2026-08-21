@@ -6,11 +6,12 @@
 
 K-12 standards, skills, and learning progressions
 
+* Category
+
   Education
 * Used in
 
   [Claude](https://claude.ai/directory/6e94f5fc-5dc8-4f0a-9fcf-741bcab4e034)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Learning Commons](https://learningcommons.org/)
 

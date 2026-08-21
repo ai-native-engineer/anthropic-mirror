@@ -6,11 +6,12 @@
 
 Query your CRM. Create records. Ask anything.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/27a89255-1541-408d-bb03-d003ae5d1481)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Clarify](https://www.clarify.ai)
 

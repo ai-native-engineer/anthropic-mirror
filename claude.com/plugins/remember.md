@@ -7,7 +7,6 @@ Continuous memory for Claude Code: extracts, summarizes, compresses conversation
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Digital Process Tools](https://github.com/Digital-Process-Tools)
 * Installs

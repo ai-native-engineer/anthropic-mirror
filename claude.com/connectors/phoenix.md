@@ -6,13 +6,14 @@
 
 AI-powered B2B data intelligence & analytics
 
+* Category
+
   Data
 
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/0796df0d-3911-42f6-b47d-9b1c8b259300)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [HG Insights](https://hginsights.com)
 

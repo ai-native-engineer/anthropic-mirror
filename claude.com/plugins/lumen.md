@@ -7,7 +7,6 @@ Precise local semantic code search via MCP. Indexes your codebase with Go AST pa
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Ory Corp](#)
 * Installs

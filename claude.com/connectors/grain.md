@@ -6,11 +6,12 @@
 
 Put your meetings to work
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/a034aa1a-a6b5-418e-9fa3-43cf80e2a611)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Grain](https://grain.com)
 

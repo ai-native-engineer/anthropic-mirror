@@ -7,7 +7,6 @@ ElixirLS for Claude Code — code intelligence and diagnostics for .ex, .exs, .h
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [mikaelfangel](https://github.com/MikaelFangel)
 * Installs

@@ -7,7 +7,6 @@ Expert database guidance for the AWS database portfolio. Design schemas, execute
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   2495

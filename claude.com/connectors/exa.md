@@ -6,11 +6,12 @@
 
 Web Search + Code Docs Search
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/91408932-1110-4350-97c7-2d6b3a6d9694)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Exa](https://exa.ai/)
 

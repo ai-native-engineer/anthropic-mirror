@@ -8,7 +8,6 @@ Turn Common Room into your GTM copilot with account research, call prep, and per
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=common-room)
-* Made by
 
   [Common Room](https://commonroom.io/)
 * Installs

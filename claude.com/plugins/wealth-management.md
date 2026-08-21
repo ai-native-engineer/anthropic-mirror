@@ -8,7 +8,6 @@ Prepare client reviews, build financial plans, and generate investment proposals
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/financial-services-plugins&plugin=wealth-management)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

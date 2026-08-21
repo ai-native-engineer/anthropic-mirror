@@ -6,11 +6,12 @@
 
 Create, deploy, manage, and secure websites on Netlify
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/816d73d2-2c34-4ad5-a1a3-c119c719e3af)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Netlify](https://www.netlify.com/)
 

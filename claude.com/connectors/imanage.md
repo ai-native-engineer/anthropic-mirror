@@ -6,11 +6,12 @@
 
 Governed knowledge. AI ready.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/bfc6b32d-8cdb-451d-8132-d8a16bfe9f9c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [iManage LLC](https://imanage.com)
 

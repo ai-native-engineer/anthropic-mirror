@@ -7,7 +7,6 @@ Browser automation and end-to-end testing MCP server by Microsoft. Enables Claud
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Microsoft](https://microsoft.com)
 * Installs

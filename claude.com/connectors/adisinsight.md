@@ -6,11 +6,12 @@
 
 Pharmaceutical drug & clinical trial intelligence
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/f73a5ee3-2b26-451d-8cb3-93bc451ac0fd)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Springer Nature](https://www.springernature.com)
 

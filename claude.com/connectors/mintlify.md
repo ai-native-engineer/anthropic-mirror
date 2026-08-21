@@ -6,13 +6,14 @@
 
 Search, read, and edit your documentation
 
+* Category
+
   Code
 
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/b66b1fcc-a173-4cc4-8060-a7cf0e971a9c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Mintlify](https://mintlify.com)
 

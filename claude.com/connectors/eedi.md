@@ -6,11 +6,12 @@
 
 Access Eedi's high quality math questions
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/20be64b8-c989-4da9-9951-36156c29bf07)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Eedi Ltd](https://www.eedi.com)
 

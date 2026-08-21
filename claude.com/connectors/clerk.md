@@ -6,11 +6,12 @@
 
 Add authentication, organizations, and billing
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/48a3eb31-a881-4d52-b179-1af31624356a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Clerk](https://clerk.com)
 

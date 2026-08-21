@@ -497,7 +497,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `type: "redacted_thinking"`
 
-    - `beta_tool_use_block: object { id, input, name, 2 more }`
+    - `beta_tool_use_block: object { id, input, name, 3 more }`
 
       - `id: string`
 
@@ -530,6 +530,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `tool_id: string`
 
           - `type: "code_execution_20260120"`
+
+      - `toolset_name: optional string`
+
+        For a toolset member tool_use, the toolset family.
 
     - `beta_server_tool_use_block: object { id, input, name, 2 more }`
 
@@ -1967,7 +1971,7 @@ ant beta:messages create \
   --api-key my-anthropic-api-key \
   --max-tokens 1024 \
   --message '{content: [{text: x, type: text}], role: user}' \
-  --model claude-opus-4-6
+  --model claude-opus-5
 ```
 
 #### Response
@@ -2018,14 +2022,14 @@ ant beta:messages create \
       "type": "model_changed"
     }
   },
-  "model": "claude-opus-4-6",
+  "model": "claude-opus-5",
   "role": "assistant",
   "stop_details": {
     "category": "cyber",
     "explanation": "This request was declined because it conflicts with Anthropic's Usage Policy.",
     "fallback_credit_token": "QW50aHJvcGljL0NsYXVkZQ==",
     "fallback_has_prefill_claim": true,
-    "recommended_model": "claude-sonnet-4-6",
+    "recommended_model": "claude-opus-4-8",
     "type": "refusal"
   },
   "stop_reason": "end_turn",

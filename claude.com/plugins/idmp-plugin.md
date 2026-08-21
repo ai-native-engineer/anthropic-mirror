@@ -7,7 +7,6 @@ TDengine IDMP plugin with packaged skills for discovery, schema inspection, and 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [TaosData](#)
 * Installs

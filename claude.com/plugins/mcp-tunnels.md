@@ -8,7 +8,6 @@ Connect Claude to a private MCP server through an Anthropic MCP tunnel. The /cre
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](#)
 * Installs

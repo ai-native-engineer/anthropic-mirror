@@ -6,11 +6,12 @@
 
 MCP server for Google Compute Engine
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/3afecfe4-46be-4f31-9050-9b8a67909028)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Google](https://cloud.google.com/products/compute)
 

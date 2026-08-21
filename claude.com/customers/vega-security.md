@@ -36,9 +36,11 @@ Location:
 
 North America
 
-Reclaimed 67% of its cyber defense engineering team’s time
+Completes investigations up to 44 times faster with 82% lower costs
 
-Cut triage from 25 minutes to <3 minutes
+than legacy SIEMs
+
+Cut triage from 25 minutes to less than 3 minutes
 
 at a Fortune 500 company
 
@@ -46,9 +48,9 @@ at a Fortune 500 company
 
 ## With Claude, Vega:
 
-* Reclaims roughly 67% of cyber defense engineering team’s time
+* Completes investigations up to 44 times faster with 82% lower costs than legacy SIEMs
 * Cuts triage from 25 minutes to <3 minutes for a Fortune 500 company
-* Completes investigations up to 44 times faster at up to 82% lower data cost than legacy SIEM ingestion
+* Reclaims roughly 67% of cyber defense engineering team’s time
 
 ## The challenge
 
@@ -78,7 +80,7 @@ Build innovative AI applications with safer systems from Anthropic, supported by
 
 Most large enterprises have security data spread across dozens of tools and cloud environments. In theory they could ingest everything into a security information and event management (SIEM) platform, but this is often too complex and cost-prohibitive at enterprise scale. Security teams typically ingest only the fraction they can afford, and everything outside it becomes a blind spot. That can make it difficult to run queries, detection, or investigation at scale.
 
-AI made the tradeoff sharper. "AI agents are only as effective as the data they can access, and most security architectures are either too fragmented or too slow to support agentic cyber defense at scale," explained Eli Rozen, Co-founder and CTO. A security operations center (SOC) that only sees a sampled slice of the environment inherits every blind spot the sampling created. For one top-four global bank, more than $6 million worth of visibility into Amazon VPC Flow Logs, AWS CloudTrail, and Microsoft 365 telemetry sat out of reach because ingesting it into a SIEM was too expensive.
+AI made the tradeoff sharper. "AI agents are only as effective as the data they can access, and most security architectures are either too fragmented or too slow to support agentic cyber defense at scale," explained Eli Rozen, Co-founder and CTO. A security operations center (SOC) that only sees a sampled slice of the environment inherits every blind spot the sampling created. For one top-four global bank, visibility into Amazon VPC Flow Logs, AWS CloudTrail, and Microsoft 365 telemetry sat out of reach, as ingesting it into a legacy SIEM would have cost an additional $6 million.
 
 ## The solution
 
@@ -104,31 +106,29 @@ Choosing the right Claude model
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-## Build on Claude, route across the model family
+## One model family, the right depth at every layer
 
-Vega set out to build agentic cyber defense: agents that detect cyberattacks, then triage, investigate and optimize themselves against the whole environment. That only works if the reasoning is accurate enough to trust, and the team chose Claude as part of the reasoning layer for Vega to run on. "We built our platform to work with best-in-class frontier AI models like Claude from day one,” Rozen said. Being AI-native meant treating frontier-level reasoning as the baseline rather than something to grow into: the team established its accuracy bar using the most capable model, then worked backward to optimize for cost and efficiency without losing quality.
+Vega set out to build agentic cyber defense: agents that detect cyberattacks, then triage, investigate and optimize themselves against the whole environment. The team chose Claude to power those agents in production. “As an AI-native company, we built Vega to work with best-in-class frontier models like Claude from day one, establishing that level of reasoning as the baseline for our platform,” Rozen said.
 
-The high bar is enforced with production evals, measuring hallucination rates against curated datasets, precision and recall on classification, and exact-match and runnable rates on the queries Claude generates. Anthropic's Applied AI team worked alongside Vega to strengthen that framework, expanding the golden datasets, refining grading criteria, and hardening the query and log-analysis pipelines against prompt injection.
+Reasoning a security team will act on has to clear a high bar, and Vega set a baseline of accuracy using the most capable Claude model, then worked backward to optimize for cost and efficiency without losing quality.
 
-The lever is the model family itself. "What Claude gives us that we haven't found anywhere else is range within a single model family, the ability to run Haiku, Sonnet, and Opus against different layers of the same pipeline and get frontier level reasoning exactly where it's needed without paying frontier cost everywhere," Rozen explained.
+The deciding factor is the range. "Claude gives us the ability to work within a single model family and apply the right level of intelligence exactly where it’s needed across Haiku, Sonnet, and Opus," Rozen explained.
 
-In practice, Vega matches each layer of the pipeline to the Claude model tier that fits it: the deepest reasoning goes to confirmed alerts, where the stakes are highest, while high-volume work like log analysis and summarization runs on lighter, faster tiers. "Customers feel this as speed and precision at scale; our own team feels it as being able to keep unit economics sane while still giving cyber defense engineers frontier quality answers where it counts," Rozen noted.
+Vega matches each layer of the pipeline to the Claude model tier that fits it: the deepest reasoning goes to confirmed alerts, where the stakes are highest, while high-volume work like log analysis and summarization runs on lighter, faster tiers. "Customers feel this as speed and precision at scale; our own team feels it as being able to keep unit economics reasonable, while ensuring cyber defense engineers have frontier-level answers where it counts," Rozen noted.
+
+## Building on Agent Skills
+
+Within the platform, Vega built on Anthropic’s Agent Skills format to introduce [detection skills](https://vega.io/blog/vega-introduces-detection-skills), an open standard that allows cyber defense engineers to codify their expertise as an agentic loop: how to triage, investigate, and optimize a detection, written when it is authored and applied to every alert. Vega released the standard at [detectionskills.io](http://detectionskills.io), enabling security teams across platforms to encode and share their judgment with the community.
+
+When a detection fires, the loop runs on that judgment. Triage skills decide whether the alert escalates to an incident, with the reasoning attached. Investigation skills analyze the incident before a human looks: forming a hypothesis, gathering evidence, and drafting an explainable conclusion with recommended next actions. Optimization skills write approved verdicts back into the detection, so it fires sharper next time. Engineers sign off on every change, so the judgment stays theirs while the repetitive work finishes before they arrive.
 
 ## Running it in production: Amazon Bedrock, EU residency, and resilience
 
-All of that inference reaches customers through Amazon Bedrock, with zero data retention, no training on customer data, VPC endpoints keeping traffic off the public internet, and pass-through pricing; the direct Claude API runs alongside it for internal tooling and Claude Code. As usage has scaled, Amazon Bedrock's cross-region inference has absorbed load spikes without Vega having to build that capacity itself.
+Inference reaches customers through Amazon Bedrock, with zero data retention, no training on customer data, VPC endpoints keeping traffic off the public internet, and pass-through pricing; the direct Claude API runs alongside it for internal tooling and Claude Code. As usage has scaled, Amazon Bedrock's cross-region inference has absorbed load spikes without Vega having to build that capacity itself.
 
-As a global company, Vega needs to serve organizations with compliance, privacy and data sovereignty requirements in every region. When a customer needed EU data residency for GDPR, Vega stood up a dedicated control plane in Frankfurt, a separate deployment running Amazon Bedrock's EU-hosted Claude models, in under three weeks. "The question isn't really about where a company is headquartered," Rozen said. "It's about whether you can move fast enough to meet the global requirements enterprises actually have."
+As a global company, Vega needs to serve organizations with compliance, privacy, and data sovereignty requirements in every region. When a customer needed EU data residency for GDPR, Vega stood up a dedicated control plane in Frankfurt, running Amazon Bedrock's EU-hosted Claude models, in under three weeks.
 
-## Inside the platform
-
-Claude's reasoning powers Vega’s Security Analytics Mesh (SAM), the federated layer that underpins its platform. It queries an enterprise's SIEM, data lakes, and cloud storage as one source without moving it. One Model Context Protocol interface exposes all of it, so Claude, other agents, and engineers working alongside them have the same information.
-
-Above that layer sits a loop an engineer authors as a detection skill, based on Anthropic’s Agent skills format. A detection agent judges incoming signals as malicious or benign and shows its reasoning; a triage agent sets priority, an investigation agent runs the deeper hunt, writing queries, pulling evidence, and drafting a verdict. An independent oversight agent reviews that work before any of it reaches a person. Optimization then closes the loop, writing approved conclusions back into the detection so it fires sharper next time. Engineers sign off on every change, so the judgment stays theirs while the repetitive work finishes before they arrive.Every prompt is grounded in live query results, never free-form text.
-
-Vega has evolved detection skills into an [open standard](https://detectionskills.io/) the broader security industry can build on, and it applies the same build-on-Claude philosophy inward, rebuilding its internal automation on the Claude Agent SDK rather than an off-the-shelf product.
-
-"What Claude gives us that we haven't found anywhere else is range within a single model family, and the ability to get frontier level reasoning exactly where it's needed."
+"As an AI-native company, we built Vega to work with best-in-class frontier models like Claude from day one, establishing that level of reasoning as the baseline for our platform."
 
 Eli Rozen,
 
@@ -148,15 +148,13 @@ Co-founder & CTO, Vega Security
 
 ## Two-thirds of analyst time back
 
-Across production deployments, customers reclaim roughly 67% of analyst time, complete investigations up to 44 times faster, and pay up to 82% less for data than traditional SIEM ingestion. One Fortune 500 insurer cut mean time to triage from 25 minutes to under 3, and the top-four global bank gained the $6 million worth of telemetry visibility it previously couldn't afford. Underneath those numbers sits the full picture: The Vega platform completes a scan across more than 1 billion CloudTrail logs spanning 17 AWS regions in 41 seconds, against a 30-minute manual baseline, ensuring frontier AI can reason across the entire environment, rather than a sample of it.
+Across production deployments, customers reclaim roughly 67% of analyst time, complete investigations up to 44 times faster, and pay up to 82% less for data than legacy SIEM ingestion. One Fortune 500 insurer cut mean time to triage from 25 minutes to under 3, and the top-four global bank gained the $6 million worth of telemetry it previously couldn't afford. Underneath those numbers sits the full picture: The Vega platform completes a scan across more than 1 billion CloudTrail logs spanning 17 AWS regions in 41 seconds, against a 30-minute manual baseline, ensuring frontier AI can reason across the entire environment, rather than a sample of it.
 
-"Those numbers aren't three separate wins," Rozen explained. "They're the same architecture showing up three ways: the reasoning catches what narrower tools miss, the platform is what lets that reasoning run at 1B-log scale, and the cost drop is what happens when you stop paying to duplicate data before you can analyze it."
-
-One of those catches came at a leading cybersecurity company, where Vega's threat hunting uncovered a live malware infection that signature-based tools had missed entirely. An investment banking firm ran a proof of value and decided to replace its legacy SIEM with Vega's platform. And a Fortune 500 technology manufacturer brought Vega in to monitor a large-scale Claude Code deployment for AI agent-specific risks such as prompt-based privilege escalation and unauthorized MCP installations.
+"Scaling frontier reasoning to every detection is the ultimate win for our customers,” Rozen explained. "With adversaries using AI to bypass static rules in legacy SIEMs, we’re bringing the judgement of your best cyber defense engineers to every alert, in real time.” At a leading cybersecurity company, Vega uncovered a live malware infection that signature-based tools had missed entirely. An investment banking firm ran a proof of value and decided to replace its legacy SIEM with Vega's platform. A Fortune 500 technology manufacturer brought Vega in to monitor a large-scale Claude Code deployment for AI agent-specific risks such as prompt-based privilege escalation and unauthorized MCP installations.
 
 Next, Vega is shipping agentic search, which lets AI agents execute complete multi-step threat hunts across an organization's entire security environment. “Choose the right model for each task instead of defaulting to the largest model,” Rozen advised. “Rigorously measure quality in production, and build durable platform capabilities that outlast any single foundation model."
 
-"The cost drop is what happens when you stop paying to duplicate data before you can analyze it."
+"Claude gives us the ability to work within a single model family and apply the right level of intelligence exactly where it’s needed."
 
 Eli Rozen,
 

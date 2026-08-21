@@ -6,11 +6,12 @@
 
 Automate 700+ apps & workflows with governance
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/99dac444-03e0-4fb3-af2f-2eb60aa0f44f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Tray.ai](https://www.tray.ai/)
 

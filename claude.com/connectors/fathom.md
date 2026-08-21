@@ -6,11 +6,12 @@
 
 Your meetings, now part of every Claude conversation
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/954b8c86-38d8-431b-bdaf-85b14336989c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Fathom](https://fathom.ai)
 

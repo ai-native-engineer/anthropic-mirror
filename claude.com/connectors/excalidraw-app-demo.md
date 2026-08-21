@@ -6,11 +6,12 @@
 
 MCP for creating interactive hand-drawn diagrams in Excalidraw
 
+* Category
+
   Design
 * Used in
 
   [Claude](https://claude.ai/directory/934bf25a-e0d1-43ff-a488-b2c5567ec956)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Excalidraw](https://github.com/excalidraw)
 

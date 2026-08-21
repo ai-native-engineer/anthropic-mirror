@@ -122,7 +122,7 @@ Event types use a dotted `resource.action` naming convention. The categories emi
 
 * **Users** such as `user.created`, `user.signed_in`, `user.role_changed`, `user.deactivated`, and `user.reactivated`.
 * **Organizations** such as `org.created`, `org.renamed`, and `org.deactivated`.
-* **Credentials** such as `api_key.created`, `scim_token.created`, and `scim_token.revoked`.
+* **Credentials** such as `api_key.created` and `api_key.revoked`.
 * **Seats and tiers** such as `seat_allocation.set`, `seat_allocation.tier_assigned`, `seat_tier.created`, and `seat_tier.updated`.
 * **Configuration** such as `org_config.capabilities_set`.
 

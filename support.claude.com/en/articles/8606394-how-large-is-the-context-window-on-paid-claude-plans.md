@@ -4,6 +4,8 @@ Claude Opus 5 and Sonnet 5 support a 1M token context window on all paid plans w
 
 When using Claude Code with a Pro, Max, Team, or Enterprise plan, Claude Sonnet 5, Fable 5, Opus 5, Opus 4.8, Opus 4.7, and Opus 4.6 support a 1M token context window. Pro users need to enable usage credits to access the 1M token context window for Opus models. Sonnet 4.6 also supports a 1M context window for all paid Claude plans on Claude Code, but usage credits must be enabled to access it (except for usage-based Enterprise plans).
 
+When using Claude Cowork with a Pro, Max, Team, or Enterprise plan, Claude Opus 5, Opus 4.8, Opus 4.7, Sonnet 5, and Fable 5 support a 1M token context window. Claude Sonnet 5 automatically compacts the conversation at 500K tokens. Claude Sonnet 4.6, Opus 4.6, and Haiku 4.5 support a 200K token context window in Cowork.
+
 ## Automatic context management
 
 For users on paid plans with code execution enabled, Claude automatically manages your conversation context. When your conversation approaches the context window limit, Claude summarizes earlier messages to make room for new content. This does not count towards your usage limit, and allows conversations to continue indefinitely in most cases.
@@ -21,7 +23,7 @@ While context is managed automatically for most conversations, you can still opt
 * **Manage tools and connectors:** These features are token-intensive, so being mindful of how many you have active helps maximize your available context.
 
 * [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
+* [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
-* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)

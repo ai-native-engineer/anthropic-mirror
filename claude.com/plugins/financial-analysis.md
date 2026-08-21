@@ -8,7 +8,6 @@ Build DCF models, run comps analysis, structure LBOs, and review pitch decks
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/financial-services-plugins&plugin=financial-analysis)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

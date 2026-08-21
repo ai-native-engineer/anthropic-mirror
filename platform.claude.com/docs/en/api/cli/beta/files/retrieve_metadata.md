@@ -25,7 +25,7 @@ Get File Metadata
 
 ### Returns
 
-- `file_metadata: object { id, created_at, filename, 5 more }`
+- `beta_file_metadata: object { id, created_at, filename, 5 more }`
 
   - `id: string`
 

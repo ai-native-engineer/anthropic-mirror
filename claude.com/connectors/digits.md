@@ -6,11 +6,12 @@
 
 Track and analyze your finances with Digits
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/38c1453f-9bb0-40cf-b6b0-79fd8b349ffa)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Digits Financial, Inc.](https://digits.com)
 

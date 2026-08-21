@@ -6,11 +6,12 @@
 
 Search and explore skill-building resources
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/d4ba36c1-89dd-49ee-aea3-2317efccc424)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Udemy, Inc.](https://udemy.com)
 

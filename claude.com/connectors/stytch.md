@@ -6,11 +6,12 @@
 
 Manage your Stytch Project
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/b873d3db-0781-4a3d-9245-9c6213e6d785)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Stytch](https://stytch.com)
 

@@ -6,11 +6,12 @@
 
 Query, analyze, and manage your PostHog insights
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/50688846-553c-4a12-bc21-df94d2173734)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [PostHog](https://posthog.com)
 

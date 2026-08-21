@@ -6,11 +6,12 @@
 
 Search, analyze and understand your finances on Mercury
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/9c04294a-d69c-47e9-9fa6-6a0e780caf3a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Mercury](https://mercury.com/)
 

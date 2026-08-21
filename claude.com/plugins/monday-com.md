@@ -8,7 +8,6 @@ Bring your monday.com work into every Cowork conversation. Manage tasks, surface
 * Install in
 
   [Claude Cowork](https://claude.com/plugins/monday-com)
-* Made by
 
   [monday.com](https://monday.com)
 * Installs

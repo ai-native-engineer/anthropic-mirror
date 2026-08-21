@@ -6,11 +6,12 @@
 
 Discover, research, and enrich companies and people
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/27e16103-e402-4223-b8b2-a7324bfdebab)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Harmonic](https://harmonic.ai)
 

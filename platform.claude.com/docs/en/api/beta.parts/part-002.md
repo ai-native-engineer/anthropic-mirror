@@ -3,6 +3,7084 @@
 
 <!-- chunk-start -->
 
+      - `type: "approximate"`
+
+        - `"approximate"`
+
+      - `city: optional string or null`
+
+        The city of the user.
+
+      - `country: optional string or null`
+
+        The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+      - `region: optional string or null`
+
+        The region of the user.
+
+      - `timezone: optional string or null`
+
+        The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+  - `BetaWebFetchTool20250910 object { name, type, allowed_callers, 8 more }`
+
+    - `name: "web_fetch"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `"web_fetch"`
+
+    - `type: "web_fetch_20250910"`
+
+      - `"web_fetch_20250910"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: optional array of string or null`
+
+      List of domains to block fetching from
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: optional BetaCitationsConfigParam or null`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `enabled: optional boolean`
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: optional number or null`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaWebSearchTool20260209 object { name, type, allowed_callers, 7 more }`
+
+    - `name: "web_search"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `"web_search"`
+
+    - `type: "web_search_20260209"`
+
+      - `"web_search_20260209"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: optional array of string or null`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: optional BetaUserLocation or null`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `BetaWebFetchTool20260209 object { name, type, allowed_callers, 8 more }`
+
+    - `name: "web_fetch"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `"web_fetch"`
+
+    - `type: "web_fetch_20260209"`
+
+      - `"web_fetch_20260209"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: optional array of string or null`
+
+      List of domains to block fetching from
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: optional BetaCitationsConfigParam or null`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: optional number or null`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaWebFetchTool20260309 object { name, type, allowed_callers, 9 more }`
+
+    Web fetch tool with use_cache parameter for bypassing cached content.
+
+    - `name: "web_fetch"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `"web_fetch"`
+
+    - `type: "web_fetch_20260309"`
+
+      - `"web_fetch_20260309"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: optional array of string or null`
+
+      List of domains to block fetching from
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: optional BetaCitationsConfigParam or null`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: optional number or null`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `use_cache: optional boolean`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+  - `BetaWebSearchTool20260318 object { name, type, allowed_callers, 8 more }`
+
+    - `name: "web_search"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `"web_search"`
+
+    - `type: "web_search_20260318"`
+
+      - `"web_search_20260318"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: optional array of string or null`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: optional "full" or "excluded"`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `"full"`
+
+      - `"excluded"`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: optional BetaUserLocation or null`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `BetaWebFetchTool20260318 object { name, type, allowed_callers, 10 more }`
+
+    - `name: "web_fetch"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `"web_fetch"`
+
+    - `type: "web_fetch_20260318"`
+
+      - `"web_fetch_20260318"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: optional array of string or null`
+
+      List of domains to block fetching from
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: optional BetaCitationsConfigParam or null`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: optional number or null`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: optional "full" or "excluded"`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `"full"`
+
+      - `"excluded"`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `use_cache: optional boolean`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+  - `BetaAdvisorTool20260301 object { model, name, type, 7 more }`
+
+    - `model: Model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"`
+
+          Most capable model for cybersecurity and biology research
+
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-8"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-7"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-mythos-preview"`
+
+          New class of intelligence, strongest in coding and cybersecurity
+
+        - `"claude-opus-4-6"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-6"`
+
+          Best combination of speed and intelligence
+
+        - `"claude-haiku-4-5"`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-haiku-4-5-20251001"`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-opus-4-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-5-20251101"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-5"`
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+      - `string`
+
+    - `name: "advisor"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `"advisor"`
+
+    - `type: "advisor_20260301"`
+
+      - `"advisor_20260301"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `caching: optional BetaCacheControlEphemeral or null`
+
+      Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_tokens: optional number or null`
+
+      Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaToolSearchToolBm25_20251119 object { name, type, allowed_callers, 3 more }`
+
+    - `name: "tool_search_tool_bm25"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `"tool_search_tool_bm25"`
+
+    - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
+
+      - `"tool_search_tool_bm25_20251119"`
+
+      - `"tool_search_tool_bm25"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaToolSearchToolRegex20251119 object { name, type, allowed_callers, 3 more }`
+
+    - `name: "tool_search_tool_regex"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `"tool_search_tool_regex"`
+
+    - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
+
+      - `"tool_search_tool_regex_20251119"`
+
+      - `"tool_search_tool_regex"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaMCPToolset object { mcp_server_name, type, cache_control, 2 more }`
+
+    Configuration for a group of tools from an MCP server.
+
+    Allows configuring enabled status and defer_loading for all tools
+    from an MCP server, with optional per-tool overrides.
+
+    - `mcp_server_name: string`
+
+      Name of the MCP server to configure tools for
+
+    - `type: "mcp_toolset"`
+
+      - `"mcp_toolset"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: optional map[BetaMCPToolConfig] or null`
+
+      Configuration overrides for specific tools, keyed by tool name
+
+      - `defer_loading: optional boolean`
+
+      - `enabled: optional boolean`
+
+    - `default_config: optional BetaMCPToolDefaultConfig`
+
+      Default configuration applied to all tools from this server
+
+      - `defer_loading: optional boolean`
+
+      - `enabled: optional boolean`
+
+### Beta Tool Use Block
+
+- `BetaToolUseBlock object { id, input, name, 3 more }`
+
+  - `id: string`
+
+  - `input: map[unknown]`
+
+  - `name: string`
+
+  - `type: "tool_use"`
+
+    - `"tool_use"`
+
+  - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+    Tool invocation directly from the model.
+
+    - `BetaDirectCaller object { type }`
+
+      Tool invocation directly from the model.
+
+      - `type: "direct"`
+
+        - `"direct"`
+
+    - `BetaServerToolCaller object { tool_id, type }`
+
+      Tool invocation generated by a server-side tool.
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20250825"`
+
+        - `"code_execution_20250825"`
+
+    - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20260120"`
+
+        - `"code_execution_20260120"`
+
+  - `toolset_name: optional string or null`
+
+    For a toolset member tool_use, the toolset family.
+
+### Beta Tool Use Block Param
+
+- `BetaToolUseBlockParam object { id, input, name, 4 more }`
+
+  - `id: string`
+
+  - `input: map[unknown]`
+
+  - `name: string`
+
+  - `type: "tool_use"`
+
+    - `"tool_use"`
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+      - `"ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+    Tool invocation directly from the model.
+
+    - `BetaDirectCaller object { type }`
+
+      Tool invocation directly from the model.
+
+      - `type: "direct"`
+
+        - `"direct"`
+
+    - `BetaServerToolCaller object { tool_id, type }`
+
+      Tool invocation generated by a server-side tool.
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20250825"`
+
+        - `"code_execution_20250825"`
+
+    - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20260120"`
+
+        - `"code_execution_20260120"`
+
+  - `toolset_name: optional string or null`
+
+    For a toolset member tool_use, the toolset family this member belongs to.
+
+### Beta Tool Uses Keep
+
+- `BetaToolUsesKeep object { type, value }`
+
+  - `type: "tool_uses"`
+
+    - `"tool_uses"`
+
+  - `value: number`
+
+### Beta Tool Uses Trigger
+
+- `BetaToolUsesTrigger object { type, value }`
+
+  - `type: "tool_uses"`
+
+    - `"tool_uses"`
+
+  - `value: number`
+
+### Beta URL Image Source
+
+- `BetaURLImageSource object { type, url }`
+
+  - `type: "url"`
+
+    - `"url"`
+
+  - `url: string`
+
+### Beta URL PDF Source
+
+- `BetaURLPDFSource object { type, url }`
+
+  - `type: "url"`
+
+    - `"url"`
+
+  - `url: string`
+
+### Beta Usage
+
+- `BetaUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 9 more }`
+
+  - `cache_creation: BetaCacheCreation or null`
+
+    Breakdown of cached tokens by TTL
+
+    - `ephemeral_1h_input_tokens: number`
+
+      The number of input tokens used to create the 1 hour cache entry.
+
+    - `ephemeral_5m_input_tokens: number`
+
+      The number of input tokens used to create the 5 minute cache entry.
+
+  - `cache_creation_input_tokens: number or null`
+
+    The number of input tokens used to create the cache entry.
+
+  - `cache_read_input_tokens: number or null`
+
+    The number of input tokens read from the cache.
+
+  - `fallback_credit: BetaFallbackCreditUsage or null`
+
+    Outcome of the `fallback_credit_token` presented on this request.
+
+    - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+      Whether the fallback-credit reprice was applied to this response's billing.
+
+      A union discriminated on `type`. `redeemed`: the retry is billed as if
+      the conversation had been on the retry model all along — including when the
+      resulting shift is zero because there was nothing to move. `not_applied`:
+      no reprice was applied; the arm's `reason` says why.
+
+      - `BetaFallbackCreditRedeemed object { type }`
+
+        The reprice was applied: the retry is billed as if the conversation
+        had been on the retry model all along.
+
+        - `type: "redeemed"`
+
+          - `"redeemed"`
+
+      - `BetaFallbackCreditNotApplied object { reason, type, remove_to_redeem }`
+
+        No reprice was applied; `reason` says why.
+
+        - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+          Why the reprice was not applied.
+
+          A closed enum; additions to the redemption-check vocabulary arrive as
+          deliberate schema updates.
+
+          - `"body_mismatch"`
+
+          - `"continuation_excluded"`
+
+          - `"continuation_only"`
+
+          - `"expired"`
+
+          - `"invalid_target_model"`
+
+          - `"not_enabled"`
+
+          - `"reprice_unavailable"`
+
+          - `"temporarily_unavailable"`
+
+          - `"variant_fields_present"`
+
+          - `"wrong_organization"`
+
+          - `"wrong_platform"`
+
+          - `"wrong_workspace"`
+
+        - `type: "not_applied"`
+
+          - `"not_applied"`
+
+        - `remove_to_redeem: optional array of string or null`
+
+          Request fields to remove before retrying, so the retry can redeem this
+          token.
+
+          Present exactly when `reason` is `variant_fields_present` — never null,
+          never an empty array; absent otherwise. Fields are named only from your own request, and only after
+          the sealed variant hash matched. A served best-effort retry has already
+          been billed at normal price; nothing redeems retroactively, but a corrected
+          re-send inside the token's five-minute window can still redeem.
+
+  - `inference_geo: string or null`
+
+    The geographic region where inference was performed for this request.
+
+  - `input_tokens: number`
+
+    The number of input tokens which were used.
+
+  - `iterations: BetaIterationsUsage or null`
+
+    Per-iteration token usage breakdown.
+
+    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
+    - Determine which iterations exceeded long context thresholds (>=200k tokens)
+    - Calculate the true context window size from the last iteration
+    - Understand token accumulation across server-side tool use loops
+
+    - `BetaMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
+
+      Token usage for a sampling iteration.
+
+      - `cache_creation: BetaCacheCreation or null`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: number`
+
+        The number of input tokens used to create the cache entry.
+
+      - `cache_read_input_tokens: number`
+
+        The number of input tokens read from the cache.
+
+      - `input_tokens: number`
+
+        The number of input tokens which were used.
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
+          - `"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-mythos-5"`
+
+            Most capable model for cybersecurity and biology research
+
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-mythos-preview"`
+
+            New class of intelligence, strongest in coding and cybersecurity
+
+          - `"claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
+
+        - `string`
+
+      - `output_tokens: number`
+
+        The number of output tokens which were used.
+
+      - `type: "message"`
+
+        Usage for a sampling iteration
+
+        - `"message"`
+
+    - `BetaCompactionIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 3 more }`
+
+      Token usage for a compaction iteration.
+
+      - `cache_creation: BetaCacheCreation or null`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: number`
+
+        The number of input tokens used to create the cache entry.
+
+      - `cache_read_input_tokens: number`
+
+        The number of input tokens read from the cache.
+
+      - `input_tokens: number`
+
+        The number of input tokens which were used.
+
+      - `output_tokens: number`
+
+        The number of output tokens which were used.
+
+      - `type: "compaction"`
+
+        Usage for a compaction iteration
+
+        - `"compaction"`
+
+    - `BetaAdvisorMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
+
+      Token usage for an advisor sub-inference iteration.
+
+      - `cache_creation: BetaCacheCreation or null`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: number`
+
+        The number of input tokens used to create the cache entry.
+
+      - `cache_read_input_tokens: number`
+
+        The number of input tokens read from the cache.
+
+      - `input_tokens: number`
+
+        The number of input tokens which were used.
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `output_tokens: number`
+
+        The number of output tokens which were used.
+
+      - `type: "advisor_message"`
+
+        Usage for an advisor sub-inference iteration
+
+        - `"advisor_message"`
+
+    - `BetaFallbackMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
+
+      Token usage for the fallback-model attempt of a server-side fallback request.
+
+      Produced in place of a `message` entry for whichever hop served the
+      response. A declined hop produces the existing `message` entry. Whether
+      a fallback model served the response is signalled by the presence of this
+      entry in `usage.iterations`.
+
+      - `cache_creation: BetaCacheCreation or null`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: number`
+
+        The number of input tokens used to create the cache entry.
+
+      - `cache_read_input_tokens: number`
+
+        The number of input tokens read from the cache.
+
+      - `input_tokens: number`
+
+        The number of input tokens which were used.
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `output_tokens: number`
+
+        The number of output tokens which were used.
+
+      - `type: "fallback_message"`
+
+        Usage for the fallback-model attempt that served the response
+
+        - `"fallback_message"`
+
+  - `output_tokens: number`
+
+    The number of output tokens which were used.
+
+  - `output_tokens_details: BetaOutputTokensDetails or null`
+
+    Breakdown of output tokens by category.
+
+    `output_tokens` remains the inclusive, authoritative total used for billing.
+    This object provides a read-only decomposition for observability — for example,
+    how many of the billed output tokens were spent on internal reasoning that may
+    have been summarized before being returned to you.
+
+    - `thinking_tokens: number`
+
+      Number of output tokens the model generated as internal reasoning, including
+      the thinking-block delimiter tokens.
+
+      Reflects the raw reasoning the model produced, not the (possibly shorter)
+      summarized thinking text returned in the response body. Computed by
+      re-tokenizing the raw reasoning text, so it may differ from the model's exact
+      generation count by a small number of tokens. Always ≤ `output_tokens`;
+      `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
+  - `server_tool_use: BetaServerToolUsage or null`
+
+    The number of server tool requests.
+
+    - `web_fetch_requests: number`
+
+      The number of web fetch tool requests.
+
+    - `web_search_requests: number`
+
+      The number of web search tool requests.
+
+  - `service_tier: "standard" or "priority" or "batch" or null`
+
+    If the request used the priority, standard, or batch tier.
+
+    - `"standard"`
+
+    - `"priority"`
+
+    - `"batch"`
+
+  - `speed: "standard" or "fast" or null`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+    - `"standard"`
+
+    - `"fast"`
+
+### Beta User Location
+
+- `BetaUserLocation object { type, city, country, 2 more }`
+
+  - `type: "approximate"`
+
+    - `"approximate"`
+
+  - `city: optional string or null`
+
+    The city of the user.
+
+  - `country: optional string or null`
+
+    The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+  - `region: optional string or null`
+
+    The region of the user.
+
+  - `timezone: optional string or null`
+
+    The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+### Beta Web Fetch Block
+
+- `BetaWebFetchBlock object { content, retrieved_at, type, url }`
+
+  - `content: BetaDocumentBlock`
+
+    - `citations: BetaCitationConfig or null`
+
+      Citation configuration for the document
+
+      - `enabled: boolean`
+
+    - `source: BetaBase64PDFSource or BetaPlainTextSource`
+
+      - `BetaBase64PDFSource object { data, media_type, type }`
+
+        - `data: string`
+
+        - `media_type: "application/pdf"`
+
+          - `"application/pdf"`
+
+        - `type: "base64"`
+
+          - `"base64"`
+
+      - `BetaPlainTextSource object { data, media_type, type }`
+
+        - `data: string`
+
+        - `media_type: "text/plain"`
+
+          - `"text/plain"`
+
+        - `type: "text"`
+
+          - `"text"`
+
+    - `title: string or null`
+
+      The title of the document
+
+    - `type: "document"`
+
+      - `"document"`
+
+  - `retrieved_at: string or null`
+
+    ISO 8601 timestamp when the content was retrieved
+
+  - `type: "web_fetch_result"`
+
+    - `"web_fetch_result"`
+
+  - `url: string`
+
+    Fetched content URL
+
+### Beta Web Fetch Block Param
+
+- `BetaWebFetchBlockParam object { content, type, url, retrieved_at }`
+
+  - `content: BetaRequestDocumentBlock`
+
+    - `source: BetaBase64PDFSource or BetaPlainTextSource or BetaContentBlockSource or 2 more`
+
+      - `BetaBase64PDFSource object { data, media_type, type }`
+
+        - `data: string`
+
+        - `media_type: "application/pdf"`
+
+          - `"application/pdf"`
+
+        - `type: "base64"`
+
+          - `"base64"`
+
+      - `BetaPlainTextSource object { data, media_type, type }`
+
+        - `data: string`
+
+        - `media_type: "text/plain"`
+
+          - `"text/plain"`
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `BetaContentBlockSource object { content, type }`
+
+        - `content: string or array of BetaContentBlockSourceContent`
+
+          - `string`
+
+          - `BetaContentBlockSourceContent = array of BetaContentBlockSourceContent`
+
+            - `BetaTextBlockParam object { text, type, cache_control, citations }`
+
+              - `text: string`
+
+              - `type: "text"`
+
+                - `"text"`
+
+              - `cache_control: optional BetaCacheControlEphemeral or null`
+
+                Create a cache control breakpoint at this content block.
+
+                - `type: "ephemeral"`
+
+                  - `"ephemeral"`
+
+                - `ttl: optional "5m" or "1h"`
+
+                  The time-to-live for the cache control breakpoint.
+
+                  This may be one the following values:
+
+                  - `5m`: 5 minutes
+                  - `1h`: 1 hour
+
+                  Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `"5m"`
+
+                  - `"1h"`
+
+              - `citations: optional array of BetaTextCitationParam or null`
+
+                - `BetaCitationCharLocationParam object { cited_text, document_index, document_title, 3 more }`
+
+                  - `cited_text: string`
+
+                  - `document_index: number`
+
+                  - `document_title: string or null`
+
+                  - `end_char_index: number`
+
+                  - `start_char_index: number`
+
+                  - `type: "char_location"`
+
+                    - `"char_location"`
+
+                - `BetaCitationPageLocationParam object { cited_text, document_index, document_title, 3 more }`
+
+                  - `cited_text: string`
+
+                  - `document_index: number`
+
+                  - `document_title: string or null`
+
+                  - `end_page_number: number`
+
+                  - `start_page_number: number`
+
+                  - `type: "page_location"`
+
+                    - `"page_location"`
+
+                - `BetaCitationContentBlockLocationParam object { cited_text, document_index, document_title, 3 more }`
+
+                  - `cited_text: string`
+
+                    The full text of the cited block range, concatenated.
+
+                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                  - `document_index: number`
+
+                  - `document_title: string or null`
+
+                  - `end_block_index: number`
+
+                    Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                  - `start_block_index: number`
+
+                    0-based index of the first cited block in the source's `content` array.
+
+                  - `type: "content_block_location"`
+
+                    - `"content_block_location"`
+
+                - `BetaCitationWebSearchResultLocationParam object { cited_text, encrypted_index, title, 2 more }`
+
+                  - `cited_text: string`
+
+                  - `encrypted_index: string`
+
+                  - `title: string or null`
+
+                  - `type: "web_search_result_location"`
+
+                    - `"web_search_result_location"`
+
+                  - `url: string`
+
+                - `BetaCitationSearchResultLocationParam object { cited_text, end_block_index, search_result_index, 4 more }`
+
+                  - `cited_text: string`
+
+                    The full text of the cited block range, concatenated.
+
+                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                  - `end_block_index: number`
+
+                    Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                  - `search_result_index: number`
+
+                    0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                    Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                  - `source: string`
+
+                  - `start_block_index: number`
+
+                    0-based index of the first cited block in the source's `content` array.
+
+                  - `title: string or null`
+
+                  - `type: "search_result_location"`
+
+                    - `"search_result_location"`
+
+            - `BetaImageBlockParam object { source, type, cache_control, transformations }`
+
+              - `source: BetaBase64ImageSource or BetaURLImageSource or BetaFileImageSource`
+
+                - `BetaBase64ImageSource object { data, media_type, type }`
+
+                  - `data: string`
+
+                  - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
+                    - `"image/jpeg"`
+
+                    - `"image/png"`
+
+                    - `"image/gif"`
+
+                    - `"image/webp"`
+
+                  - `type: "base64"`
+
+                    - `"base64"`
+
+                - `BetaURLImageSource object { type, url }`
+
+                  - `type: "url"`
+
+                    - `"url"`
+
+                  - `url: string`
+
+                - `BetaFileImageSource object { file_id, type }`
+
+                  - `file_id: string`
+
+                  - `type: "file"`
+
+                    - `"file"`
+
+              - `type: "image"`
+
+                - `"image"`
+
+              - `cache_control: optional BetaCacheControlEphemeral or null`
+
+                Create a cache control breakpoint at this content block.
+
+              - `transformations: optional BetaImageTransformationsParam or null`
+
+                Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+                - `oversized_image: optional "downsize" or "error"`
+
+                  What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                  - `"downsize"`
+
+                  - `"error"`
+
+        - `type: "content"`
+
+          - `"content"`
+
+      - `BetaURLPDFSource object { type, url }`
+
+        - `type: "url"`
+
+          - `"url"`
+
+        - `url: string`
+
+      - `BetaFileDocumentSource object { file_id, type }`
+
+        - `file_id: string`
+
+        - `type: "file"`
+
+          - `"file"`
+
+    - `type: "document"`
+
+      - `"document"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: optional BetaCitationsConfigParam or null`
+
+      - `enabled: optional boolean`
+
+    - `context: optional string or null`
+
+    - `title: optional string or null`
+
+  - `type: "web_fetch_result"`
+
+    - `"web_fetch_result"`
+
+  - `url: string`
+
+    Fetched content URL
+
+  - `retrieved_at: optional string or null`
+
+    ISO 8601 timestamp when the content was retrieved
+
+### Beta Web Fetch Tool 20250910
+
+- `BetaWebFetchTool20250910 object { name, type, allowed_callers, 8 more }`
+
+  - `name: "web_fetch"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `"web_fetch"`
+
+  - `type: "web_fetch_20250910"`
+
+    - `"web_fetch_20250910"`
+
+  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: optional array of string or null`
+
+    List of domains to allow fetching from
+
+  - `blocked_domains: optional array of string or null`
+
+    List of domains to block fetching from
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+      - `"ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `citations: optional BetaCitationsConfigParam or null`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `enabled: optional boolean`
+
+  - `defer_loading: optional boolean`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_content_tokens: optional number or null`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+  - `max_uses: optional number or null`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `strict: optional boolean`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Web Fetch Tool 20260209
+
+- `BetaWebFetchTool20260209 object { name, type, allowed_callers, 8 more }`
+
+  - `name: "web_fetch"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `"web_fetch"`
+
+  - `type: "web_fetch_20260209"`
+
+    - `"web_fetch_20260209"`
+
+  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: optional array of string or null`
+
+    List of domains to allow fetching from
+
+  - `blocked_domains: optional array of string or null`
+
+    List of domains to block fetching from
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+      - `"ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `citations: optional BetaCitationsConfigParam or null`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `enabled: optional boolean`
+
+  - `defer_loading: optional boolean`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_content_tokens: optional number or null`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+  - `max_uses: optional number or null`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `strict: optional boolean`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Web Fetch Tool 20260309
+
+- `BetaWebFetchTool20260309 object { name, type, allowed_callers, 9 more }`
+
+  Web fetch tool with use_cache parameter for bypassing cached content.
+
+  - `name: "web_fetch"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `"web_fetch"`
+
+  - `type: "web_fetch_20260309"`
+
+    - `"web_fetch_20260309"`
+
+  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: optional array of string or null`
+
+    List of domains to allow fetching from
+
+  - `blocked_domains: optional array of string or null`
+
+    List of domains to block fetching from
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+      - `"ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `citations: optional BetaCitationsConfigParam or null`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `enabled: optional boolean`
+
+  - `defer_loading: optional boolean`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_content_tokens: optional number or null`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+  - `max_uses: optional number or null`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `strict: optional boolean`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `use_cache: optional boolean`
+
+    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+### Beta Web Fetch Tool 20260318
+
+- `BetaWebFetchTool20260318 object { name, type, allowed_callers, 10 more }`
+
+  - `name: "web_fetch"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `"web_fetch"`
+
+  - `type: "web_fetch_20260318"`
+
+    - `"web_fetch_20260318"`
+
+  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: optional array of string or null`
+
+    List of domains to allow fetching from
+
+  - `blocked_domains: optional array of string or null`
+
+    List of domains to block fetching from
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+      - `"ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `citations: optional BetaCitationsConfigParam or null`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `enabled: optional boolean`
+
+  - `defer_loading: optional boolean`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_content_tokens: optional number or null`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+  - `max_uses: optional number or null`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `response_inclusion: optional "full" or "excluded"`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `"full"`
+
+    - `"excluded"`
+
+  - `strict: optional boolean`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `use_cache: optional boolean`
+
+    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+### Beta Web Fetch Tool Result Block
+
+- `BetaWebFetchToolResultBlock object { content, tool_use_id, type, caller }`
+
+  - `content: BetaWebFetchToolResultErrorBlock or BetaWebFetchBlock`
+
+    - `BetaWebFetchToolResultErrorBlock object { error_code, type }`
+
+      - `error_code: BetaWebFetchToolResultErrorCode`
+
+        - `"invalid_tool_input"`
+
+        - `"url_too_long"`
+
+        - `"url_not_allowed"`
+
+        - `"url_not_in_prior_context"`
+
+        - `"url_not_accessible"`
+
+        - `"unsupported_content_type"`
+
+        - `"too_many_requests"`
+
+        - `"max_uses_exceeded"`
+
+        - `"unavailable"`
+
+      - `type: "web_fetch_tool_result_error"`
+
+        - `"web_fetch_tool_result_error"`
+
+    - `BetaWebFetchBlock object { content, retrieved_at, type, url }`
+
+      - `content: BetaDocumentBlock`
+
+        - `citations: BetaCitationConfig or null`
+
+          Citation configuration for the document
+
+          - `enabled: boolean`
+
+        - `source: BetaBase64PDFSource or BetaPlainTextSource`
+
+          - `BetaBase64PDFSource object { data, media_type, type }`
+
+            - `data: string`
+
+            - `media_type: "application/pdf"`
+
+              - `"application/pdf"`
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaPlainTextSource object { data, media_type, type }`
+
+            - `data: string`
+
+            - `media_type: "text/plain"`
+
+              - `"text/plain"`
+
+            - `type: "text"`
+
+              - `"text"`
+
+        - `title: string or null`
+
+          The title of the document
+
+        - `type: "document"`
+
+          - `"document"`
+
+      - `retrieved_at: string or null`
+
+        ISO 8601 timestamp when the content was retrieved
+
+      - `type: "web_fetch_result"`
+
+        - `"web_fetch_result"`
+
+      - `url: string`
+
+        Fetched content URL
+
+  - `tool_use_id: string`
+
+  - `type: "web_fetch_tool_result"`
+
+    - `"web_fetch_tool_result"`
+
+  - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+    Tool invocation directly from the model.
+
+    - `BetaDirectCaller object { type }`
+
+      Tool invocation directly from the model.
+
+      - `type: "direct"`
+
+        - `"direct"`
+
+    - `BetaServerToolCaller object { tool_id, type }`
+
+      Tool invocation generated by a server-side tool.
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20250825"`
+
+        - `"code_execution_20250825"`
+
+    - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20260120"`
+
+        - `"code_execution_20260120"`
+
+### Beta Web Fetch Tool Result Block Param
+
+- `BetaWebFetchToolResultBlockParam object { content, tool_use_id, type, 2 more }`
+
+  - `content: BetaWebFetchToolResultErrorBlockParam or BetaWebFetchBlockParam`
+
+    - `BetaWebFetchToolResultErrorBlockParam object { error_code, type }`
+
+      - `error_code: BetaWebFetchToolResultErrorCode`
+
+        - `"invalid_tool_input"`
+
+        - `"url_too_long"`
+
+        - `"url_not_allowed"`
+
+        - `"url_not_in_prior_context"`
+
+        - `"url_not_accessible"`
+
+        - `"unsupported_content_type"`
+
+        - `"too_many_requests"`
+
+        - `"max_uses_exceeded"`
+
+        - `"unavailable"`
+
+      - `type: "web_fetch_tool_result_error"`
+
+        - `"web_fetch_tool_result_error"`
+
+    - `BetaWebFetchBlockParam object { content, type, url, retrieved_at }`
+
+      - `content: BetaRequestDocumentBlock`
+
+        - `source: BetaBase64PDFSource or BetaPlainTextSource or BetaContentBlockSource or 2 more`
+
+          - `BetaBase64PDFSource object { data, media_type, type }`
+
+            - `data: string`
+
+            - `media_type: "application/pdf"`
+
+              - `"application/pdf"`
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaPlainTextSource object { data, media_type, type }`
+
+            - `data: string`
+
+            - `media_type: "text/plain"`
+
+              - `"text/plain"`
+
+            - `type: "text"`
+
+              - `"text"`
+
+          - `BetaContentBlockSource object { content, type }`
+
+            - `content: string or array of BetaContentBlockSourceContent`
+
+              - `string`
+
+              - `BetaContentBlockSourceContent = array of BetaContentBlockSourceContent`
+
+                - `BetaTextBlockParam object { text, type, cache_control, citations }`
+
+                  - `text: string`
+
+                  - `type: "text"`
+
+                    - `"text"`
+
+                  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                      - `"ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                      - `"5m"`
+
+                      - `"1h"`
+
+                  - `citations: optional array of BetaTextCitationParam or null`
+
+                    - `BetaCitationCharLocationParam object { cited_text, document_index, document_title, 3 more }`
+
+                      - `cited_text: string`
+
+                      - `document_index: number`
+
+                      - `document_title: string or null`
+
+                      - `end_char_index: number`
+
+                      - `start_char_index: number`
+
+                      - `type: "char_location"`
+
+                        - `"char_location"`
+
+                    - `BetaCitationPageLocationParam object { cited_text, document_index, document_title, 3 more }`
+
+                      - `cited_text: string`
+
+                      - `document_index: number`
+
+                      - `document_title: string or null`
+
+                      - `end_page_number: number`
+
+                      - `start_page_number: number`
+
+                      - `type: "page_location"`
+
+                        - `"page_location"`
+
+                    - `BetaCitationContentBlockLocationParam object { cited_text, document_index, document_title, 3 more }`
+
+                      - `cited_text: string`
+
+                        The full text of the cited block range, concatenated.
+
+                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                      - `document_index: number`
+
+                      - `document_title: string or null`
+
+                      - `end_block_index: number`
+
+                        Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                      - `start_block_index: number`
+
+                        0-based index of the first cited block in the source's `content` array.
+
+                      - `type: "content_block_location"`
+
+                        - `"content_block_location"`
+
+                    - `BetaCitationWebSearchResultLocationParam object { cited_text, encrypted_index, title, 2 more }`
+
+                      - `cited_text: string`
+
+                      - `encrypted_index: string`
+
+                      - `title: string or null`
+
+                      - `type: "web_search_result_location"`
+
+                        - `"web_search_result_location"`
+
+                      - `url: string`
+
+                    - `BetaCitationSearchResultLocationParam object { cited_text, end_block_index, search_result_index, 4 more }`
+
+                      - `cited_text: string`
+
+                        The full text of the cited block range, concatenated.
+
+                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                      - `end_block_index: number`
+
+                        Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                      - `search_result_index: number`
+
+                        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                        Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                      - `source: string`
+
+                      - `start_block_index: number`
+
+                        0-based index of the first cited block in the source's `content` array.
+
+                      - `title: string or null`
+
+                      - `type: "search_result_location"`
+
+                        - `"search_result_location"`
+
+                - `BetaImageBlockParam object { source, type, cache_control, transformations }`
+
+                  - `source: BetaBase64ImageSource or BetaURLImageSource or BetaFileImageSource`
+
+                    - `BetaBase64ImageSource object { data, media_type, type }`
+
+                      - `data: string`
+
+                      - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
+                        - `"image/jpeg"`
+
+                        - `"image/png"`
+
+                        - `"image/gif"`
+
+                        - `"image/webp"`
+
+                      - `type: "base64"`
+
+                        - `"base64"`
+
+                    - `BetaURLImageSource object { type, url }`
+
+                      - `type: "url"`
+
+                        - `"url"`
+
+                      - `url: string`
+
+                    - `BetaFileImageSource object { file_id, type }`
+
+                      - `file_id: string`
+
+                      - `type: "file"`
+
+                        - `"file"`
+
+                  - `type: "image"`
+
+                    - `"image"`
+
+                  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+                    Create a cache control breakpoint at this content block.
+
+                  - `transformations: optional BetaImageTransformationsParam or null`
+
+                    Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+                    - `oversized_image: optional "downsize" or "error"`
+
+                      What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                      - `"downsize"`
+
+                      - `"error"`
+
+            - `type: "content"`
+
+              - `"content"`
+
+          - `BetaURLPDFSource object { type, url }`
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+          - `BetaFileDocumentSource object { file_id, type }`
+
+            - `file_id: string`
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "document"`
+
+          - `"document"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: optional BetaCitationsConfigParam or null`
+
+          - `enabled: optional boolean`
+
+        - `context: optional string or null`
+
+        - `title: optional string or null`
+
+      - `type: "web_fetch_result"`
+
+        - `"web_fetch_result"`
+
+      - `url: string`
+
+        Fetched content URL
+
+      - `retrieved_at: optional string or null`
+
+        ISO 8601 timestamp when the content was retrieved
+
+  - `tool_use_id: string`
+
+  - `type: "web_fetch_tool_result"`
+
+    - `"web_fetch_tool_result"`
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+  - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+    Tool invocation directly from the model.
+
+    - `BetaDirectCaller object { type }`
+
+      Tool invocation directly from the model.
+
+      - `type: "direct"`
+
+        - `"direct"`
+
+    - `BetaServerToolCaller object { tool_id, type }`
+
+      Tool invocation generated by a server-side tool.
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20250825"`
+
+        - `"code_execution_20250825"`
+
+    - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20260120"`
+
+        - `"code_execution_20260120"`
+
+### Beta Web Fetch Tool Result Error Block
+
+- `BetaWebFetchToolResultErrorBlock object { error_code, type }`
+
+  - `error_code: BetaWebFetchToolResultErrorCode`
+
+    - `"invalid_tool_input"`
+
+    - `"url_too_long"`
+
+    - `"url_not_allowed"`
+
+    - `"url_not_in_prior_context"`
+
+    - `"url_not_accessible"`
+
+    - `"unsupported_content_type"`
+
+    - `"too_many_requests"`
+
+    - `"max_uses_exceeded"`
+
+    - `"unavailable"`
+
+  - `type: "web_fetch_tool_result_error"`
+
+    - `"web_fetch_tool_result_error"`
+
+### Beta Web Fetch Tool Result Error Block Param
+
+- `BetaWebFetchToolResultErrorBlockParam object { error_code, type }`
+
+  - `error_code: BetaWebFetchToolResultErrorCode`
+
+    - `"invalid_tool_input"`
+
+    - `"url_too_long"`
+
+    - `"url_not_allowed"`
+
+    - `"url_not_in_prior_context"`
+
+    - `"url_not_accessible"`
+
+    - `"unsupported_content_type"`
+
+    - `"too_many_requests"`
+
+    - `"max_uses_exceeded"`
+
+    - `"unavailable"`
+
+  - `type: "web_fetch_tool_result_error"`
+
+    - `"web_fetch_tool_result_error"`
+
+### Beta Web Fetch Tool Result Error Code
+
+- `BetaWebFetchToolResultErrorCode = "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
+  - `"invalid_tool_input"`
+
+  - `"url_too_long"`
+
+  - `"url_not_allowed"`
+
+  - `"url_not_in_prior_context"`
+
+  - `"url_not_accessible"`
+
+  - `"unsupported_content_type"`
+
+  - `"too_many_requests"`
+
+  - `"max_uses_exceeded"`
+
+  - `"unavailable"`
+
+### Beta Web Search Result Block
+
+- `BetaWebSearchResultBlock object { encrypted_content, page_age, title, 2 more }`
+
+  - `encrypted_content: string`
+
+  - `page_age: string or null`
+
+  - `title: string`
+
+  - `type: "web_search_result"`
+
+    - `"web_search_result"`
+
+  - `url: string`
+
+### Beta Web Search Result Block Param
+
+- `BetaWebSearchResultBlockParam object { encrypted_content, title, type, 2 more }`
+
+  - `encrypted_content: string`
+
+  - `title: string`
+
+  - `type: "web_search_result"`
+
+    - `"web_search_result"`
+
+  - `url: string`
+
+  - `page_age: optional string or null`
+
+### Beta Web Search Tool 20250305
+
+- `BetaWebSearchTool20250305 object { name, type, allowed_callers, 7 more }`
+
+  - `name: "web_search"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `"web_search"`
+
+  - `type: "web_search_20250305"`
+
+    - `"web_search_20250305"`
+
+  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: optional array of string or null`
+
+    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+  - `blocked_domains: optional array of string or null`
+
+    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+      - `"ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: optional boolean`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_uses: optional number or null`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `strict: optional boolean`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `user_location: optional BetaUserLocation or null`
+
+    Parameters for the user's location. Used to provide more relevant search results.
+
+    - `type: "approximate"`
+
+      - `"approximate"`
+
+    - `city: optional string or null`
+
+      The city of the user.
+
+    - `country: optional string or null`
+
+      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+    - `region: optional string or null`
+
+      The region of the user.
+
+    - `timezone: optional string or null`
+
+      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+### Beta Web Search Tool 20260209
+
+- `BetaWebSearchTool20260209 object { name, type, allowed_callers, 7 more }`
+
+  - `name: "web_search"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `"web_search"`
+
+  - `type: "web_search_20260209"`
+
+    - `"web_search_20260209"`
+
+  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: optional array of string or null`
+
+    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+  - `blocked_domains: optional array of string or null`
+
+    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+      - `"ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: optional boolean`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_uses: optional number or null`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `strict: optional boolean`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `user_location: optional BetaUserLocation or null`
+
+    Parameters for the user's location. Used to provide more relevant search results.
+
+    - `type: "approximate"`
+
+      - `"approximate"`
+
+    - `city: optional string or null`
+
+      The city of the user.
+
+    - `country: optional string or null`
+
+      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+    - `region: optional string or null`
+
+      The region of the user.
+
+    - `timezone: optional string or null`
+
+      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+### Beta Web Search Tool 20260318
+
+- `BetaWebSearchTool20260318 object { name, type, allowed_callers, 8 more }`
+
+  - `name: "web_search"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `"web_search"`
+
+  - `type: "web_search_20260318"`
+
+    - `"web_search_20260318"`
+
+  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: optional array of string or null`
+
+    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+  - `blocked_domains: optional array of string or null`
+
+    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+      - `"ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: optional boolean`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_uses: optional number or null`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `response_inclusion: optional "full" or "excluded"`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `"full"`
+
+    - `"excluded"`
+
+  - `strict: optional boolean`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `user_location: optional BetaUserLocation or null`
+
+    Parameters for the user's location. Used to provide more relevant search results.
+
+    - `type: "approximate"`
+
+      - `"approximate"`
+
+    - `city: optional string or null`
+
+      The city of the user.
+
+    - `country: optional string or null`
+
+      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+    - `region: optional string or null`
+
+      The region of the user.
+
+    - `timezone: optional string or null`
+
+      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+### Beta Web Search Tool Request Error
+
+- `BetaWebSearchToolRequestError object { error_code, type }`
+
+  - `error_code: BetaWebSearchToolResultErrorCode`
+
+    - `"invalid_tool_input"`
+
+    - `"unavailable"`
+
+    - `"max_uses_exceeded"`
+
+    - `"too_many_requests"`
+
+    - `"query_too_long"`
+
+    - `"request_too_large"`
+
+  - `type: "web_search_tool_result_error"`
+
+    - `"web_search_tool_result_error"`
+
+### Beta Web Search Tool Result Block
+
+- `BetaWebSearchToolResultBlock object { content, tool_use_id, type, caller }`
+
+  - `content: BetaWebSearchToolResultBlockContent`
+
+    - `BetaWebSearchToolResultError object { error_code, type }`
+
+      - `error_code: BetaWebSearchToolResultErrorCode`
+
+        - `"invalid_tool_input"`
+
+        - `"unavailable"`
+
+        - `"max_uses_exceeded"`
+
+        - `"too_many_requests"`
+
+        - `"query_too_long"`
+
+        - `"request_too_large"`
+
+      - `type: "web_search_tool_result_error"`
+
+        - `"web_search_tool_result_error"`
+
+    - `array of BetaWebSearchResultBlock`
+
+      - `encrypted_content: string`
+
+      - `page_age: string or null`
+
+      - `title: string`
+
+      - `type: "web_search_result"`
+
+        - `"web_search_result"`
+
+      - `url: string`
+
+  - `tool_use_id: string`
+
+  - `type: "web_search_tool_result"`
+
+    - `"web_search_tool_result"`
+
+  - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+    Tool invocation directly from the model.
+
+    - `BetaDirectCaller object { type }`
+
+      Tool invocation directly from the model.
+
+      - `type: "direct"`
+
+        - `"direct"`
+
+    - `BetaServerToolCaller object { tool_id, type }`
+
+      Tool invocation generated by a server-side tool.
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20250825"`
+
+        - `"code_execution_20250825"`
+
+    - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20260120"`
+
+        - `"code_execution_20260120"`
+
+### Beta Web Search Tool Result Block Content
+
+- `BetaWebSearchToolResultBlockContent = BetaWebSearchToolResultError or array of BetaWebSearchResultBlock`
+
+  - `BetaWebSearchToolResultError object { error_code, type }`
+
+    - `error_code: BetaWebSearchToolResultErrorCode`
+
+      - `"invalid_tool_input"`
+
+      - `"unavailable"`
+
+      - `"max_uses_exceeded"`
+
+      - `"too_many_requests"`
+
+      - `"query_too_long"`
+
+      - `"request_too_large"`
+
+    - `type: "web_search_tool_result_error"`
+
+      - `"web_search_tool_result_error"`
+
+  - `array of BetaWebSearchResultBlock`
+
+    - `encrypted_content: string`
+
+    - `page_age: string or null`
+
+    - `title: string`
+
+    - `type: "web_search_result"`
+
+      - `"web_search_result"`
+
+    - `url: string`
+
+### Beta Web Search Tool Result Block Param
+
+- `BetaWebSearchToolResultBlockParam object { content, tool_use_id, type, 2 more }`
+
+  - `content: BetaWebSearchToolResultBlockParamContent`
+
+    - `ResultBlock = array of BetaWebSearchResultBlockParam`
+
+      - `encrypted_content: string`
+
+      - `title: string`
+
+      - `type: "web_search_result"`
+
+        - `"web_search_result"`
+
+      - `url: string`
+
+      - `page_age: optional string or null`
+
+    - `BetaWebSearchToolRequestError object { error_code, type }`
+
+      - `error_code: BetaWebSearchToolResultErrorCode`
+
+        - `"invalid_tool_input"`
+
+        - `"unavailable"`
+
+        - `"max_uses_exceeded"`
+
+        - `"too_many_requests"`
+
+        - `"query_too_long"`
+
+        - `"request_too_large"`
+
+      - `type: "web_search_tool_result_error"`
+
+        - `"web_search_tool_result_error"`
+
+  - `tool_use_id: string`
+
+  - `type: "web_search_tool_result"`
+
+    - `"web_search_tool_result"`
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+      - `"ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+    Tool invocation directly from the model.
+
+    - `BetaDirectCaller object { type }`
+
+      Tool invocation directly from the model.
+
+      - `type: "direct"`
+
+        - `"direct"`
+
+    - `BetaServerToolCaller object { tool_id, type }`
+
+      Tool invocation generated by a server-side tool.
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20250825"`
+
+        - `"code_execution_20250825"`
+
+    - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+      - `tool_id: string`
+
+      - `type: "code_execution_20260120"`
+
+        - `"code_execution_20260120"`
+
+### Beta Web Search Tool Result Block Param Content
+
+- `BetaWebSearchToolResultBlockParamContent = array of BetaWebSearchResultBlockParam or BetaWebSearchToolRequestError`
+
+  - `ResultBlock = array of BetaWebSearchResultBlockParam`
+
+    - `encrypted_content: string`
+
+    - `title: string`
+
+    - `type: "web_search_result"`
+
+      - `"web_search_result"`
+
+    - `url: string`
+
+    - `page_age: optional string or null`
+
+  - `BetaWebSearchToolRequestError object { error_code, type }`
+
+    - `error_code: BetaWebSearchToolResultErrorCode`
+
+      - `"invalid_tool_input"`
+
+      - `"unavailable"`
+
+      - `"max_uses_exceeded"`
+
+      - `"too_many_requests"`
+
+      - `"query_too_long"`
+
+      - `"request_too_large"`
+
+    - `type: "web_search_tool_result_error"`
+
+      - `"web_search_tool_result_error"`
+
+### Beta Web Search Tool Result Error
+
+- `BetaWebSearchToolResultError object { error_code, type }`
+
+  - `error_code: BetaWebSearchToolResultErrorCode`
+
+    - `"invalid_tool_input"`
+
+    - `"unavailable"`
+
+    - `"max_uses_exceeded"`
+
+    - `"too_many_requests"`
+
+    - `"query_too_long"`
+
+    - `"request_too_large"`
+
+  - `type: "web_search_tool_result_error"`
+
+    - `"web_search_tool_result_error"`
+
+### Beta Web Search Tool Result Error Code
+
+- `BetaWebSearchToolResultErrorCode = "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
+  - `"invalid_tool_input"`
+
+  - `"unavailable"`
+
+  - `"max_uses_exceeded"`
+
+  - `"too_many_requests"`
+
+  - `"query_too_long"`
+
+  - `"request_too_large"`
+
+# Batches
+
+## Create a Message Batch
+
+**post** `/v1/messages/batches`
+
+Send a batch of Message creation requests.
+
+The Message Batches API can be used to process multiple Messages API requests at once. Once a Message Batch is created, it begins processing immediately. Batches can take up to 24 hours to complete.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+### Header Parameters
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
+
+    - `"message-batches-2024-09-24"`
+
+    - `"prompt-caching-2024-07-31"`
+
+    - `"computer-use-2024-10-22"`
+
+    - `"computer-use-2025-01-24"`
+
+    - `"pdfs-2024-09-25"`
+
+    - `"token-counting-2024-11-01"`
+
+    - `"token-efficient-tools-2025-02-19"`
+
+    - `"output-128k-2025-02-19"`
+
+    - `"files-api-2025-04-14"`
+
+    - `"mcp-client-2025-04-04"`
+
+    - `"mcp-client-2025-11-20"`
+
+    - `"dev-full-thinking-2025-05-14"`
+
+    - `"interleaved-thinking-2025-05-14"`
+
+    - `"code-execution-2025-05-22"`
+
+    - `"extended-cache-ttl-2025-04-11"`
+
+    - `"context-1m-2025-08-07"`
+
+    - `"context-management-2025-06-27"`
+
+    - `"model-context-window-exceeded-2025-08-26"`
+
+    - `"skills-2025-10-02"`
+
+    - `"fast-mode-2026-02-01"`
+
+    - `"output-300k-2026-03-24"`
+
+    - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
+
+    - `"advisor-tool-2026-03-01"`
+
+    - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"dreaming-2026-04-21"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"server-side-fallback-2026-07-01"`
+
+    - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
+- `"anthropic-user-profile-id": optional string`
+
+  The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
+
+### Body Parameters
+
+- `requests: array of object { custom_id, params }`
+
+  List of requests for prompt completion. Each is an individual request to create a Message.
+
+  - `custom_id: string`
+
+    Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
+
+    Must be unique for each request within the Message Batch.
+
+  - `params: object { max_tokens, messages, model, 22 more }`
+
+    Messages API creation parameters for the individual request.
+
+    See the [Messages API reference](https://platform.claude.com/docs/en/api/messages) for full documentation on available parameters.
+
+    - `max_tokens: number`
+
+      The maximum number of tokens to generate before stopping.
+
+      Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
+
+      Set to `0` to populate the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
+
+      Different models have different maximum values for this parameter.  See [models](https://platform.claude.com/docs/en/about-claude/models/overview) for details.
+
+    - `messages: array of BetaMessageParam`
+
+      Input messages.
+
+      Our models are trained to operate on alternating `user` and `assistant` conversational turns. When creating a new `Message`, you specify the prior conversational turns with the `messages` parameter, and the model then generates the next `Message` in the conversation. Consecutive `user` or `assistant` turns in your request will be combined into a single turn.
+
+      Each input message must be an object with a `role` and `content`. You can specify a single `user`-role message, or you can include multiple `user` and `assistant` messages.
+
+      If the final message uses the `assistant` role, the response content will continue immediately from the content in that message. This can be used to constrain part of the model's response.
+
+      Example with a single `user` message:
+
+      ```json
+      [{"role": "user", "content": "Hello, Claude"}]
+      ```
+
+      Example with multiple conversational turns:
+
+      ```json
+      [
+        {"role": "user", "content": "Hello there."},
+        {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+        {"role": "user", "content": "Can you explain LLMs in plain English?"},
+      ]
+      ```
+
+      Example with a partially-filled response from Claude:
+
+      ```json
+      [
+        {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+        {"role": "assistant", "content": "The best answer is ("},
+      ]
+      ```
+
+      Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
+
+      ```json
+      {"role": "user", "content": "Hello, Claude"}
+      ```
+
+      ```json
+      {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
+      ```
+
+      See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
+
+      Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+
+      There is a limit of 100,000 messages in a single request.
+
+      - `content: string or array of BetaContentBlockParam`
+
+        - `string`
+
+        - `array of BetaContentBlockParam`
+
+          - `BetaTextBlockParam object { text, type, cache_control, citations }`
+
+            - `text: string`
+
+            - `type: "text"`
+
+              - `"text"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+              - `type: "ephemeral"`
+
+                - `"ephemeral"`
+
+              - `ttl: optional "5m" or "1h"`
+
+                The time-to-live for the cache control breakpoint.
+
+                This may be one the following values:
+
+                - `5m`: 5 minutes
+                - `1h`: 1 hour
+
+                Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                - `"5m"`
+
+                - `"1h"`
+
+            - `citations: optional array of BetaTextCitationParam or null`
+
+              - `BetaCitationCharLocationParam object { cited_text, document_index, document_title, 3 more }`
+
+                - `cited_text: string`
+
+                - `document_index: number`
+
+                - `document_title: string or null`
+
+                - `end_char_index: number`
+
+                - `start_char_index: number`
+
+                - `type: "char_location"`
+
+                  - `"char_location"`
+
+              - `BetaCitationPageLocationParam object { cited_text, document_index, document_title, 3 more }`
+
+                - `cited_text: string`
+
+                - `document_index: number`
+
+                - `document_title: string or null`
+
+                - `end_page_number: number`
+
+                - `start_page_number: number`
+
+                - `type: "page_location"`
+
+                  - `"page_location"`
+
+              - `BetaCitationContentBlockLocationParam object { cited_text, document_index, document_title, 3 more }`
+
+                - `cited_text: string`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `document_index: number`
+
+                - `document_title: string or null`
+
+                - `end_block_index: number`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `start_block_index: number`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                - `type: "content_block_location"`
+
+                  - `"content_block_location"`
+
+              - `BetaCitationWebSearchResultLocationParam object { cited_text, encrypted_index, title, 2 more }`
+
+                - `cited_text: string`
+
+                - `encrypted_index: string`
+
+                - `title: string or null`
+
+                - `type: "web_search_result_location"`
+
+                  - `"web_search_result_location"`
+
+                - `url: string`
+
+              - `BetaCitationSearchResultLocationParam object { cited_text, end_block_index, search_result_index, 4 more }`
+
+                - `cited_text: string`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `end_block_index: number`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `search_result_index: number`
+
+                  0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                  Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                - `source: string`
+
+                - `start_block_index: number`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                - `title: string or null`
+
+                - `type: "search_result_location"`
+
+                  - `"search_result_location"`
+
+          - `BetaImageBlockParam object { source, type, cache_control, transformations }`
+
+            - `source: BetaBase64ImageSource or BetaURLImageSource or BetaFileImageSource`
+
+              - `BetaBase64ImageSource object { data, media_type, type }`
+
+                - `data: string`
+
+                - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
+                  - `"image/jpeg"`
+
+                  - `"image/png"`
+
+                  - `"image/gif"`
+
+                  - `"image/webp"`
+
+                - `type: "base64"`
+
+                  - `"base64"`
+
+              - `BetaURLImageSource object { type, url }`
+
+                - `type: "url"`
+
+                  - `"url"`
+
+                - `url: string`
+
+              - `BetaFileImageSource object { file_id, type }`
+
+                - `file_id: string`
+
+                - `type: "file"`
+
+                  - `"file"`
+
+            - `type: "image"`
+
+              - `"image"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+            - `transformations: optional BetaImageTransformationsParam or null`
+
+              Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+              - `oversized_image: optional "downsize" or "error"`
+
+                What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                - `"downsize"`
+
+                - `"error"`
+
+          - `BetaRequestDocumentBlock object { source, type, cache_control, 3 more }`
+
+            - `source: BetaBase64PDFSource or BetaPlainTextSource or BetaContentBlockSource or 2 more`
+
+              - `BetaBase64PDFSource object { data, media_type, type }`
+
+                - `data: string`
+
+                - `media_type: "application/pdf"`
+
+                  - `"application/pdf"`
+
+                - `type: "base64"`
+
+                  - `"base64"`
+
+              - `BetaPlainTextSource object { data, media_type, type }`
+
+                - `data: string`
+
+                - `media_type: "text/plain"`
+
+                  - `"text/plain"`
+
+                - `type: "text"`
+
+                  - `"text"`
+
+              - `BetaContentBlockSource object { content, type }`
+
+                - `content: string or array of BetaContentBlockSourceContent`
+
+                  - `string`
+
+                  - `BetaContentBlockSourceContent = array of BetaContentBlockSourceContent`
+
+                    - `BetaTextBlockParam object { text, type, cache_control, citations }`
+
+                    - `BetaImageBlockParam object { source, type, cache_control, transformations }`
+
+                - `type: "content"`
+
+                  - `"content"`
+
+              - `BetaURLPDFSource object { type, url }`
+
+                - `type: "url"`
+
+                  - `"url"`
+
+                - `url: string`
+
+              - `BetaFileDocumentSource object { file_id, type }`
+
+                - `file_id: string`
+
+                - `type: "file"`
+
+                  - `"file"`
+
+            - `type: "document"`
+
+              - `"document"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+            - `citations: optional BetaCitationsConfigParam or null`
+
+              - `enabled: optional boolean`
+
+            - `context: optional string or null`
+
+            - `title: optional string or null`
+
+          - `BetaSearchResultBlockParam object { content, source, title, 3 more }`
+
+            - `content: array of BetaTextBlockParam`
+
+              - `text: string`
+
+              - `type: "text"`
+
+              - `cache_control: optional BetaCacheControlEphemeral or null`
+
+                Create a cache control breakpoint at this content block.
+
+              - `citations: optional array of BetaTextCitationParam or null`
+
+            - `source: string`
+
+            - `title: string`
+
+            - `type: "search_result"`
+
+              - `"search_result"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+            - `citations: optional BetaCitationsConfigParam`
+
+          - `BetaThinkingBlockParam object { signature, thinking, type }`
+
+            - `signature: string`
+
+              The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
+
+              Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
+
+            - `thinking: string`
+
+              The `thinking` text of this block as returned by the API.
+
+            - `type: "thinking"`
+
+              - `"thinking"`
+
+          - `BetaRedactedThinkingBlockParam object { data, type }`
+
+            - `data: string`
+
+              The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
+
+            - `type: "redacted_thinking"`
+
+              - `"redacted_thinking"`
+
+          - `BetaToolUseBlockParam object { id, input, name, 4 more }`
+
+            - `id: string`
+
+            - `input: map[unknown]`
+
+            - `name: string`
+
+            - `type: "tool_use"`
+
+              - `"tool_use"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+            - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+              Tool invocation directly from the model.
+
+              - `BetaDirectCaller object { type }`
+
+                Tool invocation directly from the model.
+
+                - `type: "direct"`
+
+                  - `"direct"`
+
+              - `BetaServerToolCaller object { tool_id, type }`
+
+                Tool invocation generated by a server-side tool.
+
+                - `tool_id: string`
+
+                - `type: "code_execution_20250825"`
+
+                  - `"code_execution_20250825"`
+
+              - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+                - `tool_id: string`
+
+                - `type: "code_execution_20260120"`
+
+                  - `"code_execution_20260120"`
+
+            - `toolset_name: optional string or null`
+
+              For a toolset member tool_use, the toolset family this member belongs to.
+
+          - `BetaToolResultBlockParam object { tool_use_id, type, cache_control, 3 more }`
+
+            - `tool_use_id: string`
+
+            - `type: "tool_result"`
+
+              - `"tool_result"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+            - `content: optional string or array of BetaTextBlockParam or BetaImageBlockParam or BetaSearchResultBlockParam or 3 more`
+
+              - `string`
+
+              - `array of BetaTextBlockParam or BetaImageBlockParam or BetaSearchResultBlockParam or 3 more`
+
+                - `BetaTextBlockParam object { text, type, cache_control, citations }`
+
+                - `BetaImageBlockParam object { source, type, cache_control, transformations }`
+
+                - `BetaSearchResultBlockParam object { content, source, title, 3 more }`
+
+                - `BetaRequestDocumentBlock object { source, type, cache_control, 3 more }`
+
+                - `BetaToolReferenceBlockParam object { tool_name, type, cache_control }`
+
+                  Tool reference block that can be included in tool_result content.
+
+                  - `tool_name: string`
+
+                  - `type: "tool_reference"`
+
+                    - `"tool_reference"`
+
+                  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+                    Create a cache control breakpoint at this content block.
+
+                - `BetaBrowserStateBlockParam object { tabs, type, cache_control, state_changes }`
+
+                  The caller's browser state after a browser toolset member call —
+                  the full inventory of open tabs, which tab is active, and any side
+                  effects (tabs opened, download state changes) the call produced.
+
+                  At most one per `tool_result`, only on a non-error result answering a
+                  browser toolset member `tool_use`. The server renders the
+                  model-visible text from it; the model never sees the raw fields.
+
+                  - `tabs: array of BetaBrowserStateTabEntry`
+
+                    All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+                    - `tab_id: string`
+
+                      The caller-assigned identifier for this tab, unique within the inventory.
+
+                    - `title: string`
+
+                      The title of the page the tab is showing. May be empty.
+
+                    - `url: string`
+
+                      The URL of the page the tab is showing. May be empty.
+
+                    - `active: optional boolean`
+
+                      Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+                  - `type: "browser_state"`
+
+                    - `"browser_state"`
+
+                  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+                    Create a cache control breakpoint at this content block.
+
+                  - `state_changes: optional array of BetaBrowserStateChange or null`
+
+                    Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                    - `BetaBrowserStateChangeTabOpened object { tab_id, type }`
+
+                      A tab this call's execution opened that remains open at its end —
+                      the creation delta of the `tabs` inventory, not an event log.
+
+                      Carries only the `tab_id`; the tab's `title` and `url` live on its
+                      `tabs` entry, which must include the same `tab_id`. A tab opened
+                      during a failed call gets no deferred `tab_opened`; it simply appears
+                      in the next result's `tabs` inventory.
+
+                      - `tab_id: string`
+
+                        The `tab_id` of the opened tab, present in `tabs`.
+
+                      - `type: "tab_opened"`
+
+                        - `"tab_opened"`
+
+                    - `BetaBrowserStateChangeDownloadStarted object { download_id, type, url }`
+
+                      A file download that started during this call.
+
+                      - `download_id: string`
+
+                        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                      - `type: "download_started"`
+
+                        - `"download_started"`
+
+                      - `url: string`
+
+                        The final post-redirect URL the download was served from.
+
+                    - `BetaBrowserStateChangeDownloadCompleted object { download_id, type, url, 2 more }`
+
+                      A file download that finished during this call, reported with the
+                      same `download_id` as its `download_started` — or without a prior
+                      `download_started`, when the download finished during the call that
+                      started it (at most one state change per `download_id` per result).
+
+                      - `download_id: string`
+
+                        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                      - `type: "download_completed"`
+
+                        - `"download_completed"`
+
+                      - `url: string`
+
+                        The final post-redirect URL the download was served from.
+
+                      - `path: optional string or null`
+
+                        Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+                      - `size_bytes: optional number or null`
+
+                        The completed download's size.
+
+                    - `BetaBrowserStateChangeDownloadFailed object { download_id, type, url, error }`
+
+                      A file download that failed — or was cancelled — during this call.
+
+                      - `download_id: string`
+
+                        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                      - `type: "download_failed"`
+
+                        - `"download_failed"`
+
+                      - `url: string`
+
+                        The final post-redirect URL the download was served from.
+
+                      - `error: optional string or null`
+
+                        The failure or cancellation detail, when known.
+
+            - `is_error: optional boolean`
+
+            - `toolset_name: optional string or null`
+
+              For a toolset member tool_result, the toolset family of the paired tool_use.
+
+          - `BetaServerToolUseBlockParam object { id, input, name, 3 more }`
+
+            - `id: string`
+
+            - `input: map[unknown]`
+
+            - `name: "advisor" or "web_search" or "web_fetch" or 5 more`
+
+              - `"advisor"`
+
+              - `"web_search"`
+
+              - `"web_fetch"`
+
+              - `"code_execution"`
+
+              - `"bash_code_execution"`
+
+              - `"text_editor_code_execution"`
+
+              - `"tool_search_tool_regex"`
+
+              - `"tool_search_tool_bm25"`
+
+            - `type: "server_tool_use"`
+
+              - `"server_tool_use"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+            - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+              Tool invocation directly from the model.
+
+              - `BetaDirectCaller object { type }`
+
+                Tool invocation directly from the model.
+
+              - `BetaServerToolCaller object { tool_id, type }`
+
+                Tool invocation generated by a server-side tool.
+
+              - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+          - `BetaWebSearchToolResultBlockParam object { content, tool_use_id, type, 2 more }`
+
+            - `content: BetaWebSearchToolResultBlockParamContent`
+
+              - `ResultBlock = array of BetaWebSearchResultBlockParam`
+
+                - `encrypted_content: string`
+
+                - `title: string`
+
+                - `type: "web_search_result"`
+
+                  - `"web_search_result"`
+
+                - `url: string`
+
+                - `page_age: optional string or null`
+
+              - `BetaWebSearchToolRequestError object { error_code, type }`
+
+                - `error_code: BetaWebSearchToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"too_many_requests"`
+
+                  - `"query_too_long"`
+
+                  - `"request_too_large"`
+
+                - `type: "web_search_tool_result_error"`
+
+                  - `"web_search_tool_result_error"`
+
+            - `tool_use_id: string`
+
+            - `type: "web_search_tool_result"`
+
+              - `"web_search_tool_result"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+            - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+              Tool invocation directly from the model.
+
+              - `BetaDirectCaller object { type }`
+
+                Tool invocation directly from the model.
+
+              - `BetaServerToolCaller object { tool_id, type }`
+
+                Tool invocation generated by a server-side tool.
+
+              - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+          - `BetaWebFetchToolResultBlockParam object { content, tool_use_id, type, 2 more }`
+
+            - `content: BetaWebFetchToolResultErrorBlockParam or BetaWebFetchBlockParam`
+
+              - `BetaWebFetchToolResultErrorBlockParam object { error_code, type }`
+
+                - `error_code: BetaWebFetchToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"url_too_long"`
+
+                  - `"url_not_allowed"`
+
+                  - `"url_not_in_prior_context"`
+
+                  - `"url_not_accessible"`
+
+                  - `"unsupported_content_type"`
+
+                  - `"too_many_requests"`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"unavailable"`
+
+                - `type: "web_fetch_tool_result_error"`
+
+                  - `"web_fetch_tool_result_error"`
+
+              - `BetaWebFetchBlockParam object { content, type, url, retrieved_at }`
+
+                - `content: BetaRequestDocumentBlock`
+
+                - `type: "web_fetch_result"`
+
+                  - `"web_fetch_result"`
+
+                - `url: string`
+
+                  Fetched content URL
+
+                - `retrieved_at: optional string or null`
+
+                  ISO 8601 timestamp when the content was retrieved
+
+            - `tool_use_id: string`
+
+            - `type: "web_fetch_tool_result"`
+
+              - `"web_fetch_tool_result"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+            - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+              Tool invocation directly from the model.
+
+              - `BetaDirectCaller object { type }`
+
+                Tool invocation directly from the model.
+
+              - `BetaServerToolCaller object { tool_id, type }`
+
+                Tool invocation generated by a server-side tool.
+
+              - `BetaServerToolCaller20260120 object { tool_id, type }`
+
+          - `BetaAdvisorToolResultBlockParam object { content, tool_use_id, type, cache_control }`
+
+            - `content: BetaAdvisorToolResultErrorParam or BetaAdvisorResultBlockParam or BetaAdvisorRedactedResultBlockParam`
+
+              - `BetaAdvisorToolResultErrorParam object { error_code, type }`
+
+                - `error_code: "max_uses_exceeded" or "prompt_too_long" or "too_many_requests" or 4 more`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"prompt_too_long"`
+
+                  - `"too_many_requests"`
+
+                  - `"overloaded"`
+
+                  - `"unavailable"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"model_not_found"`
+
+                - `type: "advisor_tool_result_error"`
+
+                  - `"advisor_tool_result_error"`
+
+              - `BetaAdvisorResultBlockParam object { text, type, stop_reason }`
+
+                - `text: string`
+
+                - `type: "advisor_result"`
+
+                  - `"advisor_result"`
+
+                - `stop_reason: optional string or null`
+
+              - `BetaAdvisorRedactedResultBlockParam object { encrypted_content, type, stop_reason }`
+
+                - `encrypted_content: string`
+
+                  Opaque blob produced by a prior response; must be round-tripped verbatim.
+
+                - `type: "advisor_redacted_result"`
+
+                  - `"advisor_redacted_result"`
+
+                - `stop_reason: optional string or null`
+
+            - `tool_use_id: string`
+
+            - `type: "advisor_tool_result"`
+
+              - `"advisor_tool_result"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+          - `BetaCodeExecutionToolResultBlockParam object { content, tool_use_id, type, cache_control }`
+
+            - `content: BetaCodeExecutionToolResultBlockParamContent`
+
+              Code execution result with encrypted stdout for PFC + web_search results.
+
+              - `BetaCodeExecutionToolResultErrorParam object { error_code, type }`
+
+                - `error_code: BetaCodeExecutionToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                - `type: "code_execution_tool_result_error"`
+
+                  - `"code_execution_tool_result_error"`
+
+              - `BetaCodeExecutionResultBlockParam object { content, return_code, stderr, 2 more }`
+
+                - `content: array of BetaCodeExecutionOutputBlockParam`
+
+                  - `file_id: string`
+
+                  - `type: "code_execution_output"`
+
+                    - `"code_execution_output"`
+
+                - `return_code: number`
+
+                - `stderr: string`
+
+                - `stdout: string`
+
+                - `type: "code_execution_result"`
+
+                  - `"code_execution_result"`
+
+              - `BetaEncryptedCodeExecutionResultBlockParam object { content, encrypted_stdout, return_code, 2 more }`
+
+                Code execution result with encrypted stdout for PFC + web_search results.
+
+                - `content: array of BetaCodeExecutionOutputBlockParam`
+
+                  - `file_id: string`
+
+                  - `type: "code_execution_output"`
+
+                - `encrypted_stdout: string`
+
+                - `return_code: number`
+
+                - `stderr: string`
+
+                - `type: "encrypted_code_execution_result"`
+
+                  - `"encrypted_code_execution_result"`
+
+            - `tool_use_id: string`
+
+            - `type: "code_execution_tool_result"`
+
+              - `"code_execution_tool_result"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+          - `BetaBashCodeExecutionToolResultBlockParam object { content, tool_use_id, type, cache_control }`
+
+            - `content: BetaBashCodeExecutionToolResultErrorParam or BetaBashCodeExecutionResultBlockParam`
+
+              - `BetaBashCodeExecutionToolResultErrorParam object { error_code, type }`
+
+                - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"output_file_too_large"`
+
+                - `type: "bash_code_execution_tool_result_error"`
+
+                  - `"bash_code_execution_tool_result_error"`
+
+              - `BetaBashCodeExecutionResultBlockParam object { content, return_code, stderr, 2 more }`
+
+                - `content: array of BetaBashCodeExecutionOutputBlockParam`
+
+                  - `file_id: string`
+
+                  - `type: "bash_code_execution_output"`
+
+                    - `"bash_code_execution_output"`
+
+                - `return_code: number`
+
+                - `stderr: string`
+
+                - `stdout: string`
+
+                - `type: "bash_code_execution_result"`
+
+                  - `"bash_code_execution_result"`
+
+            - `tool_use_id: string`
+
+            - `type: "bash_code_execution_tool_result"`
+
+              - `"bash_code_execution_tool_result"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+          - `BetaTextEditorCodeExecutionToolResultBlockParam object { content, tool_use_id, type, cache_control }`
+
+            - `content: BetaTextEditorCodeExecutionToolResultErrorParam or BetaTextEditorCodeExecutionViewResultBlockParam or BetaTextEditorCodeExecutionCreateResultBlockParam or BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
+
+              - `BetaTextEditorCodeExecutionToolResultErrorParam object { error_code, type, error_message }`
+
+                - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"file_not_found"`
+
+                - `type: "text_editor_code_execution_tool_result_error"`
+
+                  - `"text_editor_code_execution_tool_result_error"`
+
+                - `error_message: optional string or null`
+
+              - `BetaTextEditorCodeExecutionViewResultBlockParam object { content, file_type, type, 3 more }`
+
+                - `content: string`
+
+                - `file_type: "text" or "image" or "pdf"`
+
+                  - `"text"`
+
+                  - `"image"`
+
+                  - `"pdf"`
+
+                - `type: "text_editor_code_execution_view_result"`
+
+                  - `"text_editor_code_execution_view_result"`
+
+                - `num_lines: optional number or null`
+
+                - `start_line: optional number or null`
+
+                - `total_lines: optional number or null`
+
+              - `BetaTextEditorCodeExecutionCreateResultBlockParam object { is_file_update, type }`
+
+                - `is_file_update: boolean`
+
+                - `type: "text_editor_code_execution_create_result"`
+
+                  - `"text_editor_code_execution_create_result"`
+
+              - `BetaTextEditorCodeExecutionStrReplaceResultBlockParam object { type, lines, new_lines, 3 more }`
+
+                - `type: "text_editor_code_execution_str_replace_result"`
+
+                  - `"text_editor_code_execution_str_replace_result"`
+
+                - `lines: optional array of string or null`
+
+                - `new_lines: optional number or null`
+
+                - `new_start: optional number or null`
+
+                - `old_lines: optional number or null`
+
+                - `old_start: optional number or null`
+
+            - `tool_use_id: string`
+
+            - `type: "text_editor_code_execution_tool_result"`
+
+              - `"text_editor_code_execution_tool_result"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+          - `BetaToolSearchToolResultBlockParam object { content, tool_use_id, type, cache_control }`
+
+            - `content: BetaToolSearchToolResultErrorParam or BetaToolSearchToolSearchResultBlockParam`
+
+              - `BetaToolSearchToolResultErrorParam object { error_code, type, error_message }`
+
+                - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                - `type: "tool_search_tool_result_error"`
+
+                  - `"tool_search_tool_result_error"`
+
+                - `error_message: optional string or null`
+
+              - `BetaToolSearchToolSearchResultBlockParam object { tool_references, type }`
+
+                - `tool_references: array of BetaToolReferenceBlockParam`
+
+                  - `tool_name: string`
+
+                  - `type: "tool_reference"`
+
+                  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+                    Create a cache control breakpoint at this content block.
+
+                - `type: "tool_search_tool_search_result"`
+
+                  - `"tool_search_tool_search_result"`
+
+            - `tool_use_id: string`
+
+            - `type: "tool_search_tool_result"`
+
+              - `"tool_search_tool_result"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+          - `BetaMCPToolUseBlockParam object { id, input, name, 3 more }`
+
+            - `id: string`
+
+            - `input: map[unknown]`
+
+            - `name: string`
+
+            - `server_name: string`
+
+              The name of the MCP server
+
+            - `type: "mcp_tool_use"`
+
+              - `"mcp_tool_use"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+          - `BetaRequestMCPToolResultBlockParam object { tool_use_id, type, cache_control, 2 more }`
+
+            - `tool_use_id: string`
+
+            - `type: "mcp_tool_result"`
+
+              - `"mcp_tool_result"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+            - `content: optional string or array of BetaTextBlockParam`
+
+              - `string`
+
+              - `BetaMCPToolResultBlockParamContent = array of BetaTextBlockParam`
+
+                - `text: string`
+
+                - `type: "text"`
+
+                - `cache_control: optional BetaCacheControlEphemeral or null`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `citations: optional array of BetaTextCitationParam or null`
+
+            - `is_error: optional boolean`
+
+          - `BetaContainerUploadBlockParam object { file_id, type, cache_control }`
+
+            A content block that represents a file to be uploaded to the container
+            Files uploaded via this block will be available in the container's input directory.
+
+            - `file_id: string`
+
+            - `type: "container_upload"`
+
+              - `"container_upload"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+          - `BetaCompactionBlockParam object { type, cache_control, content, encrypted_content }`
+
+            A compaction block containing summary of previous context.
+
+            Users should round-trip these blocks from responses to subsequent requests
+            to maintain context across compaction boundaries.
+
+            When content is None, the block represents a failed compaction. The server
+            treats these as no-ops. Empty string content is not allowed.
+
+            - `type: "compaction"`
+
+              - `"compaction"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+            - `content: optional string or null`
+
+              Summary of previously compacted content, or null if compaction failed
+
+            - `encrypted_content: optional string or null`
+
+              Opaque metadata from prior compaction, to be round-tripped verbatim
+
+          - `BetaRequestToolAdditionBlock object { tool, type, cache_control }`
+
+            Mid-conversation directive to surface a declared tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is offered to the model from this point in the
+            conversation onward.
+
+            - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `BetaToolChangeToolReference object { name, type }`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+                - `name: string`
+
+                - `type: "tool_reference"`
+
+                  - `"tool_reference"`
+
+              - `BetaToolChangeMCPToolReference object { name, server_name, type }`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                - `name: string`
+
+                - `server_name: string`
+
+                - `type: "mcp_tool_reference"`
+
+                  - `"mcp_tool_reference"`
+
+              - `BetaToolChangeMCPToolsetReference object { server_name, type }`
+
+                Reference to every tool in the named MCP server's toolset.
+
+                - `server_name: string`
+
+                - `type: "mcp_toolset_reference"`
+
+                  - `"mcp_toolset_reference"`
+
+            - `type: "tool_addition"`
+
+              - `"tool_addition"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+          - `BetaRequestToolRemovalBlock object { tool, type, cache_control }`
+
+            Mid-conversation directive to withdraw a tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is no longer offered to the model from this point in the
+            conversation onward.
+
+            - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `BetaToolChangeToolReference object { name, type }`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+              - `BetaToolChangeMCPToolReference object { name, server_name, type }`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+              - `BetaToolChangeMCPToolsetReference object { server_name, type }`
+
+                Reference to every tool in the named MCP server's toolset.
+
+            - `type: "tool_removal"`
+
+              - `"tool_removal"`
+
+            - `cache_control: optional BetaCacheControlEphemeral or null`
+
+              Create a cache control breakpoint at this content block.
+
+          - `BetaFallbackBlockParam object { from, to, type, trigger }`
+
+            A `fallback` block echoed back from a prior response.
+
+            Accepted in `messages[].content` and not rendered into the prompt; not
+            validated against the request's `fallbacks` chain or top-level `model`.
+
+            Echo the assistant turn back verbatim, including this block in its
+            original position. The block marks the boundary between content produced
+            before and after a fallback hop, and the server relies on that boundary
+            to validate the turn: when thinking runs flank the boundary, omitting
+            the block merges them into one span the server cannot validate (the
+            request is rejected), and moving it into the middle of a single run is
+            likewise rejected; between non-thinking blocks the block's placement has
+            no validation effect.
+
+            - `from: BetaFallbackInfoParam`
+
+              Identifies one hop of a fallback transition.
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more`
+
+                  The model that will complete your prompt.
+
+                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `"claude-sonnet-5"`
+
+                    High-performance model for coding and agents
+
+                  - `"claude-fable-5"`
+
+                    Next generation of intelligence for the hardest knowledge work and coding problems
+
+                  - `"claude-mythos-5"`
+
+                    Most capable model for cybersecurity and biology research
+
+                  - `"claude-opus-5"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-opus-4-8"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-opus-4-7"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-mythos-preview"`
+
+                    New class of intelligence, strongest in coding and cybersecurity
+
+                  - `"claude-opus-4-6"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-sonnet-4-6"`
+
+                    Best combination of speed and intelligence
+
+                  - `"claude-haiku-4-5"`
+
+                    Fastest model with near-frontier intelligence
+
+                  - `"claude-haiku-4-5-20251001"`
+
+                    Fastest model with near-frontier intelligence
+
+                  - `"claude-opus-4-5"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-opus-4-5-20251101"`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `"claude-sonnet-4-5"`
+
+                    High-performance model for agents and coding
+
+                  - `"claude-sonnet-4-5-20250929"`
+
+                    High-performance model for agents and coding
+
+                - `string`
+
+            - `to: BetaFallbackInfoParam`
+
+              Identifies one hop of a fallback transition.
+
+            - `type: "fallback"`
+
+              - `"fallback"`
+
+            - `trigger: optional unknown`
+
+              The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
+
+      - `role: "user" or "assistant" or "system"`
+
+        - `"user"`
+
+        - `"assistant"`
+
+        - `"system"`
+
+    - `model: Model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+
+    - `container: optional BetaContainerParams or string or null`
+
+      Container identifier for reuse across requests.
+
+      - `BetaContainerParams object { id, skills }`
+
+        Container parameters with skills to be loaded.
+
+        - `id: optional string or null`
+
+          Container id
+
+        - `skills: optional array of BetaSkillParams or null`
+
+          List of skills to load in the container
+
+          - `skill_id: string`
+
+            Skill ID
+
+          - `type: "anthropic" or "custom"`
+
+            Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+            - `"anthropic"`
+
+            - `"custom"`
+
+          - `version: optional string`
+
+            Skill version or 'latest' for most recent version
+
+      - `string`
+
+    - `context_management: optional BetaContextManagementConfig or null`
+
+      Context management configuration.
+
+      This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
+
+      - `edits: optional array of BetaClearToolUses20250919Edit or BetaClearThinking20251015Edit or BetaCompact20260112Edit`
+
+        List of context management edits to apply
+
+        - `BetaClearToolUses20250919Edit object { type, clear_at_least, clear_tool_inputs, 3 more }`
+
+          - `type: "clear_tool_uses_20250919"`
+
+            - `"clear_tool_uses_20250919"`
+
+          - `clear_at_least: optional BetaInputTokensClearAtLeast or null`
+
+            Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
+
+            - `type: "input_tokens"`
+
+              - `"input_tokens"`
+
+            - `value: number`
+
+          - `clear_tool_inputs: optional boolean or array of string or null`
+
+            Whether to clear all tool inputs (bool) or specific tool inputs to clear (list)
+
+            - `boolean`
+
+            - `array of string`
+
+          - `exclude_tools: optional array of string or null`
+
+            Tool names whose uses are preserved from clearing
+
+          - `keep: optional BetaToolUsesKeep`
+
+            Number of tool uses to retain in the conversation
+
+            - `type: "tool_uses"`
+
+              - `"tool_uses"`
+
+            - `value: number`
+
+          - `trigger: optional BetaInputTokensTrigger or BetaToolUsesTrigger`
+
+            Condition that triggers the context management strategy
+
+            - `BetaInputTokensTrigger object { type, value }`
+
+              - `type: "input_tokens"`
+
+                - `"input_tokens"`
+
+              - `value: number`
+
+            - `BetaToolUsesTrigger object { type, value }`
+
+              - `type: "tool_uses"`
+
+                - `"tool_uses"`
+
+              - `value: number`
+
+        - `BetaClearThinking20251015Edit object { type, keep }`
+
+          - `type: "clear_thinking_20251015"`
+
+            - `"clear_thinking_20251015"`
+
+          - `keep: optional BetaThinkingTurns or BetaAllThinkingTurns or "all"`
+
+            Number of most recent assistant turns to keep thinking blocks for. Older turns will have their thinking blocks removed.
+
+            - `BetaThinkingTurns object { type, value }`
+
+              - `type: "thinking_turns"`
+
+                - `"thinking_turns"`
+
+              - `value: number`
+
+            - `BetaAllThinkingTurns object { type }`
+
+              - `type: "all"`
+
+                - `"all"`
+
+            - `"all"`
+
+              - `"all"`
+
+        - `BetaCompact20260112Edit object { type, instructions, pause_after_compaction, trigger }`
+
+          Automatically compact older context when reaching the configured trigger threshold.
+
+          - `type: "compact_20260112"`
+
+            - `"compact_20260112"`
+
+          - `instructions: optional string or null`
+
+            Additional instructions for summarization.
+
+          - `pause_after_compaction: optional boolean`
+
+            Whether to pause after compaction and return the compaction block to the user.
+
+          - `trigger: optional BetaInputTokensTrigger or null`
+
+            When to trigger compaction. Defaults to 150000 input tokens.
+
+    - `diagnostics: optional BetaDiagnosticsParam or null`
+
+      Request-level diagnostics. Currently carries the previous response
+      id for prompt-cache divergence reporting.
+
+      - `previous_message_id: optional string or null`
+
+        The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+    - `fallback_credit_token: optional string or BetaFallbackCreditTokenParam or null`
+
+      The `fallback_credit_token` from a prior refusal's `stop_details`.
+
+      When a preceding request was refused and returned a `fallback_credit_token`,
+      pass that code here on the retry to have the retry's cache-creation tokens
+      for the prefix that was warm on the refused model billed at the cache-read
+      rate. Must be redeemed by the same organization and workspace, with the same
+      request body (optionally extended by one appended `assistant` message whose
+      content is the partial text — with any trailing whitespace stripped from
+      the final text block — and paired server-tool blocks streamed before the
+      refusal; the appended-assistant form is not available for requests with
+      `output_format` set or forced `tool_choice`), on an eligible fallback
+      model, on the same platform,
+      and within 5 minutes of the refusal; a mismatch is a 400. A token minted
+      mid-server-tool-loop whose partial content was continuable may only be
+      redeemed with the appended-assistant form — if an exact-body retry is
+      rejected with a 400 saying the token must be redeemed by continuing the
+      partial response, retry with the appended-assistant form instead.
+
+      When the appended-assistant form is used on a model that otherwise disallows
+      assistant-turn prefill, this token also authorizes that one prefill.
+
+      - `string`
+
+      - `BetaFallbackCreditTokenParam object { token, mode }`
+
+        Object form of `fallback_credit_token`: the token plus a redemption
+        mode.
+
+        Requires `anthropic-beta: fallback-credit-2026-07-01`; without that
+        header the field accepts the bare string only. The bare string and the
+        mode-less object are equivalent (both select `strict`), so wrapping
+        an existing token changes nothing by itself.
+
+        - `token: string`
+
+          The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
+
+        - `mode: optional "strict" or "best_effort"`
+
+          How a failing token affects the retry. `strict` (the default, and the bare-string behavior): a failing redemption is a 400 and the retry is not served. `best_effort`: the retry is served either way — a token-layer failure no longer rejects the request; the retry proceeds at normal price and the outcome is reported on the response's `usage.fallback_credit`. Two failures stay hard in both modes: a malformed token, and combining `fallback_credit_token` with `fallbacks`.
+
+          - `"strict"`
+
+          - `"best_effort"`
+
+    - `fallbacks: optional BetaFallbacksParam or null`
+
+      Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
+
+      - `array of BetaFallbackParam`
+
+        - `model: Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `max_tokens: optional number or null`
+
+        - `output_config: optional BetaOutputConfig or null`
+
+          - `effort: optional "low" or "medium" or "high" or 2 more or null`
+
+            All possible effort levels.
+
+            - `"low"`
+
+            - `"medium"`
+
+            - `"high"`
+
+            - `"xhigh"`
+
+            - `"max"`
+
+          - `format: optional BetaJSONOutputFormat or null`
+
+            A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+            - `schema: map[unknown]`
+
+              The JSON schema of the format
+
+            - `type: "json_schema"`
+
+              - `"json_schema"`
+
+          - `task_budget: optional BetaTokenTaskBudget or null`
+
+            User-configurable total token budget across contexts.
+
+            - `total: number`
+
+              Total token budget across all contexts in the session.
+
+            - `type: "tokens"`
+
+              The budget type. Currently only 'tokens' is supported.
+
+              - `"tokens"`
+
+            - `remaining: optional number or null`
+
+              Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+        - `speed: optional "standard" or "fast" or null`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `"standard"`
+
+          - `"fast"`
+
+        - `thinking: optional BetaThinkingConfigEnabled or BetaThinkingConfigDisabled or BetaThinkingConfigAdaptive or null`
+
+          - `BetaThinkingConfigEnabled object { budget_tokens, type, display }`
+
+            - `budget_tokens: number`
+
+              Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+              Must be ≥1024 and less than `max_tokens`.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+            - `type: "enabled"`
+
+              - `"enabled"`
+
+            - `display: optional "summarized" or "omitted" or null`
+
+              Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+              - `"summarized"`
+
+              - `"omitted"`
+
+          - `BetaThinkingConfigDisabled object { type }`
+
+            - `type: "disabled"`
+
+              - `"disabled"`
+
+          - `BetaThinkingConfigAdaptive object { type, display }`
+
+            - `type: "adaptive"`
+
+              - `"adaptive"`
+
+            - `display: optional "summarized" or "omitted" or null`
+
+              Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+              - `"summarized"`
+
+              - `"omitted"`
+
+      - `Default = "default"`
+
+        - `"default"`
+
+    - `inference_geo: optional string or null`
+
+      Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
+
+    - `mcp_servers: optional array of BetaRequestMCPServerURLDefinition`
+
+      MCP servers to be utilized in this request
+
+      - `name: string`
+
+      - `type: "url"`
+
+        - `"url"`
+
+      - `url: string`
+
+      - `authorization_token: optional string or null`
+
+      - `tool_configuration: optional BetaRequestMCPServerToolConfiguration or null`
+
+        - `allowed_tools: optional array of string or null`
+
+        - `enabled: optional boolean or null`
+
+    - `metadata: optional BetaMetadata`
+
+      An object describing metadata about the request.
+
+      - `user_id: optional string or null`
+
+        An external identifier for the user who is associated with the request.
+
+        This should be a uuid, hash value, or other opaque identifier. Anthropic may use this id to help detect abuse. Do not include any identifying information such as name, email address, or phone number.
+
+    - `output_config: optional BetaOutputConfig`
+
+      Configuration options for the model's output, such as the output format.
+
+    - `output_format: optional BetaJSONOutputFormat or null`
+
+      Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+      A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
+
+    - `service_tier: optional "auto" or "standard_only"`
+
+      Determines whether to use priority capacity (if available) or standard capacity for this request.
+
+      Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
+
+      - `"auto"`
+
+      - `"standard_only"`
+
+    - `speed: optional "standard" or "fast" or null`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+    - `stop_sequences: optional array of string`
+
+      Custom text sequences that will cause the model to stop generating.
+
+      Our models will normally stop when they have naturally completed their turn, which will result in a response `stop_reason` of `"end_turn"`.
+
+      If you want the model to stop generating when it encounters custom strings of text, you can use the `stop_sequences` parameter. If the model encounters one of the custom sequences, the response `stop_reason` value will be `"stop_sequence"` and the response `stop_sequence` value will contain the matched stop sequence.
+
+    - `stream: optional boolean`
+
+      Whether to incrementally stream the response using server-sent events.
+
+      See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+
+    - `system: optional string or array of BetaTextBlockParam`
+
+      System prompt.
+
+      A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
+
+      - `string`
+
+      - `array of BetaTextBlockParam`
+
+        - `text: string`
+
+        - `type: "text"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: optional array of BetaTextCitationParam or null`
+
+    - `temperature: optional number`
+
+      Amount of randomness injected into the response.
+
+      Defaults to `1.0`. Ranges from `0.0` to `1.0`. Use `temperature` closer to `0.0` for analytical / multiple choice, and closer to `1.0` for creative and generative tasks.
+
+      Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
+
+    - `thinking: optional BetaThinkingConfigParam`
+
+      Configuration for enabling Claude's extended thinking.
+
+      When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
+
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+      - `BetaThinkingConfigEnabled object { budget_tokens, type, display }`
+
+      - `BetaThinkingConfigDisabled object { type }`
+
+      - `BetaThinkingConfigAdaptive object { type, display }`
+
+    - `tool_choice: optional BetaToolChoice`
+
+      How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+
+      - `BetaToolChoiceAuto object { type, disable_parallel_tool_use }`
+
+        The model will automatically decide whether to use tools.
+
+        - `type: "auto"`
+
+          - `"auto"`
+
+        - `disable_parallel_tool_use: optional boolean`
+
+          Whether to disable parallel tool use.
+
+          Defaults to `false`. If set to `true`, the model will output at most one tool use.
+
+      - `BetaToolChoiceAny object { type, disable_parallel_tool_use }`
+
+        The model will use any available tools.
+
+        - `type: "any"`
+
+          - `"any"`
+
+        - `disable_parallel_tool_use: optional boolean`
+
+          Whether to disable parallel tool use.
+
+          Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+      - `BetaToolChoiceTool object { name, type, disable_parallel_tool_use }`
+
+        The model will use the specified tool with `tool_choice.name`.
+
+        - `name: string`
+
+          The name of the tool to use.
+
+        - `type: "tool"`
+
+          - `"tool"`
+
+        - `disable_parallel_tool_use: optional boolean`
+
+          Whether to disable parallel tool use.
+
+          Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+      - `BetaToolChoiceNone object { type }`
+
+        The model will not be allowed to use tools.
+
+        - `type: "none"`
+
+          - `"none"`
+
+    - `tools: optional array of BetaToolUnion`
+
+      Definitions of tools that the model may use.
+
+      If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
+
+      There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
+
+      Each tool definition includes:
+
+      * `name`: Name of the tool.
+      * `description`: Optional, but strongly-recommended description of the tool.
+      * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+      For example, if you defined `tools` as:
+
+      ```json
+      [
+        {
+          "name": "get_stock_price",
+          "description": "Get the current stock price for a given ticker symbol.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "ticker": {
+                "type": "string",
+                "description": "The stock ticker symbol, e.g. AAPL for Apple Inc."
+              }
+            },
+            "required": ["ticker"]
+          }
+        }
+      ]
+      ```
+
+      And then asked the model "What's the S&P 500 at today?", the model might produce `tool_use` content blocks in the response like this:
+
+      ```json
+      [
+        {
+          "type": "tool_use",
+          "id": "toolu_01D7FLrfh4GYq7yT1ULFeyMV",
+          "name": "get_stock_price",
+          "input": { "ticker": "^GSPC" }
+        }
+      ]
+      ```
+
+      You might then run your `get_stock_price` tool with `{"ticker": "^GSPC"}` as an input, and return the following back to the model in a subsequent `user` message:
+
+      ```json
+      [
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_01D7FLrfh4GYq7yT1ULFeyMV",
+          "content": "259.75 USD"
+        }
+      ]
+      ```
+
+      Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
+
+      See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
+
+      - `BetaTool object { input_schema, name, allowed_callers, 7 more }`
+
+        - `input_schema: object { type, properties, required }`
+
+          [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+          This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+          - `type: "object"`
+
+            - `"object"`
+
+          - `properties: optional map[unknown] or null`
+
+          - `required: optional array of string or null`
+
+        - `name: string`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `description: optional string`
+
+          Description of what this tool does.
+
+          Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+        - `eager_input_streaming: optional boolean or null`
+
+          Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+        - `input_examples: optional array of map[unknown]`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+        - `type: optional "custom" or null`
+
+          - `"custom"`
+
+      - `BetaToolBash20241022 object { name, type, allowed_callers, 4 more }`
+
+        - `name: "bash"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"bash"`
+
+        - `type: "bash_20241022"`
+
+          - `"bash_20241022"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `input_examples: optional array of map[unknown]`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaToolBash20250124 object { name, type, allowed_callers, 4 more }`
+
+        - `name: "bash"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"bash"`
+
+        - `type: "bash_20250124"`
+
+          - `"bash_20250124"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `input_examples: optional array of map[unknown]`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaCodeExecutionTool20250522 object { name, type, allowed_callers, 3 more }`
+
+        - `name: "code_execution"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"code_execution"`
+
+        - `type: "code_execution_20250522"`
+
+          - `"code_execution_20250522"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaCodeExecutionTool20250825 object { name, type, allowed_callers, 3 more }`
+
+        - `name: "code_execution"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"code_execution"`
+
+        - `type: "code_execution_20250825"`
+
+          - `"code_execution_20250825"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaCodeExecutionTool20260120 object { name, type, allowed_callers, 3 more }`
+
+        Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+        - `name: "code_execution"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"code_execution"`
+
+        - `type: "code_execution_20260120"`
+
+          - `"code_execution_20260120"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaCodeExecutionTool20260521 object { name, type, allowed_callers, 3 more }`
+
+        Code execution tool with REPL state persistence.
+
+        - `name: "code_execution"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"code_execution"`
+
+        - `type: "code_execution_20260521"`
+
+          - `"code_execution_20260521"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaBrowserToolset20260801 object { type, allowed_callers, cache_control, configs }`
+
+        The browser toolset: a single `tools[]` entry (carrying no
+        `name`) that declares the browser tool family. The model is served
+        the family's tool with any members disabled via `configs` removed
+        from its schema.
+
+        - `type: "browser_toolset_20260801"`
+
+          - `"browser_toolset_20260801"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `configs: optional BetaBrowserToolsetConfigs or null`
+
+          Per-member configuration for `browser_toolset_20260801`: one
+          optional field per member tool, keyed by the member name — the same
+          name the member's `tool_use` blocks carry. Every member is an
+          accepted key, and a member's defaults apply wherever its key is
+          absent. Unknown keys are rejected: the field set is this toolset
+          version's complete member set.
+
+          - `close_tab: optional BetaBrowserCloseTabConfig or null`
+
+            `close_tab`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `double_click: optional BetaBrowserDoubleClickConfig or null`
+
+            `double_click`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `file_upload: optional BetaBrowserFileUploadConfig or null`
+
+            `file_upload`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `find: optional BetaBrowserFindConfig or null`
+
+            `find`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `form_input: optional BetaBrowserFormInputConfig or null`
+
+            `form_input`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `get_page_text: optional BetaBrowserGetPageTextConfig or null`
+
+            `get_page_text`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `hold_key: optional BetaBrowserHoldKeyConfig or null`
+
+            `hold_key`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `hover: optional BetaBrowserHoverConfig or null`
+
+            `hover`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `javascript_exec: optional BetaBrowserJavascriptExecConfig or null`
+
+            `javascript_exec`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `key: optional BetaBrowserKeyConfig or null`
+
+            `key`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_click: optional BetaBrowserLeftClickConfig or null`
+
+            `left_click`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_click_drag: optional BetaBrowserLeftClickDragConfig or null`
+
+            `left_click_drag`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_mouse_down: optional BetaBrowserLeftMouseDownConfig or null`
+
+            `left_mouse_down`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_mouse_up: optional BetaBrowserLeftMouseUpConfig or null`
+
+            `left_mouse_up`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `list_tabs: optional BetaBrowserListTabsConfig or null`
+
+            `list_tabs`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `middle_click: optional BetaBrowserMiddleClickConfig or null`
+
+            `middle_click`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `mouse_move: optional BetaBrowserMouseMoveConfig or null`
+
+            `mouse_move`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `navigate: optional BetaBrowserNavigateConfig or null`
+
+            `navigate`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `new_tab: optional BetaBrowserNewTabConfig or null`
+
+            `new_tab`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `read_console: optional BetaBrowserReadConsoleConfig or null`
+
+            `read_console`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `read_network: optional BetaBrowserReadNetworkConfig or null`
+
+            `read_network`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `read_page: optional BetaBrowserReadPageConfig or null`
+
+            `read_page`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `right_click: optional BetaBrowserRightClickConfig or null`
+
+            `right_click`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `screenshot: optional BetaBrowserScreenshotConfig or null`
+
+            `screenshot`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `scroll: optional BetaBrowserScrollConfig or null`
+
+            `scroll`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `scroll_to: optional BetaBrowserScrollToConfig or null`
+
+            `scroll_to`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `switch_tab: optional BetaBrowserSwitchTabConfig or null`
+
+            `switch_tab`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `triple_click: optional BetaBrowserTripleClickConfig or null`
+
+            `triple_click`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `type: optional BetaBrowserTypeConfig or null`
+
+            `type`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `wait: optional BetaBrowserWaitConfig or null`
+
+            `wait`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `zoom: optional BetaBrowserZoomConfig or null`
+
+            `zoom`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `BetaToolComputerUse20241022 object { display_height_px, display_width_px, name, 7 more }`
+
+        - `display_height_px: number`
+
+          The height of the display in pixels.
+
+        - `display_width_px: number`
+
+          The width of the display in pixels.
+
+        - `name: "computer"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"computer"`
+
+        - `type: "computer_20241022"`
+
+          - `"computer_20241022"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `display_number: optional number or null`
+
+          The X11 display number (e.g. 0, 1) for the display.
+
+        - `input_examples: optional array of map[unknown]`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaMemoryTool20250818 object { name, type, allowed_callers, 4 more }`
+
+        - `name: "memory"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"memory"`
+
+        - `type: "memory_20250818"`
+
+          - `"memory_20250818"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `input_examples: optional array of map[unknown]`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaToolComputerUse20250124 object { display_height_px, display_width_px, name, 7 more }`
+
+        - `display_height_px: number`
+
+          The height of the display in pixels.
+
+        - `display_width_px: number`
+
+          The width of the display in pixels.
+
+        - `name: "computer"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"computer"`
+
+        - `type: "computer_20250124"`
+
+          - `"computer_20250124"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `display_number: optional number or null`
+
+          The X11 display number (e.g. 0, 1) for the display.
+
+        - `input_examples: optional array of map[unknown]`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaToolTextEditor20241022 object { name, type, allowed_callers, 4 more }`
+
+        - `name: "str_replace_editor"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"str_replace_editor"`
+
+        - `type: "text_editor_20241022"`
+
+          - `"text_editor_20241022"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `input_examples: optional array of map[unknown]`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaToolComputerUse20251124 object { display_height_px, display_width_px, name, 8 more }`
+
+        - `display_height_px: number`
+
+          The height of the display in pixels.
+
+        - `display_width_px: number`
+
+          The width of the display in pixels.
+
+        - `name: "computer"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"computer"`
+
+        - `type: "computer_20251124"`
+
+          - `"computer_20251124"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `display_number: optional number or null`
+
+          The X11 display number (e.g. 0, 1) for the display.
+
+        - `enable_zoom: optional boolean`
+
+          Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+        - `input_examples: optional array of map[unknown]`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaComputerToolset20260801 object { type, allowed_callers, cache_control, configs }`
+
+        The computer toolset: a single `tools[]` entry (carrying no
+        `name`) that declares the computer tool family. The model is
+        served the family's tool with any members disabled via `configs`
+        removed from its schema. Every member is enabled by default, zoom
+        included. The single-tool options `display_number` and
+        `enable_zoom` are not fields of a toolset entry — it carries only
+        `type`, `configs`, and `cache_control`; zoom is controlled
+        via `configs.zoom.enabled`.
+
+        - `type: "computer_toolset_20260801"`
+
+          - `"computer_toolset_20260801"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `configs: optional BetaComputerToolsetConfigs or null`
+
+          Per-member configuration for `computer_toolset_20260801`: one
+          optional field per member tool, keyed by the member name — the same
+          name the member's `tool_use` blocks carry. Every member is an
+          accepted key, and a member's defaults apply wherever its key is
+          absent. Unknown keys are rejected: the field set is this toolset
+          version's complete member set.
+
+          - `cursor_position: optional BetaComputerCursorPositionConfig or null`
+
+            `cursor_position`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `double_click: optional BetaComputerDoubleClickConfig or null`
+
+            `double_click`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `hold_key: optional BetaComputerHoldKeyConfig or null`
+
+            `hold_key`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `key: optional BetaComputerKeyConfig or null`
+
+            `key`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_click: optional BetaComputerLeftClickConfig or null`
+
+            `left_click`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_click_drag: optional BetaComputerLeftClickDragConfig or null`
+
+            `left_click_drag`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_mouse_down: optional BetaComputerLeftMouseDownConfig or null`
+
+            `left_mouse_down`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `left_mouse_up: optional BetaComputerLeftMouseUpConfig or null`
+
+            `left_mouse_up`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `middle_click: optional BetaComputerMiddleClickConfig or null`
+
+            `middle_click`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `mouse_move: optional BetaComputerMouseMoveConfig or null`
+
+            `mouse_move`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `right_click: optional BetaComputerRightClickConfig or null`
+
+            `right_click`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `screenshot: optional BetaComputerScreenshotConfig or null`
+
+            `screenshot`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `scroll: optional BetaComputerScrollConfig or null`
+
+            `scroll`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `triple_click: optional BetaComputerTripleClickConfig or null`
+
+            `triple_click`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `type: optional BetaComputerTypeConfig or null`
+
+            `type`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `wait: optional BetaComputerWaitConfig or null`
+
+            `wait`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+          - `zoom: optional BetaComputerZoomConfig or null`
+
+            `zoom`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `BetaToolTextEditor20250124 object { name, type, allowed_callers, 4 more }`
+
+        - `name: "str_replace_editor"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"str_replace_editor"`
+
+        - `type: "text_editor_20250124"`
+
+          - `"text_editor_20250124"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `input_examples: optional array of map[unknown]`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaToolTextEditor20250429 object { name, type, allowed_callers, 4 more }`
+
+        - `name: "str_replace_based_edit_tool"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"str_replace_based_edit_tool"`
+
+        - `type: "text_editor_20250429"`
+
+          - `"text_editor_20250429"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `input_examples: optional array of map[unknown]`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaToolTextEditor20250728 object { name, type, allowed_callers, 5 more }`
+
+        - `name: "str_replace_based_edit_tool"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"str_replace_based_edit_tool"`
+
+        - `type: "text_editor_20250728"`
+
+          - `"text_editor_20250728"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `input_examples: optional array of map[unknown]`
+
+        - `max_characters: optional number or null`
+
+          Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaWebSearchTool20250305 object { name, type, allowed_callers, 7 more }`
+
+        - `name: "web_search"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"web_search"`
+
+        - `type: "web_search_20250305"`
+
+          - `"web_search_20250305"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `allowed_domains: optional array of string or null`
+
+          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+        - `blocked_domains: optional array of string or null`
+
+          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_uses: optional number or null`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+        - `user_location: optional BetaUserLocation or null`
+
+          Parameters for the user's location. Used to provide more relevant search results.
+
+          - `type: "approximate"`
+
+            - `"approximate"`
+
+          - `city: optional string or null`
+
+            The city of the user.
+
+          - `country: optional string or null`
+
+            The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+          - `region: optional string or null`
+
+            The region of the user.
+
+          - `timezone: optional string or null`
+
+            The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+      - `BetaWebFetchTool20250910 object { name, type, allowed_callers, 8 more }`
+
+        - `name: "web_fetch"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"web_fetch"`
+
+        - `type: "web_fetch_20250910"`
+
+          - `"web_fetch_20250910"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `allowed_domains: optional array of string or null`
+
+          List of domains to allow fetching from
+
+        - `blocked_domains: optional array of string or null`
+
+          List of domains to block fetching from
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: optional BetaCitationsConfigParam or null`
+
+          Citations configuration for fetched documents. Citations are disabled by default.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_content_tokens: optional number or null`
+
+          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        - `max_uses: optional number or null`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaWebSearchTool20260209 object { name, type, allowed_callers, 7 more }`
+
+        - `name: "web_search"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"web_search"`
+
+        - `type: "web_search_20260209"`
+
+          - `"web_search_20260209"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `allowed_domains: optional array of string or null`
+
+          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+        - `blocked_domains: optional array of string or null`
+
+          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_uses: optional number or null`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+        - `user_location: optional BetaUserLocation or null`
+
+          Parameters for the user's location. Used to provide more relevant search results.
+
+      - `BetaWebFetchTool20260209 object { name, type, allowed_callers, 8 more }`
+
+        - `name: "web_fetch"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"web_fetch"`
+
+        - `type: "web_fetch_20260209"`
+
+          - `"web_fetch_20260209"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `allowed_domains: optional array of string or null`
+
+          List of domains to allow fetching from
+
+        - `blocked_domains: optional array of string or null`
+
+          List of domains to block fetching from
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: optional BetaCitationsConfigParam or null`
+
+          Citations configuration for fetched documents. Citations are disabled by default.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_content_tokens: optional number or null`
+
+          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        - `max_uses: optional number or null`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaWebFetchTool20260309 object { name, type, allowed_callers, 9 more }`
+
+        Web fetch tool with use_cache parameter for bypassing cached content.
+
+        - `name: "web_fetch"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"web_fetch"`
+
+        - `type: "web_fetch_20260309"`
+
+          - `"web_fetch_20260309"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `allowed_domains: optional array of string or null`
+
+          List of domains to allow fetching from
+
+        - `blocked_domains: optional array of string or null`
+
+          List of domains to block fetching from
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: optional BetaCitationsConfigParam or null`
+
+          Citations configuration for fetched documents. Citations are disabled by default.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_content_tokens: optional number or null`
+
+          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        - `max_uses: optional number or null`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+        - `use_cache: optional boolean`
+
+          Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+      - `BetaWebSearchTool20260318 object { name, type, allowed_callers, 8 more }`
+
+        - `name: "web_search"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"web_search"`
+
+        - `type: "web_search_20260318"`
+
+          - `"web_search_20260318"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `allowed_domains: optional array of string or null`
+
+          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+        - `blocked_domains: optional array of string or null`
+
+          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_uses: optional number or null`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `response_inclusion: optional "full" or "excluded"`
+
+          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+          - `"full"`
+
+          - `"excluded"`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+        - `user_location: optional BetaUserLocation or null`
+
+          Parameters for the user's location. Used to provide more relevant search results.
+
+      - `BetaWebFetchTool20260318 object { name, type, allowed_callers, 10 more }`
+
+        - `name: "web_fetch"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"web_fetch"`
+
+        - `type: "web_fetch_20260318"`
+
+          - `"web_fetch_20260318"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `allowed_domains: optional array of string or null`
+
+          List of domains to allow fetching from
+
+        - `blocked_domains: optional array of string or null`
+
+          List of domains to block fetching from
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: optional BetaCitationsConfigParam or null`
+
+          Citations configuration for fetched documents. Citations are disabled by default.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_content_tokens: optional number or null`
+
+          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        - `max_uses: optional number or null`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `response_inclusion: optional "full" or "excluded"`
+
+          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+          - `"full"`
+
+          - `"excluded"`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+        - `use_cache: optional boolean`
+
+          Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+      - `BetaAdvisorTool20260301 object { model, name, type, 7 more }`
+
+        - `model: Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `name: "advisor"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"advisor"`
+
+        - `type: "advisor_20260301"`
+
+          - `"advisor_20260301"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `caching: optional BetaCacheControlEphemeral or null`
+
+          Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_tokens: optional number or null`
+
+          Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+        - `max_uses: optional number or null`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaToolSearchToolBm25_20251119 object { name, type, allowed_callers, 3 more }`
+
+        - `name: "tool_search_tool_bm25"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"tool_search_tool_bm25"`
+
+        - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
+
+          - `"tool_search_tool_bm25_20251119"`
+
+          - `"tool_search_tool_bm25"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaToolSearchToolRegex20251119 object { name, type, allowed_callers, 3 more }`
+
+        - `name: "tool_search_tool_regex"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"tool_search_tool_regex"`
+
+        - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
+
+          - `"tool_search_tool_regex_20251119"`
+
+          - `"tool_search_tool_regex"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+      - `BetaMCPToolset object { mcp_server_name, type, cache_control, 2 more }`
+
+        Configuration for a group of tools from an MCP server.
+
+        Allows configuring enabled status and defer_loading for all tools
+        from an MCP server, with optional per-tool overrides.
+
+        - `mcp_server_name: string`
+
+          Name of the MCP server to configure tools for
+
+        - `type: "mcp_toolset"`
+
+          - `"mcp_toolset"`
+
+        - `cache_control: optional BetaCacheControlEphemeral or null`
+
+          Create a cache control breakpoint at this content block.
+
+        - `configs: optional map[BetaMCPToolConfig] or null`
+
+          Configuration overrides for specific tools, keyed by tool name
+
+          - `defer_loading: optional boolean`
+
+          - `enabled: optional boolean`
+
+        - `default_config: optional BetaMCPToolDefaultConfig`
+
+          Default configuration applied to all tools from this server
+
+          - `defer_loading: optional boolean`
+
+          - `enabled: optional boolean`
+
+    - `top_k: optional number`
+
+      Only sample from the top K options for each subsequent token.
+
+      Used to remove "long tail" low probability responses. [Learn more technical details here](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277).
+
+      Recommended for advanced use cases only.
+
+    - `top_p: optional number`
+
+      Use nucleus sampling.
+
+      In nucleus sampling, we compute the cumulative distribution over all the options for each subsequent token in decreasing probability order and cut it off once it reaches a particular probability specified by `top_p`.
+
+      Recommended for advanced use cases only.
+
+### Returns
+
+- `BetaMessageBatch object { id, archived_at, cancel_initiated_at, 7 more }`
+
+  - `id: string`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `archived_at: string or null`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+  - `cancel_initiated_at: string or null`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+  - `ended_at: string or null`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+  - `expires_at: string`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+  - `processing_status: "in_progress" or "canceling" or "ended"`
+
+    Processing status of the Message Batch.
+
+    - `"in_progress"`
+
+    - `"canceling"`
+
+    - `"ended"`
+
+  - `request_counts: BetaMessageBatchRequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `canceled: number`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `errored: number`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `expired: number`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `processing: number`
+
+      Number of requests in the Message Batch that are processing.
+
+    - `succeeded: number`
+
+      Number of requests in the Message Batch that have completed successfully.
+
       This is zero until processing of the entire Message Batch has ended.
 
   - `results_url: string or null`
@@ -39,7 +7117,7 @@ curl https://api.anthropic.com/v1/messages/batches \
                     "role": "user"
                   }
                 ],
-                "model": "claude-opus-4-6"
+                "model": "claude-opus-5"
               }
             }
           ]
@@ -91,7 +7169,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -136,6 +7214,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -313,7 +7393,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -358,6 +7438,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -546,7 +7628,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -591,6 +7673,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -761,7 +7845,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -806,6 +7890,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -888,7 +7974,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -933,6 +8019,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -1201,7 +8289,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `"redacted_thinking"`
 
-          - `BetaToolUseBlock object { id, input, name, 2 more }`
+          - `BetaToolUseBlock object { id, input, name, 3 more }`
 
             - `id: string`
 
@@ -1242,6 +8330,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `type: "code_execution_20260120"`
 
                   - `"code_execution_20260120"`
+
+            - `toolset_name: optional string or null`
+
+              For a toolset member tool_use, the toolset family.
 
           - `BetaServerToolUseBlock object { id, input, name, 2 more }`
 
@@ -3088,7 +10180,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"redacted_thinking"`
 
-          - `BetaToolUseBlock object { id, input, name, 2 more }`
+          - `BetaToolUseBlock object { id, input, name, 3 more }`
 
             - `id: string`
 
@@ -3129,6 +10221,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
                 - `type: "code_execution_20260120"`
 
                   - `"code_execution_20260120"`
+
+            - `toolset_name: optional string or null`
+
+              For a toolset member tool_use, the toolset family.
 
           - `BetaServerToolUseBlock object { id, input, name, 2 more }`
 
@@ -4774,7 +11870,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `"redacted_thinking"`
 
-        - `BetaToolUseBlock object { id, input, name, 2 more }`
+        - `BetaToolUseBlock object { id, input, name, 3 more }`
 
           - `id: string`
 
@@ -4815,6 +11911,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
               - `type: "code_execution_20260120"`
 
                 - `"code_execution_20260120"`
+
+          - `toolset_name: optional string or null`
+
+            For a toolset member tool_use, the toolset family.
 
         - `BetaServerToolUseBlock object { id, input, name, 2 more }`
 
@@ -6422,7 +13522,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `"redacted_thinking"`
 
-      - `BetaToolUseBlock object { id, input, name, 2 more }`
+      - `BetaToolUseBlock object { id, input, name, 3 more }`
 
         - `id: string`
 
@@ -6463,6 +13563,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
             - `type: "code_execution_20260120"`
 
               - `"code_execution_20260120"`
+
+        - `toolset_name: optional string or null`
+
+          For a toolset member tool_use, the toolset family.
 
       - `BetaServerToolUseBlock object { id, input, name, 2 more }`
 
@@ -7757,7 +14861,7 @@ Create Agent
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -7803,6 +14907,8 @@ Create Agent
 
     - `"user-profiles-2026-03-24"`
 
+    - `"user-profiles-2026-08-18"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -7829,7 +14935,7 @@ Create Agent
 
 - `model: BetaManagedAgentsModel or BetaManagedAgentsModelConfigParams`
 
-  Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control
+  Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control
 
   - `BetaManagedAgentsModel = "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
@@ -8640,7 +15746,7 @@ curl https://api.anthropic.com/v1/agents \
     -H 'anthropic-beta: managed-agents-2026-04-01' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
     -d '{
-          "model": "claude-sonnet-4-6",
+          "model": "claude-opus-5",
           "name": "My First Agent",
           "description": "A general-purpose starter agent.",
           "metadata": {
@@ -8674,7 +15780,7 @@ curl https://api.anthropic.com/v1/agents \
     "foo": "bar"
   },
   "model": {
-    "id": "claude-sonnet-4-6",
+    "id": "claude-opus-5",
     "effort": {
       "type": "low"
     },
@@ -8767,7 +15873,7 @@ List Agents
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -8812,6 +15918,8 @@ List Agents
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -9241,7 +16349,7 @@ curl https://api.anthropic.com/v1/agents \
         "foo": "bar"
       },
       "model": {
-        "id": "claude-sonnet-4-6",
+        "id": "claude-opus-5",
         "effort": {
           "type": "low"
         },
@@ -9325,7 +16433,7 @@ Get Agent
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -9370,6 +16478,8 @@ Get Agent
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -9793,7 +16903,7 @@ curl https://api.anthropic.com/v1/agents/$AGENT_ID \
     "foo": "bar"
   },
   "model": {
-    "id": "claude-sonnet-4-6",
+    "id": "claude-opus-5",
     "effort": {
       "type": "low"
     },
@@ -9868,7 +16978,7 @@ Update Agent
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -9913,6 +17023,8 @@ Update Agent
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -9964,7 +17076,7 @@ Update Agent
 
 - `model: optional BetaManagedAgentsModel or BetaManagedAgentsModelConfigParams`
 
-  Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
+  Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
 
   - `BetaManagedAgentsModel = "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
@@ -10780,7 +17892,7 @@ curl https://api.anthropic.com/v1/agents/$AGENT_ID \
     "foo": "bar"
   },
   "model": {
-    "id": "claude-sonnet-4-6",
+    "id": "claude-opus-5",
     "effort": {
       "type": "low"
     },
@@ -10855,7 +17967,7 @@ Archive Agent
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -10900,6 +18012,8 @@ Archive Agent
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -11324,7 +18438,7 @@ curl https://api.anthropic.com/v1/agents/$AGENT_ID/archive \
     "foo": "bar"
   },
   "model": {
-    "id": "claude-sonnet-4-6",
+    "id": "claude-opus-5",
     "effort": {
       "type": "low"
     },
@@ -13507,7 +20621,7 @@ List Agent Versions
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -13552,6 +20666,8 @@ List Agent Versions
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -13981,7 +21097,7 @@ curl https://api.anthropic.com/v1/agents/$AGENT_ID/versions \
         "foo": "bar"
       },
       "model": {
-        "id": "claude-sonnet-4-6",
+        "id": "claude-opus-5",
         "effort": {
           "type": "low"
         },
@@ -14057,7 +21173,7 @@ Create a new environment with the specified configuration.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -14102,6 +21218,8 @@ Create a new environment with the specified configuration.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -14361,9 +21479,9 @@ Create a new environment with the specified configuration.
 
     RFC 3339 timestamp when environment was created
 
-  - `description: string`
+  - `description: string or null`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 
@@ -14498,7 +21616,7 @@ List environments with pagination support.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -14543,6 +21661,8 @@ List environments with pagination support.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -14678,9 +21798,9 @@ List environments with pagination support.
 
     RFC 3339 timestamp when environment was created
 
-  - `description: string`
+  - `description: string or null`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 
@@ -14793,7 +21913,7 @@ Retrieve a specific environment by ID.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -14838,6 +21958,8 @@ Retrieve a specific environment by ID.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -14973,9 +22095,9 @@ Retrieve a specific environment by ID.
 
     RFC 3339 timestamp when environment was created
 
-  - `description: string`
+  - `description: string or null`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 
@@ -15079,7 +22201,7 @@ Update an existing environment's configuration.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -15124,6 +22246,8 @@ Update an existing environment's configuration.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -15253,7 +22377,7 @@ Update an existing environment's configuration.
 
 - `description: optional string or null`
 
-  Updated description of the environment
+  Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
 
 - `metadata: optional map[string]`
 
@@ -15383,9 +22507,9 @@ Update an existing environment's configuration.
 
     RFC 3339 timestamp when environment was created
 
-  - `description: string`
+  - `description: string or null`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 
@@ -15493,7 +22617,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -15538,6 +22662,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -15614,7 +22740,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -15659,6 +22785,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -15794,9 +22922,9 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     RFC 3339 timestamp when environment was created
 
-  - `description: string`
+  - `description: string or null`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 
@@ -16169,9 +23297,9 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 
     RFC 3339 timestamp when environment was created
 
-  - `description: string`
+  - `description: string or null`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 
@@ -16400,7 +23528,7 @@ Retrieve detailed information about a specific work item.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -16445,6 +23573,8 @@ Retrieve detailed information about a specific work item.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -16616,7 +23746,7 @@ Long poll for work items in the queue.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -16661,6 +23791,8 @@ Long poll for work items in the queue.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -16828,7 +23960,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -16873,6 +24005,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -17047,7 +24181,7 @@ Record a heartbeat for a work item to maintain the lease.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -17092,6 +24226,8 @@ Record a heartbeat for a work item to maintain the lease.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -17197,7 +24333,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -17242,6 +24378,8 @@ Stop a work item, initiating graceful or forced shutdown.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -17421,7 +24559,7 @@ List work items in an environment.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -17466,6 +24604,8 @@ List work items in an environment.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -17638,7 +24778,7 @@ Update work item metadata with merge semantics.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -17683,6 +24823,8 @@ Update work item metadata with merge semantics.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -17854,7 +24996,7 @@ Get statistics about the work queue for an environment.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -17899,6 +25041,8 @@ Get statistics about the work queue for an environment.
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -18270,7 +25414,7 @@ Create Session
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -18315,6 +25459,8 @@ Create Session
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -18392,7 +25538,7 @@ Create Session
 
     - `model: optional BetaManagedAgentsModel or BetaManagedAgentsModelConfigParams`
 
-      Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+      Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
       - `BetaManagedAgentsModel = "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
@@ -19771,7 +26917,7 @@ curl https://api.anthropic.com/v1/sessions \
       }
     ],
     "model": {
-      "id": "claude-sonnet-4-6",
+      "id": "claude-opus-5",
       "effort": {
         "type": "low"
       },
@@ -19791,7 +26937,7 @@ curl https://api.anthropic.com/v1/sessions \
             }
           ],
           "model": {
-            "id": "claude-sonnet-4-6",
+            "id": "claude-opus-5",
             "effort": {
               "type": "low"
             },
@@ -20027,7 +27173,7 @@ List Sessions
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -20072,6 +27218,8 @@ List Sessions
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -20786,7 +27934,7 @@ curl https://api.anthropic.com/v1/sessions \
           }
         ],
         "model": {
-          "id": "claude-sonnet-4-6",
+          "id": "claude-opus-5",
           "effort": {
             "type": "low"
           },
@@ -20806,7 +27954,7 @@ curl https://api.anthropic.com/v1/sessions \
                 }
               ],
               "model": {
-                "id": "claude-sonnet-4-6",
+                "id": "claude-opus-5",
                 "effort": {
                   "type": "low"
                 },
@@ -20984,7 +28132,7 @@ Get Session
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -21029,6 +28177,8 @@ Get Session
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -21733,7 +28883,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID \
       }
     ],
     "model": {
-      "id": "claude-sonnet-4-6",
+      "id": "claude-opus-5",
       "effort": {
         "type": "low"
       },
@@ -21753,7 +28903,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID \
             }
           ],
           "model": {
-            "id": "claude-sonnet-4-6",
+            "id": "claude-opus-5",
             "effort": {
               "type": "low"
             },
@@ -21927,7 +29077,7 @@ Update Session
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -21972,6 +29122,8 @@ Update Session
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -22900,7 +30052,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID \
       }
     ],
     "model": {
-      "id": "claude-sonnet-4-6",
+      "id": "claude-opus-5",
       "effort": {
         "type": "low"
       },
@@ -22920,7 +30072,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID \
             }
           ],
           "model": {
-            "id": "claude-sonnet-4-6",
+            "id": "claude-opus-5",
             "effort": {
               "type": "low"
             },
@@ -23094,7 +30246,7 @@ Delete Session
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -23139,6 +30291,8 @@ Delete Session
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -23211,7 +30365,7 @@ Archive Session
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -23256,6 +30410,8 @@ Archive Session
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -23961,7 +31117,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/archive \
       }
     ],
     "model": {
-      "id": "claude-sonnet-4-6",
+      "id": "claude-opus-5",
       "effort": {
         "type": "low"
       },
@@ -23981,7 +31137,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/archive \
             }
           ],
           "model": {
-            "id": "claude-sonnet-4-6",
+            "id": "claude-opus-5",
             "effort": {
               "type": "low"
             },
@@ -24227,7 +31383,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/archive \
 
   - `model: optional BetaManagedAgentsModel or BetaManagedAgentsModelConfigParams`
 
-    Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+    Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
     - `BetaManagedAgentsModel = "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
@@ -27555,7 +34711,7 @@ List Events
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -27600,6 +34756,8 @@ List Events
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -29668,7 +36826,7 @@ Send Events
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -29713,6 +36871,8 @@ Send Events
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -29951,7695 +37111,3 @@ Send Events
     - `type: "user.custom_tool_result"`
 
       - `"user.custom_tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-        - `citations: BetaManagedAgentsSearchResultCitations`
-
-          Citation settings for a search result.
-
-          - `enabled: boolean`
-
-            Whether citations are enabled for this search result.
-
-        - `content: array of BetaManagedAgentsSearchResultContent`
-
-          Array of text content blocks from the search result.
-
-          - `text: string`
-
-            The text content.
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `source: string`
-
-          The URL source of the search result.
-
-        - `title: string`
-
-          The title of the search result.
-
-        - `type: "search_result"`
-
-          - `"search_result"`
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-  - `BetaManagedAgentsUserDefineOutcomeEventParams object { description, rubric, type, max_iterations }`
-
-    Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
-
-    - `description: string`
-
-      What the agent should produce. This is the task specification.
-
-    - `rubric: BetaManagedAgentsFileRubricParams or BetaManagedAgentsTextRubricParams`
-
-      Rubric for grading the quality of an outcome.
-
-      - `BetaManagedAgentsFileRubricParams object { file_id, type }`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `file_id: string`
-
-          ID of the rubric file.
-
-        - `type: "file"`
-
-          - `"file"`
-
-      - `BetaManagedAgentsTextRubricParams object { content, type }`
-
-        Rubric content provided inline as text.
-
-        - `content: string`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
-
-        - `type: "text"`
-
-          - `"text"`
-
-    - `type: "user.define_outcome"`
-
-      - `"user.define_outcome"`
-
-    - `max_iterations: optional number or null`
-
-      Eval→revision cycles before giving up. Default 3, max 20.
-
-  - `BetaManagedAgentsUserToolResultEventParams object { tool_use_id, type, content, is_error }`
-
-    Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.tool_result"`
-
-      - `"user.tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-  - `BetaManagedAgentsSystemMessageEventParams object { content, type }`
-
-    Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
-
-    - `content: array of BetaManagedAgentsSystemContentBlock`
-
-      System content blocks to append. Text-only.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `type: "system.message"`
-
-      - `"system.message"`
-
-### Returns
-
-- `BetaManagedAgentsSendSessionEvents object { data }`
-
-  Events that were successfully sent to the session.
-
-  - `data: optional array of BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 4 more`
-
-    Sent events
-
-    - `BetaManagedAgentsUserMessageEvent object { id, content, type, processed_at }`
-
-      A user message event in the session conversation.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of content blocks comprising the user message.
-
-        - `BetaManagedAgentsTextBlock object { text, type }`
-
-          Regular text content.
-
-          - `text: string`
-
-            The text content.
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `BetaManagedAgentsImageBlock object { source, type }`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-              Base64-encoded image data.
-
-              - `data: string`
-
-                Base64-encoded image data.
-
-              - `media_type: string`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `type: "base64"`
-
-                - `"base64"`
-
-            - `BetaManagedAgentsURLImageSource object { type, url }`
-
-              Image referenced by URL.
-
-              - `type: "url"`
-
-                - `"url"`
-
-              - `url: string`
-
-                URL of the image to fetch.
-
-            - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-              Image referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-              - `type: "file"`
-
-                - `"file"`
-
-          - `type: "image"`
-
-            - `"image"`
-
-        - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-              Base64-encoded document data.
-
-              - `data: string`
-
-                Base64-encoded document data.
-
-              - `media_type: string`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `type: "base64"`
-
-                - `"base64"`
-
-            - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-              Plain text document content.
-
-              - `data: string`
-
-                The plain text content.
-
-              - `media_type: "text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"`
-
-              - `type: "text"`
-
-                - `"text"`
-
-            - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-              Document referenced by URL.
-
-              - `type: "url"`
-
-                - `"url"`
-
-              - `url: string`
-
-                URL of the document to fetch.
-
-            - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-              Document referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-              - `type: "file"`
-
-                - `"file"`
-
-          - `type: "document"`
-
-            - `"document"`
-
-          - `context: optional string or null`
-
-            Additional context about the document for the model.
-
-          - `title: optional string or null`
-
-            The title of the document.
-
-        - `BetaManagedAgentsRedactedBlock object { type }`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: "redacted"`
-
-            - `"redacted"`
-
-      - `type: "user.message"`
-
-        - `"user.message"`
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-    - `BetaManagedAgentsUserInterruptEvent object { id, type, processed_at, session_thread_id }`
-
-      An interrupt event that pauses agent execution and returns control to the user.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `type: "user.interrupt"`
-
-        - `"user.interrupt"`
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `session_thread_id: optional string or null`
-
-        If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-    - `BetaManagedAgentsUserToolConfirmationEvent object { id, result, tool_use_id, 4 more }`
-
-      A tool confirmation event that approves or denies a pending tool execution.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `result: "allow" or "deny"`
-
-        UserToolConfirmationResult enum
-
-        - `"allow"`
-
-        - `"deny"`
-
-      - `tool_use_id: string`
-
-        The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.tool_confirmation"`
-
-        - `"user.tool_confirmation"`
-
-      - `deny_message: optional string or null`
-
-        Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `session_thread_id: optional string or null`
-
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
-
-    - `BetaManagedAgentsUserCustomToolResultEvent object { id, custom_tool_use_id, type, 4 more }`
-
-      Event sent by the client providing the result of a custom tool execution.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `custom_tool_use_id: string`
-
-        The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.custom_tool_result"`
-
-        - `"user.custom_tool_result"`
-
-      - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-        The result content returned by the tool.
-
-        - `BetaManagedAgentsTextBlock object { text, type }`
-
-          Regular text content.
-
-        - `BetaManagedAgentsImageBlock object { source, type }`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-          A block containing a web search result.
-
-          - `citations: BetaManagedAgentsSearchResultCitations`
-
-            Citation settings for a search result.
-
-            - `enabled: boolean`
-
-              Whether citations are enabled for this search result.
-
-          - `content: array of BetaManagedAgentsSearchResultContent`
-
-            Array of text content blocks from the search result.
-
-            - `text: string`
-
-              The text content.
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `source: string`
-
-            The URL source of the search result.
-
-          - `title: string`
-
-            The title of the search result.
-
-          - `type: "search_result"`
-
-            - `"search_result"`
-
-      - `is_error: optional boolean or null`
-
-        Whether the tool execution resulted in an error.
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `session_thread_id: optional string or null`
-
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
-
-    - `BetaManagedAgentsUserDefineOutcomeEvent object { id, description, max_iterations, 4 more }`
-
-      Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `description: string`
-
-        What the agent should produce. Copied from the input event.
-
-      - `max_iterations: number or null`
-
-        Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-      - `outcome_id: string`
-
-        Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `BetaManagedAgentsFileRubric object { file_id, type }`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `file_id: string`
-
-            ID of the rubric file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-        - `BetaManagedAgentsTextRubric object { content, type }`
-
-          Rubric content provided inline as text.
-
-          - `content: string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: "text"`
-
-            - `"text"`
-
-      - `type: "user.define_outcome"`
-
-        - `"user.define_outcome"`
-
-    - `BetaManagedAgentsUserToolResultEvent object { id, tool_use_id, type, 4 more }`
-
-      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `tool_use_id: string`
-
-        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.tool_result"`
-
-        - `"user.tool_result"`
-
-      - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-        The result content returned by the tool.
-
-        - `BetaManagedAgentsTextBlock object { text, type }`
-
-          Regular text content.
-
-        - `BetaManagedAgentsImageBlock object { source, type }`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-          A block containing a web search result.
-
-      - `is_error: optional boolean or null`
-
-        Whether the tool execution resulted in an error.
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `session_thread_id: optional string or null`
-
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-    - `BetaManagedAgentsSystemMessageEvent object { id, content, type, processed_at }`
-
-      A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks. Text-only.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `type: "system.message"`
-
-        - `"system.message"`
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/sessions/$SESSION_ID/events \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{
-          "events": [
-            {
-              "content": [
-                {
-                  "text": "Where is my order #1234?",
-                  "type": "text"
-                }
-              ],
-              "type": "user.message"
-            }
-          ]
-        }'
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
-      "content": [
-        {
-          "text": "Where is my order #1234?",
-          "type": "text"
-        }
-      ],
-      "type": "user.message",
-      "processed_at": "2026-03-15T10:00:00Z"
-    }
-  ]
-}
-```
-
-## Stream Events
-
-**get** `/v1/sessions/{session_id}/events/stream`
-
-Stream Events
-
-### Path Parameters
-
-- `session_id: string`
-
-### Query Parameters
-
-- `event_deltas: optional array of BetaManagedAgentsDeltaType`
-
-  When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
-
-  - `"agent.message"`
-
-  - `"agent.thinking"`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 30 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 34 more`
-
-  Server-sent event in the session stream.
-
-  - `BetaManagedAgentsUserMessageEvent object { id, content, type, processed_at }`
-
-    A user message event in the session conversation.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Array of content blocks comprising the user message.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource object { type, url }`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context: optional string or null`
-
-          Additional context about the document for the model.
-
-        - `title: optional string or null`
-
-          The title of the document.
-
-      - `BetaManagedAgentsRedactedBlock object { type }`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-        - `type: "redacted"`
-
-          - `"redacted"`
-
-    - `type: "user.message"`
-
-      - `"user.message"`
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-  - `BetaManagedAgentsUserInterruptEvent object { id, type, processed_at, session_thread_id }`
-
-    An interrupt event that pauses agent execution and returns control to the user.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `type: "user.interrupt"`
-
-      - `"user.interrupt"`
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: optional string or null`
-
-      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-  - `BetaManagedAgentsUserToolConfirmationEvent object { id, result, tool_use_id, 4 more }`
-
-    A tool confirmation event that approves or denies a pending tool execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `result: "allow" or "deny"`
-
-      UserToolConfirmationResult enum
-
-      - `"allow"`
-
-      - `"deny"`
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.tool_confirmation"`
-
-      - `"user.tool_confirmation"`
-
-    - `deny_message: optional string or null`
-
-      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: optional string or null`
-
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
-
-  - `BetaManagedAgentsUserCustomToolResultEvent object { id, custom_tool_use_id, type, 4 more }`
-
-    Event sent by the client providing the result of a custom tool execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `custom_tool_use_id: string`
-
-      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.custom_tool_result"`
-
-      - `"user.custom_tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-        - `citations: BetaManagedAgentsSearchResultCitations`
-
-          Citation settings for a search result.
-
-          - `enabled: boolean`
-
-            Whether citations are enabled for this search result.
-
-        - `content: array of BetaManagedAgentsSearchResultContent`
-
-          Array of text content blocks from the search result.
-
-          - `text: string`
-
-            The text content.
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `source: string`
-
-          The URL source of the search result.
-
-        - `title: string`
-
-          The title of the search result.
-
-        - `type: "search_result"`
-
-          - `"search_result"`
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: optional string or null`
-
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
-
-  - `BetaManagedAgentsAgentCustomToolUseEvent object { id, input, name, 3 more }`
-
-    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `input: map[unknown]`
-
-      Input parameters for the tool call.
-
-    - `name: string`
-
-      Name of the custom tool being called.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.custom_tool_use"`
-
-      - `"agent.custom_tool_use"`
-
-    - `session_thread_id: optional string or null`
-
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
-
-  - `BetaManagedAgentsAgentMessageEvent object { id, content, processed_at, type }`
-
-    An agent response event in the session conversation.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsRedactedBlock`
-
-      Array of text blocks comprising the agent response.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsRedactedBlock object { type }`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.message"`
-
-      - `"agent.message"`
-
-  - `BetaManagedAgentsAgentThinkingEvent object { id, processed_at, type }`
-
-    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.thinking"`
-
-      - `"agent.thinking"`
-
-  - `BetaManagedAgentsAgentMCPToolUseEvent object { id, input, mcp_server_name, 5 more }`
-
-    Event emitted when the agent invokes a tool provided by an MCP server.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `input: map[unknown]`
-
-      Input parameters for the tool call.
-
-    - `mcp_server_name: string`
-
-      Name of the MCP server providing the tool.
-
-    - `name: string`
-
-      Name of the MCP tool being used.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.mcp_tool_use"`
-
-      - `"agent.mcp_tool_use"`
-
-    - `evaluated_permission: optional "allow" or "ask" or "deny"`
-
-      AgentEvaluatedPermission enum
-
-      - `"allow"`
-
-      - `"ask"`
-
-      - `"deny"`
-
-    - `session_thread_id: optional string or null`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `BetaManagedAgentsAgentMCPToolResultEvent object { id, mcp_tool_use_id, processed_at, 3 more }`
-
-    Event representing the result of an MCP tool execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `mcp_tool_use_id: string`
-
-      The id of the `agent.mcp_tool_use` event this result corresponds to.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.mcp_tool_result"`
-
-      - `"agent.mcp_tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-  - `BetaManagedAgentsAgentToolUseEvent object { id, input, name, 4 more }`
-
-    Event emitted when the agent invokes a built-in agent tool.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `input: map[unknown]`
-
-      Input parameters for the tool call.
-
-    - `name: string`
-
-      Name of the agent tool being used.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.tool_use"`
-
-      - `"agent.tool_use"`
-
-    - `evaluated_permission: optional "allow" or "ask" or "deny"`
-
-      AgentEvaluatedPermission enum
-
-      - `"allow"`
-
-      - `"ask"`
-
-      - `"deny"`
-
-    - `session_thread_id: optional string or null`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `BetaManagedAgentsAgentToolResultEvent object { id, processed_at, tool_use_id, 3 more }`
-
-    Event representing the result of an agent tool execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` event this result corresponds to.
-
-    - `type: "agent.tool_result"`
-
-      - `"agent.tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-  - `BetaManagedAgentsAgentThreadMessageReceivedEvent object { id, content, from_session_thread_id, 3 more }`
-
-    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Message content blocks.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsRedactedBlock object { type }`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `from_session_thread_id: string`
-
-      Public `sthr_` ID of the thread that sent the message.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.thread_message_received"`
-
-      - `"agent.thread_message_received"`
-
-    - `from_agent_name: optional string or null`
-
-      Name of the callable agent this message came from. Absent when received from the primary agent.
-
-  - `BetaManagedAgentsAgentThreadMessageSentEvent object { id, content, processed_at, 3 more }`
-
-    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Message content blocks.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsRedactedBlock object { type }`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `to_session_thread_id: string`
-
-      Public `sthr_` ID of the thread the message was sent to.
-
-    - `type: "agent.thread_message_sent"`
-
-      - `"agent.thread_message_sent"`
-
-    - `to_agent_name: optional string or null`
-
-      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
-
-  - `BetaManagedAgentsAgentThreadContextCompactedEvent object { id, processed_at, type }`
-
-    Indicates that context compaction (summarization) occurred during the session.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.thread_context_compacted"`
-
-      - `"agent.thread_context_compacted"`
-
-  - `BetaManagedAgentsSessionErrorEvent object { id, error, processed_at, type }`
-
-    An error event indicating a problem occurred during session execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 5 more`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `BetaManagedAgentsUnknownError object { message, retry_status, type }`
-
-        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-            - `type: "terminal"`
-
-              - `"terminal"`
-
-        - `type: "unknown_error"`
-
-          - `"unknown_error"`
-
-      - `BetaManagedAgentsModelOverloadedError object { message, retry_status, type }`
-
-        The model is currently overloaded. Emitted after automatic retries are exhausted.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "model_overloaded_error"`
-
-          - `"model_overloaded_error"`
-
-      - `BetaManagedAgentsModelRateLimitedError object { message, retry_status, type }`
-
-        The model request was rate-limited.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "model_rate_limited_error"`
-
-          - `"model_rate_limited_error"`
-
-      - `BetaManagedAgentsModelRequestFailedError object { message, retry_status, type }`
-
-        A model request failed for a reason other than overload or rate-limiting.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "model_request_failed_error"`
-
-          - `"model_request_failed_error"`
-
-      - `BetaManagedAgentsMCPConnectionFailedError object { mcp_server_name, message, retry_status, type }`
-
-        Failed to connect to an MCP server.
-
-        - `mcp_server_name: string`
-
-          Name of the MCP server that failed to connect.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "mcp_connection_failed_error"`
-
-          - `"mcp_connection_failed_error"`
-
-      - `BetaManagedAgentsMCPAuthenticationFailedError object { mcp_server_name, message, retry_status, type }`
-
-        Authentication to an MCP server failed.
-
-        - `mcp_server_name: string`
-
-          Name of the MCP server that failed authentication.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "mcp_authentication_failed_error"`
-
-          - `"mcp_authentication_failed_error"`
-
-      - `BetaManagedAgentsBillingError object { message, retry_status, type }`
-
-        The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "billing_error"`
-
-          - `"billing_error"`
-
-      - `BetaManagedAgentsCredentialHostUnreachableError object { credential_id, message, retry_status, 2 more }`
-
-        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
-
-        - `credential_id: string`
-
-          ID of the affected credential.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "credential_host_unreachable_error"`
-
-          - `"credential_host_unreachable_error"`
-
-        - `vault_id: string`
-
-          ID of the vault containing the affected credential.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.error"`
-
-      - `"session.error"`
-
-  - `BetaManagedAgentsSessionStatusRescheduledEvent object { id, processed_at, type }`
-
-    Indicates the session is recovering from an error state and is rescheduled for execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.status_rescheduled"`
-
-      - `"session.status_rescheduled"`
-
-  - `BetaManagedAgentsSessionStatusRunningEvent object { id, processed_at, type }`
-
-    Indicates the session is actively running and the agent is working.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.status_running"`
-
-      - `"session.status_running"`
-
-  - `BetaManagedAgentsSessionStatusIdleEvent object { id, processed_at, stop_reason, type }`
-
-    Indicates the agent has paused and is awaiting user input.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `BetaManagedAgentsSessionEndTurn object { type }`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-        - `type: "end_turn"`
-
-          - `"end_turn"`
-
-      - `BetaManagedAgentsSessionRequiresAction object { event_ids, type }`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-        - `event_ids: array of string`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: "requires_action"`
-
-          - `"requires_action"`
-
-      - `BetaManagedAgentsSessionRetriesExhausted object { type }`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-        - `type: "retries_exhausted"`
-
-          - `"retries_exhausted"`
-
-      - `BetaManagedAgentsSessionBudgetReached object { type }`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-        - `type: "budget_reached"`
-
-          - `"budget_reached"`
-
-    - `type: "session.status_idle"`
-
-      - `"session.status_idle"`
-
-  - `BetaManagedAgentsSessionStatusTerminatedEvent object { id, processed_at, type }`
-
-    Indicates the session has terminated, either due to an error or completion.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.status_terminated"`
-
-      - `"session.status_terminated"`
-
-  - `BetaManagedAgentsSessionThreadCreatedEvent object { id, agent_name, processed_at, 2 more }`
-
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the callable agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: string`
-
-      Public `sthr_` ID of the newly created thread.
-
-    - `type: "session.thread_created"`
-
-      - `"session.thread_created"`
-
-  - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent object { id, iteration, outcome_id, 2 more }`
-
-    Emitted when an outcome evaluation cycle begins.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `iteration: number`
-
-      0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
-
-    - `outcome_id: string`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "span.outcome_evaluation_start"`
-
-      - `"span.outcome_evaluation_start"`
-
-  - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent object { id, explanation, iteration, 6 more }`
-
-    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `explanation: string`
-
-      Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
-
-    - `iteration: number`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-    - `outcome_evaluation_start_id: string`
-
-      The id of the corresponding `span.outcome_evaluation_start` event.
-
-    - `outcome_id: string`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `result: string`
-
-      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `type: "span.outcome_evaluation_end"`
-
-      - `"span.outcome_evaluation_end"`
-
-    - `usage: BetaManagedAgentsSpanModelUsage`
-
-      Token usage for a single model request.
-
-      - `cache_creation_input_tokens: number`
-
-        Tokens used to create prompt cache in this request.
-
-      - `cache_read_input_tokens: number`
-
-        Tokens read from prompt cache in this request.
-
-      - `input_tokens: number`
-
-        Input tokens consumed by this request.
-
-      - `output_tokens: number`
-
-        Output tokens generated by this request.
-
-      - `speed: optional "standard" or "fast" or null`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"`
-
-        - `"fast"`
-
-  - `BetaManagedAgentsSpanModelRequestStartEvent object { id, processed_at, type }`
-
-    Emitted when a model request is initiated by the agent.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "span.model_request_start"`
-
-      - `"span.model_request_start"`
-
-  - `BetaManagedAgentsSpanModelRequestEndEvent object { id, is_error, model_request_start_id, 3 more }`
-
-    Emitted when a model request completes.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `is_error: boolean or null`
-
-      Whether the model request resulted in an error.
-
-    - `model_request_start_id: string`
-
-      The id of the corresponding `span.model_request_start` event.
-
-    - `model_usage: BetaManagedAgentsSpanModelUsage`
-
-      Token usage for a single model request.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "span.model_request_end"`
-
-      - `"span.model_request_end"`
-
-  - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent object { id, iteration, outcome_id, 2 more }`
-
-    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `iteration: number`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-    - `outcome_id: string`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "span.outcome_evaluation_ongoing"`
-
-      - `"span.outcome_evaluation_ongoing"`
-
-  - `BetaManagedAgentsUserDefineOutcomeEvent object { id, description, max_iterations, 4 more }`
-
-    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `description: string`
-
-      What the agent should produce. Copied from the input event.
-
-    - `max_iterations: number or null`
-
-      Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-    - `outcome_id: string`
-
-      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-      Rubric for grading the quality of an outcome.
-
-      - `BetaManagedAgentsFileRubric object { file_id, type }`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `file_id: string`
-
-          ID of the rubric file.
-
-        - `type: "file"`
-
-          - `"file"`
-
-      - `BetaManagedAgentsTextRubric object { content, type }`
-
-        Rubric content provided inline as text.
-
-        - `content: string`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-        - `type: "text"`
-
-          - `"text"`
-
-    - `type: "user.define_outcome"`
-
-      - `"user.define_outcome"`
-
-  - `BetaManagedAgentsSessionDeletedEvent object { id, processed_at, type }`
-
-    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.deleted"`
-
-      - `"session.deleted"`
-
-  - `BetaManagedAgentsSessionThreadStatusRunningEvent object { id, agent_name, processed_at, 2 more }`
-
-    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that started running.
-
-    - `type: "session.thread_status_running"`
-
-      - `"session.thread_status_running"`
-
-  - `BetaManagedAgentsSessionThreadStatusIdleEvent object { id, agent_name, processed_at, 3 more }`
-
-    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that went idle.
-
-    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `BetaManagedAgentsSessionEndTurn object { type }`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-      - `BetaManagedAgentsSessionRequiresAction object { event_ids, type }`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-      - `BetaManagedAgentsSessionRetriesExhausted object { type }`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-      - `BetaManagedAgentsSessionBudgetReached object { type }`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-    - `type: "session.thread_status_idle"`
-
-      - `"session.thread_status_idle"`
-
-  - `BetaManagedAgentsSessionThreadStatusTerminatedEvent object { id, agent_name, processed_at, 2 more }`
-
-    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that terminated.
-
-    - `type: "session.thread_status_terminated"`
-
-      - `"session.thread_status_terminated"`
-
-  - `BetaManagedAgentsUserToolResultEvent object { id, tool_use_id, type, 4 more }`
-
-    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.tool_result"`
-
-      - `"user.tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: optional string or null`
-
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-  - `BetaManagedAgentsSessionThreadStatusRescheduledEvent object { id, agent_name, processed_at, 2 more }`
-
-    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that is retrying.
-
-    - `type: "session.thread_status_rescheduled"`
-
-      - `"session.thread_status_rescheduled"`
-
-  - `BetaManagedAgentsSessionUpdatedEvent object { id, processed_at, type, 4 more }`
-
-    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.updated"`
-
-      - `"session.updated"`
-
-    - `agent: optional BetaManagedAgentsSessionAgent or null`
-
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-      - `id: string`
-
-      - `description: string or null`
-
-      - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
-
-        - `name: string`
-
-        - `type: "url"`
-
-          - `"url"`
-
-        - `url: string`
-
-      - `model: BetaManagedAgentsModelConfig`
-
-        Model identifier and configuration.
-
-        - `id: BetaManagedAgentsModel`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `"claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more`
-
-            The model that will power your agent.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-            - `"claude-sonnet-5"`
-
-              High-performance model for coding and agents
-
-            - `"claude-fable-5"`
-
-              Next generation of intelligence for the hardest knowledge work and coding problems
-
-            - `"claude-opus-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-8"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-7"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-6"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-sonnet-4-6"`
-
-              Best combination of speed and intelligence
-
-            - `"claude-haiku-4-5"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-haiku-4-5-20251001"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-opus-4-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-5-20251101"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-sonnet-4-5"`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
-
-          - `string`
-
-        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
-
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-          - `BetaManagedAgentsEffortLow object { type }`
-
-            Low effort. Favors latency over reasoning depth.
-
-            - `type: "low"`
-
-              - `"low"`
-
-          - `BetaManagedAgentsEffortMedium object { type }`
-
-            Medium effort. Balances latency and reasoning depth.
-
-            - `type: "medium"`
-
-              - `"medium"`
-
-          - `BetaManagedAgentsEffortHigh object { type }`
-
-            High effort. Favors reasoning depth.
-
-            - `type: "high"`
-
-              - `"high"`
-
-          - `BetaManagedAgentsEffortXhigh object { type }`
-
-            Extra-high effort. Not all models accept this level.
-
-            - `type: "xhigh"`
-
-              - `"xhigh"`
-
-          - `BetaManagedAgentsEffortMax object { type }`
-
-            Maximum effort. Favors reasoning depth over latency.
-
-            - `type: "max"`
-
-              - `"max"`
-
-        - `inference_geo: optional string`
-
-          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-        - `speed: optional "standard" or "fast"`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `"standard"`
-
-          - `"fast"`
-
-      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator or null`
-
-        Resolved coordinator topology with full agent definitions for each roster member.
-
-        - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
-
-          Full `agent` definitions the coordinator may spawn as session threads.
-
-          - `BetaManagedAgentsSessionThreadAgent object { id, description, mcp_servers, 7 more }`
-
-            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-            - `id: string`
-
-            - `description: string or null`
-
-            - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
-
-              - `name: string`
-
-              - `type: "url"`
-
-              - `url: string`
-
-            - `model: BetaManagedAgentsModelConfig`
-
-              Model identifier and configuration.
-
-            - `name: string`
-
-            - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
-
-              - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
-
-                A resolved Anthropic-managed skill.
-
-                - `skill_id: string`
-
-                - `type: "anthropic"`
-
-                  - `"anthropic"`
-
-                - `version: string`
-
-              - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
-
-                A resolved user-created custom skill.
-
-                - `skill_id: string`
-
-                - `type: "custom"`
-
-                  - `"custom"`
-
-                - `version: string`
-
-            - `system: string or null`
-
-            - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
-
-              - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
-
-                - `configs: array of BetaManagedAgentsAgentToolConfig`
-
-                  - `enabled: boolean`
-
-                  - `name: "bash" or "edit" or "read" or 5 more`
-
-                    Built-in agent tool identifier.
-
-                    - `"bash"`
-
-                    - `"edit"`
-
-                    - `"read"`
-
-                    - `"write"`
-
-                    - `"glob"`
-
-                    - `"grep"`
-
-                    - `"web_fetch"`
-
-                    - `"web_search"`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                      - `type: "always_allow"`
-
-                        - `"always_allow"`
-
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
-
-                      Tool calls require user confirmation before execution.
-
-                      - `type: "always_ask"`
-
-                        - `"always_ask"`
-
-                - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                  Resolved default configuration for agent tools.
-
-                  - `enabled: boolean`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
-
-                      Tool calls require user confirmation before execution.
-
-                - `type: "agent_toolset_20260401"`
-
-                  - `"agent_toolset_20260401"`
-
-              - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
-
-                - `configs: array of BetaManagedAgentsMCPToolConfig`
-
-                  - `enabled: boolean`
-
-                  - `name: string`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
-
-                      Tool calls require user confirmation before execution.
-
-                - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                  Resolved default configuration for all tools from an MCP server.
-
-                  - `enabled: boolean`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
-
-                      Tool calls require user confirmation before execution.
-
-                - `mcp_server_name: string`
-
-                - `type: "mcp_toolset"`
-
-                  - `"mcp_toolset"`
-
-              - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
-
-                A custom tool as returned in API responses.
-
-                - `description: string`
-
-                - `input_schema: BetaManagedAgentsCustomToolInputSchema`
-
-                  JSON Schema for custom tool input parameters.
-
-                  - `type: "object"`
-
-                    - `"object"`
-
-                  - `properties: optional map[unknown] or null`
-
-                  - `required: optional array of string or null`
-
-                - `name: string`
-
-                - `type: "custom"`
-
-                  - `"custom"`
-
-            - `type: "agent"`
-
-              - `"agent"`
-
-            - `version: number`
-
-          - `BetaManagedAgentsAdvisor object { model, type }`
-
-            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-            - `model: string`
-
-              The advisor model id.
-
-            - `type: "advisor"`
-
-              - `"advisor"`
-
-        - `type: "coordinator"`
-
-          - `"coordinator"`
-
-      - `name: string`
-
-      - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
-
-        - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
-
-          A resolved Anthropic-managed skill.
-
-        - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
-
-          A resolved user-created custom skill.
-
-      - `system: string or null`
-
-      - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
-
-        - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
-
-        - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
-
-        - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
-
-          A custom tool as returned in API responses.
-
-      - `type: "agent"`
-
-        - `"agent"`
-
-      - `version: number`
-
-    - `budget: optional BetaManagedAgentsBudgetLimit or null`
-
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-      - `max_list_cost: BetaMonetaryAmount`
-
-        A monetary amount in a specific currency.
-
-        - `amount: string`
-
-          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-        - `currency: BetaCurrency`
-
-          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-          - `"USD"`
-
-      - `type: "limit"`
-
-        - `"limit"`
-
-    - `metadata: optional map[string]`
-
-      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
-
-    - `title: optional string or null`
-
-      The session's new title. Present only when the update changed it.
-
-  - `BetaManagedAgentsStartEvent object { event, type }`
-
-    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
-
-    - `event: BetaManagedAgentsStartEventPreview`
-
-      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
-
-      - `BetaManagedAgentsAgentMessagePreview object { id, type }`
-
-        - `id: string`
-
-          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
-
-        - `type: "agent.message"`
-
-          - `"agent.message"`
-
-      - `BetaManagedAgentsAgentThinkingPreview object { id, type }`
-
-        - `id: string`
-
-          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
-
-        - `type: "agent.thinking"`
-
-          - `"agent.thinking"`
-
-    - `type: "event_start"`
-
-      - `"event_start"`
-
-  - `BetaManagedAgentsDeltaEvent object { delta, event_id, type }`
-
-    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
-
-    - `delta: BetaManagedAgentsDeltaContent`
-
-      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
-
-      - `content: BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-      - `type: "content_delta"`
-
-        - `"content_delta"`
-
-      - `index: optional number`
-
-        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
-
-    - `event_id: string`
-
-      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
-
-    - `type: "event_delta"`
-
-      - `"event_delta"`
-
-  - `BetaManagedAgentsSystemMessageEvent object { id, content, type, processed_at }`
-
-    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsSystemContentBlock`
-
-      System content blocks. Text-only.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `type: "system.message"`
-
-      - `"system.message"`
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-  - `BetaManagedAgentsSessionUsageEvent object { id, processed_at, type, 2 more }`
-
-    Periodic snapshot of the session's cumulative usage and tracked list cost.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.usage"`
-
-      - `"session.usage"`
-
-    - `usage: BetaManagedAgentsSessionUsageSnapshot`
-
-      Point-in-time snapshot of a session's cumulative usage.
-
-      - `active_seconds: optional number`
-
-        Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
-
-      - `cache_creation: optional BetaManagedAgentsCacheCreationUsage`
-
-        Prompt-cache creation token usage broken down by cache lifetime.
-
-        - `ephemeral_1h_input_tokens: optional number`
-
-          Tokens used to create 1-hour ephemeral cache entries.
-
-        - `ephemeral_5m_input_tokens: optional number`
-
-          Tokens used to create 5-minute ephemeral cache entries.
-
-      - `cache_read_input_tokens: optional number`
-
-        Total tokens read from prompt cache.
-
-      - `input_tokens: optional number`
-
-        Total input tokens consumed across all turns.
-
-      - `list_cost: optional BetaMonetaryAmount`
-
-        A monetary amount in a specific currency.
-
-      - `output_tokens: optional number`
-
-        Total output tokens generated across all turns.
-
-      - `server_tool_use: optional BetaManagedAgentsServerToolUsage`
-
-        Cumulative count of server-executed tool invocations, broken down by tool.
-
-        - `web_fetch_requests: optional number`
-
-          Number of server-executed web fetch requests.
-
-        - `web_search_requests: optional number`
-
-          Number of server-executed web search requests.
-
-    - `budget: optional BetaManagedAgentsBudgetLimit or null`
-
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/sessions/$SESSION_ID/events/stream \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
-  "content": [
-    {
-      "text": "Where is my order #1234?",
-      "type": "text"
-    }
-  ],
-  "type": "user.message",
-  "processed_at": "2026-03-15T10:00:00Z"
-}
-```
-
-## Domain Types
-
-### Beta Managed Agents Agent Custom Tool Use Event
-
-- `BetaManagedAgentsAgentCustomToolUseEvent object { id, input, name, 3 more }`
-
-  Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `input: map[unknown]`
-
-    Input parameters for the tool call.
-
-  - `name: string`
-
-    Name of the custom tool being called.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "agent.custom_tool_use"`
-
-    - `"agent.custom_tool_use"`
-
-  - `session_thread_id: optional string or null`
-
-    When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
-
-### Beta Managed Agents Agent MCP Tool Result Event
-
-- `BetaManagedAgentsAgentMCPToolResultEvent object { id, mcp_tool_use_id, processed_at, 3 more }`
-
-  Event representing the result of an MCP tool execution.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `mcp_tool_use_id: string`
-
-    The id of the `agent.mcp_tool_use` event this result corresponds to.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "agent.mcp_tool_result"`
-
-    - `"agent.mcp_tool_result"`
-
-  - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-    The result content returned by the tool.
-
-    - `BetaManagedAgentsTextBlock object { text, type }`
-
-      Regular text content.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `BetaManagedAgentsImageBlock object { source, type }`
-
-      Image content specified directly as base64 data or as a reference via a URL.
-
-      - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-        Union type for image source variants.
-
-        - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-          Base64-encoded image data.
-
-          - `data: string`
-
-            Base64-encoded image data.
-
-          - `media_type: string`
-
-            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-          - `type: "base64"`
-
-            - `"base64"`
-
-        - `BetaManagedAgentsURLImageSource object { type, url }`
-
-          Image referenced by URL.
-
-          - `type: "url"`
-
-            - `"url"`
-
-          - `url: string`
-
-            URL of the image to fetch.
-
-        - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-          Image referenced by file ID.
-
-          - `file_id: string`
-
-            ID of a previously uploaded file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-      - `type: "image"`
-
-        - `"image"`
-
-    - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-        Union type for document source variants.
-
-        - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-          Base64-encoded document data.
-
-          - `data: string`
-
-            Base64-encoded document data.
-
-          - `media_type: string`
-
-            MIME type of the document (e.g., "application/pdf").
-
-          - `type: "base64"`
-
-            - `"base64"`
-
-        - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-          Plain text document content.
-
-          - `data: string`
-
-            The plain text content.
-
-          - `media_type: "text/plain"`
-
-            MIME type of the text content. Must be "text/plain".
-
-            - `"text/plain"`
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-          Document referenced by URL.
-
-          - `type: "url"`
-
-            - `"url"`
-
-          - `url: string`
-
-            URL of the document to fetch.
-
-        - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-          Document referenced by file ID.
-
-          - `file_id: string`
-
-            ID of a previously uploaded file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-      - `type: "document"`
-
-        - `"document"`
-
-      - `context: optional string or null`
-
-        Additional context about the document for the model.
-
-      - `title: optional string or null`
-
-        The title of the document.
-
-    - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-      A block containing a web search result.
-
-      - `citations: BetaManagedAgentsSearchResultCitations`
-
-        Citation settings for a search result.
-
-        - `enabled: boolean`
-
-          Whether citations are enabled for this search result.
-
-      - `content: array of BetaManagedAgentsSearchResultContent`
-
-        Array of text content blocks from the search result.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `source: string`
-
-        The URL source of the search result.
-
-      - `title: string`
-
-        The title of the search result.
-
-      - `type: "search_result"`
-
-        - `"search_result"`
-
-  - `is_error: optional boolean or null`
-
-    Whether the tool execution resulted in an error.
-
-### Beta Managed Agents Agent MCP Tool Use Event
-
-- `BetaManagedAgentsAgentMCPToolUseEvent object { id, input, mcp_server_name, 5 more }`
-
-  Event emitted when the agent invokes a tool provided by an MCP server.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `input: map[unknown]`
-
-    Input parameters for the tool call.
-
-  - `mcp_server_name: string`
-
-    Name of the MCP server providing the tool.
-
-  - `name: string`
-
-    Name of the MCP tool being used.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "agent.mcp_tool_use"`
-
-    - `"agent.mcp_tool_use"`
-
-  - `evaluated_permission: optional "allow" or "ask" or "deny"`
-
-    AgentEvaluatedPermission enum
-
-    - `"allow"`
-
-    - `"ask"`
-
-    - `"deny"`
-
-  - `session_thread_id: optional string or null`
-
-    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-### Beta Managed Agents Agent Message Event
-
-- `BetaManagedAgentsAgentMessageEvent object { id, content, processed_at, type }`
-
-  An agent response event in the session conversation.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsRedactedBlock`
-
-    Array of text blocks comprising the agent response.
-
-    - `BetaManagedAgentsTextBlock object { text, type }`
-
-      Regular text content.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `BetaManagedAgentsRedactedBlock object { type }`
-
-      Placeholder for content withheld by Anthropic model policy.
-
-      - `type: "redacted"`
-
-        - `"redacted"`
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "agent.message"`
-
-    - `"agent.message"`
-
-### Beta Managed Agents Agent Thinking Event
-
-- `BetaManagedAgentsAgentThinkingEvent object { id, processed_at, type }`
-
-  Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "agent.thinking"`
-
-    - `"agent.thinking"`
-
-### Beta Managed Agents Agent Thread Context Compacted Event
-
-- `BetaManagedAgentsAgentThreadContextCompactedEvent object { id, processed_at, type }`
-
-  Indicates that context compaction (summarization) occurred during the session.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "agent.thread_context_compacted"`
-
-    - `"agent.thread_context_compacted"`
-
-### Beta Managed Agents Agent Thread Message Received Event
-
-- `BetaManagedAgentsAgentThreadMessageReceivedEvent object { id, content, from_session_thread_id, 3 more }`
-
-  Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-    Message content blocks.
-
-    - `BetaManagedAgentsTextBlock object { text, type }`
-
-      Regular text content.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `BetaManagedAgentsImageBlock object { source, type }`
-
-      Image content specified directly as base64 data or as a reference via a URL.
-
-      - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-        Union type for image source variants.
-
-        - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-          Base64-encoded image data.
-
-          - `data: string`
-
-            Base64-encoded image data.
-
-          - `media_type: string`
-
-            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-          - `type: "base64"`
-
-            - `"base64"`
-
-        - `BetaManagedAgentsURLImageSource object { type, url }`
-
-          Image referenced by URL.
-
-          - `type: "url"`
-
-            - `"url"`
-
-          - `url: string`
-
-            URL of the image to fetch.
-
-        - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-          Image referenced by file ID.
-
-          - `file_id: string`
-
-            ID of a previously uploaded file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-      - `type: "image"`
-
-        - `"image"`
-
-    - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-        Union type for document source variants.
-
-        - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-          Base64-encoded document data.
-
-          - `data: string`
-
-            Base64-encoded document data.
-
-          - `media_type: string`
-
-            MIME type of the document (e.g., "application/pdf").
-
-          - `type: "base64"`
-
-            - `"base64"`
-
-        - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-          Plain text document content.
-
-          - `data: string`
-
-            The plain text content.
-
-          - `media_type: "text/plain"`
-
-            MIME type of the text content. Must be "text/plain".
-
-            - `"text/plain"`
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-          Document referenced by URL.
-
-          - `type: "url"`
-
-            - `"url"`
-
-          - `url: string`
-
-            URL of the document to fetch.
-
-        - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-          Document referenced by file ID.
-
-          - `file_id: string`
-
-            ID of a previously uploaded file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-      - `type: "document"`
-
-        - `"document"`
-
-      - `context: optional string or null`
-
-        Additional context about the document for the model.
-
-      - `title: optional string or null`
-
-        The title of the document.
-
-    - `BetaManagedAgentsRedactedBlock object { type }`
-
-      Placeholder for content withheld by Anthropic model policy.
-
-      - `type: "redacted"`
-
-        - `"redacted"`
-
-  - `from_session_thread_id: string`
-
-    Public `sthr_` ID of the thread that sent the message.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "agent.thread_message_received"`
-
-    - `"agent.thread_message_received"`
-
-  - `from_agent_name: optional string or null`
-
-    Name of the callable agent this message came from. Absent when received from the primary agent.
-
-### Beta Managed Agents Agent Thread Message Sent Event
-
-- `BetaManagedAgentsAgentThreadMessageSentEvent object { id, content, processed_at, 3 more }`
-
-  Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-    Message content blocks.
-
-    - `BetaManagedAgentsTextBlock object { text, type }`
-
-      Regular text content.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `BetaManagedAgentsImageBlock object { source, type }`
-
-      Image content specified directly as base64 data or as a reference via a URL.
-
-      - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-        Union type for image source variants.
-
-        - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-          Base64-encoded image data.
-
-          - `data: string`
-
-            Base64-encoded image data.
-
-          - `media_type: string`
-
-            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-          - `type: "base64"`
-
-            - `"base64"`
-
-        - `BetaManagedAgentsURLImageSource object { type, url }`
-
-          Image referenced by URL.
-
-          - `type: "url"`
-
-            - `"url"`
-
-          - `url: string`
-
-            URL of the image to fetch.
-
-        - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-          Image referenced by file ID.
-
-          - `file_id: string`
-
-            ID of a previously uploaded file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-      - `type: "image"`
-
-        - `"image"`
-
-    - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-        Union type for document source variants.
-
-        - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-          Base64-encoded document data.
-
-          - `data: string`
-
-            Base64-encoded document data.
-
-          - `media_type: string`
-
-            MIME type of the document (e.g., "application/pdf").
-
-          - `type: "base64"`
-
-            - `"base64"`
-
-        - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-          Plain text document content.
-
-          - `data: string`
-
-            The plain text content.
-
-          - `media_type: "text/plain"`
-
-            MIME type of the text content. Must be "text/plain".
-
-            - `"text/plain"`
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-          Document referenced by URL.
-
-          - `type: "url"`
-
-            - `"url"`
-
-          - `url: string`
-
-            URL of the document to fetch.
-
-        - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-          Document referenced by file ID.
-
-          - `file_id: string`
-
-            ID of a previously uploaded file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-      - `type: "document"`
-
-        - `"document"`
-
-      - `context: optional string or null`
-
-        Additional context about the document for the model.
-
-      - `title: optional string or null`
-
-        The title of the document.
-
-    - `BetaManagedAgentsRedactedBlock object { type }`
-
-      Placeholder for content withheld by Anthropic model policy.
-
-      - `type: "redacted"`
-
-        - `"redacted"`
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `to_session_thread_id: string`
-
-    Public `sthr_` ID of the thread the message was sent to.
-
-  - `type: "agent.thread_message_sent"`
-
-    - `"agent.thread_message_sent"`
-
-  - `to_agent_name: optional string or null`
-
-    Name of the callable agent this message was sent to. Absent when sent to the primary agent.
-
-### Beta Managed Agents Agent Tool Result Event
-
-- `BetaManagedAgentsAgentToolResultEvent object { id, processed_at, tool_use_id, 3 more }`
-
-  Event representing the result of an agent tool execution.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `tool_use_id: string`
-
-    The id of the `agent.tool_use` event this result corresponds to.
-
-  - `type: "agent.tool_result"`
-
-    - `"agent.tool_result"`
-
-  - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-    The result content returned by the tool.
-
-    - `BetaManagedAgentsTextBlock object { text, type }`
-
-      Regular text content.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `BetaManagedAgentsImageBlock object { source, type }`
-
-      Image content specified directly as base64 data or as a reference via a URL.
-
-      - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-        Union type for image source variants.
-
-        - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-          Base64-encoded image data.
-
-          - `data: string`
-
-            Base64-encoded image data.
-
-          - `media_type: string`
-
-            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-          - `type: "base64"`
-
-            - `"base64"`
-
-        - `BetaManagedAgentsURLImageSource object { type, url }`
-
-          Image referenced by URL.
-
-          - `type: "url"`
-
-            - `"url"`
-
-          - `url: string`
-
-            URL of the image to fetch.
-
-        - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-          Image referenced by file ID.
-
-          - `file_id: string`
-
-            ID of a previously uploaded file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-      - `type: "image"`
-
-        - `"image"`
-
-    - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-        Union type for document source variants.
-
-        - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-          Base64-encoded document data.
-
-          - `data: string`
-
-            Base64-encoded document data.
-
-          - `media_type: string`
-
-            MIME type of the document (e.g., "application/pdf").
-
-          - `type: "base64"`
-
-            - `"base64"`
-
-        - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-          Plain text document content.
-
-          - `data: string`
-
-            The plain text content.
-
-          - `media_type: "text/plain"`
-
-            MIME type of the text content. Must be "text/plain".
-
-            - `"text/plain"`
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-          Document referenced by URL.
-
-          - `type: "url"`
-
-            - `"url"`
-
-          - `url: string`
-
-            URL of the document to fetch.
-
-        - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-          Document referenced by file ID.
-
-          - `file_id: string`
-
-            ID of a previously uploaded file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-      - `type: "document"`
-
-        - `"document"`
-
-      - `context: optional string or null`
-
-        Additional context about the document for the model.
-
-      - `title: optional string or null`
-
-        The title of the document.
-
-    - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-      A block containing a web search result.
-
-      - `citations: BetaManagedAgentsSearchResultCitations`
-
-        Citation settings for a search result.
-
-        - `enabled: boolean`
-
-          Whether citations are enabled for this search result.
-
-      - `content: array of BetaManagedAgentsSearchResultContent`
-
-        Array of text content blocks from the search result.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `source: string`
-
-        The URL source of the search result.
-
-      - `title: string`
-
-        The title of the search result.
-
-      - `type: "search_result"`
-
-        - `"search_result"`
-
-  - `is_error: optional boolean or null`
-
-    Whether the tool execution resulted in an error.
-
-### Beta Managed Agents Agent Tool Use Event
-
-- `BetaManagedAgentsAgentToolUseEvent object { id, input, name, 4 more }`
-
-  Event emitted when the agent invokes a built-in agent tool.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `input: map[unknown]`
-
-    Input parameters for the tool call.
-
-  - `name: string`
-
-    Name of the agent tool being used.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "agent.tool_use"`
-
-    - `"agent.tool_use"`
-
-  - `evaluated_permission: optional "allow" or "ask" or "deny"`
-
-    AgentEvaluatedPermission enum
-
-    - `"allow"`
-
-    - `"ask"`
-
-    - `"deny"`
-
-  - `session_thread_id: optional string or null`
-
-    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-### Beta Managed Agents Base64 Document Source
-
-- `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-  Base64-encoded document data.
-
-  - `data: string`
-
-    Base64-encoded document data.
-
-  - `media_type: string`
-
-    MIME type of the document (e.g., "application/pdf").
-
-  - `type: "base64"`
-
-    - `"base64"`
-
-### Beta Managed Agents Base64 Image Source
-
-- `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-  Base64-encoded image data.
-
-  - `data: string`
-
-    Base64-encoded image data.
-
-  - `media_type: string`
-
-    MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-  - `type: "base64"`
-
-    - `"base64"`
-
-### Beta Managed Agents Billing Error
-
-- `BetaManagedAgentsBillingError object { message, retry_status, type }`
-
-  The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-    What the client should do next in response to this error.
-
-    - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-      - `type: "retrying"`
-
-        - `"retrying"`
-
-    - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-      - `type: "exhausted"`
-
-        - `"exhausted"`
-
-    - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-      The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "terminal"`
-
-        - `"terminal"`
-
-  - `type: "billing_error"`
-
-    - `"billing_error"`
-
-### Beta Managed Agents Credential Host Unreachable Error
-
-- `BetaManagedAgentsCredentialHostUnreachableError object { credential_id, message, retry_status, 2 more }`
-
-  An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
-
-  - `credential_id: string`
-
-    ID of the affected credential.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-    What the client should do next in response to this error.
-
-    - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-      - `type: "retrying"`
-
-        - `"retrying"`
-
-    - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-      - `type: "exhausted"`
-
-        - `"exhausted"`
-
-    - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-      The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "terminal"`
-
-        - `"terminal"`
-
-  - `type: "credential_host_unreachable_error"`
-
-    - `"credential_host_unreachable_error"`
-
-  - `vault_id: string`
-
-    ID of the vault containing the affected credential.
-
-### Beta Managed Agents Document Block
-
-- `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-  Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-  - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-    Union type for document source variants.
-
-    - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-      Base64-encoded document data.
-
-      - `data: string`
-
-        Base64-encoded document data.
-
-      - `media_type: string`
-
-        MIME type of the document (e.g., "application/pdf").
-
-      - `type: "base64"`
-
-        - `"base64"`
-
-    - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-      Plain text document content.
-
-      - `data: string`
-
-        The plain text content.
-
-      - `media_type: "text/plain"`
-
-        MIME type of the text content. Must be "text/plain".
-
-        - `"text/plain"`
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-      Document referenced by URL.
-
-      - `type: "url"`
-
-        - `"url"`
-
-      - `url: string`
-
-        URL of the document to fetch.
-
-    - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-      Document referenced by file ID.
-
-      - `file_id: string`
-
-        ID of a previously uploaded file.
-
-      - `type: "file"`
-
-        - `"file"`
-
-  - `type: "document"`
-
-    - `"document"`
-
-  - `context: optional string or null`
-
-    Additional context about the document for the model.
-
-  - `title: optional string or null`
-
-    The title of the document.
-
-### Beta Managed Agents Event Params
-
-- `BetaManagedAgentsEventParams = BetaManagedAgentsUserMessageEventParams or BetaManagedAgentsUserInterruptEventParams or BetaManagedAgentsUserToolConfirmationEventParams or 4 more`
-
-  Union type for event parameters that can be sent to a session.
-
-  - `BetaManagedAgentsUserMessageEventParams object { content, type }`
-
-    Parameters for sending a user message to the session.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Array of content blocks for the user message.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource object { type, url }`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context: optional string or null`
-
-          Additional context about the document for the model.
-
-        - `title: optional string or null`
-
-          The title of the document.
-
-      - `BetaManagedAgentsRedactedBlock object { type }`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-        - `type: "redacted"`
-
-          - `"redacted"`
-
-    - `type: "user.message"`
-
-      - `"user.message"`
-
-  - `BetaManagedAgentsUserInterruptEventParams object { type, session_thread_id }`
-
-    Parameters for sending an interrupt to pause the agent.
-
-    - `type: "user.interrupt"`
-
-      - `"user.interrupt"`
-
-    - `session_thread_id: optional string or null`
-
-      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-  - `BetaManagedAgentsUserToolConfirmationEventParams object { result, tool_use_id, type, deny_message }`
-
-    Parameters for confirming or denying a tool execution request.
-
-    - `result: "allow" or "deny"`
-
-      UserToolConfirmationResult enum
-
-      - `"allow"`
-
-      - `"deny"`
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.tool_confirmation"`
-
-      - `"user.tool_confirmation"`
-
-    - `deny_message: optional string or null`
-
-      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-  - `BetaManagedAgentsUserCustomToolResultEventParams object { custom_tool_use_id, type, content, is_error }`
-
-    Parameters for providing the result of a custom tool execution.
-
-    - `custom_tool_use_id: string`
-
-      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.custom_tool_result"`
-
-      - `"user.custom_tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-        - `citations: BetaManagedAgentsSearchResultCitations`
-
-          Citation settings for a search result.
-
-          - `enabled: boolean`
-
-            Whether citations are enabled for this search result.
-
-        - `content: array of BetaManagedAgentsSearchResultContent`
-
-          Array of text content blocks from the search result.
-
-          - `text: string`
-
-            The text content.
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `source: string`
-
-          The URL source of the search result.
-
-        - `title: string`
-
-          The title of the search result.
-
-        - `type: "search_result"`
-
-          - `"search_result"`
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-  - `BetaManagedAgentsUserDefineOutcomeEventParams object { description, rubric, type, max_iterations }`
-
-    Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
-
-    - `description: string`
-
-      What the agent should produce. This is the task specification.
-
-    - `rubric: BetaManagedAgentsFileRubricParams or BetaManagedAgentsTextRubricParams`
-
-      Rubric for grading the quality of an outcome.
-
-      - `BetaManagedAgentsFileRubricParams object { file_id, type }`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `file_id: string`
-
-          ID of the rubric file.
-
-        - `type: "file"`
-
-          - `"file"`
-
-      - `BetaManagedAgentsTextRubricParams object { content, type }`
-
-        Rubric content provided inline as text.
-
-        - `content: string`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
-
-        - `type: "text"`
-
-          - `"text"`
-
-    - `type: "user.define_outcome"`
-
-      - `"user.define_outcome"`
-
-    - `max_iterations: optional number or null`
-
-      Eval→revision cycles before giving up. Default 3, max 20.
-
-  - `BetaManagedAgentsUserToolResultEventParams object { tool_use_id, type, content, is_error }`
-
-    Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.tool_result"`
-
-      - `"user.tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-  - `BetaManagedAgentsSystemMessageEventParams object { content, type }`
-
-    Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
-
-    - `content: array of BetaManagedAgentsSystemContentBlock`
-
-      System content blocks to append. Text-only.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `type: "system.message"`
-
-      - `"system.message"`
-
-### Beta Managed Agents File Document Source
-
-- `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-  Document referenced by file ID.
-
-  - `file_id: string`
-
-    ID of a previously uploaded file.
-
-  - `type: "file"`
-
-    - `"file"`
-
-### Beta Managed Agents File Image Source
-
-- `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-  Image referenced by file ID.
-
-  - `file_id: string`
-
-    ID of a previously uploaded file.
-
-  - `type: "file"`
-
-    - `"file"`
-
-### Beta Managed Agents File Rubric
-
-- `BetaManagedAgentsFileRubric object { file_id, type }`
-
-  Rubric referenced by a file uploaded via the Files API.
-
-  - `file_id: string`
-
-    ID of the rubric file.
-
-  - `type: "file"`
-
-    - `"file"`
-
-### Beta Managed Agents File Rubric Params
-
-- `BetaManagedAgentsFileRubricParams object { file_id, type }`
-
-  Rubric referenced by a file uploaded via the Files API.
-
-  - `file_id: string`
-
-    ID of the rubric file.
-
-  - `type: "file"`
-
-    - `"file"`
-
-### Beta Managed Agents Image Block
-
-- `BetaManagedAgentsImageBlock object { source, type }`
-
-  Image content specified directly as base64 data or as a reference via a URL.
-
-  - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-    Union type for image source variants.
-
-    - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-      Base64-encoded image data.
-
-      - `data: string`
-
-        Base64-encoded image data.
-
-      - `media_type: string`
-
-        MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-      - `type: "base64"`
-
-        - `"base64"`
-
-    - `BetaManagedAgentsURLImageSource object { type, url }`
-
-      Image referenced by URL.
-
-      - `type: "url"`
-
-        - `"url"`
-
-      - `url: string`
-
-        URL of the image to fetch.
-
-    - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-      Image referenced by file ID.
-
-      - `file_id: string`
-
-        ID of a previously uploaded file.
-
-      - `type: "file"`
-
-        - `"file"`
-
-  - `type: "image"`
-
-    - `"image"`
-
-### Beta Managed Agents MCP Authentication Failed Error
-
-- `BetaManagedAgentsMCPAuthenticationFailedError object { mcp_server_name, message, retry_status, type }`
-
-  Authentication to an MCP server failed.
-
-  - `mcp_server_name: string`
-
-    Name of the MCP server that failed authentication.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-    What the client should do next in response to this error.
-
-    - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-      - `type: "retrying"`
-
-        - `"retrying"`
-
-    - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-      - `type: "exhausted"`
-
-        - `"exhausted"`
-
-    - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-      The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "terminal"`
-
-        - `"terminal"`
-
-  - `type: "mcp_authentication_failed_error"`
-
-    - `"mcp_authentication_failed_error"`
-
-### Beta Managed Agents MCP Connection Failed Error
-
-- `BetaManagedAgentsMCPConnectionFailedError object { mcp_server_name, message, retry_status, type }`
-
-  Failed to connect to an MCP server.
-
-  - `mcp_server_name: string`
-
-    Name of the MCP server that failed to connect.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-    What the client should do next in response to this error.
-
-    - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-      - `type: "retrying"`
-
-        - `"retrying"`
-
-    - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-      - `type: "exhausted"`
-
-        - `"exhausted"`
-
-    - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-      The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "terminal"`
-
-        - `"terminal"`
-
-  - `type: "mcp_connection_failed_error"`
-
-    - `"mcp_connection_failed_error"`
-
-### Beta Managed Agents Model Overloaded Error
-
-- `BetaManagedAgentsModelOverloadedError object { message, retry_status, type }`
-
-  The model is currently overloaded. Emitted after automatic retries are exhausted.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-    What the client should do next in response to this error.
-
-    - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-      - `type: "retrying"`
-
-        - `"retrying"`
-
-    - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-      - `type: "exhausted"`
-
-        - `"exhausted"`
-
-    - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-      The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "terminal"`
-
-        - `"terminal"`
-
-  - `type: "model_overloaded_error"`
-
-    - `"model_overloaded_error"`
-
-### Beta Managed Agents Model Rate Limited Error
-
-- `BetaManagedAgentsModelRateLimitedError object { message, retry_status, type }`
-
-  The model request was rate-limited.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-    What the client should do next in response to this error.
-
-    - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-      - `type: "retrying"`
-
-        - `"retrying"`
-
-    - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-      - `type: "exhausted"`
-
-        - `"exhausted"`
-
-    - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-      The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "terminal"`
-
-        - `"terminal"`
-
-  - `type: "model_rate_limited_error"`
-
-    - `"model_rate_limited_error"`
-
-### Beta Managed Agents Model Request Failed Error
-
-- `BetaManagedAgentsModelRequestFailedError object { message, retry_status, type }`
-
-  A model request failed for a reason other than overload or rate-limiting.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-    What the client should do next in response to this error.
-
-    - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-      - `type: "retrying"`
-
-        - `"retrying"`
-
-    - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-      - `type: "exhausted"`
-
-        - `"exhausted"`
-
-    - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-      The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "terminal"`
-
-        - `"terminal"`
-
-  - `type: "model_request_failed_error"`
-
-    - `"model_request_failed_error"`
-
-### Beta Managed Agents Plain Text Document Source
-
-- `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-  Plain text document content.
-
-  - `data: string`
-
-    The plain text content.
-
-  - `media_type: "text/plain"`
-
-    MIME type of the text content. Must be "text/plain".
-
-    - `"text/plain"`
-
-  - `type: "text"`
-
-    - `"text"`
-
-### Beta Managed Agents Redacted Block
-
-- `BetaManagedAgentsRedactedBlock object { type }`
-
-  Placeholder for content withheld by Anthropic model policy.
-
-  - `type: "redacted"`
-
-    - `"redacted"`
-
-### Beta Managed Agents Retry Status Exhausted
-
-- `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-  This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-  - `type: "exhausted"`
-
-    - `"exhausted"`
-
-### Beta Managed Agents Retry Status Retrying
-
-- `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-  The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-  - `type: "retrying"`
-
-    - `"retrying"`
-
-### Beta Managed Agents Retry Status Terminal
-
-- `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-  The session encountered a terminal error and will transition to `terminated` state.
-
-  - `type: "terminal"`
-
-    - `"terminal"`
-
-### Beta Managed Agents Search Result Block
-
-- `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-  A block containing a web search result.
-
-  - `citations: BetaManagedAgentsSearchResultCitations`
-
-    Citation settings for a search result.
-
-    - `enabled: boolean`
-
-      Whether citations are enabled for this search result.
-
-  - `content: array of BetaManagedAgentsSearchResultContent`
-
-    Array of text content blocks from the search result.
-
-    - `text: string`
-
-      The text content.
-
-    - `type: "text"`
-
-      - `"text"`
-
-  - `source: string`
-
-    The URL source of the search result.
-
-  - `title: string`
-
-    The title of the search result.
-
-  - `type: "search_result"`
-
-    - `"search_result"`
-
-### Beta Managed Agents Search Result Citations
-
-- `BetaManagedAgentsSearchResultCitations object { enabled }`
-
-  Citation settings for a search result.
-
-  - `enabled: boolean`
-
-    Whether citations are enabled for this search result.
-
-### Beta Managed Agents Search Result Content
-
-- `BetaManagedAgentsSearchResultContent object { text, type }`
-
-  Text content within a search result.
-
-  - `text: string`
-
-    The text content.
-
-  - `type: "text"`
-
-    - `"text"`
-
-### Beta Managed Agents Send Session Events
-
-- `BetaManagedAgentsSendSessionEvents object { data }`
-
-  Events that were successfully sent to the session.
-
-  - `data: optional array of BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 4 more`
-
-    Sent events
-
-    - `BetaManagedAgentsUserMessageEvent object { id, content, type, processed_at }`
-
-      A user message event in the session conversation.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of content blocks comprising the user message.
-
-        - `BetaManagedAgentsTextBlock object { text, type }`
-
-          Regular text content.
-
-          - `text: string`
-
-            The text content.
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `BetaManagedAgentsImageBlock object { source, type }`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-              Base64-encoded image data.
-
-              - `data: string`
-
-                Base64-encoded image data.
-
-              - `media_type: string`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `type: "base64"`
-
-                - `"base64"`
-
-            - `BetaManagedAgentsURLImageSource object { type, url }`
-
-              Image referenced by URL.
-
-              - `type: "url"`
-
-                - `"url"`
-
-              - `url: string`
-
-                URL of the image to fetch.
-
-            - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-              Image referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-              - `type: "file"`
-
-                - `"file"`
-
-          - `type: "image"`
-
-            - `"image"`
-
-        - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-              Base64-encoded document data.
-
-              - `data: string`
-
-                Base64-encoded document data.
-
-              - `media_type: string`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `type: "base64"`
-
-                - `"base64"`
-
-            - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-              Plain text document content.
-
-              - `data: string`
-
-                The plain text content.
-
-              - `media_type: "text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"`
-
-              - `type: "text"`
-
-                - `"text"`
-
-            - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-              Document referenced by URL.
-
-              - `type: "url"`
-
-                - `"url"`
-
-              - `url: string`
-
-                URL of the document to fetch.
-
-            - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-              Document referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-              - `type: "file"`
-
-                - `"file"`
-
-          - `type: "document"`
-
-            - `"document"`
-
-          - `context: optional string or null`
-
-            Additional context about the document for the model.
-
-          - `title: optional string or null`
-
-            The title of the document.
-
-        - `BetaManagedAgentsRedactedBlock object { type }`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: "redacted"`
-
-            - `"redacted"`
-
-      - `type: "user.message"`
-
-        - `"user.message"`
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-    - `BetaManagedAgentsUserInterruptEvent object { id, type, processed_at, session_thread_id }`
-
-      An interrupt event that pauses agent execution and returns control to the user.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `type: "user.interrupt"`
-
-        - `"user.interrupt"`
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `session_thread_id: optional string or null`
-
-        If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-    - `BetaManagedAgentsUserToolConfirmationEvent object { id, result, tool_use_id, 4 more }`
-
-      A tool confirmation event that approves or denies a pending tool execution.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `result: "allow" or "deny"`
-
-        UserToolConfirmationResult enum
-
-        - `"allow"`
-
-        - `"deny"`
-
-      - `tool_use_id: string`
-
-        The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.tool_confirmation"`
-
-        - `"user.tool_confirmation"`
-
-      - `deny_message: optional string or null`
-
-        Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `session_thread_id: optional string or null`
-
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
-
-    - `BetaManagedAgentsUserCustomToolResultEvent object { id, custom_tool_use_id, type, 4 more }`
-
-      Event sent by the client providing the result of a custom tool execution.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `custom_tool_use_id: string`
-
-        The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.custom_tool_result"`
-
-        - `"user.custom_tool_result"`
-
-      - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-        The result content returned by the tool.
-
-        - `BetaManagedAgentsTextBlock object { text, type }`
-
-          Regular text content.
-
-        - `BetaManagedAgentsImageBlock object { source, type }`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-          A block containing a web search result.
-
-          - `citations: BetaManagedAgentsSearchResultCitations`
-
-            Citation settings for a search result.
-
-            - `enabled: boolean`
-
-              Whether citations are enabled for this search result.
-
-          - `content: array of BetaManagedAgentsSearchResultContent`
-
-            Array of text content blocks from the search result.
-
-            - `text: string`
-
-              The text content.
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `source: string`
-
-            The URL source of the search result.
-
-          - `title: string`
-
-            The title of the search result.
-
-          - `type: "search_result"`
-
-            - `"search_result"`
-
-      - `is_error: optional boolean or null`
-
-        Whether the tool execution resulted in an error.
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `session_thread_id: optional string or null`
-
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
-
-    - `BetaManagedAgentsUserDefineOutcomeEvent object { id, description, max_iterations, 4 more }`
-
-      Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `description: string`
-
-        What the agent should produce. Copied from the input event.
-
-      - `max_iterations: number or null`
-
-        Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-      - `outcome_id: string`
-
-        Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `BetaManagedAgentsFileRubric object { file_id, type }`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `file_id: string`
-
-            ID of the rubric file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-        - `BetaManagedAgentsTextRubric object { content, type }`
-
-          Rubric content provided inline as text.
-
-          - `content: string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: "text"`
-
-            - `"text"`
-
-      - `type: "user.define_outcome"`
-
-        - `"user.define_outcome"`
-
-    - `BetaManagedAgentsUserToolResultEvent object { id, tool_use_id, type, 4 more }`
-
-      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `tool_use_id: string`
-
-        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.tool_result"`
-
-        - `"user.tool_result"`
-
-      - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-        The result content returned by the tool.
-
-        - `BetaManagedAgentsTextBlock object { text, type }`
-
-          Regular text content.
-
-        - `BetaManagedAgentsImageBlock object { source, type }`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-          A block containing a web search result.
-
-      - `is_error: optional boolean or null`
-
-        Whether the tool execution resulted in an error.
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `session_thread_id: optional string or null`
-
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-    - `BetaManagedAgentsSystemMessageEvent object { id, content, type, processed_at }`
-
-      A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks. Text-only.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `type: "system.message"`
-
-        - `"system.message"`
-
-      - `processed_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-### Beta Managed Agents Session Budget Reached
-
-- `BetaManagedAgentsSessionBudgetReached object { type }`
-
-  The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-  - `type: "budget_reached"`
-
-    - `"budget_reached"`
-
-### Beta Managed Agents Session Deleted Event
-
-- `BetaManagedAgentsSessionDeletedEvent object { id, processed_at, type }`
-
-  Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "session.deleted"`
-
-    - `"session.deleted"`
-
-### Beta Managed Agents Session End Turn
-
-- `BetaManagedAgentsSessionEndTurn object { type }`
-
-  The agent completed its turn naturally and is ready for the next user message.
-
-  - `type: "end_turn"`
-
-    - `"end_turn"`
-
-### Beta Managed Agents Session Error Event
-
-- `BetaManagedAgentsSessionErrorEvent object { id, error, processed_at, type }`
-
-  An error event indicating a problem occurred during session execution.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 5 more`
-
-    An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-    - `BetaManagedAgentsUnknownError object { message, retry_status, type }`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-        What the client should do next in response to this error.
-
-        - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `type: "retrying"`
-
-            - `"retrying"`
-
-        - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `type: "exhausted"`
-
-            - `"exhausted"`
-
-        - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-          The session encountered a terminal error and will transition to `terminated` state.
-
-          - `type: "terminal"`
-
-            - `"terminal"`
-
-      - `type: "unknown_error"`
-
-        - `"unknown_error"`
-
-    - `BetaManagedAgentsModelOverloadedError object { message, retry_status, type }`
-
-      The model is currently overloaded. Emitted after automatic retries are exhausted.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-        What the client should do next in response to this error.
-
-        - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-        - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-        - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-          The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "model_overloaded_error"`
-
-        - `"model_overloaded_error"`
-
-    - `BetaManagedAgentsModelRateLimitedError object { message, retry_status, type }`
-
-      The model request was rate-limited.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-        What the client should do next in response to this error.
-
-        - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-        - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-        - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-          The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "model_rate_limited_error"`
-
-        - `"model_rate_limited_error"`
-
-    - `BetaManagedAgentsModelRequestFailedError object { message, retry_status, type }`
-
-      A model request failed for a reason other than overload or rate-limiting.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-        What the client should do next in response to this error.
-
-        - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-        - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-        - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-          The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "model_request_failed_error"`
-
-        - `"model_request_failed_error"`
-
-    - `BetaManagedAgentsMCPConnectionFailedError object { mcp_server_name, message, retry_status, type }`
-
-      Failed to connect to an MCP server.
-
-      - `mcp_server_name: string`
-
-        Name of the MCP server that failed to connect.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-        What the client should do next in response to this error.
-
-        - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-        - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-        - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-          The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "mcp_connection_failed_error"`
-
-        - `"mcp_connection_failed_error"`
-
-    - `BetaManagedAgentsMCPAuthenticationFailedError object { mcp_server_name, message, retry_status, type }`
-
-      Authentication to an MCP server failed.
-
-      - `mcp_server_name: string`
-
-        Name of the MCP server that failed authentication.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-        What the client should do next in response to this error.
-
-        - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-        - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-        - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-          The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "mcp_authentication_failed_error"`
-
-        - `"mcp_authentication_failed_error"`
-
-    - `BetaManagedAgentsBillingError object { message, retry_status, type }`
-
-      The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-        What the client should do next in response to this error.
-
-        - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-        - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-        - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-          The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "billing_error"`
-
-        - `"billing_error"`
-
-    - `BetaManagedAgentsCredentialHostUnreachableError object { credential_id, message, retry_status, 2 more }`
-
-      An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
-
-      - `credential_id: string`
-
-        ID of the affected credential.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-        What the client should do next in response to this error.
-
-        - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-        - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-        - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-          The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: "credential_host_unreachable_error"`
-
-        - `"credential_host_unreachable_error"`
-
-      - `vault_id: string`
-
-        ID of the vault containing the affected credential.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "session.error"`
-
-    - `"session.error"`
-
-### Beta Managed Agents Session Event
-
-- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 32 more`
-
-  Union type for all event types in a session.
-
-  - `BetaManagedAgentsUserMessageEvent object { id, content, type, processed_at }`
-
-    A user message event in the session conversation.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Array of content blocks comprising the user message.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource object { type, url }`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context: optional string or null`
-
-          Additional context about the document for the model.
-
-        - `title: optional string or null`
-
-          The title of the document.
-
-      - `BetaManagedAgentsRedactedBlock object { type }`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-        - `type: "redacted"`
-
-          - `"redacted"`
-
-    - `type: "user.message"`
-
-      - `"user.message"`
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-  - `BetaManagedAgentsUserInterruptEvent object { id, type, processed_at, session_thread_id }`
-
-    An interrupt event that pauses agent execution and returns control to the user.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `type: "user.interrupt"`
-
-      - `"user.interrupt"`
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: optional string or null`
-
-      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-  - `BetaManagedAgentsUserToolConfirmationEvent object { id, result, tool_use_id, 4 more }`
-
-    A tool confirmation event that approves or denies a pending tool execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `result: "allow" or "deny"`
-
-      UserToolConfirmationResult enum
-
-      - `"allow"`
-
-      - `"deny"`
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.tool_confirmation"`
-
-      - `"user.tool_confirmation"`
-
-    - `deny_message: optional string or null`
-
-      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: optional string or null`
-
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
-
-  - `BetaManagedAgentsUserCustomToolResultEvent object { id, custom_tool_use_id, type, 4 more }`
-
-    Event sent by the client providing the result of a custom tool execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `custom_tool_use_id: string`
-
-      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.custom_tool_result"`
-
-      - `"user.custom_tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-        - `citations: BetaManagedAgentsSearchResultCitations`
-
-          Citation settings for a search result.
-
-          - `enabled: boolean`
-
-            Whether citations are enabled for this search result.
-
-        - `content: array of BetaManagedAgentsSearchResultContent`
-
-          Array of text content blocks from the search result.
-
-          - `text: string`
-
-            The text content.
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `source: string`
-
-          The URL source of the search result.
-
-        - `title: string`
-
-          The title of the search result.
-
-        - `type: "search_result"`
-
-          - `"search_result"`
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: optional string or null`
-
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
-
-  - `BetaManagedAgentsAgentCustomToolUseEvent object { id, input, name, 3 more }`
-
-    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `input: map[unknown]`
-
-      Input parameters for the tool call.
-
-    - `name: string`
-
-      Name of the custom tool being called.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.custom_tool_use"`
-
-      - `"agent.custom_tool_use"`
-
-    - `session_thread_id: optional string or null`
-
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
-
-  - `BetaManagedAgentsAgentMessageEvent object { id, content, processed_at, type }`
-
-    An agent response event in the session conversation.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsRedactedBlock`
-
-      Array of text blocks comprising the agent response.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsRedactedBlock object { type }`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.message"`
-
-      - `"agent.message"`
-
-  - `BetaManagedAgentsAgentThinkingEvent object { id, processed_at, type }`
-
-    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.thinking"`
-
-      - `"agent.thinking"`
-
-  - `BetaManagedAgentsAgentMCPToolUseEvent object { id, input, mcp_server_name, 5 more }`
-
-    Event emitted when the agent invokes a tool provided by an MCP server.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `input: map[unknown]`
-
-      Input parameters for the tool call.
-
-    - `mcp_server_name: string`
-
-      Name of the MCP server providing the tool.
-
-    - `name: string`
-
-      Name of the MCP tool being used.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.mcp_tool_use"`
-
-      - `"agent.mcp_tool_use"`
-
-    - `evaluated_permission: optional "allow" or "ask" or "deny"`
-
-      AgentEvaluatedPermission enum
-
-      - `"allow"`
-
-      - `"ask"`
-
-      - `"deny"`
-
-    - `session_thread_id: optional string or null`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `BetaManagedAgentsAgentMCPToolResultEvent object { id, mcp_tool_use_id, processed_at, 3 more }`
-
-    Event representing the result of an MCP tool execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `mcp_tool_use_id: string`
-
-      The id of the `agent.mcp_tool_use` event this result corresponds to.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.mcp_tool_result"`
-
-      - `"agent.mcp_tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-  - `BetaManagedAgentsAgentToolUseEvent object { id, input, name, 4 more }`
-
-    Event emitted when the agent invokes a built-in agent tool.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `input: map[unknown]`
-
-      Input parameters for the tool call.
-
-    - `name: string`
-
-      Name of the agent tool being used.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.tool_use"`
-
-      - `"agent.tool_use"`
-
-    - `evaluated_permission: optional "allow" or "ask" or "deny"`
-
-      AgentEvaluatedPermission enum
-
-      - `"allow"`
-
-      - `"ask"`
-
-      - `"deny"`
-
-    - `session_thread_id: optional string or null`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `BetaManagedAgentsAgentToolResultEvent object { id, processed_at, tool_use_id, 3 more }`
-
-    Event representing the result of an agent tool execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` event this result corresponds to.
-
-    - `type: "agent.tool_result"`
-
-      - `"agent.tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-  - `BetaManagedAgentsAgentThreadMessageReceivedEvent object { id, content, from_session_thread_id, 3 more }`
-
-    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Message content blocks.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsRedactedBlock object { type }`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `from_session_thread_id: string`
-
-      Public `sthr_` ID of the thread that sent the message.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.thread_message_received"`
-
-      - `"agent.thread_message_received"`
-
-    - `from_agent_name: optional string or null`
-
-      Name of the callable agent this message came from. Absent when received from the primary agent.
-
-  - `BetaManagedAgentsAgentThreadMessageSentEvent object { id, content, processed_at, 3 more }`
-
-    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Message content blocks.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsRedactedBlock object { type }`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `to_session_thread_id: string`
-
-      Public `sthr_` ID of the thread the message was sent to.
-
-    - `type: "agent.thread_message_sent"`
-
-      - `"agent.thread_message_sent"`
-
-    - `to_agent_name: optional string or null`
-
-      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
-
-  - `BetaManagedAgentsAgentThreadContextCompactedEvent object { id, processed_at, type }`
-
-    Indicates that context compaction (summarization) occurred during the session.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "agent.thread_context_compacted"`
-
-      - `"agent.thread_context_compacted"`
-
-  - `BetaManagedAgentsSessionErrorEvent object { id, error, processed_at, type }`
-
-    An error event indicating a problem occurred during session execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 5 more`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `BetaManagedAgentsUnknownError object { message, retry_status, type }`
-
-        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-            - `type: "terminal"`
-
-              - `"terminal"`
-
-        - `type: "unknown_error"`
-
-          - `"unknown_error"`
-
-      - `BetaManagedAgentsModelOverloadedError object { message, retry_status, type }`
-
-        The model is currently overloaded. Emitted after automatic retries are exhausted.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "model_overloaded_error"`
-
-          - `"model_overloaded_error"`
-
-      - `BetaManagedAgentsModelRateLimitedError object { message, retry_status, type }`
-
-        The model request was rate-limited.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "model_rate_limited_error"`
-
-          - `"model_rate_limited_error"`
-
-      - `BetaManagedAgentsModelRequestFailedError object { message, retry_status, type }`
-
-        A model request failed for a reason other than overload or rate-limiting.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "model_request_failed_error"`
-
-          - `"model_request_failed_error"`
-
-      - `BetaManagedAgentsMCPConnectionFailedError object { mcp_server_name, message, retry_status, type }`
-
-        Failed to connect to an MCP server.
-
-        - `mcp_server_name: string`
-
-          Name of the MCP server that failed to connect.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "mcp_connection_failed_error"`
-
-          - `"mcp_connection_failed_error"`
-
-      - `BetaManagedAgentsMCPAuthenticationFailedError object { mcp_server_name, message, retry_status, type }`
-
-        Authentication to an MCP server failed.
-
-        - `mcp_server_name: string`
-
-          Name of the MCP server that failed authentication.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "mcp_authentication_failed_error"`
-
-          - `"mcp_authentication_failed_error"`
-
-      - `BetaManagedAgentsBillingError object { message, retry_status, type }`
-
-        The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "billing_error"`
-
-          - `"billing_error"`
-
-      - `BetaManagedAgentsCredentialHostUnreachableError object { credential_id, message, retry_status, 2 more }`
-
-        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
-
-        - `credential_id: string`
-
-          ID of the affected credential.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `BetaManagedAgentsRetryStatusRetrying object { type }`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `BetaManagedAgentsRetryStatusExhausted object { type }`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `BetaManagedAgentsRetryStatusTerminal object { type }`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "credential_host_unreachable_error"`
-
-          - `"credential_host_unreachable_error"`
-
-        - `vault_id: string`
-
-          ID of the vault containing the affected credential.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.error"`
-
-      - `"session.error"`
-
-  - `BetaManagedAgentsSessionStatusRescheduledEvent object { id, processed_at, type }`
-
-    Indicates the session is recovering from an error state and is rescheduled for execution.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.status_rescheduled"`
-
-      - `"session.status_rescheduled"`
-
-  - `BetaManagedAgentsSessionStatusRunningEvent object { id, processed_at, type }`
-
-    Indicates the session is actively running and the agent is working.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.status_running"`
-
-      - `"session.status_running"`
-
-  - `BetaManagedAgentsSessionStatusIdleEvent object { id, processed_at, stop_reason, type }`
-
-    Indicates the agent has paused and is awaiting user input.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `BetaManagedAgentsSessionEndTurn object { type }`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-        - `type: "end_turn"`
-
-          - `"end_turn"`
-
-      - `BetaManagedAgentsSessionRequiresAction object { event_ids, type }`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-        - `event_ids: array of string`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: "requires_action"`
-
-          - `"requires_action"`
-
-      - `BetaManagedAgentsSessionRetriesExhausted object { type }`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-        - `type: "retries_exhausted"`
-
-          - `"retries_exhausted"`
-
-      - `BetaManagedAgentsSessionBudgetReached object { type }`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-        - `type: "budget_reached"`
-
-          - `"budget_reached"`
-
-    - `type: "session.status_idle"`
-
-      - `"session.status_idle"`
-
-  - `BetaManagedAgentsSessionStatusTerminatedEvent object { id, processed_at, type }`
-
-    Indicates the session has terminated, either due to an error or completion.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.status_terminated"`
-
-      - `"session.status_terminated"`
-
-  - `BetaManagedAgentsSessionThreadCreatedEvent object { id, agent_name, processed_at, 2 more }`
-
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the callable agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: string`
-
-      Public `sthr_` ID of the newly created thread.
-
-    - `type: "session.thread_created"`
-
-      - `"session.thread_created"`
-
-  - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent object { id, iteration, outcome_id, 2 more }`
-
-    Emitted when an outcome evaluation cycle begins.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `iteration: number`
-
-      0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
-
-    - `outcome_id: string`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "span.outcome_evaluation_start"`
-
-      - `"span.outcome_evaluation_start"`
-
-  - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent object { id, explanation, iteration, 6 more }`
-
-    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `explanation: string`
-
-      Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
-
-    - `iteration: number`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-    - `outcome_evaluation_start_id: string`
-
-      The id of the corresponding `span.outcome_evaluation_start` event.
-
-    - `outcome_id: string`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `result: string`
-
-      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `type: "span.outcome_evaluation_end"`
-
-      - `"span.outcome_evaluation_end"`
-
-    - `usage: BetaManagedAgentsSpanModelUsage`
-
-      Token usage for a single model request.
-
-      - `cache_creation_input_tokens: number`
-
-        Tokens used to create prompt cache in this request.
-
-      - `cache_read_input_tokens: number`
-
-        Tokens read from prompt cache in this request.
-
-      - `input_tokens: number`
-
-        Input tokens consumed by this request.
-
-      - `output_tokens: number`
-
-        Output tokens generated by this request.
-
-      - `speed: optional "standard" or "fast" or null`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"`
-
-        - `"fast"`
-
-  - `BetaManagedAgentsSpanModelRequestStartEvent object { id, processed_at, type }`
-
-    Emitted when a model request is initiated by the agent.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "span.model_request_start"`
-
-      - `"span.model_request_start"`
-
-  - `BetaManagedAgentsSpanModelRequestEndEvent object { id, is_error, model_request_start_id, 3 more }`
-
-    Emitted when a model request completes.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `is_error: boolean or null`
-
-      Whether the model request resulted in an error.
-
-    - `model_request_start_id: string`
-
-      The id of the corresponding `span.model_request_start` event.
-
-    - `model_usage: BetaManagedAgentsSpanModelUsage`
-
-      Token usage for a single model request.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "span.model_request_end"`
-
-      - `"span.model_request_end"`
-
-  - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent object { id, iteration, outcome_id, 2 more }`
-
-    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `iteration: number`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-    - `outcome_id: string`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "span.outcome_evaluation_ongoing"`
-
-      - `"span.outcome_evaluation_ongoing"`
-
-  - `BetaManagedAgentsUserDefineOutcomeEvent object { id, description, max_iterations, 4 more }`
-
-    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `description: string`
-
-      What the agent should produce. Copied from the input event.
-
-    - `max_iterations: number or null`
-
-      Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-    - `outcome_id: string`
-
-      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-      Rubric for grading the quality of an outcome.
-
-      - `BetaManagedAgentsFileRubric object { file_id, type }`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `file_id: string`
-
-          ID of the rubric file.
-
-        - `type: "file"`
-
-          - `"file"`
-
-      - `BetaManagedAgentsTextRubric object { content, type }`
-
-        Rubric content provided inline as text.
-
-        - `content: string`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-        - `type: "text"`
-
-          - `"text"`
-
-    - `type: "user.define_outcome"`
-
-      - `"user.define_outcome"`
-
-  - `BetaManagedAgentsSessionDeletedEvent object { id, processed_at, type }`
-
-    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.deleted"`
-
-      - `"session.deleted"`
-
-  - `BetaManagedAgentsSessionThreadStatusRunningEvent object { id, agent_name, processed_at, 2 more }`
-
-    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that started running.
-
-    - `type: "session.thread_status_running"`
-
-      - `"session.thread_status_running"`
-
-  - `BetaManagedAgentsSessionThreadStatusIdleEvent object { id, agent_name, processed_at, 3 more }`
-
-    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that went idle.
-
-    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `BetaManagedAgentsSessionEndTurn object { type }`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-      - `BetaManagedAgentsSessionRequiresAction object { event_ids, type }`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-      - `BetaManagedAgentsSessionRetriesExhausted object { type }`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-      - `BetaManagedAgentsSessionBudgetReached object { type }`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-    - `type: "session.thread_status_idle"`
-
-      - `"session.thread_status_idle"`
-
-  - `BetaManagedAgentsSessionThreadStatusTerminatedEvent object { id, agent_name, processed_at, 2 more }`
-
-    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that terminated.
-
-    - `type: "session.thread_status_terminated"`
-
-      - `"session.thread_status_terminated"`
-
-  - `BetaManagedAgentsUserToolResultEvent object { id, tool_use_id, type, 4 more }`
-
-    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.tool_result"`
-
-      - `"user.tool_result"`
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
-
-        A block containing a web search result.
-
-    - `is_error: optional boolean or null`
-
-      Whether the tool execution resulted in an error.
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: optional string or null`
-
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-  - `BetaManagedAgentsSessionThreadStatusRescheduledEvent object { id, agent_name, processed_at, 2 more }`
-
-    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that is retrying.
-
-    - `type: "session.thread_status_rescheduled"`
-
-      - `"session.thread_status_rescheduled"`
-
-  - `BetaManagedAgentsSessionUpdatedEvent object { id, processed_at, type, 4 more }`
-
-    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.updated"`
-
-      - `"session.updated"`
-
-    - `agent: optional BetaManagedAgentsSessionAgent or null`
-
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-      - `id: string`
-
-      - `description: string or null`
-
-      - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
-
-        - `name: string`
-
-        - `type: "url"`
-
-          - `"url"`
-
-        - `url: string`
-
-      - `model: BetaManagedAgentsModelConfig`
-
-        Model identifier and configuration.
-
-        - `id: BetaManagedAgentsModel`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `"claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more`
-
-            The model that will power your agent.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-            - `"claude-sonnet-5"`
-
-              High-performance model for coding and agents
-
-            - `"claude-fable-5"`
-
-              Next generation of intelligence for the hardest knowledge work and coding problems
-
-            - `"claude-opus-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-8"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-7"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-6"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-sonnet-4-6"`
-
-              Best combination of speed and intelligence
-
-            - `"claude-haiku-4-5"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-haiku-4-5-20251001"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-opus-4-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-5-20251101"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-sonnet-4-5"`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
-
-          - `string`
-
-        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
-
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-          - `BetaManagedAgentsEffortLow object { type }`
-
-            Low effort. Favors latency over reasoning depth.
-
-            - `type: "low"`
-
-              - `"low"`
-
-          - `BetaManagedAgentsEffortMedium object { type }`
-
-            Medium effort. Balances latency and reasoning depth.
-
-            - `type: "medium"`
-
-              - `"medium"`
-
-          - `BetaManagedAgentsEffortHigh object { type }`
-
-            High effort. Favors reasoning depth.
-
-            - `type: "high"`
-
-              - `"high"`
-
-          - `BetaManagedAgentsEffortXhigh object { type }`
-
-            Extra-high effort. Not all models accept this level.
-
-            - `type: "xhigh"`
-
-              - `"xhigh"`
-
-          - `BetaManagedAgentsEffortMax object { type }`
-
-            Maximum effort. Favors reasoning depth over latency.
-
-            - `type: "max"`
-
-              - `"max"`
-
-        - `inference_geo: optional string`
-
-          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-        - `speed: optional "standard" or "fast"`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `"standard"`
-
-          - `"fast"`
-
-      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator or null`
-
-        Resolved coordinator topology with full agent definitions for each roster member.
-
-        - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
-
-          Full `agent` definitions the coordinator may spawn as session threads.
-
-          - `BetaManagedAgentsSessionThreadAgent object { id, description, mcp_servers, 7 more }`
-
-            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-            - `id: string`
-
-            - `description: string or null`
-
-            - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
-
-              - `name: string`
-
-              - `type: "url"`
-
-              - `url: string`
-
-            - `model: BetaManagedAgentsModelConfig`
-
-              Model identifier and configuration.
-
-            - `name: string`
-
-            - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
-
-              - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
-
-                A resolved Anthropic-managed skill.
-
-                - `skill_id: string`
-
-                - `type: "anthropic"`
-
-                  - `"anthropic"`
-
-                - `version: string`
-
-              - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
-
-                A resolved user-created custom skill.
-
-                - `skill_id: string`
-
-                - `type: "custom"`
-
-                  - `"custom"`
-
-                - `version: string`
-
-            - `system: string or null`
-
-            - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
-
-              - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
-
-                - `configs: array of BetaManagedAgentsAgentToolConfig`
-
-                  - `enabled: boolean`
-
-                  - `name: "bash" or "edit" or "read" or 5 more`
-
-                    Built-in agent tool identifier.
-
-                    - `"bash"`
-
-                    - `"edit"`
-
-                    - `"read"`
-
-                    - `"write"`
-
-                    - `"glob"`
-
-                    - `"grep"`
-
-                    - `"web_fetch"`
-
-                    - `"web_search"`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                      - `type: "always_allow"`
-
-                        - `"always_allow"`
-
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
-
-                      Tool calls require user confirmation before execution.
-
-                      - `type: "always_ask"`
-
-                        - `"always_ask"`
-
-                - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                  Resolved default configuration for agent tools.
-
-                  - `enabled: boolean`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
-
-                      Tool calls require user confirmation before execution.
-
-                - `type: "agent_toolset_20260401"`
-
-                  - `"agent_toolset_20260401"`
-
-              - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
-
-                - `configs: array of BetaManagedAgentsMCPToolConfig`
-
-                  - `enabled: boolean`
-
-                  - `name: string`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
-
-                      Tool calls require user confirmation before execution.
-
-                - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                  Resolved default configuration for all tools from an MCP server.
-
-                  - `enabled: boolean`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
-
-                      Tool calls require user confirmation before execution.
-
-                - `mcp_server_name: string`
-
-                - `type: "mcp_toolset"`
-
-                  - `"mcp_toolset"`
-
-              - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
-
-                A custom tool as returned in API responses.
-
-                - `description: string`
-
-                - `input_schema: BetaManagedAgentsCustomToolInputSchema`
-
-                  JSON Schema for custom tool input parameters.
-
-                  - `type: "object"`
-
-                    - `"object"`
-
-                  - `properties: optional map[unknown] or null`
-
-                  - `required: optional array of string or null`
-
-                - `name: string`
-
-                - `type: "custom"`
-
-                  - `"custom"`
-
-            - `type: "agent"`
-
-              - `"agent"`
-
-            - `version: number`
-
-          - `BetaManagedAgentsAdvisor object { model, type }`
-
-            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-            - `model: string`
-
-              The advisor model id.
-
-            - `type: "advisor"`
-
-              - `"advisor"`
-
-        - `type: "coordinator"`
-
-          - `"coordinator"`
-
-      - `name: string`
-
-      - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
-
-        - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
-
-          A resolved Anthropic-managed skill.
-
-        - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
-
-          A resolved user-created custom skill.
-
-      - `system: string or null`
-
-      - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
-
-        - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
-
-        - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
-
-        - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
-
-          A custom tool as returned in API responses.
-
-      - `type: "agent"`
-
-        - `"agent"`
-
-      - `version: number`
-
-    - `budget: optional BetaManagedAgentsBudgetLimit or null`
-
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-      - `max_list_cost: BetaMonetaryAmount`
-
-        A monetary amount in a specific currency.
-
-        - `amount: string`
-
-          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-        - `currency: BetaCurrency`
-
-          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-          - `"USD"`
-
-      - `type: "limit"`
-
-        - `"limit"`
-
-    - `metadata: optional map[string]`
-
-      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
-
-    - `title: optional string or null`
-
-      The session's new title. Present only when the update changed it.
-
-  - `BetaManagedAgentsSystemMessageEvent object { id, content, type, processed_at }`
-
-    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsSystemContentBlock`
-
-      System content blocks. Text-only.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `type: "system.message"`
-
-      - `"system.message"`
-
-    - `processed_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-  - `BetaManagedAgentsSessionUsageEvent object { id, processed_at, type, 2 more }`
-
-    Periodic snapshot of the session's cumulative usage and tracked list cost.
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "session.usage"`
-
-      - `"session.usage"`
-
-    - `usage: BetaManagedAgentsSessionUsageSnapshot`
-
-      Point-in-time snapshot of a session's cumulative usage.
-
-      - `active_seconds: optional number`
-
-        Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
-
-      - `cache_creation: optional BetaManagedAgentsCacheCreationUsage`
-
-        Prompt-cache creation token usage broken down by cache lifetime.
-
-        - `ephemeral_1h_input_tokens: optional number`
-
-          Tokens used to create 1-hour ephemeral cache entries.
-
-        - `ephemeral_5m_input_tokens: optional number`
-
-          Tokens used to create 5-minute ephemeral cache entries.
-
-      - `cache_read_input_tokens: optional number`
-
-        Total tokens read from prompt cache.
-
-      - `input_tokens: optional number`
-
-        Total input tokens consumed across all turns.
-
-      - `list_cost: optional BetaMonetaryAmount`
-
-        A monetary amount in a specific currency.
-
-      - `output_tokens: optional number`
-
-        Total output tokens generated across all turns.
-
-      - `server_tool_use: optional BetaManagedAgentsServerToolUsage`
-
-        Cumulative count of server-executed tool invocations, broken down by tool.
-
-        - `web_fetch_requests: optional number`
-
-          Number of server-executed web fetch requests.
-
-        - `web_search_requests: optional number`
-
-          Number of server-executed web search requests.
-
-    - `budget: optional BetaManagedAgentsBudgetLimit or null`
-
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-### Beta Managed Agents Session Requires Action
-
-- `BetaManagedAgentsSessionRequiresAction object { event_ids, type }`
-
-  The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-  - `event_ids: array of string`
-
-    The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-  - `type: "requires_action"`
-
-    - `"requires_action"`
-
-### Beta Managed Agents Session Retries Exhausted
-
-- `BetaManagedAgentsSessionRetriesExhausted object { type }`
-
-  The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-  - `type: "retries_exhausted"`
-
-    - `"retries_exhausted"`
-
-### Beta Managed Agents Session Status Idle Event
-
-- `BetaManagedAgentsSessionStatusIdleEvent object { id, processed_at, stop_reason, type }`
-
-  Indicates the agent has paused and is awaiting user input.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
-
-    The agent completed its turn naturally and is ready for the next user message.
-
-    - `BetaManagedAgentsSessionEndTurn object { type }`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `type: "end_turn"`
-
-        - `"end_turn"`
-
-    - `BetaManagedAgentsSessionRequiresAction object { event_ids, type }`
-
-      The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-      - `event_ids: array of string`
-
-        The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-      - `type: "requires_action"`
-
-        - `"requires_action"`
-
-    - `BetaManagedAgentsSessionRetriesExhausted object { type }`
-
-      The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-      - `type: "retries_exhausted"`
-
-        - `"retries_exhausted"`
-
-    - `BetaManagedAgentsSessionBudgetReached object { type }`
-
-      The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-      - `type: "budget_reached"`
-
-        - `"budget_reached"`
-
-  - `type: "session.status_idle"`
-
-    - `"session.status_idle"`
-
-### Beta Managed Agents Session Status Rescheduled Event
-
-- `BetaManagedAgentsSessionStatusRescheduledEvent object { id, processed_at, type }`
-
-  Indicates the session is recovering from an error state and is rescheduled for execution.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "session.status_rescheduled"`
-
-    - `"session.status_rescheduled"`
-
-### Beta Managed Agents Session Status Running Event
-
-- `BetaManagedAgentsSessionStatusRunningEvent object { id, processed_at, type }`
-
-  Indicates the session is actively running and the agent is working.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "session.status_running"`
-
-    - `"session.status_running"`
-
-### Beta Managed Agents Session Status Terminated Event
-
-- `BetaManagedAgentsSessionStatusTerminatedEvent object { id, processed_at, type }`
-
-  Indicates the session has terminated, either due to an error or completion.
-
-  - `id: string`
-
-    Unique identifier for this event.
-
-  - `processed_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "session.status_terminated"`
-
-    - `"session.status_terminated"`
-
-### Beta Managed Agents Session Thread Created Event
-
-- `BetaManagedAgentsSessionThreadCreatedEvent object { id, agent_name, processed_at, 2 more }`

@@ -6,11 +6,12 @@
 
 Search, analyze, and act on client conversations
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/352baac0-d2ab-4458-ba9a-85bf162f0980)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Attention](https://attention.com)
 

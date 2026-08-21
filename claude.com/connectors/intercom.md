@@ -6,11 +6,12 @@
 
 AI access to Intercom data for better customer insights
 
+* Category
+
   Communication
 * Used in
 
   [Claude](http://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Intercom](https://intercom.com)
 

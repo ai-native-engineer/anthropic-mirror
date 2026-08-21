@@ -8,7 +8,6 @@ Streamline finance workflows: journal entries, reconciliation, financial stateme
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=finance)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

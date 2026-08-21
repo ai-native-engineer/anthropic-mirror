@@ -6,11 +6,12 @@
 
 Connect Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads + 320 more
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/360c0c31-4bb6-42ca-8e50-5da0a100a68e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Windsor.ai](https://windsor.ai/)
 

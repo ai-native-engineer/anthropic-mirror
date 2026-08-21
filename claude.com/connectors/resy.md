@@ -6,11 +6,12 @@
 
 Find and book restaurants instantly
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/75a4ea23-ea67-4ac4-b380-fb107d8ca620)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Resy](https://resy.com/)
 

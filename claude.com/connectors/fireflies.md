@@ -6,11 +6,12 @@
 
 Analyze and generate insights from meeting transcripts
 
+* Category
+
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/839a0ae2-0c0f-4c27-9f85-726ed6515536)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Firefiles](https://fireflies.ai)
 

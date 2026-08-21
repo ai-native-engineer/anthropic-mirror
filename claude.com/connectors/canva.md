@@ -6,11 +6,12 @@
 
 Search, create, autofill, and export Canva designs from a prompt
 
+* Category
+
   Design
 * Used in
 
   [Claude](http://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Canva](https://canva.com/)
 

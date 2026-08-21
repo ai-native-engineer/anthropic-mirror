@@ -6,13 +6,14 @@
 
 Zoho Desk MCP for Customer Support Automation
 
+* Category
+
   Productivity
 
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/680aa72d-df6e-456f-b3c1-177f04b211c4)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Zoho](https://www.zoho.com/mcp/)
 

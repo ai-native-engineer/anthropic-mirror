@@ -31,5 +31,3 @@ We’re proud to share the addition of two new members to the Anthropic Economic
 
 * **Dr. Chiara Farronato,** Glenn and Mary Jane Creamer Associate Professor of Business Administration at Harvard Business School and co-Principal Investigator of the Platform Lab at the Digital Data Design Institute at Harvard (D^3). A fellow at the NBER and the CEPR, her research focuses on the growth and regulation of digital platforms.
 * **Dr. Pascual Restrepo**, Associate Professor of Economics at Yale University and a Faculty Research Fellow at the NBER. Restrepo’s research examines how technological change—particularly automation and artificial intelligence—affects labor markets, productivity, and inequality. His research combines empirical methods with macroeconomic and labor market theory.
-
-Introducing the Anthropic Economic Advisory Council \ Anthropic

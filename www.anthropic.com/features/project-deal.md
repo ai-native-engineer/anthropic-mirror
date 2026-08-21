@@ -400,5 +400,3 @@ Footnotes
 12. The estimated effect of prompting aggressive negotiating is +$0.56, p = 0.778. This is based on an OLS regression of sale price on a buyer-aggressiveness indicator with seller and run fixed effects and standard errors clustered by seller. See Appendix.
 13. Indeed, this finding is somewhat in tension with Imas, Lee, and Misra ([2025](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5875162)), who find that demographic characteristics and prompting strategies of humans affect agent performance.
 14. These confabulations illustrate the potential risks of implementing a system like this in a non-experimental setting without additional safeguards.
-
-Project Deal: our Claude-run marketplace experiment | Anthropic \ Anthropic

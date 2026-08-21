@@ -6,11 +6,12 @@
 
 Thomson Reuters CoCounsel Legal, in Claude
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/084ce5af-6b81-471a-a754-d1a50d3f61a1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Thomson Reuters](https://www.thomsonreuters.com/en)
 

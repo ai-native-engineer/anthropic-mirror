@@ -6,11 +6,12 @@
 
 Find and engage with verified nonprofits
 
+* Category
+
   Nonprofit
 * Used in
 
   [Claude](https://claude.ai/directory/de72cab2-21e3-486f-b774-b35b6dded1d8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Benevity](https://www.benevity.com/)
 

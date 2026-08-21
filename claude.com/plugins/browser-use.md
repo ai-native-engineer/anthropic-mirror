@@ -7,7 +7,6 @@ Give Claude a real browser — your Chrome or a Browser Use Cloud browser. Use i
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Browser Use](#)
 * Installs

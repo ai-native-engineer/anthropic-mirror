@@ -354,28 +354,6 @@ One task ends and another begins, with you in the loop.
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fe0b1077ba2e50ef78c421_img_smb-progress.webp)
 
-## Join a free workshop in your city
-
-Learn how to put AI to work at a local event. Can’t make an event? Take the AI Fluency course online.
-
-title
-
-Location
-
-Date
-
-No items found.
-
-Course
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69f8f37c9ed80e935dfbfaab_img_ai-fluency-marginalia.jpg)
-
-Can’t make an in-person event? Take the AI Fluency course, co-presented with PayPal.
-
-Enroll now
-
-[Enroll now](https://anthropic.skilljar.com/ai-fluency-for-small-businesses)Enroll now
-
 ## FAQ
 
 ### Do you train on my business data?

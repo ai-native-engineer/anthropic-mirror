@@ -15,8 +15,8 @@ Below are a set of strategies and recommendations for adapting to model transiti
 
 These strategies aren’t perfect and can only go so far toward preserving or replicating the unique experience of interacting with a particular model, which we recognize is intrinsically important to many users. We’re taking **[other early steps](https://www.anthropic.com/research/deprecation-commitments)** toward ensuring model preservation post-retirement, and someday aim to make past models publicly available again in some form.
 
-* [What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)
 * [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
+* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
-* [Claude Code champion kit](https://support.claude.com/en/articles/14555399-claude-code-champion-kit)
+* [Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)

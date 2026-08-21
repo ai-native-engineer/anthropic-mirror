@@ -6,11 +6,12 @@
 
 Query, create, update, and search your Dataverse data
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/b259a33c-3058-4252-94a6-478ec2babcc8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Microsoft](https://www.microsoft.com/)
 

@@ -6,11 +6,12 @@
 
 Instant air cargo rates, quotes & tracking
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/7faad730-e6ed-4eef-8e43-cb76c88399ce)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [CargoAi](https://www.cargoai.co)
 

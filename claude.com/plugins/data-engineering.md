@@ -7,7 +7,6 @@ Data engineering plugin - warehouse exploration, pipeline authoring, Airflow int
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Astronomer](https://www.astronomer.io)
 * Installs

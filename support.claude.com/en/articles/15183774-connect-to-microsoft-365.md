@@ -69,6 +69,18 @@ When Claude sends an email, it includes a message header identifying it as agent
 
 **Note:** Attachments aren't currently supported in write tools—Claude can't send, forward, or draft emails with attachments.
 
+## Supported file types
+
+When reading files from SharePoint and OneDrive, Claude can open these formats:
+
+* **Word, Excel, and PowerPoint**, including older .doc, .xls, and .ppt files
+* **PDF**
+* **Plain-text files**: .txt, .md, .csv, .tsv, .json, .xml, .html, .htm, and .log
+
+Files in any other format can't be read. They still appear in search results because they're ordinary files in your libraries, but when Claude tries to open one, you'll see a "mime type '...' is not allowed" error.
+
+**Note:** OneNote isn't supported. Notebooks show up in search results, but read attempts return a "mime type 'application/msonenote' is not allowed" error. To bring OneNote content into Claude, export pages or sections to Word or PDF in the same library.
+
 ## Manage your connection
 
 ### Turn individual tools on or off
@@ -160,6 +172,10 @@ Be specific in your prompts:
 
 No, `Sites.Selected` is not supported, so you can't scope the Microsoft 365 connector to an allowlist of specific SharePoint sites. The connector searches across all SharePoint content you already have permission to access.
 
+### Why can't Claude read OneNote notebooks?
+
+OneNote isn't currently a supported file type. Notebooks show up in SharePoint search results because they're ordinary files in your libraries, but Claude can't open them, so read attempts return a "mime type 'application/msonenote' is not allowed" error. To work with OneNote content in Claude, export pages or sections to Word or PDF. For the full list of formats Claude can read, see **[Supported file types](#h_ddeb82923f)** above.
+
 ### Can Claude search shared mailboxes?
 
 Yes. Claude can search shared mailboxes you have delegate access to in Microsoft 365. This includes full access shared mailboxes and folder-level delegation, such as when you can see only the inbox of another mailbox. Search access follows your existing Microsoft 365 permissions: if you can open a shared mailbox in Outlook, Claude can search it.
@@ -184,8 +200,8 @@ Only ones you're a member of. Claude mirrors your Microsoft 365 permissions, so 
 
 You'll see an error indicating that an administrator must grant app permissions before you can connect. Ask your organization’s Microsoft Entra Global Administrator to complete consent. If you're on a Team or Enterprise plan, your Claude organization owner also needs to enable Microsoft 365 in organization settings.
 
+* [Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
 * [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
 * [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
-* [Use Claude in Microsoft Foundry](https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry)
-* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
+* [Work across Microsoft 365 apps](https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)

@@ -40,6 +40,7 @@ Each paired workspace already has a scope; bind a bundle in the scope’s **Acce
 
 Channels Claude was added to appear on the **Slack** tab automatically, each as a scope under its workspace. To give one of these channels access beyond the workspace baseline, select its row and bind bundles in the scope’s **Access bundles** section. A channel row shows the name an admin gave the scope, the channel’s name in Slack, or the raw channel ID.
 To find a channel, use the **Search channels** field. It matches channel names and channel IDs (pasting a channel link copied from Slack also works), and searching a workspace’s name shows that workspace’s channels.
+To bind one bundle to several channels in one pass, open the bundle from a scope’s **Access bundles** section on the **Slack** tab and select **Add to channels**. The dialog lists channel scopes grouped by workspace, with a search field and a checkbox per channel. Check the channels you want and select **Add**. The bundle binds to each checked channel, and channels it’s already bound to directly are marked **Already added**.
 A channel that doesn’t appear in the list yet needs a scope created for it:
 
 1. On [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), find the workspace on the **Slack** tab under **Claude Tag’s access** and select **Add channel**.
@@ -49,6 +50,11 @@ A channel that doesn’t appear in the list yet needs a scope created for it:
 In a channel shared across more than one workspace in your Enterprise Grid, bundles bound to the channel or its workspace don’t apply. See [Channels shared across workspaces in your Enterprise Grid](https://claude.com/docs/claude-tag/admins/restrict-access#channels-shared-across-workspaces-in-your-enterprise-grid) for what Claude does there instead.
 
 A bundle attached to a public channel grants its access to anyone who joins that channel. In most Slack workspaces, anyone can join a public channel, so the channel’s join policy becomes the effective access control for whatever the bundle grants. Keep elevated credentials in private-channel scopes.
+
+###  Attach a single repository or connector
+
+To grant a single repository or connector without opening a bundle first, use the **Repositories** and **Connectors** sections on the scope’s own panel and select the **+** button (**Add repo** or **Add connector**). When you save the repository or finish connecting, the item is attached to that scope.
+The grant still lives in a bundle. The item is added to the bundle that was created for that scope, or to the scope’s only bundle when that bundle is bound nowhere else, and otherwise a new bundle is created for the scope. If the bundle created for the scope is now bound to other scopes too, the add is refused with a message telling you to manage that bundle’s repositories and connectors in **Access bundles** instead, so adding here never widens another scope’s access.
 
 ##  Precedence when bundles overlap
 
@@ -64,7 +70,7 @@ When two bundles each carry a credential for the same host:
 
 ###  Repositories and plugins
 
-Repository grants and plugins from every bound bundle are combined as a union; a channel gets every repo and plugin from any bundle in its chain. The **Access summary** section, shown when you select a scope on the Slack tab, lists the resolved set.
+Repository grants and plugins from every bound bundle are combined as a union; a channel gets every repo and plugin from any bundle in its chain. The **Access summary** section, shown when a scope you select on the Slack tab has any resolved connections or repositories, lists them with the bundle each one comes from. Plugins aren’t listed there. The scope’s **Plugins** section shows only the plugins attached at that scope, and plugins inherited from wider scopes and from bundles apply without appearing in it.
 
 ###  Custom instructions
 
@@ -76,7 +82,7 @@ Three kinds of standing instruction can apply in a channel, written by different
 
 | Layer | Who writes it | Where |
 | --- | --- | --- |
-| Custom instructions | Owner for any scope; channel members for the channel scope, unless [restricted](#restrict-who-can-set-channel-instructions) | The scope’s panel in admin settings, or the **Configure** link in any reply footer for the channel scope |
+| Custom instructions | Owner for any scope; channel members and [channel managers](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) for the channel scope, unless members are [restricted](#restrict-who-can-set-channel-instructions) | The scope’s panel in admin settings, or the **Configure** link in any reply footer for the channel scope |
 | Channel memory | Anyone in the channel | By telling Claude to remember |
 | Task prompt | The requester | The message itself |
 
@@ -99,7 +105,7 @@ By default, anyone in a channel who is also a member of your Claude organization
 | **Allow** | Members can edit channel instructions from the Configure link |
 | **Block** | The Configure page is read-only for members, with a note that only admins can change channel instructions |
 
-A chain of scopes that all inherit resolves to **Allow**. Set **Block** at the workspace or Default Slack access scope to lock channel instructions across every channel beneath it.
+A chain of scopes that all inherit resolves to **Allow**. Set **Block** at the workspace or Default Slack access scope to lock channel instructions across every channel beneath it. A [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) can still edit instructions in a channel assigned to them when **Block** is set.
 
 ##  Verify the bundle is live
 

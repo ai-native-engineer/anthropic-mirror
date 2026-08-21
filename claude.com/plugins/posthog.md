@@ -7,7 +7,6 @@ Connect Claude Code to PostHog. Query analytics, manage flags, run A/B tests, tr
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [PostHog](https://posthog.com)
 * Installs

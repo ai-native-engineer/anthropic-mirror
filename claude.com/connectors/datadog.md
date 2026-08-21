@@ -6,11 +6,12 @@
 
 Debug and resolve issues using Datadog telemetry
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/68268024-1a91-4316-a9e1-14ecb814cb18)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Datadog](https://www.datadoghq.com)
 

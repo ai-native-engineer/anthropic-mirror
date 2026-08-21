@@ -6,11 +6,12 @@
 
 Analyze campaigns, know your audience and create drafts
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/01a9fda6-bd91-4f02-af05-d8e4c3f4f556)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Brevo](https://www.brevo.com/)
 

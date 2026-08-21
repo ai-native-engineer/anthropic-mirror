@@ -6,11 +6,12 @@
 
 Design surveys, collect responses, and analyze results
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/58ff478e-b9b7-47c9-8253-78fb9364513a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [SurveyMonkey](https://www.surveymonkey.com/)
 

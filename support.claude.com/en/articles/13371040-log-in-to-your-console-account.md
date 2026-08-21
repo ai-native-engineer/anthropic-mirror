@@ -2,7 +2,7 @@
 
 When you navigate to the **[Claude Console](https://platform.claude.com)**, you will see two different options for logging in to your Console account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1786926600&signature=50f5299289245d19cb13add46f67e11ac3fa52b05a59f6654782585d763de764&req=dSkkE8l8m4dbX%2FMW1HO4zcrI54%2FlooYL8vUNcPt4%2B73G86xpXeT94k5rwGR3%0AjZ6W0yShyXVZYbDm9pc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1786926600&signature=50f5299289245d19cb13add46f67e11ac3fa52b05a59f6654782585d763de764&req=dSkkE8l8m4dbX%2FMW1HO4zcrI54%2FlooYL8vUNcPt4%2B73G86xpXeT94k5rwGR3%0AjZ6W0yShyXVZYbDm9pc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1787298300&signature=59c32f82dbdce2b5085c0149bceb11b4020fc50b76b50e0818c149bcaaee20be&req=dSkkE8l8m4dbX%2FMW1HO4zcrI547uqYgO8vUNcPt4%2B72uhp12vENZkzgYLI83%0AVTyyd0rL9dnByo4OAJA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1787298300&signature=59c32f82dbdce2b5085c0149bceb11b4020fc50b76b50e0818c149bcaaee20be&req=dSkkE8l8m4dbX%2FMW1HO4zcrI547uqYgO8vUNcPt4%2B72uhp12vENZkzgYLI83%0AVTyyd0rL9dnByo4OAJA%3D%0A)
 
 ## Continue with Google
 
@@ -66,7 +66,7 @@ If you've previously authenticated using Google, you can follow these steps to u
 
 ### Can I have both a Claude account and a Console account?
 
-Yes, you can have both a Claude account (for using Claude at claude.ai) and a Console account (for accessing the Workbench and Claude API). These are separate accounts, though you can use the same email address for both. Learn more in **[Can I have a Claude account and a Console account?](https://support.claude.com/en/articles/8987223-can-i-have-a-claude-account-and-a-console-account)**
+Yes, you can have both a Claude account (for using Claude at claude.ai) and a Console account (for accessing the playground and Claude API). These are separate accounts, though you can use the same email address for both. Learn more in **[Can I have a Claude account and a Console account?](https://support.claude.com/en/articles/8987223-can-i-have-a-claude-account-and-a-console-account)**
 
 * [How do I log out of all active sessions?](https://support.claude.com/en/articles/10310342-how-do-i-log-out-of-all-active-sessions)
 * [Set up single sign-on (SSO)](https://support.claude.com/en/articles/13132885-set-up-single-sign-on-sso)

@@ -7,7 +7,6 @@ Airwallex CLI plugin for Claude — skills for payments, billing, invoicing, ben
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Airwallex](#)
 * Installs

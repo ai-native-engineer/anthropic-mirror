@@ -20,6 +20,6 @@ Note that if you have an active paid Claude subscription and would like to unins
 
 * [Cancel your Pro or Max subscription](https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription)
 * [Paid plan billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)
+* [Delete your Claude account](https://support.claude.com/en/articles/9028421-delete-your-claude-account)
 * [Install Claude for Android](https://support.claude.com/en/articles/9612887-install-claude-for-android)
-* [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)

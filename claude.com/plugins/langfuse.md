@@ -7,7 +7,6 @@ Skills for Langfuse: open-source LLM platform for tracing, prompts, and evaluati
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Langfuse](https://langfuse.com)
 * Installs

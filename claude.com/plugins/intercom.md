@@ -7,7 +7,6 @@ Intercom integration for Claude Code. Search conversations, analyze customer sup
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Intercom](https://intercom.com)
 * Installs

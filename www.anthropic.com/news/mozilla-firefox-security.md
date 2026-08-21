@@ -84,5 +84,3 @@ We urge developers to take advantage of this window to redouble their efforts to
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
-
-Partnering with Mozilla to improve Firefox’s security \ Anthropic

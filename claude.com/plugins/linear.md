@@ -7,7 +7,6 @@ Linear integration: create issues, manage projects, update statuses, search work
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Linear](https://linear.app)
 * Installs

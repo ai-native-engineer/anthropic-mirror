@@ -7,7 +7,6 @@ Agent skills for Azure SQL Developer, the Azure SQL Database engine running loca
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Microsoft](#)
 * Installs

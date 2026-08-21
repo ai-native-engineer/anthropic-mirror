@@ -6,11 +6,12 @@
 
 Automate workflows across thousands of apps via conversation
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](http://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Zapier](https://zapier.com)
 

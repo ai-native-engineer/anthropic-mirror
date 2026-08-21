@@ -7,7 +7,6 @@ Carta Investors plugin — skills for querying investor data, performance benchm
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Carta Engineering](#)
 * Installs

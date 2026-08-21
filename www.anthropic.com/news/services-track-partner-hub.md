@@ -50,5 +50,3 @@ For firms building a Claude practice, this program is meant to reward real work 
 ## **What’s next**
 
 Specializations for specific industries and use cases are coming, along with rewards that grow as a partner’s deployments grow. Getting started is free. Firms gain Anthropic Partner Academy access, including certification exams, with tiered partners receiving discounted rates on their first attempt, and new applicants start at Registered, the program’s entry level, with a minimum commitment to 10 certified practitioners. Partnership begins at Select. The requirements are the same for every firm. Learn more at [claude.com/partners](http://claude.com/partners).
-
-Introducing the Services Track and Partner Hub of the Claude Partner Network \ Anthropic

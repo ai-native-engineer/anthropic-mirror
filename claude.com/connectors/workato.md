@@ -6,11 +6,12 @@
 
 Automate workflows and connect your business apps
 
+* Category
+
   No items found.
 * Used in
 
   [Claude](http://claude.ai/directory/7c57d0b0-7fe0-4ca9-9ead-932fcb929e57)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Workato](https://www.workato.com/)
 

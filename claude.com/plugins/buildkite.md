@@ -7,7 +7,6 @@ Official Buildkite skills for Claude Code, Cursor, and other AI coding agents â€
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Buildkite](#)
 * Installs

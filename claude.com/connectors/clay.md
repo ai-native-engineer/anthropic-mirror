@@ -6,11 +6,12 @@
 
 Find prospects. Research accounts. Personalize outreach
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/a8159026-14b4-403a-933b-bd897a5b36ca)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Clay](https://clay.com/)
 

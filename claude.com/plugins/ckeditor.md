@@ -7,7 +7,6 @@ Install, configure, and integrate CKEditor 5 (free and premium) in any JavaScrip
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [CKEditor (CKSource)](https://ckeditor.com)
 * Installs

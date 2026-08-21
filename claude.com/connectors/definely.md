@@ -6,11 +6,12 @@
 
 Structured contract review tools for legal teams
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/ef1f5dc0-3c66-4834-b734-a6a144f6d7bd)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Definely](https://www.definely.com/)
 

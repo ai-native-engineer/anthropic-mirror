@@ -6,11 +6,12 @@
 
 Bring all your data in one place & connect it to Claude
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/b9b882ab-aa77-4fb3-b554-0d2f3b0335cc)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Polar Analytics](https://www.polaranalytics.com/ai/mcp)
 

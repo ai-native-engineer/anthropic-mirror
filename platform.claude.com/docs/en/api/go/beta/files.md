@@ -9,7 +9,7 @@ url: https://platform.claude.com/docs/en/api/go/beta/files
 
 ## Upload File
 
-`client.Beta.Files.Upload(ctx, params) (*FileMetadata, error)`
+`client.Beta.Files.Upload(ctx, params) (*BetaFileMetadata, error)`
 
 **post** `/v1/files`
 
@@ -75,6 +75,8 @@ Upload File
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -99,7 +101,7 @@ Upload File
 
 ### Returns
 
-- `type FileMetadata struct{…}`
+- `type BetaFileMetadata struct{…}`
 
   - `ID string`
 
@@ -168,13 +170,13 @@ func main() {
 	client := anthropic.NewClient(
 		option.WithAPIKey("my-anthropic-api-key"),
 	)
-	fileMetadata, err := client.Beta.Files.Upload(context.TODO(), anthropic.BetaFileUploadParams{
+	betaFileMetadata, err := client.Beta.Files.Upload(context.TODO(), anthropic.BetaFileUploadParams{
 		File: io.Reader(bytes.NewBuffer([]byte("Example data"))),
 	})
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Printf("%+v\n", fileMetadata.ID)
+	fmt.Printf("%+v\n", betaFileMetadata.ID)
 }
 ```
 
@@ -198,7 +200,7 @@ func main() {
 
 ## List Files
 
-`client.Beta.Files.List(ctx, params) (*Page[FileMetadata], error)`
+`client.Beta.Files.List(ctx, params) (*Page[BetaFileMetadata], error)`
 
 **get** `/v1/files`
 
@@ -278,6 +280,8 @@ List Files
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -302,7 +306,7 @@ List Files
 
 ### Returns
 
-- `type FileMetadata struct{…}`
+- `type BetaFileMetadata struct{…}`
 
   - `ID string`
 
@@ -470,6 +474,8 @@ Download File
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -527,7 +533,7 @@ func main() {
 
 ## Get File Metadata
 
-`client.Beta.Files.GetMetadata(ctx, fileID, query) (*FileMetadata, error)`
+`client.Beta.Files.GetMetadata(ctx, fileID, query) (*BetaFileMetadata, error)`
 
 **get** `/v1/files/{file_id}`
 
@@ -593,6 +599,8 @@ Get File Metadata
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -617,7 +625,7 @@ Get File Metadata
 
 ### Returns
 
-- `type FileMetadata struct{…}`
+- `type BetaFileMetadata struct{…}`
 
   - `ID string`
 
@@ -684,7 +692,7 @@ func main() {
 	client := anthropic.NewClient(
 		option.WithAPIKey("my-anthropic-api-key"),
 	)
-	fileMetadata, err := client.Beta.Files.GetMetadata(
+	betaFileMetadata, err := client.Beta.Files.GetMetadata(
 		context.TODO(),
 		"file_id",
 		anthropic.BetaFileGetMetadataParams{},
@@ -692,7 +700,7 @@ func main() {
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Printf("%+v\n", fileMetadata.ID)
+	fmt.Printf("%+v\n", betaFileMetadata.ID)
 }
 ```
 
@@ -716,7 +724,7 @@ func main() {
 
 ## Delete File
 
-`client.Beta.Files.Delete(ctx, fileID, body) (*DeletedFile, error)`
+`client.Beta.Files.Delete(ctx, fileID, body) (*BetaDeletedFile, error)`
 
 **delete** `/v1/files/{file_id}`
 
@@ -782,6 +790,8 @@ Delete File
 
       - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
+      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -806,19 +816,19 @@ Delete File
 
 ### Returns
 
-- `type DeletedFile struct{…}`
+- `type BetaDeletedFile struct{…}`
 
   - `ID string`
 
     ID of the deleted file.
 
-  - `Type DeletedFileType`
+  - `Type BetaDeletedFileType`
 
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
 
-    - `const DeletedFileTypeFileDeleted DeletedFileType = "file_deleted"`
+    - `const BetaDeletedFileTypeFileDeleted BetaDeletedFileType = "file_deleted"`
 
 ### Example
 
@@ -837,7 +847,7 @@ func main() {
 	client := anthropic.NewClient(
 		option.WithAPIKey("my-anthropic-api-key"),
 	)
-	deletedFile, err := client.Beta.Files.Delete(
+	betaDeletedFile, err := client.Beta.Files.Delete(
 		context.TODO(),
 		"file_id",
 		anthropic.BetaFileDeleteParams{},
@@ -845,7 +855,7 @@ func main() {
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Printf("%+v\n", deletedFile.ID)
+	fmt.Printf("%+v\n", betaDeletedFile.ID)
 }
 ```
 
@@ -860,39 +870,25 @@ func main() {
 
 ## Domain Types
 
-### Beta File Scope
+### Beta Deleted File
 
-- `type BetaFileScope struct{…}`
-
-  - `ID string`
-
-    The ID of the scoping resource (e.g., the session ID).
-
-  - `Type Session`
-
-    The type of scope (e.g., `"session"`).
-
-    - `const SessionSession Session = "session"`
-
-### Deleted File
-
-- `type DeletedFile struct{…}`
+- `type BetaDeletedFile struct{…}`
 
   - `ID string`
 
     ID of the deleted file.
 
-  - `Type DeletedFileType`
+  - `Type BetaDeletedFileType`
 
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
 
-    - `const DeletedFileTypeFileDeleted DeletedFileType = "file_deleted"`
+    - `const BetaDeletedFileTypeFileDeleted BetaDeletedFileType = "file_deleted"`
 
-### File Metadata
+### Beta File Metadata
 
-- `type FileMetadata struct{…}`
+- `type BetaFileMetadata struct{…}`
 
   - `ID string`
 
@@ -941,3 +937,17 @@ func main() {
       The type of scope (e.g., `"session"`).
 
       - `const SessionSession Session = "session"`
+
+### Beta File Scope
+
+- `type BetaFileScope struct{…}`
+
+  - `ID string`
+
+    The ID of the scoping resource (e.g., the session ID).
+
+  - `Type Session`
+
+    The type of scope (e.g., `"session"`).
+
+    - `const SessionSession Session = "session"`

@@ -56,7 +56,7 @@ For multi-region organizations, deploy distinct MDM configuration profiles per g
 ##  Public sector and highly regulated environments
 
 This section applies when using Google Cloud’s Agent Platform or Amazon Bedrock.
-Because inference runs in your cloud tenant, Claude Desktop on 3P operates inside whatever compliance boundary your provider and region give you. The desktop application itself contacts Anthropic-operated hosts only to download the VM workspace bundle and Claude CLI binary (always required), and for crash reporting, product analytics, non-essential services (connector favicons, artifact previews, and the MCP registry), and auto-updates. Each of the latter four can be disabled independently via managed configuration.
+Because inference runs in your cloud tenant, Claude Desktop on 3P operates inside whatever compliance boundary your provider and region give you. The desktop application itself contacts Anthropic-operated hosts only to download the VM workspace bundle and Claude CLI binary (always required), and for crash reporting, product analytics, non-essential services (connector favicons, artifact previews, and MCP Apps widgets), and auto-updates. Each of the latter four can be disabled independently via managed configuration.
 With Anthropic-bound telemetry, non-essential services, and updates all disabled, the only remaining Anthropic-operated egress is `downloads.claude.ai` for the VM bundle at session start. Beyond that, the compliance posture of your deployment is determined by your inference provider. See [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry) for the full set of network paths and how to lock them down.
 
 ##  HIPAA

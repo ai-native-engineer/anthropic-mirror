@@ -7,7 +7,6 @@ Fastly development tools and platform skills
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Fastly](https://www.fastly.com)
 * Installs

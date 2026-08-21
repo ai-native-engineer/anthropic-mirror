@@ -7,7 +7,6 @@ Build, iterate on, deploy, and manage Lovable apps from Claude Code. Bundles the
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Lovable](https://lovable.dev)
 * Installs

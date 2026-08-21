@@ -8,7 +8,6 @@ AI-powered Monday CRM: build pipelines, dashboards, forecasts, clean data, and a
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [monday.com](#)
 * Installs

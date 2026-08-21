@@ -6,11 +6,12 @@
 
 Search, edit and get insights on your Box content
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Box](https://www.box.com/)
 

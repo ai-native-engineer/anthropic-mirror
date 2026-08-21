@@ -6,11 +6,12 @@
 
 Manage your personal finances using Claude
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/bfe1a594-962f-45db-9113-f5e9b6d1f070)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Tinwell Labs Inc, DBA Era](https://era.app)
 

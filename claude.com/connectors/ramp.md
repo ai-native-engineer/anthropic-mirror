@@ -6,11 +6,12 @@
 
 Search, access, and analyze your Ramp financial data
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/61bac03c-3f98-4b3c-affb-1b99533fa82c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Ramp](https://ramp.com)
 

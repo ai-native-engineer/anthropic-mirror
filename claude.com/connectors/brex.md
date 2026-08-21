@@ -6,11 +6,12 @@
 
 Intelligent finance automation
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/9fc52c5f-5a64-4f59-a6f8-4aa9571b8179)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Brex](https://brex.com/)
 

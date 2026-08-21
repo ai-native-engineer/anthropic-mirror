@@ -6,11 +6,12 @@
 
 Analyze and get insights from your lakehouse data
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/ed26cc20-7ac4-465b-8e99-1093d76a1730)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Dremio, Inc](https://www.dremio.com)
 

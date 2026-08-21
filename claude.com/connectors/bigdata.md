@@ -6,11 +6,12 @@
 
 Access real-time financial data
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/e463df16-b3d7-4bb9-953d-b652a073c764)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [RavenPack](https://www.ravenpack.com)
 

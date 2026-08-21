@@ -6,11 +6,12 @@
 
 Payment processing and financial infrastructure tools
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Stripe](https://stripe.com)
 

@@ -6,11 +6,12 @@
 
 Fitch credit intelligence, inside your AI workflow
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/d908b7e7-48c2-4786-b350-03e75480d49b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Fitch Solutions](https://fitchsolutions.com/)
 

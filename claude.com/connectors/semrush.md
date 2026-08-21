@@ -6,13 +6,14 @@
 
 SEO, competitor research, and traffic analysis
 
+* Category
+
   Sales and marketing
 
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/8194f7ea-e733-4e80-bd77-e504fd4ed5e5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Semrush Holdings, Inc.](https://www.semrush.com)
 

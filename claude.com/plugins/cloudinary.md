@@ -7,7 +7,6 @@ Use Cloudinary directly in Claude: manage assets, apply transformations, optimiz
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Cloudinary](https://cloudinary.com)
 * Installs

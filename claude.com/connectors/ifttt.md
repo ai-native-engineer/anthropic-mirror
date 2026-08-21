@@ -6,11 +6,12 @@
 
 Connect, control, and automate 1,000+ apps with IFTTT
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/a0ea0811-dabc-4b51-903a-d762fec4afcb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [IFTTT, Inc.](https://ifttt.com)
 

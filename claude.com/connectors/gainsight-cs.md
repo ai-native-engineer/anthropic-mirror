@@ -6,11 +6,12 @@
 
 Query, write back and automate with real-time CS data
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/c86b8af8-5c5c-4f7e-a280-2b0b16f2de64)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Gainsight](https://www.gainsight.com/)
 

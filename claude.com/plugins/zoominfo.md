@@ -7,7 +7,6 @@ ZoomInfo's verified B2B intelligence in Claude: find, research, and win the acco
 * Install in
 
   [Claude Cowork](https://claude.ai/directory/plugins/zoominfo%40knowledge-work-plugins)[Claude Code](#)
-* Made by
 
   [ZoomInfo](https://www.zoominfo.com)
 * Installs

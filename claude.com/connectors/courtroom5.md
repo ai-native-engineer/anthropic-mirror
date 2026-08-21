@@ -6,11 +6,12 @@
 
 Civil legal guidance for self-represented litigants
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/295eaac1-7469-4c28-8fda-dbd2a0f76219)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Courtroom5](https://courtroom5.com/)
 

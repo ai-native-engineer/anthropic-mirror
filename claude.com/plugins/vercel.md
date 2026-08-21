@@ -7,7 +7,6 @@ Vercel integration for Claude Code. Manage deployments, builds, logs, domains, a
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Vercel](https://vercel.com)
 * Installs

@@ -7,7 +7,6 @@ Netlify platform skills for Claude Code — functions, edge functions, blobs, da
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Netlify](https://www.netlify.com)
 * Installs

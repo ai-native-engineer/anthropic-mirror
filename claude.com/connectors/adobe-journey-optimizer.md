@@ -6,11 +6,12 @@
 
 Understand and troubleshoot your Journeys and Campaigns
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/4eb1485d-c3c6-4282-a72c-5bfc084cad27)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Adobe](https://adobe.com/)
 

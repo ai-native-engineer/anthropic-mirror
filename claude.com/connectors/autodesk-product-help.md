@@ -6,13 +6,14 @@
 
 Securely access Autodesk's help documentation
 
+* Category
+
   Productivity
 
   Design
 * Used in
 
   [Claude](https://claude.ai/directory/1f5a311c-ea2d-4b9c-b78b-197e8f2974b9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Autodesk, Inc.](https://www.autodesk.com)
 

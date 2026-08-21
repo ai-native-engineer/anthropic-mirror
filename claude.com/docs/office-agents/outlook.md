@@ -9,8 +9,6 @@ consultants tracking multiple client threads.
 Claude for Outlook is currently in beta and available to Pro, Max, Team,
 and Enterprise plans.
 
-##  What you can do
-
 With Claude for Outlook, you can:
 
 * Triage your unread inbox into what needs you, what Claude can handle,
@@ -27,8 +25,6 @@ With Claude for Outlook, you can:
 
 ##  Get started with Claude for Outlook
 
-###  Supported versions
-
 Claude for Outlook runs on the following Outlook clients.
 
 * Outlook on the web
@@ -41,15 +37,7 @@ volume-licensed editions, Outlook on iOS, Outlook on Android, and
 mailboxes hosted on Exchange on-premises. Exchange Online through
 Microsoft 365 is required.
 
-###  Install for yourself
-
-Open the marketplace listing
-
 Go to the [Claude for Outlook listing on Microsoft AppSource](https://appsource.microsoft.com/).
-
-Install the add-in
-
-Select “Get it now” to install.
 
 Open Claude in Outlook
 
@@ -60,48 +48,23 @@ If you do not see the Claude button on the message, open the overflow menu
 on the reading pane, choose Customize actions, and check Claude under
 Apps. It then appears on every message and in the Home ribbon.
 
-###  Deploy to your organization
-
 Organization admins can deploy Claude for Outlook through the Microsoft
 365 Admin Center.
 
-Allow Office Store access
-
-In the [Microsoft 365 Admin Center](https://admin.microsoft.com), go
-to Settings, Org Settings, User owned apps and services, and turn on
-[“Let users access the Office Store”](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-addins-in-the-admin-center).
-
-Open Integrated apps
-
 Go to Settings, then Integrated apps.
 
-Find the add-in
-
 Search for “Claude for Outlook” in Microsoft AppSource.
-
-4
-
-Deploy
 
 Deploy the add-in to your organization or to specific people. See
 [Microsoft’s deployment guide](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins)
 for assignment options.
 
+5
+
 Grant Microsoft Graph consent
 
 Complete the [Microsoft Graph admin consent](#grant-microsoft-graph-consent)
 step below so users are not prompted individually.
-
-If your organization uses Microsoft Entra Privileged Identity
-Management (PIM) for admin roles, the Integrated apps page does not
-recognize roles activated through PIM, so deployment fails. This is a
-[known Microsoft issue](https://learn.microsoft.com/en-us/office/dev/add-ins/resources/resources-office-add-in-known-issues),
-tracking ID 11126536. To work around it, deploy from an admin account
-with the required role assigned as permanently active rather than
-PIM-eligible. See
-[Microsoft’s troubleshooting guidance](https://learn.microsoft.com/en-us/troubleshoot/microsoft-365/admin/miscellaneous/cannot-deploy-add-in-integrated-apps-menu).
-Individual users can still
-[install the add-in themselves](#install-for-yourself).
 
 After installation, team members open Outlook, open any email, select the
 Claude button in the message ribbon, and sign in with their Claude
@@ -123,9 +86,6 @@ Download the
 [Claude for Outlook manifest](https://pivot.claude.ai/manifest-outlook.xml)
 and save it to a secure location.
 
-Open Integrated apps
-
-In the [Microsoft 365 Admin Center](https://admin.microsoft.com), go
 to Settings, then Integrated apps.
 
 Upload the add-in
@@ -134,14 +94,12 @@ Select Upload custom apps, then Office Add-in. Choose “I have a
 manifest file on this device”, select the file you downloaded, and
 upload it.
 
-4
-
 Assign people
 
 Choose your deployment scope: the entire organization, specific
 people, specific groups, or just yourself for testing.
 
-Deploy
+5
 
 Review the settings and select Deploy. The add-in appears within
 minutes for most people. Full organization rollout can take up to 24
@@ -204,8 +162,6 @@ Under API permissions, add the Microsoft Graph delegated permissions
 `Mail.ReadWrite`, `Calendars.Read`, `User.Read`, and `offline_access`.
 Select “Grant admin consent” for your tenant.
 
-4
-
 Append the client ID to the manifest URL
 
 Copy the application’s client ID from the Overview page. Append
@@ -244,14 +200,11 @@ program requires the endpoints to be fixed in the reviewed manifest
 rather than derived at runtime. DoD tenants share an authority host with
 GCC High, so `graph_cloud=us-gov-dod` is always required for DoD.
 
-###  Connect through a third-party platform
-
 If your organization routes API traffic through an internal LLM gateway,
 Amazon Bedrock, Google Cloud Vertex AI, or Azure AI Foundry, you can use
 the add-in without Claude accounts. This is the same gateway pattern used
 by Claude Code.
 For setup instructions and gateway requirements, see
-[Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms).
 
 ##  Triage your inbox
 
@@ -337,15 +290,12 @@ Prompts to try:
 * “Prep me for my 2pm”
 * “What’s open with Dana before our call?”
 
-##  Work across M365 apps
-
 Claude for Outlook shares context with Claude for Excel, PowerPoint, and
 Word, so Claude can work across your open Office apps in a single
 conversation. For example, you can open an attached letter of intent in
 Word with the email thread already loaded as context, or pull numbers from
 an email into an open Excel model, without copying between apps.
 For setup instructions, see
-[Work across M365 apps](https://claude.com/docs/office-agents/work-across-apps).
 
 ##  Model availability
 
@@ -390,7 +340,6 @@ index of your mailbox.
 
 ##  Chat history
 
-Chat history is stored locally in your browser using IndexedDB.
 Conversations are not stored on Anthropic’s servers and are not synced
 across devices or browsers. You can clear all chat history from Settings
 at any time. The local store is also cleared when you clear your browser

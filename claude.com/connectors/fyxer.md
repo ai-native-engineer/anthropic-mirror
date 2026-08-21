@@ -6,11 +6,12 @@
 
 Search your inbox, and draft replies in your voice
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/69feb637-7aa9-48f1-9443-71b881c0167c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Fyxer](https://www.fyxer.com)
 

@@ -6,13 +6,14 @@
 
 Find company & contact data
 
+* Category
+
   Sales and marketing
 
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/1bdcb159-b6f0-4f13-bc08-fdb40b007828)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [VibeProspecting.ai](https://www.vibeprospecting.ai/)
 

@@ -7,7 +7,6 @@ Craft production-grade WordPress sites and applications. Everything from themes 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [WordPress.com](https://wordpress.com)
 * Installs

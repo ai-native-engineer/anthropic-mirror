@@ -8,7 +8,6 @@ Prospect, craft outreach, and build deal strategy. Prep for calls and manage you
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=sales)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

@@ -6,11 +6,12 @@
 
 Find your ideal hotel at the best price.
 
+* Category
+
   No items found.
 * Used in
 
   [Claude](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8718)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Trivago](https://trivago.com)
 

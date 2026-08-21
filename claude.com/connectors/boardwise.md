@@ -6,11 +6,12 @@
 
 Calm board-defense guidance for licensed pros.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/ab14fdd2-6e9c-41f5-982b-cb1f02eb5fd8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [BoardWise](https://boardwise.online/)
 

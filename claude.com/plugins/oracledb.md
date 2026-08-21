@@ -7,7 +7,6 @@ Connect, query, and interact with Oracle Databases and their data.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google LLC](#)
 * Installs

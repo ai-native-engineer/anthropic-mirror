@@ -278,8 +278,6 @@ header with every request. If your admin set
 `gateway_auth_header: authorization` in the manifest, the add-in
 sends `Authorization: Bearer <token>` instead.
 
-4
-
 Connect
 
 The add-in checks the connection by sending a test request to the

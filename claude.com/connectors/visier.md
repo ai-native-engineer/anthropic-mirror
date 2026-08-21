@@ -6,11 +6,12 @@
 
 Find people, productivity and business impact insights
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/269911aa-9456-45c8-839f-c8d079fe0a5d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Visier](https://www.visier.com/)
 

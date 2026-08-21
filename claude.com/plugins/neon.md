@@ -7,7 +7,6 @@ Manage your Neon projects and databases with the neon-postgres agent skill and t
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   4049

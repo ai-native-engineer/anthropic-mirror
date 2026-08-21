@@ -6,11 +6,12 @@
 
 Groceries and more delivered as fast as 30 minutes
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/afd79b39-e774-4934-be5b-098784579838)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Instacart](https://www.instacart.com)
 

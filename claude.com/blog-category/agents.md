@@ -16,6 +16,54 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Aug 20, 2026
+
+How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+Agents
+
+How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+August 20, 2026
+
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](https://claude.com/blog/how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](#)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
+
+Aug 20, 2026
+
+Build production agents with computer use, the Skills API, and the Files API
+
+Product announcements
+
+Build production agents with computer use, the Skills API, and the Files API
+
+August 20, 2026
+
+[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
+
+[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
+
+Aug 18, 2026
+
+Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+Enterprise AI
+
+Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+August 18, 2026
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
 
 Aug 6, 2026
@@ -208,54 +256,6 @@ April 22, 2026
 
 [Building agents that reach production systems with MCP](#)Building agents that reach production systems with MCP
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Apr 10, 2026
-
-Preparing your security program for AI-accelerated offense
-
-Agents
-
-Preparing your security program for AI-accelerated offense
-
-April 10, 2026
-
-[Preparing your security program for AI-accelerated offense](https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense)Preparing your security program for AI-accelerated offense
-
-[Preparing your security program for AI-accelerated offense](#)Preparing your security program for AI-accelerated offense
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22562f020146c9ec973_f8f4644253bde2f901550431b871b6dcf91e5d9d-1000x1000.svg)
-
-Apr 10, 2026
-
-Multi-agent coordination patterns: Five approaches and when to use them
-
-Agents
-
-Multi-agent coordination patterns: Five approaches and when to use them
-
-April 10, 2026
-
-[Multi-agent coordination patterns: Five approaches and when to use them](https://claude.com/blog/multi-agent-coordination-patterns)Multi-agent coordination patterns: Five approaches and when to use them
-
-[Multi-agent coordination patterns: Five approaches and when to use them](#)Multi-agent coordination patterns: Five approaches and when to use them
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225588ad176f7c4aafd_abc884c723daea810d2e986455358281a2f94102-1000x1000.svg)
-
-Apr 2, 2026
-
-Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
-
-Agents
-
-Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
-
-April 2, 2026
-
-[Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence](https://claude.com/blog/harnessing-claudes-intelligence)Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
-
-[Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence](#)Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
-
 [View more](https://claude.com/blog-category/agents?1e959936_page=2)
 
 Category
@@ -263,6 +263,54 @@ Category
 Product
 
 Usecase
+
+### How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+August 20, 2026
+
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](https://claude.com/blog/how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](#)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+### Build production agents with computer use, the Skills API, and the Files API
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 20, 2026
+
+[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
+
+[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
+
+### Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 18, 2026
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
 
 ### Millennium and Anthropic are building a digital risk analyst with Claude
 
@@ -455,54 +503,6 @@ April 22, 2026
 [Building agents that reach production systems with MCP](https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp)Building agents that reach production systems with MCP
 
 [Building agents that reach production systems with MCP](#)Building agents that reach production systems with MCP
-
-### Preparing your security program for AI-accelerated offense
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-April 10, 2026
-
-[Preparing your security program for AI-accelerated offense](https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense)Preparing your security program for AI-accelerated offense
-
-[Preparing your security program for AI-accelerated offense](#)Preparing your security program for AI-accelerated offense
-
-### Multi-agent coordination patterns: Five approaches and when to use them
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-April 10, 2026
-
-[Multi-agent coordination patterns: Five approaches and when to use them](https://claude.com/blog/multi-agent-coordination-patterns)Multi-agent coordination patterns: Five approaches and when to use them
-
-[Multi-agent coordination patterns: Five approaches and when to use them](#)Multi-agent coordination patterns: Five approaches and when to use them
-
-### Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-April 2, 2026
-
-[Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence](https://claude.com/blog/harnessing-claudes-intelligence)Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
-
-[Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence](#)Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
 [View more](https://claude.com/blog-category/agents?2f226f2c_page=2)
 

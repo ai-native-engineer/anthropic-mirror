@@ -35,7 +35,7 @@ Leaving this enabled also adds `api.anthropic.com` to the [agent egress allowlis
 
 ###  Non-essential services
 
-Cosmetic third-party fetches: favicons for connectors shown in the UI, the MCP connector directory lookup, the sandboxed iframe that renders interactive artifact previews, and the sandboxed iframes that render [MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/getting-started), the interactive widgets connectors can display. Disabling these degrades the UI (generic icons, no directory suggestions, static artifact previews, and connector tool results shown as text instead of widgets) but doesn’t affect functionality.
+Cosmetic third-party fetches: favicons for connectors shown in the UI, the sandboxed iframe that renders interactive artifact previews, and the sandboxed iframes that render [MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/getting-started), the interactive widgets connectors can display. Disabling these degrades the UI (generic icons, static artifact previews, and connector tool results shown as text instead of widgets) but doesn’t affect functionality.
 
 | Setting | Default | Effect when `true` |
 | --- | --- | --- |
@@ -125,7 +125,9 @@ All traffic is HTTPS on port 443. Allowlist by hostname (SNI); path-level rules 
 
 | Host | Purpose |
 | --- | --- |
-| `downloads.claude.ai` | VM workspace bundle and Claude CLI binary, fetched at session start. **Without this, Cowork sessions cannot start**, unless the app was installed with the [offline installer variant](https://claude.com/docs/third-party/claude-desktop/installation#offline-installation), which includes both components in the installer package. |
+| `downloads.claude.ai` | VM workspace bundle and Claude CLI binary, fetched at session start |
+
+Without this host reachable, Cowork sessions cannot start, unless the app was installed with the [offline installer variant](https://claude.com/docs/third-party/claude-desktop/installation#offline-installation), which includes both components in the installer package.
 
 ###  Inference provider
 
@@ -167,8 +169,8 @@ With `inferenceBedrockBearerToken` set, the runtime and control-plane hosts are 
 | Host | Purpose |
 | --- | --- |
 | `claude.ai` | Update feed |
-| `api.anthropic.com` | Update feed |
-| `downloads.claude.ai` | Update binaries (already required above) |
+| `api.anthropic.com` | Update feed (releases.claude.com when updateViaUpdatesHost is set) |
+| `downloads.claude.ai` | Update binaries |
 
 With [`updateViaUpdatesHost`](https://claude.com/docs/third-party/claude-desktop/configuration#updateviaupdateshost) set to `true`, the app reads the update feed from `releases.claude.com` instead of `claude.ai` and `api.anthropic.com`, so those two hosts are no longer needed for updates. Update binaries still come from `downloads.claude.ai`.
 
@@ -176,30 +178,42 @@ With [`updateViaUpdatesHost`](https://claude.com/docs/third-party/claude-desktop
 
 | Host | Purpose |
 | --- | --- |
-| `sentry.io` | Crash and error reporting (apex; some firewalls don’t match it under `*.sentry.io`) |
 | `*.sentry.io` | Crash and error reporting |
-| `*.ingest.us.sentry.io` | Crash and error reporting (listed separately for firewalls that match wildcards one label deep) |
-| `browser-intake-us5-datadoghq.com` | Performance timing. The configuration window lists additional regional Datadog intake hosts. |
+| `*.ingest.us.sentry.io` | Crash and error reporting |
+| `sentry.io` | Crash and error reporting |
+| `browser-intake-datadoghq.com` | Performance timing |
+| `browser-intake-us3-datadoghq.com` | Performance timing |
+| `browser-intake-us5-datadoghq.com` | Performance timing |
+| `browser-intake-ap1-datadoghq.com` | Performance timing |
+| `browser-intake-ap2-datadoghq.com` | Performance timing |
+| `browser-intake-datadoghq.eu` | Performance timing |
+| `browser-intake-ddog-gov.com` | Performance timing |
+
+The `sentry.io` apex is listed alongside the wildcards because some firewalls don’t match it under `*.sentry.io`, and `*.ingest.us.sentry.io` is listed separately for firewalls that match wildcards one label deep.
 
 ###  Non-essential telemetry (`disableNonessentialTelemetry: false`)
 
 | Host | Purpose |
 | --- | --- |
 | `a-cdn.anthropic.com` | Analytics SDK |
-| `api.anthropic.com` | Claude Code usage telemetry, sent from inside the agent sandbox |
 | `a-api.anthropic.com` | Analytics events |
 | `claude.ai` | Analytics events |
+| `api.anthropic.com` | Claude Code usage telemetry, sent from inside the agent sandbox |
 
 ###  Non-essential services (`disableNonessentialServices: false`)
 
 | Host | Purpose |
 | --- | --- |
-| `api.anthropic.com` | MCP connector directory |
+| `www.google.com` | Connector favicons |
+| `*.gstatic.com` | Connector favicons |
 | `www.claudeusercontent.com` | Artifact preview iframe |
-| `*.claudemcpcontent.com` | [MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/getting-started), the interactive widgets connectors can render. Each widget loads in a sandboxed iframe on its own generated subdomain, so allowlist the wildcard. |
+| `cdnjs.cloudflare.com` | Artifact preview asset CDNs |
+| `fonts.googleapis.com` | Artifact preview asset CDNs |
+| `cdn.jsdelivr.net` | Artifact preview asset CDNs |
+| `*.claudemcpcontent.com` | MCP App widget iframe |
 | `assets.claude.ai` | Fonts loaded by MCP App widget iframes |
-| `cdnjs.cloudflare.com`, `cdn.jsdelivr.net`, `fonts.googleapis.com` | Artifact preview asset CDNs |
-| `www.google.com`, `*.gstatic.com` | Connector favicons |
+
+`*.claudemcpcontent.com` serves [MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/getting-started), the interactive widgets connectors can render. Each widget loads in a sandboxed iframe on its own generated subdomain, so allowlist the wildcard.
 
 ###  Optional features
 

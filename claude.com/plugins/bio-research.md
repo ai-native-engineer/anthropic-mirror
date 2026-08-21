@@ -8,7 +8,6 @@ Connect to preclinical research tools and databases to accelerate early-stage li
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=bio-research)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

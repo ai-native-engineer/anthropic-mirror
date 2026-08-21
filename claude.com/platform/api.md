@@ -112,7 +112,7 @@ Launch your own generative AI solution with:
 * Usage-based tiers
 * Automatically increasing rate limits
 * Simple pay-as-you-go pricing
-* Self-serve deployment on workbench
+* Self-serve deployment on playground
 * [Prompting guides and developer docs](https://docs.anthropic.com/claude/reference/getting-started-with-the-api)
 
 Start building

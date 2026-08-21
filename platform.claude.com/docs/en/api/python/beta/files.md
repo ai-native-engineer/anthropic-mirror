@@ -9,7 +9,7 @@ url: https://platform.claude.com/docs/en/api/python/beta/files
 
 ## Upload File
 
-`beta.files.upload(FileUploadParams**kwargs)  -> FileMetadata`
+`beta.files.upload(FileUploadParams**kwargs)  -> BetaFileMetadata`
 
 **post** `/v1/files`
 
@@ -27,7 +27,7 @@ Upload File
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -73,6 +73,8 @@ Upload File
 
     - `"user-profiles-2026-03-24"`
 
+    - `"user-profiles-2026-08-18"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -97,7 +99,7 @@ Upload File
 
 ### Returns
 
-- `class FileMetadata: …`
+- `class BetaFileMetadata: …`
 
   - `id: str`
 
@@ -158,10 +160,10 @@ client = Anthropic(
         "ANTHROPIC_API_KEY"
     ),  # This is the default and can be omitted
 )
-file_metadata = client.beta.files.upload(
+beta_file_metadata = client.beta.files.upload(
     file=b"Example data",
 )
-print(file_metadata.id)
+print(beta_file_metadata.id)
 ```
 
 #### Response
@@ -184,7 +186,7 @@ print(file_metadata.id)
 
 ## List Files
 
-`beta.files.list(FileListParams**kwargs)  -> SyncPage[FileMetadata]`
+`beta.files.list(FileListParams**kwargs)  -> SyncPage[BetaFileMetadata]`
 
 **get** `/v1/files`
 
@@ -216,7 +218,7 @@ List Files
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -262,6 +264,8 @@ List Files
 
     - `"user-profiles-2026-03-24"`
 
+    - `"user-profiles-2026-08-18"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -286,7 +290,7 @@ List Files
 
 ### Returns
 
-- `class FileMetadata: …`
+- `class BetaFileMetadata: …`
 
   - `id: str`
 
@@ -397,7 +401,7 @@ Download File
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -442,6 +446,8 @@ Download File
     - `"output-300k-2026-03-24"`
 
     - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
 
     - `"advisor-tool-2026-03-01"`
 
@@ -490,7 +496,7 @@ print(content)
 
 ## Get File Metadata
 
-`beta.files.retrieve_metadata(strfile_id, FileRetrieveMetadataParams**kwargs)  -> FileMetadata`
+`beta.files.retrieve_metadata(strfile_id, FileRetrieveMetadataParams**kwargs)  -> BetaFileMetadata`
 
 **get** `/v1/files/{file_id}`
 
@@ -508,7 +514,7 @@ Get File Metadata
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -554,6 +560,8 @@ Get File Metadata
 
     - `"user-profiles-2026-03-24"`
 
+    - `"user-profiles-2026-08-18"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -578,7 +586,7 @@ Get File Metadata
 
 ### Returns
 
-- `class FileMetadata: …`
+- `class BetaFileMetadata: …`
 
   - `id: str`
 
@@ -639,10 +647,10 @@ client = Anthropic(
         "ANTHROPIC_API_KEY"
     ),  # This is the default and can be omitted
 )
-file_metadata = client.beta.files.retrieve_metadata(
+beta_file_metadata = client.beta.files.retrieve_metadata(
     file_id="file_id",
 )
-print(file_metadata.id)
+print(beta_file_metadata.id)
 ```
 
 #### Response
@@ -665,7 +673,7 @@ print(file_metadata.id)
 
 ## Delete File
 
-`beta.files.delete(strfile_id, FileDeleteParams**kwargs)  -> DeletedFile`
+`beta.files.delete(strfile_id, FileDeleteParams**kwargs)  -> BetaDeletedFile`
 
 **delete** `/v1/files/{file_id}`
 
@@ -683,7 +691,7 @@ Delete File
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 30 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -729,6 +737,8 @@ Delete File
 
     - `"user-profiles-2026-03-24"`
 
+    - `"user-profiles-2026-08-18"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -753,7 +763,7 @@ Delete File
 
 ### Returns
 
-- `class DeletedFile: …`
+- `class BetaDeletedFile: …`
 
   - `id: str`
 
@@ -778,10 +788,10 @@ client = Anthropic(
         "ANTHROPIC_API_KEY"
     ),  # This is the default and can be omitted
 )
-deleted_file = client.beta.files.delete(
+beta_deleted_file = client.beta.files.delete(
     file_id="file_id",
 )
-print(deleted_file.id)
+print(beta_deleted_file.id)
 ```
 
 #### Response
@@ -795,23 +805,9 @@ print(deleted_file.id)
 
 ## Domain Types
 
-### Beta File Scope
+### Beta Deleted File
 
-- `class BetaFileScope: …`
-
-  - `id: str`
-
-    The ID of the scoping resource (e.g., the session ID).
-
-  - `type: Literal["session"]`
-
-    The type of scope (e.g., `"session"`).
-
-    - `"session"`
-
-### Deleted File
-
-- `class DeletedFile: …`
+- `class BetaDeletedFile: …`
 
   - `id: str`
 
@@ -825,9 +821,9 @@ print(deleted_file.id)
 
     - `"file_deleted"`
 
-### File Metadata
+### Beta File Metadata
 
-- `class FileMetadata: …`
+- `class BetaFileMetadata: …`
 
   - `id: str`
 
@@ -876,3 +872,17 @@ print(deleted_file.id)
       The type of scope (e.g., `"session"`).
 
       - `"session"`
+
+### Beta File Scope
+
+- `class BetaFileScope: …`
+
+  - `id: str`
+
+    The ID of the scoping resource (e.g., the session ID).
+
+  - `type: Literal["session"]`
+
+    The type of scope (e.g., `"session"`).
+
+    - `"session"`

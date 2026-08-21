@@ -7,7 +7,6 @@ Access your Git repos: commits, branches, PRs, issues. Supports GitHub, GitLab, 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [GitKraken](https://www.gitkraken.com)
 * Installs

@@ -158,6 +158,14 @@ CEO, Postman
 
 ## Related stories
 
+[Deepgram ships 4–10x more durable code with Claude](https://claude.com/customers/deepgram) Deepgram ships 4–10x more durable code with Claude
+
+Deepgram ships 4–10x more durable code with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/deepgram)Customer story
+
 [Office Hours: Building the case for leaders who ship with DoorDash](https://claude.com/customers/doordash-boris-office-hours) Office Hours: Building the case for leaders who ship with DoorDash
 
 Office Hours: Building the case for leaders who ship with DoorDash
@@ -181,11 +189,3 @@ Office Hours: Building for the model that doesn't exist yet
 Customer story
 
 [Customer story](https://claude.com/customers/ramp-boris-office-hours)Customer story
-
-[How Miro's champions run their week with Claude Cowork](https://claude.com/customers/miro-qa)How Miro's champions run their week with Claude Cowork
-
-How Miro's champions run their week with Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/miro-qa)Customer story

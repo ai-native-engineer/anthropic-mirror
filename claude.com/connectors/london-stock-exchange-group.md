@@ -6,11 +6,12 @@
 
 Access best in class data & analytics across a broad spectrum of asset classes
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/5f26bc32-8582-4df7-ab88-19c507f8505b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [LSEG](https://www.lseg.com/en)
 

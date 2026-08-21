@@ -6,11 +6,12 @@
 
 Search 23M+ legal docs in 160+ jurisdictions.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/a38cc6ae-c7fb-4136-b50e-cf49a4ded4b3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [GoodLegal](https://legaldatahunter.com)
 

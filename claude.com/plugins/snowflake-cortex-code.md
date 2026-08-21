@@ -7,7 +7,6 @@ Automatically route Snowflake prompts from Claude Code to Cortex Code for execut
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Snowflake](#)
 * Installs

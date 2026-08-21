@@ -6,11 +6,12 @@
 
 Manage virtual cards and track your spending patterns
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/1254a853-1375-40be-89ad-4b44b093ff87)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Privacy.com](https://privacy.com)
 

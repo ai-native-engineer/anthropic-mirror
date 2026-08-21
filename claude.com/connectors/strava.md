@@ -6,11 +6,12 @@
 
 Analyze, summarize, and explore your Strava data
 
+* Category
+
   Health and wellness
 * Used in
 
   [Claude](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Strava, Inc.](https://strava.com)
 

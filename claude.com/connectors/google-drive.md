@@ -6,11 +6,12 @@
 
 Search, read, and organize your Docs, Sheets, and Slides
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/settings/connectors)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Google](https://google.com)
 

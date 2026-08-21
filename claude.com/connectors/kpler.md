@@ -6,11 +6,12 @@
 
 Explore Kpler's maritime and commodities intelligence
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/da9095ee-b79c-4e1c-a43f-6d82f9125429)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Kpler](https://www.kpler.com)
 

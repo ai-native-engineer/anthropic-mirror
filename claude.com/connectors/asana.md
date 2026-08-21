@@ -6,13 +6,14 @@
 
 Connect to Asana to coordinate tasks, projects, and goals
 
+* Category
+
   Productivity
 
   Communication
 * Used in
 
   [Claude](http://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Asana](https://asana.com/)
 

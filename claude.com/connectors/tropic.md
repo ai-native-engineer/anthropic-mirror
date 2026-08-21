@@ -6,11 +6,12 @@
 
 Save money on Software + AI contracts
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/1561bc95-0862-4c90-8720-6ac8d683340e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Tropic](https://www.tropicapp.io/mcp-demo)
 

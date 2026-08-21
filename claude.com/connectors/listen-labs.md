@@ -6,11 +6,12 @@
 
 Analyze user insights from Listen Labs
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/6d886b6e-cc36-4ba2-a6c4-4d2d3b7a352b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Listen Labs](https://listenlabs.ai)
 

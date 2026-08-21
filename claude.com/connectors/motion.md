@@ -6,11 +6,12 @@
 
 Analyze your Meta ad creative & competitor ad libraries
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/47b0738c-d713-47a5-8141-ca455a6e1bf2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Motion Creative Analytics](https://motionapp.com)
 

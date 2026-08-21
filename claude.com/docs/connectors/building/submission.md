@@ -20,9 +20,9 @@ Developers can submit:
 
 ##  Before you start
 
-Remote MCP server submissions happen inside Claude.ai, in the [submission portal](https://claude.ai/admin-settings/directory/submissions/new). The portal is part of your organization’s admin settings, so you need:
+Remote MCP server submissions happen inside Claude.ai, in the [submission portal](https://claude.ai/admin-settings/directory/submissions/new). The portal is part of your organization’s settings, so you need:
 
-* **A Team or Enterprise organization.** Admin settings aren’t available on individual plans.
+* **A Team or Enterprise organization.** Organization settings aren’t available on individual plans.
 * **Directory management access.** By default, only organization Owners and Primary owners can submit and manage directory listings. On Enterprise, an Owner can delegate this to other members by creating a custom role in **Organization settings > Roles** with either the **Directory** permission (directory submissions only) or the **Libraries** permission (broader: it also covers managing the organization’s plugins, connectors, and skills), and assigning that role. Team plans don’t have custom roles, so on Team this stays with Owners.
 
 Desktop extensions (MCPB) use a separate [submission form](https://clau.de/desktop-extention-submission) and don’t require the portal.
@@ -111,7 +111,7 @@ Run the [pre-submission checklist](https://claude.com/docs/connectors/building/r
 
 Ready to submit? Use the path that matches your connector type:
 
-* **Remote MCP servers (including MCP Apps)**: submit through the [submission portal](https://claude.ai/admin-settings/directory/submissions/new) in Claude.ai admin settings. See [Before you start](#before-you-start) for access requirements.
+* **Remote MCP servers (including MCP Apps)**: submit through the [submission portal](https://claude.ai/admin-settings/directory/submissions/new) in your organization’s settings on Claude.ai. See [Before you start](#before-you-start) for access requirements.
 * **Desktop extensions (MCPB)**: use the [desktop extension submission form](https://clau.de/desktop-extention-submission).
 
 Skills are not a standalone submission type—bundle them in a [plugin](https://claude.com/docs/plugins/submit).

@@ -7,7 +7,6 @@ Apollo GraphQL agent skills for Claude Code — Apollo Client, Server, Federatio
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Apollo GraphQL](#)
 * Installs

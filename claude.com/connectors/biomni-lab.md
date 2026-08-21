@@ -6,11 +6,12 @@
 
 Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/528b2299-2768-471a-bbc9-ac151b42fd09)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Phylo](https://phylo.bio/)
 

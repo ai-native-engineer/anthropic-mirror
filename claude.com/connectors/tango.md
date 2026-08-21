@@ -6,11 +6,12 @@
 
 Search for US Government Contracting Data
 
+* Category
+
   No items found.
 * Used in
 
   [Claude](https://claude.ai/directory/af83346b-0499-4fcc-ae7c-22235705bdcd)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [MakeGov Inc](https://makegov.com/)
 

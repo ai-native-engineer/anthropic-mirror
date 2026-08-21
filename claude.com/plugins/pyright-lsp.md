@@ -8,7 +8,6 @@ Python language server (Pyright) for type checking and code intelligence
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

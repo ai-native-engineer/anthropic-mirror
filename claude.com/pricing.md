@@ -406,9 +406,7 @@ Contact sales
 | Consultation |  |  |  |
 | Tiered incentives on committed spend |  |  |  |
 | Trials |  |  |  |
-| Non-standard terms |  |  |  |
 | Customer success support at certain spend thresholds |  |  |  |
-| MSA |  |  |  |
 
 ### Models and usage
 

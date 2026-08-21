@@ -7,7 +7,6 @@ You.com agent skills for web search, research with citations, and content extrac
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [You.com](#)
 * Installs

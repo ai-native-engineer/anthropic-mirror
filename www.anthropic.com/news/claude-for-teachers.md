@@ -71,5 +71,3 @@ Once verified, educators can access [Claude for Teachers](https://claude.com/sol
 Claude for Teachers is for individual educators. A dedicated offering for schools and districts is coming soon. In the meantime, districts interested in Claude can continue using [Claude for Nonprofits](https://claude.com/solutions/nonprofits).
 
 *Updated July 21, 2026: Added a note to emphasize that whether and how educational data may be used in Claude for Teachers is determined by district and state policies.*
-
-Introducing Claude for Teachers \ Anthropic

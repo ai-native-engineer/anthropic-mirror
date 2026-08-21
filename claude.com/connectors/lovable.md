@@ -6,13 +6,14 @@
 
 Build, iterate, inspect, and deploy Lovable apps
 
+* Category
+
   Code
 
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/1d9dadfe-0a7d-4a47-af18-101ae0ae0efd)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Lovable](https://www.lovable.dev)
 

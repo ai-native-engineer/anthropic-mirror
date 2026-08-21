@@ -6,11 +6,12 @@
 
 Estimate your federal & state taxes with Aiwyn's tax engine
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/550d0dd8-46bf-4d76-a938-866afa15841d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Aiwyn, Inc.](https://aiwyn.ai)
 

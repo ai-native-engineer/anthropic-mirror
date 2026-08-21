@@ -8,7 +8,6 @@ Create content, plan campaigns, and analyze performance across marketing channel
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=marketing)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

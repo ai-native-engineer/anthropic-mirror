@@ -6,11 +6,12 @@
 
 Report, strategize & create with real-time Klaviyo data
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/b1a89151-dc5f-4d75-baa7-9da291b81a0c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Klaviyo](https://klaviyo.com/)
 

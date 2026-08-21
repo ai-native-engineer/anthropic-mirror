@@ -8,7 +8,6 @@ Optimize vendor management, process documentation, change management, and compli
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=operations)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

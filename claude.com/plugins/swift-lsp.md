@@ -8,7 +8,6 @@ Swift language server (SourceKit-LSP) for code intelligence
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

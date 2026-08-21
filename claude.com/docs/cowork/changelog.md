@@ -8,6 +8,160 @@
 
 [Skip to main content](#content-area)
 
+v1.34493.1
+
+2026-08-21
+
+**General**
+
+* No user-facing changes.
+
+**Code**
+
+* No user-facing changes.
+
+**Cowork**
+
+* No user-facing changes.
+
+**3P**
+
+* Fixed prompt caching not being applied in sessions that use an inference gateway or custom endpoint.
+
+v1.34493.0
+
+2026-08-20
+
+**General**
+
+* Fixed a startup freeze on Macs that keep applications in iCloud Drive with Optimize Mac Storage turned on.
+* Fixed scheduled task problems: “every N days/months” schedules ran on the wrong days (existing tasks move to the correct days on their next run), re-enabling a task or editing its schedule immediately started a catch-up run for a time slot that passed while it was off, and manually run tasks sometimes did not record when they last ran.
+* Fixed the app crashing when signing in with Touch ID on macOS; Touch ID passkey sign-in is temporarily unavailable.
+* Fixed the app quitting on macOS when the disk was full or when stopping dictation.
+
+**Code**
+
+* Fixed archiving an SSH session discarding uncommitted or unmerged work in its remote worktree; the worktree is now kept, and unarchiving recreates it if it is missing so the session can pick up where it left off.
+* Fixed session history no longer updating or appearing lost on macOS for sessions in folders whose names contain accented, Korean, or Japanese characters.
+* Fixed sessions you hadn’t opened for 30 days or more losing their conversation history even though the app was in regular use.
+* Fixed SSH connections on slow or unstable networks failing on the first attempt and needing a manual retry.
+* Fixed SSH sessions losing a task that was still running when the app reconnected after an app update.
+* Fixed the side chat answering once and then failing with an authentication error for the rest of a long session.
+
+**Cowork**
+
+* Fixed conversations failing to open when a message contained a very long run of bracketed text, a very long line starting with an unclosed `[`, or a very long run of `>` characters.
+* Fixed message ratings and “Send feedback” links sometimes appearing when your organization has product feedback turned off.
+* Fixed sessions failing to start on managed Macs where the app’s temporary directory is not writable.
+
+**3P**
+
+* Changed gateway device-code sign-in to refresh silently when the gateway also issues a refresh token, instead of prompting you to sign in again each time the access token expires.
+* Fixed an ended gateway device-code sign-in going unnoticed while the app was idle; the app now notices at its next periodic configuration check or shortly after the computer wakes from sleep and asks you to sign in again, and the Setup window says “Session expired” instead of “Denied”.
+* Fixed Cowork file previews showing “Preview unavailable” until the app was restarted once a preview pane had been closed for a few minutes.
+
+v1.32885.1
+
+2026-08-18
+
+**General**
+
+* Added message queueing during Research: a message sent while a Research run is in progress is queued and sent when the report is ready.
+* Fixed 1Password credential requests failing when Claude in Chrome is signed in from more than one browser profile.
+* Fixed a crash on Windows when installing an update while a background update check was still running, and fixed update installs repeatedly failing after a newer update replaced one already staged.
+* Fixed a message sent immediately after stopping a reply sometimes being put back into the input box instead of sending.
+* Fixed reloading or reopening a temporary chat rebuilding the page a moment after it loads, which could discard text typed early.
+* Fixed the computer-use permission prompts in Cowork and Claude Code sessions accepting a keyboard shortcut aimed at the message box or another surface, and added a brief delay so a send keystroke that lands just as the prompt appears cannot approve it.
+
+**Code**
+
+* Fixed automatic continuation after a rate limit firing into the imported-session confirmation prompt or a stale sign-in state, and it now waits out the server’s limit reset and sends a clearer continuation message.
+* Fixed inline bash commands being silently captured as input by a previous command still waiting for a response, such as an interactive login; a stuck command is now noted in the transcript and cleared before the next command runs.
+* Fixed messages sent from one session to another sometimes being silently dropped, which left the sending session showing a thinking state for many minutes.
+* Fixed slow session starts for people with MCP servers configured in `~/.claude.json`.
+* Fixed the Code tab wrongly asking you to install Git on Macs that have Apple’s Command Line Tools but not Xcode.
+* Fixed worktree sessions failing with a “path contains control characters” error when a `WorktreeCreate` hook prints status output before the path.
+
+**Cowork**
+
+* Fixed an occasional “Something went wrong” error when a session’s question card from Claude changed to a new set of questions.
+* Fixed Claude sometimes reporting a file as saved when it had been written to a temporary location you could not open.
+* Fixed Cowork failing to start on Intel Macs.
+
+**3P**
+
+* Added `bootstrapHeaders` and `bootstrapHeadersHelper` for authenticating the bootstrap configuration fetch with a service-account credential, the supported replacement for embedding `user:password@` in `bootstrapUrl` (rejected since 1.32352.0): `bootstrapHeaders` is a set of static headers sent on every fetch, and `bootstrapHeadersHelper` is the absolute path of an executable that prints headers as JSON, for a rotating token; helper output is merged over the static headers. When either is set and no `bootstrapOidc` provider is configured, the headers count as sufficient authentication for the fetch and no per-user sign-in is required for it; a per-user sign-in bearer, when also present, still wins on `Authorization`. Header values are masked in diagnostics, and both keys are accepted only from device management or a local configuration file.
+* Added the option to sign in to claude.ai directly from the import wizard to fetch your data export, with no manual zip download needed.
+* Changed new Cowork sessions to store Claude Code transcripts under a short fixed folder name, now that the bundled Claude Code (2.1.234) supports it, further shortening file paths on Windows; existing sessions are unchanged.
+* Changed organization plugin delivery: when the organization plugins endpoint is removed from your configuration, the plugins it had installed are removed from members’ devices, as already happens for a removed plugin marketplace.
+* Fixed admin-configured plugin marketplaces and organization plugins not re-syncing until the next periodic refresh after signing in or after a delayed configuration fetch applied.
+
+v1.32352.1
+
+2026-08-18
+
+**General**
+
+* Fixed a rare Windows startup failure where the first window could fail to initialize on a fresh install.
+
+**Code**
+
+* No user-facing changes.
+
+**Cowork**
+
+* No user-facing changes.
+
+**3P**
+
+* No user-facing changes.
+
+v1.32352.0
+
+2026-08-17
+
+**General**
+
+* Fixed Windows updates sometimes leaving the app half installed, with later updates failing too.
+* Fixed the app staying on “Couldn’t connect to Claude” when a network proxy blocked its first connection; it now keeps retrying for a few minutes and again when you return to the window.
+* Fixed the composer staying disabled after a usage-limit notice when your organization has extra usage turned off or not set up; sending works again once your admin turns it on.
+* Fixed settings and connector links in chat doing nothing, or opening your web browser, when clicked in the app; they now open the app’s own settings.
+* Fixed text typed on the new chat page sometimes disappearing when turning on incognito.
+* Fixed the chat showing an error screen instead of the conversation when Claude created or linked a file whose name contains a percent sign.
+
+**Code**
+
+* Changed auto-continue after the 5-hour usage limit to be on by default: sessions left open resume when the limit resets. Uncheck “Auto-continue when limits reset” in the limit banner to turn it off for your account.
+* Fixed sessions sometimes hanging after resume, either showing “The session stopped responding” after the first message or never starting when a file system or MCP server stalled.
+* Fixed undo (Cmd+Z, or Ctrl+Z on Windows and Linux) in the message composer sometimes failing with an error and then no longer working.
+* Fixed a brand-new cloud session losing its first message when you navigated away within a few seconds of sending it.
+* Fixed sessions started right after the app opened sometimes running in a more permissive mode than your saved permission mode.
+* Fixed Remote Control sessions staying stuck at “connecting” after you completed the sign-in or device-check prompt, and file links not opening when the session was viewed from another computer.
+
+**Cowork**
+
+* Removed the “Allow all browser actions” option from Claude in Chrome permission cards; allow each website instead. The switch in Settings is unchanged.
+* Fixed the workspace startup error suggesting a restart or reinstall when the computer was low on disk space; it now asks you to free up space and retry.
+* Fixed a tool call hanging for a full minute when its local MCP server crashed mid-call; it now fails right away.
+* Fixed computer use on macOS refusing every click after you had taken a screenshot or while a screen recording was running.
+* Fixed the approval mode still showing “Skip all approvals” when your organization’s policy had blocked it; switching back to “Manually approve” now asks again before Claude fetches web pages it visited while approvals were off.
+* Fixed the activity panel button doing nothing while a file was open beside the chat; it now closes the file and shows the panel.
+
+**3P**
+
+* **Breaking:** Managed-config URL settings now reject values that embed credentials (`https://user:password@host…`). Configurations that relied on this fail to load until the credentials are removed; use `bootstrapHeaders` / `bootstrapHeadersHelper` (available from 1.32885.1) to send authentication instead.
+* Added `claudeAiImport.exportEnabled`. With it and `claudeAiImport.enabled` both `true`, users can export this computer’s chats, Cowork tasks, and Code sessions from Settings > Import & export as a zip that another install can import. Off by default.
+* Added a `url` source for `allowedPluginMarketplaces` (beta): a hosted `marketplace.json` that delivers plugins as zip archives over HTTPS, with no git on the device. Set `manifestSha256` to pin the exact manifest; it is required for automatically installed plugins.
+* Added `inferenceCredential` as a `credentialKind` for `allowedPluginMarketplaces` (beta): a `url` marketplace hosted on your inference gateway is fetched with the same credential the app already uses for inference.
+* Changed `coworkEgressAllowedHosts`: a `:port` suffix now also applies to shell commands and package installs in Cowork sessions, which previously could not reach a port-scoped host at all.
+* Changed settings from a locally configured (not device-managed) bootstrap URL that need user approval to apply all or nothing: nothing takes effect until the user chooses Allow; Quit closes the app and asks again next launch.
+* Changed a served configuration with an invalid connection value to report that field by name and keep the organization’s other settings in force; a non-Anthropic model entry is now skipped with a warning instead of invalidating the whole configuration.
+* Changed admin-configured plugin marketplaces (`allowedPluginMarketplaces`, beta), including automatically installed and required plugins, to apply to Code sessions as well as Cowork.
+* Changed new Cowork sessions to use much shorter folder names on disk so file paths are less likely to exceed Windows path-length limits; existing sessions keep their folders, and tooling that matches the `local_` prefix should also match the new names.
+* Fixed Settings > Import & export saying import isn’t enabled on deployments that provision the sign-in import without setting `claudeAiImport.enabled`; that key now governs only file and earlier-session import, the import prompt, and session export.
+* Fixed the Setup window accepting a mis-typed inference region, Azure AI Foundry resource name, blank Vertex AI project ID, or non-Anthropic model ID that was only rejected later on the device; these are now flagged before saving.
+* Fixed imported project instructions arriving as a loose file instead of the project’s editable Instructions; they are now shown for review on the project page and apply once you accept them.
+
 v1.30096.5
 
 2026-08-14

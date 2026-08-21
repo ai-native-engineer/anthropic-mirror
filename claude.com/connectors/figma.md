@@ -6,11 +6,12 @@
 
 Turn code into editable designs, visuals, and diagrams
 
+* Category
+
   Design
 * Used in
 
   [Claude](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Figma](https://figma.com)
 

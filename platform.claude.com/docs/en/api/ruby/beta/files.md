@@ -9,7 +9,7 @@ url: https://platform.claude.com/docs/en/api/ruby/beta/files
 
 ## Upload File
 
-`beta.files.upload(**kwargs) -> FileMetadata`
+`beta.files.upload(**kwargs) -> BetaFileMetadata`
 
 **post** `/v1/files`
 
@@ -27,7 +27,7 @@ Upload File
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -73,6 +73,8 @@ Upload File
 
     - `:"user-profiles-2026-03-24"`
 
+    - `:"user-profiles-2026-08-18"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -97,7 +99,7 @@ Upload File
 
 ### Returns
 
-- `class FileMetadata`
+- `class BetaFileMetadata`
 
   - `id: String`
 
@@ -154,9 +156,9 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-file_metadata = anthropic.beta.files.upload(file: StringIO.new("Example data"))
+beta_file_metadata = anthropic.beta.files.upload(file: StringIO.new("Example data"))
 
-puts(file_metadata)
+puts(beta_file_metadata)
 ```
 
 #### Response
@@ -179,7 +181,7 @@ puts(file_metadata)
 
 ## List Files
 
-`beta.files.list(**kwargs) -> Page<FileMetadata>`
+`beta.files.list(**kwargs) -> Page<BetaFileMetadata>`
 
 **get** `/v1/files`
 
@@ -211,7 +213,7 @@ List Files
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -257,6 +259,8 @@ List Files
 
     - `:"user-profiles-2026-03-24"`
 
+    - `:"user-profiles-2026-08-18"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -281,7 +285,7 @@ List Files
 
 ### Returns
 
-- `class FileMetadata`
+- `class BetaFileMetadata`
 
   - `id: String`
 
@@ -388,7 +392,7 @@ Download File
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -433,6 +437,8 @@ Download File
     - `:"output-300k-2026-03-24"`
 
     - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -474,7 +480,7 @@ puts(response)
 
 ## Get File Metadata
 
-`beta.files.retrieve_metadata(file_id, **kwargs) -> FileMetadata`
+`beta.files.retrieve_metadata(file_id, **kwargs) -> BetaFileMetadata`
 
 **get** `/v1/files/{file_id}`
 
@@ -492,7 +498,7 @@ Get File Metadata
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -538,6 +544,8 @@ Get File Metadata
 
     - `:"user-profiles-2026-03-24"`
 
+    - `:"user-profiles-2026-08-18"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -562,7 +570,7 @@ Get File Metadata
 
 ### Returns
 
-- `class FileMetadata`
+- `class BetaFileMetadata`
 
   - `id: String`
 
@@ -619,9 +627,9 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-file_metadata = anthropic.beta.files.retrieve_metadata("file_id")
+beta_file_metadata = anthropic.beta.files.retrieve_metadata("file_id")
 
-puts(file_metadata)
+puts(beta_file_metadata)
 ```
 
 #### Response
@@ -644,7 +652,7 @@ puts(file_metadata)
 
 ## Delete File
 
-`beta.files.delete(file_id, **kwargs) -> DeletedFile`
+`beta.files.delete(file_id, **kwargs) -> BetaDeletedFile`
 
 **delete** `/v1/files/{file_id}`
 
@@ -662,7 +670,7 @@ Delete File
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 30 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -708,6 +716,8 @@ Delete File
 
     - `:"user-profiles-2026-03-24"`
 
+    - `:"user-profiles-2026-08-18"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -732,7 +742,7 @@ Delete File
 
 ### Returns
 
-- `class DeletedFile`
+- `class BetaDeletedFile`
 
   - `id: String`
 
@@ -753,9 +763,9 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-deleted_file = anthropic.beta.files.delete("file_id")
+beta_deleted_file = anthropic.beta.files.delete("file_id")
 
-puts(deleted_file)
+puts(beta_deleted_file)
 ```
 
 #### Response
@@ -769,23 +779,9 @@ puts(deleted_file)
 
 ## Domain Types
 
-### Beta File Scope
+### Beta Deleted File
 
-- `class BetaFileScope`
-
-  - `id: String`
-
-    The ID of the scoping resource (e.g., the session ID).
-
-  - `type: :session`
-
-    The type of scope (e.g., `"session"`).
-
-    - `:session`
-
-### Deleted File
-
-- `class DeletedFile`
+- `class BetaDeletedFile`
 
   - `id: String`
 
@@ -799,9 +795,9 @@ puts(deleted_file)
 
     - `:file_deleted`
 
-### File Metadata
+### Beta File Metadata
 
-- `class FileMetadata`
+- `class BetaFileMetadata`
 
   - `id: String`
 
@@ -850,3 +846,17 @@ puts(deleted_file)
       The type of scope (e.g., `"session"`).
 
       - `:session`
+
+### Beta File Scope
+
+- `class BetaFileScope`
+
+  - `id: String`
+
+    The ID of the scoping resource (e.g., the session ID).
+
+  - `type: :session`
+
+    The type of scope (e.g., `"session"`).
+
+    - `:session`

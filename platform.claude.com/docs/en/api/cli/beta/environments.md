@@ -147,7 +147,7 @@ Create a new environment with the specified configuration.
 
   - `description: string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 
@@ -369,7 +369,7 @@ List environments with pagination support.
 
     - `description: string`
 
-      User-provided description for the environment
+      User-provided description for the environment; null when unset
 
     - `metadata: map[string]`
 
@@ -582,7 +582,7 @@ Retrieve a specific environment by ID.
 
   - `description: string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 
@@ -685,7 +685,7 @@ Update an existing environment's configuration.
 
 - `--description: optional string`
 
-  Body param: Updated description of the environment
+  Body param: Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
 
 - `--metadata: optional map[string]`
 
@@ -809,7 +809,7 @@ Update an existing environment's configuration.
 
   - `description: string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 
@@ -1063,7 +1063,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   - `description: string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 
@@ -1414,7 +1414,7 @@ ant beta:environments archive \
 
   - `description: string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 

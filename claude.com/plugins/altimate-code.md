@@ -7,7 +7,6 @@ Delegates dbt and warehouse work to altimate-code, a specialized CLI agent with 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [AltimateAI](#)
 * Installs

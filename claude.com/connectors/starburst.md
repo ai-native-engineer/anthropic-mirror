@@ -6,11 +6,12 @@
 
 Securely retrieve data from your federated data sources
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/2a9d8e2f-f935-4b4a-bd78-ec81ba9f2125)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Starburst Data](https://www.starburst.io)
 

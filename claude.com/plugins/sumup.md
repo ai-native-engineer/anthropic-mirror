@@ -7,7 +7,6 @@ SumUp integrations: terminal and online checkout. Android/iOS POS apps with card
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [SumUp](https://developer.sumup.com)
 * Installs

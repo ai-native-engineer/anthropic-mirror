@@ -7,7 +7,6 @@ Discord messaging bridge with built-in access control. Manage pairing, allowlist
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   32323

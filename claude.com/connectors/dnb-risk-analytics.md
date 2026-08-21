@@ -6,11 +6,12 @@
 
 Execute risk workflows powered by the D&B Commercial Graph™
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/42dbc617-e23b-4319-8e27-6a2c72e3c444)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Dun & Bradstreet](https://www.dnb.com)
 

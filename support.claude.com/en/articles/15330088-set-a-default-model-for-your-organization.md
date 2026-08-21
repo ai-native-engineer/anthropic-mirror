@@ -41,7 +41,7 @@ The organization default applies to every member. To set it:
 3. If you select “Choose a specific model,” choose a model from the list.
 4. Click “Save changes.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1786926600&signature=cfff2dad98f4444ee096a1909837466bbb51e9ace3e567c5640773ed5177b63b&req=diUmEs58n4BcUPMW1HO4zelOdzRJL05BfdGVZ664dGGDDKsXw%2BLyzwWOz6uz%0AsmZzSFOtPA7KhX8uYBA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1786926600&signature=cfff2dad98f4444ee096a1909837466bbb51e9ace3e567c5640773ed5177b63b&req=diUmEs58n4BcUPMW1HO4zelOdzRJL05BfdGVZ664dGGDDKsXw%2BLyzwWOz6uz%0AsmZzSFOtPA7KhX8uYBA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1787298300&signature=f0f8b7a388bbc296ce0ce675f92adb4caa63a7466c31e01b6722a1698e8a7394&req=diUmEs58n4BcUPMW1HO4zelOdzVCJEBEfdGVZ664dGHe2qj6g5XRF4u5uQOK%0Ah%2Fry4pzNucSuCXj9Poc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1787298300&signature=f0f8b7a388bbc296ce0ce675f92adb4caa63a7466c31e01b6722a1698e8a7394&req=diUmEs58n4BcUPMW1HO4zelOdzVCJEBEfdGVZ664dGHe2qj6g5XRF4u5uQOK%0Ah%2Fry4pzNucSuCXj9Poc%3D%0A)
 
 ---
 

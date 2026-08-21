@@ -126,7 +126,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 ```cli
 ant beta:messages:batches create \
   --api-key my-anthropic-api-key \
-  --request '{custom_id: my-custom-id-1, params: {max_tokens: 1024, messages: [{content: [{text: x, type: text}], role: user}], model: claude-opus-4-6}}'
+  --request '{custom_id: my-custom-id-1, params: {max_tokens: 1024, messages: [{content: [{text: x, type: text}], role: user}], model: claude-opus-5}}'
 ```
 
 #### Response
@@ -905,7 +905,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: "redacted_thinking"`
 
-          - `beta_tool_use_block: object { id, input, name, 2 more }`
+          - `beta_tool_use_block: object { id, input, name, 3 more }`
 
             - `id: string`
 
@@ -938,6 +938,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `tool_id: string`
 
                 - `type: "code_execution_20260120"`
+
+            - `toolset_name: optional string`
+
+              For a toolset member tool_use, the toolset family.
 
           - `beta_server_tool_use_block: object { id, input, name, 2 more }`
 
@@ -2865,7 +2869,7 @@ ant beta:messages:batches results \
 
             - `type: "redacted_thinking"`
 
-          - `beta_tool_use_block: object { id, input, name, 2 more }`
+          - `beta_tool_use_block: object { id, input, name, 3 more }`
 
             - `id: string`
 
@@ -2898,6 +2902,10 @@ ant beta:messages:batches results \
                 - `tool_id: string`
 
                 - `type: "code_execution_20260120"`
+
+            - `toolset_name: optional string`
+
+              For a toolset member tool_use, the toolset family.
 
           - `beta_server_tool_use_block: object { id, input, name, 2 more }`
 
@@ -4655,7 +4663,7 @@ ant beta:messages:batches results \
 
           - `type: "redacted_thinking"`
 
-        - `beta_tool_use_block: object { id, input, name, 2 more }`
+        - `beta_tool_use_block: object { id, input, name, 3 more }`
 
           - `id: string`
 
@@ -4688,6 +4696,10 @@ ant beta:messages:batches results \
               - `tool_id: string`
 
               - `type: "code_execution_20260120"`
+
+          - `toolset_name: optional string`
+
+            For a toolset member tool_use, the toolset family.
 
         - `beta_server_tool_use_block: object { id, input, name, 2 more }`
 
@@ -6407,7 +6419,7 @@ ant beta:messages:batches results \
 
         - `type: "redacted_thinking"`
 
-      - `beta_tool_use_block: object { id, input, name, 2 more }`
+      - `beta_tool_use_block: object { id, input, name, 3 more }`
 
         - `id: string`
 
@@ -6440,6 +6452,10 @@ ant beta:messages:batches results \
             - `tool_id: string`
 
             - `type: "code_execution_20260120"`
+
+        - `toolset_name: optional string`
+
+          For a toolset member tool_use, the toolset family.
 
       - `beta_server_tool_use_block: object { id, input, name, 2 more }`
 

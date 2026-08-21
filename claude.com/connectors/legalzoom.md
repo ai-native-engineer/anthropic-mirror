@@ -6,11 +6,12 @@
 
 Attorney guidance & tools for business & personal needs
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/d87c0d44-2615-4af6-b3ac-ba22264496b2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [LegalZoom](https://www.legalzoom.com)
 

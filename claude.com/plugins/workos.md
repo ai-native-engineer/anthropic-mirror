@@ -7,7 +7,6 @@ WorkOS integration skills for AuthKit, SSO, Directory Sync, RBAC, Vault, Audit L
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [WorkOS](#)
 * Installs

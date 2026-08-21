@@ -6,11 +6,12 @@
 
 Marketing campaign and audience insights from Adobe
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/39d085c5-0b24-4a3f-aca1-5ec9d1726714)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Adobe Inc](https://business.adobe.com/)
 

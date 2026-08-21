@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/php/beta/memory_stores/memory_versi
 
 ## List memory versions
 
-`$client->beta->memoryStores->memoryVersions->list(string memoryStoreID, ?string apiKeyID, ?\Datetime createdAtGte, ?\Datetime createdAtLte, ?int limit, ?string memoryID, ?ManagedAgentsMemoryVersionOperation operation, ?string page, ?string sessionID, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsMemoryVersion>`
+`$client->beta->memoryStores->memoryVersions->list(string memoryStoreID, ?string apiKeyID, ?\Datetime createdAtGte, ?\Datetime createdAtLte, ?int limit, ?string memoryID, ?ManagedAgentsMemoryVersionOperation operation, ?string page, ?string serviceAccountID, ?string sessionID, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsMemoryVersion>`
 
 **get** `/v1/memory_stores/{memory_store_id}/memory_versions`
 
@@ -44,6 +44,10 @@ List memory versions
 - `page?:optional string`
 
   Query parameter for page
+
+- `serviceAccountID?:optional string`
+
+  Query parameter for service_account_id
 
 - `sessionID?:optional string`
 
@@ -129,6 +133,7 @@ $page = $client->beta->memoryStores->memoryVersions->list(
   memoryID: 'memory_id',
   operation: ManagedAgentsMemoryVersionOperation::CREATED,
   page: 'page',
+  serviceAccountID: 'service_account_id',
   sessionID: 'session_id',
   view: ManagedAgentsMemoryView::BASIC,
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],

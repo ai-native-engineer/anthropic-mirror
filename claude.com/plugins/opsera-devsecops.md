@@ -7,7 +7,6 @@ Opsera DevSecOps Agent — AI-powered architecture analysis, security scanning, 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Opsera](https://agent.opsera.ai)
 * Installs

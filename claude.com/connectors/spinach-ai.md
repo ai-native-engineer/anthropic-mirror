@@ -6,11 +6,12 @@
 
 The system of action for conversation data
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/50817992-a7f8-4ac2-bdc4-2f655b87168c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Spinach AI](https://www.spinach.ai/)
 

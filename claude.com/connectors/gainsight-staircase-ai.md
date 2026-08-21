@@ -6,11 +6,12 @@
 
 Power AI Workflows with Customer Context
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/7b4941fa-a8fa-4a00-a726-cf692ac269ca)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Gainsight](https://www.gainsight.com)
 

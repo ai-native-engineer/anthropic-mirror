@@ -6,11 +6,12 @@
 
 Manage blockchain infrastructure right in Claude
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/356a8580-5936-40a0-9a06-5ab54bdaa344)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [QuickNode](https://www.quicknode.com/)
 

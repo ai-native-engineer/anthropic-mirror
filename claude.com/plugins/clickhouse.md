@@ -7,7 +7,6 @@ Connect Claude to your ClickHouse Cloud databases. Browse organizations, service
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [ClickHouse](#)
 * Installs

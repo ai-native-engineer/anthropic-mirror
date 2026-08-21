@@ -6,11 +6,12 @@
 
 Connect your health records for personalized insights
 
+* Category
+
   Health and wellness
 * Used in
 
   [Claude](https://claude.ai/directory/17f8e2cd-5ca5-4563-a43b-81073b4f65eb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [HDX Labs, Inc. (dba HealthEx)](https://healthex.io)
 

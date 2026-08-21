@@ -7,7 +7,6 @@ CodeRabbit: AI code review with 40+ analyzers, AST parsing, security checks, and
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [CodeRabbit AI](https://coderabbit.ai)
 * Installs

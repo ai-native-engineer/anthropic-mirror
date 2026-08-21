@@ -6,11 +6,12 @@
 
 Analyze client conversations, patterns, and insights.
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/4f05b447-c6da-4f35-88f8-b078c21293bb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Zocks](https://www.zocks.io)
 

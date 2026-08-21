@@ -7,7 +7,6 @@ AI agents making SaaS products data-ready—scan codebase, build tracking plan, 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Accoil](https://accoil.com)
 * Installs

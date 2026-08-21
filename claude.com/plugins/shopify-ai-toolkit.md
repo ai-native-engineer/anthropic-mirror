@@ -7,7 +7,6 @@ Shopify's AI Toolkit provides 18 development skills for building on the Shopify 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Shopify](#)
 * Installs

@@ -6,11 +6,12 @@
 
 Query Insider One CDP and APIs using natural language
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/5be6ae33-efeb-4127-b421-08c4c0abd76c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Insider One](https://insiderone.com/)
 

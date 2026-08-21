@@ -6,11 +6,12 @@
 
 Build applications with compute, storage, and AI
 
+* Category
+
   Code
 * Used in
 
   [Claude](http://claude.ai/directory/2d60210c-dd92-4be0-b09c-3662f10445c9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Cloudflare](https://www.cloudflare.com/)
 

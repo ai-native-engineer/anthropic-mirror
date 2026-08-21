@@ -6,11 +6,12 @@
 
 Access Live & Historical Crypto Data, Indices
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/3b05dbce-1628-4c77-9b24-54455d1dbd5b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [CoinDesk](https://www.coindesk.com/)
 

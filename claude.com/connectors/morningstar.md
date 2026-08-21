@@ -6,11 +6,12 @@
 
 Up-to-date investment and market insights
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/2e98be30-8dba-486e-94a9-9a01d34678e2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Morningstar Inc.](https://morningstar.com)
 

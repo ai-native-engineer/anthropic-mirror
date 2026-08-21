@@ -7,7 +7,6 @@ Manage Spotify ad campaigns with natural language. Create campaigns, ad sets, ad
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   1297

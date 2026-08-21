@@ -6,11 +6,12 @@
 
 Ask Embat about cash, debt, payments, and accounting
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/c261e4da-e467-4805-b2cb-458addbb360b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Embat](https://www.embat.io/)
 

@@ -8,7 +8,6 @@ Screen deals, run due diligence, build IC memos, and track portfolio performance
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/financial-services-plugins&plugin=private-equity)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

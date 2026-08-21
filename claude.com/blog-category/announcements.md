@@ -16,6 +16,38 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
+
+Aug 20, 2026
+
+Anthropic’s approach to teaching and learning AI
+
+Product announcements
+
+Anthropic’s approach to teaching and learning AI
+
+August 20, 2026
+
+[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
+
+[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
+
+Aug 20, 2026
+
+Build production agents with computer use, the Skills API, and the Files API
+
+Product announcements
+
+Build production agents with computer use, the Skills API, and the Files API
+
+August 20, 2026
+
+[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
+
+[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
 
 Aug 13, 2026
@@ -224,38 +256,6 @@ June 18, 2026
 
 [Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d0099a66d72e05699_33ddc751e21fb4b116b3f57dd553f0bc55ea09d1-1000x1000.svg)
-
-Jun 18, 2026
-
-Claude Code now supports artifacts
-
-Product announcements
-
-Claude Code now supports artifacts
-
-June 18, 2026
-
-[Claude Code now supports artifacts](https://claude.com/blog/artifacts-in-claude-code)Claude Code now supports artifacts
-
-[Claude Code now supports artifacts](#)Claude Code now supports artifacts
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22949f86cd1968deb9f_33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
-
-Jun 17, 2026
-
-Claude Design now stays on brand for daily work
-
-Product announcements
-
-Claude Design now stays on brand for daily work
-
-June 17, 2026
-
-[Claude Design now stays on brand for daily work](https://claude.com/blog/claude-design-stays-on-brand-for-daily-work)Claude Design now stays on brand for daily work
-
-[Claude Design now stays on brand for daily work](#)Claude Design now stays on brand for daily work
-
 [View more](https://claude.com/blog-category/announcements?1e959936_page=2)
 
 Category
@@ -263,6 +263,38 @@ Category
 Product
 
 Usecase
+
+### Anthropic’s approach to teaching and learning AI
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 20, 2026
+
+[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
+
+[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
+
+### Build production agents with computer use, the Skills API, and the Files API
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 20, 2026
+
+[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
+
+[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
 
 ### Claude Tag now reads even more of the room
 
@@ -471,38 +503,6 @@ June 18, 2026
 [Centrally manage authorization for MCP connectors](https://claude.com/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
 
 [Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
-
-### Claude Code now supports artifacts
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-June 18, 2026
-
-[Claude Code now supports artifacts](https://claude.com/blog/artifacts-in-claude-code)Claude Code now supports artifacts
-
-[Claude Code now supports artifacts](#)Claude Code now supports artifacts
-
-### Claude Design now stays on brand for daily work
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-June 17, 2026
-
-[Claude Design now stays on brand for daily work](https://claude.com/blog/claude-design-stays-on-brand-for-daily-work)Claude Design now stays on brand for daily work
-
-[Claude Design now stays on brand for daily work](#)Claude Design now stays on brand for daily work
 
 [View more](https://claude.com/blog-category/announcements?2f226f2c_page=2)
 

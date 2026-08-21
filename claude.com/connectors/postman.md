@@ -6,11 +6,12 @@
 
 Give API context to your coding agents
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/b9049585-f39b-45e8-8626-6ca78d9d7d22)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Postman, Inc.](https://www.postman.com/)
 

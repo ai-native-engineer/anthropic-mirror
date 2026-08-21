@@ -7,7 +7,6 @@ Output.ai workflow development toolkit for Claude Code. Adds 5 specialist agents
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Output.ai](#)
 * Installs

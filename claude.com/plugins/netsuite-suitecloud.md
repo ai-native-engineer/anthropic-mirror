@@ -7,7 +7,6 @@ NetSuite agent skills from Oracle — authoring guidance for SuiteCloud Developm
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Oracle NetSuite](#)
 * Installs

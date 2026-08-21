@@ -7,7 +7,6 @@ Airtable is the database and operations layer for your agents — whether runnin
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Airtable](#)
 * Installs

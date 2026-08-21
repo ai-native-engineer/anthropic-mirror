@@ -6,11 +6,12 @@
 
 Notes & second brain
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/ebf5e222-450b-4658-b566-ddb82c4c8382)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Craft Docs Ltd](https://www.craft.do/)
 

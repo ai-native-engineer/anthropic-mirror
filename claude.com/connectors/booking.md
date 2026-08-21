@@ -6,11 +6,12 @@
 
 Find hotels, homes and more
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/487a895f-84d3-4c21-925f-c6c3552b94cc)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Booking BV](https://www.booking.com/)
 

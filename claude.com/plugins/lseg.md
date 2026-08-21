@@ -8,7 +8,6 @@ Direct access to LSEG market data and analytics — build DCF models, draft morn
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/financial-services-plugins&plugin=lseg)
-* Made by
 
   [LSEG](https://www.lseg.com/en/solutions/ai-finance-solutions)
 * Installs

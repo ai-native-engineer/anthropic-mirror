@@ -7,7 +7,6 @@ Automate API security directly in Claude Code with 42Crunch - automatically audi
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [42Crunch](#)
 * Installs

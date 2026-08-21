@@ -8,7 +8,6 @@ Onboard a Code-with-Claude Makers Cardputer with one /maker-setup command — cl
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](#)
 * Installs

@@ -6,11 +6,12 @@
 
 Query human genomics & longitudinal clinical data
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/cc609c18-f6f5-44a0-ac77-6150b9d7b439)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Helix](https://www.helix.com)
 

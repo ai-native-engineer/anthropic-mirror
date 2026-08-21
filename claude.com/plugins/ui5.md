@@ -7,7 +7,6 @@ SAPUI5 / OpenUI5 plugin for Claude. Create and validate UI5 projects, access API
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   1853

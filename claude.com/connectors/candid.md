@@ -6,11 +6,12 @@
 
 Research nonprofits and funders using Candid's data
 
+* Category
+
   Nonprofit
 * Used in
 
   [Claude](https://claude.ai/directory/875faf93-08c4-469c-980f-6f79f70f10d3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Candid](https://candid.org/)
 

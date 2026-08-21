@@ -7,7 +7,6 @@ Mapbox skills and MCP servers for building location-aware applications with AI. 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Mapbox](#)
 * Installs

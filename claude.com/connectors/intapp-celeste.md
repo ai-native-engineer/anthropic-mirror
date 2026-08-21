@@ -6,11 +6,12 @@
 
 Securely, compliantly access Intapp Celeste products
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/dd9a36b4-e356-4ca5-a771-d979e8a898c6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Intapp Celeste](https://intapp.com)
 

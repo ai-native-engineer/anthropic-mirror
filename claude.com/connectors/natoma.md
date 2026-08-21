@@ -6,11 +6,12 @@
 
 Access all your internal tools, enterprise apps & data.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/1e18ff95-3f46-4285-98e5-0bb6021d06df)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Natoma Labs, Inc.](https://www.natoma.ai)
 

@@ -6,11 +6,12 @@
 
 State-of-the-art ADMET prediction models for drug discovery
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/b3dd180f-5722-4194-af20-b253347d4f7b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Inductive Bio](https://inductive.bio/)
 

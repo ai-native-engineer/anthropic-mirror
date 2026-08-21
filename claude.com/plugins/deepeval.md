@@ -7,7 +7,6 @@ DeepEval skills: evaluations, tracing, datasets, Confident AI reports, iterative
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Confident AI](#)
 * Installs

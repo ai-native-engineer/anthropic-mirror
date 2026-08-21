@@ -7,7 +7,6 @@ Stagehand automation for Claude Code. Automate web tasks, extract data, navigate
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Browserbase](https://www.browserbase.com)
 * Installs

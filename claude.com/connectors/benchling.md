@@ -6,11 +6,12 @@
 
 Connect to R&D data, source experiments, and notebooks
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/b69522d1-0a10-415a-898b-4e4d706c9c87)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](https://support.claude.com/en/articles/12614810-using-the-benchling-extension-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Benchling](https://www.benchling.com/)
 

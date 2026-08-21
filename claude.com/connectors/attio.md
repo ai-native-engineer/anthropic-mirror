@@ -6,11 +6,12 @@
 
 Search, manage, and update your Attio CRM from Claude
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/ae5afdb9-e3c6-4b64-a13a-420e7a8d8124)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Attio](https://attio.com)
 

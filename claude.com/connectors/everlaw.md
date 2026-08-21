@@ -6,11 +6,12 @@
 
 Search and explore your Everlaw database in Claude.
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/d498e1f4-a632-40ba-ada2-32c9aae7232b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Everlaw](https://everlaw.com)
 

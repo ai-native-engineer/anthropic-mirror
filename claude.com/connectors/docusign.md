@@ -6,11 +6,12 @@
 
 Intelligent, secure contract management by Docusign
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/a876b642-2b05-4808-a565-deeb271802fd)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Docusign](https://www.docusign.com)
 

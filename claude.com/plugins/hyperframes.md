@@ -7,7 +7,6 @@ HyperFrames by HeyGen. Write HTML, render video. Compositions, GSAP and runtime 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [HeyGen](#)
 * Installs

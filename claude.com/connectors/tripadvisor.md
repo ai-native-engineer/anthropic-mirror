@@ -6,11 +6,12 @@
 
 Find your perfect hotel based on Tripadvisor reviews
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/1ddc28c1-c1f8-4894-9a85-f6dc8add9c89)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Tripadvisor](https://www.tripadvisor.com)
 

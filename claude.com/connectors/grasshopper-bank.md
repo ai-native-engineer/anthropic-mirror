@@ -6,11 +6,12 @@
 
 Query and analyze your financial data
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/2bd58a48-6693-4964-9a00-b95861911928)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Grasshopper Bank](https://www.grasshopper.bank/)
 

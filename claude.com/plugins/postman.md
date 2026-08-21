@@ -7,7 +7,6 @@ Full API lifecycle management for Claude Code. Sync collections, generate client
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   20482

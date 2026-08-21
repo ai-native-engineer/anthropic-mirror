@@ -6,11 +6,12 @@
 
 Search pg and Tiger docs, learn database skills
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/4039eae1-e1f2-4080-9f3c-b1cc7059c2e6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Tiger Data](https://tigerdata.com)
 

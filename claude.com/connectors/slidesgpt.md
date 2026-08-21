@@ -6,11 +6,12 @@
 
 Make presentations and slides, export to PowerPoint
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/59eafa91-020f-435e-b8a4-1bfcd7a957d8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Lightstone GmbH](https://slidesgpt.com)
 

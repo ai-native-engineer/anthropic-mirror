@@ -7,7 +7,6 @@ Manage Dataproc clusters and jobs.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google LLC](#)
 * Installs

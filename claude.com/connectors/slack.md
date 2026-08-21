@@ -6,11 +6,12 @@
 
 Send messages, create canvases, and fetch Slack data!
 
+* Category
+
   Communication
 * Used in
 
   [Claude](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Slack](https://slack.com/)
 

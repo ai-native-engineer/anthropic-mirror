@@ -1,5 +1,5 @@
 <!-- source: https://claude.com/form/mythos-access-interest -->
 
-# Mythos 5 access
+# Claude Mythos access
 
-We aim to expand access to Mythos 5 for dual-use capabilities in cybersecurity and life sciences research. Sign up and we'll notify you as the program grows.
+We are expanding our Verification Programs for dual-use capabilities in cybersecurity and life sciences research. Sign up, and we'll notify you for more information if your organization may be eligible for Claude Mythos model access.

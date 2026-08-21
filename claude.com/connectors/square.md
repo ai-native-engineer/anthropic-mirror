@@ -6,11 +6,12 @@
 
 Search and manage transaction, merchant, and payment data
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](http://claude.ai/directory/25d61b20-3ba1-4477-b51a-a743d1ca65fb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Square, Inc.](https://squareup.com/)
 

@@ -7,7 +7,6 @@ AI-first auditor & re-engineer based on 9 design principles & 7 patterns (TechWo
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   1604

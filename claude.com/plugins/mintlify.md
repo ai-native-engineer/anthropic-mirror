@@ -8,7 +8,6 @@ Build beautiful documentation with Mintlify: convert to MDX, modify content, aut
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   6930

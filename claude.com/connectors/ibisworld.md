@@ -6,11 +6,12 @@
 
 Financials, risk data and analysis on 50,000 industries
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/fa7af7d8-e1b2-4c8f-83f9-d2936bdc0aa7)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [IBISWorld](https://www.ibisworld.com)
 

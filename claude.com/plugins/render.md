@@ -7,7 +7,6 @@ Deploy, debug, monitor Render apps with skills, agent, commands, and yaml valida
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Render](#)
 * Installs

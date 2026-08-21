@@ -8,7 +8,6 @@ Build a live, shareable project status page that auto-refreshes and shows state 
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

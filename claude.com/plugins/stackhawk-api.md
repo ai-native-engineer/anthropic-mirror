@@ -7,7 +7,6 @@ Query StackHawk API for security posture reporting, findings, and app management
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [StackHawk](#)
 * Installs

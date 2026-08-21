@@ -8,7 +8,6 @@ Claude Code plugin toolkit: 7 expert skills for hooks, MCP, commands, agents, va
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

@@ -20,6 +20,9 @@ Search
 
 DateCategoryTitle
 
+* [Aug 18, 2026Science
+
+  How Claude is accelerating protein design and analytical chemistry](https://www.anthropic.com/research/Claude-accelerates-protein-design)
 * [Aug 10, 2026Science
 
   Learning more about Claude's mathematical capabilities](https://www.anthropic.com/research/riemann-zeta)

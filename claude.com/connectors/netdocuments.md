@@ -6,11 +6,12 @@
 
 Securely access your documents in NetDocuments
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/de658515-71ab-4e82-bf83-0677cbc2f6cd)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [NetDocuments](https://www.netdocuments.com/)
 

@@ -554,7 +554,7 @@ Cowork is built for non-coding knowledge work — research, analysis, document c
 
 ### Can I assign tasks to Claude from my phone?
 
-Yes. Web and mobile are in beta: start a task from your phone, and Claude keeps working in the cloud even when your laptop is closed. Check in, redirect, or review the result from anywhere.
+Yes. Start a task from your phone, and Claude keeps working in the cloud even when your laptop is closed. Check in, redirect, or review the result from anywhere. Available in Pro, Max, and Team plans automatically. Enterprise plans can opt in.
 
 ### What does computer use mean?
 

@@ -6,11 +6,12 @@
 
 Connect to your Braze workspace to analyze trends and gather insights on Braze Campaigns and Canvases
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](#)[Claude desktop app](https://claude.ai/directory/ant.dir.pypi.braze.braze-mcp-server)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Braze](https://www.braze.com)
 

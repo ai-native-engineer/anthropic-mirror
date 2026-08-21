@@ -7,7 +7,6 @@ Build and manage websites with Flint's AI website builder through natural conver
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Flint](https://tryflint.com)
 * Installs

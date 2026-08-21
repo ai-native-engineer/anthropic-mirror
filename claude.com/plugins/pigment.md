@@ -7,7 +7,6 @@ Analyze business data and build custom Pigment models, metrics, and boards throu
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Pigment](#)
 * Installs

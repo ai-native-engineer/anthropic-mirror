@@ -6,11 +6,12 @@
 
 Make Claude your Paytm Payments assistant
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/7c2f4b78-5630-4f5f-9524-27e6f8d8cb01)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Paytm Payments Services Limited](https://www.paytmpayments.com)
 

@@ -6,11 +6,12 @@
 
 Turn Claude into your Razorpay Dashboard Assistant
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/c4259182-2a73-4a5f-91ab-0867a3eade9d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Razorpay Software Private Limited](https://razorpay.com/about/)
 

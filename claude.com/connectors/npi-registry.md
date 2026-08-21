@@ -6,13 +6,14 @@
 
 Access US National Provider Identifier (NPI) Registry
 
+* Category
+
   Life sciences and healthcare
 
   Health and wellness
 * Used in
 
   [Claude](https://claude.ai/directory/9ef2b31c-71e1-4183-9b8a-b9590f33940b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-npi-registry-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 

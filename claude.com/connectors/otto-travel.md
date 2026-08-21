@@ -6,11 +6,12 @@
 
 Plan, book, and manage business travel
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/a758ddcc-4510-4774-b316-9ea13af188bc)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Otto Trip, Inc.](https://www.ottotheagent.com/)
 

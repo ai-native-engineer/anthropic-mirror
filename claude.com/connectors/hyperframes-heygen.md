@@ -6,13 +6,14 @@
 
 Build animated slides and motion graphics with HTML
 
+* Category
+
   Productivity
 
   Design
 * Used in
 
   [Claude](https://claude.ai/directory/275b944b-60a0-4f0d-9e55-0c0e5927a5c7)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [HeyGen Technologies](https://www.heygen.com)
 

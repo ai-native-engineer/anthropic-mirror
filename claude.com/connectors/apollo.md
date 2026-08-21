@@ -6,11 +6,12 @@
 
 Find buyers. Book more meetings. Close more deals.
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/8fd555a4-ea5f-49cf-9335-582dd6760597)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Apollo.io](https://www.apollo.io)
 

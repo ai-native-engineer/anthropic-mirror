@@ -7,7 +7,6 @@ AI-powered build and migrate guidance from AWS, built for startups at any stage.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Amazon Web Services](#)
 * Installs

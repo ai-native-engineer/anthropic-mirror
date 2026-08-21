@@ -7,7 +7,6 @@ AI-assisted development of SAP Cloud Application Programming Model (CAP) project
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [SAP SE](#)
 * Installs

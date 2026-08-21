@@ -8,7 +8,6 @@ AI code review with specialized agents and confidence-based filtering for pull r
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

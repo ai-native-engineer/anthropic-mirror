@@ -8,7 +8,6 @@ Go language server for code intelligence and refactoring
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

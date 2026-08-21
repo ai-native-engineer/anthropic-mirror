@@ -7,7 +7,6 @@ UI theme designer plugin: how-to & conceptual answers on BTP, SAP Design System,
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [SAP SE](#)
 * Installs

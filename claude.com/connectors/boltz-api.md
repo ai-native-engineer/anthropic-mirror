@@ -6,11 +6,12 @@
 
 Predict molecular structures and binding interactions, screen libraries, and design binders with the Boltz API.
 
+* Category
+
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/8c1da671-b40e-465b-9bc4-bff40398221f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Boltz](https://boltz.bio/)
 

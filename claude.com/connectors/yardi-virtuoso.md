@@ -6,11 +6,12 @@
 
 Real-time Yardi data & insights
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/01953ddd-4139-40c5-bbf9-47c1e2499623)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Yardi](https://yardi.com)
 

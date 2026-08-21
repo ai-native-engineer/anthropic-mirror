@@ -6,11 +6,12 @@
 
 CRM that remembers everything and works for you.
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/c1496483-94ab-4a4e-885c-d7d2696e6eeb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Lightfield](https://lightfield.app/)
 

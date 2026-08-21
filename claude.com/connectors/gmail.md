@@ -6,11 +6,12 @@
 
 Search your emails, surface insights, and send replies
 
+* Category
+
   Communication
 * Used in
 
   [Claude](https://claude.ai/settings/connectors)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Google](https://google.com)
 

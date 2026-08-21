@@ -7,7 +7,6 @@ Write accurate Pydantic AI code from the start. Up-to-date patterns, decision tr
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   5251

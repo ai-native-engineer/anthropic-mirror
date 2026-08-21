@@ -6,13 +6,14 @@
 
 Validates Mermaid syntax, renders diagrams as high-quality SVG, and displays them instantly in an interactive UI where users can preview, zoom, and iterate in real time.
 
+* Category
+
   Design
 
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/de1df83d-e8f5-4498-a1e7-246cb9df999f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Mermaid Chart Inc](https://www.mermaidchart.com)
 

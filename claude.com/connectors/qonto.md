@@ -6,11 +6,12 @@
 
 Manage your Qonto business finances from Claude
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/56de4854-49c8-4f8f-a53a-4badef6a472f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Qonto](https://qonto.com/)
 

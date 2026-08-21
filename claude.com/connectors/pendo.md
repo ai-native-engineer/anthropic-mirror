@@ -6,11 +6,12 @@
 
 Connect to Pendo for product and user insights
 
+* Category
+
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/2a884a14-5f1e-4742-8ee0-7ebe9cb69ac7)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Pendo](https://www.pendo.io/)
 

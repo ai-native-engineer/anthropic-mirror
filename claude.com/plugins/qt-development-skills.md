@@ -7,7 +7,6 @@ Agentic engineering skills for Qt software development — Qt C++/QML code revie
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Qt Group](#)
 * Installs

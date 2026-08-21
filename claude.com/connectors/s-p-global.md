@@ -6,11 +6,12 @@
 
 Query a range of S&P Global datasets, like Financials
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [S&P Global](https://www.spglobal.com/)
 

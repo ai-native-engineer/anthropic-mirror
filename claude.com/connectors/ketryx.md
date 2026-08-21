@@ -6,11 +6,12 @@
 
 Search and explore regulated software lifecycle data
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/c190c061-702f-48da-97cb-6e32cedf47b0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Ketryx](https://www.ketryx.com/)
 

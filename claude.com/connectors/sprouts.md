@@ -6,11 +6,12 @@
 
 From query to qualified lead in seconds.
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/fadebf8c-fa8d-42f0-b754-4635bd480ab0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Sprouts.ai](https://sprouts.ai)
 

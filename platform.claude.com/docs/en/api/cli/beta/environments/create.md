@@ -145,7 +145,7 @@ Create a new environment with the specified configuration.
 
   - `description: string`
 
-    User-provided description for the environment
+    User-provided description for the environment; null when unset
 
   - `metadata: map[string]`
 

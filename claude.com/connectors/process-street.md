@@ -6,11 +6,12 @@
 
 Explore and update your Process Street data
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/bc7e0573-b43a-4f38-bb11-bd167110a895)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Process Street](https://www.process.st)
 

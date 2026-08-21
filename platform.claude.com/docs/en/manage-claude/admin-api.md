@@ -22,7 +22,7 @@ The [Admin API](https://platform.claude.com/docs/en/api/admin) allows you to pro
 </Check>
 
 <Note>
-  **Claude Enterprise:** Claude Enterprise (claude.ai) organizations use the Admin API too, with a scoped API key created in claude.ai. Of the endpoints on this page, only members and invites are available to them (in beta), alongside Claude-Enterprise-only endpoints: groups and custom-role reads (beta), and [spend limits](https://platform.claude.com/docs/en/manage-claude/spend-limits-api). See [User management](https://platform.claude.com/docs/en/manage-claude/user-management) for Claude Enterprise.
+  **Claude Enterprise:** Claude Enterprise (claude.ai) organizations use the Admin API too, with a scoped API key created in claude.ai. Of the endpoints on this page, only members and invites are available to them, alongside Claude-Enterprise-only endpoints: groups and custom-role reads, and [spend limits](https://platform.claude.com/docs/en/manage-claude/spend-limits-api). See [User management](https://platform.claude.com/docs/en/manage-claude/user-management) for Claude Enterprise.
 </Note>
 
 <Note>
@@ -90,13 +90,13 @@ This is useful for:
 
 There are five organization-level roles. See more details in the [API Console roles and permissions](https://support.claude.com/en/articles/10186004-api-console-roles-and-permissions) article.
 
-| Role               | Permissions                                                                   |
-| ------------------ | ----------------------------------------------------------------------------- |
-| user               | Can use Workbench                                                             |
-| claude\_code\_user | Can use Workbench and [Claude Code](https://code.claude.com/docs/en/overview) |
-| developer          | Can use Workbench and manage API keys                                         |
-| billing            | Can use Workbench and manage billing details                                  |
-| admin              | Can do all of the preceding, plus manage users                                |
+| Role               | Permissions                                                                    |
+| ------------------ | ------------------------------------------------------------------------------ |
+| user               | Can use Playground                                                             |
+| claude\_code\_user | Can use Playground and [Claude Code](https://code.claude.com/docs/en/overview) |
+| developer          | Can use Playground and manage API keys                                         |
+| billing            | Can use Playground and manage billing details                                  |
+| admin              | Can do all of the preceding, plus manage users                                 |
 
 Organization owners and primary owners have all admin permissions and can additionally manage admins. All references to the admin role on this page also apply to owners and primary owners.
 

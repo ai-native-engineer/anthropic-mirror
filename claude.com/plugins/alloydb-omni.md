@@ -7,7 +7,6 @@ Create, connect, and interact with an AlloyDB Omni database and data.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google LLC](#)
 * Installs

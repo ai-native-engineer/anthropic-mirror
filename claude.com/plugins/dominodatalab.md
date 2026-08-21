@@ -7,7 +7,6 @@ Full Domino Data Lab platform support — workspaces, jobs, model deployment, ex
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Domino Data Lab](#)
 * Installs

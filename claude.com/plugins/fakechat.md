@@ -7,7 +7,6 @@ Localhost web chat for testing the channel notification flow. No tokens, no acce
 * Install in
 
   [Claude Code](#)
-* Made by
 * Installs
 
   7896

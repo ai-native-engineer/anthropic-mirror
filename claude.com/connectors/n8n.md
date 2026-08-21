@@ -6,11 +6,12 @@
 
 Access and run your n8n workflows
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/d86fa999-100c-4212-ad7f-2fefea661ef1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](https://docs.n8n.io/advanced-ai/accessing-n8n-mcp-server/#connecting-claude-code-to-n8n-mcp-server)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [n8n](https://n8n.io/)
 

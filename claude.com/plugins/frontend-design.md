@@ -8,7 +8,6 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

@@ -6,11 +6,12 @@
 
 Hire talent with confidence
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/3c145e58-0cb1-410d-9a27-a1767227d539)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Upwork](https://upwork.com/)
 

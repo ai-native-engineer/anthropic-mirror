@@ -6,11 +6,12 @@
 
 Your nutrition data, inside every Claude conversation.
 
+* Category
+
   Health and wellness
 * Used in
 
   [Claude](https://claude.ai/directory/d7df1c09-82a2-4ce9-9442-a9f0e58f9a36)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Alma](https://alma.food)
 

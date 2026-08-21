@@ -8,7 +8,6 @@ Build deal materials, strip profiles, pitch decks, and merger models
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/financial-services-plugins&plugin=investment-banking)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

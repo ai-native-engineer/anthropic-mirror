@@ -6,11 +6,12 @@
 
 Perform world-class investment analysis
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/f4435e97-3469-40d3-9aea-f8f3c5f79752)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Canary Data](https://canarydata.ai/)
 

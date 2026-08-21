@@ -6,11 +6,12 @@
 
 Live events, filings, company publications, and more
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/4ef6cb78-9212-4b0e-b067-bb30e4d27a6f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Aiera](https://aiera.com/)
 

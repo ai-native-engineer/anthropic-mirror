@@ -6,11 +6,12 @@
 
 Zoho Projects MCP for Task & Project Automation
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/bec78036-b8e2-4af1-9ccc-daec0669f426)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Zoho](https://www.zoho.com/mcp/)
 

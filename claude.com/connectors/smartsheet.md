@@ -6,11 +6,12 @@
 
 Analyze and manage Smartsheet data with Claude
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/688b7b3f-efc4-45a6-83af-d2760ef9e96f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Smartsheet Inc.](https://www.smartsheet.com/)
 

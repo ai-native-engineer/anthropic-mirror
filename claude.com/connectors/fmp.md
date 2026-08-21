@@ -6,11 +6,12 @@
 
 Comprehensive financial datasets
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/887934eb-b7e7-429a-b5e3-3523b9c3d45d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Financial Modeling Prep](https://financialmodelingprep.com)
 

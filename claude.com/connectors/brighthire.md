@@ -6,11 +6,12 @@
 
 Search, summarize and analyze hiring data
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/024923b0-b122-4eb0-bb25-c3887bdaa9b9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [BrightHire](https://brighthire.com/)
 

@@ -6,11 +6,12 @@
 
 Discover, evaluate, and buy solutions for the cloud
 
+* Category
+
   Code
 * Used in
 
   [Claude](https://claude.ai/directory/2ed43e1e-f547-48a3-85cc-b9baa412d06b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [AWS Marketplace](https://aws.amazon.com/marketplace)
 

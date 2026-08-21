@@ -6,11 +6,12 @@
 
 Create classroom-ready K-12 math diagrams in Claude
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/8f5a51c6-5664-40c8-8043-f0441252c878)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Coteach](https://coteach.ai)
 

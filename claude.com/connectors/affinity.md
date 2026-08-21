@@ -6,11 +6,12 @@
 
 Search, update, and prep deals without switching tabs.
 
+* Category
+
   Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/5c0aab87-9f11-478f-b7ed-03774fa6169c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Affinity](https://www.affinity.co)
 

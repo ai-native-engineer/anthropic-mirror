@@ -7,7 +7,6 @@ Connect, query, and generate data insights for BigQuery datasets and data.
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google LLC](#)
 * Installs

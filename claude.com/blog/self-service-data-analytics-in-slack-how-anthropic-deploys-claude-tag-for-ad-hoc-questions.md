@@ -4,6 +4,8 @@
 
 # Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
+* Category
+
   No items found.
 * Product
 
@@ -54,26 +56,6 @@ No items found.
 0/5
 
 [Next](#)Next
-
-Get Claude Code
-
-curl -fsSL https://claude.ai/install.sh | bash
-
-Copy command to clipboard
-
-irm https://claude.ai/install.ps1 | iex
-
-Copy command to clipboard
-
-Or read the [documentation](https://code.claude.com/docs/en/overview)
-
-Try Claude Code
-
-[Try Claude Code](https://claude.ai/code)Try Claude Code
-
-Developer docs
-
-[Developer docs](https://code.claude.com/docs/en/overview)Developer docs
 
 eBook
 
@@ -1079,9 +1061,17 @@ If you've already done the work from [our first post](https://claude.com/blog/ho
 
 *This article was written by Clement Peng and Lily Zhao, members of Anthropic's Data Science and Data Engineering team, with contributions from Josh Cherry and Michael Segner.*
 
+‍
+
 FAQ
 
 No items found.
+
+- Ready to try it? Add Claude to your Slack workspace and tag @Claude in any channel.
+
+Add Claude to Slack
+
+[Add Claude to Slack](https://api.anthropic.com/integrations/v1/slack/install)Add Claude to Slack
 
 ## Related posts
 

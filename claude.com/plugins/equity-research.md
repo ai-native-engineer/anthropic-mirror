@@ -8,7 +8,6 @@ Analyze earnings, generate investment ideas, and draft initiating coverage repor
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/financial-services-plugins&plugin=equity-research)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

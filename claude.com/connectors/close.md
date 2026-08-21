@@ -6,11 +6,12 @@
 
 Securely connect Claude to your Close data
 
+* Category
+
   Sales and marketing
 * Used in
 
   [Claude](https://claude.ai/directory/3e12bb5c-11e5-409c-8e73-64d4b625b498)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Close](https://close.com)
 

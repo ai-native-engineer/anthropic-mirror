@@ -7,7 +7,6 @@ Keep your coding agent up to date with the latest web best practices
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Google Chrome](https://developer.chrome.com)
 * Installs

@@ -8,7 +8,6 @@ Create, improve, and measure skills. Use for creating, updating, evaluating, and
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs

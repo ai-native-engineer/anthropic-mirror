@@ -6,11 +6,12 @@
 
 Find tickets on the World's Largest Ticket Marketplace
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/ee04ec30-7005-4dd3-803d-2d0cc7a88289)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [StubHub](https://Stubhub.com)
 

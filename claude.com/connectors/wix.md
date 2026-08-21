@@ -6,11 +6,12 @@
 
 Manage and build sites and apps on Wix
 
+* Category
+
   Design
 * Used in
 
   [Claude](https://claude.ai/directory/780a3621-8271-4822-bd0b-b9cab309375d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

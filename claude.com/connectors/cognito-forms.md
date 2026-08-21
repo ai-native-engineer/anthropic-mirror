@@ -6,11 +6,12 @@
 
 Manage entries, analyze submissions, and download files
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/3ec0d2b6-b96f-4314-bb2c-ccf6f644946d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Cognito Forms](https://www.cognitoforms.com)
 

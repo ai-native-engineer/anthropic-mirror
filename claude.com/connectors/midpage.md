@@ -6,11 +6,12 @@
 
 Conduct legal research and create work product
 
+* Category
+
   Productivity
 * Used in
 
   [Claude](https://claude.ai/directory/1a6a40cd-43c9-4752-9052-fed9c5e8c45c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-* Made by
 
   [Midpage](https://www.midpage.ai/)
 

@@ -7,7 +7,6 @@ HawkScan DAST for Claude Code: configure, run, interpret, prioritize fixes
 * Install in
 
   [Claude Code](#)
-* Made by
 
   [StackHawk](#)
 * Installs
