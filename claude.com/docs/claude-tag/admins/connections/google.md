@@ -22,25 +22,13 @@ The connection picker offers two routes:
 | **OAuth (Connect button)** | Fastest path. An admin signs in with a Google account that has access to the content Claude needs. |
 | **GCP service-account key** | When you want a dedicated non-human identity in Google with auditable access, or need domain-wide delegation across your Workspace. |
 
-Both routes create a credential and an allowed-websites rule path-scoped to that Google service (the Drive API path for Drive, the Calendar API path for Calendar, the Gmail API path for Gmail).
+Both routes create a credential and an allowed-websites rule for the Google hosts the connection uses.
 
 ##  Add the connection with OAuth
 
 Use a dedicated Google account for this connection (for example, `claude@yourcompany.example.com`), not your own. The connection is shared: anyone in a channel under the bundle’s scope can ask Claude to read whatever this account can see in Drive, Calendar, and Gmail. A dedicated account starts with no access until you share the specific folders and calendars Claude needs, and keeps its activity under a separate identity in Google’s audit log.
 
-In the bundle, click **Connect** next to **Google Drive**, **Google Calendar**, or **Google Gmail**. A scope checklist appears with read-only scopes selected by default. Each scope grants a specific permission:
-
-| Scope | What it lets Claude do |
-| --- | --- |
-| `openid`, `userinfo.email` | Identify the connected account (selected by default) |
-| `calendar.readonly` | Read events and calendars |
-| `calendar.events.readonly` | Read events only (narrower than `calendar.readonly`) |
-| `calendar` | Create, edit, and delete events |
-| `drive.readonly` | Read files and folders |
-| `drive.file` | Create and edit files Claude itself created |
-| `gmail.readonly` | Read email |
-
-Check write scopes only if Claude should create or edit. Click **Sign in with Google Calendar** (or **Sign in with Google Drive**, or **Sign in with Google Gmail**), approve the Google consent screen, and the credential is saved.
+In the bundle, click **Connect** next to **Google Drive**, **Google Calendar**, or **Gmail**. The dialog lists the Google hosts the connection can reach; there are no scopes to choose. Click **Sign in with Google Drive** (or **Sign in with Google Calendar**, or **Sign in with Gmail**), approve the Google consent screen, and the credential is saved.
 The connection’s reach is whatever the signed-in Google account can see. Share the relevant folders and calendars with that account in Google before testing.
 
 ##  Add the connection with a service account

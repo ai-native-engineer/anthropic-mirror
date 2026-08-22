@@ -30,7 +30,7 @@ The diagram below traces one request through this process.
 
 Tag Claude in a channel
 
-A user asks Claude to chart last week’s signups or fix a deploy test. The request starts a new session.
+A user asks Claude to chart last week’s signups or fix a deploy test. The task gets a session in a thread under the message.
 
 2
 
@@ -71,6 +71,10 @@ A new environment’s network access level defaults to Trusted access, so a fres
 The same rules apply to code Claude runs in the sandbox, like `curl` or a `fetch` call: a request is blocked unless its host is allowed by one of the layers above.
 Agent Proxy carries HTTP and HTTPS only. A protocol that isn’t HTTP, such as SSH or a database’s native wire protocol, can’t cross the proxy even to an allowed host.
 Nothing is installed inside your network. Your systems see only requests authenticated with the credentials Agent Proxy attached. For the endpoints and addresses your network team may need to allowlist, see [Network requirements](https://claude.com/docs/claude-tag/admins/network-requirements).
+
+###  How a host gets allowed
+
+Agent Proxy allows a host when any one of three layers allows it: a [Domains entry](https://claude.com/docs/claude-tag/admins/add-connections#allow-a-host-without-a-credential) on the bundle attached to the scope, a [connection’s allowed websites](https://claude.com/docs/claude-tag/admins/add-connections#set-allowed-websites) (which also attaches that connection’s credential), or the network access level of the [environment](https://claude.com/docs/claude-tag/concepts/glossary#environment) the scope’s sessions run on. A host that none of them allows is blocked, and Claude names the blocked host in the thread so an admin can add it; see [Give Claude access to your tools](https://claude.com/docs/claude-tag/admins/add-connections).
 
 ###  Web search vs. network requests
 

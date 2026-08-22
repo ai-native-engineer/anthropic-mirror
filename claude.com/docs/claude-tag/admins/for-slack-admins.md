@@ -29,7 +29,7 @@ The app requests bot scopes for reading and posting in channels it’s a member 
 Two scopes a Slack admin commonly asks about:
 
 * `channels:join` lets Claude add itself to a public channel when a member selects one of its suggested-channel buttons, or when the channel’s name matches an [auto-join channel pattern](https://claude.com/docs/claude-tag/admins/restrict-access#block-or-auto-join-channels-by-name) an admin set. It cannot join private channels this way.
-* `users:read.email` lets Claude match a Slack member to their Claude account by email, so a person who DMs Claude is recognized without a separate linking step.
+* `users:read.email` lets Claude read a member’s profile email. Claude uses it for checks such as the email domain when a member connects their Claude account. It does not connect accounts; a member still runs the Connect step in Slack.
 
 ##  What installing does not grant
 

@@ -63,13 +63,16 @@ The earlier app linked each user’s own claude.ai account, so it answered as th
 | Who sets it up | Each user, individually | An Owner, once |
 
 The **Claude Tag version** setting on each scope lets you pin a channel or workspace to **Off**, **Legacy**, or **New**, or **Inherit** the organization default. Use it to hold specific channels on the Legacy behavior while you finish provisioning, then switch them when ready. Access bundles only apply where the New version answers. See [the version setting](https://claude.com/docs/claude-tag/admins/restrict-access#migrate-from-the-earlier-claude-in-slack) for the control.
-Both versions answer through the same @Claude app, so setting a scope to **Off** turns off the earlier version there too. To opt out of Claude Tag while keeping the earlier behavior, set the scope to **Legacy**, not **Off**.
+
+##  Two versions of the same Slack app
+
+The earlier Claude in Slack and Claude Tag are two versions of the same `@Claude` Slack app, not two apps, so there is nothing to uninstall. You choose which version answers per scope with the **Claude Tag version** setting (**Off**, **Legacy**, **New**, or **Inherit**), so one workspace can run both during a phased switch. Setting a scope to **Off** turns off both versions there; to keep the earlier behavior in a scope, set it to **Legacy**.
+To tell which version answered in a channel, look at who authored the work. The New version authors code as the Claude GitHub App and keeps work in the channel’s thread; if `@Claude` still opens pull requests under the asker’s name, that channel is answering with the Legacy version.
 
 ##  What existing users notice after the switch
 
 In channels, the visible difference is that work belongs to the channel, not to whoever asked. Anyone can reply in a thread to steer it, and the result stays where the team can see and pick it up. Code work is authored by the Claude GitHub App rather than as the requesting user.
-A user who never linked a claude.ai account can now hand Claude work in channels, by default. Whether that stays open or narrows to organization members is the admin’s [access restriction](https://claude.com/docs/claude-tag/admins/restrict-access#members) setting.
-If `@Claude` in a channel still opens pull requests under the asker’s name, that channel is answering with the Legacy version; check the scope’s Claude Tag version setting.
+A user who never linked a claude.ai account can now hand Claude work in channels, by default. Whether that stays open or narrows to organization members is the admin’s [access restriction](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-who-can-use-claude) setting.
 
 ##  Related resources
 

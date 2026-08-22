@@ -17,13 +17,13 @@ You can upload skills one at a time in the console, but putting them in a git re
 
 Create the repository
 
-A new GitHub repository in your organization, with one folder per plugin. Each plugin bundles one or more skills.
+A private or internal GitHub repository, laid out as a [Claude Code plugin marketplace](https://code.claude.com/docs/en/plugin-marketplaces): a `.claude-plugin/marketplace.json` file at the root that lists each plugin, and one folder per plugin. Each plugin bundles one or more skills. A public repository can’t be selected in the next step; fork it into a private one first.
 
 2
 
 Register the repository as a plugin marketplace
 
-On the **Plugins** page at [`claude.ai/admin-settings/plugins`](https://claude.ai/admin-settings/plugins), click **Add plugins** and choose **Sync from GitHub**. Select the repository, leave **Sync automatically** on (the default), and click **Create**.
+For a github.com repository, the GitHub connector must be enabled for your organization. On the **Plugins** page at [`claude.ai/admin-settings/plugins`](https://claude.ai/admin-settings/plugins), click **Add plugins** and choose **Sync from GitHub**. Select the repository, leave **Sync automatically** on (the default), and click **Create**.
 
 3
 

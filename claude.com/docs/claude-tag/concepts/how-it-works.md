@@ -9,7 +9,7 @@
 [Skip to main content](#content-area)
 
 Claude Tag is Claude, working inside your team’s Slack channels. An organization Owner gives it its own accounts to the tools your team uses, so it arrives already able to act, and anyone in a channel can tag it into a problem without setting anything up.
-When someone tags Claude in with a task, a working session starts for that thread. Claude works through the task and posts the result back into the conversation. It runs in an ephemeral cloud sandbox that Anthropic hosts, not on your local machine or inside your network.
+When someone tags Claude in at a channel’s top level, the channel’s own [session](https://claude.com/docs/claude-tag/concepts/glossary#session) picks the message up. A task that needs investigation, tools, or a longer exchange gets a working session in a thread under the message, and that thread binds to its own session from then on. Claude works through the task and posts the result back into the conversation. The work runs in an ephemeral cloud sandbox that Anthropic hosts, not on your local machine or inside your network.
 This page covers:
 
 * [Walk through a session](#walk-through-a-claude-tag-session): an annotated example thread showing one task end to end
@@ -75,10 +75,10 @@ While a session runs, check in by replying in the same thread. Asking “how’s
 Anyone in the channel can steer a running session by replying in its thread, not just the person who started it. That is what Sam did in the walkthrough. Without re-mentioning `@Claude` or starting over, he replied in Jordan’s thread, and the session folded his instruction into work already in progress. Add context, redirect the approach, or pick up the result later; a colleague’s thread is yours to continue.
 Editing or deleting an earlier message doesn’t steer the session the way a reply does:
 
-* **Editing a message**: Claude receives a note each time you edit, showing what the message said before the edit and what it says now. It reads the note but doesn’t act on it, so it won’t reply, redo finished work, or treat words you added as a new request.
+* **Editing a message**: Claude receives a note each time you edit, showing what the message said before the edit and what it says now. An edit doesn’t start a new task or re-address Claude, even if you add `@Claude` to it.
 * **Deleting a reply**: Claude gets no notification and keeps the version it already read.
 * **Deleting the thread’s first message**: if the thread already has replies, Claude keeps working and the session stays open. If you delete it before anyone has replied, the session closes. Anything Claude already pushed or posted persists, per [what survives between replies](#what-survives-between-replies), and you start a new thread to pick the task back up.
-* **Correcting course**: Claude acts on replies, not on edits or deletions. Say the change in a new reply; the reply is also how you walk back a message it already read.
+* **Correcting course**: Claude responds to replies; edits reach it only as notes, and a deleted reply not at all. Say the change in a new reply; the reply is also how you walk back a message it already read.
 
 ##  Team channels and personal DMs
 
@@ -110,14 +110,14 @@ The short version: **team work → Claude Tag; personal work → Cowork or Claud
 Three ideas recur across this page and the rest of these docs.
 
 * **Agent identity**: in channels, Claude acts under its own service accounts that an admin provisions, not as the person who asked. What it can reach is set per channel, so everyone in a channel works with the same access. See [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity).
-* **Scheduling and long-running work**: a task can run on a schedule, trigger on a repository event, or keep going across many turns in one thread. The same channel access applies whether a person or a schedule started it. See [Set up routines](https://claude.com/docs/claude-tag/users/proactivity).
+* **Scheduling and long-running work**: a task can run on a schedule, follow a pull request and act when it changes, or keep going across many turns in one thread. The same channel access applies whether a person or a schedule started it. See [Set up routines](https://claude.com/docs/claude-tag/users/proactivity).
 * **Memory**: what Claude learns in public channels is saved as workspace memory that any channel can use; private channels keep their own. See [What Claude remembers](https://claude.com/docs/claude-tag/users/memory).
 
 ##  Lifecycle of a request
 
 Every session, in any channel, follows the same five-step loop.
 
-1. **The session starts.** Someone tags `@Claude` with a task, or a [scheduled routine](https://claude.com/docs/claude-tag/users/proactivity) runs.
+1. **The session starts.** Someone tags `@Claude` with a task that needs a working session, or a [scheduled routine](https://claude.com/docs/claude-tag/users/proactivity) runs. At a channel’s top level, the channel’s own session picks the message up and starts the thread’s session.
 2. **A sandbox builds.** Anthropic builds an isolated working environment for this thread.
 3. **The working loop runs.** Claude works through the task with the channel’s access, editing its checklist in place.
 4. **The result lands in the thread.** An answer, a doc, a chart, or a pull request.
@@ -128,6 +128,7 @@ Every session, in any channel, follows the same five-step loop.
 Steps 1 and 2 are [starting a session](#start-a-session): a message tags Claude in, and a sandbox builds for that thread. Step 3, the working loop, is [the checklist](#how-the-checklist-updates) below. Steps 4 and 5, the result and the quiet period that follows, are covered in [What survives between replies](#what-survives-between-replies).
 Every session runs in an ephemeral sandbox Anthropic hosts, a real working environment where it can read documents, run code, build charts, and open pull requests. Claude clones your repositories into the sandbox, edits them there, and pushes changes back to your Git host as a branch or pull request. The sandbox runs the same engine that powers Claude Code on the web, Anthropic’s agent for writing and running code, which is why the results are working artifacts rather than chat.
 Two threads in the same channel are two separate sessions with separate sandboxes; sessions don’t share state directly.
+A channel where Claude works at the top level, outside threads, also carries one session for the channel itself, separate from every thread’s. That session reads the channel’s top-level messages and handles top-level @-mentions, so context carries across separate top-level asks in the same channel; [What survives between replies](#what-survives-between-replies) covers how long it lives. For a task that needs investigation, tools, or a longer exchange, it starts a dedicated session in a thread under the message. At the channel’s top level, [`!restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session) replaces the channel’s session.
 Even with nothing connected, every session starts from the same baseline.
 
 * It reads its own thread and the channel’s history, including pinned items
@@ -168,7 +169,7 @@ Because access is set per channel rather than per person, the way to find out wh
 
 ###  One-off and scheduled tasks
 
-A session starts the same way whether a person triggers it or a schedule does. A mention starts a session for that one task, and the sandbox is released once it finishes. A routine runs the same loop on a schedule, a channel watch, or a repository event, with the channel’s connections, so a recurring digest or watcher gets the same access a typed request would. See [set up routines](https://claude.com/docs/claude-tag/users/proactivity).
+A session starts the same way whether a person triggers it or a schedule does. A tagged task runs in its thread’s session, and the sandbox is released once the work finishes. A routine runs the same loop on a schedule, a channel watch, or a repository event, with the channel’s connections, so a recurring digest or watcher gets the same access a typed request would. See [set up routines](https://claude.com/docs/claude-tag/users/proactivity).
 
 ##  Session context and memory
 
@@ -176,12 +177,18 @@ Every session runs the same lifecycle; what varies by place and thread is [what 
 
 ###  Conversation context
 
-A session reads its own thread and its channel. Mentioning `@Claude` partway into an existing thread gives it up to 50 messages from the start of the thread (the root plus the oldest replies, with other bots’ replies filtered out). In long threads, the most recent messages before your mention can fall outside that window, so restate anything critical.
+A session reads its own thread and its channel. Mentioning `@Claude` partway into an existing thread gives it a window of the thread’s messages, not the whole thread, with other bots’ replies filtered out. In long threads, restate anything critical.
 Claude works in channels it has been added to, but workspace search can still find messages by keyword from public channels it’s not a member of (the same search any Slack user has). Workspace search is unavailable in [channels that include guests](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-guest-channels). Finding something is broader than being able to act somewhere; to have it participate in a channel directly, invite it with `/invite @Claude`.
 
 ###  What survives between replies
 
-The thread is durable; the sandbox is not. When a session is idle, its sandbox is released, and it is rebuilt when the next message arrives.
+A thread is durable, but the sandbox behind it is not. Durable means the thread, and everything Claude read and said in it, stays in Slack and stays available to the session for as long as the thread exists. The sandbox is the computer where Claude runs commands and keeps working files for a task. A few minutes after a session finishes its turn, Anthropic releases its sandbox, and the same session resumes in a fresh one when the next message arrives. A thread’s session keeps resuming this way for as long as people use the thread. Claude replaces it with a new session in two cases.
+
+| When | What Claude does |
+| --- | --- |
+| Someone sends [`@Claude !restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session) | Archives the session right away and starts a fresh one that rereads the thread |
+| The session [gets stuck and fails](https://claude.com/docs/claude-tag/users/troubleshooting#claude-reacted-or-started-thinking-then-never-replied) | Starts the replacement when the next message arrives in the thread |
+
 ![Timeline with two lanes. The Slack thread lane is one continuous bar that persists from the moment a task starts. The sandbox lane below it is segmented, built when the task starts, released while the thread goes quiet, and rebuilt fresh when someone replies.](https://mintcdn.com/claude-ai/5JFKyLlO7sHMMf5J/images/claude-tag/diagrams/session-lifecycle.svg?fit=max&auto=format&n=5JFKyLlO7sHMMf5J&q=85&s=9a56231787b03f179e8d552d887778fc)
 ![Timeline with two lanes. The Slack thread lane is one continuous bar that persists from the moment a task starts. The sandbox lane below it is segmented, built when the task starts, released while the thread goes quiet, and rebuilt fresh when someone replies.](https://mintcdn.com/claude-ai/5JFKyLlO7sHMMf5J/images/claude-tag/diagrams/session-lifecycle-dark.svg?fit=max&auto=format&n=5JFKyLlO7sHMMf5J&q=85&s=0693a90b98baa729dcacfd35261f6494)
 
@@ -193,6 +200,8 @@ The thread is durable; the sandbox is not. When a session is idle, its sandbox i
 | Files that exist only in the sandbox | No. Claude recreates them if asked. |
 
 For long tasks, ask it to push branches and post drafts as it goes, so deliverables are saved somewhere durable while the work is still running. See [Good habits](https://claude.com/docs/claude-tag/users/good-habits#give-every-task-a-definition-of-done).
+The channel’s own session, the one that handles top-level messages outside any thread, lives longer than a thread’s. Claude replaces it with a fresh one when a top-level message arrives after about an hour with no top-level activity, when the session is about a day old, or when the channel’s configuration has changed since the session started. Channel memory and the channel’s history are unaffected, so the only visible effect is that Claude no longer carries what the previous session had been working on.
+Claude also stops reading a channel’s top-level messages once about 100 of them have arrived since it last posted or replied there. An `@Claude` mention in the channel starts it reading again; see [When Claude stops reading a channel](https://claude.com/docs/claude-tag/users/when-claude-responds#when-claude-stops-reading-a-channel). These thresholds are defaults and can change, so treat the numbers as approximate.
 
 ###  Channel and workspace memory
 

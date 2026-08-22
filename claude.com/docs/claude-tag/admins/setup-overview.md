@@ -28,7 +28,7 @@ If your team already uses the earlier Claude in Slack, the same steps apply and 
 | A **Team or Enterprise plan** on claude.ai | Claude Tag is available on Team and Enterprise plans, on Anthropic’s first-party service. It isn’t available on individual plans (Free, Pro, or Max), or for third-party deployments. | Start a Team or Enterprise plan at [claude.com/pricing](https://claude.com/pricing) |
 | A Claude organization **without Zero Data Retention (ZDR)** | Claude Tag stores channel memory and session transcripts, which ZDR doesn’t permit. | Claude Tag isn’t available to ZDR organizations |
 | **Routines** enabled for your Claude organization | Claude Tag requires Routines to be enabled for your organization. Until it is, Claude answers every mention and DM with a reply that it’s unavailable and does no work. | An admin enables Routines at [`claude.ai/admin-settings/claude-code`](https://claude.ai/admin-settings/claude-code) |
-| **Owner** role in the Claude organization you’re setting up | Pairing a workspace and creating Access bundles are Owner-only writes; an Admin can view settings but not complete setup. Roles are per organization, so being an Owner elsewhere doesn’t carry over. | Ask an Owner to run setup, or have one promote you at [`claude.ai/admin-settings/members`](https://claude.ai/admin-settings/members) |
+| **Owner** role in the Claude organization you’re setting up | Pairing a workspace and creating Access bundles are Owner-only writes. Roles are per organization, so being an Owner elsewhere doesn’t carry over. | Ask an Owner to run setup, or have one promote you at [`claude.ai/admin-settings/members`](https://claude.ai/admin-settings/members) |
 | A **Slack workspace admin** | Running `@Claude connect` requires a Slack workspace admin; installing the app usually does too (most workspaces require admin approval for new apps) | If that’s someone else, [send them the install request](https://claude.com/docs/claude-tag/admins/pair-workspace#send-the-install-request-to-your-slack-admin) early (app approval can take time), and plan to be online together when you [pair your Slack workspace](#pair-your-slack-workspace); pairing codes expire 15 minutes after they’re issued |
 | **Usage credits** (Team plans) | Channel work draws from your organization’s usage balance; on a Team plan nothing runs until credits are loaded | Check whether your organization has a [launch usage credit](https://support.claude.com/en/articles/15575654-claude-tag-launch-promo-for-claude-team-and-enterprise) before buying; otherwise, buy credits at [`claude.ai/admin-settings/usage`](https://claude.ai/admin-settings/usage) |
 | *(Optional)* The **Claude GitHub App** linked to your Claude organization | Linking GitHub before you start turns setup’s GitHub step into repository selection, so you can grant repositories there instead of installing the app mid-setup | [Link your GitHub organization](https://claude.com/docs/claude-tag/admins/configure-github#link-your-github-organization) first, or grant repository access after setup |
@@ -112,6 +112,7 @@ Each tool you picked is listed. Click **Connect** and enter the credential for t
 
 To finish this step later, select **Skip** and confirm past the warning that Claude won’t be able to act in the unconnected tools.
 See [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections) for how to create the accounts and what access to give them.
+You can use any address. The setup flow shows `claude@` followed by your own domain only as an example; Claude Tag never asks for the address and keeps only the credential you enter for each tool.
 
 ###  Launch Claude Tag
 
@@ -197,3 +198,4 @@ There are two common ways to roll out from here:
 ##  Related resources
 
 * [Network requirements](https://claude.com/docs/claude-tag/admins/network-requirements): what your services must allowlist so Claude can reach them
+* [Claude Tag in production at Anthropic](https://claude.com/blog/ai-ci-cd-on-call): how Anthropic runs Claude Tag as its first responder for CI/CD failures

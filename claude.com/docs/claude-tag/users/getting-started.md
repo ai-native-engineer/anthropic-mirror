@@ -8,13 +8,13 @@
 
 [Skip to main content](#content-area)
 
-Claude Tag is Claude working in your Slack workspace. You hand it work by writing a message where Claude is, and Claude carries it out in that thread. An `@Claude` mention guarantees a response in a channel, but it isn’t required everywhere. DMs and threads Claude is already in reach it without one. There’s nothing for you to install or configure; if `@Claude` is in your channel, you can use it (unless your admin has [restricted who can invoke Claude](https://claude.com/docs/claude-tag/admins/restrict-access#members)).
+Claude Tag is Claude working in your Slack workspace. You hand it work by writing a message where Claude is, and Claude carries it out in that thread. An `@Claude` mention guarantees a response in a channel, but it isn’t required everywhere. DMs and threads Claude is already in reach it without one. There’s nothing for you to install or configure; if `@Claude` is in your channel, you can use it (unless your admin has [restricted who can invoke Claude](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-who-can-use-claude)).
 
 ##  When to tag Claude in a channel versus a DM
 
 Where you tag Claude decides whose tools it uses and who sees the result.
 
-* **Channel** for shared team work. The work happens in the open, so anything Claude does in the thread, including its checklist and results, is visible to everyone in the channel, and anyone can reply to steer the work. An admin sets what Claude can reach in each channel, and everyone who asks there gets the same access. By default you don’t need a Claude account to tag Claude in a channel; the work bills to the organization. An admin can [restrict who can invoke Claude](https://claude.com/docs/claude-tag/admins/restrict-access#members).
+* **Channel** for shared team work. The work happens in the open, so anything Claude does in the thread, including its checklist and results, is visible to everyone in the channel, and anyone can reply to steer the work. An admin sets what Claude can reach in each channel, and everyone who asks there gets the same access. By default you don’t need a Claude account to tag Claude in a channel; the work bills to the organization. An admin can [restrict who can invoke Claude](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-who-can-use-claude).
   + Example: `@Claude where are we on the launch checklist? Pull what's still open from this channel and #design-review.`
 * **DM** for personal tasks. A DM runs on your own claude.ai account with [your own connectors](https://claude.com/docs/connectors/overview). Every DM message reaches Claude without an @-mention. You can also DM Claude questions about getting started, like how to word a task or what to try first. DMs are one-to-one only; group DMs aren’t supported.
   + Example: `Pull my afternoon meetings from my calendar and draft a one-line prep note for each.`
@@ -75,14 +75,25 @@ After you’ve handed Claude a task, the first question is what it has to work w
 | What you give Claude | Can Claude read it? |
 | --- | --- |
 | Messages in this thread | Yes. Mentioning it mid-thread also gives it the thread’s earlier messages |
-| An image or screenshot you attach | Yes |
+| A file you attach (image, screenshot, PDF, or another type) | Yes, up to a size limit that depends on the file type. See [Files you attach](#files-you-attach) |
 | Other public channels in your workspace | By searching only, the same way a person searches Slack; Claude can find a message by keyword but can’t read a channel’s full history unless it’s been added there |
 | Private channels and DMs | Only from inside them. Adding Claude to a private channel lets it work there, but the channel stays unreadable from any other channel or DM. |
 | A link you paste, like a Google Doc or a webpage | Only if your admin allowed that site for this channel. If not, Claude tells you it can’t reach it. For files in your personal Drive or Google account, DM Claude instead; [a DM uses your own connectors](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) |
 | A Slack canvas | No |
-| A message you edited after sending | Yes. Each edit sends Claude a note showing the text before and after the edit. Claude reads the note but doesn’t act on it, so say a correction in a new reply. Deleting a message doesn’t notify Claude |
+| A message you edited after sending | Yes. Each edit sends Claude a note showing the text before and after the edit. An edit never starts a new task on its own, so to be sure a correction is picked up, say it in a new reply. Deleting a message doesn’t notify Claude |
 
 The fastest way to find out for your channel is to ask: `@Claude can you read the doc I just linked?` gets you a yes or a “that site isn’t allowed here.”
+
+###  Files you attach
+
+Claude reads images and PDFs directly. It puts any other file type in its working files and opens it from there when the task needs it. Claude accepts files within these limits.
+
+* **Images**: up to about 3.75 MB each
+* **PDFs**: up to 5 MB each
+* **Other files** (spreadsheets, code, archives, documents): up to 100 MB each
+* **Number of files**: up to 5 per message. Claude ignores any beyond the fifth.
+
+Claude can’t read an image or PDF over its limit and answers from the rest of your message. To hand Claude a larger image or PDF, resize the image, split the PDF, or paste the text.
 
 Slack doesn’t expose personal account settings (your sidebar, notification preferences, channel membership, or DMs between you and other people) to apps. If you want help organizing channels, paste or screenshot the list and Claude can propose a scheme you apply yourself.
 

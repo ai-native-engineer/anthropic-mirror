@@ -13,7 +13,8 @@ Claude Tag’s settings live on claude.ai, split across a few pages that each ow
 | Surface | Who changes it | What it controls |
 | --- | --- | --- |
 | [Claude Tag admin page](https://claude.ai/admin-settings/claude-tag) | An Owner in your Claude organization | Access, behavior, and restrictions for channels, per [scope](https://claude.com/docs/claude-tag/concepts/glossary#scope) |
-| [Usage page](https://claude.ai/admin-settings/usage/claude-tag) | An admin | Spend limits and per-channel usage analytics |
+| [Usage page](https://claude.ai/admin-settings/usage/claude-tag) | An admin | Spend limits and each channel’s spend against them |
+| [Analytics page](https://claude.ai/analytics/claude-tag) | Anyone who can view the Analytics dashboard | Spend trends, projections, and per-channel reports; read-only |
 | The **Configure** link in the footer of any Claude reply in a channel | Channel members (unless an admin restricts editing) and [channel managers](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) for their assigned channels | One channel’s instructions and whether Claude replies there without an @-mention. Channel managers also set the channel’s default model, repositories, and connections |
 | [Customize > Connectors](https://claude.ai/customize/connectors) on your own claude.ai account | You | Which of your personal tools apply in [DMs](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) |
 
@@ -32,7 +33,8 @@ Everything an Owner configures for channels lives at [`claude.ai/admin-settings/
 
 ##  Spend limits and usage
 
-Spend limits and usage analytics live at [`claude.ai/admin-settings/usage/claude-tag`](https://claude.ai/admin-settings/usage/claude-tag), a different page than the Claude Tag admin page. It holds the organization-wide spend limit, the default spend limit for channels, per-channel limits, and the per-channel spend breakdown. If your organization bills through a reseller, this page is not available. See [Set a spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit) for funding the usage balance and what users see when a limit is reached.
+Spend limits live at [`claude.ai/admin-settings/usage/claude-tag`](https://claude.ai/admin-settings/usage/claude-tag), a different page than the Claude Tag admin page. It holds the organization-wide spend limit, the default spend limit for channels, per-channel limits, and each channel’s spend against its limit. If your organization bills through a reseller, this page is not available. See [Set a spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit) for funding the usage balance and what users see when a limit is reached.
+Spend trends live at [`claude.ai/analytics/claude-tag`](https://claude.ai/analytics/claude-tag), the Claude Tag section of the Analytics dashboard. It shows total and projected spend, spend by channel, and [spend by kind of work](https://claude.com/docs/claude-tag/admins/set-spend-limit#see-spend-by-kind-of-work) for the period you pick, and anyone with permission to view the Analytics dashboard can open it. It has no controls; see [Usage analytics](https://claude.com/docs/claude-tag/admins/restrict-access#usage-analytics).
 
 ##  The Configure page
 

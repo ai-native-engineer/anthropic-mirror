@@ -46,5 +46,3 @@ Administrators can integrate Claude data into existing compliance dashboards, au
 Team and Enterprise plan admins can now upgrade to premium seats with Claude Code—and take advantage of flexible pricing with extra usage options. Both Team and Enterprise plans include granular spend caps, self-serve seat management, and Claude Code usage analytics.
 
 To explore how Claude for Enterprise can transform your organization's productivity and learn more about the Compliance API, [contact](https://www.anthropic.com/contact-sales) our sales team.
-
-Claude Code and new admin controls for business plans \ Anthropic

@@ -34,7 +34,7 @@ Naming both the channels and the topic is what keeps a watch useful. The watch c
 
 ###  Follow a pull request
 
-Claude can subscribe to a single pull request and react when it updates.
+Claude can subscribe to a single pull request and react when it updates. A subscription is the one way Claude reacts to GitHub events; it wakes on activity on that pull request, such as a comment, a failed check, or a merge. You can’t set up a routine from Slack that fires on other repository events, such as every new pull request.
 
 ```
 @Claude subscribe to PR #482 in acme/data-pipeline. When CI finishes or a review lands, post here, and tag me if anything failed.
@@ -102,10 +102,12 @@ Anyone in the channel can list, edit, or disable its standing work:
 * **Edit.** Describe the change and it updates the job
 * **Disable.** Name the job to stop, as in “disable the Friday rollup”
 
-Standing work is visible to the channel: jobs post into the channel they belong to. Routines keep running if their creator leaves the organization, but stop firing if the creator is removed from the channel.
+Standing work is visible to the channel: jobs post into the channel they belong to, or into another public channel you name that Claude has been added to. Routines keep running if their creator leaves the organization, but stop firing if the creator is removed from the channel.
 A few boundaries apply:
 
 * A job runs with the channel’s connections, the same as an interactive request.
+* Claude can post a job’s output into another public channel in the same workspace only if the job’s own channel is public and Claude has been added to the target channel. It labels the message with the channel it came from.
+* Claude doesn’t post job output to private channels, DMs, group DMs, or externally shared channels, and doesn’t message people directly. The one exception is the completion or failure notice it sends to whoever set up the routine, and only when that person’s Slack account is connected to their Claude account.
 * Schedules default to UTC. When you say “every weekday at 9am,” include the timezone (for example “9am Pacific”) so Claude converts correctly; without one it may guess. Ask “what triggers do you have set up?” to confirm the time it actually scheduled.
 * A scheduled job that touches a github.com repository uses the same GitHub connection your admin set up for interactive work. See [Configure GitHub access](https://claude.com/docs/claude-tag/admins/configure-github#scheduled-work-uses-the-same-connection).
 

@@ -197,5 +197,3 @@ B. *Vulnerability; Security Patches.* Contractor will apply security patches to 
 9. **Return and Destruction.** Upon the termination or expiration of the Agreement, Contractor will promptly: (A) return to Anthropic all copies, whether in written, electronic or other form or media, of Personal Information in Contractor's (or any third party operating on your behalf) possession; and (B) where permitted, delete and render Protected Information unreadable in the course of disposal, securely dispose of all such hard copies, and where requested certify in writing Contractor's compliance.
 
 10. **Survival.** Contractor's obligations under this PSA will survive expiration or termination of the Agreement and completion of the Services as long as Contractor continues to have access to Protected Information.
-
-Inbound Services Agreement \ Anthropic

@@ -43,5 +43,3 @@ This expansion follows a successful pilot program, the first-ever [AI Jam](https
 Organizations interested in transforming their operations with Claude for Enterprise can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.
 
 *This blog was updated on July 11, 2025 with additional information from LLNL.*
-
-Claude for Enterprise Powers LLNL Research \ Anthropic

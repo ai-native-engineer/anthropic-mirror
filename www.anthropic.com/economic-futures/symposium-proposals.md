@@ -34,5 +34,3 @@ DC Economic Futures Symposium awardees and speakers by institution and policy id
 | **Tom Bowen** | Gusto | *AI for Main Street - helping small businesses adopt AI* |
 | **Varsha Shukla** | Dartmouth College | *Task-based framework for labor mobility in the AI age* |
 | **Yong Lee** | University of Notre Dame | *Proactive workforce development and assistance in the AI age* |
-
-Economic Futures Symposium proposals \ Anthropic

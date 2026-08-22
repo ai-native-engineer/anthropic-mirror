@@ -43,5 +43,3 @@ We're also launching Claude Builder Clubs on campuses worldwide, creating commun
 Institutions leveraging AI hold immense promise to transform education and bridge long-standing equity gaps in learning. Yet realizing this potential demands more than technological innovation—it requires thoughtful collaboration, unwavering attention to ethics and privacy, and a commitment to ensuring equitable access for all learners.
 
 The stakes couldn't be higher: while the opportunity to accelerate educational progress is unprecedented, missteps could deepen existing divides and cause lasting harm. That's why we're committed to navigating this transformation responsibly, working hand-in-hand with our partners to build an educational future that truly serves everyone. To learn more about Claude for Education, [contact our Education team](https://www.anthropic.com/education).
-
-Advancing Claude for Education \ Anthropic

@@ -72,6 +72,11 @@ Claude Tag’s model lists come from the models your organization makes availabl
 
 A change to the allowed list applies to new sessions, like a change to the **Default model**; a thread already underway keeps its model until someone in it asks Claude to switch.
 
+##  Where to change a scope’s environment
+
+The environment is the sandboxed compute configuration a scope’s sessions run in. You create environments in one place and pin one per scope in another. An Owner or admin creates environments on the **Cloud environments** page in [admin settings](https://claude.ai/admin-settings), as [organization-shared environments](https://code.claude.com/docs/en/cloud-environments#organization-shared-environments). You then pin one per scope, in the **Environment** picker in the scope’s **Advanced** section on [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), for **Default Slack access**, a workspace, or a channel. A channel with no pin of its own inherits the nearest pin above it; with nothing pinned anywhere, sessions use the **Organization default**.
+A change applies to new sessions; after you pin an environment, start a fresh thread to pick it up. To give a channel broader network access through its environment, see [broad web access through the environment](https://claude.com/docs/claude-tag/admins/add-connections#broad-web-access-through-the-environment). If sessions don’t pick up the environment you pinned, see [channel sessions use the wrong environment](https://claude.com/docs/claude-tag/admins/troubleshooting#channel-sessions-use-the-wrong-environment-or-can%E2%80%99t-find-one).
+
 ##  Auto mode allow rules
 
 Sessions run in [auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode), where Claude’s permission checker reviews each action Claude is about to take and can flag or stop it. When you add an auto mode allow rule to a scope, you pre-approve one action in that scope’s sessions, so Claude runs it there without the checker stopping it. The checker keeps reviewing every other action.

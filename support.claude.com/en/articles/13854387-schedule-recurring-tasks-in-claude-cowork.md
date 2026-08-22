@@ -43,7 +43,7 @@ There are two ways to create a scheduled task:
 5. Once Claude has all the necessary information, it will output the name of the task it’s creating, the schedule it will follow, and what the task actually does.
 6. You can explicitly confirm you want to schedule the task when prompted by Claude by clicking “Schedule":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1787358600&signature=7929c54076a2833611ba1751116df0b50f85fcf5a7851401b1b126f6b637f0c8&req=diEnEsl2mIJWUPMW1HO4zeLJBkLn%2BuKBPx%2FSrZI7l8zL6V91hmxK%2Fw16brPr%0AbGzQ%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1787358600&signature=7929c54076a2833611ba1751116df0b50f85fcf5a7851401b1b126f6b637f0c8&req=diEnEsl2mIJWUPMW1HO4zeLJBkLn%2BuKBPx%2FSrZI7l8zL6V91hmxK%2Fw16brPr%0AbGzQ%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1787426100&signature=b6b233d51409266c8a36ca5b9fb5d8e3b3e416bd51881e62c1fa688f53ee784f&req=diEnEsl2mIJWUPMW1HO4zeLJBkLg%2FeyGPx%2FSrZI7l8yIxFfezdhHXcty%2Fwbm%0AOBcf%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1787426100&signature=b6b233d51409266c8a36ca5b9fb5d8e3b3e416bd51881e62c1fa688f53ee784f&req=diEnEsl2mIJWUPMW1HO4zeLJBkLg%2FeyGPx%2FSrZI7l8yIxFfezdhHXcty%2Fwbm%0AOBcf%0A)
 7. Claude will create and schedule your task, and it will be added to the **Scheduled tasks** page.
 
 ### Set up manually

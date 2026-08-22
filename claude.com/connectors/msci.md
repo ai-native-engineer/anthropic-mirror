@@ -2,7 +2,7 @@
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69960386162842e34d0d9095_MSCI%20Thumbnail-White%20background.png)
 
-# MSCI
+# MSCI Connector
 
 Turn data into insight
 

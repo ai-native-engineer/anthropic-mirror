@@ -60,3 +60,11 @@ When the investigation should end in a pull request
 ## Set up routines
 
 Schedules and event triggers
+
+## Claude on call
+
+How Anthropic runs Claude as first responder for CI/CD failures
+
+## On-call kit
+
+Reference playbooks, templates, and guided setup for an on-call channel

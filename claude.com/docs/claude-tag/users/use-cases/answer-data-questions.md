@@ -60,3 +60,7 @@ When the question is about systems, not metrics
 ## Set up routines
 
 Recurring reports
+
+## Self-service data analytics
+
+How Anthropic answers ad-hoc data questions in Slack with Claude

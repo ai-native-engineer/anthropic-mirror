@@ -13,5 +13,3 @@ Earlier in his career, Krishna spent time as a private equity investor at Blacks
 “I am thrilled to join Anthropic at such a pivotal moment in the company’s journey,” said Krishna. “Anthropic’s mission to build transformative AI systems that benefit humanity deeply resonates with me. I look forward to working with the exceptional team at Anthropic to build a strong financial foundation that will support the responsible development and deployment of our technology.”
 
 “Krishna is a world-class financial leader with an impressive history of driving strategic growth and operational excellence at innovative, mission-driven companies,” said Daniela Amodei, co-founder and President of Anthropic. “As we continue to grow our footprint and expand our impact, Krishna’s deep expertise in financial strategy and analysis, capital allocation, and scaling high-growth organizations will be essential. We’re thrilled to have him join our leadership team and help guide Anthropic through our next phase of growth.”
-
-Krishna Rao joins Anthropic as Chief Financial Officer \ Anthropic

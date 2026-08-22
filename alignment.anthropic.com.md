@@ -10,6 +10,10 @@ August 2026
 
 We evaluate whether interpretability tools are useful for predicting counterfactual behaviors under
 prompt edits.](https://alignment.anthropic.com/2026/chive/)
+[### Fine-Tuned Lie Detectors Failed to Generalize
+
+We trained lie detectors on on-policy lies from open-source models, but they didn’t generalize
+well to out-of-distribution lies.](https://alignment.anthropic.com/2026/lie-detectors/)
 [### Introducing the Conceptual Reasoning Index
 
 We design benchmarks to measure models' capabilities to reason about questions whose answers are

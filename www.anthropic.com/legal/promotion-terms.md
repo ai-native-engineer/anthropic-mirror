@@ -35,5 +35,3 @@ For discounted trials, you may withdraw from the discounted Offer Plan purchase 
 ## **5. Changes and General**
 
 Anthropic may modify, suspend, or end this Offer or these Offer Terms at any time, including to correct errors. The Offer is void where prohibited. The Terms apply in full to this Offer.
-
-Claude Subscription Offers Terms and Conditions \ Anthropic

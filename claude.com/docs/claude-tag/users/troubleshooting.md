@@ -33,13 +33,13 @@ If `@Claude` still gets no reaction and no reply after all three, send your admi
 **What you see**
 Claude answers your mentions in a channel, and a teammate’s mentions in the same channel get silence or a refusal.
 **What it means**
-Mentioning Claude in a channel doesn’t require the sender to have a Claude account or seat, so by default anyone in the workspace can use it. Your organization can restrict that with the [member access setting](https://claude.com/docs/claude-tag/admins/restrict-access#members), in which case members outside the restriction are declined.
+Mentioning Claude in a channel doesn’t require the sender to have a Claude account or seat, so by default anyone in the workspace can use it. Your organization can restrict that with the [member access setting](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-who-can-use-claude), in which case members outside the restriction are declined.
 **How to resolve**
 Have the teammate mention `@Claude` themselves and report the exact text of any reply; the reply is the diagnosis.
 
 * No reaction and no reply at all: unusual when it works for you in the same channel; send your admin the exact channel and person.
 * A message about guests: see [the guest entry below](#claude-doesn%E2%80%99t-respond-in-channels-that-include-guests).
-* A message about permissions or access: your organization restricts who can use Claude; send your admin [the member access setting](https://claude.com/docs/claude-tag/admins/restrict-access#members).
+* A message about permissions or access: your organization restricts who can use Claude; send your admin [the member access setting](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-who-can-use-claude).
 
 ###  Claude reacted or started thinking, then never replied
 
@@ -82,9 +82,9 @@ Send a new message with the mention included.
 ###  Claude never responds in a channel shared with another company
 
 **What you see**
-Mentions in a channel shared with another company get no reaction and no reply, ever.
+Mentions in a channel shared with another company get no answer. A direct mention gets a short notice that Claude doesn’t respond there; anything else gets nothing.
 **What it means**
-Claude doesn’t operate in Slack Connect channels, the ones shared with another company. This holds regardless of admin settings; mentions there are dropped without a reply. See [externally shared channels](https://claude.com/docs/claude-tag/admins/restrict-access#externally-shared-channels).
+Claude doesn’t operate in Slack Connect channels, the ones shared with another company. This holds regardless of admin settings. A direct mention gets the reply “This channel is shared with another organization through Slack Connect, and Claude doesn’t respond in Slack Connect channels yet.” Other messages there are dropped without a reply. See [externally shared channels](https://claude.com/docs/claude-tag/admins/restrict-access#externally-shared-channels).
 A channel shared across workspaces inside your Enterprise Grid isn’t silent; what happens there depends on how those workspaces connect to Claude. When every workspace in the channel belongs to your one Claude organization, Claude answers, but with only your organization’s default access and settings, so a repository or an instruction set up for that channel doesn’t apply. A notice in the thread points this out from time to time. When the workspaces are connected to different Claude organizations, you see “This channel is shared among several Claude workspaces, so Claude cannot respond here” instead of an answer.
 Where guest access is restricted, you may first see “This channel is shared across multiple workspaces, and Claude can’t verify whether it includes guests, so Claude can’t respond here.” If you ask Claude from another conversation to act in one of these channels, such as posting a message there, you see a reply that ends “Claude isn’t available in channels shared across your Enterprise Grid”.
 Each of these messages means the channel spans more than one workspace. The [admin entries on these messages](https://claude.com/docs/claude-tag/admins/troubleshooting#this-channel-is-shared-across-multiple-workspaces) explain what causes each one and what an admin can change.
@@ -106,7 +106,7 @@ Mention Claude again; the check usually passes on retry. If the same channel hit
 
 **What you see**
 Claude replies in the channel:
-> Claude doesn’t respond in channels that include guests. You can remove the guests from this channel (Channel details -> Members -> filter by “guests”), or a claude.ai organization owner can allow it here.
+> Claude doesn’t respond in channels that include guests. You can remove the guests from this channel (Channel details -> Members -> filter by “guests”), or a claude.ai organization owner can allow it in Claude Tag settings under Advanced -> “Allow Claude to work in channels with guests”.
 
 **What it means**
 The channel includes at least one Slack guest account, and your organization restricts Claude in channels that include guests (the default).
@@ -166,28 +166,30 @@ Start a new thread. You can paste a summary of where the previous one left off.
 
 The messages in this section mean a session started and then stopped partway through. In most cases the work isn’t lost, and the same thread picks up where it stopped. Each entry says whether anything needs redoing.
 
-###  I hit repeated API server errors and stopped after retrying
+###  I hit repeated API server errors
 
 **What you see**
 Claude posts in the thread:
-> I hit repeated API server errors and stopped after retrying. Mention me to continue.
+> I hit repeated API server errors. I’ll retry automatically in about 2 minutes — no need to do anything. Mention me to retry sooner.
 
-The related messages “I hit repeated 529 Overloaded errors (the API is at capacity) and stopped after retrying. Mention me to continue.” and “The API request timed out and I stopped after retrying. Mention me to continue.” behave the same way.
+The related messages that start “Claude is over capacity right now” and “I hit API rate limits” behave the same way. The wait Claude names grows with each retry.
+If the retries run out, or the session isn’t a thread session, the message ends “and stopped after retrying. Mention me to continue.” instead. “The API request timed out and I stopped after retrying. Mention me to continue.” and “An API server error cut my last response short, so it may be incomplete. Mention me to continue.” always take that form.
 **What it means**
-The API serving the session returned repeated errors, so Claude stopped rather than keep retrying. The work isn’t lost.
+The API serving the session returned repeated errors. The work isn’t lost. When the message says Claude will retry automatically, the same conversation wakes again on its own, up to three times; a newer message from you in the thread cancels the pending retry.
 **How to resolve**
-Mention Claude in the same thread; it picks up where it stopped.
+Nothing, when the message says Claude will retry automatically; wait for it. Mention Claude in the same thread to retry sooner, or when the message asks you to.
 
-###  I hit API rate limits and stopped after retrying
+###  I hit API rate limits
 
 **What you see**
 Claude posts in the thread:
-> I hit API rate limits and stopped after retrying. Wait a moment, then mention me to continue.
+> I hit API rate limits. I’ll retry automatically in about 2 minutes — no need to do anything. Mention me to retry sooner.
 
+When the retries run out, the message is “I hit API rate limits and stopped after retrying. Wait a moment, then mention me to continue.”
 **What it means**
 The Claude API rate-limited your organization’s traffic partway through the turn. The work isn’t lost. Rate limits are about momentary request rate, not accumulated usage: a single task makes many API requests in short bursts, so this can appear on an organization’s very first request. It isn’t the channel spend limit, and it doesn’t mean anything is misconfigured.
 **How to resolve**
-Wait a moment, then mention Claude in the same thread; it picks up where it stopped. If it recurs constantly across channels, the organization’s sustained traffic is above its rate limits; an admin can stagger heavy use or contact their account team about limits.
+Wait for the automatic retry, or wait a moment and mention Claude in the same thread; it picks up where it stopped. If it recurs constantly across channels, the organization’s sustained traffic is above its rate limits; an admin can stagger heavy use or contact their account team about limits.
 If your message mentions a spend limit instead, that’s a different problem; see [You’ve reached a Claude Tag spend limit](#you%E2%80%99ve-reached-a-claude-tag-spend-limit).
 
 ###  This request needs usage credits that aren’t available
@@ -205,24 +207,25 @@ An admin enables or purchases usage credits in claude.ai for your organization. 
 
 **What you see**
 Claude posts in the thread:
-> Claude couldn’t clone a repository for this session. Mention Claude in this thread to retry.
+> Claude couldn’t clone a repository for this session. This can be temporary (for example a GitHub rate limit) — mention Claude in this thread to retry in a few minutes. If it keeps happening, this session may lack access to a repository it needs, or its credentials or integration may need to be reconnected.
 
 **What it means**
-The clone failed when the session started. A one-off failure is transient; the same repository failing every time usually means it isn’t granted for this channel.
+The clone failed when the session started. A one-off failure is transient; the same repository failing every time usually means it isn’t granted for this channel, or the connection it depends on needs to be reconnected.
 **How to resolve**
-Mention Claude in the same thread to retry. If the same repository fails every time, send your admin [the GitHub access entry](https://claude.com/docs/claude-tag/admins/troubleshooting#github-doesn%E2%80%99t-work-in-this-channel).
+Wait a few minutes, then mention Claude in the same thread to retry. If the same repository fails every time, send your admin [the GitHub access entry](https://claude.com/docs/claude-tag/admins/troubleshooting#github-doesn%E2%80%99t-work-in-this-channel).
 
-###  I lost the connection to this session’s container mid-turn
+###  I got disconnected partway through
 
 **What you see**
 Claude posts in the thread:
-> I lost the connection to this session’s container mid-turn — the work I was doing may not have finished. Mention me to resume.
+> I got disconnected partway through and may not have finished. Reconnecting and resuming automatically — usually within a few minutes, though a slow recovery can take much longer. Mention me if I don’t follow up.
 
+When Claude reconnects, it edits that message to “I reconnected and I’m carrying on where I left off. No need to mention me.” When automatic recovery isn’t armed, the message is “I got disconnected partway through and may not have finished. Mention me to pick up where I left off.” instead.
 You can see it in a thread where you’re working with Claude, including a direct-message thread; Claude doesn’t post it in a channel it’s only watching or from a routine.
 **What it means**
 The sandbox running this thread’s session stopped partway through a turn, so the step Claude was on may not have finished. The thread’s conversation is intact.
 **How to resolve**
-Mention Claude in the same thread. Claude resumes there and continues from the conversation; ask it to check on the step it was working on and redo anything that didn’t finish. If the same notice comes back, the underlying problem hasn’t cleared yet. Wait a few minutes and mention Claude again.
+Wait for the reconnect message, or mention Claude in the same thread when the message asks you to. Claude resumes there and continues from the conversation; ask it to check on the step it was working on and redo anything that didn’t finish. If the same notice comes back, the underlying problem hasn’t cleared yet. Wait a few minutes and mention Claude again.
 
 ###  Something went wrong and I couldn’t finish this turn
 
@@ -275,6 +278,15 @@ Channel memory is a small, curated note, not a transcript, and Claude decides wh
 **How to resolve**
 To make an instruction stick, say so explicitly, as in `remember for this channel: always post reports as a table`. Keep saved instructions short; the per-channel memory budget is limited, and long entries crowd out everything else. For longer playbooks, store them in a repository Claude can read.
 Verify what stuck by asking what it remembers about the channel. See [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory).
+
+###  A session link Claude posted shows a not-found page
+
+**What you see**
+You open a link to a session on claude.ai that Claude posted in Slack, such as the “open the session” link in a routine’s completion message, and claude.ai shows a not-found page instead of the session.
+**What it means**
+A session Claude ran from a channel belongs to Claude’s own identity rather than to the person who asked, so claude.ai shows it only to accounts in the Claude organization paired with the workspace, and then only to people who could see the conversation in Slack. Any workspace member can open a session from a public channel; a session from a private channel opens only for members of that channel and the person who started it. Anyone else sees not-found rather than a permission error.
+**How to resolve**
+Sign in to claude.ai with the account that belongs to the organization paired with your workspace. claude.ai matches you to your Slack identity through a connected Slack account or, failing that, through the email address on your Claude account, so if your Claude email differs from your Slack email, connect your Slack account first; DM `@Claude` and it prompts you. If the session came from a private channel, ask to be added to the channel.
 
 ##  Access and connections
 
@@ -346,11 +358,11 @@ If the service exposes an HTTP API, ask your admin to [add a connection](https:/
 
 **What you see**
 Claude posts in the thread:
-> You’ve reached a Claude Tag spend limit. Org admins can raise it in claude.ai admin settings. Once the limit is raised, mention me to retry.
+> You’ve reached a Claude Tag spend limit. A Claude.ai organization owner can raise it in Claude.ai admin settings. Once the limit is raised, mention me to retry.
 
 You may also see a heads-up before you hit the limit. It starts “Heads up — your organization has used *N%* of its monthly Claude Tag spend limit.” for the organization limit, or “Heads up — this channel has used *N%* of its monthly Claude Tag spend limit.” for a channel limit.
 **What it means**
-Usage hit a cap an admin set, either for the whole organization or for this channel. A rate limit looks similar but is a different problem, and raising the spend limit doesn’t clear it. If your message says “Hit the session rate limit — try again in a few seconds.” (or “in ~Ns” when Claude knows the wait), too many sessions started at once. Wait a moment, then mention Claude again.
+Usage hit a cap an admin set, either for the whole organization or for this channel. A rate limit looks similar but is a different problem, and raising the spend limit doesn’t clear it. If your message says “Hit the session rate limit — try again in a few seconds.” (or “in about Ns” when Claude knows the wait), too many sessions started at once. Wait a moment, then mention Claude again.
 **How to resolve**
 Ask your admin to raise the limit; they do so at [`claude.ai/admin-settings/usage/claude-tag`](https://claude.ai/admin-settings/usage/claude-tag). Your admin here is whoever manages your organization’s Claude account at claude.ai, not necessarily your Slack administrator. Once the limit is raised, mention Claude in the same thread to retry.
 
@@ -377,7 +389,7 @@ If a channel (not a DM) shows session-start failures that mention an environment
 
 **What you see**
 Claude replies in the DM:
-> Your Claude account is connected, but it doesn’t have access in this organization — usually this means your admin hasn’t assigned you a seat that includes Claude Code. Ask them to add one, then mention me to retry.
+> Your Claude account is connected, but it doesn’t have access in this organization yet, usually because it needs a seat that includes Claude Code. A Claude admin can add one in your organization’s settings. Once they do, mention me here and I’ll pick this back up.
 
 The Claude app’s **Messages** tab and Slack’s assistant panel both count as DMs even though neither looks like one, so this message can appear when you thought you were using a channel.
 **What it means**

@@ -10,7 +10,7 @@
 
 Use this page to review what Claude Tag is doing across your organization: which routines are scheduled, what memory it has saved, and where to find a record of each action it took.
 
-You must be an Admin or Owner in your Claude organization to open the Audit page; the other trails on this page are visible to anyone with access to the underlying surface.
+You must be an Owner in your Claude organization to open the Audit page; the other trails on this page are visible to anyone with access to the underlying surface.
 
 Claude Tag activity is auditable in four places:
 
@@ -21,7 +21,7 @@ Claude Tag activity is auditable in four places:
 
 ##  What the Audit view lists
 
-The **Audit** page (left-nav label **Audit logs**) at [`claude.ai/admin-settings/claude-tag/audit`](https://claude.ai/admin-settings/claude-tag/audit) has these tabs:
+The Audit page, labeled **Activity** in the admin console’s left nav and page heading, at [`claude.ai/admin-settings/claude-tag/audit`](https://claude.ai/admin-settings/claude-tag/audit) has these tabs:
 
 | Tab | What it shows |
 | --- | --- |

@@ -79,6 +79,16 @@ For instructions that should persist beyond one thread, use channel memory, the 
 
 See [What Claude remembers](https://claude.com/docs/claude-tag/users/memory) for how memory is scoped and how to correct it.
 
+##  Claude Tag versus a bot you build on the API
+
+A Slack bot you build on the Claude API is software your team writes and hosts. It calls the API with your key, holds its own Slack tokens, and has the tools and memory you code into it.
+Claude Tag is Anthropic’s hosted Slack app. It takes care of the parts you would otherwise build.
+
+* **Hosting.** Each thread gets a Claude Code session in a sandbox Anthropic runs, or in the [environment](https://claude.com/docs/claude-tag/concepts/glossary#environment) your organization pins, under an [agent identity](https://claude.com/docs/claude-tag/concepts/agent-identity) of its own.
+* **Credentials.** An admin gives Claude [connections](https://claude.com/docs/claude-tag/admins/add-connections) to your tools, and [Agent Proxy](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy) attaches the credentials at the network boundary, outside the sandbox.
+* **Customization.** [Custom instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions), [channel memory](https://claude.com/docs/claude-tag/users/memory), and [routines](https://claude.com/docs/claude-tag/users/proactivity) are built in.
+* **Governance and billing.** [Access controls](https://claude.com/docs/claude-tag/admins/restrict-access) and spend limits are set in claude.ai admin settings, and usage is [billed to the organization’s usage balance](https://claude.com/docs/claude-tag/overview#billing-and-spend-limits).
+
 ##  Related resources
 
 * [How Claude Tag works](https://claude.com/docs/claude-tag/concepts/how-it-works): the session model this page maps your setup onto

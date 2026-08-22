@@ -8,11 +8,11 @@
 
 [Skip to main content](#content-area)
 
-[1 · Pair workspace](https://claude.com/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/claude-tag/admins/add-connections)[3 · Spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit)[4 · See it work](https://claude.com/docs/claude-tag/admins/test-it)
+[1 · Pair workspace](https://claude.com/docs/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/docs/claude-tag/admins/add-connections)[3 · Spend limit](https://claude.com/docs/docs/claude-tag/admins/set-spend-limit)[4 · See it work](https://claude.com/docs/docs/claude-tag/admins/test-it)
 
 Role you needOwner in your Claude organization, plus a Slack workspace admin to install the app and generate the pairing code. These can be the same person or two people.
 
-Before this stepThe [prerequisites](https://claude.com/docs/claude-tag/admins/setup-overview#before-you-start): confirm your role and decide where you’ll pilot
+Before this stepThe [prerequisites](https://claude.com/docs/docs/claude-tag/admins/setup-overview#before-you-start): confirm your role and decide where you’ll pilot
 
 Do I need this?RequiredNothing else in setup works until a workspace is paired.
 
@@ -83,7 +83,7 @@ The fix is to pair the whole grid rather than one workspace. Claude’s reply to
 
 ##  After pairing: where Claude is enabled
 
-Once a workspace is paired, where Claude responds depends on what you chose when pairing (entire workspace or specific channels), the **Enable Claude Tag for your organization** toggle, and your [access restriction](https://claude.com/docs/claude-tag/admins/restrict-access#members) setting.
+Once a workspace is paired, where Claude responds depends on what you chose when pairing (entire workspace or specific channels), the **Enable Claude Tag for your organization** toggle, and your [access restriction](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-who-can-use-claude) setting.
 
 * **What Claude can reach** in each channel depends on which Access bundles you bind; see [Configure per-channel access](https://claude.com/docs/claude-tag/admins/attach-to-scope).
 * **Nothing runs until usage is funded** on Team plans; see [Set a spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit).

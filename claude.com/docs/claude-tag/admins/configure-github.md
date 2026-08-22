@@ -17,7 +17,7 @@ If you link your GitHub organization before running [setup](https://claude.com/d
 
 ##  Link your GitHub organization
 
-The person who completes the link must be both an **owner of the GitHub organization** and an **Admin in your Claude organization**. If you aren’t a GitHub organization owner, use **Copy message** under **Not a GitHub account owner?** on the GitHub settings page to send the link to someone who is.
+The person who completes the link must be both an **owner of the GitHub organization** and an **Owner in your Claude organization**. If you aren’t a GitHub organization owner, use **Copy message** under **Not a GitHub account owner?** on the GitHub settings page to send the link to someone who is.
 
 1
 
@@ -72,7 +72,7 @@ When Claude replies “That environment or repo isn’t configured for Claude Co
 | The repository is listed on the bundle’s **Repositories** tab, and that bundle is attached to the channel’s scope | [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) → **Access bundles** → the bundle → **Repositories**. A repository granted in one bundle isn’t reachable from a channel under a different bundle. |
 
 Repository grants apply to new threads. After changing the **Repositories** tab, start a fresh thread in the channel and name the repository in the first message.
-The message “GitHub Actions writes are not permitted for this session type.” is a different `403`. It says nothing about repository access; see [What Claude can do with GitHub Actions](#what-claude-can-do-with-github-actions).
+A `403` that names a GitHub Actions operation, such as “repository\_dispatch is not permitted for this session type.”, is a different error. It says nothing about repository access; see [What Claude can do with GitHub Actions](#what-claude-can-do-with-github-actions).
 
 ##  How granted repositories reach a session
 
@@ -101,18 +101,17 @@ In a channel, Claude acts on GitHub as the Claude GitHub App, and that identity 
 Claude can:
 
 * Read workflow runs, jobs, logs, and artifacts, so it follows a pull request’s CI and reports the result
-* Re-run a workflow run or its failed jobs, and cancel a run in progress
-* Trigger `push` and `pull_request` workflows by pushing a branch or opening a pull request, the same way any other author does. To let Claude start automation on demand, put the workflow behind one of these triggers instead of `workflow_dispatch`
+* Re-run a workflow run or its failed jobs, cancel a run in progress, and dispatch a `workflow_dispatch` workflow
+* Delete runs, logs, or artifacts, and enable or disable a workflow
+* Trigger `push` and `pull_request` workflows by pushing a branch or opening a pull request, the same way any other author does
 * Edit files under `.github/workflows/` and open a pull request with the change, like any other file
 
 Claude can’t:
 
-* Dispatch a workflow (`workflow_dispatch` or `repository_dispatch`)
+* Send a `repository_dispatch` event
 * Approve a workflow run that’s waiting on approval, or its pending deployments
-* Delete runs, logs, or artifacts
-* Enable or disable a workflow
 
-A request for any of those is refused with a `403`. A `repository_dispatch` request returns “repository\_dispatch is not permitted for this session type.” The others return “GitHub Actions writes are not permitted for this session type.” Dispatching a workflow or approving a held run starts new code running with the repository’s Actions secrets, so it needs a person; do it from the repository’s **Actions** tab on github.com.
+A request for either is refused with a `403`; a `repository_dispatch` request returns “repository\_dispatch is not permitted for this session type.” Approving a held run or a pending deployment releases a checkpoint GitHub inserted for a person, so do it from the repository’s **Actions** tab on github.com.
 
 ##  Scheduled work uses the same connection
 

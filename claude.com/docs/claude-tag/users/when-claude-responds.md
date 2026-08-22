@@ -19,8 +19,9 @@ Whether Claude replies to a message without an @-mention depends on where you se
 | A DM with Claude | Always. Every message is addressed to Claude already |
 | A thread Claude is already in | Yes, unless you’ve [quieted the thread](#quiet-one-conversation). Once Claude has joined, every reply there reaches it without another mention |
 | A channel, top-level | Sometimes. [What Claude does with a channel message](#what-claude-does-with-a-channel-message) describes how it decides. Include `@Claude` to guarantee a reply, or [turn unprompted replies off](#quiet-the-whole-channel) |
+| A message another app or bot posted | No guaranteed reply. Claude reads it as context. `@Claude` in a bot’s message doesn’t wake a quiet channel; in an active channel Claude may pick it up. See [Messages from other apps and bots](#messages-from-other-apps-and-bots) |
 
-When you @-mention Claude in a channel, it reacts to your message with an emoji within a few seconds to show that it picked the message up. It then answers in a thread under your message, or starts a [working session](https://claude.com/docs/claude-tag/concepts/how-it-works) in that thread when the request needs investigation, tools, or a longer exchange. Once a working session starts, Claude shows an “is thinking…” line under your message. A reaction with no line under it means Claude picked your message up and is either still deciding or answering directly in the thread, not that it missed you.
+When you @-mention Claude in a channel, it reacts to your message with an emoji within a few seconds to show that it picked the message up. The message goes to the channel’s own [session](https://claude.com/docs/claude-tag/concepts/glossary#session), the session Claude works from at the channel’s top level. It then answers in a thread under your message, or starts a [working session](https://claude.com/docs/claude-tag/concepts/how-it-works) in that thread when the request needs investigation, tools, or a longer exchange. Once a working session starts, Claude shows an “is thinking…” line under your message. A reaction with no line under it means Claude picked your message up and is either still deciding or answering directly in the thread, not that it missed you.
 You can change how much Claude replies on its own. You can [quiet a single thread](#quiet-one-conversation), [turn unprompted replies off for a whole channel](#turn-automatic-replies-on-or-off), or [tell Claude which kinds of untagged messages to answer](#what-claude-does-with-a-channel-message).
 
 ##  What Claude does with a channel message
@@ -36,16 +37,24 @@ To have Claude answer more kinds of untagged messages in a channel, tell it whic
 
 ##  Turn automatic replies on or off
 
-The **Respond automatically** setting controls whether Claude replies to a channel’s messages without an @-mention. Each channel has its own. When it’s on, Claude may reply to a message it judges warrants one, as [What Claude does with a channel message](#what-claude-does-with-a-channel-message) describes. When it’s off, Claude replies in that channel only when someone @-mentions it.
+The **Respond automatically** setting controls whether Claude replies to a channel’s messages without an @-mention. When it’s on, Claude may reply to a message it judges warrants one, as [What Claude does with a channel message](#what-claude-does-with-a-channel-message) describes. When it’s off, Claude replies in that channel only when someone @-mentions it.
+The setting is on by default, so a channel Claude was just added to replies without @-mentions from the start.
+Each channel has its own copy of the setting, and there is no workspace- or organization-wide version. To make Claude mention-only across many channels, turn it off in each one.
 All three places below change the same setting, so a change you make in one appears in the others.
 
 | Where | How |
 | --- | --- |
 | In Slack | Ask Claude in the channel, for example “@Claude only respond in this channel when someone @-mentions you” or “@Claude respond to messages here even when nobody mentions you.” Claude confirms the change. |
-| The channel’s Configure page | Open the **Configure** link in the footer of any Claude reply and switch the **Respond automatically** toggle. See [Configure Claude for a channel](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel). |
+| The channel’s Configure page | Open the **Configure** link in the footer of any Claude reply in the channel and switch the **Respond automatically** toggle. See [Configure Claude for a channel](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel). |
 | The Claude Tag admin page (admins only) | At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), on the **Slack** tab under **Claude Tag’s access**, open the channel’s scope and switch **Respond automatically** in its **Advanced** settings. |
 
 The setting covers the channel’s messages, not DMs. To quiet a single thread instead of the whole channel, [ask Claude in that thread](#quiet-one-conversation).
+Until Claude has joined a channel, you see ”@-mention Claude in this channel to activate” in place of the toggle on the Configure page and the admin page. You see the same line in a channel shared across workspaces that all belong to your Claude organization, because Claude runs there with your organization’s default settings only. [Messages that never get a reply](#messages-that-never-get-a-reply) covers shared channels in more detail.
+
+##  Messages from other apps and bots
+
+Claude reads a message that another Slack app or bot posted as channel context, but a bot’s message never gets the guaranteed reply that a person’s @-mention gets. If the channel’s [Respond automatically](#turn-automatic-replies-on-or-off) setting is off, or Claude has [stopped reading the channel](#when-claude-stops-reading-a-channel), a bot’s `@Claude` doesn’t wake it. In a channel where Claude is active, a bot’s `@Claude` reaches Claude as a hand-off it may pick up or leave, and it may answer in a thread. Claude treats alerts an integration posts, messages a Slack workflow posts, and messages from any other bot the same way.
+Because Claude reads those messages, when a person asks about an alert a bot posted, Claude can answer from it. To have Claude act on what an integration posts, mention it in the channel or in the message’s thread. For example, reply to a bot-posted alert with `@Claude triage this`. To have Claude check the channel on a schedule and post what needs attention, set up a [routine](https://claude.com/docs/claude-tag/users/proactivity).
 
 ##  The name on a reply
 

@@ -87,7 +87,7 @@ Artifacts you publish from your own Claude Code sessions work differently: they 
 
 ##  Member access
 
-By default, anyone in a connected Slack workspace can invoke Claude in channels, with or without a Claude account. An Owner can turn on a restriction toggle to narrow that: on Team plans it limits Claude to people with a Claude account in your organization, and on Enterprise plans it limits Claude to members whose role grants the **Claude Tag in Slack** capability. See [Restrict who can use Claude](https://claude.com/docs/claude-tag/admins/restrict-access#members). The toggle governs DMs as well as channels.
+By default, anyone in a connected Slack workspace can invoke Claude in channels, with or without a Claude account. An Owner can turn on a restriction toggle to narrow that: on Team plans it limits Claude to people with a Claude account in your organization, and on Enterprise plans it limits Claude to members whose role grants the **Claude Tag in Slack** capability. See [Restrict who can use Claude](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-who-can-use-claude). The toggle governs DMs as well as channels.
 
 ##  Related resources
 
