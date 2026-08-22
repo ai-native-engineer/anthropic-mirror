@@ -19,7 +19,7 @@
   출력: <out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md (academy-extract와 같은 트리)
 """
 
-import asyncio, hashlib, html, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.request
+import asyncio, hashlib, html, json, os, re, shutil, signal, subprocess, sys, tempfile, time, urllib.request
 from urllib.parse import urlsplit
 import httpx
 from bs4 import BeautifulSoup
@@ -42,6 +42,64 @@ YOUTUBE_DIGEST_SCRIPTS_DIR = os.environ.get(
 )
 EXTRACT = os.path.join(YOUTUBE_DIGEST_SCRIPTS_DIR, "extract_transcript.sh")
 STATE_FILE = ".anthropic-mirror-state.json"
+
+# Playwright driver가 응답을 멈추면 goto 밖의 await(wait_for_selector, evaluate, click)도 같이 멈춘다.
+# await마다 타임아웃을 붙이는 대신 코스 하나를 자식 프로세스로 돌리고, 자식이 남기는 heartbeat가
+# 멈추면 프로세스 그룹째 죽인다. heartbeat 없이 정상적으로 가장 오래 걸리는 구간은
+# fetch_jw_stt의 apple-stt(1800s)라 기본 임계값은 그보다 길게 잡는다.
+STALL_SECONDS = int(os.environ.get("ACADEMY_STALL_SECONDS", "2100"))
+HEARTBEAT = os.environ.get("ACADEMY_HEARTBEAT")
+
+
+def beat():
+    """자식 모드에서 진행 신호를 남긴다(부모가 mtime으로 무진행을 판정한다)."""
+    if HEARTBEAT:
+        try:
+            Path(HEARTBEAT).write_text(str(time.time()), encoding="utf-8")
+        except OSError:
+            pass
+
+
+def run_course(out_root, course, attempt):
+    """코스 하나를 자식 프로세스로 실행한다. 정상 종료면 True."""
+    label = course if attempt == 0 else f"{course} (재시도)"
+    with tempfile.TemporaryDirectory(prefix="academy-hb-") as d:
+        hb = Path(d) / "beat"
+        hb.write_text(str(time.time()), encoding="utf-8")
+        proc = subprocess.Popen(
+            [sys.executable, os.path.abspath(__file__), str(out_root), course],
+            env={**os.environ, "ACADEMY_HEARTBEAT": str(hb), "ACADEMY_ONE_SHOT": "1"},
+            stdin=subprocess.DEVNULL,
+            start_new_session=True,
+        )
+        return watch_process(proc, hb, label)
+
+
+def watch_process(proc, hb, label, stall=STALL_SECONDS, poll=30):
+    """heartbeat가 stall초 넘게 멈추면 프로세스 그룹을 죽인다. 정상 종료면 True."""
+    while True:
+        try:
+            return proc.wait(timeout=poll) == 0
+        except subprocess.TimeoutExpired:
+            pass
+        if time.time() - hb.stat().st_mtime <= stall:
+            continue
+        print(f"[!] {label}: {stall}s 무진행 - 프로세스 그룹 강제 종료", flush=True)
+        try:
+            os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+        except (ProcessLookupError, PermissionError):
+            pass
+        proc.wait()
+        return False
+
+
+def supervise(courses, run_one, attempts=2):
+    """코스별로 run_one을 최대 attempts번 시도하고, 끝내 실패한 코스를 돌려준다."""
+    stalled = []
+    for course in courses:
+        if not any(run_one(course, attempt) for attempt in range(attempts)):
+            stalled.append(course)
+    return stalled
 
 
 def anonymous_landing(final_url):
@@ -337,6 +395,7 @@ async def lesson_videos(pg, course, ck, cdir, state):
     bodies = 0
     gated = 0
     for n, lid in enumerate(ids, 1):
+        beat()
         url = f"{BASE}/{course}/{lid}"
         if os.environ.get("SKILLJAR_MISSING_ONLY") == "1" and url in by_source:
             continue
@@ -434,6 +493,62 @@ async def lesson_videos(pg, course, ck, cdir, state):
     return out, bodies, gated, len(ids)
 
 
+async def crawl_courses(out_root, courses, ck):
+    state_path = out_root / STATE_FILE
+    try:
+        mirror_state = json.loads(state_path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        mirror_state = {}
+    async with async_playwright() as p:
+        b = await p.chromium.launch(headless=True)
+        ctx = await b.new_context(storage_state=STATE, user_agent=UA)
+        pg = await ctx.new_page()
+        for course in courses:
+            cdir = out_root / _HOST / course
+            lv, bodies, gated, listed = await lesson_videos(
+                pg, course, ck, cdir, mirror_state
+            )
+            got = 0
+            for n, (lid, title, fpath, refs) in enumerate(lv, 1):
+                beat()
+                cdir.mkdir(parents=True, exist_ok=True)
+                existing = (
+                    fpath.read_text(encoding="utf-8").rstrip() if fpath.exists() else ""
+                )
+                if not existing:
+                    existing = f"<!-- {BASE}/{course}/{lid} -->\n\n# {title}"
+                    fpath.write_text(f"{existing}\n", encoding="utf-8")
+                if not refs:
+                    continue
+                added = 0
+                for kind, ref in unseen_refs(existing, refs):
+                    beat()
+                    tag = ref_marker(kind, ref)
+                    tx = fetch_transcript(kind, ref)
+                    if len(tx) >= 50:
+                        pending = f"<!-- {kind}-pending: {ref} -->"
+                        existing = existing.replace(
+                            f"\n\n{pending}\n\n_(영상 자막 없음 또는 추출 실패)_", ""
+                        )
+                        existing = f"{existing}\n\n{tag}\n\n## 자막 (영상 전사)\n\n{tx}"
+                        got += 1
+                    else:
+                        pending = f"<!-- {kind}-pending: {ref} -->"
+                        if pending in existing:
+                            continue
+                        existing = f"{existing}\n\n{pending}\n\n_(영상 자막 없음 또는 추출 실패)_"
+                    added += 1
+                if added:
+                    fpath.write_text(f"{existing}\n", encoding="utf-8")
+            write_state(state_path, mirror_state)
+            note = f", {gated}/{listed} gated(skipped)" if gated else ""
+            print(
+                f"{course}: {len(lv)} lessons inspected, {bodies} bodies changed, {got} clips added{note}",
+                flush=True,
+            )
+        await b.close()
+
+
 async def main():
     if sys.argv[1:] == ["--self-test"]:
         refs = youtube_refs(
@@ -479,17 +594,34 @@ async def main():
         flaky = FlakyPage()
         assert await open_lesson(flaky, "https://example.com/lesson")
         assert flaky.calls == 2
+
+        calls = []
+
+        def fake_run(course, attempt):
+            calls.append((course, attempt))
+            return not (course == "b" and attempt == 0)
+
+        assert supervise(["a", "b"], fake_run) == []
+        assert calls == [("a", 0), ("b", 0), ("b", 1)]
+        assert supervise(["c"], lambda *_: False) == ["c"]
+
+        # 무진행 자식은 프로세스 그룹째 죽는다(hang이 파이프라인을 멈추지 않는다).
+        with tempfile.TemporaryDirectory(prefix="academy-hb-test-") as d:
+            hb = Path(d) / "beat"
+            hb.write_text("0", encoding="utf-8")
+            os.utime(hb, (0, 0))
+            sleeper = subprocess.Popen(
+                ["sleep", "600"], stdin=subprocess.DEVNULL, start_new_session=True
+            )
+            assert not watch_process(sleeper, hb, "self-test", stall=1, poll=0.2)
+            assert sleeper.poll() is not None
+
         print("self-test ok")
         return
     if len(sys.argv) < 2:
         print("사용법: academy-video.py <out_dir> [course-slug ...]")
         return
     out_root = Path(sys.argv[1])
-    state_path = out_root / STATE_FILE
-    try:
-        mirror_state = json.loads(state_path.read_text(encoding="utf-8"))
-    except (FileNotFoundError, json.JSONDecodeError):
-        mirror_state = {}
     courses = sys.argv[2:]
     auth_state = json.load(open(STATE))
     ck = {
@@ -535,52 +667,15 @@ async def main():
         skip_host = os.environ.get("SKILLJAR_SKIP_HOST", "")
         if skip_host:
             courses = [c for c in courses if not (out_root / skip_host / c).exists()]
-    async with async_playwright() as p:
-        b = await p.chromium.launch(headless=True)
-        ctx = await b.new_context(storage_state=STATE, user_agent=UA)
-        pg = await ctx.new_page()
-        for course in courses:
-            cdir = out_root / _HOST / course
-            lv, bodies, gated, listed = await lesson_videos(
-                pg, course, ck, cdir, mirror_state
-            )
-            got = 0
-            for n, (lid, title, fpath, refs) in enumerate(lv, 1):
-                cdir.mkdir(parents=True, exist_ok=True)
-                existing = (
-                    fpath.read_text(encoding="utf-8").rstrip() if fpath.exists() else ""
-                )
-                if not existing:
-                    existing = f"<!-- {BASE}/{course}/{lid} -->\n\n# {title}"
-                    fpath.write_text(f"{existing}\n", encoding="utf-8")
-                if not refs:
-                    continue
-                added = 0
-                for kind, ref in unseen_refs(existing, refs):
-                    tag = ref_marker(kind, ref)
-                    tx = fetch_transcript(kind, ref)
-                    if len(tx) >= 50:
-                        pending = f"<!-- {kind}-pending: {ref} -->"
-                        existing = existing.replace(
-                            f"\n\n{pending}\n\n_(영상 자막 없음 또는 추출 실패)_", ""
-                        )
-                        existing = f"{existing}\n\n{tag}\n\n## 자막 (영상 전사)\n\n{tx}"
-                        got += 1
-                    else:
-                        pending = f"<!-- {kind}-pending: {ref} -->"
-                        if pending in existing:
-                            continue
-                        existing = f"{existing}\n\n{pending}\n\n_(영상 자막 없음 또는 추출 실패)_"
-                    added += 1
-                if added:
-                    fpath.write_text(f"{existing}\n", encoding="utf-8")
-            write_state(state_path, mirror_state)
-            note = f", {gated}/{listed} gated(skipped)" if gated else ""
-            print(
-                f"{course}: {len(lv)} lessons inspected, {bodies} bodies changed, {got} clips added{note}",
-                flush=True,
-            )
-        await b.close()
+    if os.environ.get("ACADEMY_ONE_SHOT") == "1":
+        await crawl_courses(out_root, courses, ck)
+        return
+    stalled = supervise(courses, lambda course, attempt: run_course(out_root, course, attempt))
+    if stalled:
+        print(
+            f"[!] 무진행으로 건너뛴 코스: {', '.join(stalled)} (삭제 없음, 다음 실행에서 재시도)",
+            flush=True,
+        )
 
 
 if __name__ == "__main__":
