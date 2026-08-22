@@ -19,7 +19,7 @@
   출력: <out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md (academy-extract와 같은 트리)
 """
 
-import asyncio, hashlib, html, json, os, re, shutil, signal, subprocess, sys, tempfile, time, urllib.request
+import asyncio, contextlib, hashlib, html, io, json, os, re, shutil, signal, subprocess, sys, tempfile, time, urllib.request
 from urllib.parse import urlsplit
 import httpx
 from bs4 import BeautifulSoup
@@ -79,12 +79,19 @@ def run_course(out_root, course, attempt):
 
 
 def watch_process(proc, hb, label, stall=STALL_SECONDS, poll=30):
-    """heartbeat가 stall초 넘게 멈추면 프로세스 그룹을 죽인다. 정상 종료면 True."""
+    """heartbeat가 stall초 넘게 멈추면 프로세스 그룹을 죽인다. 정상 종료면 True.
+
+    멈춘 것과 즉시 죽은 것을 구분해 알린다 -- 둘을 뭉뚱그리면 원인 추적이 어긋난다.
+    """
     while True:
         try:
-            return proc.wait(timeout=poll) == 0
+            code = proc.wait(timeout=poll)
         except subprocess.TimeoutExpired:
             pass
+        else:
+            if code != 0:
+                print(f"[!] {label}: 자식 프로세스 실패 (exit {code})", flush=True)
+            return code == 0
         if time.time() - hb.stat().st_mtime <= stall:
             continue
         print(f"[!] {label}: {stall}s 무진행 - 프로세스 그룹 강제 종료", flush=True)
@@ -623,6 +630,18 @@ async def main():
             assert not watch_process(sleeper, hb, "self-test", stall=1, poll=0.2)
             assert sleeper.poll() is not None
 
+        # 즉시 죽은 자식은 '무진행'이 아니라 exit 코드로 보고돼야 한다.
+        with tempfile.TemporaryDirectory(prefix="academy-hb-test2-") as d:
+            hb = Path(d) / "beat"
+            hb.write_text("0", encoding="utf-8")
+            crashed = subprocess.Popen(
+                ["false"], stdin=subprocess.DEVNULL, start_new_session=True
+            )
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                assert not watch_process(crashed, hb, "self-test", stall=600, poll=0.2)
+            assert "exit 1" in buf.getvalue() and "무진행" not in buf.getvalue()
+
         print("self-test ok")
         return
     if len(sys.argv) < 2:
@@ -680,7 +699,7 @@ async def main():
     stalled = supervise(courses, lambda course, attempt: run_course(out_root, course, attempt))
     if stalled:
         print(
-            f"[!] 무진행으로 건너뛴 코스: {', '.join(stalled)} (삭제 없음, 다음 실행에서 재시도)",
+            f"[!] 건너뛴 코스: {', '.join(stalled)} (삭제 없음, 다음 실행에서 재시도)",
             flush=True,
         )
 
