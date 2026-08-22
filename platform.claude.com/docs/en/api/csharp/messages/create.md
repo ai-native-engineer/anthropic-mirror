@@ -2651,7 +2651,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required string Version`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `required IReadOnlyList<ContentBlock> Content`
 

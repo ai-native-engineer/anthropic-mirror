@@ -16,6 +16,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Aug 21, 2026
+
+The AI-Native SDLC playbook
+
+Enterprise AI
+
+The AI-Native SDLC playbook
+
+August 21, 2026
+
+[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+
+[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
 
 Aug 20, 2026
@@ -111,6 +127,22 @@ August 14, 2026
 [Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
 
 [Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
+
+Aug 13, 2026
+
+Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+Agents
+
+Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+August 13, 2026
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225485fe31f1ed2d9a1_db28a79c9f4492b8471009d4c20e900f234ece48-1000x1000.svg)
 
@@ -224,38 +256,6 @@ July 24, 2026
 
 [How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
-
-Jul 24, 2026
-
-Claude models explained: choosing the best model for your use case
-
-Enterprise AI
-
-Claude models explained: choosing the best model for your use case
-
-July 24, 2026
-
-[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
-
-[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d6ec42bcf1c632f75_52f59749d1e033ff2675c6686a07bcce83fb5046-1000x1000.svg)
-
-Jul 23, 2026
-
-Four role-based certifications for the people who put Claude to work for customers
-
-Enterprise AI
-
-Four role-based certifications for the people who put Claude to work for customers
-
-July 23, 2026
-
-[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
-
-[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
-
 [View more](https://claude.com/blog-category/enterprise-ai?1e959936_page=2)
 
 Category
@@ -263,6 +263,22 @@ Category
 Product
 
 Usecase
+
+### The AI-Native SDLC playbook
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 21, 2026
+
+[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+
+[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
 
 ### Anthropic’s approach to teaching and learning AI
 
@@ -359,6 +375,22 @@ August 14, 2026
 [Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
 
 [Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
+
+### Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+August 13, 2026
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
 ### Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5
 
@@ -471,38 +503,6 @@ July 24, 2026
 [How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
 
 [How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
-
-### Claude models explained: choosing the best model for your use case
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 24, 2026
-
-[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
-
-[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
-
-### Four role-based certifications for the people who put Claude to work for customers
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 23, 2026
-
-[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
-
-[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
 
 [View more](https://claude.com/blog-category/enterprise-ai?2f226f2c_page=2)
 

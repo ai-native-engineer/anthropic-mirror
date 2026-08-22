@@ -297,7 +297,7 @@ One-line Slack replies for the questions you’ll get asked most.
 
 Claude Code ships frequently—verify version-specific details against **[code.claude.com/docs](https://code.claude.com/docs)** before distributing internally.
 
-* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
 * [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)

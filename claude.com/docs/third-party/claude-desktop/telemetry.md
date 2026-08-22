@@ -135,8 +135,10 @@ The host(s) for your configured provider. These carry conversation content.
 
 * Google Cloud's Agent Platform
 * Amazon Bedrock
+* Amazon Bedrock Mantle
 * Microsoft Foundry
 * Gateway
+* Claude API
 
 | Host | Purpose |
 | --- | --- |
@@ -157,12 +159,21 @@ With `inferenceBedrockBearerToken` set, the runtime and control-plane hosts are 
 
 | Host | Purpose |
 | --- | --- |
+| `bedrock-mantle.<region>.api.aws` | Model inference. Replaced by the host of `inferenceBedrockBaseUrl` if set. |
+
+| Host | Purpose |
+| --- | --- |
 | `<resource>.services.ai.azure.com` | Model inference |
 | `login.microsoftonline.com` | Entra ID auth (interactive sign-in only) |
 
 | Host | Purpose |
 | --- | --- |
 | Host of `inferenceGatewayBaseUrl` | Model inference |
+
+| Host | Purpose |
+| --- | --- |
+| `api.anthropic.com` | Model inference; token exchange and API-key creation during browser sign-in |
+| `platform.claude.com` | Browser sign-in page. Dialed only when no static key or credential helper is configured; the in-app Egress list includes it for every Claude API deployment. |
 
 ###  Auto-updates (`disableAutoUpdates: false`)
 

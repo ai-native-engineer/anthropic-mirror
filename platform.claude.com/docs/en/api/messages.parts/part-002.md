@@ -3,6 +3,10 @@
 
 <!-- chunk-start -->
 
+          - `type: "rate_limit_error"`
+
+            - `"rate_limit_error"`
+
         - `GatewayTimeoutError object { message, type }`
 
           - `message: string`
@@ -91,7 +95,7 @@
 
         - `version: string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: array of ContentBlock`
 

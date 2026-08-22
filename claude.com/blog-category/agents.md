@@ -64,6 +64,22 @@ August 18, 2026
 
 [Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
+
+Aug 13, 2026
+
+Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+Agents
+
+Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+August 13, 2026
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
 
 Aug 6, 2026
@@ -80,7 +96,7 @@ August 6, 2026
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
 Jul 24, 2026
 
@@ -240,22 +256,6 @@ April 29, 2026
 
 [Product development in the agentic era](#)Product development in the agentic era
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22bed4b18b6703cd710_e750c875fbd7f08ffb6495efa180a8ed60de3611-1000x1000.svg)
-
-Apr 22, 2026
-
-Building agents that reach production systems with MCP
-
-Agents
-
-Building agents that reach production systems with MCP
-
-April 22, 2026
-
-[Building agents that reach production systems with MCP](https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp)Building agents that reach production systems with MCP
-
-[Building agents that reach production systems with MCP](#)Building agents that reach production systems with MCP
-
 [View more](https://claude.com/blog-category/agents?1e959936_page=2)
 
 Category
@@ -311,6 +311,22 @@ August 18, 2026
 [Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
 
 [Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+### Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+August 13, 2026
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
 ### Millennium and Anthropic are building a digital risk analyst with Claude
 
@@ -487,22 +503,6 @@ April 29, 2026
 [Product development in the agentic era](https://claude.com/blog/product-development-in-the-agentic-era)Product development in the agentic era
 
 [Product development in the agentic era](#)Product development in the agentic era
-
-### Building agents that reach production systems with MCP
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-April 22, 2026
-
-[Building agents that reach production systems with MCP](https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp)Building agents that reach production systems with MCP
-
-[Building agents that reach production systems with MCP](#)Building agents that reach production systems with MCP
 
 [View more](https://claude.com/blog-category/agents?2f226f2c_page=2)
 

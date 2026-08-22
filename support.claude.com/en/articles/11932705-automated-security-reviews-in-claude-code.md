@@ -91,5 +91,5 @@ For optimal results, we recommend running /security-review before committing sig
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Claude Code on the web](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)
 * [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
-* [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
+* [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
 * [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)

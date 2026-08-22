@@ -90,14 +90,18 @@ May 1, 2026
 
 Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
 
+Productivity
+
 Communication
 
 Claude
 
-January 26, 2026
+Claude Code
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6923bec73a155fccfdab98ae_fellow.ai.svg)
+August 21, 2026
 
-### Fellow.ai
+[![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
 
-Chat with your meetings to uncover actionable insights](https://claude.com/connectors/fellow-ai)
+### DeepL
+
+Translate text and documents across 100+ languages, with your style applied](https://claude.com/connectors/deepl)

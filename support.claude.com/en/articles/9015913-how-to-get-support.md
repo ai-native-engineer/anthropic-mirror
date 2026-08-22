@@ -111,7 +111,7 @@ Users in the EU can find instructions on how to find the single point of contact
 * Users in Australia can find instructions to report non-compliance with the DIS Standard and information about the role and functions of the eSafety Commissioner here: **[Report a Concern: Australian DIS Standard compliance](https://support.claude.com/en/articles/12335811-report-a-concern-australian-dis-standard-compliance)**.
 
 * [Where can I go for Claude API support and assistance?](https://support.claude.com/en/articles/8114535-where-can-i-go-for-claude-api-support-and-assistance)
+* [I have a paid Claude subscription (Pro, Max, Team, or Enterprise plans). Why do I have to pay separately to use the Claude API and Console?](https://support.claude.com/en/articles/9876003-i-have-a-paid-claude-subscription-pro-max-team-or-enterprise-plans-why-do-i-have-to-pay-separately-to-use-the-claude-api-and-console)
 * [I'm getting an API connection error. How can I fix it?](https://support.claude.com/en/articles/10366432-i-m-getting-an-api-connection-error-how-can-i-fix-it)
 * [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
 * [How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)
-* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)

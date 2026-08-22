@@ -1825,12 +1825,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       Configuration options for the model's output, such as the output format.
 
-    - `output_format: Optional[BetaJSONOutputFormatParam]`
-
-      Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
-
-      A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
-
     - `service_tier: Optional[Literal["auto", "standard_only"]]`
 
       Determines whether to use priority capacity (if available) or standard capacity for this request.
@@ -1882,14 +1876,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Create a cache control breakpoint at this content block.
 
         - `citations: Optional[List[BetaTextCitationParam]]`
-
-    - `temperature: Optional[float]`
-
-      Amount of randomness injected into the response.
-
-      Defaults to `1.0`. Ranges from `0.0` to `1.0`. Use `temperature` closer to `0.0` for analytical / multiple choice, and closer to `1.0` for creative and generative tasks.
-
-      Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
     - `thinking: Optional[BetaThinkingConfigParam]`
 
@@ -3898,22 +3884,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `enabled: Optional[bool]`
 
-    - `top_k: Optional[int]`
-
-      Only sample from the top K options for each subsequent token.
-
-      Used to remove "long tail" low probability responses. [Learn more technical details here](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277).
-
-      Recommended for advanced use cases only.
-
-    - `top_p: Optional[float]`
-
-      Use nucleus sampling.
-
-      In nucleus sampling, we compute the cumulative distribution over all the options for each subsequent token in decreasing probability order and cut it off once it reaches a particular probability specified by `top_p`.
-
-      Recommended for advanced use cases only.
-
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
@@ -5110,7 +5080,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `version: str`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `content: List[BetaContentBlock]`
 
@@ -7025,7 +6995,7 @@ for batch in client.beta.messages.batches.results(
 
             - `version: str`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `content: List[BetaContentBlock]`
 
@@ -8731,7 +8701,7 @@ for batch in client.beta.messages.batches.results(
 
           - `version: str`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `content: List[BetaContentBlock]`
 
@@ -10399,7 +10369,7 @@ for batch in client.beta.messages.batches.results(
 
         - `version: str`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: List[BetaContentBlock]`
 

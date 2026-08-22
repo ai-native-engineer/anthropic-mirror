@@ -211,7 +211,8 @@ var_dump($betaManagedAgentsSession);
                   "name": "bash",
                   "permission_policy": {
                     "type": "always_allow"
-                  }
+                  },
+                  "type": "bash"
                 }
               ],
               "default_config": {
@@ -251,7 +252,8 @@ var_dump($betaManagedAgentsSession);
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {
@@ -560,7 +562,8 @@ var_dump($page);
                       "name": "bash",
                       "permission_policy": {
                         "type": "always_allow"
-                      }
+                      },
+                      "type": "bash"
                     }
                   ],
                   "default_config": {
@@ -600,7 +603,8 @@ var_dump($page);
                 "name": "bash",
                 "permission_policy": {
                   "type": "always_allow"
-                }
+                },
+                "type": "bash"
               }
             ],
             "default_config": {
@@ -849,7 +853,8 @@ var_dump($betaManagedAgentsSession);
                   "name": "bash",
                   "permission_policy": {
                     "type": "always_allow"
-                  }
+                  },
+                  "type": "bash"
                 }
               ],
               "default_config": {
@@ -889,7 +894,8 @@ var_dump($betaManagedAgentsSession);
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {
@@ -1104,6 +1110,7 @@ $betaManagedAgentsSession = $client->beta->sessions->update(
             'name' => 'bash',
             'enabled' => true,
             'permissionPolicy' => ['type' => 'always_allow'],
+            'type' => 'bash',
           ],
         ],
         'defaultConfig' => [
@@ -1185,7 +1192,8 @@ var_dump($betaManagedAgentsSession);
                   "name": "bash",
                   "permission_policy": {
                     "type": "always_allow"
-                  }
+                  },
+                  "type": "bash"
                 }
               ],
               "default_config": {
@@ -1225,7 +1233,8 @@ var_dump($betaManagedAgentsSession);
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {
@@ -1520,7 +1529,8 @@ var_dump($betaManagedAgentsSession);
                   "name": "bash",
                   "permission_policy": {
                     "type": "always_allow"
-                  }
+                  },
+                  "type": "bash"
                 }
               ],
               "default_config": {
@@ -1560,7 +1570,8 @@ var_dump($betaManagedAgentsSession);
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {
@@ -7599,7 +7610,8 @@ var_dump($page);
                 "name": "bash",
                 "permission_policy": {
                   "type": "always_allow"
-                }
+                },
+                "type": "bash"
               }
             ],
             "default_config": {
@@ -7772,7 +7784,8 @@ var_dump($betaManagedAgentsSessionThread);
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {
@@ -7942,7 +7955,8 @@ var_dump($betaManagedAgentsSessionThread);
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {

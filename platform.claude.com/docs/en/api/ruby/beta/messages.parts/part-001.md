@@ -4005,7 +4005,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `version: String`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `content: Array[BetaContentBlock]`
 
@@ -13920,7 +13920,7 @@ puts(beta_message_tokens_count)
 
     - `version: String`
 
-      Skill version or 'latest' for most recent version
+      The resolved version: a skill version ID for custom skills.
 
 ### Beta Container Params
 
@@ -19056,7 +19056,7 @@ puts(beta_message_tokens_count)
 
       - `version: String`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `content: Array[BetaContentBlock]`
 
@@ -23839,7 +23839,7 @@ puts(beta_message_tokens_count)
 
         - `version: String`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `stop_details: BetaRefusalStopDetails`
 
@@ -24355,7 +24355,7 @@ puts(beta_message_tokens_count)
 
         - `version: String`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: Array[BetaContentBlock]`
 
@@ -25917,7 +25917,7 @@ puts(beta_message_tokens_count)
 
           - `version: String`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `content: Array[BetaContentBlock]`
 
@@ -28763,7 +28763,7 @@ puts(beta_message_tokens_count)
 
   - `version: String`
 
-    Skill version or 'latest' for most recent version
+    The resolved version: a skill version ID for custom skills.
 
 ### Beta Skill Params
 
@@ -37191,4 +37191,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             to validate the turn: when thinking runs flank the boundary, omitting
             the block merges them into one span the server cannot validate (the
             request is rejected), and moving it into the middle of a single run is
-            likewise rejected; between non-thinking blocks the block's placement has

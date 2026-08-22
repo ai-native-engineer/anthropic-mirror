@@ -4005,7 +4005,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `version: string`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `content: array of BetaContentBlock`
 
@@ -13979,7 +13979,7 @@ curl https://api.anthropic.com/v1/messages/count_tokens \
 
     - `version: string`
 
-      Skill version or 'latest' for most recent version
+      The resolved version: a skill version ID for custom skills.
 
 ### Beta Container Params
 
@@ -19115,7 +19115,7 @@ curl https://api.anthropic.com/v1/messages/count_tokens \
 
       - `version: string`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `content: array of BetaContentBlock`
 
@@ -23898,7 +23898,7 @@ curl https://api.anthropic.com/v1/messages/count_tokens \
 
         - `version: string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `stop_details: BetaRefusalStopDetails or null`
 
@@ -24414,7 +24414,7 @@ curl https://api.anthropic.com/v1/messages/count_tokens \
 
         - `version: string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: array of BetaContentBlock`
 
@@ -25976,7 +25976,7 @@ curl https://api.anthropic.com/v1/messages/count_tokens \
 
           - `version: string`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `content: array of BetaContentBlock`
 
@@ -28822,7 +28822,7 @@ curl https://api.anthropic.com/v1/messages/count_tokens \
 
   - `version: string`
 
-    Skill version or 'latest' for most recent version
+    The resolved version: a skill version ID for custom skills.
 
 ### Beta Skill Params
 
@@ -33915,7 +33915,3 @@ curl https://api.anthropic.com/v1/messages/count_tokens \
         The number of input tokens used to create the cache entry.
 
       - `cache_read_input_tokens: number`
-
-        The number of input tokens read from the cache.
-
-      - `input_tokens: number`

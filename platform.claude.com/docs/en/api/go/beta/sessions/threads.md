@@ -297,49 +297,259 @@ List Session Threads
 
         - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
-          - `Configs []BetaManagedAgentsAgentToolConfig`
+          - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
-            - `Enabled bool`
+            - `type BetaManagedAgentsBashToolConfig struct{…}`
 
-            - `Name BetaManagedAgentsAgentToolConfigName`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `Enabled bool`
 
-              - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
+              - `Name Bash`
 
-              - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
+                - `const BashBash Bash = "bash"`
 
-              - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
+              - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
 
-              - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
+                Permission policy for tool execution.
 
-              - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
-              - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
+                  - `Type BetaManagedAgentsAlwaysAllowPolicyType`
 
-              - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
+                    - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
-            - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                  - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
-                - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+              - `Type Bash`
 
-                  - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
+                - `const BashBash Bash = "bash"`
 
-              - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+            - `type BetaManagedAgentsEditToolConfig struct{…}`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `Type BetaManagedAgentsAlwaysAskPolicyType`
+              - `Enabled bool`
 
-                  - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
+              - `Name Edit`
+
+                - `const EditEdit Edit = "edit"`
+
+              - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Edit`
+
+                - `const EditEdit Edit = "edit"`
+
+            - `type BetaManagedAgentsReadToolConfig struct{…}`
+
+              Configuration for the read tool.
+
+              - `Enabled bool`
+
+              - `Name Read`
+
+                - `const ReadRead Read = "read"`
+
+              - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Read`
+
+                - `const ReadRead Read = "read"`
+
+            - `type BetaManagedAgentsWriteToolConfig struct{…}`
+
+              Configuration for the write tool.
+
+              - `Enabled bool`
+
+              - `Name Write`
+
+                - `const WriteWrite Write = "write"`
+
+              - `PermissionPolicy BetaManagedAgentsWriteToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Write`
+
+                - `const WriteWrite Write = "write"`
+
+            - `type BetaManagedAgentsGlobToolConfig struct{…}`
+
+              Configuration for the glob tool.
+
+              - `Enabled bool`
+
+              - `Name Glob`
+
+                - `const GlobGlob Glob = "glob"`
+
+              - `PermissionPolicy BetaManagedAgentsGlobToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Glob`
+
+                - `const GlobGlob Glob = "glob"`
+
+            - `type BetaManagedAgentsGrepToolConfig struct{…}`
+
+              Configuration for the grep tool.
+
+              - `Enabled bool`
+
+              - `Name Grep`
+
+                - `const GrepGrep Grep = "grep"`
+
+              - `PermissionPolicy BetaManagedAgentsGrepToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Grep`
+
+                - `const GrepGrep Grep = "grep"`
+
+            - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
+
+              Configuration for the web_fetch tool.
+
+              - `Enabled bool`
+
+              - `Name WebFetch`
+
+                - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+              - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type WebFetch`
+
+                - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+              - `AllowedDomains []string`
+
+              - `BlockedDomains []string`
+
+              - `MaxContentTokens int64`
+
+            - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
+
+              Configuration for the web_search tool.
+
+              - `Enabled bool`
+
+              - `Name WebSearch`
+
+                - `const WebSearchWebSearch WebSearch = "web_search"`
+
+              - `PermissionPolicy BetaManagedAgentsWebSearchToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type WebSearch`
+
+                - `const WebSearchWebSearch WebSearch = "web_search"`
+
+              - `AllowedDomains []string`
+
+              - `BlockedDomains []string`
+
+              - `UserLocation BetaManagedAgentsUserLocation`
+
+                Approximate user location for search result localization.
+
+                - `Type Approximate`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `const ApproximateApproximate Approximate = "approximate"`
+
+                - `City string`
+
+                  City name.
+
+                - `Country string`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `Region string`
+
+                  Region or state name.
+
+                - `Timezone string`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -630,7 +840,8 @@ func main() {
                 "name": "bash",
                 "permission_policy": {
                   "type": "always_allow"
-                }
+                },
+                "type": "bash"
               }
             ],
             "default_config": {
@@ -967,49 +1178,259 @@ Get Session Thread
 
         - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
-          - `Configs []BetaManagedAgentsAgentToolConfig`
+          - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
-            - `Enabled bool`
+            - `type BetaManagedAgentsBashToolConfig struct{…}`
 
-            - `Name BetaManagedAgentsAgentToolConfigName`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `Enabled bool`
 
-              - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
+              - `Name Bash`
 
-              - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
+                - `const BashBash Bash = "bash"`
 
-              - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
+              - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
 
-              - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
+                Permission policy for tool execution.
 
-              - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
-              - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
+                  - `Type BetaManagedAgentsAlwaysAllowPolicyType`
 
-              - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
+                    - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
-            - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                  - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
-                - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+              - `Type Bash`
 
-                  - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
+                - `const BashBash Bash = "bash"`
 
-              - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+            - `type BetaManagedAgentsEditToolConfig struct{…}`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `Type BetaManagedAgentsAlwaysAskPolicyType`
+              - `Enabled bool`
 
-                  - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
+              - `Name Edit`
+
+                - `const EditEdit Edit = "edit"`
+
+              - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Edit`
+
+                - `const EditEdit Edit = "edit"`
+
+            - `type BetaManagedAgentsReadToolConfig struct{…}`
+
+              Configuration for the read tool.
+
+              - `Enabled bool`
+
+              - `Name Read`
+
+                - `const ReadRead Read = "read"`
+
+              - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Read`
+
+                - `const ReadRead Read = "read"`
+
+            - `type BetaManagedAgentsWriteToolConfig struct{…}`
+
+              Configuration for the write tool.
+
+              - `Enabled bool`
+
+              - `Name Write`
+
+                - `const WriteWrite Write = "write"`
+
+              - `PermissionPolicy BetaManagedAgentsWriteToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Write`
+
+                - `const WriteWrite Write = "write"`
+
+            - `type BetaManagedAgentsGlobToolConfig struct{…}`
+
+              Configuration for the glob tool.
+
+              - `Enabled bool`
+
+              - `Name Glob`
+
+                - `const GlobGlob Glob = "glob"`
+
+              - `PermissionPolicy BetaManagedAgentsGlobToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Glob`
+
+                - `const GlobGlob Glob = "glob"`
+
+            - `type BetaManagedAgentsGrepToolConfig struct{…}`
+
+              Configuration for the grep tool.
+
+              - `Enabled bool`
+
+              - `Name Grep`
+
+                - `const GrepGrep Grep = "grep"`
+
+              - `PermissionPolicy BetaManagedAgentsGrepToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Grep`
+
+                - `const GrepGrep Grep = "grep"`
+
+            - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
+
+              Configuration for the web_fetch tool.
+
+              - `Enabled bool`
+
+              - `Name WebFetch`
+
+                - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+              - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type WebFetch`
+
+                - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+              - `AllowedDomains []string`
+
+              - `BlockedDomains []string`
+
+              - `MaxContentTokens int64`
+
+            - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
+
+              Configuration for the web_search tool.
+
+              - `Enabled bool`
+
+              - `Name WebSearch`
+
+                - `const WebSearchWebSearch WebSearch = "web_search"`
+
+              - `PermissionPolicy BetaManagedAgentsWebSearchToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type WebSearch`
+
+                - `const WebSearchWebSearch WebSearch = "web_search"`
+
+              - `AllowedDomains []string`
+
+              - `BlockedDomains []string`
+
+              - `UserLocation BetaManagedAgentsUserLocation`
+
+                Approximate user location for search result localization.
+
+                - `Type Approximate`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `const ApproximateApproximate Approximate = "approximate"`
+
+                - `City string`
+
+                  City name.
+
+                - `Country string`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `Region string`
+
+                  Region or state name.
+
+                - `Timezone string`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -1300,7 +1721,8 @@ func main() {
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {
@@ -1634,49 +2056,259 @@ Archive Session Thread
 
         - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
-          - `Configs []BetaManagedAgentsAgentToolConfig`
+          - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
-            - `Enabled bool`
+            - `type BetaManagedAgentsBashToolConfig struct{…}`
 
-            - `Name BetaManagedAgentsAgentToolConfigName`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `Enabled bool`
 
-              - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
+              - `Name Bash`
 
-              - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
+                - `const BashBash Bash = "bash"`
 
-              - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
+              - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
 
-              - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
+                Permission policy for tool execution.
 
-              - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
-              - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
+                  - `Type BetaManagedAgentsAlwaysAllowPolicyType`
 
-              - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
+                    - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
-            - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                  - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
-                - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+              - `Type Bash`
 
-                  - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
+                - `const BashBash Bash = "bash"`
 
-              - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+            - `type BetaManagedAgentsEditToolConfig struct{…}`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `Type BetaManagedAgentsAlwaysAskPolicyType`
+              - `Enabled bool`
 
-                  - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
+              - `Name Edit`
+
+                - `const EditEdit Edit = "edit"`
+
+              - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Edit`
+
+                - `const EditEdit Edit = "edit"`
+
+            - `type BetaManagedAgentsReadToolConfig struct{…}`
+
+              Configuration for the read tool.
+
+              - `Enabled bool`
+
+              - `Name Read`
+
+                - `const ReadRead Read = "read"`
+
+              - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Read`
+
+                - `const ReadRead Read = "read"`
+
+            - `type BetaManagedAgentsWriteToolConfig struct{…}`
+
+              Configuration for the write tool.
+
+              - `Enabled bool`
+
+              - `Name Write`
+
+                - `const WriteWrite Write = "write"`
+
+              - `PermissionPolicy BetaManagedAgentsWriteToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Write`
+
+                - `const WriteWrite Write = "write"`
+
+            - `type BetaManagedAgentsGlobToolConfig struct{…}`
+
+              Configuration for the glob tool.
+
+              - `Enabled bool`
+
+              - `Name Glob`
+
+                - `const GlobGlob Glob = "glob"`
+
+              - `PermissionPolicy BetaManagedAgentsGlobToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Glob`
+
+                - `const GlobGlob Glob = "glob"`
+
+            - `type BetaManagedAgentsGrepToolConfig struct{…}`
+
+              Configuration for the grep tool.
+
+              - `Enabled bool`
+
+              - `Name Grep`
+
+                - `const GrepGrep Grep = "grep"`
+
+              - `PermissionPolicy BetaManagedAgentsGrepToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Grep`
+
+                - `const GrepGrep Grep = "grep"`
+
+            - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
+
+              Configuration for the web_fetch tool.
+
+              - `Enabled bool`
+
+              - `Name WebFetch`
+
+                - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+              - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type WebFetch`
+
+                - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+              - `AllowedDomains []string`
+
+              - `BlockedDomains []string`
+
+              - `MaxContentTokens int64`
+
+            - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
+
+              Configuration for the web_search tool.
+
+              - `Enabled bool`
+
+              - `Name WebSearch`
+
+                - `const WebSearchWebSearch WebSearch = "web_search"`
+
+              - `PermissionPolicy BetaManagedAgentsWebSearchToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type WebSearch`
+
+                - `const WebSearchWebSearch WebSearch = "web_search"`
+
+              - `AllowedDomains []string`
+
+              - `BlockedDomains []string`
+
+              - `UserLocation BetaManagedAgentsUserLocation`
+
+                Approximate user location for search result localization.
+
+                - `Type Approximate`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `const ApproximateApproximate Approximate = "approximate"`
+
+                - `City string`
+
+                  City name.
+
+                - `Country string`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `Region string`
+
+                  Region or state name.
+
+                - `Timezone string`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -1967,7 +2599,8 @@ func main() {
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {
@@ -2209,49 +2842,259 @@ func main() {
 
         - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
-          - `Configs []BetaManagedAgentsAgentToolConfig`
+          - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
-            - `Enabled bool`
+            - `type BetaManagedAgentsBashToolConfig struct{…}`
 
-            - `Name BetaManagedAgentsAgentToolConfigName`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `Enabled bool`
 
-              - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
+              - `Name Bash`
 
-              - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
+                - `const BashBash Bash = "bash"`
 
-              - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
+              - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
 
-              - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
+                Permission policy for tool execution.
 
-              - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
-              - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
+                  - `Type BetaManagedAgentsAlwaysAllowPolicyType`
 
-              - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
+                    - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
-            - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                  - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
-                - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+              - `Type Bash`
 
-                  - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
+                - `const BashBash Bash = "bash"`
 
-              - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+            - `type BetaManagedAgentsEditToolConfig struct{…}`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `Type BetaManagedAgentsAlwaysAskPolicyType`
+              - `Enabled bool`
 
-                  - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
+              - `Name Edit`
+
+                - `const EditEdit Edit = "edit"`
+
+              - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Edit`
+
+                - `const EditEdit Edit = "edit"`
+
+            - `type BetaManagedAgentsReadToolConfig struct{…}`
+
+              Configuration for the read tool.
+
+              - `Enabled bool`
+
+              - `Name Read`
+
+                - `const ReadRead Read = "read"`
+
+              - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Read`
+
+                - `const ReadRead Read = "read"`
+
+            - `type BetaManagedAgentsWriteToolConfig struct{…}`
+
+              Configuration for the write tool.
+
+              - `Enabled bool`
+
+              - `Name Write`
+
+                - `const WriteWrite Write = "write"`
+
+              - `PermissionPolicy BetaManagedAgentsWriteToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Write`
+
+                - `const WriteWrite Write = "write"`
+
+            - `type BetaManagedAgentsGlobToolConfig struct{…}`
+
+              Configuration for the glob tool.
+
+              - `Enabled bool`
+
+              - `Name Glob`
+
+                - `const GlobGlob Glob = "glob"`
+
+              - `PermissionPolicy BetaManagedAgentsGlobToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Glob`
+
+                - `const GlobGlob Glob = "glob"`
+
+            - `type BetaManagedAgentsGrepToolConfig struct{…}`
+
+              Configuration for the grep tool.
+
+              - `Enabled bool`
+
+              - `Name Grep`
+
+                - `const GrepGrep Grep = "grep"`
+
+              - `PermissionPolicy BetaManagedAgentsGrepToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type Grep`
+
+                - `const GrepGrep Grep = "grep"`
+
+            - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
+
+              Configuration for the web_fetch tool.
+
+              - `Enabled bool`
+
+              - `Name WebFetch`
+
+                - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+              - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type WebFetch`
+
+                - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+              - `AllowedDomains []string`
+
+              - `BlockedDomains []string`
+
+              - `MaxContentTokens int64`
+
+            - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
+
+              Configuration for the web_search tool.
+
+              - `Enabled bool`
+
+              - `Name WebSearch`
+
+                - `const WebSearchWebSearch WebSearch = "web_search"`
+
+              - `PermissionPolicy BetaManagedAgentsWebSearchToolConfigPermissionPolicyUnion`
+
+                Permission policy for tool execution.
+
+                - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                  Tool calls require user confirmation before execution.
+
+              - `Type WebSearch`
+
+                - `const WebSearchWebSearch WebSearch = "web_search"`
+
+              - `AllowedDomains []string`
+
+              - `BlockedDomains []string`
+
+              - `UserLocation BetaManagedAgentsUserLocation`
+
+                Approximate user location for search result localization.
+
+                - `Type Approximate`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `const ApproximateApproximate Approximate = "approximate"`
+
+                - `City string`
+
+                  City name.
+
+                - `Country string`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `Region string`
+
+                  Region or state name.
+
+                - `Timezone string`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -4233,49 +5076,259 @@ func main() {
 
               - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
-                - `Configs []BetaManagedAgentsAgentToolConfig`
+                - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
-                  - `Enabled bool`
+                  - `type BetaManagedAgentsBashToolConfig struct{…}`
 
-                  - `Name BetaManagedAgentsAgentToolConfigName`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `Enabled bool`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
+                    - `Name Bash`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
+                      - `const BashBash Bash = "bash"`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
+                    - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
+                      Permission policy for tool execution.
 
-                    - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
+                        - `Type BetaManagedAgentsAlwaysAllowPolicyType`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
+                          - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
-                  - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                        - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
-                      - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+                    - `Type Bash`
 
-                        - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
+                      - `const BashBash Bash = "bash"`
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                  - `type BetaManagedAgentsEditToolConfig struct{…}`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `Type BetaManagedAgentsAlwaysAskPolicyType`
+                    - `Enabled bool`
 
-                        - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
+                    - `Name Edit`
+
+                      - `const EditEdit Edit = "edit"`
+
+                    - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Edit`
+
+                      - `const EditEdit Edit = "edit"`
+
+                  - `type BetaManagedAgentsReadToolConfig struct{…}`
+
+                    Configuration for the read tool.
+
+                    - `Enabled bool`
+
+                    - `Name Read`
+
+                      - `const ReadRead Read = "read"`
+
+                    - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Read`
+
+                      - `const ReadRead Read = "read"`
+
+                  - `type BetaManagedAgentsWriteToolConfig struct{…}`
+
+                    Configuration for the write tool.
+
+                    - `Enabled bool`
+
+                    - `Name Write`
+
+                      - `const WriteWrite Write = "write"`
+
+                    - `PermissionPolicy BetaManagedAgentsWriteToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Write`
+
+                      - `const WriteWrite Write = "write"`
+
+                  - `type BetaManagedAgentsGlobToolConfig struct{…}`
+
+                    Configuration for the glob tool.
+
+                    - `Enabled bool`
+
+                    - `Name Glob`
+
+                      - `const GlobGlob Glob = "glob"`
+
+                    - `PermissionPolicy BetaManagedAgentsGlobToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Glob`
+
+                      - `const GlobGlob Glob = "glob"`
+
+                  - `type BetaManagedAgentsGrepToolConfig struct{…}`
+
+                    Configuration for the grep tool.
+
+                    - `Enabled bool`
+
+                    - `Name Grep`
+
+                      - `const GrepGrep Grep = "grep"`
+
+                    - `PermissionPolicy BetaManagedAgentsGrepToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Grep`
+
+                      - `const GrepGrep Grep = "grep"`
+
+                  - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
+
+                    Configuration for the web_fetch tool.
+
+                    - `Enabled bool`
+
+                    - `Name WebFetch`
+
+                      - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+                    - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type WebFetch`
+
+                      - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+                    - `AllowedDomains []string`
+
+                    - `BlockedDomains []string`
+
+                    - `MaxContentTokens int64`
+
+                  - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
+
+                    Configuration for the web_search tool.
+
+                    - `Enabled bool`
+
+                    - `Name WebSearch`
+
+                      - `const WebSearchWebSearch WebSearch = "web_search"`
+
+                    - `PermissionPolicy BetaManagedAgentsWebSearchToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type WebSearch`
+
+                      - `const WebSearchWebSearch WebSearch = "web_search"`
+
+                    - `AllowedDomains []string`
+
+                    - `BlockedDomains []string`
+
+                    - `UserLocation BetaManagedAgentsUserLocation`
+
+                      Approximate user location for search result localization.
+
+                      - `Type Approximate`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `const ApproximateApproximate Approximate = "approximate"`
+
+                      - `City string`
+
+                        City name.
+
+                      - `Country string`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `Region string`
+
+                        Region or state name.
+
+                      - `Timezone string`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -6379,49 +7432,259 @@ List Session Thread Events
 
               - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
-                - `Configs []BetaManagedAgentsAgentToolConfig`
+                - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
-                  - `Enabled bool`
+                  - `type BetaManagedAgentsBashToolConfig struct{…}`
 
-                  - `Name BetaManagedAgentsAgentToolConfigName`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `Enabled bool`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
+                    - `Name Bash`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
+                      - `const BashBash Bash = "bash"`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
+                    - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
+                      Permission policy for tool execution.
 
-                    - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
+                        - `Type BetaManagedAgentsAlwaysAllowPolicyType`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
+                          - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
-                  - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                        - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
-                      - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+                    - `Type Bash`
 
-                        - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
+                      - `const BashBash Bash = "bash"`
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                  - `type BetaManagedAgentsEditToolConfig struct{…}`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `Type BetaManagedAgentsAlwaysAskPolicyType`
+                    - `Enabled bool`
 
-                        - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
+                    - `Name Edit`
+
+                      - `const EditEdit Edit = "edit"`
+
+                    - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Edit`
+
+                      - `const EditEdit Edit = "edit"`
+
+                  - `type BetaManagedAgentsReadToolConfig struct{…}`
+
+                    Configuration for the read tool.
+
+                    - `Enabled bool`
+
+                    - `Name Read`
+
+                      - `const ReadRead Read = "read"`
+
+                    - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Read`
+
+                      - `const ReadRead Read = "read"`
+
+                  - `type BetaManagedAgentsWriteToolConfig struct{…}`
+
+                    Configuration for the write tool.
+
+                    - `Enabled bool`
+
+                    - `Name Write`
+
+                      - `const WriteWrite Write = "write"`
+
+                    - `PermissionPolicy BetaManagedAgentsWriteToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Write`
+
+                      - `const WriteWrite Write = "write"`
+
+                  - `type BetaManagedAgentsGlobToolConfig struct{…}`
+
+                    Configuration for the glob tool.
+
+                    - `Enabled bool`
+
+                    - `Name Glob`
+
+                      - `const GlobGlob Glob = "glob"`
+
+                    - `PermissionPolicy BetaManagedAgentsGlobToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Glob`
+
+                      - `const GlobGlob Glob = "glob"`
+
+                  - `type BetaManagedAgentsGrepToolConfig struct{…}`
+
+                    Configuration for the grep tool.
+
+                    - `Enabled bool`
+
+                    - `Name Grep`
+
+                      - `const GrepGrep Grep = "grep"`
+
+                    - `PermissionPolicy BetaManagedAgentsGrepToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Grep`
+
+                      - `const GrepGrep Grep = "grep"`
+
+                  - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
+
+                    Configuration for the web_fetch tool.
+
+                    - `Enabled bool`
+
+                    - `Name WebFetch`
+
+                      - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+                    - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type WebFetch`
+
+                      - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+                    - `AllowedDomains []string`
+
+                    - `BlockedDomains []string`
+
+                    - `MaxContentTokens int64`
+
+                  - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
+
+                    Configuration for the web_search tool.
+
+                    - `Enabled bool`
+
+                    - `Name WebSearch`
+
+                      - `const WebSearchWebSearch WebSearch = "web_search"`
+
+                    - `PermissionPolicy BetaManagedAgentsWebSearchToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type WebSearch`
+
+                      - `const WebSearchWebSearch WebSearch = "web_search"`
+
+                    - `AllowedDomains []string`
+
+                    - `BlockedDomains []string`
+
+                    - `UserLocation BetaManagedAgentsUserLocation`
+
+                      Approximate user location for search result localization.
+
+                      - `Type Approximate`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `const ApproximateApproximate Approximate = "approximate"`
+
+                      - `City string`
+
+                        City name.
+
+                      - `Country string`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `Region string`
+
+                        Region or state name.
+
+                      - `Timezone string`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -8515,49 +9778,259 @@ Stream Session Thread Events
 
               - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
-                - `Configs []BetaManagedAgentsAgentToolConfig`
+                - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
-                  - `Enabled bool`
+                  - `type BetaManagedAgentsBashToolConfig struct{…}`
 
-                  - `Name BetaManagedAgentsAgentToolConfigName`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `Enabled bool`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
+                    - `Name Bash`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
+                      - `const BashBash Bash = "bash"`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameRead BetaManagedAgentsAgentToolConfigName = "read"`
+                    - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameWrite BetaManagedAgentsAgentToolConfigName = "write"`
+                      Permission policy for tool execution.
 
-                    - `const BetaManagedAgentsAgentToolConfigNameGlob BetaManagedAgentsAgentToolConfigName = "glob"`
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameGrep BetaManagedAgentsAgentToolConfigName = "grep"`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `const BetaManagedAgentsAgentToolConfigNameWebFetch BetaManagedAgentsAgentToolConfigName = "web_fetch"`
+                        - `Type BetaManagedAgentsAlwaysAllowPolicyType`
 
-                    - `const BetaManagedAgentsAgentToolConfigNameWebSearch BetaManagedAgentsAgentToolConfigName = "web_search"`
+                          - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
-                  - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                        - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
-                      - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+                    - `Type Bash`
 
-                        - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
+                      - `const BashBash Bash = "bash"`
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                  - `type BetaManagedAgentsEditToolConfig struct{…}`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `Type BetaManagedAgentsAlwaysAskPolicyType`
+                    - `Enabled bool`
 
-                        - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
+                    - `Name Edit`
+
+                      - `const EditEdit Edit = "edit"`
+
+                    - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Edit`
+
+                      - `const EditEdit Edit = "edit"`
+
+                  - `type BetaManagedAgentsReadToolConfig struct{…}`
+
+                    Configuration for the read tool.
+
+                    - `Enabled bool`
+
+                    - `Name Read`
+
+                      - `const ReadRead Read = "read"`
+
+                    - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Read`
+
+                      - `const ReadRead Read = "read"`
+
+                  - `type BetaManagedAgentsWriteToolConfig struct{…}`
+
+                    Configuration for the write tool.
+
+                    - `Enabled bool`
+
+                    - `Name Write`
+
+                      - `const WriteWrite Write = "write"`
+
+                    - `PermissionPolicy BetaManagedAgentsWriteToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Write`
+
+                      - `const WriteWrite Write = "write"`
+
+                  - `type BetaManagedAgentsGlobToolConfig struct{…}`
+
+                    Configuration for the glob tool.
+
+                    - `Enabled bool`
+
+                    - `Name Glob`
+
+                      - `const GlobGlob Glob = "glob"`
+
+                    - `PermissionPolicy BetaManagedAgentsGlobToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Glob`
+
+                      - `const GlobGlob Glob = "glob"`
+
+                  - `type BetaManagedAgentsGrepToolConfig struct{…}`
+
+                    Configuration for the grep tool.
+
+                    - `Enabled bool`
+
+                    - `Name Grep`
+
+                      - `const GrepGrep Grep = "grep"`
+
+                    - `PermissionPolicy BetaManagedAgentsGrepToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type Grep`
+
+                      - `const GrepGrep Grep = "grep"`
+
+                  - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
+
+                    Configuration for the web_fetch tool.
+
+                    - `Enabled bool`
+
+                    - `Name WebFetch`
+
+                      - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+                    - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type WebFetch`
+
+                      - `const WebFetchWebFetch WebFetch = "web_fetch"`
+
+                    - `AllowedDomains []string`
+
+                    - `BlockedDomains []string`
+
+                    - `MaxContentTokens int64`
+
+                  - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
+
+                    Configuration for the web_search tool.
+
+                    - `Enabled bool`
+
+                    - `Name WebSearch`
+
+                      - `const WebSearchWebSearch WebSearch = "web_search"`
+
+                    - `PermissionPolicy BetaManagedAgentsWebSearchToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `Type WebSearch`
+
+                      - `const WebSearchWebSearch WebSearch = "web_search"`
+
+                    - `AllowedDomains []string`
+
+                    - `BlockedDomains []string`
+
+                    - `UserLocation BetaManagedAgentsUserLocation`
+
+                      Approximate user location for search result localization.
+
+                      - `Type Approximate`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `const ApproximateApproximate Approximate = "approximate"`
+
+                      - `City string`
+
+                        City name.
+
+                      - `Country string`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `Region string`
+
+                        Region or state name.
+
+                      - `Timezone string`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 

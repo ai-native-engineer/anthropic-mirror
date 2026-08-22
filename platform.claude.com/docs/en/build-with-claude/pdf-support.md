@@ -427,12 +427,12 @@ If you need to send PDFs from your local system or when a URL isn't available:
 
   ```python Python
   import base64
-  import httpx
+  import httpx2
 
   # First, load and encode the PDF
   pdf_url = "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf"
   pdf_data = base64.standard_b64encode(
-      httpx.get(pdf_url, follow_redirects=True).content
+      httpx2.get(pdf_url, follow_redirects=True).content
   ).decode("utf-8")
 
   # Alternative: Load from a local file
@@ -943,21 +943,18 @@ For PDFs you'll use repeatedly, or when you want to avoid encoding overhead, use
   ```
 
   ```php PHP
-  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
-  // The PHP SDK supports file_id document and image sources only through $client->beta->messages with the files beta.
   use Anthropic\Core\FileParam;
 
   $client = new Client();
 
   // Upload the PDF file
-  $file_upload = $client->beta->files->upload(
+  $file_upload = $client->files->upload(
       file: FileParam::fromResource(fopen('/path/to/document.pdf', 'r'), contentType: 'application/pdf'),
   );
 
   // Use the uploaded file in a message
-  $message = $client->beta->messages->create(
+  $message = $client->messages->create(
       maxTokens: 1024,
-      betas: ['files-api-2025-04-14'],
       messages: [
           [
               'role' => 'user',
@@ -966,7 +963,7 @@ For PDFs you'll use repeatedly, or when you want to avoid encoding overhead, use
                       'type' => 'document',
                       'source' => [
                           'type' => 'file',
-                          'file_id' => $file_upload->id,
+                          'fileID' => $file_upload->id,
                       ],
                   ],
                   [
@@ -1125,12 +1122,12 @@ Cache PDFs with [prompt caching](https://platform.claude.com/docs/en/build-with-
 
   ```python Python
   import base64
-  import httpx
+  import httpx2
 
   # First, load and encode the PDF
   pdf_url = "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf"
   pdf_data = base64.standard_b64encode(
-      httpx.get(pdf_url, follow_redirects=True).content
+      httpx2.get(pdf_url, follow_redirects=True).content
   ).decode("utf-8")
 
   # Create a message with the cached document
@@ -1493,12 +1490,12 @@ Use the [Message Batches API](https://platform.claude.com/docs/en/build-with-cla
 
   ```python Python
   import base64
-  import httpx
+  import httpx2
 
   # First, load and encode the PDF
   pdf_url = "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf"
   pdf_data = base64.standard_b64encode(
-      httpx.get(pdf_url, follow_redirects=True).content
+      httpx2.get(pdf_url, follow_redirects=True).content
   ).decode("utf-8")
 
   # Create a batch of requests that use the document

@@ -3,6 +3,10 @@
 
 <!-- chunk-start -->
 
+          - `TEXT_EDITOR_CODE_EXECUTION("text_editor_code_execution")`
+
+          - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
+
           - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
         - `JsonValue; type "server_tool_use"constant`

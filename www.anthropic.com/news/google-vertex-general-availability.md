@@ -19,3 +19,5 @@ Quora, the popular question-and-answer platform, has already seen positive resul
 ## Get started
 
 To start building with Claude 3 Haiku and Claude 3 Sonnet on Vertex AI, visit the [Model Garden console](https://cloud.google.com/model-garden) and select your desired model. Claude 3 Opus, our most capable and intelligent model to date, will be available on Vertex AI in the coming weeks.
+
+Claude 3 models on Vertex AI \ Anthropic

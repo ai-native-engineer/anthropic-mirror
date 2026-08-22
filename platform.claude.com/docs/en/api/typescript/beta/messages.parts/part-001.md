@@ -4025,7 +4025,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `version: string`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `content: Array<BetaContentBlock>`
 
@@ -13930,7 +13930,7 @@ console.log(betaMessageTokensCount.context_management);
 
     - `version: string`
 
-      Skill version or 'latest' for most recent version
+      The resolved version: a skill version ID for custom skills.
 
 ### Beta Container Params
 
@@ -19026,7 +19026,7 @@ console.log(betaMessageTokensCount.context_management);
 
       - `version: string`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `content: Array<BetaContentBlock>`
 
@@ -23789,7 +23789,7 @@ console.log(betaMessageTokensCount.context_management);
 
         - `version: string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `stop_details: BetaRefusalStopDetails | null`
 
@@ -24301,7 +24301,7 @@ console.log(betaMessageTokensCount.context_management);
 
         - `version: string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: Array<BetaContentBlock>`
 
@@ -25859,7 +25859,7 @@ console.log(betaMessageTokensCount.context_management);
 
           - `version: string`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `content: Array<BetaContentBlock>`
 
@@ -28701,7 +28701,7 @@ console.log(betaMessageTokensCount.context_management);
 
   - `version: string`
 
-    Skill version or 'latest' for most recent version
+    The resolved version: a skill version ID for custom skills.
 
 ### Beta Skill Params
 
@@ -36352,4 +36352,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                         the creation delta of the `tabs` inventory, not an event log.
 
                         Carries only the `tab_id`; the tab's `title` and `url` live on its
-                        `tabs` entry, which must include the same `tab_id`. A tab opened

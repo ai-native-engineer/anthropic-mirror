@@ -52,5 +52,5 @@ If you ever notice a session from a location you don't recognize or a device you
 * [How do I log out of all active sessions?](https://support.claude.com/en/articles/10310342-how-do-i-log-out-of-all-active-sessions)
 * [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 * [Manage API key environment variables in Claude Code](https://support.claude.com/en/articles/12304248-manage-api-key-environment-variables-in-claude-code)
-* [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
 * [Log in to your Console account](https://support.claude.com/en/articles/13371040-log-in-to-your-console-account)
+* [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

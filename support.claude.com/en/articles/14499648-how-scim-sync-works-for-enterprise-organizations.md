@@ -45,7 +45,7 @@ You can trigger a manual sync from two places in your admin settings.
 1. Go to **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**.
 2. Click "Check for updates" under **SCIM sync**:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1787298300&signature=ad7145c9ffb7b048be6a58835b3319aa2ea63182e5fa1e939ca368cc0172d922&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDKvPMW3rgfl7PnOiun45NRTIVkePNYDZx%2Fl%0AsHid%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1787298300&signature=ad7145c9ffb7b048be6a58835b3319aa2ea63182e5fa1e939ca368cc0172d922&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDKvPMW3rgfl7PnOiun45NRTIVkePNYDZx%2Fl%0AsHid%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1787358600&signature=215bf16861f4c007d1f4db702f08f75d2f08cdcd5bbbf3b41b0b3128faf8a0a7&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDKuMMWyrgfl7PnOiunA9bFMwQLSpnmCoCwI%0AnsrR%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1787358600&signature=215bf16861f4c007d1f4db702f08f75d2f08cdcd5bbbf3b41b0b3128faf8a0a7&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDKuMMWyrgfl7PnOiunA9bFMwQLSpnmCoCwI%0AnsrR%0A)
 3. Select whether to sync members, groups, or both.
 
 **From the Manage SCIM page**
@@ -54,7 +54,7 @@ You can trigger a manual sync from two places in your admin settings.
 2. Click "Sync."
 3. Select whether to sync members, groups, or both:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1787298300&signature=3e1ba9f3eeb54322caf04af6ef31ad9008b50914a27c239fa5aa7af0548cae52&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4fr3ywjMc43OpyTHzM9RhuRfV4aMFse6p6BNK%0AbuGQ%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1787298300&signature=3e1ba9f3eeb54322caf04af6ef31ad9008b50914a27c239fa5aa7af0548cae52&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4fr3ywjMc43OpyTHzM9RhuRfV4aMFse6p6BNK%0AbuGQ%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1787358600&signature=27d4be30f74c70baeec394d11b8470784fe7fd7c9e57c63f6f692c6bdef06044&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4fr3zzjMZ43OpyTHzM9TOlCRTYj1u84pn1wE5%0A%2BfeL%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1787358600&signature=27d4be30f74c70baeec394d11b8470784fe7fd7c9e57c63f6f692c6bdef06044&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4fr3zzjMZ43OpyTHzM9TOlCRTYj1u84pn1wE5%0A%2BfeL%0A)
 
 **Note:** If you trigger a manual sync while background changes are processing, your organization takes the most recent change for each member or group. If multiple changes are queued for the same member or group, you may need to resync again to make sure everything applies correctly.
 

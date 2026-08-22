@@ -46,7 +46,7 @@ A reply means it’s running there, and the answer tells you what it can reach.
 ###  What you see when Claude first joins a channel
 
 When a person first invites Claude to a channel, it posts a short intro on its own: it reads the channel’s history and suggests a few tasks it could pick up. The intro doesn’t post when a bot adds Claude, in org-shared channels, or in channels that already have memory.
-Each reply ends with a footer showing an **Open session in Claude** link (the full record of that task), a **Configure** link (opens a page where you can [tailor how Claude works in this channel](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel)), and which model handled the reply. You can [choose a different model](https://claude.com/docs/claude-tag/users/models) yourself, and admins [set the default model for each channel](https://claude.com/docs/claude-tag/admins/customize#choose-the-model-for-a-scope).
+The footer under each reply names the model that handled it. You can [choose a different model](https://claude.com/docs/claude-tag/users/models) yourself, and admins [set the default model for each channel](https://claude.com/docs/claude-tag/admins/customize#choose-the-model-for-a-scope). In a channel, the footer also has a **Configure** link; open it to [tailor how Claude works in this channel](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel). Replies in DMs and in org-shared channels have no Configure link.
 
 | If you see | It means | Do this |
 | --- | --- | --- |

@@ -92,3 +92,5 @@ We’re looking forward to expanding the Anthropic Cookbook and our other prompt
 [2](#b2)The questions are: 1. Who was the first president of the United States? A. Thomas Jefferson, B. George Washington, C. Abraham Lincoln, D. John Adams, 2. What is the boiling temperature of water, in degrees Fahrenheit? A. 200, B. 100, C. 287, D. 212.
 
 [3](#b3)A [recent paper](https://arxiv.org/abs/2307.03172) found a U-shaped relationship between performance and location in the context for a similar task. A possible explanation for the differing results is that the examples in the paper have avg. length 15K tokens (Appendix F), compared to 70K/95K here.
+
+Prompt engineering for Claude's long context window \ Anthropic

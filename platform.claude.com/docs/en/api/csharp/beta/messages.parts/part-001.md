@@ -3451,7 +3451,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required string Version`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `required IReadOnlyList<BetaContentBlock> Content`
 
@@ -12434,7 +12434,7 @@ Console.WriteLine(betaMessageTokensCount);
 
     - `required string Version`
 
-      Skill version or 'latest' for most recent version
+      The resolved version: a skill version ID for custom skills.
 
 ### Beta Container Params
 
@@ -16797,7 +16797,7 @@ Console.WriteLine(betaMessageTokensCount);
 
       - `required string Version`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `required IReadOnlyList<BetaContentBlock> Content`
 
@@ -21080,7 +21080,7 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `required string Version`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `required BetaRefusalStopDetails? StopDetails`
 
@@ -21572,7 +21572,7 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `required string Version`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `required IReadOnlyList<BetaContentBlock> Content`
 
@@ -22984,7 +22984,7 @@ Console.WriteLine(betaMessageTokensCount);
 
           - `required string Version`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `required IReadOnlyList<BetaContentBlock> Content`
 
@@ -25538,7 +25538,7 @@ Console.WriteLine(betaMessageTokensCount);
 
   - `required string Version`
 
-    Skill version or 'latest' for most recent version
+    The resolved version: a skill version ID for custom skills.
 
 ### Beta Skill Params
 
@@ -33578,5 +33578,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
       - `BetaMetadata Metadata`
 
         An object describing metadata about the request.
-
-        - `string? UserID`

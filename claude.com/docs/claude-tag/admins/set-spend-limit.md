@@ -69,6 +69,17 @@ The usage page at [`claude.ai/admin-settings/usage/claude-tag`](https://claude.a
 To attribute spend to teams or departments for showback or chargeback reporting, structure channels so each maps to one team or department, and give those channels [their own scopes](https://claude.com/docs/claude-tag/admins/attach-to-scope). The per-channel breakdown then reads as your per-team report, and per-channel spend limits act as team-level budgets.
 DMs are separate. A DM bills to the sender’s own seat, not to the organization’s usage balance.
 
+##  See spend by kind of work
+
+On the analytics page at [`claude.ai/analytics/claude-tag`](https://claude.ai/analytics/claude-tag), you see channel spend split into four categories, so you can tell which kind of work is driving it. For each billed category you see its share of channel spend over the period you pick; Monitoring shows as not billed. The shares are approximate; for exact amounts, use your invoice.
+
+* **Engaged**: threads where someone @-mentioned Claude, replied to Claude, or asked it for a reminder
+* **Proactive**: work Claude picked up or started on its own, before anyone addressed it
+* **Scheduled**: recurring scheduled work
+* **Monitoring**: Claude reading the channels it belongs to, which isn’t billed
+
+Reading a channel Claude belongs to, whether or not anyone tags it, doesn’t draw from the usage balance. When Claude starts a working session on its own, that session bills to the balance under Proactive. To stop Claude from starting work on its own in a channel, turn off the channel’s [Respond automatically](https://claude.com/docs/claude-tag/users/when-claude-responds#turn-automatic-replies-on-or-off) setting. DMs aren’t included, because they bill to the sender’s seat.
+
 ##  Related resources
 
 * [See it work](https://claude.com/docs/claude-tag/admins/test-it): run a first task in the pilot channel

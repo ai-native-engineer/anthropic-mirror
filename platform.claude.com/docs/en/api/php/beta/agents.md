@@ -138,6 +138,7 @@ $betaManagedAgentsAgent = $client->beta->agents->create(
           'name' => 'bash',
           'enabled' => true,
           'permissionPolicy' => ['type' => 'always_allow'],
+          'type' => 'bash',
         ],
       ],
       'defaultConfig' => [
@@ -209,7 +210,8 @@ var_dump($betaManagedAgentsAgent);
           "name": "bash",
           "permission_policy": {
             "type": "always_allow"
-          }
+          },
+          "type": "bash"
         }
       ],
       "default_config": {
@@ -388,7 +390,8 @@ var_dump($page);
               "name": "bash",
               "permission_policy": {
                 "type": "always_allow"
-              }
+              },
+              "type": "bash"
             }
           ],
           "default_config": {
@@ -551,7 +554,8 @@ var_dump($betaManagedAgentsAgent);
           "name": "bash",
           "permission_policy": {
             "type": "always_allow"
-          }
+          },
+          "type": "bash"
         }
       ],
       "default_config": {
@@ -712,6 +716,7 @@ $betaManagedAgentsAgent = $client->beta->agents->update(
           'name' => 'bash',
           'enabled' => true,
           'permissionPolicy' => ['type' => 'always_allow'],
+          'type' => 'bash',
         ],
       ],
       'defaultConfig' => [
@@ -784,7 +789,8 @@ var_dump($betaManagedAgentsAgent);
           "name": "bash",
           "permission_policy": {
             "type": "always_allow"
-          }
+          },
+          "type": "bash"
         }
       ],
       "default_config": {
@@ -939,7 +945,8 @@ var_dump($betaManagedAgentsAgent);
           "name": "bash",
           "permission_policy": {
             "type": "always_allow"
-          }
+          },
+          "type": "bash"
         }
       ],
       "default_config": {
@@ -1029,31 +1036,271 @@ var_dump($betaManagedAgentsAgent);
 
 - `BetaManagedAgentsAgentToolConfig`
 
-  - `bool enabled`
+  - `BetaManagedAgentsBashToolConfig`
 
-  - `Name name`
+    - `bool enabled`
 
-    Built-in agent tool identifier.
+    - `"bash" name`
 
-  - `PermissionPolicy permissionPolicy`
+    - `PermissionPolicy permissionPolicy`
 
-    Permission policy for tool execution.
+      Permission policy for tool execution.
+
+    - `"bash" type`
+
+  - `BetaManagedAgentsEditToolConfig`
+
+    - `bool enabled`
+
+    - `"edit" name`
+
+    - `PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `"edit" type`
+
+  - `BetaManagedAgentsReadToolConfig`
+
+    - `bool enabled`
+
+    - `"read" name`
+
+    - `PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `"read" type`
+
+  - `BetaManagedAgentsWriteToolConfig`
+
+    - `bool enabled`
+
+    - `"write" name`
+
+    - `PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `"write" type`
+
+  - `BetaManagedAgentsGlobToolConfig`
+
+    - `bool enabled`
+
+    - `"glob" name`
+
+    - `PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `"glob" type`
+
+  - `BetaManagedAgentsGrepToolConfig`
+
+    - `bool enabled`
+
+    - `"grep" name`
+
+    - `PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `"grep" type`
+
+  - `BetaManagedAgentsWebFetchToolConfig`
+
+    - `bool enabled`
+
+    - `"web_fetch" name`
+
+    - `PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `"web_fetch" type`
+
+    - `?list<string> allowedDomains`
+
+    - `?list<string> blockedDomains`
+
+    - `?int maxContentTokens`
+
+  - `BetaManagedAgentsWebSearchToolConfig`
+
+    - `bool enabled`
+
+    - `"web_search" name`
+
+    - `PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `"web_search" type`
+
+    - `?list<string> allowedDomains`
+
+    - `?list<string> blockedDomains`
+
+    - `?BetaManagedAgentsUserLocation userLocation`
+
+      Approximate user location for search result localization.
 
 ### Beta Managed Agents Agent Tool Config Params
 
 - `BetaManagedAgentsAgentToolConfigParams`
 
-  - `Name name`
+  - `BetaManagedAgentsBashToolConfigParams`
 
-    Built-in agent tool identifier.
+    - `"bash" name`
 
-  - `?bool enabled`
+      Must be "bash".
 
-    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+    - `?bool enabled`
 
-  - `?PermissionPolicy permissionPolicy`
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-    Permission policy for tool execution.
+    - `?PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `?Type type`
+
+  - `BetaManagedAgentsEditToolConfigParams`
+
+    - `"edit" name`
+
+      Must be "edit".
+
+    - `?bool enabled`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `?PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `?Type type`
+
+  - `BetaManagedAgentsReadToolConfigParams`
+
+    - `"read" name`
+
+      Must be "read".
+
+    - `?bool enabled`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `?PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `?Type type`
+
+  - `BetaManagedAgentsWriteToolConfigParams`
+
+    - `"write" name`
+
+      Must be "write".
+
+    - `?bool enabled`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `?PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `?Type type`
+
+  - `BetaManagedAgentsGlobToolConfigParams`
+
+    - `"glob" name`
+
+      Must be "glob".
+
+    - `?bool enabled`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `?PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `?Type type`
+
+  - `BetaManagedAgentsGrepToolConfigParams`
+
+    - `"grep" name`
+
+      Must be "grep".
+
+    - `?bool enabled`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `?PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `?Type type`
+
+  - `BetaManagedAgentsWebFetchToolConfigParams`
+
+    - `"web_fetch" name`
+
+      Must be "web_fetch".
+
+    - `?list<string> allowedDomains`
+
+      Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+    - `?list<string> blockedDomains`
+
+      Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+    - `?bool enabled`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `?int maxContentTokens`
+
+      Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+    - `?PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `?Type type`
+
+  - `BetaManagedAgentsWebSearchToolConfigParams`
+
+    - `"web_search" name`
+
+      Must be "web_search".
+
+    - `?list<string> allowedDomains`
+
+      Only return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+    - `?list<string> blockedDomains`
+
+      Never return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+    - `?bool enabled`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `?PermissionPolicy permissionPolicy`
+
+      Permission policy for tool execution.
+
+    - `?Type type`
+
+    - `?BetaManagedAgentsUserLocation userLocation`
+
+      Approximate user location for search result localization.
 
 ### Beta Managed Agents Agent Toolset Default Config
 
@@ -1233,6 +1480,38 @@ var_dump($betaManagedAgentsAgent);
 
     Version to pin. Defaults to latest if omitted.
 
+### Beta Managed Agents Bash Tool Config
+
+- `BetaManagedAgentsBashToolConfig`
+
+  - `bool enabled`
+
+  - `"bash" name`
+
+  - `PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `"bash" type`
+
+### Beta Managed Agents Bash Tool Config Params
+
+- `BetaManagedAgentsBashToolConfigParams`
+
+  - `"bash" name`
+
+    Must be "bash".
+
+  - `?bool enabled`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `?PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `?Type type`
+
 ### Beta Managed Agents Custom Skill
 
 - `BetaManagedAgentsCustomSkill`
@@ -1299,6 +1578,38 @@ var_dump($betaManagedAgentsAgent);
 
   - `Type type`
 
+### Beta Managed Agents Edit Tool Config
+
+- `BetaManagedAgentsEditToolConfig`
+
+  - `bool enabled`
+
+  - `"edit" name`
+
+  - `PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `"edit" type`
+
+### Beta Managed Agents Edit Tool Config Params
+
+- `BetaManagedAgentsEditToolConfigParams`
+
+  - `"edit" name`
+
+    Must be "edit".
+
+  - `?bool enabled`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `?PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `?Type type`
+
 ### Beta Managed Agents Effort High
 
 - `BetaManagedAgentsEffortHigh`
@@ -1328,6 +1639,70 @@ var_dump($betaManagedAgentsAgent);
 - `BetaManagedAgentsEffortXhigh`
 
   - `Type type`
+
+### Beta Managed Agents Glob Tool Config
+
+- `BetaManagedAgentsGlobToolConfig`
+
+  - `bool enabled`
+
+  - `"glob" name`
+
+  - `PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `"glob" type`
+
+### Beta Managed Agents Glob Tool Config Params
+
+- `BetaManagedAgentsGlobToolConfigParams`
+
+  - `"glob" name`
+
+    Must be "glob".
+
+  - `?bool enabled`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `?PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `?Type type`
+
+### Beta Managed Agents Grep Tool Config
+
+- `BetaManagedAgentsGrepToolConfig`
+
+  - `bool enabled`
+
+  - `"grep" name`
+
+  - `PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `"grep" type`
+
+### Beta Managed Agents Grep Tool Config Params
+
+- `BetaManagedAgentsGrepToolConfigParams`
+
+  - `"grep" name`
+
+    Must be "grep".
+
+  - `?bool enabled`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `?PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `?Type type`
 
 ### Beta Managed Agents MCP Server URL Definition
 
@@ -1547,6 +1922,38 @@ var_dump($betaManagedAgentsAgent);
 
   - `Type type`
 
+### Beta Managed Agents Read Tool Config
+
+- `BetaManagedAgentsReadToolConfig`
+
+  - `bool enabled`
+
+  - `"read" name`
+
+  - `PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `"read" type`
+
+### Beta Managed Agents Read Tool Config Params
+
+- `BetaManagedAgentsReadToolConfigParams`
+
+  - `"read" name`
+
+    Must be "read".
+
+  - `?bool enabled`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `?PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `?Type type`
+
 ### Beta Managed Agents Session Thread Agent
 
 - `BetaManagedAgentsSessionThreadAgent`
@@ -1614,6 +2021,164 @@ var_dump($betaManagedAgentsAgent);
   - `string url`
 
     Endpoint URL for the MCP server.
+
+### Beta Managed Agents User Location
+
+- `BetaManagedAgentsUserLocation`
+
+  - `"approximate" type`
+
+    Location precision. Only "approximate" is supported.
+
+  - `?string city`
+
+    City name.
+
+  - `?string country`
+
+    Two-letter ISO 3166-1 country code, uppercase.
+
+  - `?string region`
+
+    Region or state name.
+
+  - `?string timezone`
+
+    IANA timezone identifier, e.g. "America/Los_Angeles".
+
+### Beta Managed Agents Web Fetch Tool Config
+
+- `BetaManagedAgentsWebFetchToolConfig`
+
+  - `bool enabled`
+
+  - `"web_fetch" name`
+
+  - `PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `"web_fetch" type`
+
+  - `?list<string> allowedDomains`
+
+  - `?list<string> blockedDomains`
+
+  - `?int maxContentTokens`
+
+### Beta Managed Agents Web Fetch Tool Config Params
+
+- `BetaManagedAgentsWebFetchToolConfigParams`
+
+  - `"web_fetch" name`
+
+    Must be "web_fetch".
+
+  - `?list<string> allowedDomains`
+
+    Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+  - `?list<string> blockedDomains`
+
+    Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+  - `?bool enabled`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `?int maxContentTokens`
+
+    Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+  - `?PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `?Type type`
+
+### Beta Managed Agents Web Search Tool Config
+
+- `BetaManagedAgentsWebSearchToolConfig`
+
+  - `bool enabled`
+
+  - `"web_search" name`
+
+  - `PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `"web_search" type`
+
+  - `?list<string> allowedDomains`
+
+  - `?list<string> blockedDomains`
+
+  - `?BetaManagedAgentsUserLocation userLocation`
+
+    Approximate user location for search result localization.
+
+### Beta Managed Agents Web Search Tool Config Params
+
+- `BetaManagedAgentsWebSearchToolConfigParams`
+
+  - `"web_search" name`
+
+    Must be "web_search".
+
+  - `?list<string> allowedDomains`
+
+    Only return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+  - `?list<string> blockedDomains`
+
+    Never return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+  - `?bool enabled`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `?PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `?Type type`
+
+  - `?BetaManagedAgentsUserLocation userLocation`
+
+    Approximate user location for search result localization.
+
+### Beta Managed Agents Write Tool Config
+
+- `BetaManagedAgentsWriteToolConfig`
+
+  - `bool enabled`
+
+  - `"write" name`
+
+  - `PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `"write" type`
+
+### Beta Managed Agents Write Tool Config Params
+
+- `BetaManagedAgentsWriteToolConfigParams`
+
+  - `"write" name`
+
+    Must be "write".
+
+  - `?bool enabled`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `?PermissionPolicy permissionPolicy`
+
+    Permission policy for tool execution.
+
+  - `?Type type`
 
 # Versions
 
@@ -1766,7 +2331,8 @@ var_dump($page);
               "name": "bash",
               "permission_policy": {
                 "type": "always_allow"
-              }
+              },
+              "type": "bash"
             }
           ],
           "default_config": {

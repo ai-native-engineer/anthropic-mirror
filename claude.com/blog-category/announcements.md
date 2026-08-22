@@ -16,6 +16,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+Aug 21, 2026
+
+Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+Product announcements
+
+Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+August 21, 2026
+
+[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](#)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
 
 Aug 20, 2026
@@ -47,6 +63,22 @@ August 20, 2026
 [Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
 
 [Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
+
+Aug 13, 2026
+
+Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+Agents
+
+Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+August 13, 2026
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
 
@@ -224,38 +256,6 @@ June 29, 2026
 
 [Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud](#)Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
-
-Jun 29, 2026
-
-Claude in Microsoft Foundry is now generally available
-
-Product announcements
-
-Claude in Microsoft Foundry is now generally available
-
-June 29, 2026
-
-[Claude in Microsoft Foundry is now generally available](https://claude.com/blog/claude-in-microsoft-foundry)Claude in Microsoft Foundry is now generally available
-
-[Claude in Microsoft Foundry is now generally available](#)Claude in Microsoft Foundry is now generally available
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d23008bbc20c0ffaeb6f_43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
-
-Jun 18, 2026
-
-Centrally manage authorization for MCP connectors
-
-Enterprise AI
-
-Centrally manage authorization for MCP connectors
-
-June 18, 2026
-
-[Centrally manage authorization for MCP connectors](https://claude.com/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
-
-[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
-
 [View more](https://claude.com/blog-category/announcements?1e959936_page=2)
 
 Category
@@ -263,6 +263,22 @@ Category
 Product
 
 Usecase
+
+### Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 21, 2026
+
+[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](#)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
 
 ### Anthropic’s approach to teaching and learning AI
 
@@ -295,6 +311,22 @@ August 20, 2026
 [Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
 
 [Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
+
+### Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+August 13, 2026
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
 ### Claude Tag now reads even more of the room
 
@@ -471,38 +503,6 @@ June 29, 2026
 [Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud](https://claude.com/blog/introducing-the-claude-apps-gateway)Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
 
 [Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud](#)Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
-
-### Claude in Microsoft Foundry is now generally available
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-June 29, 2026
-
-[Claude in Microsoft Foundry is now generally available](https://claude.com/blog/claude-in-microsoft-foundry)Claude in Microsoft Foundry is now generally available
-
-[Claude in Microsoft Foundry is now generally available](#)Claude in Microsoft Foundry is now generally available
-
-### Centrally manage authorization for MCP connectors
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-June 18, 2026
-
-[Centrally manage authorization for MCP connectors](https://claude.com/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
-
-[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
 
 [View more](https://claude.com/blog-category/announcements?2f226f2c_page=2)
 

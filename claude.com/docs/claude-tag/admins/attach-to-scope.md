@@ -92,7 +92,7 @@ Custom instructions are read ahead of the conversation and take priority in prac
 ###  Add custom instructions
 
 Each scope can carry custom instructions, which are standing guidance Claude reads in every session there, like team conventions or where to file tickets. The **Custom instructions** field is on the scope’s panel, shown when you select the scope on the **Slack** tab in admin settings.
-Channel members reach the same field for the channel scope through the **Configure** page, linked in the footer of any Claude reply, without going through admin settings. Both entry points write the same instructions, so a change from either place is visible in the other.
+Channel members reach the same field for the channel scope through the **Configure** page, linked in the footer of any Claude reply in the channel, without going through admin settings. Both entry points write the same instructions, so a change from either place is visible in the other.
 The field is plain text, inserted as written; there is no include or template syntax, and `{{include:...}}` is passed through literally. To give Claude a repository’s `CLAUDE.md`, [grant the repository](https://claude.com/docs/claude-tag/admins/configure-github#grant-repository-access) and name it in the request; its `CLAUDE.md` loads after the clone completes.
 
 ###  Restrict who can set channel instructions

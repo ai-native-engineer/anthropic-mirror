@@ -26,7 +26,7 @@ Claude for Excel is now in beta as a research preview for Max, Enterprise, and T
 
 ## Connecting Claude to live information
 
-[**Connectors**](https://claude.ai/redirect/website.v1.69733057-c18f-45a5-a1b8-1896c2ae8447/settings/connectors) provide Claude with direct access to external tools and platforms. [In July](https://www.anthropic.com/news/claude-for-financial-services), we added connectors for S&P Capital IQ, Daloopa, Morningstar, and PitchBook. We’re adding new connectors that give Claude immediate access to more information in real time:
+[**Connectors**](https://claude.ai/redirect/website.v1.7a155529-cebd-4ca5-88d1-ac8a911fbab1/settings/connectors) provide Claude with direct access to external tools and platforms. [In July](https://www.anthropic.com/news/claude-for-financial-services), we added connectors for S&P Capital IQ, Daloopa, Morningstar, and PitchBook. We’re adding new connectors that give Claude immediate access to more information in real time:
 
 * **Aiera** provides Claude with real-time earnings call transcripts and summaries of investor events, like shareholder meetings, presentations, and conferences;
 * Aiera’s connector also enables a data feed from **Third Bridge**, which gives Claude access to a library of insights interviews, company intelligence, and industry analysis from experts and former executives;
@@ -40,7 +40,7 @@ For details on MCP connector setup and prompting guidance to maximize the benefi
 
 ## New Agent Skills for finance tasks
 
-Earlier this month, we introduced [Agent Skills](https://www.anthropic.com/news/skills). Skills are folders that include instructions, scripts, and resources that Claude can use to perform given tasks. Skills work across all Claude apps, including [Claude.ai](http://claude.ai/redirect/website.v1.69733057-c18f-45a5-a1b8-1896c2ae8447), Claude Code, and our API. To make Claude better at financial services tasks, we’ve added 6 new skills:
+Earlier this month, we introduced [Agent Skills](https://www.anthropic.com/news/skills). Skills are folders that include instructions, scripts, and resources that Claude can use to perform given tasks. Skills work across all Claude apps, including [Claude.ai](http://claude.ai/redirect/website.v1.7a155529-cebd-4ca5-88d1-ac8a911fbab1), Claude Code, and our API. To make Claude better at financial services tasks, we’ve added 6 new skills:
 
 * **Comparable company analysis**, with valuation multiples and operating metrics, which can be easily refreshed with updated data;
 * **Discounted cash flow models**, including full free cash flow projections, WACC calculations, scenario toggles, and sensitivity tables;

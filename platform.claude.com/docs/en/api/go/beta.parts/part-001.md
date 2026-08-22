@@ -5098,7 +5098,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Version string`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `Content []BetaContentBlockUnion`
 
@@ -14801,7 +14801,7 @@ func main() {
 
     - `Version string`
 
-      Skill version or 'latest' for most recent version
+      The resolved version: a skill version ID for custom skills.
 
 ### Beta Container Params
 
@@ -19935,7 +19935,7 @@ func main() {
 
       - `Version string`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `Content []BetaContentBlockUnion`
 
@@ -24714,7 +24714,7 @@ func main() {
 
         - `Version string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `StopDetails BetaRefusalStopDetails`
 
@@ -25230,7 +25230,7 @@ func main() {
 
         - `Version string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `Content []BetaContentBlockUnion`
 
@@ -26792,7 +26792,7 @@ func main() {
 
           - `Version string`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `Content []BetaContentBlockUnion`
 
@@ -29638,7 +29638,7 @@ func main() {
 
   - `Version string`
 
-    Skill version or 'latest' for most recent version
+    The resolved version: a skill version ID for custom skills.
 
 ### Beta Skill Params
 
@@ -29986,7 +29986,3 @@ func main() {
     - `Type PageLocation`
 
       - `const PageLocationPageLocation PageLocation = "page_location"`
-
-  - `type BetaCitationContentBlockLocation struct{…}`
-
-    - `CitedText string`

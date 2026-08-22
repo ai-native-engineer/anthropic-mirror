@@ -3,6 +3,2303 @@
 
 <!-- chunk-start -->
 
+    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `iteration: Integer`
+
+      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
+
+    - `outcome_id: String`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"span.outcome_evaluation_ongoing"`
+
+      - `:"span.outcome_evaluation_ongoing"`
+
+  - `class BetaManagedAgentsUserDefineOutcomeEvent`
+
+    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `description: String`
+
+      What the agent should produce. Copied from the input event.
+
+    - `max_iterations: Integer`
+
+      Evaluate-then-revise cycles before giving up. Default 3, max 20.
+
+    - `outcome_id: String`
+
+      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+      Rubric for grading the quality of an outcome.
+
+      - `class BetaManagedAgentsFileRubric`
+
+        Rubric referenced by a file uploaded via the Files API.
+
+        - `file_id: String`
+
+          ID of the rubric file.
+
+        - `type: :file`
+
+          - `:file`
+
+      - `class BetaManagedAgentsTextRubric`
+
+        Rubric content provided inline as text.
+
+        - `content: String`
+
+          Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+        - `type: :text`
+
+          - `:text`
+
+    - `type: :"user.define_outcome"`
+
+      - `:"user.define_outcome"`
+
+  - `class BetaManagedAgentsSessionDeletedEvent`
+
+    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"session.deleted"`
+
+      - `:"session.deleted"`
+
+  - `class BetaManagedAgentsSessionThreadStatusRunningEvent`
+
+    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `agent_name: String`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Public sthr_ ID of the thread that started running.
+
+    - `type: :"session.thread_status_running"`
+
+      - `:"session.thread_status_running"`
+
+  - `class BetaManagedAgentsSessionThreadStatusIdleEvent`
+
+    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `agent_name: String`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Public sthr_ ID of the thread that went idle.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+
+      The agent completed its turn naturally and is ready for the next user message.
+
+      - `class BetaManagedAgentsSessionEndTurn`
+
+        The agent completed its turn naturally and is ready for the next user message.
+
+      - `class BetaManagedAgentsSessionRequiresAction`
+
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
+      - `class BetaManagedAgentsSessionRetriesExhausted`
+
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
+
+      - `class BetaManagedAgentsSessionBudgetReached`
+
+        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+    - `type: :"session.thread_status_idle"`
+
+      - `:"session.thread_status_idle"`
+
+  - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+
+    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `agent_name: String`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Public sthr_ ID of the thread that terminated.
+
+    - `type: :"session.thread_status_terminated"`
+
+      - `:"session.thread_status_terminated"`
+
+  - `class BetaManagedAgentsUserToolResultEvent`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `tool_use_id: String`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: :"user.tool_result"`
+
+      - `:"user.tool_result"`
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+      The result content returned by the tool.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error: bool`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+
+  - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+
+    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `agent_name: String`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Public sthr_ ID of the thread that is retrying.
+
+    - `type: :"session.thread_status_rescheduled"`
+
+      - `:"session.thread_status_rescheduled"`
+
+  - `class BetaManagedAgentsSessionUpdatedEvent`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"session.updated"`
+
+      - `:"session.updated"`
+
+    - `agent: BetaManagedAgentsSessionAgent`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `id: String`
+
+      - `description: String`
+
+      - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
+
+        - `name: String`
+
+        - `type: :url`
+
+          - `:url`
+
+        - `url: String`
+
+      - `model: BetaManagedAgentsModelConfig`
+
+        Model identifier and configuration.
+
+        - `id: BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+
+            The model that will power your agent.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
+            - `:"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-opus-4-8"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-opus-4-7"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-opus-4-6"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `:"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `:"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `:"claude-opus-4-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-opus-4-5-20251101"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `:"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `String = String`
+
+        - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: :low`
+
+              - `:low`
+
+          - `class BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: :medium`
+
+              - `:medium`
+
+          - `class BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: :high`
+
+              - `:high`
+
+          - `class BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: :xhigh`
+
+              - `:xhigh`
+
+          - `class BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: :max`
+
+              - `:max`
+
+        - `inference_geo: String`
+
+          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
+        - `speed: :standard | :fast`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `:standard`
+
+          - `:fast`
+
+      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+
+        - `agents: Array[BetaManagedAgentsSessionThreadAgent | BetaManagedAgentsAdvisor]`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+
+          - `class BetaManagedAgentsSessionThreadAgent`
+
+            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
+            - `id: String`
+
+            - `description: String`
+
+            - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
+
+              - `name: String`
+
+              - `type: :url`
+
+              - `url: String`
+
+            - `model: BetaManagedAgentsModelConfig`
+
+              Model identifier and configuration.
+
+            - `name: String`
+
+            - `skills: Array[BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill]`
+
+              - `class BetaManagedAgentsAnthropicSkill`
+
+                A resolved Anthropic-managed skill.
+
+                - `skill_id: String`
+
+                - `type: :anthropic`
+
+                  - `:anthropic`
+
+                - `version: String`
+
+              - `class BetaManagedAgentsCustomSkill`
+
+                A resolved user-created custom skill.
+
+                - `skill_id: String`
+
+                - `type: :custom`
+
+                  - `:custom`
+
+                - `version: String`
+
+            - `system_: String`
+
+            - `tools: Array[BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool]`
+
+              - `class BetaManagedAgentsAgentToolset20260401`
+
+                - `configs: Array[BetaManagedAgentsAgentToolConfig]`
+
+                  - `class BetaManagedAgentsBashToolConfig`
+
+                    Configuration for the bash tool.
+
+                    - `enabled: bool`
+
+                    - `name: :bash`
+
+                      - `:bash`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                        - `type: :always_allow`
+
+                          - `:always_allow`
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                        - `type: :always_ask`
+
+                          - `:always_ask`
+
+                    - `type: :bash`
+
+                      - `:bash`
+
+                  - `class BetaManagedAgentsEditToolConfig`
+
+                    Configuration for the edit tool.
+
+                    - `enabled: bool`
+
+                    - `name: :edit`
+
+                      - `:edit`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :edit`
+
+                      - `:edit`
+
+                  - `class BetaManagedAgentsReadToolConfig`
+
+                    Configuration for the read tool.
+
+                    - `enabled: bool`
+
+                    - `name: :read`
+
+                      - `:read`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :read`
+
+                      - `:read`
+
+                  - `class BetaManagedAgentsWriteToolConfig`
+
+                    Configuration for the write tool.
+
+                    - `enabled: bool`
+
+                    - `name: :write`
+
+                      - `:write`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :write`
+
+                      - `:write`
+
+                  - `class BetaManagedAgentsGlobToolConfig`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: bool`
+
+                    - `name: :glob`
+
+                      - `:glob`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :glob`
+
+                      - `:glob`
+
+                  - `class BetaManagedAgentsGrepToolConfig`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: bool`
+
+                    - `name: :grep`
+
+                      - `:grep`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :grep`
+
+                      - `:grep`
+
+                  - `class BetaManagedAgentsWebFetchToolConfig`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `max_content_tokens: Integer`
+
+                  - `class BetaManagedAgentsWebSearchToolConfig`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_search`
+
+                      - `:web_search`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_search`
+
+                      - `:web_search`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `user_location: BetaManagedAgentsUserLocation`
+
+                      Approximate user location for search result localization.
+
+                      - `type: :approximate`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `:approximate`
+
+                      - `city: String`
+
+                        City name.
+
+                      - `country: String`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: String`
+
+                        Region or state name.
+
+                      - `timezone: String`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                  Resolved default configuration for agent tools.
+
+                  - `enabled: bool`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                      Tool calls require user confirmation before execution.
+
+                - `type: :agent_toolset_20260401`
+
+                  - `:agent_toolset_20260401`
+
+              - `class BetaManagedAgentsMCPToolset`
+
+                - `configs: Array[BetaManagedAgentsMCPToolConfig]`
+
+                  - `enabled: bool`
+
+                  - `name: String`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                      Tool calls require user confirmation before execution.
+
+                - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                  Resolved default configuration for all tools from an MCP server.
+
+                  - `enabled: bool`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                      Tool calls require user confirmation before execution.
+
+                - `mcp_server_name: String`
+
+                - `type: :mcp_toolset`
+
+                  - `:mcp_toolset`
+
+              - `class BetaManagedAgentsCustomTool`
+
+                A custom tool as returned in API responses.
+
+                - `description: String`
+
+                - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+                  JSON Schema for custom tool input parameters.
+
+                  - `type: :object`
+
+                    - `:object`
+
+                  - `properties: Hash[Symbol, untyped]`
+
+                  - `required: Array[String]`
+
+                - `name: String`
+
+                - `type: :custom`
+
+                  - `:custom`
+
+            - `type: :agent`
+
+              - `:agent`
+
+            - `version: Integer`
+
+          - `class BetaManagedAgentsAdvisor`
+
+            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+            - `model: String`
+
+              The advisor model id.
+
+            - `type: :advisor`
+
+              - `:advisor`
+
+        - `type: :coordinator`
+
+          - `:coordinator`
+
+      - `name: String`
+
+      - `skills: Array[BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill]`
+
+        - `class BetaManagedAgentsAnthropicSkill`
+
+          A resolved Anthropic-managed skill.
+
+        - `class BetaManagedAgentsCustomSkill`
+
+          A resolved user-created custom skill.
+
+      - `system_: String`
+
+      - `tools: Array[BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool]`
+
+        - `class BetaManagedAgentsAgentToolset20260401`
+
+        - `class BetaManagedAgentsMCPToolset`
+
+        - `class BetaManagedAgentsCustomTool`
+
+          A custom tool as returned in API responses.
+
+      - `type: :agent`
+
+        - `:agent`
+
+      - `version: Integer`
+
+    - `budget: BetaManagedAgentsBudgetLimit`
+
+      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+      - `max_list_cost: BetaMonetaryAmount`
+
+        A monetary amount in a specific currency.
+
+        - `amount: String`
+
+          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+        - `currency: BetaCurrency`
+
+          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+          - `:USD`
+
+      - `type: :limit`
+
+        - `:limit`
+
+    - `metadata: Hash[Symbol, String]`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `title: String`
+
+      The session's new title. Present only when the update changed it.
+
+  - `class BetaManagedAgentsSystemMessageEvent`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `content: Array[BetaManagedAgentsSystemContentBlock]`
+
+      System content blocks. Text-only.
+
+      - `text: String`
+
+        The text content.
+
+      - `type: :text`
+
+        - `:text`
+
+    - `type: :"system.message"`
+
+      - `:"system.message"`
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+  - `class BetaManagedAgentsSessionUsageEvent`
+
+    Periodic snapshot of the session's cumulative usage and tracked list cost.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"session.usage"`
+
+      - `:"session.usage"`
+
+    - `usage: BetaManagedAgentsSessionUsageSnapshot`
+
+      Point-in-time snapshot of a session's cumulative usage.
+
+      - `active_seconds: Float`
+
+        Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
+
+      - `cache_creation: BetaManagedAgentsCacheCreationUsage`
+
+        Prompt-cache creation token usage broken down by cache lifetime.
+
+        - `ephemeral_1h_input_tokens: Integer`
+
+          Tokens used to create 1-hour ephemeral cache entries.
+
+        - `ephemeral_5m_input_tokens: Integer`
+
+          Tokens used to create 5-minute ephemeral cache entries.
+
+      - `cache_read_input_tokens: Integer`
+
+        Total tokens read from prompt cache.
+
+      - `input_tokens: Integer`
+
+        Total input tokens consumed across all turns.
+
+      - `list_cost: BetaMonetaryAmount`
+
+        A monetary amount in a specific currency.
+
+      - `output_tokens: Integer`
+
+        Total output tokens generated across all turns.
+
+      - `server_tool_use: BetaManagedAgentsServerToolUsage`
+
+        Cumulative count of server-executed tool invocations, broken down by tool.
+
+        - `web_fetch_requests: Integer`
+
+          Number of server-executed web fetch requests.
+
+        - `web_search_requests: Integer`
+
+          Number of server-executed web search requests.
+
+    - `budget: BetaManagedAgentsBudgetLimit`
+
+      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+page = anthropic.beta.sessions.events.list("sesn_011CZkZAtmR3yMPDzynEDxu7")
+
+puts(page)
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message",
+      "processed_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "content": [
+        {
+          "text": "Let me look up order #1234 for you.",
+          "type": "text"
+        }
+      ],
+      "processed_at": "2026-03-15T10:00:00Z",
+      "type": "agent.message"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Send Events
+
+`beta.sessions.events.send_(session_id, **kwargs) -> BetaManagedAgentsSendSessionEvents`
+
+**post** `/v1/sessions/{session_id}/events`
+
+Send Events
+
+### Parameters
+
+- `session_id: String`
+
+- `events: Array[BetaManagedAgentsEventParams]`
+
+  Events to send to the `session`.
+
+  - `class BetaManagedAgentsUserMessageEventParams`
+
+    Parameters for sending a user message to the session.
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
+
+      Array of content blocks for the user message.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+        - `text: String`
+
+          The text content.
+
+        - `type: :text`
+
+          - `:text`
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+          Union type for image source variants.
+
+          - `class BetaManagedAgentsBase64ImageSource`
+
+            Base64-encoded image data.
+
+            - `data: String`
+
+              Base64-encoded image data.
+
+            - `media_type: String`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+            - `type: :base64`
+
+              - `:base64`
+
+          - `class BetaManagedAgentsURLImageSource`
+
+            Image referenced by URL.
+
+            - `type: :url`
+
+              - `:url`
+
+            - `url: String`
+
+              URL of the image to fetch.
+
+          - `class BetaManagedAgentsFileImageSource`
+
+            Image referenced by file ID.
+
+            - `file_id: String`
+
+              ID of a previously uploaded file.
+
+            - `type: :file`
+
+              - `:file`
+
+        - `type: :image`
+
+          - `:image`
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+          Union type for document source variants.
+
+          - `class BetaManagedAgentsBase64DocumentSource`
+
+            Base64-encoded document data.
+
+            - `data: String`
+
+              Base64-encoded document data.
+
+            - `media_type: String`
+
+              MIME type of the document (e.g., "application/pdf").
+
+            - `type: :base64`
+
+              - `:base64`
+
+          - `class BetaManagedAgentsPlainTextDocumentSource`
+
+            Plain text document content.
+
+            - `data: String`
+
+              The plain text content.
+
+            - `media_type: :"text/plain"`
+
+              MIME type of the text content. Must be "text/plain".
+
+              - `:"text/plain"`
+
+            - `type: :text`
+
+              - `:text`
+
+          - `class BetaManagedAgentsURLDocumentSource`
+
+            Document referenced by URL.
+
+            - `type: :url`
+
+              - `:url`
+
+            - `url: String`
+
+              URL of the document to fetch.
+
+          - `class BetaManagedAgentsFileDocumentSource`
+
+            Document referenced by file ID.
+
+            - `file_id: String`
+
+              ID of a previously uploaded file.
+
+            - `type: :file`
+
+              - `:file`
+
+        - `type: :document`
+
+          - `:document`
+
+        - `context: String`
+
+          Additional context about the document for the model.
+
+        - `title: String`
+
+          The title of the document.
+
+      - `class BetaManagedAgentsRedactedBlock`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+        - `type: :redacted`
+
+          - `:redacted`
+
+    - `type: :"user.message"`
+
+      - `:"user.message"`
+
+  - `class BetaManagedAgentsUserInterruptEventParams`
+
+    Parameters for sending an interrupt to pause the agent.
+
+    - `type: :"user.interrupt"`
+
+      - `:"user.interrupt"`
+
+    - `session_thread_id: String`
+
+      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+  - `class BetaManagedAgentsUserToolConfirmationEventParams`
+
+    Parameters for confirming or denying a tool execution request.
+
+    - `result: :allow | :deny`
+
+      UserToolConfirmationResult enum
+
+      - `:allow`
+
+      - `:deny`
+
+    - `tool_use_id: String`
+
+      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: :"user.tool_confirmation"`
+
+      - `:"user.tool_confirmation"`
+
+    - `deny_message: String`
+
+      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+  - `class BetaManagedAgentsUserCustomToolResultEventParams`
+
+    Parameters for providing the result of a custom tool execution.
+
+    - `custom_tool_use_id: String`
+
+      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: :"user.custom_tool_result"`
+
+      - `:"user.custom_tool_result"`
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+      The result content returned by the tool.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+        - `citations: BetaManagedAgentsSearchResultCitations`
+
+          Citation settings for a search result.
+
+          - `enabled: bool`
+
+            Whether citations are enabled for this search result.
+
+        - `content: Array[BetaManagedAgentsSearchResultContent]`
+
+          Array of text content blocks from the search result.
+
+          - `text: String`
+
+            The text content.
+
+          - `type: :text`
+
+            - `:text`
+
+        - `source: String`
+
+          The URL source of the search result.
+
+        - `title: String`
+
+          The title of the search result.
+
+        - `type: :search_result`
+
+          - `:search_result`
+
+    - `is_error: bool`
+
+      Whether the tool execution resulted in an error.
+
+  - `class BetaManagedAgentsUserDefineOutcomeEventParams`
+
+    Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+    - `description: String`
+
+      What the agent should produce. This is the task specification.
+
+    - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
+
+      Rubric for grading the quality of an outcome.
+
+      - `class BetaManagedAgentsFileRubricParams`
+
+        Rubric referenced by a file uploaded via the Files API.
+
+        - `file_id: String`
+
+          ID of the rubric file.
+
+        - `type: :file`
+
+          - `:file`
+
+      - `class BetaManagedAgentsTextRubricParams`
+
+        Rubric content provided inline as text.
+
+        - `content: String`
+
+          Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
+
+        - `type: :text`
+
+          - `:text`
+
+    - `type: :"user.define_outcome"`
+
+      - `:"user.define_outcome"`
+
+    - `max_iterations: Integer`
+
+      Eval→revision cycles before giving up. Default 3, max 20.
+
+  - `class BetaManagedAgentsUserToolResultEventParams`
+
+    Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `tool_use_id: String`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: :"user.tool_result"`
+
+      - `:"user.tool_result"`
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+      The result content returned by the tool.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error: bool`
+
+      Whether the tool execution resulted in an error.
+
+  - `class BetaManagedAgentsSystemMessageEventParams`
+
+    Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
+
+    - `content: Array[BetaManagedAgentsSystemContentBlock]`
+
+      System content blocks to append. Text-only.
+
+      - `text: String`
+
+        The text content.
+
+      - `type: :text`
+
+        - `:text`
+
+    - `type: :"system.message"`
+
+      - `:"system.message"`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+    - `:"mid-conversation-tool-changes-2026-07-01"`
+
+### Returns
+
+- `class BetaManagedAgentsSendSessionEvents`
+
+  Events that were successfully sent to the session.
+
+  - `data: Array[BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 4 more]`
+
+    Sent events
+
+    - `class BetaManagedAgentsUserMessageEvent`
+
+      A user message event in the session conversation.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
+
+        Array of content blocks comprising the user message.
+
+        - `class BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: String`
+
+            The text content.
+
+          - `type: :text`
+
+            - `:text`
+
+        - `class BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `class BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: String`
+
+                Base64-encoded image data.
+
+              - `media_type: String`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: :base64`
+
+                - `:base64`
+
+            - `class BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: :url`
+
+                - `:url`
+
+              - `url: String`
+
+                URL of the image to fetch.
+
+            - `class BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: String`
+
+                ID of a previously uploaded file.
+
+              - `type: :file`
+
+                - `:file`
+
+          - `type: :image`
+
+            - `:image`
+
+        - `class BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `class BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: String`
+
+                Base64-encoded document data.
+
+              - `media_type: String`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: :base64`
+
+                - `:base64`
+
+            - `class BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: String`
+
+                The plain text content.
+
+              - `media_type: :"text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `:"text/plain"`
+
+              - `type: :text`
+
+                - `:text`
+
+            - `class BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: :url`
+
+                - `:url`
+
+              - `url: String`
+
+                URL of the document to fetch.
+
+            - `class BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: String`
+
+                ID of a previously uploaded file.
+
+              - `type: :file`
+
+                - `:file`
+
+          - `type: :document`
+
+            - `:document`
+
+          - `context: String`
+
+            Additional context about the document for the model.
+
+          - `title: String`
+
+            The title of the document.
+
+        - `class BetaManagedAgentsRedactedBlock`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: :redacted`
+
+            - `:redacted`
+
+      - `type: :"user.message"`
+
+        - `:"user.message"`
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+    - `class BetaManagedAgentsUserInterruptEvent`
+
+      An interrupt event that pauses agent execution and returns control to the user.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `type: :"user.interrupt"`
+
+        - `:"user.interrupt"`
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+      - `session_thread_id: String`
+
+        If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+    - `class BetaManagedAgentsUserToolConfirmationEvent`
+
+      A tool confirmation event that approves or denies a pending tool execution.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `result: :allow | :deny`
+
+        UserToolConfirmationResult enum
+
+        - `:allow`
+
+        - `:deny`
+
+      - `tool_use_id: String`
+
+        The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `type: :"user.tool_confirmation"`
+
+        - `:"user.tool_confirmation"`
+
+      - `deny_message: String`
+
+        Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+      - `session_thread_id: String`
+
+        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+
+    - `class BetaManagedAgentsUserCustomToolResultEvent`
+
+      Event sent by the client providing the result of a custom tool execution.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `custom_tool_use_id: String`
+
+        The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `type: :"user.custom_tool_result"`
+
+        - `:"user.custom_tool_result"`
+
+      - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+        The result content returned by the tool.
+
+        - `class BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock`
+
+          A block containing a web search result.
+
+          - `citations: BetaManagedAgentsSearchResultCitations`
+
+            Citation settings for a search result.
+
+            - `enabled: bool`
+
+              Whether citations are enabled for this search result.
+
+          - `content: Array[BetaManagedAgentsSearchResultContent]`
+
+            Array of text content blocks from the search result.
+
+            - `text: String`
+
+              The text content.
+
+            - `type: :text`
+
+              - `:text`
+
+          - `source: String`
+
+            The URL source of the search result.
+
+          - `title: String`
+
+            The title of the search result.
+
+          - `type: :search_result`
+
+            - `:search_result`
+
+      - `is_error: bool`
+
+        Whether the tool execution resulted in an error.
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+      - `session_thread_id: String`
+
+        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+
+    - `class BetaManagedAgentsUserDefineOutcomeEvent`
+
+      Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `description: String`
+
+        What the agent should produce. Copied from the input event.
+
+      - `max_iterations: Integer`
+
+        Evaluate-then-revise cycles before giving up. Default 3, max 20.
+
+      - `outcome_id: String`
+
+        Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+      - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `class BetaManagedAgentsFileRubric`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: String`
+
+            ID of the rubric file.
+
+          - `type: :file`
+
+            - `:file`
+
+        - `class BetaManagedAgentsTextRubric`
+
+          Rubric content provided inline as text.
+
+          - `content: String`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+          - `type: :text`
+
+            - `:text`
+
+      - `type: :"user.define_outcome"`
+
+        - `:"user.define_outcome"`
+
+    - `class BetaManagedAgentsUserToolResultEvent`
+
+      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `tool_use_id: String`
+
+        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `type: :"user.tool_result"`
+
+        - `:"user.tool_result"`
+
+      - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+        The result content returned by the tool.
+
+        - `class BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock`
+
+          A block containing a web search result.
+
+      - `is_error: bool`
+
+        Whether the tool execution resulted in an error.
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+      - `session_thread_id: String`
+
+        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+
+    - `class BetaManagedAgentsSystemMessageEvent`
+
+      A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `content: Array[BetaManagedAgentsSystemContentBlock]`
+
+        System content blocks. Text-only.
+
+        - `text: String`
+
+          The text content.
+
+        - `type: :text`
+
+          - `:text`
+
+      - `type: :"system.message"`
+
+        - `:"system.message"`
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_managed_agents_send_session_events = anthropic.beta.sessions.events.send_(
+  "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  events: [{content: [{text: "Where is my order #1234?", type: :text}], type: :"user.message"}]
+)
+
+puts(beta_managed_agents_send_session_events)
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message",
+      "processed_at": "2026-03-15T10:00:00Z"
+    }
+  ]
+}
+```
+
+## Stream Events
+
+`beta.sessions.events.stream(session_id, **kwargs) -> BetaManagedAgentsStreamSessionEvents`
+
+**get** `/v1/sessions/{session_id}/events/stream`
+
+Stream Events
+
+### Parameters
+
+- `session_id: String`
+
+- `event_deltas: Array[BetaManagedAgentsDeltaType]`
+
+  When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
+
+  - `:"agent.message"`
+
+  - `:"agent.thinking"`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"user-profiles-2026-08-18"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+    - `:"mid-conversation-tool-changes-2026-07-01"`
+
+### Returns
+
+- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
+
+  Server-sent event in the session stream.
+
+  - `class BetaManagedAgentsUserMessageEvent`
+
+    A user message event in the session conversation.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
+
+      Array of content blocks comprising the user message.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+        - `text: String`
+
+          The text content.
+
+        - `type: :text`
+
+          - `:text`
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+          Union type for image source variants.
+
+          - `class BetaManagedAgentsBase64ImageSource`
+
+            Base64-encoded image data.
+
+            - `data: String`
+
+              Base64-encoded image data.
+
+            - `media_type: String`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+            - `type: :base64`
+
+              - `:base64`
+
+          - `class BetaManagedAgentsURLImageSource`
+
+            Image referenced by URL.
+
+            - `type: :url`
+
+              - `:url`
+
+            - `url: String`
+
+              URL of the image to fetch.
+
+          - `class BetaManagedAgentsFileImageSource`
+
+            Image referenced by file ID.
+
+            - `file_id: String`
+
+              ID of a previously uploaded file.
+
+            - `type: :file`
+
+              - `:file`
+
+        - `type: :image`
+
+          - `:image`
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+          Union type for document source variants.
+
+          - `class BetaManagedAgentsBase64DocumentSource`
+
+            Base64-encoded document data.
+
+            - `data: String`
+
+              Base64-encoded document data.
+
+            - `media_type: String`
+
+              MIME type of the document (e.g., "application/pdf").
+
+            - `type: :base64`
+
+              - `:base64`
+
+          - `class BetaManagedAgentsPlainTextDocumentSource`
+
+            Plain text document content.
+
+            - `data: String`
+
+              The plain text content.
+
+            - `media_type: :"text/plain"`
+
+              MIME type of the text content. Must be "text/plain".
+
+              - `:"text/plain"`
+
+            - `type: :text`
+
+              - `:text`
+
+          - `class BetaManagedAgentsURLDocumentSource`
+
+            Document referenced by URL.
+
+            - `type: :url`
+
+              - `:url`
+
+            - `url: String`
+
+              URL of the document to fetch.
+
+          - `class BetaManagedAgentsFileDocumentSource`
+
+            Document referenced by file ID.
+
+            - `file_id: String`
+
+              ID of a previously uploaded file.
+
+            - `type: :file`
+
+              - `:file`
+
+        - `type: :document`
+
+          - `:document`
+
+        - `context: String`
+
+          Additional context about the document for the model.
+
+        - `title: String`
+
+          The title of the document.
+
+      - `class BetaManagedAgentsRedactedBlock`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+        - `type: :redacted`
+
+          - `:redacted`
+
+    - `type: :"user.message"`
+
+      - `:"user.message"`
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+  - `class BetaManagedAgentsUserInterruptEvent`
+
+    An interrupt event that pauses agent execution and returns control to the user.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `type: :"user.interrupt"`
+
+      - `:"user.interrupt"`
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+  - `class BetaManagedAgentsUserToolConfirmationEvent`
+
+    A tool confirmation event that approves or denies a pending tool execution.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `result: :allow | :deny`
+
+      UserToolConfirmationResult enum
+
+      - `:allow`
+
+      - `:deny`
+
+    - `tool_use_id: String`
+
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: :"user.tool_confirmation"`
@@ -1461,27 +3758,263 @@
 
                 - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
+                  - `class BetaManagedAgentsBashToolConfig`
+
+                    Configuration for the bash tool.
+
+                    - `enabled: bool`
+
+                    - `name: :bash`
+
+                      - `:bash`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                        - `type: :always_allow`
+
+                          - `:always_allow`
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                        - `type: :always_ask`
+
+                          - `:always_ask`
+
+                    - `type: :bash`
+
+                      - `:bash`
+
+                  - `class BetaManagedAgentsEditToolConfig`
+
+                    Configuration for the edit tool.
+
+                    - `enabled: bool`
+
+                    - `name: :edit`
+
+                      - `:edit`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :edit`
+
+                      - `:edit`
+
+                  - `class BetaManagedAgentsReadToolConfig`
+
+                    Configuration for the read tool.
+
+                    - `enabled: bool`
+
+                    - `name: :read`
+
+                      - `:read`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :read`
+
+                      - `:read`
+
+                  - `class BetaManagedAgentsWriteToolConfig`
+
+                    Configuration for the write tool.
+
+                    - `enabled: bool`
+
+                    - `name: :write`
+
+                      - `:write`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :write`
+
+                      - `:write`
+
+                  - `class BetaManagedAgentsGlobToolConfig`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: bool`
+
+                    - `name: :glob`
+
+                      - `:glob`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :glob`
+
+                      - `:glob`
+
+                  - `class BetaManagedAgentsGrepToolConfig`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: bool`
+
+                    - `name: :grep`
+
+                      - `:grep`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :grep`
+
+                      - `:grep`
+
+                  - `class BetaManagedAgentsWebFetchToolConfig`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `max_content_tokens: Integer`
+
+                  - `class BetaManagedAgentsWebSearchToolConfig`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_search`
+
+                      - `:web_search`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_search`
+
+                      - `:web_search`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `user_location: BetaManagedAgentsUserLocation`
+
+                      Approximate user location for search result localization.
+
+                      - `type: :approximate`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `:approximate`
+
+                      - `city: String`
+
+                        City name.
+
+                      - `country: String`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: String`
+
+                        Region or state name.
+
+                      - `timezone: String`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                  Resolved default configuration for agent tools.
+
                   - `enabled: bool`
-
-                  - `name: :bash | :edit | :read | 5 more`
-
-                    Built-in agent tool identifier.
-
-                    - `:bash`
-
-                    - `:edit`
-
-                    - `:read`
-
-                    - `:write`
-
-                    - `:glob`
-
-                    - `:grep`
-
-                    - `:web_fetch`
-
-                    - `:web_search`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1491,17 +4024,5031 @@
 
                       Tool calls are automatically approved without user confirmation.
 
-                      - `type: :always_allow`
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
 
-                        - `:always_allow`
+                      Tool calls require user confirmation before execution.
+
+                - `type: :agent_toolset_20260401`
+
+                  - `:agent_toolset_20260401`
+
+              - `class BetaManagedAgentsMCPToolset`
+
+                - `configs: Array[BetaManagedAgentsMCPToolConfig]`
+
+                  - `enabled: bool`
+
+                  - `name: String`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                      Tool calls are automatically approved without user confirmation.
 
                     - `class BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                      - `type: :always_ask`
+                - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
-                        - `:always_ask`
+                  Resolved default configuration for all tools from an MCP server.
+
+                  - `enabled: bool`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                      Tool calls require user confirmation before execution.
+
+                - `mcp_server_name: String`
+
+                - `type: :mcp_toolset`
+
+                  - `:mcp_toolset`
+
+              - `class BetaManagedAgentsCustomTool`
+
+                A custom tool as returned in API responses.
+
+                - `description: String`
+
+                - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+                  JSON Schema for custom tool input parameters.
+
+                  - `type: :object`
+
+                    - `:object`
+
+                  - `properties: Hash[Symbol, untyped]`
+
+                  - `required: Array[String]`
+
+                - `name: String`
+
+                - `type: :custom`
+
+                  - `:custom`
+
+            - `type: :agent`
+
+              - `:agent`
+
+            - `version: Integer`
+
+          - `class BetaManagedAgentsAdvisor`
+
+            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+            - `model: String`
+
+              The advisor model id.
+
+            - `type: :advisor`
+
+              - `:advisor`
+
+        - `type: :coordinator`
+
+          - `:coordinator`
+
+      - `name: String`
+
+      - `skills: Array[BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill]`
+
+        - `class BetaManagedAgentsAnthropicSkill`
+
+          A resolved Anthropic-managed skill.
+
+        - `class BetaManagedAgentsCustomSkill`
+
+          A resolved user-created custom skill.
+
+      - `system_: String`
+
+      - `tools: Array[BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool]`
+
+        - `class BetaManagedAgentsAgentToolset20260401`
+
+        - `class BetaManagedAgentsMCPToolset`
+
+        - `class BetaManagedAgentsCustomTool`
+
+          A custom tool as returned in API responses.
+
+      - `type: :agent`
+
+        - `:agent`
+
+      - `version: Integer`
+
+    - `budget: BetaManagedAgentsBudgetLimit`
+
+      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+      - `max_list_cost: BetaMonetaryAmount`
+
+        A monetary amount in a specific currency.
+
+        - `amount: String`
+
+          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+        - `currency: BetaCurrency`
+
+          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+          - `:USD`
+
+      - `type: :limit`
+
+        - `:limit`
+
+    - `metadata: Hash[Symbol, String]`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `title: String`
+
+      The session's new title. Present only when the update changed it.
+
+  - `class BetaManagedAgentsStartEvent`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `event: BetaManagedAgentsStartEventPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `class BetaManagedAgentsAgentMessagePreview`
+
+        - `id: String`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `type: :"agent.message"`
+
+          - `:"agent.message"`
+
+      - `class BetaManagedAgentsAgentThinkingPreview`
+
+        - `id: String`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `type: :"agent.thinking"`
+
+          - `:"agent.thinking"`
+
+    - `type: :event_start`
+
+      - `:event_start`
+
+  - `class BetaManagedAgentsDeltaEvent`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `delta: BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `content: BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `type: :content_delta`
+
+        - `:content_delta`
+
+      - `index: Integer`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: String`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `type: :event_delta`
+
+      - `:event_delta`
+
+  - `class BetaManagedAgentsSystemMessageEvent`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `content: Array[BetaManagedAgentsSystemContentBlock]`
+
+      System content blocks. Text-only.
+
+      - `text: String`
+
+        The text content.
+
+      - `type: :text`
+
+        - `:text`
+
+    - `type: :"system.message"`
+
+      - `:"system.message"`
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+  - `class BetaManagedAgentsSessionUsageEvent`
+
+    Periodic snapshot of the session's cumulative usage and tracked list cost.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"session.usage"`
+
+      - `:"session.usage"`
+
+    - `usage: BetaManagedAgentsSessionUsageSnapshot`
+
+      Point-in-time snapshot of a session's cumulative usage.
+
+      - `active_seconds: Float`
+
+        Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
+
+      - `cache_creation: BetaManagedAgentsCacheCreationUsage`
+
+        Prompt-cache creation token usage broken down by cache lifetime.
+
+        - `ephemeral_1h_input_tokens: Integer`
+
+          Tokens used to create 1-hour ephemeral cache entries.
+
+        - `ephemeral_5m_input_tokens: Integer`
+
+          Tokens used to create 5-minute ephemeral cache entries.
+
+      - `cache_read_input_tokens: Integer`
+
+        Total tokens read from prompt cache.
+
+      - `input_tokens: Integer`
+
+        Total input tokens consumed across all turns.
+
+      - `list_cost: BetaMonetaryAmount`
+
+        A monetary amount in a specific currency.
+
+      - `output_tokens: Integer`
+
+        Total output tokens generated across all turns.
+
+      - `server_tool_use: BetaManagedAgentsServerToolUsage`
+
+        Cumulative count of server-executed tool invocations, broken down by tool.
+
+        - `web_fetch_requests: Integer`
+
+          Number of server-executed web fetch requests.
+
+        - `web_search_requests: Integer`
+
+          Number of server-executed web search requests.
+
+    - `budget: BetaManagedAgentsBudgetLimit`
+
+      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_managed_agents_stream_session_events = anthropic.beta.sessions.events.stream("sesn_011CZkZAtmR3yMPDzynEDxu7")
+
+puts(beta_managed_agents_stream_session_events)
+```
+
+#### Response
+
+```json
+{
+  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "content": [
+    {
+      "text": "Where is my order #1234?",
+      "type": "text"
+    }
+  ],
+  "type": "user.message",
+  "processed_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## Domain Types
+
+### Beta Managed Agents Agent Custom Tool Use Event
+
+- `class BetaManagedAgentsAgentCustomToolUseEvent`
+
+  Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `input: Hash[Symbol, untyped]`
+
+    Input parameters for the tool call.
+
+  - `name: String`
+
+    Name of the custom tool being called.
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `type: :"agent.custom_tool_use"`
+
+    - `:"agent.custom_tool_use"`
+
+  - `session_thread_id: String`
+
+    When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+
+### Beta Managed Agents Agent MCP Tool Result Event
+
+- `class BetaManagedAgentsAgentMCPToolResultEvent`
+
+  Event representing the result of an MCP tool execution.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `mcp_tool_use_id: String`
+
+    The id of the `agent.mcp_tool_use` event this result corresponds to.
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `type: :"agent.mcp_tool_result"`
+
+    - `:"agent.mcp_tool_result"`
+
+  - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+    The result content returned by the tool.
+
+    - `class BetaManagedAgentsTextBlock`
+
+      Regular text content.
+
+      - `text: String`
+
+        The text content.
+
+      - `type: :text`
+
+        - `:text`
+
+    - `class BetaManagedAgentsImageBlock`
+
+      Image content specified directly as base64 data or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+        Union type for image source variants.
+
+        - `class BetaManagedAgentsBase64ImageSource`
+
+          Base64-encoded image data.
+
+          - `data: String`
+
+            Base64-encoded image data.
+
+          - `media_type: String`
+
+            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+          - `type: :base64`
+
+            - `:base64`
+
+        - `class BetaManagedAgentsURLImageSource`
+
+          Image referenced by URL.
+
+          - `type: :url`
+
+            - `:url`
+
+          - `url: String`
+
+            URL of the image to fetch.
+
+        - `class BetaManagedAgentsFileImageSource`
+
+          Image referenced by file ID.
+
+          - `file_id: String`
+
+            ID of a previously uploaded file.
+
+          - `type: :file`
+
+            - `:file`
+
+      - `type: :image`
+
+        - `:image`
+
+    - `class BetaManagedAgentsDocumentBlock`
+
+      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+        Union type for document source variants.
+
+        - `class BetaManagedAgentsBase64DocumentSource`
+
+          Base64-encoded document data.
+
+          - `data: String`
+
+            Base64-encoded document data.
+
+          - `media_type: String`
+
+            MIME type of the document (e.g., "application/pdf").
+
+          - `type: :base64`
+
+            - `:base64`
+
+        - `class BetaManagedAgentsPlainTextDocumentSource`
+
+          Plain text document content.
+
+          - `data: String`
+
+            The plain text content.
+
+          - `media_type: :"text/plain"`
+
+            MIME type of the text content. Must be "text/plain".
+
+            - `:"text/plain"`
+
+          - `type: :text`
+
+            - `:text`
+
+        - `class BetaManagedAgentsURLDocumentSource`
+
+          Document referenced by URL.
+
+          - `type: :url`
+
+            - `:url`
+
+          - `url: String`
+
+            URL of the document to fetch.
+
+        - `class BetaManagedAgentsFileDocumentSource`
+
+          Document referenced by file ID.
+
+          - `file_id: String`
+
+            ID of a previously uploaded file.
+
+          - `type: :file`
+
+            - `:file`
+
+      - `type: :document`
+
+        - `:document`
+
+      - `context: String`
+
+        Additional context about the document for the model.
+
+      - `title: String`
+
+        The title of the document.
+
+    - `class BetaManagedAgentsSearchResultBlock`
+
+      A block containing a web search result.
+
+      - `citations: BetaManagedAgentsSearchResultCitations`
+
+        Citation settings for a search result.
+
+        - `enabled: bool`
+
+          Whether citations are enabled for this search result.
+
+      - `content: Array[BetaManagedAgentsSearchResultContent]`
+
+        Array of text content blocks from the search result.
+
+        - `text: String`
+
+          The text content.
+
+        - `type: :text`
+
+          - `:text`
+
+      - `source: String`
+
+        The URL source of the search result.
+
+      - `title: String`
+
+        The title of the search result.
+
+      - `type: :search_result`
+
+        - `:search_result`
+
+  - `is_error: bool`
+
+    Whether the tool execution resulted in an error.
+
+### Beta Managed Agents Agent MCP Tool Use Event
+
+- `class BetaManagedAgentsAgentMCPToolUseEvent`
+
+  Event emitted when the agent invokes a tool provided by an MCP server.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `input: Hash[Symbol, untyped]`
+
+    Input parameters for the tool call.
+
+  - `mcp_server_name: String`
+
+    Name of the MCP server providing the tool.
+
+  - `name: String`
+
+    Name of the MCP tool being used.
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `type: :"agent.mcp_tool_use"`
+
+    - `:"agent.mcp_tool_use"`
+
+  - `evaluated_permission: :allow | :ask | :deny`
+
+    AgentEvaluatedPermission enum
+
+    - `:allow`
+
+    - `:ask`
+
+    - `:deny`
+
+  - `session_thread_id: String`
+
+    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+
+### Beta Managed Agents Agent Message Event
+
+- `class BetaManagedAgentsAgentMessageEvent`
+
+  An agent response event in the session conversation.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsRedactedBlock]`
+
+    Array of text blocks comprising the agent response.
+
+    - `class BetaManagedAgentsTextBlock`
+
+      Regular text content.
+
+      - `text: String`
+
+        The text content.
+
+      - `type: :text`
+
+        - `:text`
+
+    - `class BetaManagedAgentsRedactedBlock`
+
+      Placeholder for content withheld by Anthropic model policy.
+
+      - `type: :redacted`
+
+        - `:redacted`
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `type: :"agent.message"`
+
+    - `:"agent.message"`
+
+### Beta Managed Agents Agent Thinking Event
+
+- `class BetaManagedAgentsAgentThinkingEvent`
+
+  Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `type: :"agent.thinking"`
+
+    - `:"agent.thinking"`
+
+### Beta Managed Agents Agent Thread Context Compacted Event
+
+- `class BetaManagedAgentsAgentThreadContextCompactedEvent`
+
+  Indicates that context compaction (summarization) occurred during the session.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `type: :"agent.thread_context_compacted"`
+
+    - `:"agent.thread_context_compacted"`
+
+### Beta Managed Agents Agent Thread Message Received Event
+
+- `class BetaManagedAgentsAgentThreadMessageReceivedEvent`
+
+  Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
+
+    Message content blocks.
+
+    - `class BetaManagedAgentsTextBlock`
+
+      Regular text content.
+
+      - `text: String`
+
+        The text content.
+
+      - `type: :text`
+
+        - `:text`
+
+    - `class BetaManagedAgentsImageBlock`
+
+      Image content specified directly as base64 data or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+        Union type for image source variants.
+
+        - `class BetaManagedAgentsBase64ImageSource`
+
+          Base64-encoded image data.
+
+          - `data: String`
+
+            Base64-encoded image data.
+
+          - `media_type: String`
+
+            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+          - `type: :base64`
+
+            - `:base64`
+
+        - `class BetaManagedAgentsURLImageSource`
+
+          Image referenced by URL.
+
+          - `type: :url`
+
+            - `:url`
+
+          - `url: String`
+
+            URL of the image to fetch.
+
+        - `class BetaManagedAgentsFileImageSource`
+
+          Image referenced by file ID.
+
+          - `file_id: String`
+
+            ID of a previously uploaded file.
+
+          - `type: :file`
+
+            - `:file`
+
+      - `type: :image`
+
+        - `:image`
+
+    - `class BetaManagedAgentsDocumentBlock`
+
+      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+        Union type for document source variants.
+
+        - `class BetaManagedAgentsBase64DocumentSource`
+
+          Base64-encoded document data.
+
+          - `data: String`
+
+            Base64-encoded document data.
+
+          - `media_type: String`
+
+            MIME type of the document (e.g., "application/pdf").
+
+          - `type: :base64`
+
+            - `:base64`
+
+        - `class BetaManagedAgentsPlainTextDocumentSource`
+
+          Plain text document content.
+
+          - `data: String`
+
+            The plain text content.
+
+          - `media_type: :"text/plain"`
+
+            MIME type of the text content. Must be "text/plain".
+
+            - `:"text/plain"`
+
+          - `type: :text`
+
+            - `:text`
+
+        - `class BetaManagedAgentsURLDocumentSource`
+
+          Document referenced by URL.
+
+          - `type: :url`
+
+            - `:url`
+
+          - `url: String`
+
+            URL of the document to fetch.
+
+        - `class BetaManagedAgentsFileDocumentSource`
+
+          Document referenced by file ID.
+
+          - `file_id: String`
+
+            ID of a previously uploaded file.
+
+          - `type: :file`
+
+            - `:file`
+
+      - `type: :document`
+
+        - `:document`
+
+      - `context: String`
+
+        Additional context about the document for the model.
+
+      - `title: String`
+
+        The title of the document.
+
+    - `class BetaManagedAgentsRedactedBlock`
+
+      Placeholder for content withheld by Anthropic model policy.
+
+      - `type: :redacted`
+
+        - `:redacted`
+
+  - `from_session_thread_id: String`
+
+    Public `sthr_` ID of the thread that sent the message.
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `type: :"agent.thread_message_received"`
+
+    - `:"agent.thread_message_received"`
+
+  - `from_agent_name: String`
+
+    Name of the callable agent this message came from. Absent when received from the primary agent.
+
+### Beta Managed Agents Agent Thread Message Sent Event
+
+- `class BetaManagedAgentsAgentThreadMessageSentEvent`
+
+  Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
+
+    Message content blocks.
+
+    - `class BetaManagedAgentsTextBlock`
+
+      Regular text content.
+
+      - `text: String`
+
+        The text content.
+
+      - `type: :text`
+
+        - `:text`
+
+    - `class BetaManagedAgentsImageBlock`
+
+      Image content specified directly as base64 data or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+        Union type for image source variants.
+
+        - `class BetaManagedAgentsBase64ImageSource`
+
+          Base64-encoded image data.
+
+          - `data: String`
+
+            Base64-encoded image data.
+
+          - `media_type: String`
+
+            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+          - `type: :base64`
+
+            - `:base64`
+
+        - `class BetaManagedAgentsURLImageSource`
+
+          Image referenced by URL.
+
+          - `type: :url`
+
+            - `:url`
+
+          - `url: String`
+
+            URL of the image to fetch.
+
+        - `class BetaManagedAgentsFileImageSource`
+
+          Image referenced by file ID.
+
+          - `file_id: String`
+
+            ID of a previously uploaded file.
+
+          - `type: :file`
+
+            - `:file`
+
+      - `type: :image`
+
+        - `:image`
+
+    - `class BetaManagedAgentsDocumentBlock`
+
+      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+        Union type for document source variants.
+
+        - `class BetaManagedAgentsBase64DocumentSource`
+
+          Base64-encoded document data.
+
+          - `data: String`
+
+            Base64-encoded document data.
+
+          - `media_type: String`
+
+            MIME type of the document (e.g., "application/pdf").
+
+          - `type: :base64`
+
+            - `:base64`
+
+        - `class BetaManagedAgentsPlainTextDocumentSource`
+
+          Plain text document content.
+
+          - `data: String`
+
+            The plain text content.
+
+          - `media_type: :"text/plain"`
+
+            MIME type of the text content. Must be "text/plain".
+
+            - `:"text/plain"`
+
+          - `type: :text`
+
+            - `:text`
+
+        - `class BetaManagedAgentsURLDocumentSource`
+
+          Document referenced by URL.
+
+          - `type: :url`
+
+            - `:url`
+
+          - `url: String`
+
+            URL of the document to fetch.
+
+        - `class BetaManagedAgentsFileDocumentSource`
+
+          Document referenced by file ID.
+
+          - `file_id: String`
+
+            ID of a previously uploaded file.
+
+          - `type: :file`
+
+            - `:file`
+
+      - `type: :document`
+
+        - `:document`
+
+      - `context: String`
+
+        Additional context about the document for the model.
+
+      - `title: String`
+
+        The title of the document.
+
+    - `class BetaManagedAgentsRedactedBlock`
+
+      Placeholder for content withheld by Anthropic model policy.
+
+      - `type: :redacted`
+
+        - `:redacted`
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `to_session_thread_id: String`
+
+    Public `sthr_` ID of the thread the message was sent to.
+
+  - `type: :"agent.thread_message_sent"`
+
+    - `:"agent.thread_message_sent"`
+
+  - `to_agent_name: String`
+
+    Name of the callable agent this message was sent to. Absent when sent to the primary agent.
+
+### Beta Managed Agents Agent Tool Result Event
+
+- `class BetaManagedAgentsAgentToolResultEvent`
+
+  Event representing the result of an agent tool execution.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `tool_use_id: String`
+
+    The id of the `agent.tool_use` event this result corresponds to.
+
+  - `type: :"agent.tool_result"`
+
+    - `:"agent.tool_result"`
+
+  - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+    The result content returned by the tool.
+
+    - `class BetaManagedAgentsTextBlock`
+
+      Regular text content.
+
+      - `text: String`
+
+        The text content.
+
+      - `type: :text`
+
+        - `:text`
+
+    - `class BetaManagedAgentsImageBlock`
+
+      Image content specified directly as base64 data or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+        Union type for image source variants.
+
+        - `class BetaManagedAgentsBase64ImageSource`
+
+          Base64-encoded image data.
+
+          - `data: String`
+
+            Base64-encoded image data.
+
+          - `media_type: String`
+
+            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+          - `type: :base64`
+
+            - `:base64`
+
+        - `class BetaManagedAgentsURLImageSource`
+
+          Image referenced by URL.
+
+          - `type: :url`
+
+            - `:url`
+
+          - `url: String`
+
+            URL of the image to fetch.
+
+        - `class BetaManagedAgentsFileImageSource`
+
+          Image referenced by file ID.
+
+          - `file_id: String`
+
+            ID of a previously uploaded file.
+
+          - `type: :file`
+
+            - `:file`
+
+      - `type: :image`
+
+        - `:image`
+
+    - `class BetaManagedAgentsDocumentBlock`
+
+      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+        Union type for document source variants.
+
+        - `class BetaManagedAgentsBase64DocumentSource`
+
+          Base64-encoded document data.
+
+          - `data: String`
+
+            Base64-encoded document data.
+
+          - `media_type: String`
+
+            MIME type of the document (e.g., "application/pdf").
+
+          - `type: :base64`
+
+            - `:base64`
+
+        - `class BetaManagedAgentsPlainTextDocumentSource`
+
+          Plain text document content.
+
+          - `data: String`
+
+            The plain text content.
+
+          - `media_type: :"text/plain"`
+
+            MIME type of the text content. Must be "text/plain".
+
+            - `:"text/plain"`
+
+          - `type: :text`
+
+            - `:text`
+
+        - `class BetaManagedAgentsURLDocumentSource`
+
+          Document referenced by URL.
+
+          - `type: :url`
+
+            - `:url`
+
+          - `url: String`
+
+            URL of the document to fetch.
+
+        - `class BetaManagedAgentsFileDocumentSource`
+
+          Document referenced by file ID.
+
+          - `file_id: String`
+
+            ID of a previously uploaded file.
+
+          - `type: :file`
+
+            - `:file`
+
+      - `type: :document`
+
+        - `:document`
+
+      - `context: String`
+
+        Additional context about the document for the model.
+
+      - `title: String`
+
+        The title of the document.
+
+    - `class BetaManagedAgentsSearchResultBlock`
+
+      A block containing a web search result.
+
+      - `citations: BetaManagedAgentsSearchResultCitations`
+
+        Citation settings for a search result.
+
+        - `enabled: bool`
+
+          Whether citations are enabled for this search result.
+
+      - `content: Array[BetaManagedAgentsSearchResultContent]`
+
+        Array of text content blocks from the search result.
+
+        - `text: String`
+
+          The text content.
+
+        - `type: :text`
+
+          - `:text`
+
+      - `source: String`
+
+        The URL source of the search result.
+
+      - `title: String`
+
+        The title of the search result.
+
+      - `type: :search_result`
+
+        - `:search_result`
+
+  - `is_error: bool`
+
+    Whether the tool execution resulted in an error.
+
+### Beta Managed Agents Agent Tool Use Event
+
+- `class BetaManagedAgentsAgentToolUseEvent`
+
+  Event emitted when the agent invokes a built-in agent tool.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `input: Hash[Symbol, untyped]`
+
+    Input parameters for the tool call.
+
+  - `name: String`
+
+    Name of the agent tool being used.
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `type: :"agent.tool_use"`
+
+    - `:"agent.tool_use"`
+
+  - `evaluated_permission: :allow | :ask | :deny`
+
+    AgentEvaluatedPermission enum
+
+    - `:allow`
+
+    - `:ask`
+
+    - `:deny`
+
+  - `session_thread_id: String`
+
+    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+
+### Beta Managed Agents Base64 Document Source
+
+- `class BetaManagedAgentsBase64DocumentSource`
+
+  Base64-encoded document data.
+
+  - `data: String`
+
+    Base64-encoded document data.
+
+  - `media_type: String`
+
+    MIME type of the document (e.g., "application/pdf").
+
+  - `type: :base64`
+
+    - `:base64`
+
+### Beta Managed Agents Base64 Image Source
+
+- `class BetaManagedAgentsBase64ImageSource`
+
+  Base64-encoded image data.
+
+  - `data: String`
+
+    Base64-encoded image data.
+
+  - `media_type: String`
+
+    MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+  - `type: :base64`
+
+    - `:base64`
+
+### Beta Managed Agents Billing Error
+
+- `class BetaManagedAgentsBillingError`
+
+  The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+  - `message: String`
+
+    Human-readable error description.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next in response to this error.
+
+    - `class BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: :retrying`
+
+        - `:retrying`
+
+    - `class BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: :exhausted`
+
+        - `:exhausted`
+
+    - `class BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :terminal`
+
+        - `:terminal`
+
+  - `type: :billing_error`
+
+    - `:billing_error`
+
+### Beta Managed Agents Credential Host Unreachable Error
+
+- `class BetaManagedAgentsCredentialHostUnreachableError`
+
+  An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+  - `credential_id: String`
+
+    ID of the affected credential.
+
+  - `message: String`
+
+    Human-readable error description.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next in response to this error.
+
+    - `class BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: :retrying`
+
+        - `:retrying`
+
+    - `class BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: :exhausted`
+
+        - `:exhausted`
+
+    - `class BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :terminal`
+
+        - `:terminal`
+
+  - `type: :credential_host_unreachable_error`
+
+    - `:credential_host_unreachable_error`
+
+  - `vault_id: String`
+
+    ID of the vault containing the affected credential.
+
+### Beta Managed Agents Document Block
+
+- `class BetaManagedAgentsDocumentBlock`
+
+  Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+  - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+    Union type for document source variants.
+
+    - `class BetaManagedAgentsBase64DocumentSource`
+
+      Base64-encoded document data.
+
+      - `data: String`
+
+        Base64-encoded document data.
+
+      - `media_type: String`
+
+        MIME type of the document (e.g., "application/pdf").
+
+      - `type: :base64`
+
+        - `:base64`
+
+    - `class BetaManagedAgentsPlainTextDocumentSource`
+
+      Plain text document content.
+
+      - `data: String`
+
+        The plain text content.
+
+      - `media_type: :"text/plain"`
+
+        MIME type of the text content. Must be "text/plain".
+
+        - `:"text/plain"`
+
+      - `type: :text`
+
+        - `:text`
+
+    - `class BetaManagedAgentsURLDocumentSource`
+
+      Document referenced by URL.
+
+      - `type: :url`
+
+        - `:url`
+
+      - `url: String`
+
+        URL of the document to fetch.
+
+    - `class BetaManagedAgentsFileDocumentSource`
+
+      Document referenced by file ID.
+
+      - `file_id: String`
+
+        ID of a previously uploaded file.
+
+      - `type: :file`
+
+        - `:file`
+
+  - `type: :document`
+
+    - `:document`
+
+  - `context: String`
+
+    Additional context about the document for the model.
+
+  - `title: String`
+
+    The title of the document.
+
+### Beta Managed Agents Event Params
+
+- `BetaManagedAgentsEventParams = BetaManagedAgentsUserMessageEventParams | BetaManagedAgentsUserInterruptEventParams | BetaManagedAgentsUserToolConfirmationEventParams | 4 more`
+
+  Union type for event parameters that can be sent to a session.
+
+  - `class BetaManagedAgentsUserMessageEventParams`
+
+    Parameters for sending a user message to the session.
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
+
+      Array of content blocks for the user message.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+        - `text: String`
+
+          The text content.
+
+        - `type: :text`
+
+          - `:text`
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+          Union type for image source variants.
+
+          - `class BetaManagedAgentsBase64ImageSource`
+
+            Base64-encoded image data.
+
+            - `data: String`
+
+              Base64-encoded image data.
+
+            - `media_type: String`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+            - `type: :base64`
+
+              - `:base64`
+
+          - `class BetaManagedAgentsURLImageSource`
+
+            Image referenced by URL.
+
+            - `type: :url`
+
+              - `:url`
+
+            - `url: String`
+
+              URL of the image to fetch.
+
+          - `class BetaManagedAgentsFileImageSource`
+
+            Image referenced by file ID.
+
+            - `file_id: String`
+
+              ID of a previously uploaded file.
+
+            - `type: :file`
+
+              - `:file`
+
+        - `type: :image`
+
+          - `:image`
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+          Union type for document source variants.
+
+          - `class BetaManagedAgentsBase64DocumentSource`
+
+            Base64-encoded document data.
+
+            - `data: String`
+
+              Base64-encoded document data.
+
+            - `media_type: String`
+
+              MIME type of the document (e.g., "application/pdf").
+
+            - `type: :base64`
+
+              - `:base64`
+
+          - `class BetaManagedAgentsPlainTextDocumentSource`
+
+            Plain text document content.
+
+            - `data: String`
+
+              The plain text content.
+
+            - `media_type: :"text/plain"`
+
+              MIME type of the text content. Must be "text/plain".
+
+              - `:"text/plain"`
+
+            - `type: :text`
+
+              - `:text`
+
+          - `class BetaManagedAgentsURLDocumentSource`
+
+            Document referenced by URL.
+
+            - `type: :url`
+
+              - `:url`
+
+            - `url: String`
+
+              URL of the document to fetch.
+
+          - `class BetaManagedAgentsFileDocumentSource`
+
+            Document referenced by file ID.
+
+            - `file_id: String`
+
+              ID of a previously uploaded file.
+
+            - `type: :file`
+
+              - `:file`
+
+        - `type: :document`
+
+          - `:document`
+
+        - `context: String`
+
+          Additional context about the document for the model.
+
+        - `title: String`
+
+          The title of the document.
+
+      - `class BetaManagedAgentsRedactedBlock`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+        - `type: :redacted`
+
+          - `:redacted`
+
+    - `type: :"user.message"`
+
+      - `:"user.message"`
+
+  - `class BetaManagedAgentsUserInterruptEventParams`
+
+    Parameters for sending an interrupt to pause the agent.
+
+    - `type: :"user.interrupt"`
+
+      - `:"user.interrupt"`
+
+    - `session_thread_id: String`
+
+      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+  - `class BetaManagedAgentsUserToolConfirmationEventParams`
+
+    Parameters for confirming or denying a tool execution request.
+
+    - `result: :allow | :deny`
+
+      UserToolConfirmationResult enum
+
+      - `:allow`
+
+      - `:deny`
+
+    - `tool_use_id: String`
+
+      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: :"user.tool_confirmation"`
+
+      - `:"user.tool_confirmation"`
+
+    - `deny_message: String`
+
+      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+  - `class BetaManagedAgentsUserCustomToolResultEventParams`
+
+    Parameters for providing the result of a custom tool execution.
+
+    - `custom_tool_use_id: String`
+
+      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: :"user.custom_tool_result"`
+
+      - `:"user.custom_tool_result"`
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+      The result content returned by the tool.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+        - `citations: BetaManagedAgentsSearchResultCitations`
+
+          Citation settings for a search result.
+
+          - `enabled: bool`
+
+            Whether citations are enabled for this search result.
+
+        - `content: Array[BetaManagedAgentsSearchResultContent]`
+
+          Array of text content blocks from the search result.
+
+          - `text: String`
+
+            The text content.
+
+          - `type: :text`
+
+            - `:text`
+
+        - `source: String`
+
+          The URL source of the search result.
+
+        - `title: String`
+
+          The title of the search result.
+
+        - `type: :search_result`
+
+          - `:search_result`
+
+    - `is_error: bool`
+
+      Whether the tool execution resulted in an error.
+
+  - `class BetaManagedAgentsUserDefineOutcomeEventParams`
+
+    Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+    - `description: String`
+
+      What the agent should produce. This is the task specification.
+
+    - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
+
+      Rubric for grading the quality of an outcome.
+
+      - `class BetaManagedAgentsFileRubricParams`
+
+        Rubric referenced by a file uploaded via the Files API.
+
+        - `file_id: String`
+
+          ID of the rubric file.
+
+        - `type: :file`
+
+          - `:file`
+
+      - `class BetaManagedAgentsTextRubricParams`
+
+        Rubric content provided inline as text.
+
+        - `content: String`
+
+          Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
+
+        - `type: :text`
+
+          - `:text`
+
+    - `type: :"user.define_outcome"`
+
+      - `:"user.define_outcome"`
+
+    - `max_iterations: Integer`
+
+      Eval→revision cycles before giving up. Default 3, max 20.
+
+  - `class BetaManagedAgentsUserToolResultEventParams`
+
+    Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `tool_use_id: String`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: :"user.tool_result"`
+
+      - `:"user.tool_result"`
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+      The result content returned by the tool.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error: bool`
+
+      Whether the tool execution resulted in an error.
+
+  - `class BetaManagedAgentsSystemMessageEventParams`
+
+    Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
+
+    - `content: Array[BetaManagedAgentsSystemContentBlock]`
+
+      System content blocks to append. Text-only.
+
+      - `text: String`
+
+        The text content.
+
+      - `type: :text`
+
+        - `:text`
+
+    - `type: :"system.message"`
+
+      - `:"system.message"`
+
+### Beta Managed Agents File Document Source
+
+- `class BetaManagedAgentsFileDocumentSource`
+
+  Document referenced by file ID.
+
+  - `file_id: String`
+
+    ID of a previously uploaded file.
+
+  - `type: :file`
+
+    - `:file`
+
+### Beta Managed Agents File Image Source
+
+- `class BetaManagedAgentsFileImageSource`
+
+  Image referenced by file ID.
+
+  - `file_id: String`
+
+    ID of a previously uploaded file.
+
+  - `type: :file`
+
+    - `:file`
+
+### Beta Managed Agents File Rubric
+
+- `class BetaManagedAgentsFileRubric`
+
+  Rubric referenced by a file uploaded via the Files API.
+
+  - `file_id: String`
+
+    ID of the rubric file.
+
+  - `type: :file`
+
+    - `:file`
+
+### Beta Managed Agents File Rubric Params
+
+- `class BetaManagedAgentsFileRubricParams`
+
+  Rubric referenced by a file uploaded via the Files API.
+
+  - `file_id: String`
+
+    ID of the rubric file.
+
+  - `type: :file`
+
+    - `:file`
+
+### Beta Managed Agents Image Block
+
+- `class BetaManagedAgentsImageBlock`
+
+  Image content specified directly as base64 data or as a reference via a URL.
+
+  - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+    Union type for image source variants.
+
+    - `class BetaManagedAgentsBase64ImageSource`
+
+      Base64-encoded image data.
+
+      - `data: String`
+
+        Base64-encoded image data.
+
+      - `media_type: String`
+
+        MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+      - `type: :base64`
+
+        - `:base64`
+
+    - `class BetaManagedAgentsURLImageSource`
+
+      Image referenced by URL.
+
+      - `type: :url`
+
+        - `:url`
+
+      - `url: String`
+
+        URL of the image to fetch.
+
+    - `class BetaManagedAgentsFileImageSource`
+
+      Image referenced by file ID.
+
+      - `file_id: String`
+
+        ID of a previously uploaded file.
+
+      - `type: :file`
+
+        - `:file`
+
+  - `type: :image`
+
+    - `:image`
+
+### Beta Managed Agents MCP Authentication Failed Error
+
+- `class BetaManagedAgentsMCPAuthenticationFailedError`
+
+  Authentication to an MCP server failed.
+
+  - `mcp_server_name: String`
+
+    Name of the MCP server that failed authentication.
+
+  - `message: String`
+
+    Human-readable error description.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next in response to this error.
+
+    - `class BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: :retrying`
+
+        - `:retrying`
+
+    - `class BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: :exhausted`
+
+        - `:exhausted`
+
+    - `class BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :terminal`
+
+        - `:terminal`
+
+  - `type: :mcp_authentication_failed_error`
+
+    - `:mcp_authentication_failed_error`
+
+### Beta Managed Agents MCP Connection Failed Error
+
+- `class BetaManagedAgentsMCPConnectionFailedError`
+
+  Failed to connect to an MCP server.
+
+  - `mcp_server_name: String`
+
+    Name of the MCP server that failed to connect.
+
+  - `message: String`
+
+    Human-readable error description.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next in response to this error.
+
+    - `class BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: :retrying`
+
+        - `:retrying`
+
+    - `class BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: :exhausted`
+
+        - `:exhausted`
+
+    - `class BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :terminal`
+
+        - `:terminal`
+
+  - `type: :mcp_connection_failed_error`
+
+    - `:mcp_connection_failed_error`
+
+### Beta Managed Agents Model Overloaded Error
+
+- `class BetaManagedAgentsModelOverloadedError`
+
+  The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+  - `message: String`
+
+    Human-readable error description.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next in response to this error.
+
+    - `class BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: :retrying`
+
+        - `:retrying`
+
+    - `class BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: :exhausted`
+
+        - `:exhausted`
+
+    - `class BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :terminal`
+
+        - `:terminal`
+
+  - `type: :model_overloaded_error`
+
+    - `:model_overloaded_error`
+
+### Beta Managed Agents Model Rate Limited Error
+
+- `class BetaManagedAgentsModelRateLimitedError`
+
+  The model request was rate-limited.
+
+  - `message: String`
+
+    Human-readable error description.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next in response to this error.
+
+    - `class BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: :retrying`
+
+        - `:retrying`
+
+    - `class BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: :exhausted`
+
+        - `:exhausted`
+
+    - `class BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :terminal`
+
+        - `:terminal`
+
+  - `type: :model_rate_limited_error`
+
+    - `:model_rate_limited_error`
+
+### Beta Managed Agents Model Request Failed Error
+
+- `class BetaManagedAgentsModelRequestFailedError`
+
+  A model request failed for a reason other than overload or rate-limiting.
+
+  - `message: String`
+
+    Human-readable error description.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next in response to this error.
+
+    - `class BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: :retrying`
+
+        - `:retrying`
+
+    - `class BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: :exhausted`
+
+        - `:exhausted`
+
+    - `class BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :terminal`
+
+        - `:terminal`
+
+  - `type: :model_request_failed_error`
+
+    - `:model_request_failed_error`
+
+### Beta Managed Agents Plain Text Document Source
+
+- `class BetaManagedAgentsPlainTextDocumentSource`
+
+  Plain text document content.
+
+  - `data: String`
+
+    The plain text content.
+
+  - `media_type: :"text/plain"`
+
+    MIME type of the text content. Must be "text/plain".
+
+    - `:"text/plain"`
+
+  - `type: :text`
+
+    - `:text`
+
+### Beta Managed Agents Redacted Block
+
+- `class BetaManagedAgentsRedactedBlock`
+
+  Placeholder for content withheld by Anthropic model policy.
+
+  - `type: :redacted`
+
+    - `:redacted`
+
+### Beta Managed Agents Retry Status Exhausted
+
+- `class BetaManagedAgentsRetryStatusExhausted`
+
+  This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+  - `type: :exhausted`
+
+    - `:exhausted`
+
+### Beta Managed Agents Retry Status Retrying
+
+- `class BetaManagedAgentsRetryStatusRetrying`
+
+  The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+  - `type: :retrying`
+
+    - `:retrying`
+
+### Beta Managed Agents Retry Status Terminal
+
+- `class BetaManagedAgentsRetryStatusTerminal`
+
+  The session encountered a terminal error and will transition to `terminated` state.
+
+  - `type: :terminal`
+
+    - `:terminal`
+
+### Beta Managed Agents Search Result Block
+
+- `class BetaManagedAgentsSearchResultBlock`
+
+  A block containing a web search result.
+
+  - `citations: BetaManagedAgentsSearchResultCitations`
+
+    Citation settings for a search result.
+
+    - `enabled: bool`
+
+      Whether citations are enabled for this search result.
+
+  - `content: Array[BetaManagedAgentsSearchResultContent]`
+
+    Array of text content blocks from the search result.
+
+    - `text: String`
+
+      The text content.
+
+    - `type: :text`
+
+      - `:text`
+
+  - `source: String`
+
+    The URL source of the search result.
+
+  - `title: String`
+
+    The title of the search result.
+
+  - `type: :search_result`
+
+    - `:search_result`
+
+### Beta Managed Agents Search Result Citations
+
+- `class BetaManagedAgentsSearchResultCitations`
+
+  Citation settings for a search result.
+
+  - `enabled: bool`
+
+    Whether citations are enabled for this search result.
+
+### Beta Managed Agents Search Result Content
+
+- `class BetaManagedAgentsSearchResultContent`
+
+  Text content within a search result.
+
+  - `text: String`
+
+    The text content.
+
+  - `type: :text`
+
+    - `:text`
+
+### Beta Managed Agents Send Session Events
+
+- `class BetaManagedAgentsSendSessionEvents`
+
+  Events that were successfully sent to the session.
+
+  - `data: Array[BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 4 more]`
+
+    Sent events
+
+    - `class BetaManagedAgentsUserMessageEvent`
+
+      A user message event in the session conversation.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
+
+        Array of content blocks comprising the user message.
+
+        - `class BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: String`
+
+            The text content.
+
+          - `type: :text`
+
+            - `:text`
+
+        - `class BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `class BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: String`
+
+                Base64-encoded image data.
+
+              - `media_type: String`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: :base64`
+
+                - `:base64`
+
+            - `class BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: :url`
+
+                - `:url`
+
+              - `url: String`
+
+                URL of the image to fetch.
+
+            - `class BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: String`
+
+                ID of a previously uploaded file.
+
+              - `type: :file`
+
+                - `:file`
+
+          - `type: :image`
+
+            - `:image`
+
+        - `class BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `class BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: String`
+
+                Base64-encoded document data.
+
+              - `media_type: String`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: :base64`
+
+                - `:base64`
+
+            - `class BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: String`
+
+                The plain text content.
+
+              - `media_type: :"text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `:"text/plain"`
+
+              - `type: :text`
+
+                - `:text`
+
+            - `class BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: :url`
+
+                - `:url`
+
+              - `url: String`
+
+                URL of the document to fetch.
+
+            - `class BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: String`
+
+                ID of a previously uploaded file.
+
+              - `type: :file`
+
+                - `:file`
+
+          - `type: :document`
+
+            - `:document`
+
+          - `context: String`
+
+            Additional context about the document for the model.
+
+          - `title: String`
+
+            The title of the document.
+
+        - `class BetaManagedAgentsRedactedBlock`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: :redacted`
+
+            - `:redacted`
+
+      - `type: :"user.message"`
+
+        - `:"user.message"`
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+    - `class BetaManagedAgentsUserInterruptEvent`
+
+      An interrupt event that pauses agent execution and returns control to the user.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `type: :"user.interrupt"`
+
+        - `:"user.interrupt"`
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+      - `session_thread_id: String`
+
+        If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+    - `class BetaManagedAgentsUserToolConfirmationEvent`
+
+      A tool confirmation event that approves or denies a pending tool execution.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `result: :allow | :deny`
+
+        UserToolConfirmationResult enum
+
+        - `:allow`
+
+        - `:deny`
+
+      - `tool_use_id: String`
+
+        The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `type: :"user.tool_confirmation"`
+
+        - `:"user.tool_confirmation"`
+
+      - `deny_message: String`
+
+        Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+      - `session_thread_id: String`
+
+        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+
+    - `class BetaManagedAgentsUserCustomToolResultEvent`
+
+      Event sent by the client providing the result of a custom tool execution.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `custom_tool_use_id: String`
+
+        The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `type: :"user.custom_tool_result"`
+
+        - `:"user.custom_tool_result"`
+
+      - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+        The result content returned by the tool.
+
+        - `class BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock`
+
+          A block containing a web search result.
+
+          - `citations: BetaManagedAgentsSearchResultCitations`
+
+            Citation settings for a search result.
+
+            - `enabled: bool`
+
+              Whether citations are enabled for this search result.
+
+          - `content: Array[BetaManagedAgentsSearchResultContent]`
+
+            Array of text content blocks from the search result.
+
+            - `text: String`
+
+              The text content.
+
+            - `type: :text`
+
+              - `:text`
+
+          - `source: String`
+
+            The URL source of the search result.
+
+          - `title: String`
+
+            The title of the search result.
+
+          - `type: :search_result`
+
+            - `:search_result`
+
+      - `is_error: bool`
+
+        Whether the tool execution resulted in an error.
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+      - `session_thread_id: String`
+
+        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+
+    - `class BetaManagedAgentsUserDefineOutcomeEvent`
+
+      Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `description: String`
+
+        What the agent should produce. Copied from the input event.
+
+      - `max_iterations: Integer`
+
+        Evaluate-then-revise cycles before giving up. Default 3, max 20.
+
+      - `outcome_id: String`
+
+        Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+      - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `class BetaManagedAgentsFileRubric`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: String`
+
+            ID of the rubric file.
+
+          - `type: :file`
+
+            - `:file`
+
+        - `class BetaManagedAgentsTextRubric`
+
+          Rubric content provided inline as text.
+
+          - `content: String`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+          - `type: :text`
+
+            - `:text`
+
+      - `type: :"user.define_outcome"`
+
+        - `:"user.define_outcome"`
+
+    - `class BetaManagedAgentsUserToolResultEvent`
+
+      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `tool_use_id: String`
+
+        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `type: :"user.tool_result"`
+
+        - `:"user.tool_result"`
+
+      - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+        The result content returned by the tool.
+
+        - `class BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock`
+
+          A block containing a web search result.
+
+      - `is_error: bool`
+
+        Whether the tool execution resulted in an error.
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+      - `session_thread_id: String`
+
+        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+
+    - `class BetaManagedAgentsSystemMessageEvent`
+
+      A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+      - `id: String`
+
+        Unique identifier for this event.
+
+      - `content: Array[BetaManagedAgentsSystemContentBlock]`
+
+        System content blocks. Text-only.
+
+        - `text: String`
+
+          The text content.
+
+        - `type: :text`
+
+          - `:text`
+
+      - `type: :"system.message"`
+
+        - `:"system.message"`
+
+      - `processed_at: Time`
+
+        A timestamp in RFC 3339 format
+
+### Beta Managed Agents Session Budget Reached
+
+- `class BetaManagedAgentsSessionBudgetReached`
+
+  The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+  - `type: :budget_reached`
+
+    - `:budget_reached`
+
+### Beta Managed Agents Session Deleted Event
+
+- `class BetaManagedAgentsSessionDeletedEvent`
+
+  Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `type: :"session.deleted"`
+
+    - `:"session.deleted"`
+
+### Beta Managed Agents Session End Turn
+
+- `class BetaManagedAgentsSessionEndTurn`
+
+  The agent completed its turn naturally and is ready for the next user message.
+
+  - `type: :end_turn`
+
+    - `:end_turn`
+
+### Beta Managed Agents Session Error Event
+
+- `class BetaManagedAgentsSessionErrorEvent`
+
+  An error event indicating a problem occurred during session execution.
+
+  - `id: String`
+
+    Unique identifier for this event.
+
+  - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+
+    An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+    - `class BetaManagedAgentsUnknownError`
+
+      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+      - `message: String`
+
+        Human-readable error description.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next in response to this error.
+
+        - `class BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `type: :retrying`
+
+            - `:retrying`
+
+        - `class BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `type: :exhausted`
+
+            - `:exhausted`
+
+        - `class BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+          - `type: :terminal`
+
+            - `:terminal`
+
+      - `type: :unknown_error`
+
+        - `:unknown_error`
+
+    - `class BetaManagedAgentsModelOverloadedError`
+
+      The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+      - `message: String`
+
+        Human-readable error description.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next in response to this error.
+
+        - `class BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `class BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `class BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :model_overloaded_error`
+
+        - `:model_overloaded_error`
+
+    - `class BetaManagedAgentsModelRateLimitedError`
+
+      The model request was rate-limited.
+
+      - `message: String`
+
+        Human-readable error description.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next in response to this error.
+
+        - `class BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `class BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `class BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :model_rate_limited_error`
+
+        - `:model_rate_limited_error`
+
+    - `class BetaManagedAgentsModelRequestFailedError`
+
+      A model request failed for a reason other than overload or rate-limiting.
+
+      - `message: String`
+
+        Human-readable error description.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next in response to this error.
+
+        - `class BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `class BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `class BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :model_request_failed_error`
+
+        - `:model_request_failed_error`
+
+    - `class BetaManagedAgentsMCPConnectionFailedError`
+
+      Failed to connect to an MCP server.
+
+      - `mcp_server_name: String`
+
+        Name of the MCP server that failed to connect.
+
+      - `message: String`
+
+        Human-readable error description.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next in response to this error.
+
+        - `class BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `class BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `class BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :mcp_connection_failed_error`
+
+        - `:mcp_connection_failed_error`
+
+    - `class BetaManagedAgentsMCPAuthenticationFailedError`
+
+      Authentication to an MCP server failed.
+
+      - `mcp_server_name: String`
+
+        Name of the MCP server that failed authentication.
+
+      - `message: String`
+
+        Human-readable error description.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next in response to this error.
+
+        - `class BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `class BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `class BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :mcp_authentication_failed_error`
+
+        - `:mcp_authentication_failed_error`
+
+    - `class BetaManagedAgentsBillingError`
+
+      The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+      - `message: String`
+
+        Human-readable error description.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next in response to this error.
+
+        - `class BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `class BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `class BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :billing_error`
+
+        - `:billing_error`
+
+    - `class BetaManagedAgentsCredentialHostUnreachableError`
+
+      An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+      - `credential_id: String`
+
+        ID of the affected credential.
+
+      - `message: String`
+
+        Human-readable error description.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next in response to this error.
+
+        - `class BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `class BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `class BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: :credential_host_unreachable_error`
+
+        - `:credential_host_unreachable_error`
+
+      - `vault_id: String`
+
+        ID of the vault containing the affected credential.
+
+  - `processed_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `type: :"session.error"`
+
+    - `:"session.error"`
+
+### Beta Managed Agents Session Event
+
+- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
+
+  Union type for all event types in a session.
+
+  - `class BetaManagedAgentsUserMessageEvent`
+
+    A user message event in the session conversation.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
+
+      Array of content blocks comprising the user message.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+        - `text: String`
+
+          The text content.
+
+        - `type: :text`
+
+          - `:text`
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+          Union type for image source variants.
+
+          - `class BetaManagedAgentsBase64ImageSource`
+
+            Base64-encoded image data.
+
+            - `data: String`
+
+              Base64-encoded image data.
+
+            - `media_type: String`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+            - `type: :base64`
+
+              - `:base64`
+
+          - `class BetaManagedAgentsURLImageSource`
+
+            Image referenced by URL.
+
+            - `type: :url`
+
+              - `:url`
+
+            - `url: String`
+
+              URL of the image to fetch.
+
+          - `class BetaManagedAgentsFileImageSource`
+
+            Image referenced by file ID.
+
+            - `file_id: String`
+
+              ID of a previously uploaded file.
+
+            - `type: :file`
+
+              - `:file`
+
+        - `type: :image`
+
+          - `:image`
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+          Union type for document source variants.
+
+          - `class BetaManagedAgentsBase64DocumentSource`
+
+            Base64-encoded document data.
+
+            - `data: String`
+
+              Base64-encoded document data.
+
+            - `media_type: String`
+
+              MIME type of the document (e.g., "application/pdf").
+
+            - `type: :base64`
+
+              - `:base64`
+
+          - `class BetaManagedAgentsPlainTextDocumentSource`
+
+            Plain text document content.
+
+            - `data: String`
+
+              The plain text content.
+
+            - `media_type: :"text/plain"`
+
+              MIME type of the text content. Must be "text/plain".
+
+              - `:"text/plain"`
+
+            - `type: :text`
+
+              - `:text`
+
+          - `class BetaManagedAgentsURLDocumentSource`
+
+            Document referenced by URL.
+
+            - `type: :url`
+
+              - `:url`
+
+            - `url: String`
+
+              URL of the document to fetch.
+
+          - `class BetaManagedAgentsFileDocumentSource`
+
+            Document referenced by file ID.
+
+            - `file_id: String`
+
+              ID of a previously uploaded file.
+
+            - `type: :file`
+
+              - `:file`
+
+        - `type: :document`
+
+          - `:document`
+
+        - `context: String`
+
+          Additional context about the document for the model.
+
+        - `title: String`
+
+          The title of the document.
+
+      - `class BetaManagedAgentsRedactedBlock`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+        - `type: :redacted`
+
+          - `:redacted`
+
+    - `type: :"user.message"`
+
+      - `:"user.message"`
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+  - `class BetaManagedAgentsUserInterruptEvent`
+
+    An interrupt event that pauses agent execution and returns control to the user.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `type: :"user.interrupt"`
+
+      - `:"user.interrupt"`
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+  - `class BetaManagedAgentsUserToolConfirmationEvent`
+
+    A tool confirmation event that approves or denies a pending tool execution.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `result: :allow | :deny`
+
+      UserToolConfirmationResult enum
+
+      - `:allow`
+
+      - `:deny`
+
+    - `tool_use_id: String`
+
+      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: :"user.tool_confirmation"`
+
+      - `:"user.tool_confirmation"`
+
+    - `deny_message: String`
+
+      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+
+  - `class BetaManagedAgentsUserCustomToolResultEvent`
+
+    Event sent by the client providing the result of a custom tool execution.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `custom_tool_use_id: String`
+
+      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: :"user.custom_tool_result"`
+
+      - `:"user.custom_tool_result"`
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+      The result content returned by the tool.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+        - `citations: BetaManagedAgentsSearchResultCitations`
+
+          Citation settings for a search result.
+
+          - `enabled: bool`
+
+            Whether citations are enabled for this search result.
+
+        - `content: Array[BetaManagedAgentsSearchResultContent]`
+
+          Array of text content blocks from the search result.
+
+          - `text: String`
+
+            The text content.
+
+          - `type: :text`
+
+            - `:text`
+
+        - `source: String`
+
+          The URL source of the search result.
+
+        - `title: String`
+
+          The title of the search result.
+
+        - `type: :search_result`
+
+          - `:search_result`
+
+    - `is_error: bool`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+
+  - `class BetaManagedAgentsAgentCustomToolUseEvent`
+
+    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `input: Hash[Symbol, untyped]`
+
+      Input parameters for the tool call.
+
+    - `name: String`
+
+      Name of the custom tool being called.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"agent.custom_tool_use"`
+
+      - `:"agent.custom_tool_use"`
+
+    - `session_thread_id: String`
+
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+
+  - `class BetaManagedAgentsAgentMessageEvent`
+
+    An agent response event in the session conversation.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsRedactedBlock]`
+
+      Array of text blocks comprising the agent response.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsRedactedBlock`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"agent.message"`
+
+      - `:"agent.message"`
+
+  - `class BetaManagedAgentsAgentThinkingEvent`
+
+    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"agent.thinking"`
+
+      - `:"agent.thinking"`
+
+  - `class BetaManagedAgentsAgentMCPToolUseEvent`
+
+    Event emitted when the agent invokes a tool provided by an MCP server.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `input: Hash[Symbol, untyped]`
+
+      Input parameters for the tool call.
+
+    - `mcp_server_name: String`
+
+      Name of the MCP server providing the tool.
+
+    - `name: String`
+
+      Name of the MCP tool being used.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"agent.mcp_tool_use"`
+
+      - `:"agent.mcp_tool_use"`
+
+    - `evaluated_permission: :allow | :ask | :deny`
+
+      AgentEvaluatedPermission enum
+
+      - `:allow`
+
+      - `:ask`
+
+      - `:deny`
+
+    - `session_thread_id: String`
+
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+
+  - `class BetaManagedAgentsAgentMCPToolResultEvent`
+
+    Event representing the result of an MCP tool execution.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `mcp_tool_use_id: String`
+
+      The id of the `agent.mcp_tool_use` event this result corresponds to.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"agent.mcp_tool_result"`
+
+      - `:"agent.mcp_tool_result"`
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+      The result content returned by the tool.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error: bool`
+
+      Whether the tool execution resulted in an error.
+
+  - `class BetaManagedAgentsAgentToolUseEvent`
+
+    Event emitted when the agent invokes a built-in agent tool.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `input: Hash[Symbol, untyped]`
+
+      Input parameters for the tool call.
+
+    - `name: String`
+
+      Name of the agent tool being used.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"agent.tool_use"`
+
+      - `:"agent.tool_use"`
+
+    - `evaluated_permission: :allow | :ask | :deny`
+
+      AgentEvaluatedPermission enum
+
+      - `:allow`
+
+      - `:ask`
+
+      - `:deny`
+
+    - `session_thread_id: String`
+
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+
+  - `class BetaManagedAgentsAgentToolResultEvent`
+
+    Event representing the result of an agent tool execution.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `tool_use_id: String`
+
+      The id of the `agent.tool_use` event this result corresponds to.
+
+    - `type: :"agent.tool_result"`
+
+      - `:"agent.tool_result"`
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+      The result content returned by the tool.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error: bool`
+
+      Whether the tool execution resulted in an error.
+
+  - `class BetaManagedAgentsAgentThreadMessageReceivedEvent`
+
+    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
+
+      Message content blocks.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsRedactedBlock`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+    - `from_session_thread_id: String`
+
+      Public `sthr_` ID of the thread that sent the message.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"agent.thread_message_received"`
+
+      - `:"agent.thread_message_received"`
+
+    - `from_agent_name: String`
+
+      Name of the callable agent this message came from. Absent when received from the primary agent.
+
+  - `class BetaManagedAgentsAgentThreadMessageSentEvent`
+
+    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
+
+      Message content blocks.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsRedactedBlock`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `to_session_thread_id: String`
+
+      Public `sthr_` ID of the thread the message was sent to.
+
+    - `type: :"agent.thread_message_sent"`
+
+      - `:"agent.thread_message_sent"`
+
+    - `to_agent_name: String`
+
+      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
+
+  - `class BetaManagedAgentsAgentThreadContextCompactedEvent`
+
+    Indicates that context compaction (summarization) occurred during the session.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"agent.thread_context_compacted"`
+
+      - `:"agent.thread_context_compacted"`
+
+  - `class BetaManagedAgentsSessionErrorEvent`
+
+    An error event indicating a problem occurred during session execution.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+
+      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+      - `class BetaManagedAgentsUnknownError`
+
+        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `type: :retrying`
+
+              - `:retrying`
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `type: :exhausted`
+
+              - `:exhausted`
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+            - `type: :terminal`
+
+              - `:terminal`
+
+        - `type: :unknown_error`
+
+          - `:unknown_error`
+
+      - `class BetaManagedAgentsModelOverloadedError`
+
+        The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: :model_overloaded_error`
+
+          - `:model_overloaded_error`
+
+      - `class BetaManagedAgentsModelRateLimitedError`
+
+        The model request was rate-limited.
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: :model_rate_limited_error`
+
+          - `:model_rate_limited_error`
+
+      - `class BetaManagedAgentsModelRequestFailedError`
+
+        A model request failed for a reason other than overload or rate-limiting.
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: :model_request_failed_error`
+
+          - `:model_request_failed_error`
+
+      - `class BetaManagedAgentsMCPConnectionFailedError`
+
+        Failed to connect to an MCP server.
+
+        - `mcp_server_name: String`
+
+          Name of the MCP server that failed to connect.
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: :mcp_connection_failed_error`
+
+          - `:mcp_connection_failed_error`
+
+      - `class BetaManagedAgentsMCPAuthenticationFailedError`
+
+        Authentication to an MCP server failed.
+
+        - `mcp_server_name: String`
+
+          Name of the MCP server that failed authentication.
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: :mcp_authentication_failed_error`
+
+          - `:mcp_authentication_failed_error`
+
+      - `class BetaManagedAgentsBillingError`
+
+        The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: :billing_error`
+
+          - `:billing_error`
+
+      - `class BetaManagedAgentsCredentialHostUnreachableError`
+
+        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `credential_id: String`
+
+          ID of the affected credential.
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: :credential_host_unreachable_error`
+
+          - `:credential_host_unreachable_error`
+
+        - `vault_id: String`
+
+          ID of the vault containing the affected credential.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"session.error"`
+
+      - `:"session.error"`
+
+  - `class BetaManagedAgentsSessionStatusRescheduledEvent`
+
+    Indicates the session is recovering from an error state and is rescheduled for execution.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"session.status_rescheduled"`
+
+      - `:"session.status_rescheduled"`
+
+  - `class BetaManagedAgentsSessionStatusRunningEvent`
+
+    Indicates the session is actively running and the agent is working.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"session.status_running"`
+
+      - `:"session.status_running"`
+
+  - `class BetaManagedAgentsSessionStatusIdleEvent`
+
+    Indicates the agent has paused and is awaiting user input.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+
+      The agent completed its turn naturally and is ready for the next user message.
+
+      - `class BetaManagedAgentsSessionEndTurn`
+
+        The agent completed its turn naturally and is ready for the next user message.
+
+        - `type: :end_turn`
+
+          - `:end_turn`
+
+      - `class BetaManagedAgentsSessionRequiresAction`
+
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
+        - `event_ids: Array[String]`
+
+          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
+
+        - `type: :requires_action`
+
+          - `:requires_action`
+
+      - `class BetaManagedAgentsSessionRetriesExhausted`
+
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
+
+        - `type: :retries_exhausted`
+
+          - `:retries_exhausted`
+
+      - `class BetaManagedAgentsSessionBudgetReached`
+
+        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+        - `type: :budget_reached`
+
+          - `:budget_reached`
+
+    - `type: :"session.status_idle"`
+
+      - `:"session.status_idle"`
+
+  - `class BetaManagedAgentsSessionStatusTerminatedEvent`
+
+    Indicates the session has terminated, either due to an error or completion.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"session.status_terminated"`
+
+      - `:"session.status_terminated"`
+
+  - `class BetaManagedAgentsSessionThreadCreatedEvent`
+
+    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `agent_name: String`
+
+      Name of the callable agent the thread runs.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Public `sthr_` ID of the newly created thread.
+
+    - `type: :"session.thread_created"`
+
+      - `:"session.thread_created"`
+
+  - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
+
+    Emitted when an outcome evaluation cycle begins.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `iteration: Integer`
+
+      0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
+
+    - `outcome_id: String`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"span.outcome_evaluation_start"`
+
+      - `:"span.outcome_evaluation_start"`
+
+  - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
+
+    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `explanation: String`
+
+      Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
+
+    - `iteration: Integer`
+
+      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
+
+    - `outcome_evaluation_start_id: String`
+
+      The id of the corresponding `span.outcome_evaluation_start` event.
+
+    - `outcome_id: String`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `result: String`
+
+      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
+
+    - `type: :"span.outcome_evaluation_end"`
+
+      - `:"span.outcome_evaluation_end"`
+
+    - `usage: BetaManagedAgentsSpanModelUsage`
+
+      Token usage for a single model request.
+
+      - `cache_creation_input_tokens: Integer`
+
+        Tokens used to create prompt cache in this request.
+
+      - `cache_read_input_tokens: Integer`
+
+        Tokens read from prompt cache in this request.
+
+      - `input_tokens: Integer`
+
+        Input tokens consumed by this request.
+
+      - `output_tokens: Integer`
+
+        Output tokens generated by this request.
+
+      - `speed: :standard | :fast`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `:standard`
+
+        - `:fast`
+
+  - `class BetaManagedAgentsSpanModelRequestStartEvent`
+
+    Emitted when a model request is initiated by the agent.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"span.model_request_start"`
+
+      - `:"span.model_request_start"`
+
+  - `class BetaManagedAgentsSpanModelRequestEndEvent`
+
+    Emitted when a model request completes.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `is_error: bool`
+
+      Whether the model request resulted in an error.
+
+    - `model_request_start_id: String`
+
+      The id of the corresponding `span.model_request_start` event.
+
+    - `model_usage: BetaManagedAgentsSpanModelUsage`
+
+      Token usage for a single model request.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"span.model_request_end"`
+
+      - `:"span.model_request_end"`
+
+  - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
+    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `iteration: Integer`
+
+      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
+
+    - `outcome_id: String`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"span.outcome_evaluation_ongoing"`
+
+      - `:"span.outcome_evaluation_ongoing"`
+
+  - `class BetaManagedAgentsUserDefineOutcomeEvent`
+
+    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `description: String`
+
+      What the agent should produce. Copied from the input event.
+
+    - `max_iterations: Integer`
+
+      Evaluate-then-revise cycles before giving up. Default 3, max 20.
+
+    - `outcome_id: String`
+
+      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+      Rubric for grading the quality of an outcome.
+
+      - `class BetaManagedAgentsFileRubric`
+
+        Rubric referenced by a file uploaded via the Files API.
+
+        - `file_id: String`
+
+          ID of the rubric file.
+
+        - `type: :file`
+
+          - `:file`
+
+      - `class BetaManagedAgentsTextRubric`
+
+        Rubric content provided inline as text.
+
+        - `content: String`
+
+          Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+        - `type: :text`
+
+          - `:text`
+
+    - `type: :"user.define_outcome"`
+
+      - `:"user.define_outcome"`
+
+  - `class BetaManagedAgentsSessionDeletedEvent`
+
+    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"session.deleted"`
+
+      - `:"session.deleted"`
+
+  - `class BetaManagedAgentsSessionThreadStatusRunningEvent`
+
+    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `agent_name: String`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Public sthr_ ID of the thread that started running.
+
+    - `type: :"session.thread_status_running"`
+
+      - `:"session.thread_status_running"`
+
+  - `class BetaManagedAgentsSessionThreadStatusIdleEvent`
+
+    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `agent_name: String`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Public sthr_ ID of the thread that went idle.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+
+      The agent completed its turn naturally and is ready for the next user message.
+
+      - `class BetaManagedAgentsSessionEndTurn`
+
+        The agent completed its turn naturally and is ready for the next user message.
+
+      - `class BetaManagedAgentsSessionRequiresAction`
+
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
+      - `class BetaManagedAgentsSessionRetriesExhausted`
+
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
+
+      - `class BetaManagedAgentsSessionBudgetReached`
+
+        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+    - `type: :"session.thread_status_idle"`
+
+      - `:"session.thread_status_idle"`
+
+  - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+
+    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `agent_name: String`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Public sthr_ ID of the thread that terminated.
+
+    - `type: :"session.thread_status_terminated"`
+
+      - `:"session.thread_status_terminated"`
+
+  - `class BetaManagedAgentsUserToolResultEvent`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `tool_use_id: String`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: :"user.tool_result"`
+
+      - `:"user.tool_result"`
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
+
+      The result content returned by the tool.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error: bool`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+
+  - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+
+    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `agent_name: String`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: String`
+
+      Public sthr_ ID of the thread that is retrying.
+
+    - `type: :"session.thread_status_rescheduled"`
+
+      - `:"session.thread_status_rescheduled"`
+
+  - `class BetaManagedAgentsSessionUpdatedEvent`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
+
+    - `type: :"session.updated"`
+
+      - `:"session.updated"`
+
+    - `agent: BetaManagedAgentsSessionAgent`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `id: String`
+
+      - `description: String`
+
+      - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
+
+        - `name: String`
+
+        - `type: :url`
+
+          - `:url`
+
+        - `url: String`
+
+      - `model: BetaManagedAgentsModelConfig`
+
+        Model identifier and configuration.
+
+        - `id: BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+
+            The model that will power your agent.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
+            - `:"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-opus-4-8"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-opus-4-7"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-opus-4-6"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `:"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `:"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `:"claude-opus-4-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-opus-4-5-20251101"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `:"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `:"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `String = String`
+
+        - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: :low`
+
+              - `:low`
+
+          - `class BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: :medium`
+
+              - `:medium`
+
+          - `class BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: :high`
+
+              - `:high`
+
+          - `class BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: :xhigh`
+
+              - `:xhigh`
+
+          - `class BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: :max`
+
+              - `:max`
+
+        - `inference_geo: String`
+
+          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
+        - `speed: :standard | :fast`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `:standard`
+
+          - `:fast`
+
+      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+
+        - `agents: Array[BetaManagedAgentsSessionThreadAgent | BetaManagedAgentsAdvisor]`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+
+          - `class BetaManagedAgentsSessionThreadAgent`
+
+            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
+            - `id: String`
+
+            - `description: String`
+
+            - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
+
+              - `name: String`
+
+              - `type: :url`
+
+              - `url: String`
+
+            - `model: BetaManagedAgentsModelConfig`
+
+              Model identifier and configuration.
+
+            - `name: String`
+
+            - `skills: Array[BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill]`
+
+              - `class BetaManagedAgentsAnthropicSkill`
+
+                A resolved Anthropic-managed skill.
+
+                - `skill_id: String`
+
+                - `type: :anthropic`
+
+                  - `:anthropic`
+
+                - `version: String`
+
+              - `class BetaManagedAgentsCustomSkill`
+
+                A resolved user-created custom skill.
+
+                - `skill_id: String`
+
+                - `type: :custom`
+
+                  - `:custom`
+
+                - `version: String`
+
+            - `system_: String`
+
+            - `tools: Array[BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool]`
+
+              - `class BetaManagedAgentsAgentToolset20260401`
+
+                - `configs: Array[BetaManagedAgentsAgentToolConfig]`
+
+                  - `class BetaManagedAgentsBashToolConfig`
+
+                    Configuration for the bash tool.
+
+                    - `enabled: bool`
+
+                    - `name: :bash`
+
+                      - `:bash`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                        - `type: :always_allow`
+
+                          - `:always_allow`
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                        - `type: :always_ask`
+
+                          - `:always_ask`
+
+                    - `type: :bash`
+
+                      - `:bash`
+
+                  - `class BetaManagedAgentsEditToolConfig`
+
+                    Configuration for the edit tool.
+
+                    - `enabled: bool`
+
+                    - `name: :edit`
+
+                      - `:edit`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :edit`
+
+                      - `:edit`
+
+                  - `class BetaManagedAgentsReadToolConfig`
+
+                    Configuration for the read tool.
+
+                    - `enabled: bool`
+
+                    - `name: :read`
+
+                      - `:read`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :read`
+
+                      - `:read`
+
+                  - `class BetaManagedAgentsWriteToolConfig`
+
+                    Configuration for the write tool.
+
+                    - `enabled: bool`
+
+                    - `name: :write`
+
+                      - `:write`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :write`
+
+                      - `:write`
+
+                  - `class BetaManagedAgentsGlobToolConfig`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: bool`
+
+                    - `name: :glob`
+
+                      - `:glob`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :glob`
+
+                      - `:glob`
+
+                  - `class BetaManagedAgentsGrepToolConfig`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: bool`
+
+                    - `name: :grep`
+
+                      - `:grep`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :grep`
+
+                      - `:grep`
+
+                  - `class BetaManagedAgentsWebFetchToolConfig`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `max_content_tokens: Integer`
+
+                  - `class BetaManagedAgentsWebSearchToolConfig`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_search`
+
+                      - `:web_search`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_search`
+
+                      - `:web_search`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `user_location: BetaManagedAgentsUserLocation`
+
+                      Approximate user location for search result localization.
+
+                      - `type: :approximate`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `:approximate`
+
+                      - `city: String`
+
+                        City name.
+
+                      - `country: String`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: String`
+
+                        Region or state name.
+
+                      - `timezone: String`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -4029,47 +11576,257 @@
 
                 - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-                  - `enabled: bool`
+                  - `class BetaManagedAgentsBashToolConfig`
 
-                  - `name: :bash | :edit | :read | 5 more`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `enabled: bool`
 
-                    - `:bash`
+                    - `name: :bash`
 
-                    - `:edit`
+                      - `:bash`
 
-                    - `:read`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-                    - `:write`
+                      Permission policy for tool execution.
 
-                    - `:glob`
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-                    - `:grep`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `:web_fetch`
+                        - `type: :always_allow`
 
-                    - `:web_search`
+                          - `:always_allow`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy`
+                        - `type: :always_ask`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `:always_ask`
 
-                      - `type: :always_allow`
+                    - `type: :bash`
 
-                        - `:always_allow`
+                      - `:bash`
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy`
+                  - `class BetaManagedAgentsEditToolConfig`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `type: :always_ask`
+                    - `enabled: bool`
 
-                        - `:always_ask`
+                    - `name: :edit`
+
+                      - `:edit`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :edit`
+
+                      - `:edit`
+
+                  - `class BetaManagedAgentsReadToolConfig`
+
+                    Configuration for the read tool.
+
+                    - `enabled: bool`
+
+                    - `name: :read`
+
+                      - `:read`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :read`
+
+                      - `:read`
+
+                  - `class BetaManagedAgentsWriteToolConfig`
+
+                    Configuration for the write tool.
+
+                    - `enabled: bool`
+
+                    - `name: :write`
+
+                      - `:write`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :write`
+
+                      - `:write`
+
+                  - `class BetaManagedAgentsGlobToolConfig`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: bool`
+
+                    - `name: :glob`
+
+                      - `:glob`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :glob`
+
+                      - `:glob`
+
+                  - `class BetaManagedAgentsGrepToolConfig`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: bool`
+
+                    - `name: :grep`
+
+                      - `:grep`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :grep`
+
+                      - `:grep`
+
+                  - `class BetaManagedAgentsWebFetchToolConfig`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `max_content_tokens: Integer`
+
+                  - `class BetaManagedAgentsWebSearchToolConfig`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_search`
+
+                      - `:web_search`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_search`
+
+                      - `:web_search`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `user_location: BetaManagedAgentsUserLocation`
+
+                      Approximate user location for search result localization.
+
+                      - `type: :approximate`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `:approximate`
+
+                      - `city: String`
+
+                        City name.
+
+                      - `country: String`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: String`
+
+                        Region or state name.
+
+                      - `timezone: String`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -7385,47 +15142,257 @@ List Session Threads
 
           - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-            - `enabled: bool`
+            - `class BetaManagedAgentsBashToolConfig`
 
-            - `name: :bash | :edit | :read | 5 more`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `enabled: bool`
 
-              - `:bash`
+              - `name: :bash`
 
-              - `:edit`
+                - `:bash`
 
-              - `:read`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-              - `:write`
+                Permission policy for tool execution.
 
-              - `:glob`
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-              - `:grep`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `:web_fetch`
+                  - `type: :always_allow`
 
-              - `:web_search`
+                    - `:always_allow`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `class BetaManagedAgentsAlwaysAskPolicy`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `class BetaManagedAgentsAlwaysAllowPolicy`
+                  - `type: :always_ask`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `:always_ask`
 
-                - `type: :always_allow`
+              - `type: :bash`
 
-                  - `:always_allow`
+                - `:bash`
 
-              - `class BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsEditToolConfig`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `type: :always_ask`
+              - `enabled: bool`
 
-                  - `:always_ask`
+              - `name: :edit`
+
+                - `:edit`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :edit`
+
+                - `:edit`
+
+            - `class BetaManagedAgentsReadToolConfig`
+
+              Configuration for the read tool.
+
+              - `enabled: bool`
+
+              - `name: :read`
+
+                - `:read`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :read`
+
+                - `:read`
+
+            - `class BetaManagedAgentsWriteToolConfig`
+
+              Configuration for the write tool.
+
+              - `enabled: bool`
+
+              - `name: :write`
+
+                - `:write`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :write`
+
+                - `:write`
+
+            - `class BetaManagedAgentsGlobToolConfig`
+
+              Configuration for the glob tool.
+
+              - `enabled: bool`
+
+              - `name: :glob`
+
+                - `:glob`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :glob`
+
+                - `:glob`
+
+            - `class BetaManagedAgentsGrepToolConfig`
+
+              Configuration for the grep tool.
+
+              - `enabled: bool`
+
+              - `name: :grep`
+
+                - `:grep`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :grep`
+
+                - `:grep`
+
+            - `class BetaManagedAgentsWebFetchToolConfig`
+
+              Configuration for the web_fetch tool.
+
+              - `enabled: bool`
+
+              - `name: :web_fetch`
+
+                - `:web_fetch`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :web_fetch`
+
+                - `:web_fetch`
+
+              - `allowed_domains: Array[String]`
+
+              - `blocked_domains: Array[String]`
+
+              - `max_content_tokens: Integer`
+
+            - `class BetaManagedAgentsWebSearchToolConfig`
+
+              Configuration for the web_search tool.
+
+              - `enabled: bool`
+
+              - `name: :web_search`
+
+                - `:web_search`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :web_search`
+
+                - `:web_search`
+
+              - `allowed_domains: Array[String]`
+
+              - `blocked_domains: Array[String]`
+
+              - `user_location: BetaManagedAgentsUserLocation`
+
+                Approximate user location for search result localization.
+
+                - `type: :approximate`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `:approximate`
+
+                - `city: String`
+
+                  City name.
+
+                - `country: String`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `region: String`
+
+                  Region or state name.
+
+                - `timezone: String`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -7699,7 +15666,8 @@ puts(page)
                 "name": "bash",
                 "permission_policy": {
                   "type": "always_allow"
-                }
+                },
+                "type": "bash"
               }
             ],
             "default_config": {
@@ -8034,47 +16002,257 @@ Get Session Thread
 
           - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-            - `enabled: bool`
+            - `class BetaManagedAgentsBashToolConfig`
 
-            - `name: :bash | :edit | :read | 5 more`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `enabled: bool`
 
-              - `:bash`
+              - `name: :bash`
 
-              - `:edit`
+                - `:bash`
 
-              - `:read`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-              - `:write`
+                Permission policy for tool execution.
 
-              - `:glob`
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-              - `:grep`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `:web_fetch`
+                  - `type: :always_allow`
 
-              - `:web_search`
+                    - `:always_allow`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `class BetaManagedAgentsAlwaysAskPolicy`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `class BetaManagedAgentsAlwaysAllowPolicy`
+                  - `type: :always_ask`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `:always_ask`
 
-                - `type: :always_allow`
+              - `type: :bash`
 
-                  - `:always_allow`
+                - `:bash`
 
-              - `class BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsEditToolConfig`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `type: :always_ask`
+              - `enabled: bool`
 
-                  - `:always_ask`
+              - `name: :edit`
+
+                - `:edit`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :edit`
+
+                - `:edit`
+
+            - `class BetaManagedAgentsReadToolConfig`
+
+              Configuration for the read tool.
+
+              - `enabled: bool`
+
+              - `name: :read`
+
+                - `:read`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :read`
+
+                - `:read`
+
+            - `class BetaManagedAgentsWriteToolConfig`
+
+              Configuration for the write tool.
+
+              - `enabled: bool`
+
+              - `name: :write`
+
+                - `:write`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :write`
+
+                - `:write`
+
+            - `class BetaManagedAgentsGlobToolConfig`
+
+              Configuration for the glob tool.
+
+              - `enabled: bool`
+
+              - `name: :glob`
+
+                - `:glob`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :glob`
+
+                - `:glob`
+
+            - `class BetaManagedAgentsGrepToolConfig`
+
+              Configuration for the grep tool.
+
+              - `enabled: bool`
+
+              - `name: :grep`
+
+                - `:grep`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :grep`
+
+                - `:grep`
+
+            - `class BetaManagedAgentsWebFetchToolConfig`
+
+              Configuration for the web_fetch tool.
+
+              - `enabled: bool`
+
+              - `name: :web_fetch`
+
+                - `:web_fetch`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :web_fetch`
+
+                - `:web_fetch`
+
+              - `allowed_domains: Array[String]`
+
+              - `blocked_domains: Array[String]`
+
+              - `max_content_tokens: Integer`
+
+            - `class BetaManagedAgentsWebSearchToolConfig`
+
+              Configuration for the web_search tool.
+
+              - `enabled: bool`
+
+              - `name: :web_search`
+
+                - `:web_search`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :web_search`
+
+                - `:web_search`
+
+              - `allowed_domains: Array[String]`
+
+              - `blocked_domains: Array[String]`
+
+              - `user_location: BetaManagedAgentsUserLocation`
+
+                Approximate user location for search result localization.
+
+                - `type: :approximate`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `:approximate`
+
+                - `city: String`
+
+                  City name.
+
+                - `country: String`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `region: String`
+
+                  Region or state name.
+
+                - `timezone: String`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -8349,7 +16527,8 @@ puts(beta_managed_agents_session_thread)
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {
@@ -8681,47 +16860,257 @@ Archive Session Thread
 
           - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-            - `enabled: bool`
+            - `class BetaManagedAgentsBashToolConfig`
 
-            - `name: :bash | :edit | :read | 5 more`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `enabled: bool`
 
-              - `:bash`
+              - `name: :bash`
 
-              - `:edit`
+                - `:bash`
 
-              - `:read`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-              - `:write`
+                Permission policy for tool execution.
 
-              - `:glob`
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-              - `:grep`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `:web_fetch`
+                  - `type: :always_allow`
 
-              - `:web_search`
+                    - `:always_allow`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `class BetaManagedAgentsAlwaysAskPolicy`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `class BetaManagedAgentsAlwaysAllowPolicy`
+                  - `type: :always_ask`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `:always_ask`
 
-                - `type: :always_allow`
+              - `type: :bash`
 
-                  - `:always_allow`
+                - `:bash`
 
-              - `class BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsEditToolConfig`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `type: :always_ask`
+              - `enabled: bool`
 
-                  - `:always_ask`
+              - `name: :edit`
+
+                - `:edit`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :edit`
+
+                - `:edit`
+
+            - `class BetaManagedAgentsReadToolConfig`
+
+              Configuration for the read tool.
+
+              - `enabled: bool`
+
+              - `name: :read`
+
+                - `:read`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :read`
+
+                - `:read`
+
+            - `class BetaManagedAgentsWriteToolConfig`
+
+              Configuration for the write tool.
+
+              - `enabled: bool`
+
+              - `name: :write`
+
+                - `:write`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :write`
+
+                - `:write`
+
+            - `class BetaManagedAgentsGlobToolConfig`
+
+              Configuration for the glob tool.
+
+              - `enabled: bool`
+
+              - `name: :glob`
+
+                - `:glob`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :glob`
+
+                - `:glob`
+
+            - `class BetaManagedAgentsGrepToolConfig`
+
+              Configuration for the grep tool.
+
+              - `enabled: bool`
+
+              - `name: :grep`
+
+                - `:grep`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :grep`
+
+                - `:grep`
+
+            - `class BetaManagedAgentsWebFetchToolConfig`
+
+              Configuration for the web_fetch tool.
+
+              - `enabled: bool`
+
+              - `name: :web_fetch`
+
+                - `:web_fetch`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :web_fetch`
+
+                - `:web_fetch`
+
+              - `allowed_domains: Array[String]`
+
+              - `blocked_domains: Array[String]`
+
+              - `max_content_tokens: Integer`
+
+            - `class BetaManagedAgentsWebSearchToolConfig`
+
+              Configuration for the web_search tool.
+
+              - `enabled: bool`
+
+              - `name: :web_search`
+
+                - `:web_search`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :web_search`
+
+                - `:web_search`
+
+              - `allowed_domains: Array[String]`
+
+              - `blocked_domains: Array[String]`
+
+              - `user_location: BetaManagedAgentsUserLocation`
+
+                Approximate user location for search result localization.
+
+                - `type: :approximate`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `:approximate`
+
+                - `city: String`
+
+                  City name.
+
+                - `country: String`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `region: String`
+
+                  Region or state name.
+
+                - `timezone: String`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -8996,7 +17385,8 @@ puts(beta_managed_agents_session_thread)
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {
@@ -9240,47 +17630,257 @@ puts(beta_managed_agents_session_thread)
 
           - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-            - `enabled: bool`
+            - `class BetaManagedAgentsBashToolConfig`
 
-            - `name: :bash | :edit | :read | 5 more`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `enabled: bool`
 
-              - `:bash`
+              - `name: :bash`
 
-              - `:edit`
+                - `:bash`
 
-              - `:read`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-              - `:write`
+                Permission policy for tool execution.
 
-              - `:glob`
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-              - `:grep`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `:web_fetch`
+                  - `type: :always_allow`
 
-              - `:web_search`
+                    - `:always_allow`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `class BetaManagedAgentsAlwaysAskPolicy`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `class BetaManagedAgentsAlwaysAllowPolicy`
+                  - `type: :always_ask`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `:always_ask`
 
-                - `type: :always_allow`
+              - `type: :bash`
 
-                  - `:always_allow`
+                - `:bash`
 
-              - `class BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsEditToolConfig`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `type: :always_ask`
+              - `enabled: bool`
 
-                  - `:always_ask`
+              - `name: :edit`
+
+                - `:edit`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :edit`
+
+                - `:edit`
+
+            - `class BetaManagedAgentsReadToolConfig`
+
+              Configuration for the read tool.
+
+              - `enabled: bool`
+
+              - `name: :read`
+
+                - `:read`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :read`
+
+                - `:read`
+
+            - `class BetaManagedAgentsWriteToolConfig`
+
+              Configuration for the write tool.
+
+              - `enabled: bool`
+
+              - `name: :write`
+
+                - `:write`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :write`
+
+                - `:write`
+
+            - `class BetaManagedAgentsGlobToolConfig`
+
+              Configuration for the glob tool.
+
+              - `enabled: bool`
+
+              - `name: :glob`
+
+                - `:glob`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :glob`
+
+                - `:glob`
+
+            - `class BetaManagedAgentsGrepToolConfig`
+
+              Configuration for the grep tool.
+
+              - `enabled: bool`
+
+              - `name: :grep`
+
+                - `:grep`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :grep`
+
+                - `:grep`
+
+            - `class BetaManagedAgentsWebFetchToolConfig`
+
+              Configuration for the web_fetch tool.
+
+              - `enabled: bool`
+
+              - `name: :web_fetch`
+
+                - `:web_fetch`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :web_fetch`
+
+                - `:web_fetch`
+
+              - `allowed_domains: Array[String]`
+
+              - `blocked_domains: Array[String]`
+
+              - `max_content_tokens: Integer`
+
+            - `class BetaManagedAgentsWebSearchToolConfig`
+
+              Configuration for the web_search tool.
+
+              - `enabled: bool`
+
+              - `name: :web_search`
+
+                - `:web_search`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: :web_search`
+
+                - `:web_search`
+
+              - `allowed_domains: Array[String]`
+
+              - `blocked_domains: Array[String]`
+
+              - `user_location: BetaManagedAgentsUserLocation`
+
+                Approximate user location for search result localization.
+
+                - `type: :approximate`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `:approximate`
+
+                - `city: String`
+
+                  City name.
+
+                - `country: String`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `region: String`
+
+                  Region or state name.
+
+                - `timezone: String`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -11264,47 +19864,257 @@ puts(beta_managed_agents_session_thread)
 
                 - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-                  - `enabled: bool`
+                  - `class BetaManagedAgentsBashToolConfig`
 
-                  - `name: :bash | :edit | :read | 5 more`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `enabled: bool`
 
-                    - `:bash`
+                    - `name: :bash`
 
-                    - `:edit`
+                      - `:bash`
 
-                    - `:read`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-                    - `:write`
+                      Permission policy for tool execution.
 
-                    - `:glob`
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-                    - `:grep`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `:web_fetch`
+                        - `type: :always_allow`
 
-                    - `:web_search`
+                          - `:always_allow`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy`
+                        - `type: :always_ask`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `:always_ask`
 
-                      - `type: :always_allow`
+                    - `type: :bash`
 
-                        - `:always_allow`
+                      - `:bash`
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy`
+                  - `class BetaManagedAgentsEditToolConfig`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `type: :always_ask`
+                    - `enabled: bool`
 
-                        - `:always_ask`
+                    - `name: :edit`
+
+                      - `:edit`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :edit`
+
+                      - `:edit`
+
+                  - `class BetaManagedAgentsReadToolConfig`
+
+                    Configuration for the read tool.
+
+                    - `enabled: bool`
+
+                    - `name: :read`
+
+                      - `:read`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :read`
+
+                      - `:read`
+
+                  - `class BetaManagedAgentsWriteToolConfig`
+
+                    Configuration for the write tool.
+
+                    - `enabled: bool`
+
+                    - `name: :write`
+
+                      - `:write`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :write`
+
+                      - `:write`
+
+                  - `class BetaManagedAgentsGlobToolConfig`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: bool`
+
+                    - `name: :glob`
+
+                      - `:glob`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :glob`
+
+                      - `:glob`
+
+                  - `class BetaManagedAgentsGrepToolConfig`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: bool`
+
+                    - `name: :grep`
+
+                      - `:grep`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :grep`
+
+                      - `:grep`
+
+                  - `class BetaManagedAgentsWebFetchToolConfig`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `max_content_tokens: Integer`
+
+                  - `class BetaManagedAgentsWebSearchToolConfig`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_search`
+
+                      - `:web_search`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_search`
+
+                      - `:web_search`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `user_location: BetaManagedAgentsUserLocation`
+
+                      Approximate user location for search result localization.
+
+                      - `type: :approximate`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `:approximate`
+
+                      - `city: String`
+
+                        City name.
+
+                      - `country: String`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: String`
+
+                        Region or state name.
+
+                      - `timezone: String`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -13406,47 +22216,257 @@ List Session Thread Events
 
                 - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-                  - `enabled: bool`
+                  - `class BetaManagedAgentsBashToolConfig`
 
-                  - `name: :bash | :edit | :read | 5 more`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `enabled: bool`
 
-                    - `:bash`
+                    - `name: :bash`
 
-                    - `:edit`
+                      - `:bash`
 
-                    - `:read`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-                    - `:write`
+                      Permission policy for tool execution.
 
-                    - `:glob`
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-                    - `:grep`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `:web_fetch`
+                        - `type: :always_allow`
 
-                    - `:web_search`
+                          - `:always_allow`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy`
+                        - `type: :always_ask`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `:always_ask`
 
-                      - `type: :always_allow`
+                    - `type: :bash`
 
-                        - `:always_allow`
+                      - `:bash`
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy`
+                  - `class BetaManagedAgentsEditToolConfig`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `type: :always_ask`
+                    - `enabled: bool`
 
-                        - `:always_ask`
+                    - `name: :edit`
+
+                      - `:edit`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :edit`
+
+                      - `:edit`
+
+                  - `class BetaManagedAgentsReadToolConfig`
+
+                    Configuration for the read tool.
+
+                    - `enabled: bool`
+
+                    - `name: :read`
+
+                      - `:read`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :read`
+
+                      - `:read`
+
+                  - `class BetaManagedAgentsWriteToolConfig`
+
+                    Configuration for the write tool.
+
+                    - `enabled: bool`
+
+                    - `name: :write`
+
+                      - `:write`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :write`
+
+                      - `:write`
+
+                  - `class BetaManagedAgentsGlobToolConfig`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: bool`
+
+                    - `name: :glob`
+
+                      - `:glob`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :glob`
+
+                      - `:glob`
+
+                  - `class BetaManagedAgentsGrepToolConfig`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: bool`
+
+                    - `name: :grep`
+
+                      - `:grep`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :grep`
+
+                      - `:grep`
+
+                  - `class BetaManagedAgentsWebFetchToolConfig`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `max_content_tokens: Integer`
+
+                  - `class BetaManagedAgentsWebSearchToolConfig`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_search`
+
+                      - `:web_search`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_search`
+
+                      - `:web_search`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `user_location: BetaManagedAgentsUserLocation`
+
+                      Approximate user location for search result localization.
+
+                      - `type: :approximate`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `:approximate`
+
+                      - `city: String`
+
+                        City name.
+
+                      - `country: String`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: String`
+
+                        Region or state name.
+
+                      - `timezone: String`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -15522,47 +24542,257 @@ Stream Session Thread Events
 
                 - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-                  - `enabled: bool`
+                  - `class BetaManagedAgentsBashToolConfig`
 
-                  - `name: :bash | :edit | :read | 5 more`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `enabled: bool`
 
-                    - `:bash`
+                    - `name: :bash`
 
-                    - `:edit`
+                      - `:bash`
 
-                    - `:read`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-                    - `:write`
+                      Permission policy for tool execution.
 
-                    - `:glob`
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-                    - `:grep`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `:web_fetch`
+                        - `type: :always_allow`
 
-                    - `:web_search`
+                          - `:always_allow`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy`
+                        - `type: :always_ask`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `:always_ask`
 
-                      - `type: :always_allow`
+                    - `type: :bash`
 
-                        - `:always_allow`
+                      - `:bash`
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy`
+                  - `class BetaManagedAgentsEditToolConfig`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `type: :always_ask`
+                    - `enabled: bool`
 
-                        - `:always_ask`
+                    - `name: :edit`
+
+                      - `:edit`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :edit`
+
+                      - `:edit`
+
+                  - `class BetaManagedAgentsReadToolConfig`
+
+                    Configuration for the read tool.
+
+                    - `enabled: bool`
+
+                    - `name: :read`
+
+                      - `:read`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :read`
+
+                      - `:read`
+
+                  - `class BetaManagedAgentsWriteToolConfig`
+
+                    Configuration for the write tool.
+
+                    - `enabled: bool`
+
+                    - `name: :write`
+
+                      - `:write`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :write`
+
+                      - `:write`
+
+                  - `class BetaManagedAgentsGlobToolConfig`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: bool`
+
+                    - `name: :glob`
+
+                      - `:glob`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :glob`
+
+                      - `:glob`
+
+                  - `class BetaManagedAgentsGrepToolConfig`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: bool`
+
+                    - `name: :grep`
+
+                      - `:grep`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :grep`
+
+                      - `:grep`
+
+                  - `class BetaManagedAgentsWebFetchToolConfig`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_fetch`
+
+                      - `:web_fetch`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `max_content_tokens: Integer`
+
+                  - `class BetaManagedAgentsWebSearchToolConfig`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: bool`
+
+                    - `name: :web_search`
+
+                      - `:web_search`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: :web_search`
+
+                      - `:web_search`
+
+                    - `allowed_domains: Array[String]`
+
+                    - `blocked_domains: Array[String]`
+
+                    - `user_location: BetaManagedAgentsUserLocation`
+
+                      Approximate user location for search result localization.
+
+                      - `type: :approximate`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `:approximate`
+
+                      - `city: String`
+
+                        City name.
+
+                      - `country: String`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: String`
+
+                        Region or state name.
+
+                      - `timezone: String`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -30777,11045 +40007,3 @@ Archive a memory store
     A timestamp in RFC 3339 format
 
   - `description: String`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory_store = anthropic.beta.memory_stores.archive("memory_store_id")
-
-puts(beta_managed_agents_memory_store)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  }
-}
-```
-
-## Domain Types
-
-### Beta Managed Agents Deleted Memory Store
-
-- `class BetaManagedAgentsDeletedMemoryStore`
-
-  Confirmation that a `memory_store` was deleted.
-
-  - `id: String`
-
-    ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
-
-  - `type: :memory_store_deleted`
-
-    - `:memory_store_deleted`
-
-### Beta Managed Agents Memory Store
-
-- `class BetaManagedAgentsMemoryStore`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `id: String`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `name: String`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `type: :memory_store`
-
-    - `:memory_store`
-
-  - `updated_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `description: String`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-# Memories
-
-## Create a memory
-
-`beta.memory_stores.memories.create(memory_store_id, **kwargs) -> BetaManagedAgentsMemory`
-
-**post** `/v1/memory_stores/{memory_store_id}/memories`
-
-Create a memory
-
-### Parameters
-
-- `memory_store_id: String`
-
-- `content: String`
-
-  UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
-
-- `path: String`
-
-  Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive.
-
-- `view: BetaManagedAgentsMemoryView`
-
-  Query parameter for view
-
-  - `:basic`
-
-  - `:full`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaManagedAgentsMemory`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `id: String`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_store_id: String`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: String`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: String`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: :memory`
-
-    - `:memory`
-
-  - `updated_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `content: String`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory = anthropic.beta.memory_stores.memories.create("memory_store_id", content: "content", path: "xx")
-
-puts(beta_managed_agents_memory)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_store_id": "memory_store_id",
-  "memory_version_id": "memory_version_id",
-  "path": "path",
-  "type": "memory",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "content": "content"
-}
-```
-
-## List memories
-
-`beta.memory_stores.memories.list(memory_store_id, **kwargs) -> PageCursor<BetaManagedAgentsMemoryListItem>`
-
-**get** `/v1/memory_stores/{memory_store_id}/memories`
-
-List memories
-
-### Parameters
-
-- `memory_store_id: String`
-
-- `depth: Integer`
-
-  `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
-
-- `limit: Integer`
-
-  Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
-
-- `page: String`
-
-  Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
-
-- `path_prefix: String`
-
-  Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
-
-- `view: BetaManagedAgentsMemoryView`
-
-  Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
-
-  - `:basic`
-
-  - `:full`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsMemoryListItem = BetaManagedAgentsMemory | BetaManagedAgentsMemoryPrefix`
-
-  One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
-
-  - `class BetaManagedAgentsMemory`
-
-    A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-    - `id: String`
-
-      Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-    - `content_sha256: String`
-
-      Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-    - `content_size_bytes: Integer`
-
-      Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-    - `created_at: Time`
-
-      A timestamp in RFC 3339 format
-
-    - `memory_store_id: String`
-
-      ID of the memory store this memory belongs to (a `memstore_...` value).
-
-    - `memory_version_id: String`
-
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-    - `path: String`
-
-      Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-    - `type: :memory`
-
-      - `:memory`
-
-    - `updated_at: Time`
-
-      A timestamp in RFC 3339 format
-
-    - `content: String`
-
-      The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-  - `class BetaManagedAgentsMemoryPrefix`
-
-    A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
-    - `path: String`
-
-      The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-    - `type: :memory_prefix`
-
-      - `:memory_prefix`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.memory_stores.memories.list("memory_store_id")
-
-puts(page)
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "content_sha256": "content_sha256",
-      "content_size_bytes": 0,
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "memory_store_id": "memory_store_id",
-      "memory_version_id": "memory_version_id",
-      "path": "path",
-      "type": "memory",
-      "updated_at": "2019-12-27T18:11:19.117Z",
-      "content": "content"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-## Retrieve a memory
-
-`beta.memory_stores.memories.retrieve(memory_id, **kwargs) -> BetaManagedAgentsMemory`
-
-**get** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
-
-Retrieve a memory
-
-### Parameters
-
-- `memory_store_id: String`
-
-- `memory_id: String`
-
-- `view: BetaManagedAgentsMemoryView`
-
-  Query parameter for view
-
-  - `:basic`
-
-  - `:full`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaManagedAgentsMemory`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `id: String`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_store_id: String`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: String`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: String`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: :memory`
-
-    - `:memory`
-
-  - `updated_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `content: String`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory = anthropic.beta.memory_stores.memories.retrieve("memory_id", memory_store_id: "memory_store_id")
-
-puts(beta_managed_agents_memory)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_store_id": "memory_store_id",
-  "memory_version_id": "memory_version_id",
-  "path": "path",
-  "type": "memory",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "content": "content"
-}
-```
-
-## Update a memory
-
-`beta.memory_stores.memories.update(memory_id, **kwargs) -> BetaManagedAgentsMemory`
-
-**post** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
-
-Update a memory
-
-### Parameters
-
-- `memory_store_id: String`
-
-- `memory_id: String`
-
-- `view: BetaManagedAgentsMemoryView`
-
-  Query parameter for view
-
-  - `:basic`
-
-  - `:full`
-
-- `content: String`
-
-  New UTF-8 text content for the memory. Maximum 100 kB (102,400 bytes). Omit to leave the content unchanged (e.g., for a rename-only update).
-
-- `path: String`
-
-  New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
-
-- `precondition: BetaManagedAgentsPrecondition`
-
-  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
-  - `type: :content_sha256`
-
-    - `:content_sha256`
-
-  - `content_sha256: String`
-
-    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaManagedAgentsMemory`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `id: String`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_store_id: String`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: String`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: String`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: :memory`
-
-    - `:memory`
-
-  - `updated_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `content: String`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory = anthropic.beta.memory_stores.memories.update("memory_id", memory_store_id: "memory_store_id")
-
-puts(beta_managed_agents_memory)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_store_id": "memory_store_id",
-  "memory_version_id": "memory_version_id",
-  "path": "path",
-  "type": "memory",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "content": "content"
-}
-```
-
-## Delete a memory
-
-`beta.memory_stores.memories.delete(memory_id, **kwargs) -> BetaManagedAgentsDeletedMemory`
-
-**delete** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
-
-Delete a memory
-
-### Parameters
-
-- `memory_store_id: String`
-
-- `memory_id: String`
-
-- `expected_content_sha256: String`
-
-  Query parameter for expected_content_sha256
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaManagedAgentsDeletedMemory`
-
-  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
-
-  - `id: String`
-
-    ID of the deleted memory (a `mem_...` value).
-
-  - `type: :memory_deleted`
-
-    - `:memory_deleted`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_deleted_memory = anthropic.beta.memory_stores.memories.delete("memory_id", memory_store_id: "memory_store_id")
-
-puts(beta_managed_agents_deleted_memory)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "type": "memory_deleted"
-}
-```
-
-## Domain Types
-
-### Beta Managed Agents Conflict Error
-
-- `class BetaManagedAgentsConflictError`
-
-  - `type: :conflict_error`
-
-    - `:conflict_error`
-
-  - `message: String`
-
-### Beta Managed Agents Content Sha256 Precondition
-
-- `class BetaManagedAgentsContentSha256Precondition`
-
-  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
-  - `type: :content_sha256`
-
-    - `:content_sha256`
-
-  - `content_sha256: String`
-
-    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
-
-### Beta Managed Agents Deleted Memory
-
-- `class BetaManagedAgentsDeletedMemory`
-
-  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
-
-  - `id: String`
-
-    ID of the deleted memory (a `mem_...` value).
-
-  - `type: :memory_deleted`
-
-    - `:memory_deleted`
-
-### Beta Managed Agents Error
-
-- `BetaManagedAgentsError = BetaInvalidRequestError | BetaAuthenticationError | BetaBillingError | 9 more`
-
-  - `class BetaInvalidRequestError`
-
-    - `message: String`
-
-    - `type: :invalid_request_error`
-
-      - `:invalid_request_error`
-
-  - `class BetaAuthenticationError`
-
-    - `message: String`
-
-    - `type: :authentication_error`
-
-      - `:authentication_error`
-
-  - `class BetaBillingError`
-
-    - `message: String`
-
-    - `type: :billing_error`
-
-      - `:billing_error`
-
-  - `class BetaPermissionError`
-
-    - `message: String`
-
-    - `type: :permission_error`
-
-      - `:permission_error`
-
-  - `class BetaNotFoundError`
-
-    - `message: String`
-
-    - `type: :not_found_error`
-
-      - `:not_found_error`
-
-  - `class BetaRateLimitError`
-
-    - `message: String`
-
-    - `type: :rate_limit_error`
-
-      - `:rate_limit_error`
-
-  - `class BetaGatewayTimeoutError`
-
-    - `message: String`
-
-    - `type: :timeout_error`
-
-      - `:timeout_error`
-
-  - `class BetaAPIError`
-
-    - `message: String`
-
-    - `type: :api_error`
-
-      - `:api_error`
-
-  - `class BetaOverloadedError`
-
-    - `message: String`
-
-    - `type: :overloaded_error`
-
-      - `:overloaded_error`
-
-  - `class BetaManagedAgentsMemoryPreconditionFailedError`
-
-    - `type: :memory_precondition_failed_error`
-
-      - `:memory_precondition_failed_error`
-
-    - `message: String`
-
-  - `class BetaManagedAgentsMemoryPathConflictError`
-
-    - `type: :memory_path_conflict_error`
-
-      - `:memory_path_conflict_error`
-
-    - `conflicting_memory_id: String`
-
-    - `conflicting_path: String`
-
-    - `message: String`
-
-  - `class BetaManagedAgentsConflictError`
-
-    - `type: :conflict_error`
-
-      - `:conflict_error`
-
-    - `message: String`
-
-### Beta Managed Agents Memory
-
-- `class BetaManagedAgentsMemory`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `id: String`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_store_id: String`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: String`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: String`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: :memory`
-
-    - `:memory`
-
-  - `updated_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `content: String`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-### Beta Managed Agents Memory List Item
-
-- `BetaManagedAgentsMemoryListItem = BetaManagedAgentsMemory | BetaManagedAgentsMemoryPrefix`
-
-  One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
-
-  - `class BetaManagedAgentsMemory`
-
-    A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-    - `id: String`
-
-      Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-    - `content_sha256: String`
-
-      Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-    - `content_size_bytes: Integer`
-
-      Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-    - `created_at: Time`
-
-      A timestamp in RFC 3339 format
-
-    - `memory_store_id: String`
-
-      ID of the memory store this memory belongs to (a `memstore_...` value).
-
-    - `memory_version_id: String`
-
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-    - `path: String`
-
-      Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-    - `type: :memory`
-
-      - `:memory`
-
-    - `updated_at: Time`
-
-      A timestamp in RFC 3339 format
-
-    - `content: String`
-
-      The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-  - `class BetaManagedAgentsMemoryPrefix`
-
-    A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
-    - `path: String`
-
-      The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-    - `type: :memory_prefix`
-
-      - `:memory_prefix`
-
-### Beta Managed Agents Memory Path Conflict Error
-
-- `class BetaManagedAgentsMemoryPathConflictError`
-
-  - `type: :memory_path_conflict_error`
-
-    - `:memory_path_conflict_error`
-
-  - `conflicting_memory_id: String`
-
-  - `conflicting_path: String`
-
-  - `message: String`
-
-### Beta Managed Agents Memory Precondition Failed Error
-
-- `class BetaManagedAgentsMemoryPreconditionFailedError`
-
-  - `type: :memory_precondition_failed_error`
-
-    - `:memory_precondition_failed_error`
-
-  - `message: String`
-
-### Beta Managed Agents Memory Prefix
-
-- `class BetaManagedAgentsMemoryPrefix`
-
-  A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
-  - `path: String`
-
-    The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-  - `type: :memory_prefix`
-
-    - `:memory_prefix`
-
-### Beta Managed Agents Memory View
-
-- `BetaManagedAgentsMemoryView = :basic | :full`
-
-  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
-
-  - `:basic`
-
-  - `:full`
-
-### Beta Managed Agents Precondition
-
-- `class BetaManagedAgentsPrecondition`
-
-  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
-  - `type: :content_sha256`
-
-    - `:content_sha256`
-
-  - `content_sha256: String`
-
-    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
-
-# Memory Versions
-
-## List memory versions
-
-`beta.memory_stores.memory_versions.list(memory_store_id, **kwargs) -> PageCursor<BetaManagedAgentsMemoryVersion>`
-
-**get** `/v1/memory_stores/{memory_store_id}/memory_versions`
-
-List memory versions
-
-### Parameters
-
-- `memory_store_id: String`
-
-- `api_key_id: String`
-
-  Query parameter for api_key_id
-
-- `created_at_gte: Time`
-
-  Return versions created at or after this time (inclusive).
-
-- `created_at_lte: Time`
-
-  Return versions created at or before this time (inclusive).
-
-- `limit: Integer`
-
-  Query parameter for limit
-
-- `memory_id: String`
-
-  Query parameter for memory_id
-
-- `operation: BetaManagedAgentsMemoryVersionOperation`
-
-  Query parameter for operation
-
-  - `:created`
-
-  - `:modified`
-
-  - `:deleted`
-
-- `page: String`
-
-  Query parameter for page
-
-- `service_account_id: String`
-
-  Query parameter for service_account_id
-
-- `session_id: String`
-
-  Query parameter for session_id
-
-- `view: BetaManagedAgentsMemoryView`
-
-  Query parameter for view
-
-  - `:basic`
-
-  - `:full`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaManagedAgentsMemoryVersion`
-
-  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
-  - `id: String`
-
-    Unique identifier for this version (a `memver_...` value).
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_id: String`
-
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
-
-  - `memory_store_id: String`
-
-    ID of the memory store this version belongs to (a `memstore_...` value).
-
-  - `operation: BetaManagedAgentsMemoryVersionOperation`
-
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
-    - `:created`
-
-    - `:modified`
-
-    - `:deleted`
-
-  - `type: :memory_version`
-
-    - `:memory_version`
-
-  - `content: String`
-
-    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
-
-  - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `created_by: BetaManagedAgentsActor`
-
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-    - `class BetaManagedAgentsSessionActor`
-
-      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: String`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: :session_actor`
-
-        - `:session_actor`
-
-    - `class BetaManagedAgentsAPIActor`
-
-      Attribution for a write made directly via the public API (outside of any session).
-
-      - `api_key_id: String`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: :api_actor`
-
-        - `:api_actor`
-
-    - `class BetaManagedAgentsUserActor`
-
-      Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: :user_actor`
-
-        - `:user_actor`
-
-      - `user_id: String`
-
-        ID of the user who performed the write (a `user_...` value).
-
-    - `class BetaManagedAgentsServiceAccountActor`
-
-      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
-
-      - `service_account_id: String`
-
-        ID of the service account that performed the write (a `svac_...` value).
-
-      - `type: :service_account_actor`
-
-        - `:service_account_actor`
-
-  - `path: String`
-
-    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
-
-  - `redacted_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `redacted_by: BetaManagedAgentsActor`
-
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.memory_stores.memory_versions.list("memory_store_id")
-
-puts(page)
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "memory_id": "memory_id",
-      "memory_store_id": "memory_store_id",
-      "operation": "created",
-      "type": "memory_version",
-      "content": "content",
-      "content_sha256": "content_sha256",
-      "content_size_bytes": 0,
-      "created_by": {
-        "session_id": "x",
-        "type": "session_actor"
-      },
-      "path": "path",
-      "redacted_at": "2019-12-27T18:11:19.117Z",
-      "redacted_by": {
-        "session_id": "x",
-        "type": "session_actor"
-      }
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-## Retrieve a memory version
-
-`beta.memory_stores.memory_versions.retrieve(memory_version_id, **kwargs) -> BetaManagedAgentsMemoryVersion`
-
-**get** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}`
-
-Retrieve a memory version
-
-### Parameters
-
-- `memory_store_id: String`
-
-- `memory_version_id: String`
-
-- `view: BetaManagedAgentsMemoryView`
-
-  Query parameter for view
-
-  - `:basic`
-
-  - `:full`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaManagedAgentsMemoryVersion`
-
-  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
-  - `id: String`
-
-    Unique identifier for this version (a `memver_...` value).
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_id: String`
-
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
-
-  - `memory_store_id: String`
-
-    ID of the memory store this version belongs to (a `memstore_...` value).
-
-  - `operation: BetaManagedAgentsMemoryVersionOperation`
-
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
-    - `:created`
-
-    - `:modified`
-
-    - `:deleted`
-
-  - `type: :memory_version`
-
-    - `:memory_version`
-
-  - `content: String`
-
-    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
-
-  - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `created_by: BetaManagedAgentsActor`
-
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-    - `class BetaManagedAgentsSessionActor`
-
-      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: String`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: :session_actor`
-
-        - `:session_actor`
-
-    - `class BetaManagedAgentsAPIActor`
-
-      Attribution for a write made directly via the public API (outside of any session).
-
-      - `api_key_id: String`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: :api_actor`
-
-        - `:api_actor`
-
-    - `class BetaManagedAgentsUserActor`
-
-      Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: :user_actor`
-
-        - `:user_actor`
-
-      - `user_id: String`
-
-        ID of the user who performed the write (a `user_...` value).
-
-    - `class BetaManagedAgentsServiceAccountActor`
-
-      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
-
-      - `service_account_id: String`
-
-        ID of the service account that performed the write (a `svac_...` value).
-
-      - `type: :service_account_actor`
-
-        - `:service_account_actor`
-
-  - `path: String`
-
-    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
-
-  - `redacted_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `redacted_by: BetaManagedAgentsActor`
-
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory_version = anthropic.beta.memory_stores.memory_versions.retrieve(
-  "memory_version_id",
-  memory_store_id: "memory_store_id"
-)
-
-puts(beta_managed_agents_memory_version)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_id": "memory_id",
-  "memory_store_id": "memory_store_id",
-  "operation": "created",
-  "type": "memory_version",
-  "content": "content",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_by": {
-    "session_id": "x",
-    "type": "session_actor"
-  },
-  "path": "path",
-  "redacted_at": "2019-12-27T18:11:19.117Z",
-  "redacted_by": {
-    "session_id": "x",
-    "type": "session_actor"
-  }
-}
-```
-
-## Redact a memory version
-
-`beta.memory_stores.memory_versions.redact(memory_version_id, **kwargs) -> BetaManagedAgentsMemoryVersion`
-
-**post** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}/redact`
-
-Redact a memory version
-
-### Parameters
-
-- `memory_store_id: String`
-
-- `memory_version_id: String`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaManagedAgentsMemoryVersion`
-
-  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
-  - `id: String`
-
-    Unique identifier for this version (a `memver_...` value).
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_id: String`
-
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
-
-  - `memory_store_id: String`
-
-    ID of the memory store this version belongs to (a `memstore_...` value).
-
-  - `operation: BetaManagedAgentsMemoryVersionOperation`
-
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
-    - `:created`
-
-    - `:modified`
-
-    - `:deleted`
-
-  - `type: :memory_version`
-
-    - `:memory_version`
-
-  - `content: String`
-
-    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
-
-  - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `created_by: BetaManagedAgentsActor`
-
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-    - `class BetaManagedAgentsSessionActor`
-
-      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: String`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: :session_actor`
-
-        - `:session_actor`
-
-    - `class BetaManagedAgentsAPIActor`
-
-      Attribution for a write made directly via the public API (outside of any session).
-
-      - `api_key_id: String`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: :api_actor`
-
-        - `:api_actor`
-
-    - `class BetaManagedAgentsUserActor`
-
-      Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: :user_actor`
-
-        - `:user_actor`
-
-      - `user_id: String`
-
-        ID of the user who performed the write (a `user_...` value).
-
-    - `class BetaManagedAgentsServiceAccountActor`
-
-      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
-
-      - `service_account_id: String`
-
-        ID of the service account that performed the write (a `svac_...` value).
-
-      - `type: :service_account_actor`
-
-        - `:service_account_actor`
-
-  - `path: String`
-
-    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
-
-  - `redacted_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `redacted_by: BetaManagedAgentsActor`
-
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory_version = anthropic.beta.memory_stores.memory_versions.redact(
-  "memory_version_id",
-  memory_store_id: "memory_store_id"
-)
-
-puts(beta_managed_agents_memory_version)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_id": "memory_id",
-  "memory_store_id": "memory_store_id",
-  "operation": "created",
-  "type": "memory_version",
-  "content": "content",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_by": {
-    "session_id": "x",
-    "type": "session_actor"
-  },
-  "path": "path",
-  "redacted_at": "2019-12-27T18:11:19.117Z",
-  "redacted_by": {
-    "session_id": "x",
-    "type": "session_actor"
-  }
-}
-```
-
-## Domain Types
-
-### Beta Managed Agents Actor
-
-- `BetaManagedAgentsActor = BetaManagedAgentsSessionActor | BetaManagedAgentsAPIActor | BetaManagedAgentsUserActor | BetaManagedAgentsServiceAccountActor`
-
-  Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-  - `class BetaManagedAgentsSessionActor`
-
-    Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-    - `session_id: String`
-
-      ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-    - `type: :session_actor`
-
-      - `:session_actor`
-
-  - `class BetaManagedAgentsAPIActor`
-
-    Attribution for a write made directly via the public API (outside of any session).
-
-    - `api_key_id: String`
-
-      ID of the API key that performed the write. This identifies the key, not the secret.
-
-    - `type: :api_actor`
-
-      - `:api_actor`
-
-  - `class BetaManagedAgentsUserActor`
-
-    Attribution for a write made by a human user through the Anthropic Console.
-
-    - `type: :user_actor`
-
-      - `:user_actor`
-
-    - `user_id: String`
-
-      ID of the user who performed the write (a `user_...` value).
-
-  - `class BetaManagedAgentsServiceAccountActor`
-
-    Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
-
-    - `service_account_id: String`
-
-      ID of the service account that performed the write (a `svac_...` value).
-
-    - `type: :service_account_actor`
-
-      - `:service_account_actor`
-
-### Beta Managed Agents API Actor
-
-- `class BetaManagedAgentsAPIActor`
-
-  Attribution for a write made directly via the public API (outside of any session).
-
-  - `api_key_id: String`
-
-    ID of the API key that performed the write. This identifies the key, not the secret.
-
-  - `type: :api_actor`
-
-    - `:api_actor`
-
-### Beta Managed Agents Memory Version
-
-- `class BetaManagedAgentsMemoryVersion`
-
-  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
-  - `id: String`
-
-    Unique identifier for this version (a `memver_...` value).
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_id: String`
-
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
-
-  - `memory_store_id: String`
-
-    ID of the memory store this version belongs to (a `memstore_...` value).
-
-  - `operation: BetaManagedAgentsMemoryVersionOperation`
-
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
-    - `:created`
-
-    - `:modified`
-
-    - `:deleted`
-
-  - `type: :memory_version`
-
-    - `:memory_version`
-
-  - `content: String`
-
-    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
-
-  - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `created_by: BetaManagedAgentsActor`
-
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-    - `class BetaManagedAgentsSessionActor`
-
-      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: String`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: :session_actor`
-
-        - `:session_actor`
-
-    - `class BetaManagedAgentsAPIActor`
-
-      Attribution for a write made directly via the public API (outside of any session).
-
-      - `api_key_id: String`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: :api_actor`
-
-        - `:api_actor`
-
-    - `class BetaManagedAgentsUserActor`
-
-      Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: :user_actor`
-
-        - `:user_actor`
-
-      - `user_id: String`
-
-        ID of the user who performed the write (a `user_...` value).
-
-    - `class BetaManagedAgentsServiceAccountActor`
-
-      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
-
-      - `service_account_id: String`
-
-        ID of the service account that performed the write (a `svac_...` value).
-
-      - `type: :service_account_actor`
-
-        - `:service_account_actor`
-
-  - `path: String`
-
-    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
-
-  - `redacted_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `redacted_by: BetaManagedAgentsActor`
-
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-### Beta Managed Agents Memory Version Operation
-
-- `BetaManagedAgentsMemoryVersionOperation = :created | :modified | :deleted`
-
-  The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
-  - `:created`
-
-  - `:modified`
-
-  - `:deleted`
-
-### Beta Managed Agents Service Account Actor
-
-- `class BetaManagedAgentsServiceAccountActor`
-
-  Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
-
-  - `service_account_id: String`
-
-    ID of the service account that performed the write (a `svac_...` value).
-
-  - `type: :service_account_actor`
-
-    - `:service_account_actor`
-
-### Beta Managed Agents Session Actor
-
-- `class BetaManagedAgentsSessionActor`
-
-  Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-  - `session_id: String`
-
-    ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-  - `type: :session_actor`
-
-    - `:session_actor`
-
-### Beta Managed Agents User Actor
-
-- `class BetaManagedAgentsUserActor`
-
-  Attribution for a write made by a human user through the Anthropic Console.
-
-  - `type: :user_actor`
-
-    - `:user_actor`
-
-  - `user_id: String`
-
-    ID of the user who performed the write (a `user_...` value).
-
-# Files
-
-## Upload File
-
-`beta.files.upload(**kwargs) -> BetaFileMetadata`
-
-**post** `/v1/files`
-
-Upload File
-
-### Parameters
-
-- `file: String`
-
-  The file to upload
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaFileMetadata`
-
-  - `id: String`
-
-    Unique object identifier.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: Time`
-
-    RFC 3339 datetime string representing when the file was created.
-
-  - `filename: String`
-
-    Original filename of the uploaded file.
-
-  - `mime_type: String`
-
-    MIME type of the file.
-
-  - `size_bytes: Integer`
-
-    Size of the file in bytes.
-
-  - `type: :file`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
-    - `:file`
-
-  - `downloadable: bool`
-
-    Whether the file can be downloaded.
-
-  - `scope: BetaFileScope`
-
-    The scope of this file, indicating the context in which it was created (e.g., a session).
-
-    - `id: String`
-
-      The ID of the scoping resource (e.g., the session ID).
-
-    - `type: :session`
-
-      The type of scope (e.g., `"session"`).
-
-      - `:session`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_file_metadata = anthropic.beta.files.upload(file: StringIO.new("Example data"))
-
-puts(beta_file_metadata)
-```
-
-#### Response
-
-```json
-{
-  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
-  "created_at": "2025-04-15T18:37:24.100435Z",
-  "filename": "document.pdf",
-  "mime_type": "application/pdf",
-  "size_bytes": 102400,
-  "type": "file",
-  "downloadable": false,
-  "scope": {
-    "id": "id",
-    "type": "session"
-  }
-}
-```
-
-## List Files
-
-`beta.files.list(**kwargs) -> Page<BetaFileMetadata>`
-
-**get** `/v1/files`
-
-List Files
-
-### Parameters
-
-- `after_id: String`
-
-  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
-
-- `before_id: String`
-
-  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
-
-- `limit: Integer`
-
-  Number of items to return per page.
-
-  Defaults to `20`. Ranges from `1` to `1000`.
-
-- `scope_id: String`
-
-  Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaFileMetadata`
-
-  - `id: String`
-
-    Unique object identifier.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: Time`
-
-    RFC 3339 datetime string representing when the file was created.
-
-  - `filename: String`
-
-    Original filename of the uploaded file.
-
-  - `mime_type: String`
-
-    MIME type of the file.
-
-  - `size_bytes: Integer`
-
-    Size of the file in bytes.
-
-  - `type: :file`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
-    - `:file`
-
-  - `downloadable: bool`
-
-    Whether the file can be downloaded.
-
-  - `scope: BetaFileScope`
-
-    The scope of this file, indicating the context in which it was created (e.g., a session).
-
-    - `id: String`
-
-      The ID of the scoping resource (e.g., the session ID).
-
-    - `type: :session`
-
-      The type of scope (e.g., `"session"`).
-
-      - `:session`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.files.list
-
-puts(page)
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "file_011CNha8iCJcU1wXNR6q4V8w",
-      "created_at": "2025-04-15T18:37:24.100435Z",
-      "filename": "document.pdf",
-      "mime_type": "application/pdf",
-      "size_bytes": 102400,
-      "type": "file",
-      "downloadable": false,
-      "scope": {
-        "id": "id",
-        "type": "session"
-      }
-    }
-  ],
-  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
-  "has_more": true,
-  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
-}
-```
-
-## Download File
-
-`beta.files.download(file_id, **kwargs) -> StringIO`
-
-**get** `/v1/files/{file_id}/content`
-
-Download File
-
-### Parameters
-
-- `file_id: String`
-
-  ID of the File.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `StringIO`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-response = anthropic.beta.files.download("file_id")
-
-puts(response)
-```
-
-## Get File Metadata
-
-`beta.files.retrieve_metadata(file_id, **kwargs) -> BetaFileMetadata`
-
-**get** `/v1/files/{file_id}`
-
-Get File Metadata
-
-### Parameters
-
-- `file_id: String`
-
-  ID of the File.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaFileMetadata`
-
-  - `id: String`
-
-    Unique object identifier.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: Time`
-
-    RFC 3339 datetime string representing when the file was created.
-
-  - `filename: String`
-
-    Original filename of the uploaded file.
-
-  - `mime_type: String`
-
-    MIME type of the file.
-
-  - `size_bytes: Integer`
-
-    Size of the file in bytes.
-
-  - `type: :file`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
-    - `:file`
-
-  - `downloadable: bool`
-
-    Whether the file can be downloaded.
-
-  - `scope: BetaFileScope`
-
-    The scope of this file, indicating the context in which it was created (e.g., a session).
-
-    - `id: String`
-
-      The ID of the scoping resource (e.g., the session ID).
-
-    - `type: :session`
-
-      The type of scope (e.g., `"session"`).
-
-      - `:session`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_file_metadata = anthropic.beta.files.retrieve_metadata("file_id")
-
-puts(beta_file_metadata)
-```
-
-#### Response
-
-```json
-{
-  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
-  "created_at": "2025-04-15T18:37:24.100435Z",
-  "filename": "document.pdf",
-  "mime_type": "application/pdf",
-  "size_bytes": 102400,
-  "type": "file",
-  "downloadable": false,
-  "scope": {
-    "id": "id",
-    "type": "session"
-  }
-}
-```
-
-## Delete File
-
-`beta.files.delete(file_id, **kwargs) -> BetaDeletedFile`
-
-**delete** `/v1/files/{file_id}`
-
-Delete File
-
-### Parameters
-
-- `file_id: String`
-
-  ID of the File.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaDeletedFile`
-
-  - `id: String`
-
-    ID of the deleted file.
-
-  - `type: :file_deleted`
-
-    Deleted object type.
-
-    For file deletion, this is always `"file_deleted"`.
-
-    - `:file_deleted`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_deleted_file = anthropic.beta.files.delete("file_id")
-
-puts(beta_deleted_file)
-```
-
-#### Response
-
-```json
-{
-  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
-  "type": "file_deleted"
-}
-```
-
-## Domain Types
-
-### Beta Deleted File
-
-- `class BetaDeletedFile`
-
-  - `id: String`
-
-    ID of the deleted file.
-
-  - `type: :file_deleted`
-
-    Deleted object type.
-
-    For file deletion, this is always `"file_deleted"`.
-
-    - `:file_deleted`
-
-### Beta File Metadata
-
-- `class BetaFileMetadata`
-
-  - `id: String`
-
-    Unique object identifier.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: Time`
-
-    RFC 3339 datetime string representing when the file was created.
-
-  - `filename: String`
-
-    Original filename of the uploaded file.
-
-  - `mime_type: String`
-
-    MIME type of the file.
-
-  - `size_bytes: Integer`
-
-    Size of the file in bytes.
-
-  - `type: :file`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
-    - `:file`
-
-  - `downloadable: bool`
-
-    Whether the file can be downloaded.
-
-  - `scope: BetaFileScope`
-
-    The scope of this file, indicating the context in which it was created (e.g., a session).
-
-    - `id: String`
-
-      The ID of the scoping resource (e.g., the session ID).
-
-    - `type: :session`
-
-      The type of scope (e.g., `"session"`).
-
-      - `:session`
-
-### Beta File Scope
-
-- `class BetaFileScope`
-
-  - `id: String`
-
-    The ID of the scoping resource (e.g., the session ID).
-
-  - `type: :session`
-
-    The type of scope (e.g., `"session"`).
-
-    - `:session`
-
-# Skills
-
-## Create Skill
-
-`beta.skills.create(**kwargs) -> SkillCreateResponse`
-
-**post** `/v1/skills`
-
-Create Skill
-
-### Parameters
-
-- `files: Array[String]`
-
-  Files to upload for the skill.
-
-  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
-
-- `display_title: String`
-
-  Display title for the skill.
-
-  This is a human-readable label that is not included in the prompt sent to the model.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class SkillCreateResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill was created.
-
-  - `display_title: String`
-
-    Display title for the skill.
-
-    This is a human-readable label that is not included in the prompt sent to the model.
-
-  - `latest_version: String`
-
-    The latest version identifier for the skill.
-
-    This represents the most recent version of the skill that has been created.
-
-  - `source: String`
-
-    Source of the skill.
-
-    This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
-
-  - `type: String`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
-
-  - `updated_at: String`
-
-    ISO 8601 timestamp of when the skill was last updated.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-skill = anthropic.beta.skills.create(files: [StringIO.new("Example data")])
-
-puts(skill)
-```
-
-#### Response
-
-```json
-{
-  "id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "created_at": "2024-10-30T23:58:27.427722Z",
-  "display_title": "My Custom Skill",
-  "latest_version": "1759178010641129",
-  "source": "custom",
-  "type": "type",
-  "updated_at": "2024-10-30T23:58:27.427722Z"
-}
-```
-
-## List Skills
-
-`beta.skills.list(**kwargs) -> PageCursor<SkillListResponse>`
-
-**get** `/v1/skills`
-
-List Skills
-
-### Parameters
-
-- `limit: Integer`
-
-  Number of results to return per page.
-
-  Maximum value is 100. Defaults to 20.
-
-- `page: String`
-
-  Pagination token for fetching a specific page of results.
-
-  Pass the value from a previous response's `next_page` field to get the next page of results.
-
-- `source: String`
-
-  Filter skills by source.
-
-  If provided, only skills from the specified source will be returned:
-
-  * `"custom"`: only return user-created skills
-  * `"anthropic"`: only return Anthropic-created skills
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class SkillListResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill was created.
-
-  - `display_title: String`
-
-    Display title for the skill.
-
-    This is a human-readable label that is not included in the prompt sent to the model.
-
-  - `latest_version: String`
-
-    The latest version identifier for the skill.
-
-    This represents the most recent version of the skill that has been created.
-
-  - `source: String`
-
-    Source of the skill.
-
-    This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
-
-  - `type: String`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
-
-  - `updated_at: String`
-
-    ISO 8601 timestamp of when the skill was last updated.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.skills.list
-
-puts(page)
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "skill_01JAbcdefghijklmnopqrstuvw",
-      "created_at": "2024-10-30T23:58:27.427722Z",
-      "display_title": "My Custom Skill",
-      "latest_version": "1759178010641129",
-      "source": "custom",
-      "type": "type",
-      "updated_at": "2024-10-30T23:58:27.427722Z"
-    }
-  ],
-  "has_more": true,
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-## Get Skill
-
-`beta.skills.retrieve(skill_id, **kwargs) -> SkillRetrieveResponse`
-
-**get** `/v1/skills/{skill_id}`
-
-Get Skill
-
-### Parameters
-
-- `skill_id: String`
-
-  Unique identifier for the skill.
-
-  The format and length of IDs may change over time.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class SkillRetrieveResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill was created.
-
-  - `display_title: String`
-
-    Display title for the skill.
-
-    This is a human-readable label that is not included in the prompt sent to the model.
-
-  - `latest_version: String`
-
-    The latest version identifier for the skill.
-
-    This represents the most recent version of the skill that has been created.
-
-  - `source: String`
-
-    Source of the skill.
-
-    This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
-
-  - `type: String`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
-
-  - `updated_at: String`
-
-    ISO 8601 timestamp of when the skill was last updated.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-skill = anthropic.beta.skills.retrieve("skill_id")
-
-puts(skill)
-```
-
-#### Response
-
-```json
-{
-  "id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "created_at": "2024-10-30T23:58:27.427722Z",
-  "display_title": "My Custom Skill",
-  "latest_version": "1759178010641129",
-  "source": "custom",
-  "type": "type",
-  "updated_at": "2024-10-30T23:58:27.427722Z"
-}
-```
-
-## Delete Skill
-
-`beta.skills.delete(skill_id, **kwargs) -> SkillDeleteResponse`
-
-**delete** `/v1/skills/{skill_id}`
-
-Delete Skill
-
-### Parameters
-
-- `skill_id: String`
-
-  Unique identifier for the skill.
-
-  The format and length of IDs may change over time.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class SkillDeleteResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill.
-
-    The format and length of IDs may change over time.
-
-  - `type: String`
-
-    Deleted object type.
-
-    For Skills, this is always `"skill_deleted"`.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-skill = anthropic.beta.skills.delete("skill_id")
-
-puts(skill)
-```
-
-#### Response
-
-```json
-{
-  "id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type"
-}
-```
-
-## Domain Types
-
-### Skill Create Response
-
-- `class SkillCreateResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill was created.
-
-  - `display_title: String`
-
-    Display title for the skill.
-
-    This is a human-readable label that is not included in the prompt sent to the model.
-
-  - `latest_version: String`
-
-    The latest version identifier for the skill.
-
-    This represents the most recent version of the skill that has been created.
-
-  - `source: String`
-
-    Source of the skill.
-
-    This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
-
-  - `type: String`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
-
-  - `updated_at: String`
-
-    ISO 8601 timestamp of when the skill was last updated.
-
-### Skill List Response
-
-- `class SkillListResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill was created.
-
-  - `display_title: String`
-
-    Display title for the skill.
-
-    This is a human-readable label that is not included in the prompt sent to the model.
-
-  - `latest_version: String`
-
-    The latest version identifier for the skill.
-
-    This represents the most recent version of the skill that has been created.
-
-  - `source: String`
-
-    Source of the skill.
-
-    This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
-
-  - `type: String`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
-
-  - `updated_at: String`
-
-    ISO 8601 timestamp of when the skill was last updated.
-
-### Skill Retrieve Response
-
-- `class SkillRetrieveResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill was created.
-
-  - `display_title: String`
-
-    Display title for the skill.
-
-    This is a human-readable label that is not included in the prompt sent to the model.
-
-  - `latest_version: String`
-
-    The latest version identifier for the skill.
-
-    This represents the most recent version of the skill that has been created.
-
-  - `source: String`
-
-    Source of the skill.
-
-    This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
-
-  - `type: String`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
-
-  - `updated_at: String`
-
-    ISO 8601 timestamp of when the skill was last updated.
-
-### Skill Delete Response
-
-- `class SkillDeleteResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill.
-
-    The format and length of IDs may change over time.
-
-  - `type: String`
-
-    Deleted object type.
-
-    For Skills, this is always `"skill_deleted"`.
-
-# Versions
-
-## Create Skill Version
-
-`beta.skills.versions.create(skill_id, **kwargs) -> VersionCreateResponse`
-
-**post** `/v1/skills/{skill_id}/versions`
-
-Create Skill Version
-
-### Parameters
-
-- `skill_id: String`
-
-  Unique identifier for the skill.
-
-  The format and length of IDs may change over time.
-
-- `files: Array[String]`
-
-  Files to upload for the skill.
-
-  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class VersionCreateResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill version.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill version was created.
-
-  - `description: String`
-
-    Description of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `directory: String`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
-  - `name: String`
-
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `skill_id: String`
-
-    Identifier for the skill that this version belongs to.
-
-  - `type: String`
-
-    Object type.
-
-    For Skill Versions, this is always `"skill_version"`.
-
-  - `version: String`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-version = anthropic.beta.skills.versions.create("skill_id", files: [StringIO.new("Example data")])
-
-puts(version)
-```
-
-#### Response
-
-```json
-{
-  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
-  "created_at": "2024-10-30T23:58:27.427722Z",
-  "description": "A custom skill for doing something useful",
-  "directory": "my-skill",
-  "name": "my-skill",
-  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type",
-  "version": "1759178010641129"
-}
-```
-
-## List Skill Versions
-
-`beta.skills.versions.list(skill_id, **kwargs) -> PageCursor<VersionListResponse>`
-
-**get** `/v1/skills/{skill_id}/versions`
-
-List Skill Versions
-
-### Parameters
-
-- `skill_id: String`
-
-  Unique identifier for the skill.
-
-  The format and length of IDs may change over time.
-
-- `limit: Integer`
-
-  Number of items to return per page.
-
-  Defaults to `20`. Ranges from `1` to `1000`.
-
-- `page: String`
-
-  Optionally set to the `next_page` token from the previous response.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class VersionListResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill version.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill version was created.
-
-  - `description: String`
-
-    Description of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `directory: String`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
-  - `name: String`
-
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `skill_id: String`
-
-    Identifier for the skill that this version belongs to.
-
-  - `type: String`
-
-    Object type.
-
-    For Skill Versions, this is always `"skill_version"`.
-
-  - `version: String`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.skills.versions.list("skill_id")
-
-puts(page)
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
-      "created_at": "2024-10-30T23:58:27.427722Z",
-      "description": "A custom skill for doing something useful",
-      "directory": "my-skill",
-      "name": "my-skill",
-      "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-      "type": "type",
-      "version": "1759178010641129"
-    }
-  ],
-  "has_more": true,
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-## Download Skill Version Content
-
-`beta.skills.versions.download(version, **kwargs) -> StringIO`
-
-**get** `/v1/skills/{skill_id}/versions/{version}/content`
-
-Download a skill version's content as a zip archive.
-
-### Parameters
-
-- `skill_id: String`
-
-  Unique identifier for the skill.
-
-  The format and length of IDs may change over time.
-
-- `version: String`
-
-  Version identifier for the skill.
-
-  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `StringIO`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-response = anthropic.beta.skills.versions.download("version", skill_id: "skill_id")
-
-puts(response)
-```
-
-## Get Skill Version
-
-`beta.skills.versions.retrieve(version, **kwargs) -> VersionRetrieveResponse`
-
-**get** `/v1/skills/{skill_id}/versions/{version}`
-
-Get Skill Version
-
-### Parameters
-
-- `skill_id: String`
-
-  Unique identifier for the skill.
-
-  The format and length of IDs may change over time.
-
-- `version: String`
-
-  Version identifier for the skill.
-
-  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class VersionRetrieveResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill version.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill version was created.
-
-  - `description: String`
-
-    Description of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `directory: String`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
-  - `name: String`
-
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `skill_id: String`
-
-    Identifier for the skill that this version belongs to.
-
-  - `type: String`
-
-    Object type.
-
-    For Skill Versions, this is always `"skill_version"`.
-
-  - `version: String`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-version = anthropic.beta.skills.versions.retrieve("version", skill_id: "skill_id")
-
-puts(version)
-```
-
-#### Response
-
-```json
-{
-  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
-  "created_at": "2024-10-30T23:58:27.427722Z",
-  "description": "A custom skill for doing something useful",
-  "directory": "my-skill",
-  "name": "my-skill",
-  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type",
-  "version": "1759178010641129"
-}
-```
-
-## Delete Skill Version
-
-`beta.skills.versions.delete(version, **kwargs) -> VersionDeleteResponse`
-
-**delete** `/v1/skills/{skill_id}/versions/{version}`
-
-Delete Skill Version
-
-### Parameters
-
-- `skill_id: String`
-
-  Unique identifier for the skill.
-
-  The format and length of IDs may change over time.
-
-- `version: String`
-
-  Version identifier for the skill.
-
-  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class VersionDeleteResponse`
-
-  - `id: String`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-  - `type: String`
-
-    Deleted object type.
-
-    For Skill Versions, this is always `"skill_version_deleted"`.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-version = anthropic.beta.skills.versions.delete("version", skill_id: "skill_id")
-
-puts(version)
-```
-
-#### Response
-
-```json
-{
-  "id": "1759178010641129",
-  "type": "type"
-}
-```
-
-## Domain Types
-
-### Version Create Response
-
-- `class VersionCreateResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill version.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill version was created.
-
-  - `description: String`
-
-    Description of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `directory: String`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
-  - `name: String`
-
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `skill_id: String`
-
-    Identifier for the skill that this version belongs to.
-
-  - `type: String`
-
-    Object type.
-
-    For Skill Versions, this is always `"skill_version"`.
-
-  - `version: String`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-### Version List Response
-
-- `class VersionListResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill version.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill version was created.
-
-  - `description: String`
-
-    Description of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `directory: String`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
-  - `name: String`
-
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `skill_id: String`
-
-    Identifier for the skill that this version belongs to.
-
-  - `type: String`
-
-    Object type.
-
-    For Skill Versions, this is always `"skill_version"`.
-
-  - `version: String`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-### Version Retrieve Response
-
-- `class VersionRetrieveResponse`
-
-  - `id: String`
-
-    Unique identifier for the skill version.
-
-    The format and length of IDs may change over time.
-
-  - `created_at: String`
-
-    ISO 8601 timestamp of when the skill version was created.
-
-  - `description: String`
-
-    Description of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `directory: String`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
-  - `name: String`
-
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
-
-  - `skill_id: String`
-
-    Identifier for the skill that this version belongs to.
-
-  - `type: String`
-
-    Object type.
-
-    For Skill Versions, this is always `"skill_version"`.
-
-  - `version: String`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-### Version Delete Response
-
-- `class VersionDeleteResponse`
-
-  - `id: String`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-  - `type: String`
-
-    Deleted object type.
-
-    For Skill Versions, this is always `"skill_version_deleted"`.
-
-# User Profiles
-
-## Create User Profile
-
-`beta.user_profiles.create(**kwargs) -> BetaUserProfile`
-
-**post** `/v1/user_profiles`
-
-Create User Profile
-
-### Parameters
-
-- `access_type: :application | :passthrough`
-
-  How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
-
-  - `:application`
-
-  - `:passthrough`
-
-- `external_id: String`
-
-  Platform's own identifier for this user. Not enforced unique. Maximum 255 characters.
-
-- `metadata: Hash[Symbol, String]`
-
-  Free-form key-value data to attach to this user profile. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters. Values must be non-empty strings.
-
-- `name: String`
-
-  Optional for all profiles. Real-world name of the entity this profile represents (company or individual); for a resold-to company (`relationship` `resold` / `access_type` `passthrough`), that company's name where known. Maximum 255 characters.
-
-- `relationship: :external | :resold | :internal`
-
-  How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-  - `:external`
-
-  - `:resold`
-
-  - `:internal`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaUserProfile`
-
-  - `id: String`
-
-    Unique identifier for this user profile, prefixed `uprof_`.
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-  - `trust_grants: Hash[Symbol, BetaUserProfileTrustGrant]`
-
-    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
-    - `status: :active | :pending | :rejected`
-
-      Status of the trust grant.
-
-      - `:active`
-
-      - `:pending`
-
-      - `:rejected`
-
-  - `type: :user_profile`
-
-    Object type. Always `user_profile`.
-
-    - `:user_profile`
-
-  - `updated_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `access_type: :application | :passthrough`
-
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
-
-    - `:application`
-
-    - `:passthrough`
-
-  - `external_id: String`
-
-    Platform's own identifier for this user. Not enforced unique.
-
-  - `name: String`
-
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `relationship: :external | :resold | :internal`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `:external`
-
-    - `:resold`
-
-    - `:internal`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_user_profile = anthropic.beta.user_profiles.create
-
-puts(beta_user_profile)
-```
-
-#### Response
-
-```json
-{
-  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {},
-  "trust_grants": {
-    "cyber": {
-      "status": "active"
-    }
-  },
-  "type": "user_profile",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "access_type": "application",
-  "external_id": "user_12345",
-  "name": "Example User",
-  "relationship": "external"
-}
-```
-
-## List User Profiles
-
-`beta.user_profiles.list(**kwargs) -> PageCursor<BetaUserProfile>`
-
-**get** `/v1/user_profiles`
-
-List User Profiles
-
-### Parameters
-
-- `limit: Integer`
-
-  Query parameter for limit
-
-- `order: :asc | :desc`
-
-  Query parameter for order
-
-  - `:asc`
-
-  - `:desc`
-
-- `page: String`
-
-  Query parameter for page
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaUserProfile`
-
-  - `id: String`
-
-    Unique identifier for this user profile, prefixed `uprof_`.
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-  - `trust_grants: Hash[Symbol, BetaUserProfileTrustGrant]`
-
-    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
-    - `status: :active | :pending | :rejected`
-
-      Status of the trust grant.
-
-      - `:active`
-
-      - `:pending`
-
-      - `:rejected`
-
-  - `type: :user_profile`
-
-    Object type. Always `user_profile`.
-
-    - `:user_profile`
-
-  - `updated_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `access_type: :application | :passthrough`
-
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
-
-    - `:application`
-
-    - `:passthrough`
-
-  - `external_id: String`
-
-    Platform's own identifier for this user. Not enforced unique.
-
-  - `name: String`
-
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `relationship: :external | :resold | :internal`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `:external`
-
-    - `:resold`
-
-    - `:internal`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.user_profiles.list
-
-puts(page)
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
-      "created_at": "2026-03-15T10:00:00Z",
-      "metadata": {},
-      "trust_grants": {
-        "cyber": {
-          "status": "active"
-        }
-      },
-      "type": "user_profile",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "access_type": "application",
-      "external_id": "user_12345",
-      "name": "Example User",
-      "relationship": "external"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-## Get User Profile
-
-`beta.user_profiles.retrieve(user_profile_id, **kwargs) -> BetaUserProfile`
-
-**get** `/v1/user_profiles/{user_profile_id}`
-
-Get User Profile
-
-### Parameters
-
-- `user_profile_id: String`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaUserProfile`
-
-  - `id: String`
-
-    Unique identifier for this user profile, prefixed `uprof_`.
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-  - `trust_grants: Hash[Symbol, BetaUserProfileTrustGrant]`
-
-    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
-    - `status: :active | :pending | :rejected`
-
-      Status of the trust grant.
-
-      - `:active`
-
-      - `:pending`
-
-      - `:rejected`
-
-  - `type: :user_profile`
-
-    Object type. Always `user_profile`.
-
-    - `:user_profile`
-
-  - `updated_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `access_type: :application | :passthrough`
-
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
-
-    - `:application`
-
-    - `:passthrough`
-
-  - `external_id: String`
-
-    Platform's own identifier for this user. Not enforced unique.
-
-  - `name: String`
-
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `relationship: :external | :resold | :internal`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `:external`
-
-    - `:resold`
-
-    - `:internal`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_user_profile = anthropic.beta.user_profiles.retrieve("uprof_011CZkZCu8hGbp5mYRQgUmz9")
-
-puts(beta_user_profile)
-```
-
-#### Response
-
-```json
-{
-  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {},
-  "trust_grants": {
-    "cyber": {
-      "status": "active"
-    }
-  },
-  "type": "user_profile",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "access_type": "application",
-  "external_id": "user_12345",
-  "name": "Example User",
-  "relationship": "external"
-}
-```
-
-## Update User Profile
-
-`beta.user_profiles.update(user_profile_id, **kwargs) -> BetaUserProfile`
-
-**post** `/v1/user_profiles/{user_profile_id}`
-
-Update User Profile
-
-### Parameters
-
-- `user_profile_id: String`
-
-- `access_type: :application | :passthrough`
-
-  How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
-
-  - `:application`
-
-  - `:passthrough`
-
-- `external_id: String`
-
-  If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters.
-
-- `metadata: Hash[Symbol, String]`
-
-  Key-value pairs to merge into the stored metadata. Keys provided overwrite existing values. To remove a key, set its value to an empty string. Keys not provided are left unchanged. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters.
-
-- `name: String`
-
-  If present, replaces the stored name. Omit to leave unchanged. Maximum 255 characters.
-
-- `relationship: :external | :resold | :internal`
-
-  How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-  - `:external`
-
-  - `:resold`
-
-  - `:internal`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaUserProfile`
-
-  - `id: String`
-
-    Unique identifier for this user profile, prefixed `uprof_`.
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-  - `trust_grants: Hash[Symbol, BetaUserProfileTrustGrant]`
-
-    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
-    - `status: :active | :pending | :rejected`
-
-      Status of the trust grant.
-
-      - `:active`
-
-      - `:pending`
-
-      - `:rejected`
-
-  - `type: :user_profile`
-
-    Object type. Always `user_profile`.
-
-    - `:user_profile`
-
-  - `updated_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `access_type: :application | :passthrough`
-
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
-
-    - `:application`
-
-    - `:passthrough`
-
-  - `external_id: String`
-
-    Platform's own identifier for this user. Not enforced unique.
-
-  - `name: String`
-
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `relationship: :external | :resold | :internal`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `:external`
-
-    - `:resold`
-
-    - `:internal`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_user_profile = anthropic.beta.user_profiles.update("uprof_011CZkZCu8hGbp5mYRQgUmz9")
-
-puts(beta_user_profile)
-```
-
-#### Response
-
-```json
-{
-  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {},
-  "trust_grants": {
-    "cyber": {
-      "status": "active"
-    }
-  },
-  "type": "user_profile",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "access_type": "application",
-  "external_id": "user_12345",
-  "name": "Example User",
-  "relationship": "external"
-}
-```
-
-## Create Enrollment URL
-
-`beta.user_profiles.create_enrollment_url(user_profile_id, **kwargs) -> BetaUserProfileEnrollmentURL`
-
-**post** `/v1/user_profiles/{user_profile_id}/enrollment_url`
-
-Create Enrollment URL
-
-### Parameters
-
-- `user_profile_id: String`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaUserProfileEnrollmentURL`
-
-  - `expires_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `type: :enrollment_url`
-
-    Object type. Always `enrollment_url`.
-
-    - `:enrollment_url`
-
-  - `url: String`
-
-    Enrollment URL to send to the end user. Valid until `expires_at`.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_user_profile_enrollment_url = anthropic.beta.user_profiles.create_enrollment_url("uprof_011CZkZCu8hGbp5mYRQgUmz9")
-
-puts(beta_user_profile_enrollment_url)
-```
-
-#### Response
-
-```json
-{
-  "expires_at": "2026-03-15T10:15:00Z",
-  "type": "enrollment_url",
-  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
-}
-```
-
-## Domain Types
-
-### Beta User Profile
-
-- `class BetaUserProfile`
-
-  - `id: String`
-
-    Unique identifier for this user profile, prefixed `uprof_`.
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-  - `trust_grants: Hash[Symbol, BetaUserProfileTrustGrant]`
-
-    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
-    - `status: :active | :pending | :rejected`
-
-      Status of the trust grant.
-
-      - `:active`
-
-      - `:pending`
-
-      - `:rejected`
-
-  - `type: :user_profile`
-
-    Object type. Always `user_profile`.
-
-    - `:user_profile`
-
-  - `updated_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `access_type: :application | :passthrough`
-
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
-
-    - `:application`
-
-    - `:passthrough`
-
-  - `external_id: String`
-
-    Platform's own identifier for this user. Not enforced unique.
-
-  - `name: String`
-
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `relationship: :external | :resold | :internal`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `:external`
-
-    - `:resold`
-
-    - `:internal`
-
-### Beta User Profile Enrollment URL
-
-- `class BetaUserProfileEnrollmentURL`
-
-  - `expires_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `type: :enrollment_url`
-
-    Object type. Always `enrollment_url`.
-
-    - `:enrollment_url`
-
-  - `url: String`
-
-    Enrollment URL to send to the end user. Valid until `expires_at`.
-
-### Beta User Profile Trust Grant
-
-- `class BetaUserProfileTrustGrant`
-
-  - `status: :active | :pending | :rejected`
-
-    Status of the trust grant.
-
-    - `:active`
-
-    - `:pending`
-
-    - `:rejected`
-
-# Dreams
-
-## Create a Dream
-
-`beta.dreams.create(**kwargs) -> BetaDream`
-
-**post** `/v1/dreams`
-
-Create a Dream
-
-### Parameters
-
-- `inputs: Array[BetaDreamInput]`
-
-  - `class BetaDreamMemoryStoreInput`
-
-    An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
-
-    - `memory_store_id: String`
-
-    - `type: :memory_store`
-
-      - `:memory_store`
-
-  - `class BetaDreamSessionsInput`
-
-    Input session transcripts the dream reads.
-
-    - `session_ids: Array[String]`
-
-    - `type: :sessions`
-
-      - `:sessions`
-
-- `model: String | BetaDreamModelConfigParam`
-
-  Model identifier and configuration applied to every pipeline stage.
-
-  - `String = String`
-
-  - `class BetaDreamModelConfigParam`
-
-    Model identifier and configuration applied to every pipeline stage.
-
-    - `id: String`
-
-      Model identifier, e.g. "claude-opus-5". 1-256 characters.
-
-    - `speed: :standard | :fast`
-
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-      - `:standard`
-
-      - `:fast`
-
-- `instructions: String`
-
-- `output_behavior: BetaOutputBehavior`
-
-  The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-  - `class BetaOutputBehaviorCreateNew`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-    - `type: :create_new`
-
-      - `:create_new`
-
-  - `class BetaOutputBehaviorUpdateExisting`
-
-    The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
-
-    - `memory_store_id: String`
-
-    - `type: :update_existing`
-
-      - `:update_existing`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaDream`
-
-  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into an output memory store — a new store by default, or an existing store chosen via output_behavior. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
-
-  - `id: String`
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `ended_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `error: BetaDreamError`
-
-    Failure detail for a Dream whose `status` is `failed`.
-
-    - `message: String`
-
-    - `type: String`
-
-  - `inputs: Array[BetaDreamInput]`
-
-    - `class BetaDreamMemoryStoreInput`
-
-      An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :memory_store`
-
-        - `:memory_store`
-
-    - `class BetaDreamSessionsInput`
-
-      Input session transcripts the dream reads.
-
-      - `session_ids: Array[String]`
-
-      - `type: :sessions`
-
-        - `:sessions`
-
-  - `instructions: String`
-
-  - `model: BetaDreamModelConfig`
-
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
-
-    - `id: String`
-
-      Model identifier, e.g. "claude-opus-5". 1-256 characters.
-
-    - `speed: :standard | :fast`
-
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-      - `:standard`
-
-      - `:fast`
-
-  - `output_behavior: BetaOutputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-    - `class BetaOutputBehaviorCreateNew`
-
-      The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-      - `type: :create_new`
-
-        - `:create_new`
-
-    - `class BetaOutputBehaviorUpdateExisting`
-
-      The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :update_existing`
-
-        - `:update_existing`
-
-  - `outputs: Array[BetaDreamOutput]`
-
-    - `memory_store_id: String`
-
-    - `type: :memory_store`
-
-      - `:memory_store`
-
-  - `session_id: String`
-
-  - `status: BetaDreamStatus`
-
-    Lifecycle status of a Dream.
-
-    - `:pending`
-
-    - `:running`
-
-    - `:completed`
-
-    - `:failed`
-
-    - `:canceled`
-
-  - `type: :dream`
-
-    - `:dream`
-
-  - `usage: BetaDreamUsage`
-
-    Cumulative token usage for the dream across every pipeline stage.
-
-    - `cache_creation_input_tokens: Integer`
-
-      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
-
-    - `cache_read_input_tokens: Integer`
-
-      Total tokens read from prompt cache.
-
-    - `input_tokens: Integer`
-
-      Total uncached input tokens consumed across every pipeline stage.
-
-    - `output_tokens: Integer`
-
-      Total output tokens generated across every pipeline stage.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_dream = anthropic.beta.dreams.create(inputs: [{memory_store_id: "x", type: :memory_store}], model: "string")
-
-puts(beta_dream)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "ended_at": "2019-12-27T18:11:19.117Z",
-  "error": {
-    "message": "message",
-    "type": "type"
-  },
-  "inputs": [
-    {
-      "memory_store_id": "x",
-      "type": "memory_store"
-    }
-  ],
-  "instructions": "instructions",
-  "model": {
-    "id": "x",
-    "speed": "standard"
-  },
-  "output_behavior": {
-    "type": "create_new"
-  },
-  "outputs": [
-    {
-      "memory_store_id": "memory_store_id",
-      "type": "memory_store"
-    }
-  ],
-  "session_id": "session_id",
-  "status": "pending",
-  "type": "dream",
-  "usage": {
-    "cache_creation_input_tokens": 0,
-    "cache_read_input_tokens": 0,
-    "input_tokens": 0,
-    "output_tokens": 0
-  }
-}
-```
-
-## List Dreams
-
-`beta.dreams.list(**kwargs) -> PageCursor<BetaDream>`
-
-**get** `/v1/dreams`
-
-List Dreams
-
-### Parameters
-
-- `created_at_gt: Time`
-
-  Return dreams with `created_at` strictly after this timestamp (exclusive lower bound, RFC 3339). Unset applies no lower bound.
-
-- `created_at_lt: Time`
-
-  Return dreams with `created_at` strictly before this timestamp (exclusive upper bound, RFC 3339). Unset applies no upper bound.
-
-- `include_archived: bool`
-
-  Query parameter for include_archived
-
-- `limit: Integer`
-
-  Query parameter for limit
-
-- `page: String`
-
-  Query parameter for page
-
-- `statuses: Array[BetaDreamStatus]`
-
-  Filter by lifecycle status. Repeat the parameter to match any of multiple statuses. Empty applies no status filter.
-
-  - `:pending`
-
-  - `:running`
-
-  - `:completed`
-
-  - `:failed`
-
-  - `:canceled`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaDream`
-
-  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into an output memory store — a new store by default, or an existing store chosen via output_behavior. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
-
-  - `id: String`
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `ended_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `error: BetaDreamError`
-
-    Failure detail for a Dream whose `status` is `failed`.
-
-    - `message: String`
-
-    - `type: String`
-
-  - `inputs: Array[BetaDreamInput]`
-
-    - `class BetaDreamMemoryStoreInput`
-
-      An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :memory_store`
-
-        - `:memory_store`
-
-    - `class BetaDreamSessionsInput`
-
-      Input session transcripts the dream reads.
-
-      - `session_ids: Array[String]`
-
-      - `type: :sessions`
-
-        - `:sessions`
-
-  - `instructions: String`
-
-  - `model: BetaDreamModelConfig`
-
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
-
-    - `id: String`
-
-      Model identifier, e.g. "claude-opus-5". 1-256 characters.
-
-    - `speed: :standard | :fast`
-
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-      - `:standard`
-
-      - `:fast`
-
-  - `output_behavior: BetaOutputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-    - `class BetaOutputBehaviorCreateNew`
-
-      The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-      - `type: :create_new`
-
-        - `:create_new`
-
-    - `class BetaOutputBehaviorUpdateExisting`
-
-      The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :update_existing`
-
-        - `:update_existing`
-
-  - `outputs: Array[BetaDreamOutput]`
-
-    - `memory_store_id: String`
-
-    - `type: :memory_store`
-
-      - `:memory_store`
-
-  - `session_id: String`
-
-  - `status: BetaDreamStatus`
-
-    Lifecycle status of a Dream.
-
-    - `:pending`
-
-    - `:running`
-
-    - `:completed`
-
-    - `:failed`
-
-    - `:canceled`
-
-  - `type: :dream`
-
-    - `:dream`
-
-  - `usage: BetaDreamUsage`
-
-    Cumulative token usage for the dream across every pipeline stage.
-
-    - `cache_creation_input_tokens: Integer`
-
-      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
-
-    - `cache_read_input_tokens: Integer`
-
-      Total tokens read from prompt cache.
-
-    - `input_tokens: Integer`
-
-      Total uncached input tokens consumed across every pipeline stage.
-
-    - `output_tokens: Integer`
-
-      Total output tokens generated across every pipeline stage.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.dreams.list
-
-puts(page)
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "ended_at": "2019-12-27T18:11:19.117Z",
-      "error": {
-        "message": "message",
-        "type": "type"
-      },
-      "inputs": [
-        {
-          "memory_store_id": "x",
-          "type": "memory_store"
-        }
-      ],
-      "instructions": "instructions",
-      "model": {
-        "id": "x",
-        "speed": "standard"
-      },
-      "output_behavior": {
-        "type": "create_new"
-      },
-      "outputs": [
-        {
-          "memory_store_id": "memory_store_id",
-          "type": "memory_store"
-        }
-      ],
-      "session_id": "session_id",
-      "status": "pending",
-      "type": "dream",
-      "usage": {
-        "cache_creation_input_tokens": 0,
-        "cache_read_input_tokens": 0,
-        "input_tokens": 0,
-        "output_tokens": 0
-      }
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-## Get a Dream
-
-`beta.dreams.retrieve(dream_id, **kwargs) -> BetaDream`
-
-**get** `/v1/dreams/{dream_id}`
-
-Get a Dream
-
-### Parameters
-
-- `dream_id: String`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaDream`
-
-  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into an output memory store — a new store by default, or an existing store chosen via output_behavior. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
-
-  - `id: String`
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `ended_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `error: BetaDreamError`
-
-    Failure detail for a Dream whose `status` is `failed`.
-
-    - `message: String`
-
-    - `type: String`
-
-  - `inputs: Array[BetaDreamInput]`
-
-    - `class BetaDreamMemoryStoreInput`
-
-      An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :memory_store`
-
-        - `:memory_store`
-
-    - `class BetaDreamSessionsInput`
-
-      Input session transcripts the dream reads.
-
-      - `session_ids: Array[String]`
-
-      - `type: :sessions`
-
-        - `:sessions`
-
-  - `instructions: String`
-
-  - `model: BetaDreamModelConfig`
-
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
-
-    - `id: String`
-
-      Model identifier, e.g. "claude-opus-5". 1-256 characters.
-
-    - `speed: :standard | :fast`
-
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-      - `:standard`
-
-      - `:fast`
-
-  - `output_behavior: BetaOutputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-    - `class BetaOutputBehaviorCreateNew`
-
-      The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-      - `type: :create_new`
-
-        - `:create_new`
-
-    - `class BetaOutputBehaviorUpdateExisting`
-
-      The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :update_existing`
-
-        - `:update_existing`
-
-  - `outputs: Array[BetaDreamOutput]`
-
-    - `memory_store_id: String`
-
-    - `type: :memory_store`
-
-      - `:memory_store`
-
-  - `session_id: String`
-
-  - `status: BetaDreamStatus`
-
-    Lifecycle status of a Dream.
-
-    - `:pending`
-
-    - `:running`
-
-    - `:completed`
-
-    - `:failed`
-
-    - `:canceled`
-
-  - `type: :dream`
-
-    - `:dream`
-
-  - `usage: BetaDreamUsage`
-
-    Cumulative token usage for the dream across every pipeline stage.
-
-    - `cache_creation_input_tokens: Integer`
-
-      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
-
-    - `cache_read_input_tokens: Integer`
-
-      Total tokens read from prompt cache.
-
-    - `input_tokens: Integer`
-
-      Total uncached input tokens consumed across every pipeline stage.
-
-    - `output_tokens: Integer`
-
-      Total output tokens generated across every pipeline stage.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_dream = anthropic.beta.dreams.retrieve("dream_id")
-
-puts(beta_dream)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "ended_at": "2019-12-27T18:11:19.117Z",
-  "error": {
-    "message": "message",
-    "type": "type"
-  },
-  "inputs": [
-    {
-      "memory_store_id": "x",
-      "type": "memory_store"
-    }
-  ],
-  "instructions": "instructions",
-  "model": {
-    "id": "x",
-    "speed": "standard"
-  },
-  "output_behavior": {
-    "type": "create_new"
-  },
-  "outputs": [
-    {
-      "memory_store_id": "memory_store_id",
-      "type": "memory_store"
-    }
-  ],
-  "session_id": "session_id",
-  "status": "pending",
-  "type": "dream",
-  "usage": {
-    "cache_creation_input_tokens": 0,
-    "cache_read_input_tokens": 0,
-    "input_tokens": 0,
-    "output_tokens": 0
-  }
-}
-```
-
-## Cancel a Dream
-
-`beta.dreams.cancel(dream_id, **kwargs) -> BetaDream`
-
-**post** `/v1/dreams/{dream_id}/cancel`
-
-Cancel a Dream
-
-### Parameters
-
-- `dream_id: String`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaDream`
-
-  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into an output memory store — a new store by default, or an existing store chosen via output_behavior. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
-
-  - `id: String`
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `ended_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `error: BetaDreamError`
-
-    Failure detail for a Dream whose `status` is `failed`.
-
-    - `message: String`
-
-    - `type: String`
-
-  - `inputs: Array[BetaDreamInput]`
-
-    - `class BetaDreamMemoryStoreInput`
-
-      An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :memory_store`
-
-        - `:memory_store`
-
-    - `class BetaDreamSessionsInput`
-
-      Input session transcripts the dream reads.
-
-      - `session_ids: Array[String]`
-
-      - `type: :sessions`
-
-        - `:sessions`
-
-  - `instructions: String`
-
-  - `model: BetaDreamModelConfig`
-
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
-
-    - `id: String`
-
-      Model identifier, e.g. "claude-opus-5". 1-256 characters.
-
-    - `speed: :standard | :fast`
-
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-      - `:standard`
-
-      - `:fast`
-
-  - `output_behavior: BetaOutputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-    - `class BetaOutputBehaviorCreateNew`
-
-      The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-      - `type: :create_new`
-
-        - `:create_new`
-
-    - `class BetaOutputBehaviorUpdateExisting`
-
-      The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :update_existing`
-
-        - `:update_existing`
-
-  - `outputs: Array[BetaDreamOutput]`
-
-    - `memory_store_id: String`
-
-    - `type: :memory_store`
-
-      - `:memory_store`
-
-  - `session_id: String`
-
-  - `status: BetaDreamStatus`
-
-    Lifecycle status of a Dream.
-
-    - `:pending`
-
-    - `:running`
-
-    - `:completed`
-
-    - `:failed`
-
-    - `:canceled`
-
-  - `type: :dream`
-
-    - `:dream`
-
-  - `usage: BetaDreamUsage`
-
-    Cumulative token usage for the dream across every pipeline stage.
-
-    - `cache_creation_input_tokens: Integer`
-
-      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
-
-    - `cache_read_input_tokens: Integer`
-
-      Total tokens read from prompt cache.
-
-    - `input_tokens: Integer`
-
-      Total uncached input tokens consumed across every pipeline stage.
-
-    - `output_tokens: Integer`
-
-      Total output tokens generated across every pipeline stage.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_dream = anthropic.beta.dreams.cancel("dream_id")
-
-puts(beta_dream)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "ended_at": "2019-12-27T18:11:19.117Z",
-  "error": {
-    "message": "message",
-    "type": "type"
-  },
-  "inputs": [
-    {
-      "memory_store_id": "x",
-      "type": "memory_store"
-    }
-  ],
-  "instructions": "instructions",
-  "model": {
-    "id": "x",
-    "speed": "standard"
-  },
-  "output_behavior": {
-    "type": "create_new"
-  },
-  "outputs": [
-    {
-      "memory_store_id": "memory_store_id",
-      "type": "memory_store"
-    }
-  ],
-  "session_id": "session_id",
-  "status": "pending",
-  "type": "dream",
-  "usage": {
-    "cache_creation_input_tokens": 0,
-    "cache_read_input_tokens": 0,
-    "input_tokens": 0,
-    "output_tokens": 0
-  }
-}
-```
-
-## Archive a Dream
-
-`beta.dreams.archive(dream_id, **kwargs) -> BetaDream`
-
-**post** `/v1/dreams/{dream_id}/archive`
-
-Archive a Dream
-
-### Parameters
-
-- `dream_id: String`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaDream`
-
-  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into an output memory store — a new store by default, or an existing store chosen via output_behavior. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
-
-  - `id: String`
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `ended_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `error: BetaDreamError`
-
-    Failure detail for a Dream whose `status` is `failed`.
-
-    - `message: String`
-
-    - `type: String`
-
-  - `inputs: Array[BetaDreamInput]`
-
-    - `class BetaDreamMemoryStoreInput`
-
-      An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :memory_store`
-
-        - `:memory_store`
-
-    - `class BetaDreamSessionsInput`
-
-      Input session transcripts the dream reads.
-
-      - `session_ids: Array[String]`
-
-      - `type: :sessions`
-
-        - `:sessions`
-
-  - `instructions: String`
-
-  - `model: BetaDreamModelConfig`
-
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
-
-    - `id: String`
-
-      Model identifier, e.g. "claude-opus-5". 1-256 characters.
-
-    - `speed: :standard | :fast`
-
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-      - `:standard`
-
-      - `:fast`
-
-  - `output_behavior: BetaOutputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-    - `class BetaOutputBehaviorCreateNew`
-
-      The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-      - `type: :create_new`
-
-        - `:create_new`
-
-    - `class BetaOutputBehaviorUpdateExisting`
-
-      The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :update_existing`
-
-        - `:update_existing`
-
-  - `outputs: Array[BetaDreamOutput]`
-
-    - `memory_store_id: String`
-
-    - `type: :memory_store`
-
-      - `:memory_store`
-
-  - `session_id: String`
-
-  - `status: BetaDreamStatus`
-
-    Lifecycle status of a Dream.
-
-    - `:pending`
-
-    - `:running`
-
-    - `:completed`
-
-    - `:failed`
-
-    - `:canceled`
-
-  - `type: :dream`
-
-    - `:dream`
-
-  - `usage: BetaDreamUsage`
-
-    Cumulative token usage for the dream across every pipeline stage.
-
-    - `cache_creation_input_tokens: Integer`
-
-      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
-
-    - `cache_read_input_tokens: Integer`
-
-      Total tokens read from prompt cache.
-
-    - `input_tokens: Integer`
-
-      Total uncached input tokens consumed across every pipeline stage.
-
-    - `output_tokens: Integer`
-
-      Total output tokens generated across every pipeline stage.
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_dream = anthropic.beta.dreams.archive("dream_id")
-
-puts(beta_dream)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "ended_at": "2019-12-27T18:11:19.117Z",
-  "error": {
-    "message": "message",
-    "type": "type"
-  },
-  "inputs": [
-    {
-      "memory_store_id": "x",
-      "type": "memory_store"
-    }
-  ],
-  "instructions": "instructions",
-  "model": {
-    "id": "x",
-    "speed": "standard"
-  },
-  "output_behavior": {
-    "type": "create_new"
-  },
-  "outputs": [
-    {
-      "memory_store_id": "memory_store_id",
-      "type": "memory_store"
-    }
-  ],
-  "session_id": "session_id",
-  "status": "pending",
-  "type": "dream",
-  "usage": {
-    "cache_creation_input_tokens": 0,
-    "cache_read_input_tokens": 0,
-    "input_tokens": 0,
-    "output_tokens": 0
-  }
-}
-```
-
-## Domain Types
-
-### Beta Dream
-
-- `class BetaDream`
-
-  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into an output memory store — a new store by default, or an existing store chosen via output_behavior. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
-
-  - `id: String`
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `ended_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `error: BetaDreamError`
-
-    Failure detail for a Dream whose `status` is `failed`.
-
-    - `message: String`
-
-    - `type: String`
-
-  - `inputs: Array[BetaDreamInput]`
-
-    - `class BetaDreamMemoryStoreInput`
-
-      An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :memory_store`
-
-        - `:memory_store`
-
-    - `class BetaDreamSessionsInput`
-
-      Input session transcripts the dream reads.
-
-      - `session_ids: Array[String]`
-
-      - `type: :sessions`
-
-        - `:sessions`
-
-  - `instructions: String`
-
-  - `model: BetaDreamModelConfig`
-
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
-
-    - `id: String`
-
-      Model identifier, e.g. "claude-opus-5". 1-256 characters.
-
-    - `speed: :standard | :fast`
-
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-      - `:standard`
-
-      - `:fast`
-
-  - `output_behavior: BetaOutputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-    - `class BetaOutputBehaviorCreateNew`
-
-      The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-      - `type: :create_new`
-
-        - `:create_new`
-
-    - `class BetaOutputBehaviorUpdateExisting`
-
-      The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
-
-      - `memory_store_id: String`
-
-      - `type: :update_existing`
-
-        - `:update_existing`
-
-  - `outputs: Array[BetaDreamOutput]`
-
-    - `memory_store_id: String`
-
-    - `type: :memory_store`
-
-      - `:memory_store`
-
-  - `session_id: String`
-
-  - `status: BetaDreamStatus`
-
-    Lifecycle status of a Dream.
-
-    - `:pending`
-
-    - `:running`
-
-    - `:completed`
-
-    - `:failed`
-
-    - `:canceled`
-
-  - `type: :dream`
-
-    - `:dream`
-
-  - `usage: BetaDreamUsage`
-
-    Cumulative token usage for the dream across every pipeline stage.
-
-    - `cache_creation_input_tokens: Integer`
-
-      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
-
-    - `cache_read_input_tokens: Integer`
-
-      Total tokens read from prompt cache.
-
-    - `input_tokens: Integer`
-
-      Total uncached input tokens consumed across every pipeline stage.
-
-    - `output_tokens: Integer`
-
-      Total output tokens generated across every pipeline stage.
-
-### Beta Dream Error
-
-- `class BetaDreamError`
-
-  Failure detail for a Dream whose `status` is `failed`.
-
-  - `message: String`
-
-  - `type: String`
-
-### Beta Dream Input
-
-- `BetaDreamInput = BetaDreamMemoryStoreInput | BetaDreamSessionsInput`
-
-  An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
-
-  - `class BetaDreamMemoryStoreInput`
-
-    An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
-
-    - `memory_store_id: String`
-
-    - `type: :memory_store`
-
-      - `:memory_store`
-
-  - `class BetaDreamSessionsInput`
-
-    Input session transcripts the dream reads.
-
-    - `session_ids: Array[String]`
-
-    - `type: :sessions`
-
-      - `:sessions`
-
-### Beta Dream Memory Store Input
-
-- `class BetaDreamMemoryStoreInput`
-
-  An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
-
-  - `memory_store_id: String`
-
-  - `type: :memory_store`
-
-    - `:memory_store`
-
-### Beta Dream Memory Store Output
-
-- `class BetaDreamMemoryStoreOutput`
-
-  An output memory store the dream writes consolidated memories into.
-
-  - `memory_store_id: String`
-
-  - `type: :memory_store`
-
-    - `:memory_store`
-
-### Beta Dream Model Config
-
-- `class BetaDreamModelConfig`
-
-  Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
-
-  - `id: String`
-
-    Model identifier, e.g. "claude-opus-5". 1-256 characters.
-
-  - `speed: :standard | :fast`
-
-    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-    - `:standard`
-
-    - `:fast`
-
-### Beta Dream Model Config Param
-
-- `class BetaDreamModelConfigParam`
-
-  Model identifier and configuration applied to every pipeline stage.
-
-  - `id: String`
-
-    Model identifier, e.g. "claude-opus-5". 1-256 characters.
-
-  - `speed: :standard | :fast`
-
-    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-    - `:standard`
-
-    - `:fast`
-
-### Beta Dream Output
-
-- `class BetaDreamOutput`
-
-  An output memory store the dream writes consolidated memories into.
-
-  - `memory_store_id: String`
-
-  - `type: :memory_store`
-
-    - `:memory_store`
-
-### Beta Dream Sessions Input
-
-- `class BetaDreamSessionsInput`
-
-  Input session transcripts the dream reads.
-
-  - `session_ids: Array[String]`
-
-  - `type: :sessions`
-
-    - `:sessions`
-
-### Beta Dream Status
-
-- `BetaDreamStatus = :pending | :running | :completed | 2 more`
-
-  Lifecycle status of a Dream.
-
-  - `:pending`
-
-  - `:running`
-
-  - `:completed`
-
-  - `:failed`
-
-  - `:canceled`
-
-### Beta Dream Usage
-
-- `class BetaDreamUsage`
-
-  Cumulative token usage for the dream across every pipeline stage.
-
-  - `cache_creation_input_tokens: Integer`
-
-    Total tokens used to create prompt-cache entries (sum of all TTL tiers).
-
-  - `cache_read_input_tokens: Integer`
-
-    Total tokens read from prompt cache.
-
-  - `input_tokens: Integer`
-
-    Total uncached input tokens consumed across every pipeline stage.
-
-  - `output_tokens: Integer`
-
-    Total output tokens generated across every pipeline stage.
-
-### Beta Output Behavior
-
-- `BetaOutputBehavior = BetaOutputBehaviorCreateNew | BetaOutputBehaviorUpdateExisting`
-
-  The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-  - `class BetaOutputBehaviorCreateNew`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-    - `type: :create_new`
-
-      - `:create_new`
-
-  - `class BetaOutputBehaviorUpdateExisting`
-
-    The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
-
-    - `memory_store_id: String`
-
-    - `type: :update_existing`
-
-      - `:update_existing`
-
-### Beta Output Behavior Create New
-
-- `class BetaOutputBehaviorCreateNew`
-
-  The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
-  - `type: :create_new`
-
-    - `:create_new`
-
-### Beta Output Behavior Update Existing
-
-- `class BetaOutputBehaviorUpdateExisting`
-
-  The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
-
-  - `memory_store_id: String`
-
-  - `type: :update_existing`
-
-    - `:update_existing`
-
-# Tunnels
-
-## Create Tunnel
-
-`beta.tunnels.create(**kwargs) -> BetaTunnel`
-
-**post** `/v1/tunnels`
-
-The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
-
-Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel; it is not idempotent. The new tunnel rejects MCP traffic until at least one CA certificate is added.
-
-### Parameters
-
-- `display_name: String`
-
-  Optional human-readable name for the tunnel (1-255 characters).
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaTunnel`
-
-  An MCP tunnel.
-
-  - `id: String`
-
-    Unique identifier for the tunnel, prefixed with `tnl_`.
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `display_name: String`
-
-    Human-readable name for the tunnel (1-255 characters). Null if unset.
-
-  - `domain: String`
-
-    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
-
-  - `type: :tunnel`
-
-    - `:tunnel`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_tunnel = anthropic.beta.tunnels.create
-
-puts(beta_tunnel)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "display_name": "display_name",
-  "domain": "domain",
-  "type": "tunnel"
-}
-```
-
-## Get Tunnel
-
-`beta.tunnels.retrieve(tunnel_id, **kwargs) -> BetaTunnel`
-
-**get** `/v1/tunnels/{tunnel_id}`
-
-The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
-
-Fetches a tunnel by ID.
-
-### Parameters
-
-- `tunnel_id: String`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaTunnel`
-
-  An MCP tunnel.
-
-  - `id: String`
-
-    Unique identifier for the tunnel, prefixed with `tnl_`.
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `display_name: String`
-
-    Human-readable name for the tunnel (1-255 characters). Null if unset.
-
-  - `domain: String`
-
-    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
-
-  - `type: :tunnel`
-
-    - `:tunnel`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_tunnel = anthropic.beta.tunnels.retrieve("tunnel_id")
-
-puts(beta_tunnel)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "display_name": "display_name",
-  "domain": "domain",
-  "type": "tunnel"
-}
-```
-
-## List Tunnels
-
-`beta.tunnels.list(**kwargs) -> PageCursor<BetaTunnel>`
-
-**get** `/v1/tunnels`
-
-The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
-
-Lists tunnels. Results are ordered by creation time, newest first; archived tunnels are excluded unless include_archived is set.
-
-### Parameters
-
-- `include_archived: bool`
-
-  Whether to include archived tunnels in the results. Defaults to false.
-
-- `limit: Integer`
-
-  Maximum number of tunnels to return per page. Defaults to 20, maximum 1000.
-
-- `page: String`
-
-  Opaque pagination cursor from a previous `list_tunnels` response.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaTunnel`
-
-  An MCP tunnel.
-
-  - `id: String`
-
-    Unique identifier for the tunnel, prefixed with `tnl_`.
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `display_name: String`
-
-    Human-readable name for the tunnel (1-255 characters). Null if unset.
-
-  - `domain: String`
-
-    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
-
-  - `type: :tunnel`
-
-    - `:tunnel`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.tunnels.list
-
-puts(page)
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "display_name": "display_name",
-      "domain": "domain",
-      "type": "tunnel"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-## Archive Tunnel
-
-`beta.tunnels.archive(tunnel_id, **kwargs) -> BetaTunnel`
-
-**post** `/v1/tunnels/{tunnel_id}/archive`
-
-The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
-
-Archives a tunnel. Archival is irreversible: every non-archived certificate on the tunnel is archived in the same operation, the hostname is retired and never re-allocated, and the tunnel token is invalidated. Retrying against an already-archived tunnel returns the existing record unchanged.
-
-### Parameters
-
-- `tunnel_id: String`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaTunnel`
-
-  An MCP tunnel.
-
-  - `id: String`
-
-    Unique identifier for the tunnel, prefixed with `tnl_`.
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `display_name: String`
-
-    Human-readable name for the tunnel (1-255 characters). Null if unset.
-
-  - `domain: String`
-
-    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
-
-  - `type: :tunnel`
-
-    - `:tunnel`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_tunnel = anthropic.beta.tunnels.archive("tunnel_id")
-
-puts(beta_tunnel)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "display_name": "display_name",
-  "domain": "domain",
-  "type": "tunnel"
-}
-```
-
-## Reveal Tunnel Token
-
-`beta.tunnels.reveal_token(tunnel_id, **kwargs) -> BetaTunnelToken`
-
-**post** `/v1/tunnels/{tunnel_id}/reveal_token`
-
-The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
-
-Reveals a tunnel's connector token. The value is fetched live on each call; Anthropic does not store it. Repeated calls return the same value until the token is rotated. Exposed as POST so the token does not appear in intermediary access logs.
-
-### Parameters
-
-- `tunnel_id: String`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaTunnelToken`
-
-  A tunnel's connector token.
-
-  - `id: String`
-
-    Stable identifier for the current token value. Changes when the token is rotated.
-
-  - `tunnel_token: String`
-
-    The connector token used to run the tunnel. Treat as a credential.
-
-  - `type: :tunnel_token`
-
-    - `:tunnel_token`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_tunnel_token = anthropic.beta.tunnels.reveal_token("tunnel_id")
-
-puts(beta_tunnel_token)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "tunnel_token": "tunnel_token",
-  "type": "tunnel_token"
-}
-```
-
-## Rotate Tunnel Token
-
-`beta.tunnels.rotate_token(tunnel_id, **kwargs) -> BetaTunnelToken`
-
-**post** `/v1/tunnels/{tunnel_id}/rotate_token`
-
-The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
-
-Rotates a tunnel's connector token. Rotation invalidates the current token for new connections and returns a fresh value; established connections are not severed. A connector restarted after rotation must use the new value.
-
-### Parameters
-
-- `tunnel_id: String`
-
-- `reason: String`
-
-  Optional free-text reason for the rotation, recorded for audit.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaTunnelToken`
-
-  A tunnel's connector token.
-
-  - `id: String`
-
-    Stable identifier for the current token value. Changes when the token is rotated.
-
-  - `tunnel_token: String`
-
-    The connector token used to run the tunnel. Treat as a credential.
-
-  - `type: :tunnel_token`
-
-    - `:tunnel_token`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_tunnel_token = anthropic.beta.tunnels.rotate_token("tunnel_id")
-
-puts(beta_tunnel_token)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "tunnel_token": "tunnel_token",
-  "type": "tunnel_token"
-}
-```
-
-## Domain Types
-
-### Beta Tunnel
-
-- `class BetaTunnel`
-
-  An MCP tunnel.
-
-  - `id: String`
-
-    Unique identifier for the tunnel, prefixed with `tnl_`.
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `display_name: String`
-
-    Human-readable name for the tunnel (1-255 characters). Null if unset.
-
-  - `domain: String`
-
-    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
-
-  - `type: :tunnel`
-
-    - `:tunnel`
-
-### Beta Tunnel Token
-
-- `class BetaTunnelToken`
-
-  A tunnel's connector token.
-
-  - `id: String`
-
-    Stable identifier for the current token value. Changes when the token is rotated.
-
-  - `tunnel_token: String`
-
-    The connector token used to run the tunnel. Treat as a credential.
-
-  - `type: :tunnel_token`
-
-    - `:tunnel_token`
-
-# Certificates
-
-## Create Tunnel Certificate
-
-`beta.tunnels.certificates.create(tunnel_id, **kwargs) -> BetaTunnelCertificate`
-
-**post** `/v1/tunnels/{tunnel_id}/certificates`
-
-The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
-
-Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's server certificate against this CA when it terminates the inner TLS session. A tunnel holds at most two non-archived certificates.
-
-### Parameters
-
-- `tunnel_id: String`
-
-- `ca_certificate_pem: String`
-
-  PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaTunnelCertificate`
-
-  A CA certificate attached to a tunnel.
-
-  - `id: String`
-
-    Unique identifier for the certificate, prefixed with `tcrt_`.
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `expires_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `fingerprint: String`
-
-    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
-
-  - `tunnel_id: String`
-
-    ID of the tunnel the certificate is registered against.
-
-  - `type: :tunnel_certificate`
-
-    - `:tunnel_certificate`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_tunnel_certificate = anthropic.beta.tunnels.certificates.create("tunnel_id", ca_certificate_pem: "ca_certificate_pem")
-
-puts(beta_tunnel_certificate)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "expires_at": "2019-12-27T18:11:19.117Z",
-  "fingerprint": "fingerprint",
-  "tunnel_id": "tunnel_id",
-  "type": "tunnel_certificate"
-}
-```
-
-## Get Tunnel Certificate
-
-`beta.tunnels.certificates.retrieve(certificate_id, **kwargs) -> BetaTunnelCertificate`
-
-**get** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}`
-
-The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
-
-Fetches a tunnel certificate by ID.
-
-### Parameters
-
-- `tunnel_id: String`
-
-- `certificate_id: String`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaTunnelCertificate`
-
-  A CA certificate attached to a tunnel.
-
-  - `id: String`
-
-    Unique identifier for the certificate, prefixed with `tcrt_`.
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `expires_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `fingerprint: String`
-
-    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
-
-  - `tunnel_id: String`
-
-    ID of the tunnel the certificate is registered against.
-
-  - `type: :tunnel_certificate`
-
-    - `:tunnel_certificate`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_tunnel_certificate = anthropic.beta.tunnels.certificates.retrieve("certificate_id", tunnel_id: "tunnel_id")
-
-puts(beta_tunnel_certificate)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "expires_at": "2019-12-27T18:11:19.117Z",
-  "fingerprint": "fingerprint",
-  "tunnel_id": "tunnel_id",
-  "type": "tunnel_certificate"
-}
-```
-
-## List Tunnel Certificates
-
-`beta.tunnels.certificates.list(tunnel_id, **kwargs) -> PageCursor<BetaTunnelCertificate>`
-
-**get** `/v1/tunnels/{tunnel_id}/certificates`
-
-The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
-
-Lists the certificates registered on a tunnel. Archived certificates are excluded unless include_archived is set.
-
-### Parameters
-
-- `tunnel_id: String`
-
-- `include_archived: bool`
-
-  Whether to include archived certificates in the results. Defaults to false.
-
-- `limit: Integer`
-
-  Maximum number of certificates to return per page. Defaults to 20, maximum 1000.
-
-- `page: String`
-
-  Opaque pagination cursor from a previous `list_tunnel_certificates` response.
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaTunnelCertificate`
-
-  A CA certificate attached to a tunnel.
-
-  - `id: String`
-
-    Unique identifier for the certificate, prefixed with `tcrt_`.
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `expires_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `fingerprint: String`
-
-    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
-
-  - `tunnel_id: String`
-
-    ID of the tunnel the certificate is registered against.
-
-  - `type: :tunnel_certificate`
-
-    - `:tunnel_certificate`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.tunnels.certificates.list("tunnel_id")
-
-puts(page)
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "expires_at": "2019-12-27T18:11:19.117Z",
-      "fingerprint": "fingerprint",
-      "tunnel_id": "tunnel_id",
-      "type": "tunnel_certificate"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-## Archive Tunnel Certificate
-
-`beta.tunnels.certificates.archive(certificate_id, **kwargs) -> BetaTunnelCertificate`
-
-**post** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}/archive`
-
-The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
-
-Archives a tunnel certificate, removing it from the set Anthropic trusts for the tunnel. The certificate record is retained. Archiving the last non-archived certificate is permitted; the tunnel rejects MCP traffic until a new certificate is added.
-
-### Parameters
-
-- `tunnel_id: String`
-
-- `certificate_id: String`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `class BetaTunnelCertificate`
-
-  A CA certificate attached to a tunnel.
-
-  - `id: String`
-
-    Unique identifier for the certificate, prefixed with `tcrt_`.
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `expires_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `fingerprint: String`
-
-    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
-
-  - `tunnel_id: String`
-
-    ID of the tunnel the certificate is registered against.
-
-  - `type: :tunnel_certificate`
-
-    - `:tunnel_certificate`
-
-### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_tunnel_certificate = anthropic.beta.tunnels.certificates.archive("certificate_id", tunnel_id: "tunnel_id")
-
-puts(beta_tunnel_certificate)
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "expires_at": "2019-12-27T18:11:19.117Z",
-  "fingerprint": "fingerprint",
-  "tunnel_id": "tunnel_id",
-  "type": "tunnel_certificate"
-}
-```
-
-## Domain Types
-
-### Beta Tunnel Certificate
-
-- `class BetaTunnelCertificate`
-
-  A CA certificate attached to a tunnel.
-
-  - `id: String`
-
-    Unique identifier for the certificate, prefixed with `tcrt_`.
-
-  - `archived_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `expires_at: Time`
-
-    A timestamp in RFC 3339 format
-
-  - `fingerprint: String`
-
-    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
-
-  - `tunnel_id: String`
-
-    ID of the tunnel the certificate is registered against.
-
-  - `type: :tunnel_certificate`
-
-    - `:tunnel_certificate`
-
-# Webhooks
-
-## Domain Types
-
-### Beta Webhook Agent Archived Event Data
-
-- `class BetaWebhookAgentArchivedEventData`
-
-  - `id: String`
-
-    ID of the agent that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"agent.archived"`
-
-    - `:"agent.archived"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Agent Created Event Data
-
-- `class BetaWebhookAgentCreatedEventData`
-
-  - `id: String`
-
-    ID of the agent that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"agent.created"`
-
-    - `:"agent.created"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Agent Deleted Event Data
-
-- `class BetaWebhookAgentDeletedEventData`
-
-  - `id: String`
-
-    ID of the agent that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"agent.deleted"`
-
-    - `:"agent.deleted"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Agent Updated Event Data
-
-- `class BetaWebhookAgentUpdatedEventData`
-
-  - `id: String`
-
-    ID of the agent that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"agent.updated"`
-
-    - `:"agent.updated"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Deployment Archived Event Data
-
-- `class BetaWebhookDeploymentArchivedEventData`
-
-  - `id: String`
-
-    ID of the deployment that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"deployment.archived"`
-
-    - `:"deployment.archived"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Deployment Created Event Data
-
-- `class BetaWebhookDeploymentCreatedEventData`
-
-  - `id: String`
-
-    ID of the deployment that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"deployment.created"`
-
-    - `:"deployment.created"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Deployment Deleted Event Data
-
-- `class BetaWebhookDeploymentDeletedEventData`
-
-  - `id: String`
-
-    ID of the deployment that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"deployment.deleted"`
-
-    - `:"deployment.deleted"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Deployment Paused Event Data
-
-- `class BetaWebhookDeploymentPausedEventData`
-
-  - `id: String`
-
-    ID of the deployment that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"deployment.paused"`
-
-    - `:"deployment.paused"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Deployment Run Failed Event Data
-
-- `class BetaWebhookDeploymentRunFailedEventData`
-
-  - `id: String`
-
-    ID of the deployment run that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"deployment_run.failed"`
-
-    - `:"deployment_run.failed"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Deployment Run Started Event Data
-
-- `class BetaWebhookDeploymentRunStartedEventData`
-
-  - `id: String`
-
-    ID of the deployment run that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"deployment_run.started"`
-
-    - `:"deployment_run.started"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Deployment Run Succeeded Event Data
-
-- `class BetaWebhookDeploymentRunSucceededEventData`
-
-  - `id: String`
-
-    ID of the deployment run that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"deployment_run.succeeded"`
-
-    - `:"deployment_run.succeeded"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Deployment Unpaused Event Data
-
-- `class BetaWebhookDeploymentUnpausedEventData`
-
-  - `id: String`
-
-    ID of the deployment that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"deployment.unpaused"`
-
-    - `:"deployment.unpaused"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Deployment Updated Event Data
-
-- `class BetaWebhookDeploymentUpdatedEventData`
-
-  - `id: String`
-
-    ID of the deployment that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"deployment.updated"`
-
-    - `:"deployment.updated"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Environment Archived Event Data
-
-- `class BetaWebhookEnvironmentArchivedEventData`
-
-  - `id: String`
-
-    ID of the environment that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"environment.archived"`
-
-    - `:"environment.archived"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Environment Created Event Data
-
-- `class BetaWebhookEnvironmentCreatedEventData`
-
-  - `id: String`
-
-    ID of the environment that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"environment.created"`
-
-    - `:"environment.created"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Environment Deleted Event Data
-
-- `class BetaWebhookEnvironmentDeletedEventData`
-
-  - `id: String`
-
-    ID of the environment that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"environment.deleted"`
-
-    - `:"environment.deleted"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Environment Updated Event Data
-
-- `class BetaWebhookEnvironmentUpdatedEventData`
-
-  - `id: String`
-
-    ID of the environment that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"environment.updated"`
-
-    - `:"environment.updated"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Event
-
-- `class BetaWebhookEvent`
-
-  - `id: String`
-
-    Unique event identifier for idempotency.
-
-  - `created_at: Time`
-
-    RFC 3339 timestamp when the event occurred.
-
-  - `data: BetaWebhookEventData`
-
-    - `class BetaWebhookSessionCreatedEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.created"`
-
-        - `:"session.created"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionPendingEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.pending"`
-
-        - `:"session.pending"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionRunningEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.running"`
-
-        - `:"session.running"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionIdledEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.idled"`
-
-        - `:"session.idled"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionRequiresActionEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.requires_action"`
-
-        - `:"session.requires_action"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionArchivedEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.archived"`
-
-        - `:"session.archived"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionDeletedEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.deleted"`
-
-        - `:"session.deleted"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionStatusRescheduledEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.status_rescheduled"`
-
-        - `:"session.status_rescheduled"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionStatusRunStartedEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.status_run_started"`
-
-        - `:"session.status_run_started"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionStatusIdledEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.status_idled"`
-
-        - `:"session.status_idled"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionStatusTerminatedEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.status_terminated"`
-
-        - `:"session.status_terminated"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionThreadCreatedEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `session_thread_id: String`
-
-        ID of the session thread this event refers to.
-
-      - `type: :"session.thread_created"`
-
-        - `:"session.thread_created"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionThreadIdledEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `session_thread_id: String`
-
-        ID of the session thread this event refers to.
-
-      - `type: :"session.thread_idled"`
-
-        - `:"session.thread_idled"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionThreadTerminatedEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `session_thread_id: String`
-
-        ID of the session thread this event refers to.
-
-      - `type: :"session.thread_terminated"`
-
-        - `:"session.thread_terminated"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionOutcomeEvaluationEndedEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.outcome_evaluation_ended"`
-
-        - `:"session.outcome_evaluation_ended"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookVaultCreatedEventData`
-
-      - `id: String`
-
-        ID of the vault that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"vault.created"`
-
-        - `:"vault.created"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookVaultArchivedEventData`
-
-      - `id: String`
-
-        ID of the vault that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"vault.archived"`
-
-        - `:"vault.archived"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookVaultDeletedEventData`
-
-      - `id: String`
-
-        ID of the vault that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"vault.deleted"`
-
-        - `:"vault.deleted"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookVaultCredentialCreatedEventData`
-
-      - `id: String`
-
-        ID of the vault credential that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"vault_credential.created"`
-
-        - `:"vault_credential.created"`
-
-      - `vault_id: String`
-
-        ID of the vault that owns this credential.
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookVaultCredentialArchivedEventData`
-
-      - `id: String`
-
-        ID of the vault credential that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"vault_credential.archived"`
-
-        - `:"vault_credential.archived"`
-
-      - `vault_id: String`
-
-        ID of the vault that owns this credential.
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookVaultCredentialDeletedEventData`
-
-      - `id: String`
-
-        ID of the vault credential that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"vault_credential.deleted"`
-
-        - `:"vault_credential.deleted"`
-
-      - `vault_id: String`
-
-        ID of the vault that owns this credential.
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookVaultCredentialRefreshFailedEventData`
-
-      - `id: String`
-
-        ID of the vault credential that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"vault_credential.refresh_failed"`
-
-        - `:"vault_credential.refresh_failed"`
-
-      - `vault_id: String`
-
-        ID of the vault that owns this credential.
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionUpdatedEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.updated"`
-
-        - `:"session.updated"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookAgentCreatedEventData`
-
-      - `id: String`
-
-        ID of the agent that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"agent.created"`
-
-        - `:"agent.created"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookAgentArchivedEventData`
-
-      - `id: String`
-
-        ID of the agent that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"agent.archived"`
-
-        - `:"agent.archived"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookAgentDeletedEventData`
-
-      - `id: String`
-
-        ID of the agent that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"agent.deleted"`
-
-        - `:"agent.deleted"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookDeploymentPausedEventData`
-
-      - `id: String`
-
-        ID of the deployment that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"deployment.paused"`
-
-        - `:"deployment.paused"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookDeploymentRunFailedEventData`
-
-      - `id: String`
-
-        ID of the deployment run that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"deployment_run.failed"`
-
-        - `:"deployment_run.failed"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookDeploymentCreatedEventData`
-
-      - `id: String`
-
-        ID of the deployment that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"deployment.created"`
-
-        - `:"deployment.created"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookDeploymentUpdatedEventData`
-
-      - `id: String`
-
-        ID of the deployment that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"deployment.updated"`
-
-        - `:"deployment.updated"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookDeploymentUnpausedEventData`
-
-      - `id: String`
-
-        ID of the deployment that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"deployment.unpaused"`
-
-        - `:"deployment.unpaused"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookAgentUpdatedEventData`
-
-      - `id: String`
-
-        ID of the agent that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"agent.updated"`
-
-        - `:"agent.updated"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookDeploymentArchivedEventData`
-
-      - `id: String`
-
-        ID of the deployment that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"deployment.archived"`
-
-        - `:"deployment.archived"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookDeploymentRunStartedEventData`
-
-      - `id: String`
-
-        ID of the deployment run that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"deployment_run.started"`
-
-        - `:"deployment_run.started"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookDeploymentDeletedEventData`
-
-      - `id: String`
-
-        ID of the deployment that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"deployment.deleted"`
-
-        - `:"deployment.deleted"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookDeploymentRunSucceededEventData`
-
-      - `id: String`
-
-        ID of the deployment run that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"deployment_run.succeeded"`
-
-        - `:"deployment_run.succeeded"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookEnvironmentCreatedEventData`
-
-      - `id: String`
-
-        ID of the environment that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"environment.created"`
-
-        - `:"environment.created"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookEnvironmentUpdatedEventData`
-
-      - `id: String`
-
-        ID of the environment that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"environment.updated"`
-
-        - `:"environment.updated"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookEnvironmentArchivedEventData`
-
-      - `id: String`
-
-        ID of the environment that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"environment.archived"`
-
-        - `:"environment.archived"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookEnvironmentDeletedEventData`
-
-      - `id: String`
-
-        ID of the environment that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"environment.deleted"`
-
-        - `:"environment.deleted"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookMemoryStoreCreatedEventData`
-
-      - `id: String`
-
-        ID of the memory store that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"memory_store.created"`
-
-        - `:"memory_store.created"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookMemoryStoreArchivedEventData`
-
-      - `id: String`
-
-        ID of the memory store that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"memory_store.archived"`
-
-        - `:"memory_store.archived"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookMemoryStoreDeletedEventData`
-
-      - `id: String`
-
-        ID of the memory store that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"memory_store.deleted"`
-
-        - `:"memory_store.deleted"`
-
-      - `workspace_id: String`
-
-    - `class BetaWebhookSessionBudgetReachedEventData`
-
-      - `id: String`
-
-        ID of the session that triggered the event.
-
-      - `organization_id: String`
-
-      - `type: :"session.budget_reached"`
-
-        - `:"session.budget_reached"`
-
-      - `workspace_id: String`
-
-  - `type: :event`
-
-    Object type. Always `event` for webhook payloads.
-
-    - `:event`
-
-### Beta Webhook Event Data
-
-- `BetaWebhookEventData = BetaWebhookSessionCreatedEventData | BetaWebhookSessionPendingEventData | BetaWebhookSessionRunningEventData | 41 more`
-
-  - `class BetaWebhookSessionCreatedEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.created"`
-
-      - `:"session.created"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionPendingEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.pending"`
-
-      - `:"session.pending"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionRunningEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.running"`
-
-      - `:"session.running"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionIdledEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.idled"`
-
-      - `:"session.idled"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionRequiresActionEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.requires_action"`
-
-      - `:"session.requires_action"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionArchivedEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.archived"`
-
-      - `:"session.archived"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionDeletedEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.deleted"`
-
-      - `:"session.deleted"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionStatusRescheduledEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.status_rescheduled"`
-
-      - `:"session.status_rescheduled"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionStatusRunStartedEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.status_run_started"`
-
-      - `:"session.status_run_started"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionStatusIdledEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.status_idled"`
-
-      - `:"session.status_idled"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionStatusTerminatedEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.status_terminated"`
-
-      - `:"session.status_terminated"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionThreadCreatedEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `session_thread_id: String`
-
-      ID of the session thread this event refers to.
-
-    - `type: :"session.thread_created"`
-
-      - `:"session.thread_created"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionThreadIdledEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `session_thread_id: String`
-
-      ID of the session thread this event refers to.
-
-    - `type: :"session.thread_idled"`
-
-      - `:"session.thread_idled"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionThreadTerminatedEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `session_thread_id: String`
-
-      ID of the session thread this event refers to.
-
-    - `type: :"session.thread_terminated"`
-
-      - `:"session.thread_terminated"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionOutcomeEvaluationEndedEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.outcome_evaluation_ended"`
-
-      - `:"session.outcome_evaluation_ended"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookVaultCreatedEventData`
-
-    - `id: String`
-
-      ID of the vault that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"vault.created"`
-
-      - `:"vault.created"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookVaultArchivedEventData`
-
-    - `id: String`
-
-      ID of the vault that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"vault.archived"`
-
-      - `:"vault.archived"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookVaultDeletedEventData`
-
-    - `id: String`
-
-      ID of the vault that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"vault.deleted"`
-
-      - `:"vault.deleted"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookVaultCredentialCreatedEventData`
-
-    - `id: String`
-
-      ID of the vault credential that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"vault_credential.created"`
-
-      - `:"vault_credential.created"`
-
-    - `vault_id: String`
-
-      ID of the vault that owns this credential.
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookVaultCredentialArchivedEventData`
-
-    - `id: String`
-
-      ID of the vault credential that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"vault_credential.archived"`
-
-      - `:"vault_credential.archived"`
-
-    - `vault_id: String`
-
-      ID of the vault that owns this credential.
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookVaultCredentialDeletedEventData`
-
-    - `id: String`
-
-      ID of the vault credential that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"vault_credential.deleted"`
-
-      - `:"vault_credential.deleted"`
-
-    - `vault_id: String`
-
-      ID of the vault that owns this credential.
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookVaultCredentialRefreshFailedEventData`
-
-    - `id: String`
-
-      ID of the vault credential that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"vault_credential.refresh_failed"`
-
-      - `:"vault_credential.refresh_failed"`
-
-    - `vault_id: String`
-
-      ID of the vault that owns this credential.
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionUpdatedEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.updated"`
-
-      - `:"session.updated"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookAgentCreatedEventData`
-
-    - `id: String`
-
-      ID of the agent that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"agent.created"`
-
-      - `:"agent.created"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookAgentArchivedEventData`
-
-    - `id: String`
-
-      ID of the agent that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"agent.archived"`
-
-      - `:"agent.archived"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookAgentDeletedEventData`
-
-    - `id: String`
-
-      ID of the agent that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"agent.deleted"`
-
-      - `:"agent.deleted"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookDeploymentPausedEventData`
-
-    - `id: String`
-
-      ID of the deployment that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"deployment.paused"`
-
-      - `:"deployment.paused"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookDeploymentRunFailedEventData`
-
-    - `id: String`
-
-      ID of the deployment run that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"deployment_run.failed"`
-
-      - `:"deployment_run.failed"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookDeploymentCreatedEventData`
-
-    - `id: String`
-
-      ID of the deployment that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"deployment.created"`
-
-      - `:"deployment.created"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookDeploymentUpdatedEventData`
-
-    - `id: String`
-
-      ID of the deployment that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"deployment.updated"`
-
-      - `:"deployment.updated"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookDeploymentUnpausedEventData`
-
-    - `id: String`
-
-      ID of the deployment that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"deployment.unpaused"`
-
-      - `:"deployment.unpaused"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookAgentUpdatedEventData`
-
-    - `id: String`
-
-      ID of the agent that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"agent.updated"`
-
-      - `:"agent.updated"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookDeploymentArchivedEventData`
-
-    - `id: String`
-
-      ID of the deployment that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"deployment.archived"`
-
-      - `:"deployment.archived"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookDeploymentRunStartedEventData`
-
-    - `id: String`
-
-      ID of the deployment run that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"deployment_run.started"`
-
-      - `:"deployment_run.started"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookDeploymentDeletedEventData`
-
-    - `id: String`
-
-      ID of the deployment that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"deployment.deleted"`
-
-      - `:"deployment.deleted"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookDeploymentRunSucceededEventData`
-
-    - `id: String`
-
-      ID of the deployment run that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"deployment_run.succeeded"`
-
-      - `:"deployment_run.succeeded"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookEnvironmentCreatedEventData`
-
-    - `id: String`
-
-      ID of the environment that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"environment.created"`
-
-      - `:"environment.created"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookEnvironmentUpdatedEventData`
-
-    - `id: String`
-
-      ID of the environment that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"environment.updated"`
-
-      - `:"environment.updated"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookEnvironmentArchivedEventData`
-
-    - `id: String`
-
-      ID of the environment that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"environment.archived"`
-
-      - `:"environment.archived"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookEnvironmentDeletedEventData`
-
-    - `id: String`
-
-      ID of the environment that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"environment.deleted"`
-
-      - `:"environment.deleted"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookMemoryStoreCreatedEventData`
-
-    - `id: String`
-
-      ID of the memory store that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"memory_store.created"`
-
-      - `:"memory_store.created"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookMemoryStoreArchivedEventData`
-
-    - `id: String`
-
-      ID of the memory store that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"memory_store.archived"`
-
-      - `:"memory_store.archived"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookMemoryStoreDeletedEventData`
-
-    - `id: String`
-
-      ID of the memory store that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"memory_store.deleted"`
-
-      - `:"memory_store.deleted"`
-
-    - `workspace_id: String`
-
-  - `class BetaWebhookSessionBudgetReachedEventData`
-
-    - `id: String`
-
-      ID of the session that triggered the event.
-
-    - `organization_id: String`
-
-    - `type: :"session.budget_reached"`
-
-      - `:"session.budget_reached"`
-
-    - `workspace_id: String`
-
-### Beta Webhook Memory Store Archived Event Data
-
-- `class BetaWebhookMemoryStoreArchivedEventData`
-
-  - `id: String`
-
-    ID of the memory store that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"memory_store.archived"`
-
-    - `:"memory_store.archived"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Memory Store Created Event Data
-
-- `class BetaWebhookMemoryStoreCreatedEventData`
-
-  - `id: String`
-
-    ID of the memory store that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"memory_store.created"`
-
-    - `:"memory_store.created"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Memory Store Deleted Event Data
-
-- `class BetaWebhookMemoryStoreDeletedEventData`
-
-  - `id: String`
-
-    ID of the memory store that triggered the event.
-
-  - `organization_id: String`
-
-  - `type: :"memory_store.deleted"`
-
-    - `:"memory_store.deleted"`
-
-  - `workspace_id: String`
-
-### Beta Webhook Session Archived Event Data
-
-- `class BetaWebhookSessionArchivedEventData`
-
-  - `id: String`

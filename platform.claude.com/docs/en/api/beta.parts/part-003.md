@@ -3,6 +3,7205 @@
 
 <!-- chunk-start -->
 
+        How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+        - `BetaManagedAgentsEffortLevel = "low" or "medium" or "high" or 2 more`
+
+          How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+          - `"low"`
+
+          - `"medium"`
+
+          - `"high"`
+
+          - `"xhigh"`
+
+          - `"max"`
+
+        - `BetaManagedAgentsEffortLow object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `BetaManagedAgentsEffortMedium object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `BetaManagedAgentsEffortHigh object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `BetaManagedAgentsEffortXhigh object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `BetaManagedAgentsEffortMax object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
+
+      - `inference_geo: optional string or null`
+
+        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo. On update, `model` is whole-object replacement — omitting inference_geo clears it.
+
+      - `speed: optional "standard" or "fast" or null`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `"standard"`
+
+        - `"fast"`
+
+  - `skills: optional array of BetaManagedAgentsSkillParams`
+
+    Replacement skill list. Full replacement: the provided array becomes the skills. Send an empty array to clear; omit to preserve the agent's skills.
+
+    - `BetaManagedAgentsAnthropicSkillParams object { skill_id, type, version }`
+
+      An Anthropic-managed skill.
+
+      - `skill_id: string`
+
+        Identifier of the Anthropic skill (e.g., "xlsx").
+
+      - `type: "anthropic"`
+
+        - `"anthropic"`
+
+      - `version: optional string or null`
+
+        Version to pin. Defaults to latest if omitted.
+
+    - `BetaManagedAgentsCustomSkillParams object { skill_id, type, version }`
+
+      A user-created custom skill.
+
+      - `skill_id: string`
+
+        Tagged ID of the custom skill (e.g., "skill_01XJ5...").
+
+      - `type: "custom"`
+
+        - `"custom"`
+
+      - `version: optional string or null`
+
+        Version to pin. Defaults to latest if omitted.
+
+  - `system: optional string or null`
+
+    Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+  - `tools: optional array of BetaManagedAgentsAgentToolset20260401Params or BetaManagedAgentsMCPToolsetParams or BetaManagedAgentsCustomToolParams`
+
+    Replacement tool list. Full replacement: the provided array becomes the tool configuration. Send an empty array to clear; omit to preserve the agent's tools.
+
+    - `BetaManagedAgentsAgentToolset20260401Params object { type, configs, default_config }`
+
+      Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
+      - `type: "agent_toolset_20260401"`
+
+        - `"agent_toolset_20260401"`
+
+      - `configs: optional array of BetaManagedAgentsAgentToolConfigParams`
+
+        Per-tool configuration overrides.
+
+        - `BetaManagedAgentsBashToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the bash tool.
+
+          - `name: "bash"`
+
+            Must be "bash".
+
+            - `"bash"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+              - `type: "always_allow"`
+
+                - `"always_allow"`
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+              - `type: "always_ask"`
+
+                - `"always_ask"`
+
+          - `type: optional "bash"`
+
+            - `"bash"`
+
+        - `BetaManagedAgentsEditToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the edit tool.
+
+          - `name: "edit"`
+
+            Must be "edit".
+
+            - `"edit"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "edit"`
+
+            - `"edit"`
+
+        - `BetaManagedAgentsReadToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the read tool.
+
+          - `name: "read"`
+
+            Must be "read".
+
+            - `"read"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "read"`
+
+            - `"read"`
+
+        - `BetaManagedAgentsWriteToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the write tool.
+
+          - `name: "write"`
+
+            Must be "write".
+
+            - `"write"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "write"`
+
+            - `"write"`
+
+        - `BetaManagedAgentsGlobToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the glob tool.
+
+          - `name: "glob"`
+
+            Must be "glob".
+
+            - `"glob"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "glob"`
+
+            - `"glob"`
+
+        - `BetaManagedAgentsGrepToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the grep tool.
+
+          - `name: "grep"`
+
+            Must be "grep".
+
+            - `"grep"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "grep"`
+
+            - `"grep"`
+
+        - `BetaManagedAgentsWebFetchToolConfigParams object { name, allowed_domains, blocked_domains, 4 more }`
+
+          Configuration override for the web_fetch tool.
+
+          - `name: "web_fetch"`
+
+            Must be "web_fetch".
+
+            - `"web_fetch"`
+
+          - `allowed_domains: optional array of string`
+
+            Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+          - `blocked_domains: optional array of string`
+
+            Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `max_content_tokens: optional number or null`
+
+            Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "web_fetch"`
+
+            - `"web_fetch"`
+
+        - `BetaManagedAgentsWebSearchToolConfigParams object { name, allowed_domains, blocked_domains, 4 more }`
+
+          Configuration override for the web_search tool.
+
+          - `name: "web_search"`
+
+            Must be "web_search".
+
+            - `"web_search"`
+
+          - `allowed_domains: optional array of string`
+
+            Only return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+          - `blocked_domains: optional array of string`
+
+            Never return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "web_search"`
+
+            - `"web_search"`
+
+          - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+            Approximate user location for search result localization.
+
+            - `type: "approximate"`
+
+              Location precision. Only "approximate" is supported.
+
+              - `"approximate"`
+
+            - `city: optional string or null`
+
+              City name.
+
+            - `country: optional string or null`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `region: optional string or null`
+
+              Region or state name.
+
+            - `timezone: optional string or null`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
+
+      - `default_config: optional BetaManagedAgentsAgentToolsetDefaultConfigParams or null`
+
+        Default configuration for all tools in a toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
+
+        - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+          Permission policy for tool execution.
+
+          - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+            Tool calls require user confirmation before execution.
+
+    - `BetaManagedAgentsMCPToolsetParams object { mcp_server_name, type, configs, default_config }`
+
+      Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `mcp_server_name: string`
+
+        Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
+
+      - `type: "mcp_toolset"`
+
+        - `"mcp_toolset"`
+
+      - `configs: optional array of BetaManagedAgentsMCPToolConfigParams`
+
+        Per-tool configuration overrides.
+
+        - `name: string`
+
+          Name of the MCP tool to configure. 1-128 characters.
+
+        - `enabled: optional boolean or null`
+
+          Whether this tool is enabled. Overrides the `default_config` setting.
+
+        - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+          Permission policy for tool execution.
+
+          - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+            Tool calls require user confirmation before execution.
+
+      - `default_config: optional BetaManagedAgentsMCPToolsetDefaultConfigParams or null`
+
+        Default configuration for all tools from an MCP server.
+
+        - `enabled: optional boolean or null`
+
+          Whether tools are enabled by default. Defaults to true if not specified.
+
+        - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+          Permission policy for tool execution.
+
+          - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+            Tool calls require user confirmation before execution.
+
+    - `BetaManagedAgentsCustomToolParams object { description, input_schema, name, type }`
+
+      A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `description: string`
+
+        Description of what the tool does, shown to the agent to help it decide when to use the tool.
+
+      - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+        JSON Schema for custom tool input parameters.
+
+        - `type: "object"`
+
+          - `"object"`
+
+        - `properties: optional map[unknown] or null`
+
+        - `required: optional array of string or null`
+
+      - `name: string`
+
+        Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
+      - `type: "custom"`
+
+        - `"custom"`
+
+  - `version: optional number`
+
+    The specific `agent` version to use. Omit to use the latest version.
+
+### Beta Managed Agents Branch Checkout
+
+- `BetaManagedAgentsBranchCheckout object { name, type }`
+
+  - `name: string`
+
+    Branch name to check out.
+
+  - `type: "branch"`
+
+    - `"branch"`
+
+### Beta Managed Agents Budget Limit
+
+- `BetaManagedAgentsBudgetLimit object { max_list_cost, type }`
+
+  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+  - `max_list_cost: BetaMonetaryAmount`
+
+    A monetary amount in a specific currency.
+
+    - `amount: string`
+
+      Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+    - `currency: BetaCurrency`
+
+      Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+      - `"USD"`
+
+  - `type: "limit"`
+
+    - `"limit"`
+
+### Beta Managed Agents Cache Creation Usage
+
+- `BetaManagedAgentsCacheCreationUsage object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
+
+  Prompt-cache creation token usage broken down by cache lifetime.
+
+  - `ephemeral_1h_input_tokens: optional number`
+
+    Tokens used to create 1-hour ephemeral cache entries.
+
+  - `ephemeral_5m_input_tokens: optional number`
+
+    Tokens used to create 5-minute ephemeral cache entries.
+
+### Beta Managed Agents Commit Checkout
+
+- `BetaManagedAgentsCommitCheckout object { sha, type }`
+
+  - `sha: string`
+
+    Full commit SHA to check out.
+
+  - `type: "commit"`
+
+    - `"commit"`
+
+### Beta Managed Agents Deleted Session
+
+- `BetaManagedAgentsDeletedSession object { id, type }`
+
+  Confirmation that a `session` has been permanently deleted.
+
+  - `id: string`
+
+  - `type: "session_deleted"`
+
+    - `"session_deleted"`
+
+### Beta Managed Agents Delta Content
+
+- `BetaManagedAgentsDeltaContent object { content, type, index }`
+
+  - `content: BetaManagedAgentsTextBlock`
+
+    Regular text content.
+
+    - `text: string`
+
+      The text content.
+
+    - `type: "text"`
+
+      - `"text"`
+
+  - `type: "content_delta"`
+
+    - `"content_delta"`
+
+  - `index: optional number`
+
+    Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+### Beta Managed Agents Delta Event
+
+- `BetaManagedAgentsDeltaEvent object { delta, event_id, type }`
+
+  An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+  - `delta: BetaManagedAgentsDeltaContent`
+
+    One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+    - `content: BetaManagedAgentsTextBlock`
+
+      Regular text content.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `type: "content_delta"`
+
+      - `"content_delta"`
+
+    - `index: optional number`
+
+      Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+  - `event_id: string`
+
+    The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+  - `type: "event_delta"`
+
+    - `"event_delta"`
+
+### Beta Managed Agents Delta Type
+
+- `BetaManagedAgentsDeltaType = "agent.message" or "agent.thinking"`
+
+  EventDeltaType enum
+
+  - `"agent.message"`
+
+  - `"agent.thinking"`
+
+### Beta Managed Agents File Resource Params
+
+- `BetaManagedAgentsFileResourceParams object { file_id, type, mount_path }`
+
+  Mount a file uploaded via the Files API into the session.
+
+  - `file_id: string`
+
+    ID of a previously uploaded file.
+
+  - `type: "file"`
+
+    - `"file"`
+
+  - `mount_path: optional string or null`
+
+    Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+### Beta Managed Agents GitHub Repository Resource Params
+
+- `BetaManagedAgentsGitHubRepositoryResourceParams object { authorization_token, type, url, 2 more }`
+
+  Mount a GitHub repository into the session's container.
+
+  - `authorization_token: string`
+
+    GitHub authorization token used to clone the repository.
+
+  - `type: "github_repository"`
+
+    - `"github_repository"`
+
+  - `url: string`
+
+    Github URL of the repository
+
+  - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout or null`
+
+    Branch or commit to check out. Defaults to the repository's default branch.
+
+    - `BetaManagedAgentsBranchCheckout object { name, type }`
+
+      - `name: string`
+
+        Branch name to check out.
+
+      - `type: "branch"`
+
+        - `"branch"`
+
+    - `BetaManagedAgentsCommitCheckout object { sha, type }`
+
+      - `sha: string`
+
+        Full commit SHA to check out.
+
+      - `type: "commit"`
+
+        - `"commit"`
+
+  - `mount_path: optional string or null`
+
+    Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+### Beta Managed Agents Memory Store Resource Param
+
+- `BetaManagedAgentsMemoryStoreResourceParam object { memory_store_id, type, access, instructions }`
+
+  Parameters for attaching a memory store to an agent session.
+
+  - `memory_store_id: string`
+
+    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+  - `access: optional "read_write" or "read_only" or null`
+
+    Access mode for an attached memory store.
+
+    - `"read_write"`
+
+    - `"read_only"`
+
+  - `instructions: optional string or null`
+
+    Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+### Beta Managed Agents Multiagent
+
+- `BetaManagedAgentsMultiagent object { agents, type }`
+
+  Resolved coordinator topology with a concrete agent roster.
+
+  - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
+
+    Agents the coordinator may spawn as session threads, each resolved to a specific version.
+
+    - `BetaManagedAgentsAgentReference object { id, type, version }`
+
+      A resolved agent reference with a concrete version.
+
+      - `id: string`
+
+      - `type: "agent"`
+
+        - `"agent"`
+
+      - `version: number`
+
+    - `BetaManagedAgentsAdvisor object { model, type }`
+
+      Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+      - `model: string`
+
+        The advisor model id.
+
+      - `type: "advisor"`
+
+        - `"advisor"`
+
+  - `type: "coordinator"`
+
+    - `"coordinator"`
+
+### Beta Managed Agents Multiagent Params
+
+- `BetaManagedAgentsMultiagentParams object { agents, type }`
+
+  A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+
+  - `agents: array of BetaManagedAgentsMultiagentRosterEntryParams`
+
+    Agents the coordinator may spawn as session threads. 1–20 entries. Each entry is an agent ID string, a versioned `{"type":"agent","id","version"}` reference, or `{"type":"self"}` to allow recursive self-invocation. Entries must reference distinct agents (after resolving `self` and string forms); at most one `self`. Referenced agents must exist, must not be archived, and must not themselves have `multiagent` set (depth limit 1).
+
+    - `string`
+
+    - `BetaManagedAgentsAgentParams object { id, type, version }`
+
+      Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
+
+      - `id: string`
+
+        The `agent` ID.
+
+      - `type: "agent"`
+
+        - `"agent"`
+
+      - `version: optional number`
+
+        The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+    - `BetaManagedAgentsMultiagentSelfParams object { type }`
+
+      Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
+
+      - `type: "self"`
+
+        - `"self"`
+
+    - `BetaManagedAgentsAdvisorParams object { model, type }`
+
+      Platform advisor roster entry: a model the session's primary thread may consult mid-turn. At most one per roster; the entry occupies the roster name `anthropic.advisor`.
+
+      - `model: string`
+
+        A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
+
+      - `type: "advisor"`
+
+        - `"advisor"`
+
+  - `type: "coordinator"`
+
+    - `"coordinator"`
+
+### Beta Managed Agents Multiagent Roster Entry Params
+
+- `BetaManagedAgentsMultiagentRosterEntryParams = string or BetaManagedAgentsAgentParams or BetaManagedAgentsMultiagentSelfParams or BetaManagedAgentsAdvisorParams`
+
+  An entry in a multiagent roster: an agent ID string, a versioned agent reference, or `self`.
+
+  - `string`
+
+  - `BetaManagedAgentsAgentParams object { id, type, version }`
+
+    Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
+
+    - `id: string`
+
+      The `agent` ID.
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: optional number`
+
+      The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+  - `BetaManagedAgentsMultiagentSelfParams object { type }`
+
+    Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
+
+    - `type: "self"`
+
+      - `"self"`
+
+  - `BetaManagedAgentsAdvisorParams object { model, type }`
+
+    Platform advisor roster entry: a model the session's primary thread may consult mid-turn. At most one per roster; the entry occupies the roster name `anthropic.advisor`.
+
+    - `model: string`
+
+      A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
+
+    - `type: "advisor"`
+
+      - `"advisor"`
+
+### Beta Managed Agents Outcome Evaluation Resource
+
+- `BetaManagedAgentsOutcomeEvaluationResource object { completed_at, description, explanation, 4 more }`
+
+  Evaluation state for a single outcome defined via a define_outcome event.
+
+  - `completed_at: string or null`
+
+    A timestamp in RFC 3339 format
+
+  - `description: string`
+
+    What the agent should produce.
+
+  - `explanation: string or null`
+
+    Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+
+  - `iteration: number`
+
+    0-indexed revision cycle the outcome is currently on.
+
+  - `outcome_id: string`
+
+    Server-generated outc_ ID for this outcome.
+
+  - `result: string`
+
+    Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
+
+  - `type: "outcome_evaluation"`
+
+    - `"outcome_evaluation"`
+
+### Beta Managed Agents Server Tool Usage
+
+- `BetaManagedAgentsServerToolUsage object { web_fetch_requests, web_search_requests }`
+
+  Cumulative count of server-executed tool invocations, broken down by tool.
+
+  - `web_fetch_requests: optional number`
+
+    Number of server-executed web fetch requests.
+
+  - `web_search_requests: optional number`
+
+    Number of server-executed web search requests.
+
+### Beta Managed Agents Session
+
+- `BetaManagedAgentsSession object { id, agent, archived_at, 14 more }`
+
+  A Managed Agents `session`.
+
+  - `id: string`
+
+  - `agent: BetaManagedAgentsSessionAgent`
+
+    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+    - `id: string`
+
+    - `description: string or null`
+
+    - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
+      - `name: string`
+
+      - `type: "url"`
+
+        - `"url"`
+
+      - `url: string`
+
+    - `model: BetaManagedAgentsModelConfig`
+
+      Model identifier and configuration.
+
+      - `id: BetaManagedAgentsModel`
+
+        The model that will power your agent.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
+          - `"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
+
+        - `string`
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `BetaManagedAgentsEffortLow object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `BetaManagedAgentsEffortMedium object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `BetaManagedAgentsEffortHigh object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `BetaManagedAgentsEffortXhigh object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `BetaManagedAgentsEffortMax object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
+
+      - `inference_geo: optional string`
+
+        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
+      - `speed: optional "standard" or "fast"`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `"standard"`
+
+        - `"fast"`
+
+    - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator or null`
+
+      Resolved coordinator topology with full agent definitions for each roster member.
+
+      - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
+
+        Full `agent` definitions the coordinator may spawn as session threads.
+
+        - `BetaManagedAgentsSessionThreadAgent object { id, description, mcp_servers, 7 more }`
+
+          Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
+          - `id: string`
+
+          - `description: string or null`
+
+          - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
+            - `name: string`
+
+            - `type: "url"`
+
+            - `url: string`
+
+          - `model: BetaManagedAgentsModelConfig`
+
+            Model identifier and configuration.
+
+          - `name: string`
+
+          - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
+            - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
+
+              A resolved Anthropic-managed skill.
+
+              - `skill_id: string`
+
+              - `type: "anthropic"`
+
+                - `"anthropic"`
+
+              - `version: string`
+
+            - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
+
+              A resolved user-created custom skill.
+
+              - `skill_id: string`
+
+              - `type: "custom"`
+
+                - `"custom"`
+
+              - `version: string`
+
+          - `system: string or null`
+
+          - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
+            - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
+
+              - `configs: array of BetaManagedAgentsAgentToolConfig`
+
+                - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the bash tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "bash"`
+
+                    - `"bash"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                      - `type: "always_allow"`
+
+                        - `"always_allow"`
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                      - `type: "always_ask"`
+
+                        - `"always_ask"`
+
+                  - `type: "bash"`
+
+                    - `"bash"`
+
+                - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the edit tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "edit"`
+
+                    - `"edit"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "edit"`
+
+                    - `"edit"`
+
+                - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the read tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "read"`
+
+                    - `"read"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "read"`
+
+                    - `"read"`
+
+                - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the write tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "write"`
+
+                    - `"write"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "write"`
+
+                    - `"write"`
+
+                - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the glob tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "glob"`
+
+                    - `"glob"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "glob"`
+
+                    - `"glob"`
+
+                - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the grep tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "grep"`
+
+                    - `"grep"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "grep"`
+
+                    - `"grep"`
+
+                - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                  Configuration for the web_fetch tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "web_fetch"`
+
+                    - `"web_fetch"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "web_fetch"`
+
+                    - `"web_fetch"`
+
+                  - `allowed_domains: optional array of string`
+
+                  - `blocked_domains: optional array of string`
+
+                  - `max_content_tokens: optional number or null`
+
+                - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                  Configuration for the web_search tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "web_search"`
+
+                    - `"web_search"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "web_search"`
+
+                    - `"web_search"`
+
+                  - `allowed_domains: optional array of string`
+
+                  - `blocked_domains: optional array of string`
+
+                  - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                    Approximate user location for search result localization.
+
+                    - `type: "approximate"`
+
+                      Location precision. Only "approximate" is supported.
+
+                      - `"approximate"`
+
+                    - `city: optional string or null`
+
+                      City name.
+
+                    - `country: optional string or null`
+
+                      Two-letter ISO 3166-1 country code, uppercase.
+
+                    - `region: optional string or null`
+
+                      Region or state name.
+
+                    - `timezone: optional string or null`
+
+                      IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                Resolved default configuration for agent tools.
+
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+              - `type: "agent_toolset_20260401"`
+
+                - `"agent_toolset_20260401"`
+
+            - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
+
+              - `configs: array of BetaManagedAgentsMCPToolConfig`
+
+                - `enabled: boolean`
+
+                - `name: string`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+              - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+              - `mcp_server_name: string`
+
+              - `type: "mcp_toolset"`
+
+                - `"mcp_toolset"`
+
+            - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
+
+              A custom tool as returned in API responses.
+
+              - `description: string`
+
+              - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+                JSON Schema for custom tool input parameters.
+
+                - `type: "object"`
+
+                  - `"object"`
+
+                - `properties: optional map[unknown] or null`
+
+                - `required: optional array of string or null`
+
+              - `name: string`
+
+              - `type: "custom"`
+
+                - `"custom"`
+
+          - `type: "agent"`
+
+            - `"agent"`
+
+          - `version: number`
+
+        - `BetaManagedAgentsAdvisor object { model, type }`
+
+          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+          - `model: string`
+
+            The advisor model id.
+
+          - `type: "advisor"`
+
+            - `"advisor"`
+
+      - `type: "coordinator"`
+
+        - `"coordinator"`
+
+    - `name: string`
+
+    - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
+      - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
+
+        A resolved Anthropic-managed skill.
+
+      - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
+
+        A resolved user-created custom skill.
+
+    - `system: string or null`
+
+    - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
+      - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
+
+      - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
+
+      - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
+
+        A custom tool as returned in API responses.
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `archived_at: string or null`
+
+    A timestamp in RFC 3339 format
+
+  - `budget: BetaManagedAgentsBudgetLimit or null`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `type: "limit"`
+
+      - `"limit"`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `environment_id: string`
+
+  - `metadata: map[string]`
+
+  - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
+
+    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+
+    - `completed_at: string or null`
+
+      A timestamp in RFC 3339 format
+
+    - `description: string`
+
+      What the agent should produce.
+
+    - `explanation: string or null`
+
+      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+
+    - `iteration: number`
+
+      0-indexed revision cycle the outcome is currently on.
+
+    - `outcome_id: string`
+
+      Server-generated outc_ ID for this outcome.
+
+    - `result: string`
+
+      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
+
+    - `type: "outcome_evaluation"`
+
+      - `"outcome_evaluation"`
+
+  - `resources: array of BetaManagedAgentsSessionResource`
+
+    - `BetaManagedAgentsGitHubRepositoryResource object { id, created_at, mount_path, 4 more }`
+
+      - `id: string`
+
+      - `created_at: string`
+
+        A timestamp in RFC 3339 format
+
+      - `mount_path: string`
+
+      - `type: "github_repository"`
+
+        - `"github_repository"`
+
+      - `updated_at: string`
+
+        A timestamp in RFC 3339 format
+
+      - `url: string`
+
+      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout or null`
+
+        - `BetaManagedAgentsBranchCheckout object { name, type }`
+
+          - `name: string`
+
+            Branch name to check out.
+
+          - `type: "branch"`
+
+            - `"branch"`
+
+        - `BetaManagedAgentsCommitCheckout object { sha, type }`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+          - `type: "commit"`
+
+            - `"commit"`
+
+    - `BetaManagedAgentsFileResource object { id, created_at, file_id, 3 more }`
+
+      - `id: string`
+
+      - `created_at: string`
+
+        A timestamp in RFC 3339 format
+
+      - `file_id: string`
+
+      - `mount_path: string`
+
+      - `type: "file"`
+
+        - `"file"`
+
+      - `updated_at: string`
+
+        A timestamp in RFC 3339 format
+
+    - `BetaManagedAgentsMemoryStoreResource object { memory_store_id, type, access, 4 more }`
+
+      A memory store attached to an agent session.
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+      - `access: optional "read_write" or "read_only" or null`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `description: optional string`
+
+        Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
+
+      - `instructions: optional string or null`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+      - `mount_path: optional string or null`
+
+        Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
+
+      - `name: optional string or null`
+
+        Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
+
+  - `stats: BetaManagedAgentsSessionStats`
+
+    Timing statistics for a session.
+
+    - `active_seconds: optional number`
+
+      Cumulative time in seconds the session spent in running status. Excludes idle time.
+
+    - `duration_seconds: optional number`
+
+      Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
+
+  - `status: "rescheduling" or "running" or "idle" or "terminated"`
+
+    SessionStatus enum
+
+    - `"rescheduling"`
+
+    - `"running"`
+
+    - `"idle"`
+
+    - `"terminated"`
+
+  - `title: string or null`
+
+  - `type: "session"`
+
+    - `"session"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `usage: BetaManagedAgentsSessionUsage`
+
+    Cumulative token usage for a session across all turns.
+
+    - `active_seconds: optional number`
+
+      Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
+
+    - `cache_creation: optional BetaManagedAgentsCacheCreationUsage`
+
+      Prompt-cache creation token usage broken down by cache lifetime.
+
+      - `ephemeral_1h_input_tokens: optional number`
+
+        Tokens used to create 1-hour ephemeral cache entries.
+
+      - `ephemeral_5m_input_tokens: optional number`
+
+        Tokens used to create 5-minute ephemeral cache entries.
+
+    - `cache_read_input_tokens: optional number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: optional number`
+
+      Total input tokens consumed across all turns.
+
+    - `list_cost: optional BetaMonetaryAmount or null`
+
+      A monetary amount in a specific currency.
+
+    - `output_tokens: optional number`
+
+      Total output tokens generated across all turns.
+
+    - `server_tool_use: optional BetaManagedAgentsServerToolUsage or null`
+
+      Cumulative count of server-executed tool invocations, broken down by tool.
+
+      - `web_fetch_requests: optional number`
+
+        Number of server-executed web fetch requests.
+
+      - `web_search_requests: optional number`
+
+        Number of server-executed web search requests.
+
+  - `vault_ids: array of string`
+
+    Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `deployment_id: optional string or null`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
+
+### Beta Managed Agents Session Agent
+
+- `BetaManagedAgentsSessionAgent object { id, description, mcp_servers, 8 more }`
+
+  Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+  - `id: string`
+
+  - `description: string or null`
+
+  - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
+    - `name: string`
+
+    - `type: "url"`
+
+      - `"url"`
+
+    - `url: string`
+
+  - `model: BetaManagedAgentsModelConfig`
+
+    Model identifier and configuration.
+
+    - `id: BetaManagedAgentsModel`
+
+      The model that will power your agent.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more`
+
+        The model that will power your agent.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-8"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-7"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-6"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-6"`
+
+          Best combination of speed and intelligence
+
+        - `"claude-haiku-4-5"`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-haiku-4-5-20251001"`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-opus-4-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-5-20251101"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-5"`
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+      - `string`
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `BetaManagedAgentsEffortLow object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `BetaManagedAgentsEffortMedium object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `BetaManagedAgentsEffortHigh object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `BetaManagedAgentsEffortXhigh object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `BetaManagedAgentsEffortMax object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `inference_geo: optional string`
+
+      Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
+    - `speed: optional "standard" or "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator or null`
+
+    Resolved coordinator topology with full agent definitions for each roster member.
+
+    - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
+
+      Full `agent` definitions the coordinator may spawn as session threads.
+
+      - `BetaManagedAgentsSessionThreadAgent object { id, description, mcp_servers, 7 more }`
+
+        Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
+        - `id: string`
+
+        - `description: string or null`
+
+        - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
+          - `name: string`
+
+          - `type: "url"`
+
+          - `url: string`
+
+        - `model: BetaManagedAgentsModelConfig`
+
+          Model identifier and configuration.
+
+        - `name: string`
+
+        - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
+          - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
+
+            A resolved Anthropic-managed skill.
+
+            - `skill_id: string`
+
+            - `type: "anthropic"`
+
+              - `"anthropic"`
+
+            - `version: string`
+
+          - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
+
+            A resolved user-created custom skill.
+
+            - `skill_id: string`
+
+            - `type: "custom"`
+
+              - `"custom"`
+
+            - `version: string`
+
+        - `system: string or null`
+
+        - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
+          - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
+
+            - `configs: array of BetaManagedAgentsAgentToolConfig`
+
+              - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
+
+                Configuration for the bash tool.
+
+                - `enabled: boolean`
+
+                - `name: "bash"`
+
+                  - `"bash"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                    - `type: "always_allow"`
+
+                      - `"always_allow"`
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+                    - `type: "always_ask"`
+
+                      - `"always_ask"`
+
+                - `type: "bash"`
+
+                  - `"bash"`
+
+              - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
+
+                Configuration for the edit tool.
+
+                - `enabled: boolean`
+
+                - `name: "edit"`
+
+                  - `"edit"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+                - `type: "edit"`
+
+                  - `"edit"`
+
+              - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+                Configuration for the read tool.
+
+                - `enabled: boolean`
+
+                - `name: "read"`
+
+                  - `"read"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+                - `type: "read"`
+
+                  - `"read"`
+
+              - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+                Configuration for the write tool.
+
+                - `enabled: boolean`
+
+                - `name: "write"`
+
+                  - `"write"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+                - `type: "write"`
+
+                  - `"write"`
+
+              - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+                Configuration for the glob tool.
+
+                - `enabled: boolean`
+
+                - `name: "glob"`
+
+                  - `"glob"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+                - `type: "glob"`
+
+                  - `"glob"`
+
+              - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+                Configuration for the grep tool.
+
+                - `enabled: boolean`
+
+                - `name: "grep"`
+
+                  - `"grep"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+                - `type: "grep"`
+
+                  - `"grep"`
+
+              - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                Configuration for the web_fetch tool.
+
+                - `enabled: boolean`
+
+                - `name: "web_fetch"`
+
+                  - `"web_fetch"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+                - `type: "web_fetch"`
+
+                  - `"web_fetch"`
+
+                - `allowed_domains: optional array of string`
+
+                - `blocked_domains: optional array of string`
+
+                - `max_content_tokens: optional number or null`
+
+              - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                Configuration for the web_search tool.
+
+                - `enabled: boolean`
+
+                - `name: "web_search"`
+
+                  - `"web_search"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+                - `type: "web_search"`
+
+                  - `"web_search"`
+
+                - `allowed_domains: optional array of string`
+
+                - `blocked_domains: optional array of string`
+
+                - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                  Approximate user location for search result localization.
+
+                  - `type: "approximate"`
+
+                    Location precision. Only "approximate" is supported.
+
+                    - `"approximate"`
+
+                  - `city: optional string or null`
+
+                    City name.
+
+                  - `country: optional string or null`
+
+                    Two-letter ISO 3166-1 country code, uppercase.
+
+                  - `region: optional string or null`
+
+                    Region or state name.
+
+                  - `timezone: optional string or null`
+
+                    IANA timezone identifier, e.g. "America/Los_Angeles".
+
+            - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+              Resolved default configuration for agent tools.
+
+              - `enabled: boolean`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+            - `type: "agent_toolset_20260401"`
+
+              - `"agent_toolset_20260401"`
+
+          - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
+
+            - `configs: array of BetaManagedAgentsMCPToolConfig`
+
+              - `enabled: boolean`
+
+              - `name: string`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+            - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+              Resolved default configuration for all tools from an MCP server.
+
+              - `enabled: boolean`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+            - `mcp_server_name: string`
+
+            - `type: "mcp_toolset"`
+
+              - `"mcp_toolset"`
+
+          - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
+
+            A custom tool as returned in API responses.
+
+            - `description: string`
+
+            - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+              JSON Schema for custom tool input parameters.
+
+              - `type: "object"`
+
+                - `"object"`
+
+              - `properties: optional map[unknown] or null`
+
+              - `required: optional array of string or null`
+
+            - `name: string`
+
+            - `type: "custom"`
+
+              - `"custom"`
+
+        - `type: "agent"`
+
+          - `"agent"`
+
+        - `version: number`
+
+      - `BetaManagedAgentsAdvisor object { model, type }`
+
+        Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+        - `model: string`
+
+          The advisor model id.
+
+        - `type: "advisor"`
+
+          - `"advisor"`
+
+    - `type: "coordinator"`
+
+      - `"coordinator"`
+
+  - `name: string`
+
+  - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
+    - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
+
+      A resolved Anthropic-managed skill.
+
+    - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
+
+      A resolved user-created custom skill.
+
+  - `system: string or null`
+
+  - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
+    - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
+
+    - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
+
+    - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
+
+      A custom tool as returned in API responses.
+
+  - `type: "agent"`
+
+    - `"agent"`
+
+  - `version: number`
+
+### Beta Managed Agents Session Agent Update
+
+- `BetaManagedAgentsSessionAgentUpdate object { mcp_servers, tools }`
+
+  Mid-session agent configuration update. Only `tools` and `mcp_servers` are updatable. Full replacement: the provided array becomes the new value. To preserve existing entries, GET the session, modify the array, and POST it back.
+
+  - `mcp_servers: optional array of BetaManagedAgentsURLMCPServerParams`
+
+    Replacement MCP server list. Full replacement: the provided array becomes the new value. Send an empty array to clear; omit to preserve.
+
+    - `name: string`
+
+      Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
+
+    - `type: "url"`
+
+      - `"url"`
+
+    - `url: string`
+
+      Endpoint URL for the MCP server.
+
+  - `tools: optional array of BetaManagedAgentsAgentToolset20260401Params or BetaManagedAgentsMCPToolsetParams or BetaManagedAgentsCustomToolParams`
+
+    Replacement tool list. Full replacement: the provided array becomes the new value. Send an empty array to clear; omit to preserve.
+
+    - `BetaManagedAgentsAgentToolset20260401Params object { type, configs, default_config }`
+
+      Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
+      - `type: "agent_toolset_20260401"`
+
+        - `"agent_toolset_20260401"`
+
+      - `configs: optional array of BetaManagedAgentsAgentToolConfigParams`
+
+        Per-tool configuration overrides.
+
+        - `BetaManagedAgentsBashToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the bash tool.
+
+          - `name: "bash"`
+
+            Must be "bash".
+
+            - `"bash"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+              - `type: "always_allow"`
+
+                - `"always_allow"`
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+              - `type: "always_ask"`
+
+                - `"always_ask"`
+
+          - `type: optional "bash"`
+
+            - `"bash"`
+
+        - `BetaManagedAgentsEditToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the edit tool.
+
+          - `name: "edit"`
+
+            Must be "edit".
+
+            - `"edit"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "edit"`
+
+            - `"edit"`
+
+        - `BetaManagedAgentsReadToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the read tool.
+
+          - `name: "read"`
+
+            Must be "read".
+
+            - `"read"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "read"`
+
+            - `"read"`
+
+        - `BetaManagedAgentsWriteToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the write tool.
+
+          - `name: "write"`
+
+            Must be "write".
+
+            - `"write"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "write"`
+
+            - `"write"`
+
+        - `BetaManagedAgentsGlobToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the glob tool.
+
+          - `name: "glob"`
+
+            Must be "glob".
+
+            - `"glob"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "glob"`
+
+            - `"glob"`
+
+        - `BetaManagedAgentsGrepToolConfigParams object { name, enabled, permission_policy, type }`
+
+          Configuration override for the grep tool.
+
+          - `name: "grep"`
+
+            Must be "grep".
+
+            - `"grep"`
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "grep"`
+
+            - `"grep"`
+
+        - `BetaManagedAgentsWebFetchToolConfigParams object { name, allowed_domains, blocked_domains, 4 more }`
+
+          Configuration override for the web_fetch tool.
+
+          - `name: "web_fetch"`
+
+            Must be "web_fetch".
+
+            - `"web_fetch"`
+
+          - `allowed_domains: optional array of string`
+
+            Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+          - `blocked_domains: optional array of string`
+
+            Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `max_content_tokens: optional number or null`
+
+            Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "web_fetch"`
+
+            - `"web_fetch"`
+
+        - `BetaManagedAgentsWebSearchToolConfigParams object { name, allowed_domains, blocked_domains, 4 more }`
+
+          Configuration override for the web_search tool.
+
+          - `name: "web_search"`
+
+            Must be "web_search".
+
+            - `"web_search"`
+
+          - `allowed_domains: optional array of string`
+
+            Only return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+          - `blocked_domains: optional array of string`
+
+            Never return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+          - `enabled: optional boolean or null`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+            Permission policy for tool execution.
+
+            - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: optional "web_search"`
+
+            - `"web_search"`
+
+          - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+            Approximate user location for search result localization.
+
+            - `type: "approximate"`
+
+              Location precision. Only "approximate" is supported.
+
+              - `"approximate"`
+
+            - `city: optional string or null`
+
+              City name.
+
+            - `country: optional string or null`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `region: optional string or null`
+
+              Region or state name.
+
+            - `timezone: optional string or null`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
+
+      - `default_config: optional BetaManagedAgentsAgentToolsetDefaultConfigParams or null`
+
+        Default configuration for all tools in a toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
+
+        - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+          Permission policy for tool execution.
+
+          - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+            Tool calls require user confirmation before execution.
+
+    - `BetaManagedAgentsMCPToolsetParams object { mcp_server_name, type, configs, default_config }`
+
+      Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `mcp_server_name: string`
+
+        Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
+
+      - `type: "mcp_toolset"`
+
+        - `"mcp_toolset"`
+
+      - `configs: optional array of BetaManagedAgentsMCPToolConfigParams`
+
+        Per-tool configuration overrides.
+
+        - `name: string`
+
+          Name of the MCP tool to configure. 1-128 characters.
+
+        - `enabled: optional boolean or null`
+
+          Whether this tool is enabled. Overrides the `default_config` setting.
+
+        - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+          Permission policy for tool execution.
+
+          - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+            Tool calls require user confirmation before execution.
+
+      - `default_config: optional BetaManagedAgentsMCPToolsetDefaultConfigParams or null`
+
+        Default configuration for all tools from an MCP server.
+
+        - `enabled: optional boolean or null`
+
+          Whether tools are enabled by default. Defaults to true if not specified.
+
+        - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or null`
+
+          Permission policy for tool execution.
+
+          - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+            Tool calls require user confirmation before execution.
+
+    - `BetaManagedAgentsCustomToolParams object { description, input_schema, name, type }`
+
+      A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `description: string`
+
+        Description of what the tool does, shown to the agent to help it decide when to use the tool.
+
+      - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+        JSON Schema for custom tool input parameters.
+
+        - `type: "object"`
+
+          - `"object"`
+
+        - `properties: optional map[unknown] or null`
+
+        - `required: optional array of string or null`
+
+      - `name: string`
+
+        Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
+      - `type: "custom"`
+
+        - `"custom"`
+
+### Beta Managed Agents Session Multiagent Coordinator
+
+- `BetaManagedAgentsSessionMultiagentCoordinator object { agents, type }`
+
+  Resolved coordinator topology with full agent definitions for each roster member.
+
+  - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
+
+    Full `agent` definitions the coordinator may spawn as session threads.
+
+    - `BetaManagedAgentsSessionThreadAgent object { id, description, mcp_servers, 7 more }`
+
+      Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
+      - `id: string`
+
+      - `description: string or null`
+
+      - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
+        - `name: string`
+
+        - `type: "url"`
+
+          - `"url"`
+
+        - `url: string`
+
+      - `model: BetaManagedAgentsModelConfig`
+
+        Model identifier and configuration.
+
+        - `id: BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more`
+
+            The model that will power your agent.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
+            - `"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-8"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-5-20251101"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `string`
+
+        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `BetaManagedAgentsEffortLow object { type }`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `BetaManagedAgentsEffortMedium object { type }`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `BetaManagedAgentsEffortHigh object { type }`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `BetaManagedAgentsEffortXhigh object { type }`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `BetaManagedAgentsEffortMax object { type }`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
+
+        - `inference_geo: optional string`
+
+          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
+        - `speed: optional "standard" or "fast"`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `"standard"`
+
+          - `"fast"`
+
+      - `name: string`
+
+      - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
+        - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
+
+          A resolved Anthropic-managed skill.
+
+          - `skill_id: string`
+
+          - `type: "anthropic"`
+
+            - `"anthropic"`
+
+          - `version: string`
+
+        - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
+
+          A resolved user-created custom skill.
+
+          - `skill_id: string`
+
+          - `type: "custom"`
+
+            - `"custom"`
+
+          - `version: string`
+
+      - `system: string or null`
+
+      - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
+        - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
+
+          - `configs: array of BetaManagedAgentsAgentToolConfig`
+
+            - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the bash tool.
+
+              - `enabled: boolean`
+
+              - `name: "bash"`
+
+                - `"bash"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                  - `type: "always_allow"`
+
+                    - `"always_allow"`
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+                  - `type: "always_ask"`
+
+                    - `"always_ask"`
+
+              - `type: "bash"`
+
+                - `"bash"`
+
+            - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the edit tool.
+
+              - `enabled: boolean`
+
+              - `name: "edit"`
+
+                - `"edit"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "edit"`
+
+                - `"edit"`
+
+            - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the read tool.
+
+              - `enabled: boolean`
+
+              - `name: "read"`
+
+                - `"read"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "read"`
+
+                - `"read"`
+
+            - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the write tool.
+
+              - `enabled: boolean`
+
+              - `name: "write"`
+
+                - `"write"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "write"`
+
+                - `"write"`
+
+            - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the glob tool.
+
+              - `enabled: boolean`
+
+              - `name: "glob"`
+
+                - `"glob"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "glob"`
+
+                - `"glob"`
+
+            - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the grep tool.
+
+              - `enabled: boolean`
+
+              - `name: "grep"`
+
+                - `"grep"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "grep"`
+
+                - `"grep"`
+
+            - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+              Configuration for the web_fetch tool.
+
+              - `enabled: boolean`
+
+              - `name: "web_fetch"`
+
+                - `"web_fetch"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "web_fetch"`
+
+                - `"web_fetch"`
+
+              - `allowed_domains: optional array of string`
+
+              - `blocked_domains: optional array of string`
+
+              - `max_content_tokens: optional number or null`
+
+            - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+              Configuration for the web_search tool.
+
+              - `enabled: boolean`
+
+              - `name: "web_search"`
+
+                - `"web_search"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "web_search"`
+
+                - `"web_search"`
+
+              - `allowed_domains: optional array of string`
+
+              - `blocked_domains: optional array of string`
+
+              - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                Approximate user location for search result localization.
+
+                - `type: "approximate"`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `"approximate"`
+
+                - `city: optional string or null`
+
+                  City name.
+
+                - `country: optional string or null`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `region: optional string or null`
+
+                  Region or state name.
+
+                - `timezone: optional string or null`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
+
+          - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+            Resolved default configuration for agent tools.
+
+            - `enabled: boolean`
+
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+              Permission policy for tool execution.
+
+              - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                Tool calls require user confirmation before execution.
+
+          - `type: "agent_toolset_20260401"`
+
+            - `"agent_toolset_20260401"`
+
+        - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
+
+          - `configs: array of BetaManagedAgentsMCPToolConfig`
+
+            - `enabled: boolean`
+
+            - `name: string`
+
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+              Permission policy for tool execution.
+
+              - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                Tool calls require user confirmation before execution.
+
+          - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+            Resolved default configuration for all tools from an MCP server.
+
+            - `enabled: boolean`
+
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+              Permission policy for tool execution.
+
+              - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                Tool calls require user confirmation before execution.
+
+          - `mcp_server_name: string`
+
+          - `type: "mcp_toolset"`
+
+            - `"mcp_toolset"`
+
+        - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
+
+          A custom tool as returned in API responses.
+
+          - `description: string`
+
+          - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+            JSON Schema for custom tool input parameters.
+
+            - `type: "object"`
+
+              - `"object"`
+
+            - `properties: optional map[unknown] or null`
+
+            - `required: optional array of string or null`
+
+          - `name: string`
+
+          - `type: "custom"`
+
+            - `"custom"`
+
+      - `type: "agent"`
+
+        - `"agent"`
+
+      - `version: number`
+
+    - `BetaManagedAgentsAdvisor object { model, type }`
+
+      Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+      - `model: string`
+
+        The advisor model id.
+
+      - `type: "advisor"`
+
+        - `"advisor"`
+
+  - `type: "coordinator"`
+
+    - `"coordinator"`
+
+### Beta Managed Agents Session Stats
+
+- `BetaManagedAgentsSessionStats object { active_seconds, duration_seconds }`
+
+  Timing statistics for a session.
+
+  - `active_seconds: optional number`
+
+    Cumulative time in seconds the session spent in running status. Excludes idle time.
+
+  - `duration_seconds: optional number`
+
+    Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
+
+### Beta Managed Agents Session Updated Event
+
+- `BetaManagedAgentsSessionUpdatedEvent object { id, processed_at, type, 4 more }`
+
+  Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+  - `id: string`
+
+    Unique identifier for this event.
+
+  - `processed_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `type: "session.updated"`
+
+    - `"session.updated"`
+
+  - `agent: optional BetaManagedAgentsSessionAgent or null`
+
+    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+    - `id: string`
+
+    - `description: string or null`
+
+    - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
+      - `name: string`
+
+      - `type: "url"`
+
+        - `"url"`
+
+      - `url: string`
+
+    - `model: BetaManagedAgentsModelConfig`
+
+      Model identifier and configuration.
+
+      - `id: BetaManagedAgentsModel`
+
+        The model that will power your agent.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
+          - `"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
+
+        - `string`
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `BetaManagedAgentsEffortLow object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `BetaManagedAgentsEffortMedium object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `BetaManagedAgentsEffortHigh object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `BetaManagedAgentsEffortXhigh object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `BetaManagedAgentsEffortMax object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
+
+      - `inference_geo: optional string`
+
+        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
+      - `speed: optional "standard" or "fast"`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `"standard"`
+
+        - `"fast"`
+
+    - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator or null`
+
+      Resolved coordinator topology with full agent definitions for each roster member.
+
+      - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
+
+        Full `agent` definitions the coordinator may spawn as session threads.
+
+        - `BetaManagedAgentsSessionThreadAgent object { id, description, mcp_servers, 7 more }`
+
+          Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
+          - `id: string`
+
+          - `description: string or null`
+
+          - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
+            - `name: string`
+
+            - `type: "url"`
+
+            - `url: string`
+
+          - `model: BetaManagedAgentsModelConfig`
+
+            Model identifier and configuration.
+
+          - `name: string`
+
+          - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
+            - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
+
+              A resolved Anthropic-managed skill.
+
+              - `skill_id: string`
+
+              - `type: "anthropic"`
+
+                - `"anthropic"`
+
+              - `version: string`
+
+            - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
+
+              A resolved user-created custom skill.
+
+              - `skill_id: string`
+
+              - `type: "custom"`
+
+                - `"custom"`
+
+              - `version: string`
+
+          - `system: string or null`
+
+          - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
+            - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
+
+              - `configs: array of BetaManagedAgentsAgentToolConfig`
+
+                - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the bash tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "bash"`
+
+                    - `"bash"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                      - `type: "always_allow"`
+
+                        - `"always_allow"`
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                      - `type: "always_ask"`
+
+                        - `"always_ask"`
+
+                  - `type: "bash"`
+
+                    - `"bash"`
+
+                - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the edit tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "edit"`
+
+                    - `"edit"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "edit"`
+
+                    - `"edit"`
+
+                - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the read tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "read"`
+
+                    - `"read"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "read"`
+
+                    - `"read"`
+
+                - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the write tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "write"`
+
+                    - `"write"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "write"`
+
+                    - `"write"`
+
+                - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the glob tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "glob"`
+
+                    - `"glob"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "glob"`
+
+                    - `"glob"`
+
+                - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+                  Configuration for the grep tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "grep"`
+
+                    - `"grep"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "grep"`
+
+                    - `"grep"`
+
+                - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                  Configuration for the web_fetch tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "web_fetch"`
+
+                    - `"web_fetch"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "web_fetch"`
+
+                    - `"web_fetch"`
+
+                  - `allowed_domains: optional array of string`
+
+                  - `blocked_domains: optional array of string`
+
+                  - `max_content_tokens: optional number or null`
+
+                - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                  Configuration for the web_search tool.
+
+                  - `enabled: boolean`
+
+                  - `name: "web_search"`
+
+                    - `"web_search"`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                  - `type: "web_search"`
+
+                    - `"web_search"`
+
+                  - `allowed_domains: optional array of string`
+
+                  - `blocked_domains: optional array of string`
+
+                  - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                    Approximate user location for search result localization.
+
+                    - `type: "approximate"`
+
+                      Location precision. Only "approximate" is supported.
+
+                      - `"approximate"`
+
+                    - `city: optional string or null`
+
+                      City name.
+
+                    - `country: optional string or null`
+
+                      Two-letter ISO 3166-1 country code, uppercase.
+
+                    - `region: optional string or null`
+
+                      Region or state name.
+
+                    - `timezone: optional string or null`
+
+                      IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                Resolved default configuration for agent tools.
+
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+              - `type: "agent_toolset_20260401"`
+
+                - `"agent_toolset_20260401"`
+
+            - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
+
+              - `configs: array of BetaManagedAgentsMCPToolConfig`
+
+                - `enabled: boolean`
+
+                - `name: string`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+              - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                    Tool calls require user confirmation before execution.
+
+              - `mcp_server_name: string`
+
+              - `type: "mcp_toolset"`
+
+                - `"mcp_toolset"`
+
+            - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
+
+              A custom tool as returned in API responses.
+
+              - `description: string`
+
+              - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+                JSON Schema for custom tool input parameters.
+
+                - `type: "object"`
+
+                  - `"object"`
+
+                - `properties: optional map[unknown] or null`
+
+                - `required: optional array of string or null`
+
+              - `name: string`
+
+              - `type: "custom"`
+
+                - `"custom"`
+
+          - `type: "agent"`
+
+            - `"agent"`
+
+          - `version: number`
+
+        - `BetaManagedAgentsAdvisor object { model, type }`
+
+          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+          - `model: string`
+
+            The advisor model id.
+
+          - `type: "advisor"`
+
+            - `"advisor"`
+
+      - `type: "coordinator"`
+
+        - `"coordinator"`
+
+    - `name: string`
+
+    - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
+      - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
+
+        A resolved Anthropic-managed skill.
+
+      - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
+
+        A resolved user-created custom skill.
+
+    - `system: string or null`
+
+    - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
+      - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
+
+      - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
+
+      - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
+
+        A custom tool as returned in API responses.
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `budget: optional BetaManagedAgentsBudgetLimit or null`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `type: "limit"`
+
+      - `"limit"`
+
+  - `metadata: optional map[string]`
+
+    The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+  - `title: optional string or null`
+
+    The session's new title. Present only when the update changed it.
+
+### Beta Managed Agents Session Usage
+
+- `BetaManagedAgentsSessionUsage object { active_seconds, cache_creation, cache_read_input_tokens, 4 more }`
+
+  Cumulative token usage for a session across all turns.
+
+  - `active_seconds: optional number`
+
+    Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
+
+  - `cache_creation: optional BetaManagedAgentsCacheCreationUsage`
+
+    Prompt-cache creation token usage broken down by cache lifetime.
+
+    - `ephemeral_1h_input_tokens: optional number`
+
+      Tokens used to create 1-hour ephemeral cache entries.
+
+    - `ephemeral_5m_input_tokens: optional number`
+
+      Tokens used to create 5-minute ephemeral cache entries.
+
+  - `cache_read_input_tokens: optional number`
+
+    Total tokens read from prompt cache.
+
+  - `input_tokens: optional number`
+
+    Total input tokens consumed across all turns.
+
+  - `list_cost: optional BetaMonetaryAmount or null`
+
+    A monetary amount in a specific currency.
+
+    - `amount: string`
+
+      Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+    - `currency: BetaCurrency`
+
+      Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+      - `"USD"`
+
+  - `output_tokens: optional number`
+
+    Total output tokens generated across all turns.
+
+  - `server_tool_use: optional BetaManagedAgentsServerToolUsage or null`
+
+    Cumulative count of server-executed tool invocations, broken down by tool.
+
+    - `web_fetch_requests: optional number`
+
+      Number of server-executed web fetch requests.
+
+    - `web_search_requests: optional number`
+
+      Number of server-executed web search requests.
+
+### Beta Managed Agents Session Usage Event
+
+- `BetaManagedAgentsSessionUsageEvent object { id, processed_at, type, 2 more }`
+
+  Periodic snapshot of the session's cumulative usage and tracked list cost.
+
+  - `id: string`
+
+    Unique identifier for this event.
+
+  - `processed_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `type: "session.usage"`
+
+    - `"session.usage"`
+
+  - `usage: BetaManagedAgentsSessionUsageSnapshot`
+
+    Point-in-time snapshot of a session's cumulative usage.
+
+    - `active_seconds: optional number`
+
+      Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
+
+    - `cache_creation: optional BetaManagedAgentsCacheCreationUsage`
+
+      Prompt-cache creation token usage broken down by cache lifetime.
+
+      - `ephemeral_1h_input_tokens: optional number`
+
+        Tokens used to create 1-hour ephemeral cache entries.
+
+      - `ephemeral_5m_input_tokens: optional number`
+
+        Tokens used to create 5-minute ephemeral cache entries.
+
+    - `cache_read_input_tokens: optional number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: optional number`
+
+      Total input tokens consumed across all turns.
+
+    - `list_cost: optional BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+      - `amount: string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+        - `"USD"`
+
+    - `output_tokens: optional number`
+
+      Total output tokens generated across all turns.
+
+    - `server_tool_use: optional BetaManagedAgentsServerToolUsage`
+
+      Cumulative count of server-executed tool invocations, broken down by tool.
+
+      - `web_fetch_requests: optional number`
+
+        Number of server-executed web fetch requests.
+
+      - `web_search_requests: optional number`
+
+        Number of server-executed web search requests.
+
+  - `budget: optional BetaManagedAgentsBudgetLimit or null`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `max_list_cost: BetaMonetaryAmount`
+
+      A monetary amount in a specific currency.
+
+    - `type: "limit"`
+
+      - `"limit"`
+
+### Beta Managed Agents Start Event
+
+- `BetaManagedAgentsStartEvent object { event, type }`
+
+  Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+  - `event: BetaManagedAgentsStartEventPreview`
+
+    The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+    - `BetaManagedAgentsAgentMessagePreview object { id, type }`
+
+      - `id: string`
+
+        The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+      - `type: "agent.message"`
+
+        - `"agent.message"`
+
+    - `BetaManagedAgentsAgentThinkingPreview object { id, type }`
+
+      - `id: string`
+
+        The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+      - `type: "agent.thinking"`
+
+        - `"agent.thinking"`
+
+  - `type: "event_start"`
+
+    - `"event_start"`
+
+### Beta Managed Agents Start Event Preview
+
+- `BetaManagedAgentsStartEventPreview = BetaManagedAgentsAgentMessagePreview or BetaManagedAgentsAgentThinkingPreview`
+
+  - `BetaManagedAgentsAgentMessagePreview object { id, type }`
+
+    - `id: string`
+
+      The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+    - `type: "agent.message"`
+
+      - `"agent.message"`
+
+  - `BetaManagedAgentsAgentThinkingPreview object { id, type }`
+
+    - `id: string`
+
+      The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+    - `type: "agent.thinking"`
+
+      - `"agent.thinking"`
+
+### Beta Managed Agents System Content Block
+
+- `BetaManagedAgentsSystemContentBlock object { text, type }`
+
+  Regular text content.
+
+  - `text: string`
+
+    The text content.
+
+  - `type: "text"`
+
+    - `"text"`
+
+### Beta Managed Agents System Message Event
+
+- `BetaManagedAgentsSystemMessageEvent object { id, content, type, processed_at }`
+
+  A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+  - `id: string`
+
+    Unique identifier for this event.
+
+  - `content: array of BetaManagedAgentsSystemContentBlock`
+
+    System content blocks. Text-only.
+
+    - `text: string`
+
+      The text content.
+
+    - `type: "text"`
+
+      - `"text"`
+
+  - `type: "system.message"`
+
+    - `"system.message"`
+
+  - `processed_at: optional string or null`
+
+    A timestamp in RFC 3339 format
+
+### Beta Managed Agents User Tool Result Event
+
+- `BetaManagedAgentsUserToolResultEvent object { id, tool_use_id, type, 4 more }`
+
+  Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+  - `id: string`
+
+    Unique identifier for this event.
+
+  - `tool_use_id: string`
+
+    The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+  - `type: "user.tool_result"`
+
+    - `"user.tool_result"`
+
+  - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
+
+    The result content returned by the tool.
+
+    - `BetaManagedAgentsTextBlock object { text, type }`
+
+      Regular text content.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `BetaManagedAgentsImageBlock object { source, type }`
+
+      Image content specified directly as base64 data or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
+
+        Union type for image source variants.
+
+        - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
+
+          Base64-encoded image data.
+
+          - `data: string`
+
+            Base64-encoded image data.
+
+          - `media_type: string`
+
+            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+          - `type: "base64"`
+
+            - `"base64"`
+
+        - `BetaManagedAgentsURLImageSource object { type, url }`
+
+          Image referenced by URL.
+
+          - `type: "url"`
+
+            - `"url"`
+
+          - `url: string`
+
+            URL of the image to fetch.
+
+        - `BetaManagedAgentsFileImageSource object { file_id, type }`
+
+          Image referenced by file ID.
+
+          - `file_id: string`
+
+            ID of a previously uploaded file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+      - `type: "image"`
+
+        - `"image"`
+
+    - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
+
+      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
+
+        Union type for document source variants.
+
+        - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
+
+          Base64-encoded document data.
+
+          - `data: string`
+
+            Base64-encoded document data.
+
+          - `media_type: string`
+
+            MIME type of the document (e.g., "application/pdf").
+
+          - `type: "base64"`
+
+            - `"base64"`
+
+        - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
+
+          Plain text document content.
+
+          - `data: string`
+
+            The plain text content.
+
+          - `media_type: "text/plain"`
+
+            MIME type of the text content. Must be "text/plain".
+
+            - `"text/plain"`
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsURLDocumentSource object { type, url }`
+
+          Document referenced by URL.
+
+          - `type: "url"`
+
+            - `"url"`
+
+          - `url: string`
+
+            URL of the document to fetch.
+
+        - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
+
+          Document referenced by file ID.
+
+          - `file_id: string`
+
+            ID of a previously uploaded file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+      - `type: "document"`
+
+        - `"document"`
+
+      - `context: optional string or null`
+
+        Additional context about the document for the model.
+
+      - `title: optional string or null`
+
+        The title of the document.
+
+    - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
+
+      A block containing a web search result.
+
+      - `citations: BetaManagedAgentsSearchResultCitations`
+
+        Citation settings for a search result.
+
+        - `enabled: boolean`
+
+          Whether citations are enabled for this search result.
+
+      - `content: array of BetaManagedAgentsSearchResultContent`
+
+        Array of text content blocks from the search result.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `source: string`
+
+        The URL source of the search result.
+
+      - `title: string`
+
+        The title of the search result.
+
+      - `type: "search_result"`
+
+        - `"search_result"`
+
+  - `is_error: optional boolean or null`
+
+    Whether the tool execution resulted in an error.
+
+  - `processed_at: optional string or null`
+
+    A timestamp in RFC 3339 format
+
+  - `session_thread_id: optional string or null`
+
+    Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+
+# Events
+
+## List Events
+
+**get** `/v1/sessions/{session_id}/events`
+
+List Events
+
+### Path Parameters
+
+- `session_id: string`
+
+### Query Parameters
+
+- `"created_at[gt]": optional string`
+
+  Return events created after this time (exclusive). Compared against the event's `processed_at` value.
+
+- `"created_at[gte]": optional string`
+
+  Return events created at or after this time (inclusive). Compared against the event's `processed_at` value.
+
+- `"created_at[lt]": optional string`
+
+  Return events created before this time (exclusive). Compared against the event's `processed_at` value.
+
+- `"created_at[lte]": optional string`
+
+  Return events created at or before this time (inclusive). Compared against the event's `processed_at` value.
+
+- `limit: optional number`
+
+  Query parameter for limit
+
+- `order: optional "asc" or "desc"`
+
+  Sort direction for results, ordered by the event's `processed_at`. Defaults to asc (chronological).
+
+  - `"asc"`
+
+  - `"desc"`
+
+- `page: optional string`
+
+  Opaque pagination cursor from a previous response's next_page.
+
+- `types: optional array of string`
+
+  Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
+
+### Header Parameters
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
+
+    - `"message-batches-2024-09-24"`
+
+    - `"prompt-caching-2024-07-31"`
+
+    - `"computer-use-2024-10-22"`
+
+    - `"computer-use-2025-01-24"`
+
+    - `"pdfs-2024-09-25"`
+
+    - `"token-counting-2024-11-01"`
+
+    - `"token-efficient-tools-2025-02-19"`
+
+    - `"output-128k-2025-02-19"`
+
+    - `"files-api-2025-04-14"`
+
+    - `"mcp-client-2025-04-04"`
+
+    - `"mcp-client-2025-11-20"`
+
+    - `"dev-full-thinking-2025-05-14"`
+
+    - `"interleaved-thinking-2025-05-14"`
+
+    - `"code-execution-2025-05-22"`
+
+    - `"extended-cache-ttl-2025-04-11"`
+
+    - `"context-1m-2025-08-07"`
+
+    - `"context-management-2025-06-27"`
+
+    - `"model-context-window-exceeded-2025-08-26"`
+
+    - `"skills-2025-10-02"`
+
+    - `"fast-mode-2026-02-01"`
+
+    - `"output-300k-2026-03-24"`
+
+    - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
+
+    - `"advisor-tool-2026-03-01"`
+
+    - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"dreaming-2026-04-21"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"server-side-fallback-2026-07-01"`
+
+    - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
+### Returns
+
+- `data: optional array of BetaManagedAgentsSessionEvent`
+
+  Events for the session, ordered by `processed_at`.
+
+  - `BetaManagedAgentsUserMessageEvent object { id, content, type, processed_at }`
+
+    A user message event in the session conversation.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
+
+      Array of content blocks comprising the user message.
+
+      - `BetaManagedAgentsTextBlock object { text, type }`
+
+        Regular text content.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `BetaManagedAgentsImageBlock object { source, type }`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
+
+          Union type for image source variants.
+
+          - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
+
+            Base64-encoded image data.
+
+            - `data: string`
+
+              Base64-encoded image data.
+
+            - `media_type: string`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsURLImageSource object { type, url }`
+
+            Image referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the image to fetch.
+
+          - `BetaManagedAgentsFileImageSource object { file_id, type }`
+
+            Image referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "image"`
+
+          - `"image"`
+
+      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
+
+          Union type for document source variants.
+
+          - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
+
+            Base64-encoded document data.
+
+            - `data: string`
+
+              Base64-encoded document data.
+
+            - `media_type: string`
+
+              MIME type of the document (e.g., "application/pdf").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
+
+            Plain text document content.
+
+            - `data: string`
+
+              The plain text content.
+
+            - `media_type: "text/plain"`
+
+              MIME type of the text content. Must be "text/plain".
+
+              - `"text/plain"`
+
+            - `type: "text"`
+
+              - `"text"`
+
+          - `BetaManagedAgentsURLDocumentSource object { type, url }`
+
+            Document referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the document to fetch.
+
+          - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
+
+            Document referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "document"`
+
+          - `"document"`
+
+        - `context: optional string or null`
+
+          Additional context about the document for the model.
+
+        - `title: optional string or null`
+
+          The title of the document.
+
+      - `BetaManagedAgentsRedactedBlock object { type }`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+        - `type: "redacted"`
+
+          - `"redacted"`
+
+    - `type: "user.message"`
+
+      - `"user.message"`
+
+    - `processed_at: optional string or null`
+
+      A timestamp in RFC 3339 format
+
+  - `BetaManagedAgentsUserInterruptEvent object { id, type, processed_at, session_thread_id }`
+
+    An interrupt event that pauses agent execution and returns control to the user.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `type: "user.interrupt"`
+
+      - `"user.interrupt"`
+
+    - `processed_at: optional string or null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: optional string or null`
+
+      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+  - `BetaManagedAgentsUserToolConfirmationEvent object { id, result, tool_use_id, 4 more }`
+
+    A tool confirmation event that approves or denies a pending tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `result: "allow" or "deny"`
+
+      UserToolConfirmationResult enum
+
+      - `"allow"`
+
+      - `"deny"`
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.tool_confirmation"`
+
+      - `"user.tool_confirmation"`
+
+    - `deny_message: optional string or null`
+
+      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+    - `processed_at: optional string or null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: optional string or null`
+
+      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+
+  - `BetaManagedAgentsUserCustomToolResultEvent object { id, custom_tool_use_id, type, 4 more }`
+
+    Event sent by the client providing the result of a custom tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `custom_tool_use_id: string`
+
+      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.custom_tool_result"`
+
+      - `"user.custom_tool_result"`
+
+    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock object { text, type }`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock object { source, type }`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
+
+        A block containing a web search result.
+
+        - `citations: BetaManagedAgentsSearchResultCitations`
+
+          Citation settings for a search result.
+
+          - `enabled: boolean`
+
+            Whether citations are enabled for this search result.
+
+        - `content: array of BetaManagedAgentsSearchResultContent`
+
+          Array of text content blocks from the search result.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `source: string`
+
+          The URL source of the search result.
+
+        - `title: string`
+
+          The title of the search result.
+
+        - `type: "search_result"`
+
+          - `"search_result"`
+
+    - `is_error: optional boolean or null`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at: optional string or null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: optional string or null`
+
+      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+
+  - `BetaManagedAgentsAgentCustomToolUseEvent object { id, input, name, 3 more }`
+
+    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `input: map[unknown]`
+
+      Input parameters for the tool call.
+
+    - `name: string`
+
+      Name of the custom tool being called.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.custom_tool_use"`
+
+      - `"agent.custom_tool_use"`
+
+    - `session_thread_id: optional string or null`
+
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+
+  - `BetaManagedAgentsAgentMessageEvent object { id, content, processed_at, type }`
+
+    An agent response event in the session conversation.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsRedactedBlock`
+
+      Array of text blocks comprising the agent response.
+
+      - `BetaManagedAgentsTextBlock object { text, type }`
+
+        Regular text content.
+
+      - `BetaManagedAgentsRedactedBlock object { type }`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.message"`
+
+      - `"agent.message"`
+
+  - `BetaManagedAgentsAgentThinkingEvent object { id, processed_at, type }`
+
+    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.thinking"`
+
+      - `"agent.thinking"`
+
+  - `BetaManagedAgentsAgentMCPToolUseEvent object { id, input, mcp_server_name, 5 more }`
+
+    Event emitted when the agent invokes a tool provided by an MCP server.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `input: map[unknown]`
+
+      Input parameters for the tool call.
+
+    - `mcp_server_name: string`
+
+      Name of the MCP server providing the tool.
+
+    - `name: string`
+
+      Name of the MCP tool being used.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.mcp_tool_use"`
+
+      - `"agent.mcp_tool_use"`
+
+    - `evaluated_permission: optional "allow" or "ask" or "deny"`
+
+      AgentEvaluatedPermission enum
+
+      - `"allow"`
+
+      - `"ask"`
+
+      - `"deny"`
+
+    - `session_thread_id: optional string or null`
+
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+
+  - `BetaManagedAgentsAgentMCPToolResultEvent object { id, mcp_tool_use_id, processed_at, 3 more }`
+
+    Event representing the result of an MCP tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `mcp_tool_use_id: string`
+
+      The id of the `agent.mcp_tool_use` event this result corresponds to.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.mcp_tool_result"`
+
+      - `"agent.mcp_tool_result"`
+
+    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock object { text, type }`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock object { source, type }`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
+
+        A block containing a web search result.
+
+    - `is_error: optional boolean or null`
+
+      Whether the tool execution resulted in an error.
+
+  - `BetaManagedAgentsAgentToolUseEvent object { id, input, name, 4 more }`
+
+    Event emitted when the agent invokes a built-in agent tool.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `input: map[unknown]`
+
+      Input parameters for the tool call.
+
+    - `name: string`
+
+      Name of the agent tool being used.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.tool_use"`
+
+      - `"agent.tool_use"`
+
+    - `evaluated_permission: optional "allow" or "ask" or "deny"`
+
+      AgentEvaluatedPermission enum
+
+      - `"allow"`
+
+      - `"ask"`
+
+      - `"deny"`
+
+    - `session_thread_id: optional string or null`
+
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+
+  - `BetaManagedAgentsAgentToolResultEvent object { id, processed_at, tool_use_id, 3 more }`
+
+    Event representing the result of an agent tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` event this result corresponds to.
+
+    - `type: "agent.tool_result"`
+
+      - `"agent.tool_result"`
+
+    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock object { text, type }`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock object { source, type }`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
+
+        A block containing a web search result.
+
+    - `is_error: optional boolean or null`
+
+      Whether the tool execution resulted in an error.
+
+  - `BetaManagedAgentsAgentThreadMessageReceivedEvent object { id, content, from_session_thread_id, 3 more }`
+
+    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
+
+      Message content blocks.
+
+      - `BetaManagedAgentsTextBlock object { text, type }`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock object { source, type }`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsRedactedBlock object { type }`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+    - `from_session_thread_id: string`
+
+      Public `sthr_` ID of the thread that sent the message.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.thread_message_received"`
+
+      - `"agent.thread_message_received"`
+
+    - `from_agent_name: optional string or null`
+
+      Name of the callable agent this message came from. Absent when received from the primary agent.
+
+  - `BetaManagedAgentsAgentThreadMessageSentEvent object { id, content, processed_at, 3 more }`
+
+    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
+
+      Message content blocks.
+
+      - `BetaManagedAgentsTextBlock object { text, type }`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock object { source, type }`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsRedactedBlock object { type }`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `to_session_thread_id: string`
+
+      Public `sthr_` ID of the thread the message was sent to.
+
+    - `type: "agent.thread_message_sent"`
+
+      - `"agent.thread_message_sent"`
+
+    - `to_agent_name: optional string or null`
+
+      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
+
+  - `BetaManagedAgentsAgentThreadContextCompactedEvent object { id, processed_at, type }`
+
+    Indicates that context compaction (summarization) occurred during the session.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.thread_context_compacted"`
+
+      - `"agent.thread_context_compacted"`
+
+  - `BetaManagedAgentsSessionErrorEvent object { id, error, processed_at, type }`
+
+    An error event indicating a problem occurred during session execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 5 more`
+
+      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+      - `BetaManagedAgentsUnknownError object { message, retry_status, type }`
+
+        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying object { type }`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `type: "retrying"`
+
+              - `"retrying"`
+
+          - `BetaManagedAgentsRetryStatusExhausted object { type }`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `type: "exhausted"`
+
+              - `"exhausted"`
+
+          - `BetaManagedAgentsRetryStatusTerminal object { type }`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+            - `type: "terminal"`
+
+              - `"terminal"`
+
+        - `type: "unknown_error"`
+
+          - `"unknown_error"`
+
+      - `BetaManagedAgentsModelOverloadedError object { message, retry_status, type }`
+
+        The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying object { type }`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted object { type }`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal object { type }`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_overloaded_error"`
+
+          - `"model_overloaded_error"`
+
+      - `BetaManagedAgentsModelRateLimitedError object { message, retry_status, type }`
+
+        The model request was rate-limited.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying object { type }`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted object { type }`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal object { type }`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_rate_limited_error"`
+
+          - `"model_rate_limited_error"`
+
+      - `BetaManagedAgentsModelRequestFailedError object { message, retry_status, type }`
+
+        A model request failed for a reason other than overload or rate-limiting.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying object { type }`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted object { type }`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal object { type }`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_request_failed_error"`
+
+          - `"model_request_failed_error"`
+
+      - `BetaManagedAgentsMCPConnectionFailedError object { mcp_server_name, message, retry_status, type }`
+
+        Failed to connect to an MCP server.
+
+        - `mcp_server_name: string`
+
+          Name of the MCP server that failed to connect.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying object { type }`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted object { type }`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal object { type }`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "mcp_connection_failed_error"`
+
+          - `"mcp_connection_failed_error"`
+
+      - `BetaManagedAgentsMCPAuthenticationFailedError object { mcp_server_name, message, retry_status, type }`
+
+        Authentication to an MCP server failed.
+
+        - `mcp_server_name: string`
+
+          Name of the MCP server that failed authentication.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying object { type }`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted object { type }`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal object { type }`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "mcp_authentication_failed_error"`
+
+          - `"mcp_authentication_failed_error"`
+
+      - `BetaManagedAgentsBillingError object { message, retry_status, type }`
+
+        The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying object { type }`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted object { type }`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal object { type }`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "billing_error"`
+
+          - `"billing_error"`
+
+      - `BetaManagedAgentsCredentialHostUnreachableError object { credential_id, message, retry_status, 2 more }`
+
+        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `credential_id: string`
+
+          ID of the affected credential.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying object { type }`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted object { type }`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal object { type }`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "credential_host_unreachable_error"`
+
+          - `"credential_host_unreachable_error"`
+
+        - `vault_id: string`
+
+          ID of the vault containing the affected credential.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.error"`
+
+      - `"session.error"`
+
+  - `BetaManagedAgentsSessionStatusRescheduledEvent object { id, processed_at, type }`
+
+    Indicates the session is recovering from an error state and is rescheduled for execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_rescheduled"`
+
+      - `"session.status_rescheduled"`
+
+  - `BetaManagedAgentsSessionStatusRunningEvent object { id, processed_at, type }`
+
+    Indicates the session is actively running and the agent is working.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_running"`
+
+      - `"session.status_running"`
+
+  - `BetaManagedAgentsSessionStatusIdleEvent object { id, processed_at, stop_reason, type }`
+
+    Indicates the agent has paused and is awaiting user input.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
+
+      The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionEndTurn object { type }`
+
+        The agent completed its turn naturally and is ready for the next user message.
+
+        - `type: "end_turn"`
+
+          - `"end_turn"`
+
+      - `BetaManagedAgentsSessionRequiresAction object { event_ids, type }`
+
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
+        - `event_ids: array of string`
+
+          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
+
+        - `type: "requires_action"`
+
+          - `"requires_action"`
+
+      - `BetaManagedAgentsSessionRetriesExhausted object { type }`
+
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
+
+        - `type: "retries_exhausted"`
+
+          - `"retries_exhausted"`
+
+      - `BetaManagedAgentsSessionBudgetReached object { type }`
+
+        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+        - `type: "budget_reached"`
+
+          - `"budget_reached"`
+
+    - `type: "session.status_idle"`
+
+      - `"session.status_idle"`
+
+  - `BetaManagedAgentsSessionStatusTerminatedEvent object { id, processed_at, type }`
+
+    Indicates the session has terminated, either due to an error or completion.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_terminated"`
+
+      - `"session.status_terminated"`
+
+  - `BetaManagedAgentsSessionThreadCreatedEvent object { id, agent_name, processed_at, 2 more }`
+
+    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the callable agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public `sthr_` ID of the newly created thread.
+
+    - `type: "session.thread_created"`
+
+      - `"session.thread_created"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent object { id, iteration, outcome_id, 2 more }`
+
+    Emitted when an outcome evaluation cycle begins.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `iteration: number`
+
+      0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.outcome_evaluation_start"`
+
+      - `"span.outcome_evaluation_start"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent object { id, explanation, iteration, 6 more }`
+
+    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `explanation: string`
+
+      Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
+
+    - `iteration: number`
+
+      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
+
+    - `outcome_evaluation_start_id: string`
+
+      The id of the corresponding `span.outcome_evaluation_start` event.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `result: string`
+
+      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
+
+    - `type: "span.outcome_evaluation_end"`
+
+      - `"span.outcome_evaluation_end"`
+
+    - `usage: BetaManagedAgentsSpanModelUsage`
+
+      Token usage for a single model request.
+
+      - `cache_creation_input_tokens: number`
+
+        Tokens used to create prompt cache in this request.
+
+      - `cache_read_input_tokens: number`
+
+        Tokens read from prompt cache in this request.
+
+      - `input_tokens: number`
+
+        Input tokens consumed by this request.
+
+      - `output_tokens: number`
+
+        Output tokens generated by this request.
+
+      - `speed: optional "standard" or "fast" or null`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `"standard"`
+
+        - `"fast"`
+
+  - `BetaManagedAgentsSpanModelRequestStartEvent object { id, processed_at, type }`
+
+    Emitted when a model request is initiated by the agent.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.model_request_start"`
+
+      - `"span.model_request_start"`
+
+  - `BetaManagedAgentsSpanModelRequestEndEvent object { id, is_error, model_request_start_id, 3 more }`
+
+    Emitted when a model request completes.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `is_error: boolean or null`
+
+      Whether the model request resulted in an error.
+
+    - `model_request_start_id: string`
+
+      The id of the corresponding `span.model_request_start` event.
+
+    - `model_usage: BetaManagedAgentsSpanModelUsage`
+
+      Token usage for a single model request.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.model_request_end"`
+
+      - `"span.model_request_end"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent object { id, iteration, outcome_id, 2 more }`
+
+    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `iteration: number`
+
+      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.outcome_evaluation_ongoing"`
+
+      - `"span.outcome_evaluation_ongoing"`
+
+  - `BetaManagedAgentsUserDefineOutcomeEvent object { id, description, max_iterations, 4 more }`
+
+    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `description: string`
+
+      What the agent should produce. Copied from the input event.
+
+    - `max_iterations: number or null`
+
+      Evaluate-then-revise cycles before giving up. Default 3, max 20.
+
+    - `outcome_id: string`
+
+      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
+
+      Rubric for grading the quality of an outcome.
+
+      - `BetaManagedAgentsFileRubric object { file_id, type }`
+
+        Rubric referenced by a file uploaded via the Files API.
+
+        - `file_id: string`
+
+          ID of the rubric file.
+
+        - `type: "file"`
+
+          - `"file"`
+
+      - `BetaManagedAgentsTextRubric object { content, type }`
+
+        Rubric content provided inline as text.
+
+        - `content: string`
+
+          Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+        - `type: "text"`
+
+          - `"text"`
+
+    - `type: "user.define_outcome"`
+
+      - `"user.define_outcome"`
+
+  - `BetaManagedAgentsSessionDeletedEvent object { id, processed_at, type }`
+
+    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.deleted"`
+
+      - `"session.deleted"`
+
+  - `BetaManagedAgentsSessionThreadStatusRunningEvent object { id, agent_name, processed_at, 2 more }`
+
+    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that started running.
+
+    - `type: "session.thread_status_running"`
+
+      - `"session.thread_status_running"`
+
+  - `BetaManagedAgentsSessionThreadStatusIdleEvent object { id, agent_name, processed_at, 3 more }`
+
+    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that went idle.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
+
+      The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionEndTurn object { type }`
+
+        The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionRequiresAction object { event_ids, type }`
+
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
+      - `BetaManagedAgentsSessionRetriesExhausted object { type }`
+
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
+
+      - `BetaManagedAgentsSessionBudgetReached object { type }`
+
+        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+    - `type: "session.thread_status_idle"`
+
+      - `"session.thread_status_idle"`
+
+  - `BetaManagedAgentsSessionThreadStatusTerminatedEvent object { id, agent_name, processed_at, 2 more }`
+
+    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that terminated.
+
+    - `type: "session.thread_status_terminated"`
+
+      - `"session.thread_status_terminated"`
+
+  - `BetaManagedAgentsUserToolResultEvent object { id, tool_use_id, type, 4 more }`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.tool_result"`
+
+      - `"user.tool_result"`
+
+    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock object { text, type }`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock object { source, type }`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock object { citations, content, source, 2 more }`
+
+        A block containing a web search result.
+
+    - `is_error: optional boolean or null`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at: optional string or null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: optional string or null`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+
+  - `BetaManagedAgentsSessionThreadStatusRescheduledEvent object { id, agent_name, processed_at, 2 more }`
+
+    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that is retrying.
+
+    - `type: "session.thread_status_rescheduled"`
+
+      - `"session.thread_status_rescheduled"`
+
+  - `BetaManagedAgentsSessionUpdatedEvent object { id, processed_at, type, 4 more }`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.updated"`
+
+      - `"session.updated"`
+
+    - `agent: optional BetaManagedAgentsSessionAgent or null`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `id: string`
+
+      - `description: string or null`
+
+      - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
+        - `name: string`
+
+        - `type: "url"`
+
+          - `"url"`
+
+        - `url: string`
+
+      - `model: BetaManagedAgentsModelConfig`
+
+        Model identifier and configuration.
+
+        - `id: BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more`
+
+            The model that will power your agent.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
+            - `"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-8"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-5-20251101"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `string`
+
+        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `BetaManagedAgentsEffortLow object { type }`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `BetaManagedAgentsEffortMedium object { type }`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `BetaManagedAgentsEffortHigh object { type }`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `BetaManagedAgentsEffortXhigh object { type }`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `BetaManagedAgentsEffortMax object { type }`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
+
+        - `inference_geo: optional string`
+
+          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
+        - `speed: optional "standard" or "fast"`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `"standard"`
+
+          - `"fast"`
+
+      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator or null`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+
+        - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+
+          - `BetaManagedAgentsSessionThreadAgent object { id, description, mcp_servers, 7 more }`
+
+            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
+            - `id: string`
+
+            - `description: string or null`
+
+            - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
+              - `name: string`
+
+              - `type: "url"`
+
+              - `url: string`
+
+            - `model: BetaManagedAgentsModelConfig`
+
+              Model identifier and configuration.
+
+            - `name: string`
+
+            - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
+              - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
+
+                A resolved Anthropic-managed skill.
+
+                - `skill_id: string`
+
+                - `type: "anthropic"`
+
+                  - `"anthropic"`
+
+                - `version: string`
+
+              - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
+
+                A resolved user-created custom skill.
+
+                - `skill_id: string`
+
+                - `type: "custom"`
+
+                  - `"custom"`
+
+                - `version: string`
+
+            - `system: string or null`
+
+            - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
+              - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
+
+                - `configs: array of BetaManagedAgentsAgentToolConfig`
+
+                  - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the bash tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "bash"`
+
+                      - `"bash"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                        - `type: "always_allow"`
+
+                          - `"always_allow"`
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                        - `type: "always_ask"`
+
+                          - `"always_ask"`
+
+                    - `type: "bash"`
+
+                      - `"bash"`
+
+                  - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the edit tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "edit"`
+
+                      - `"edit"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "edit"`
+
+                      - `"edit"`
+
+                  - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the read tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "read"`
+
+                      - `"read"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "read"`
+
+                      - `"read"`
+
+                  - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the write tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "write"`
+
+                      - `"write"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "write"`
+
+                      - `"write"`
+
+                  - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "glob"`
+
+                      - `"glob"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "glob"`
+
+                      - `"glob"`
+
+                  - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "grep"`
+
+                      - `"grep"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "grep"`
+
+                      - `"grep"`
+
+                  - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `max_content_tokens: optional number or null`
+
+                  - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_search"`
+
+                      - `"web_search"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_search"`
+
+                      - `"web_search"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                      Approximate user location for search result localization.
+
+                      - `type: "approximate"`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `"approximate"`
+
+                      - `city: optional string or null`
+
+                        City name.
+
+                      - `country: optional string or null`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: optional string or null`
+
+                        Region or state name.
+
+                      - `timezone: optional string or null`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                  Resolved default configuration for agent tools.
+
+                  - `enabled: boolean`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                - `type: "agent_toolset_20260401"`
+
+                  - `"agent_toolset_20260401"`
+
+              - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
+
+                - `configs: array of BetaManagedAgentsMCPToolConfig`
+
+                  - `enabled: boolean`
+
+                  - `name: string`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                  Resolved default configuration for all tools from an MCP server.
+
+                  - `enabled: boolean`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                      Tool calls require user confirmation before execution.
+
+                - `mcp_server_name: string`
+
+                - `type: "mcp_toolset"`
+
+                  - `"mcp_toolset"`
+
+              - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
+
+                A custom tool as returned in API responses.
+
+                - `description: string`
+
+                - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+                  JSON Schema for custom tool input parameters.
+
+                  - `type: "object"`
+
+                    - `"object"`
+
+                  - `properties: optional map[unknown] or null`
+
+                  - `required: optional array of string or null`
+
+                - `name: string`
+
+                - `type: "custom"`
+
+                  - `"custom"`
+
+            - `type: "agent"`
+
+              - `"agent"`
+
+            - `version: number`
+
+          - `BetaManagedAgentsAdvisor object { model, type }`
+
+            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+            - `model: string`
+
+              The advisor model id.
+
+            - `type: "advisor"`
+
+              - `"advisor"`
+
+        - `type: "coordinator"`
+
+          - `"coordinator"`
+
+      - `name: string`
+
+      - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
+        - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
+
+          A resolved Anthropic-managed skill.
+
+        - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
+
+          A resolved user-created custom skill.
+
+      - `system: string or null`
+
+      - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
+        - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
+
+        - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
+
+        - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
+
+          A custom tool as returned in API responses.
+
+      - `type: "agent"`
+
+        - `"agent"`
+
+      - `version: number`
+
+    - `budget: optional BetaManagedAgentsBudgetLimit or null`
+
+      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+      - `max_list_cost: BetaMonetaryAmount`
+
+        A monetary amount in a specific currency.
+
+        - `amount: string`
+
+          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+        - `currency: BetaCurrency`
+
+          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+          - `"USD"`
+
+      - `type: "limit"`
+
+        - `"limit"`
+
+    - `metadata: optional map[string]`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `title: optional string or null`
+
+      The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsSystemMessageEvent object { id, content, type, processed_at }`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: array of BetaManagedAgentsSystemContentBlock`
+
+      System content blocks. Text-only.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `type: "system.message"`
+
+      - `"system.message"`
+
+    - `processed_at: optional string or null`
+
+      A timestamp in RFC 3339 format
+
+  - `BetaManagedAgentsSessionUsageEvent object { id, processed_at, type, 2 more }`
+
+    Periodic snapshot of the session's cumulative usage and tracked list cost.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.usage"`
+
+      - `"session.usage"`
+
+    - `usage: BetaManagedAgentsSessionUsageSnapshot`
+
+      Point-in-time snapshot of a session's cumulative usage.
+
+      - `active_seconds: optional number`
+
+        Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
+
+      - `cache_creation: optional BetaManagedAgentsCacheCreationUsage`
+
+        Prompt-cache creation token usage broken down by cache lifetime.
+
+        - `ephemeral_1h_input_tokens: optional number`
+
+          Tokens used to create 1-hour ephemeral cache entries.
+
+        - `ephemeral_5m_input_tokens: optional number`
+
+          Tokens used to create 5-minute ephemeral cache entries.
+
+      - `cache_read_input_tokens: optional number`
+
+        Total tokens read from prompt cache.
+
+      - `input_tokens: optional number`
+
+        Total input tokens consumed across all turns.
+
+      - `list_cost: optional BetaMonetaryAmount`
+
+        A monetary amount in a specific currency.
+
+      - `output_tokens: optional number`
+
+        Total output tokens generated across all turns.
+
+      - `server_tool_use: optional BetaManagedAgentsServerToolUsage`
+
+        Cumulative count of server-executed tool invocations, broken down by tool.
+
+        - `web_fetch_requests: optional number`
+
+          Number of server-executed web fetch requests.
+
+        - `web_search_requests: optional number`
+
+          Number of server-executed web search requests.
+
+    - `budget: optional BetaManagedAgentsBudgetLimit or null`
+
+      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+- `next_page: optional string or null`
+
+  Opaque cursor for the next page. Null when no more results.
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/sessions/$SESSION_ID/events \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message",
+      "processed_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "content": [
+        {
+          "text": "Let me look up order #1234 for you.",
+          "type": "text"
+        }
+      ],
+      "processed_at": "2026-03-15T10:00:00Z",
+      "type": "agent.message"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Send Events
+
+**post** `/v1/sessions/{session_id}/events`
+
+Send Events
+
+### Path Parameters
+
+- `session_id: string`
+
+### Header Parameters
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
+
+    - `"message-batches-2024-09-24"`
+
+    - `"prompt-caching-2024-07-31"`
+
+    - `"computer-use-2024-10-22"`
+
+    - `"computer-use-2025-01-24"`
+
+    - `"pdfs-2024-09-25"`
+
+    - `"token-counting-2024-11-01"`
+
+    - `"token-efficient-tools-2025-02-19"`
+
+    - `"output-128k-2025-02-19"`
+
+    - `"files-api-2025-04-14"`
+
+    - `"mcp-client-2025-04-04"`
+
+    - `"mcp-client-2025-11-20"`
+
+    - `"dev-full-thinking-2025-05-14"`
+
+    - `"interleaved-thinking-2025-05-14"`
+
+    - `"code-execution-2025-05-22"`
+
+    - `"extended-cache-ttl-2025-04-11"`
+
+    - `"context-1m-2025-08-07"`
+
+    - `"context-management-2025-06-27"`
+
+    - `"model-context-window-exceeded-2025-08-26"`
+
+    - `"skills-2025-10-02"`
+
+    - `"fast-mode-2026-02-01"`
+
+    - `"output-300k-2026-03-24"`
+
+    - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
+
+    - `"advisor-tool-2026-03-01"`
+
+    - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"dreaming-2026-04-21"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"server-side-fallback-2026-07-01"`
+
+    - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
+### Body Parameters
+
+- `events: array of BetaManagedAgentsEventParams`
+
+  Events to send to the `session`.
+
+  - `BetaManagedAgentsUserMessageEventParams object { content, type }`
+
+    Parameters for sending a user message to the session.
+
+    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
+
+      Array of content blocks for the user message.
+
+      - `BetaManagedAgentsTextBlock object { text, type }`
+
+        Regular text content.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `BetaManagedAgentsImageBlock object { source, type }`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
+
+          Union type for image source variants.
+
+          - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
+
+            Base64-encoded image data.
+
+            - `data: string`
+
+              Base64-encoded image data.
+
+            - `media_type: string`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsURLImageSource object { type, url }`
+
+            Image referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the image to fetch.
+
+          - `BetaManagedAgentsFileImageSource object { file_id, type }`
+
+            Image referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "image"`
+
+          - `"image"`
+
+      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
+
+          Union type for document source variants.
+
+          - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
+
+            Base64-encoded document data.
+
+            - `data: string`
+
+              Base64-encoded document data.
+
+            - `media_type: string`
+
+              MIME type of the document (e.g., "application/pdf").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
+
+            Plain text document content.
+
+            - `data: string`
+
+              The plain text content.
+
+            - `media_type: "text/plain"`
+
+              MIME type of the text content. Must be "text/plain".
+
+              - `"text/plain"`
+
+            - `type: "text"`
+
+              - `"text"`
+
+          - `BetaManagedAgentsURLDocumentSource object { type, url }`
+
+            Document referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the document to fetch.
+
+          - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
+
+            Document referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "document"`
+
+          - `"document"`
+
+        - `context: optional string or null`
+
+          Additional context about the document for the model.
+
+        - `title: optional string or null`
+
+          The title of the document.
+
+      - `BetaManagedAgentsRedactedBlock object { type }`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+        - `type: "redacted"`
+
+          - `"redacted"`
+
+    - `type: "user.message"`
+
+      - `"user.message"`
+
+  - `BetaManagedAgentsUserInterruptEventParams object { type, session_thread_id }`
+
+    Parameters for sending an interrupt to pause the agent.
+
+    - `type: "user.interrupt"`
+
+      - `"user.interrupt"`
+
+    - `session_thread_id: optional string or null`
+
+      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+  - `BetaManagedAgentsUserToolConfirmationEventParams object { result, tool_use_id, type, deny_message }`
+
+    Parameters for confirming or denying a tool execution request.
+
+    - `result: "allow" or "deny"`
+
+      UserToolConfirmationResult enum
+
+      - `"allow"`
+
+      - `"deny"`
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.tool_confirmation"`
+
+      - `"user.tool_confirmation"`
+
+    - `deny_message: optional string or null`
+
+      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+  - `BetaManagedAgentsUserCustomToolResultEventParams object { custom_tool_use_id, type, content, is_error }`
+
+    Parameters for providing the result of a custom tool execution.
+
+    - `custom_tool_use_id: string`
+
+      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.custom_tool_result"`
+
+      - `"user.custom_tool_result"`
+
     - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
       The result content returned by the tool.
@@ -2420,47 +9619,257 @@ Stream Events
 
                 - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-                  - `enabled: boolean`
+                  - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
 
-                  - `name: "bash" or "edit" or "read" or 5 more`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `enabled: boolean`
 
-                    - `"bash"`
+                    - `name: "bash"`
 
-                    - `"edit"`
+                      - `"bash"`
 
-                    - `"read"`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-                    - `"write"`
+                      Permission policy for tool execution.
 
-                    - `"glob"`
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
-                    - `"grep"`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `"web_fetch"`
+                        - `type: "always_allow"`
 
-                    - `"web_search"`
+                          - `"always_allow"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+                        - `type: "always_ask"`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `"always_ask"`
 
-                      - `type: "always_allow"`
+                    - `type: "bash"`
 
-                        - `"always_allow"`
+                      - `"bash"`
 
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+                  - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `type: "always_ask"`
+                    - `enabled: boolean`
 
-                        - `"always_ask"`
+                    - `name: "edit"`
+
+                      - `"edit"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "edit"`
+
+                      - `"edit"`
+
+                  - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the read tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "read"`
+
+                      - `"read"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "read"`
+
+                      - `"read"`
+
+                  - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the write tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "write"`
+
+                      - `"write"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "write"`
+
+                      - `"write"`
+
+                  - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "glob"`
+
+                      - `"glob"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "glob"`
+
+                      - `"glob"`
+
+                  - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "grep"`
+
+                      - `"grep"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "grep"`
+
+                      - `"grep"`
+
+                  - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `max_content_tokens: optional number or null`
+
+                  - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_search"`
+
+                      - `"web_search"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_search"`
+
+                      - `"web_search"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                      Approximate user location for search result localization.
+
+                      - `type: "approximate"`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `"approximate"`
+
+                      - `city: optional string or null`
+
+                        City name.
+
+                      - `country: optional string or null`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: optional string or null`
+
+                        Region or state name.
+
+                      - `timezone: optional string or null`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -7247,47 +14656,257 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/events/stream \
 
                 - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-                  - `enabled: boolean`
+                  - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
 
-                  - `name: "bash" or "edit" or "read" or 5 more`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `enabled: boolean`
 
-                    - `"bash"`
+                    - `name: "bash"`
 
-                    - `"edit"`
+                      - `"bash"`
 
-                    - `"read"`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-                    - `"write"`
+                      Permission policy for tool execution.
 
-                    - `"glob"`
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
-                    - `"grep"`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `"web_fetch"`
+                        - `type: "always_allow"`
 
-                    - `"web_search"`
+                          - `"always_allow"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+                        - `type: "always_ask"`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `"always_ask"`
 
-                      - `type: "always_allow"`
+                    - `type: "bash"`
 
-                        - `"always_allow"`
+                      - `"bash"`
 
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+                  - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `type: "always_ask"`
+                    - `enabled: boolean`
 
-                        - `"always_ask"`
+                    - `name: "edit"`
+
+                      - `"edit"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "edit"`
+
+                      - `"edit"`
+
+                  - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the read tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "read"`
+
+                      - `"read"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "read"`
+
+                      - `"read"`
+
+                  - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the write tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "write"`
+
+                      - `"write"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "write"`
+
+                      - `"write"`
+
+                  - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "glob"`
+
+                      - `"glob"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "glob"`
+
+                      - `"glob"`
+
+                  - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "grep"`
+
+                      - `"grep"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "grep"`
+
+                      - `"grep"`
+
+                  - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `max_content_tokens: optional number or null`
+
+                  - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_search"`
+
+                      - `"web_search"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_search"`
+
+                      - `"web_search"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                      Approximate user location for search result localization.
+
+                      - `type: "approximate"`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `"approximate"`
+
+                      - `city: optional string or null`
+
+                        City name.
+
+                      - `country: optional string or null`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: optional string or null`
+
+                        Region or state name.
+
+                      - `timezone: optional string or null`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -9815,47 +17434,257 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/events/stream \
 
                 - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-                  - `enabled: boolean`
+                  - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
 
-                  - `name: "bash" or "edit" or "read" or 5 more`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `enabled: boolean`
 
-                    - `"bash"`
+                    - `name: "bash"`
 
-                    - `"edit"`
+                      - `"bash"`
 
-                    - `"read"`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-                    - `"write"`
+                      Permission policy for tool execution.
 
-                    - `"glob"`
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
-                    - `"grep"`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `"web_fetch"`
+                        - `type: "always_allow"`
 
-                    - `"web_search"`
+                          - `"always_allow"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+                        - `type: "always_ask"`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `"always_ask"`
 
-                      - `type: "always_allow"`
+                    - `type: "bash"`
 
-                        - `"always_allow"`
+                      - `"bash"`
 
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+                  - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `type: "always_ask"`
+                    - `enabled: boolean`
 
-                        - `"always_ask"`
+                    - `name: "edit"`
+
+                      - `"edit"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "edit"`
+
+                      - `"edit"`
+
+                  - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the read tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "read"`
+
+                      - `"read"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "read"`
+
+                      - `"read"`
+
+                  - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the write tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "write"`
+
+                      - `"write"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "write"`
+
+                      - `"write"`
+
+                  - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "glob"`
+
+                      - `"glob"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "glob"`
+
+                      - `"glob"`
+
+                  - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "grep"`
+
+                      - `"grep"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "grep"`
+
+                      - `"grep"`
+
+                  - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `max_content_tokens: optional number or null`
+
+                  - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_search"`
+
+                      - `"web_search"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_search"`
+
+                      - `"web_search"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                      Approximate user location for search result localization.
+
+                      - `type: "approximate"`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `"approximate"`
+
+                      - `city: optional string or null`
+
+                        City name.
+
+                      - `country: optional string or null`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: optional string or null`
+
+                        Region or state name.
+
+                      - `timezone: optional string or null`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -13157,47 +20986,257 @@ List Session Threads
 
           - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-            - `enabled: boolean`
+            - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
 
-            - `name: "bash" or "edit" or "read" or 5 more`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `enabled: boolean`
 
-              - `"bash"`
+              - `name: "bash"`
 
-              - `"edit"`
+                - `"bash"`
 
-              - `"read"`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-              - `"write"`
+                Permission policy for tool execution.
 
-              - `"glob"`
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
-              - `"grep"`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `"web_fetch"`
+                  - `type: "always_allow"`
 
-              - `"web_search"`
+                    - `"always_allow"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+                  - `type: "always_ask"`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `"always_ask"`
 
-                - `type: "always_allow"`
+              - `type: "bash"`
 
-                  - `"always_allow"`
+                - `"bash"`
 
-              - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+            - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `type: "always_ask"`
+              - `enabled: boolean`
 
-                  - `"always_ask"`
+              - `name: "edit"`
+
+                - `"edit"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "edit"`
+
+                - `"edit"`
+
+            - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the read tool.
+
+              - `enabled: boolean`
+
+              - `name: "read"`
+
+                - `"read"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "read"`
+
+                - `"read"`
+
+            - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the write tool.
+
+              - `enabled: boolean`
+
+              - `name: "write"`
+
+                - `"write"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "write"`
+
+                - `"write"`
+
+            - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the glob tool.
+
+              - `enabled: boolean`
+
+              - `name: "glob"`
+
+                - `"glob"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "glob"`
+
+                - `"glob"`
+
+            - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the grep tool.
+
+              - `enabled: boolean`
+
+              - `name: "grep"`
+
+                - `"grep"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "grep"`
+
+                - `"grep"`
+
+            - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+              Configuration for the web_fetch tool.
+
+              - `enabled: boolean`
+
+              - `name: "web_fetch"`
+
+                - `"web_fetch"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "web_fetch"`
+
+                - `"web_fetch"`
+
+              - `allowed_domains: optional array of string`
+
+              - `blocked_domains: optional array of string`
+
+              - `max_content_tokens: optional number or null`
+
+            - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+              Configuration for the web_search tool.
+
+              - `enabled: boolean`
+
+              - `name: "web_search"`
+
+                - `"web_search"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "web_search"`
+
+                - `"web_search"`
+
+              - `allowed_domains: optional array of string`
+
+              - `blocked_domains: optional array of string`
+
+              - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                Approximate user location for search result localization.
+
+                - `type: "approximate"`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `"approximate"`
+
+                - `city: optional string or null`
+
+                  City name.
+
+                - `country: optional string or null`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `region: optional string or null`
+
+                  Region or state name.
+
+                - `timezone: optional string or null`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -13472,7 +21511,8 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/threads \
                 "name": "bash",
                 "permission_policy": {
                   "type": "always_allow"
-                }
+                },
+                "type": "bash"
               }
             ],
             "default_config": {
@@ -13807,47 +21847,257 @@ Get Session Thread
 
           - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-            - `enabled: boolean`
+            - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
 
-            - `name: "bash" or "edit" or "read" or 5 more`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `enabled: boolean`
 
-              - `"bash"`
+              - `name: "bash"`
 
-              - `"edit"`
+                - `"bash"`
 
-              - `"read"`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-              - `"write"`
+                Permission policy for tool execution.
 
-              - `"glob"`
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
-              - `"grep"`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `"web_fetch"`
+                  - `type: "always_allow"`
 
-              - `"web_search"`
+                    - `"always_allow"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+                  - `type: "always_ask"`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `"always_ask"`
 
-                - `type: "always_allow"`
+              - `type: "bash"`
 
-                  - `"always_allow"`
+                - `"bash"`
 
-              - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+            - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `type: "always_ask"`
+              - `enabled: boolean`
 
-                  - `"always_ask"`
+              - `name: "edit"`
+
+                - `"edit"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "edit"`
+
+                - `"edit"`
+
+            - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the read tool.
+
+              - `enabled: boolean`
+
+              - `name: "read"`
+
+                - `"read"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "read"`
+
+                - `"read"`
+
+            - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the write tool.
+
+              - `enabled: boolean`
+
+              - `name: "write"`
+
+                - `"write"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "write"`
+
+                - `"write"`
+
+            - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the glob tool.
+
+              - `enabled: boolean`
+
+              - `name: "glob"`
+
+                - `"glob"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "glob"`
+
+                - `"glob"`
+
+            - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the grep tool.
+
+              - `enabled: boolean`
+
+              - `name: "grep"`
+
+                - `"grep"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "grep"`
+
+                - `"grep"`
+
+            - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+              Configuration for the web_fetch tool.
+
+              - `enabled: boolean`
+
+              - `name: "web_fetch"`
+
+                - `"web_fetch"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "web_fetch"`
+
+                - `"web_fetch"`
+
+              - `allowed_domains: optional array of string`
+
+              - `blocked_domains: optional array of string`
+
+              - `max_content_tokens: optional number or null`
+
+            - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+              Configuration for the web_search tool.
+
+              - `enabled: boolean`
+
+              - `name: "web_search"`
+
+                - `"web_search"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "web_search"`
+
+                - `"web_search"`
+
+              - `allowed_domains: optional array of string`
+
+              - `blocked_domains: optional array of string`
+
+              - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                Approximate user location for search result localization.
+
+                - `type: "approximate"`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `"approximate"`
+
+                - `city: optional string or null`
+
+                  City name.
+
+                - `country: optional string or null`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `region: optional string or null`
+
+                  Region or state name.
+
+                - `timezone: optional string or null`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -14116,7 +22366,8 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/threads/$THREAD_ID \
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {
@@ -14448,47 +22699,257 @@ Archive Session Thread
 
           - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-            - `enabled: boolean`
+            - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
 
-            - `name: "bash" or "edit" or "read" or 5 more`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `enabled: boolean`
 
-              - `"bash"`
+              - `name: "bash"`
 
-              - `"edit"`
+                - `"bash"`
 
-              - `"read"`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-              - `"write"`
+                Permission policy for tool execution.
 
-              - `"glob"`
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
-              - `"grep"`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `"web_fetch"`
+                  - `type: "always_allow"`
 
-              - `"web_search"`
+                    - `"always_allow"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+                  - `type: "always_ask"`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `"always_ask"`
 
-                - `type: "always_allow"`
+              - `type: "bash"`
 
-                  - `"always_allow"`
+                - `"bash"`
 
-              - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+            - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `type: "always_ask"`
+              - `enabled: boolean`
 
-                  - `"always_ask"`
+              - `name: "edit"`
+
+                - `"edit"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "edit"`
+
+                - `"edit"`
+
+            - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the read tool.
+
+              - `enabled: boolean`
+
+              - `name: "read"`
+
+                - `"read"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "read"`
+
+                - `"read"`
+
+            - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the write tool.
+
+              - `enabled: boolean`
+
+              - `name: "write"`
+
+                - `"write"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "write"`
+
+                - `"write"`
+
+            - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the glob tool.
+
+              - `enabled: boolean`
+
+              - `name: "glob"`
+
+                - `"glob"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "glob"`
+
+                - `"glob"`
+
+            - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the grep tool.
+
+              - `enabled: boolean`
+
+              - `name: "grep"`
+
+                - `"grep"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "grep"`
+
+                - `"grep"`
+
+            - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+              Configuration for the web_fetch tool.
+
+              - `enabled: boolean`
+
+              - `name: "web_fetch"`
+
+                - `"web_fetch"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "web_fetch"`
+
+                - `"web_fetch"`
+
+              - `allowed_domains: optional array of string`
+
+              - `blocked_domains: optional array of string`
+
+              - `max_content_tokens: optional number or null`
+
+            - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+              Configuration for the web_search tool.
+
+              - `enabled: boolean`
+
+              - `name: "web_search"`
+
+                - `"web_search"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "web_search"`
+
+                - `"web_search"`
+
+              - `allowed_domains: optional array of string`
+
+              - `blocked_domains: optional array of string`
+
+              - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                Approximate user location for search result localization.
+
+                - `type: "approximate"`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `"approximate"`
+
+                - `city: optional string or null`
+
+                  City name.
+
+                - `country: optional string or null`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `region: optional string or null`
+
+                  Region or state name.
+
+                - `timezone: optional string or null`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -14758,7 +23219,8 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/threads/$THREAD_ID/archiv
             "name": "bash",
             "permission_policy": {
               "type": "always_allow"
-            }
+            },
+            "type": "bash"
           }
         ],
         "default_config": {
@@ -15002,47 +23464,257 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/threads/$THREAD_ID/archiv
 
           - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-            - `enabled: boolean`
+            - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
 
-            - `name: "bash" or "edit" or "read" or 5 more`
+              Configuration for the bash tool.
 
-              Built-in agent tool identifier.
+              - `enabled: boolean`
 
-              - `"bash"`
+              - `name: "bash"`
 
-              - `"edit"`
+                - `"bash"`
 
-              - `"read"`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-              - `"write"`
+                Permission policy for tool execution.
 
-              - `"glob"`
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
-              - `"grep"`
+                  Tool calls are automatically approved without user confirmation.
 
-              - `"web_fetch"`
+                  - `type: "always_allow"`
 
-              - `"web_search"`
+                    - `"always_allow"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
 
-              Permission policy for tool execution.
+                  Tool calls require user confirmation before execution.
 
-              - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+                  - `type: "always_ask"`
 
-                Tool calls are automatically approved without user confirmation.
+                    - `"always_ask"`
 
-                - `type: "always_allow"`
+              - `type: "bash"`
 
-                  - `"always_allow"`
+                - `"bash"`
 
-              - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+            - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
 
-                Tool calls require user confirmation before execution.
+              Configuration for the edit tool.
 
-                - `type: "always_ask"`
+              - `enabled: boolean`
 
-                  - `"always_ask"`
+              - `name: "edit"`
+
+                - `"edit"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "edit"`
+
+                - `"edit"`
+
+            - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the read tool.
+
+              - `enabled: boolean`
+
+              - `name: "read"`
+
+                - `"read"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "read"`
+
+                - `"read"`
+
+            - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the write tool.
+
+              - `enabled: boolean`
+
+              - `name: "write"`
+
+                - `"write"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "write"`
+
+                - `"write"`
+
+            - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the glob tool.
+
+              - `enabled: boolean`
+
+              - `name: "glob"`
+
+                - `"glob"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "glob"`
+
+                - `"glob"`
+
+            - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+              Configuration for the grep tool.
+
+              - `enabled: boolean`
+
+              - `name: "grep"`
+
+                - `"grep"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "grep"`
+
+                - `"grep"`
+
+            - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+              Configuration for the web_fetch tool.
+
+              - `enabled: boolean`
+
+              - `name: "web_fetch"`
+
+                - `"web_fetch"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "web_fetch"`
+
+                - `"web_fetch"`
+
+              - `allowed_domains: optional array of string`
+
+              - `blocked_domains: optional array of string`
+
+              - `max_content_tokens: optional number or null`
+
+            - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+              Configuration for the web_search tool.
+
+              - `enabled: boolean`
+
+              - `name: "web_search"`
+
+                - `"web_search"`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                Permission policy for tool execution.
+
+                - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                  Tool calls require user confirmation before execution.
+
+              - `type: "web_search"`
+
+                - `"web_search"`
+
+              - `allowed_domains: optional array of string`
+
+              - `blocked_domains: optional array of string`
+
+              - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                Approximate user location for search result localization.
+
+                - `type: "approximate"`
+
+                  Location precision. Only "approximate" is supported.
+
+                  - `"approximate"`
+
+                - `city: optional string or null`
+
+                  City name.
+
+                - `country: optional string or null`
+
+                  Two-letter ISO 3166-1 country code, uppercase.
+
+                - `region: optional string or null`
+
+                  Region or state name.
+
+                - `timezone: optional string or null`
+
+                  IANA timezone identifier, e.g. "America/Los_Angeles".
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -17026,47 +25698,257 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/threads/$THREAD_ID/archiv
 
                 - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-                  - `enabled: boolean`
+                  - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
 
-                  - `name: "bash" or "edit" or "read" or 5 more`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `enabled: boolean`
 
-                    - `"bash"`
+                    - `name: "bash"`
 
-                    - `"edit"`
+                      - `"bash"`
 
-                    - `"read"`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-                    - `"write"`
+                      Permission policy for tool execution.
 
-                    - `"glob"`
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
-                    - `"grep"`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `"web_fetch"`
+                        - `type: "always_allow"`
 
-                    - `"web_search"`
+                          - `"always_allow"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+                        - `type: "always_ask"`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `"always_ask"`
 
-                      - `type: "always_allow"`
+                    - `type: "bash"`
 
-                        - `"always_allow"`
+                      - `"bash"`
 
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+                  - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `type: "always_ask"`
+                    - `enabled: boolean`
 
-                        - `"always_ask"`
+                    - `name: "edit"`
+
+                      - `"edit"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "edit"`
+
+                      - `"edit"`
+
+                  - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the read tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "read"`
+
+                      - `"read"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "read"`
+
+                      - `"read"`
+
+                  - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the write tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "write"`
+
+                      - `"write"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "write"`
+
+                      - `"write"`
+
+                  - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "glob"`
+
+                      - `"glob"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "glob"`
+
+                      - `"glob"`
+
+                  - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "grep"`
+
+                      - `"grep"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "grep"`
+
+                      - `"grep"`
+
+                  - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `max_content_tokens: optional number or null`
+
+                  - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_search"`
+
+                      - `"web_search"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_search"`
+
+                      - `"web_search"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                      Approximate user location for search result localization.
+
+                      - `type: "approximate"`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `"approximate"`
+
+                      - `city: optional string or null`
+
+                        City name.
+
+                      - `country: optional string or null`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: optional string or null`
+
+                        Region or state name.
+
+                      - `timezone: optional string or null`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -19170,47 +28052,257 @@ List Session Thread Events
 
                 - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-                  - `enabled: boolean`
+                  - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
 
-                  - `name: "bash" or "edit" or "read" or 5 more`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `enabled: boolean`
 
-                    - `"bash"`
+                    - `name: "bash"`
 
-                    - `"edit"`
+                      - `"bash"`
 
-                    - `"read"`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-                    - `"write"`
+                      Permission policy for tool execution.
 
-                    - `"glob"`
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
-                    - `"grep"`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `"web_fetch"`
+                        - `type: "always_allow"`
 
-                    - `"web_search"`
+                          - `"always_allow"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+                        - `type: "always_ask"`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `"always_ask"`
 
-                      - `type: "always_allow"`
+                    - `type: "bash"`
 
-                        - `"always_allow"`
+                      - `"bash"`
 
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+                  - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `type: "always_ask"`
+                    - `enabled: boolean`
 
-                        - `"always_ask"`
+                    - `name: "edit"`
+
+                      - `"edit"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "edit"`
+
+                      - `"edit"`
+
+                  - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the read tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "read"`
+
+                      - `"read"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "read"`
+
+                      - `"read"`
+
+                  - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the write tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "write"`
+
+                      - `"write"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "write"`
+
+                      - `"write"`
+
+                  - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "glob"`
+
+                      - `"glob"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "glob"`
+
+                      - `"glob"`
+
+                  - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "grep"`
+
+                      - `"grep"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "grep"`
+
+                      - `"grep"`
+
+                  - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `max_content_tokens: optional number or null`
+
+                  - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_search"`
+
+                      - `"web_search"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_search"`
+
+                      - `"web_search"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                      Approximate user location for search result localization.
+
+                      - `type: "approximate"`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `"approximate"`
+
+                      - `city: optional string or null`
+
+                        City name.
+
+                      - `country: optional string or null`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: optional string or null`
+
+                        Region or state name.
+
+                      - `timezone: optional string or null`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -21286,47 +30378,257 @@ Stream Session Thread Events
 
                 - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-                  - `enabled: boolean`
+                  - `BetaManagedAgentsBashToolConfig object { enabled, name, permission_policy, type }`
 
-                  - `name: "bash" or "edit" or "read" or 5 more`
+                    Configuration for the bash tool.
 
-                    Built-in agent tool identifier.
+                    - `enabled: boolean`
 
-                    - `"bash"`
+                    - `name: "bash"`
 
-                    - `"edit"`
+                      - `"bash"`
 
-                    - `"read"`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-                    - `"write"`
+                      Permission policy for tool execution.
 
-                    - `"glob"`
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
-                    - `"grep"`
+                        Tool calls are automatically approved without user confirmation.
 
-                    - `"web_fetch"`
+                        - `type: "always_allow"`
 
-                    - `"web_search"`
+                          - `"always_allow"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
 
-                    Permission policy for tool execution.
+                        Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+                        - `type: "always_ask"`
 
-                      Tool calls are automatically approved without user confirmation.
+                          - `"always_ask"`
 
-                      - `type: "always_allow"`
+                    - `type: "bash"`
 
-                        - `"always_allow"`
+                      - `"bash"`
 
-                    - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+                  - `BetaManagedAgentsEditToolConfig object { enabled, name, permission_policy, type }`
 
-                      Tool calls require user confirmation before execution.
+                    Configuration for the edit tool.
 
-                      - `type: "always_ask"`
+                    - `enabled: boolean`
 
-                        - `"always_ask"`
+                    - `name: "edit"`
+
+                      - `"edit"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "edit"`
+
+                      - `"edit"`
+
+                  - `BetaManagedAgentsReadToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the read tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "read"`
+
+                      - `"read"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "read"`
+
+                      - `"read"`
+
+                  - `BetaManagedAgentsWriteToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the write tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "write"`
+
+                      - `"write"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "write"`
+
+                      - `"write"`
+
+                  - `BetaManagedAgentsGlobToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the glob tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "glob"`
+
+                      - `"glob"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "glob"`
+
+                      - `"glob"`
+
+                  - `BetaManagedAgentsGrepToolConfig object { enabled, name, permission_policy, type }`
+
+                    Configuration for the grep tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "grep"`
+
+                      - `"grep"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "grep"`
+
+                      - `"grep"`
+
+                  - `BetaManagedAgentsWebFetchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_fetch tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_fetch"`
+
+                      - `"web_fetch"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `max_content_tokens: optional number or null`
+
+                  - `BetaManagedAgentsWebSearchToolConfig object { enabled, name, permission_policy, 4 more }`
+
+                    Configuration for the web_search tool.
+
+                    - `enabled: boolean`
+
+                    - `name: "web_search"`
+
+                      - `"web_search"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `BetaManagedAgentsAlwaysAskPolicy object { type }`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `type: "web_search"`
+
+                      - `"web_search"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `user_location: optional BetaManagedAgentsUserLocation or null`
+
+                      Approximate user location for search result localization.
+
+                      - `type: "approximate"`
+
+                        Location precision. Only "approximate" is supported.
+
+                        - `"approximate"`
+
+                      - `city: optional string or null`
+
+                        City name.
+
+                      - `country: optional string or null`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: optional string or null`
+
+                        Region or state name.
+
+                      - `timezone: optional string or null`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -26888,10905 +36190,3 @@ Pause Deployment
     - `BetaManagedAgentsDeploymentSystemMessageEvent object { content, type }`
 
       Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks to append. Text-only.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `type: "system.message"`
-
-        - `"system.message"`
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs.
-
-  - `name: string`
-
-    Human-readable name.
-
-  - `paused_reason: BetaManagedAgentsDeploymentPausedReason or null`
-
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-    - `BetaManagedAgentsManualDeploymentPausedReason object { type }`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `type: "manual"`
-
-        - `"manual"`
-
-    - `BetaManagedAgentsErrorDeploymentPausedReason object { error, type }`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `error: BetaManagedAgentsDeploymentPausedReasonError`
-
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError object { type }`
-
-          The deployment's environment was archived.
-
-          - `type: "environment_archived_error"`
-
-            - `"environment_archived_error"`
-
-        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError object { type }`
-
-          The deployment's agent was archived.
-
-          - `type: "agent_archived_error"`
-
-            - `"agent_archived_error"`
-
-        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError object { type }`
-
-          The deployment's environment no longer exists.
-
-          - `type: "environment_not_found_error"`
-
-            - `"environment_not_found_error"`
-
-        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError object { type }`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `type: "vault_not_found_error"`
-
-            - `"vault_not_found_error"`
-
-        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError object { type }`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `type: "file_not_found_error"`
-
-            - `"file_not_found_error"`
-
-        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError object { type }`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `type: "session_resource_not_found_error"`
-
-            - `"session_resource_not_found_error"`
-
-        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError object { type }`
-
-          The deployment's workspace was archived.
-
-          - `type: "workspace_archived_error"`
-
-            - `"workspace_archived_error"`
-
-        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError object { type }`
-
-          The deployment's organization is disabled.
-
-          - `type: "organization_disabled_error"`
-
-            - `"organization_disabled_error"`
-
-        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError object { type }`
-
-          A memory store referenced by the deployment is archived.
-
-          - `type: "memory_store_archived_error"`
-
-            - `"memory_store_archived_error"`
-
-        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError object { type }`
-
-          A skill referenced by the deployment's agent no longer exists.
-
-          - `type: "skill_not_found_error"`
-
-            - `"skill_not_found_error"`
-
-        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError object { type }`
-
-          A vault referenced by the deployment is archived.
-
-          - `type: "vault_archived_error"`
-
-            - `"vault_archived_error"`
-
-        - `BetaManagedAgentsUnknownDeploymentPausedReasonError object { type }`
-
-          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-          - `type: "unknown_error"`
-
-            - `"unknown_error"`
-
-        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError object { type }`
-
-          The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-          - `type: "self_hosted_resources_unsupported_error"`
-
-            - `"self_hosted_resources_unsupported_error"`
-
-        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError object { type }`
-
-          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-          - `type: "mcp_egress_blocked_error"`
-
-            - `"mcp_egress_blocked_error"`
-
-      - `type: "error"`
-
-        - `"error"`
-
-  - `resources: array of BetaManagedAgentsSessionResourceConfig`
-
-    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
-
-    - `BetaManagedAgentsGitHubRepositoryResourceConfig object { type, url, checkout, mount_path }`
-
-      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-      - `type: "github_repository"`
-
-        - `"github_repository"`
-
-      - `url: string`
-
-        Github URL of the repository
-
-      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout or null`
-
-        Branch or commit to check out. Defaults to the repository's default branch.
-
-        - `BetaManagedAgentsBranchCheckout object { name, type }`
-
-          - `name: string`
-
-            Branch name to check out.
-
-          - `type: "branch"`
-
-            - `"branch"`
-
-        - `BetaManagedAgentsCommitCheckout object { sha, type }`
-
-          - `sha: string`
-
-            Full commit SHA to check out.
-
-          - `type: "commit"`
-
-            - `"commit"`
-
-      - `mount_path: optional string or null`
-
-        Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-    - `BetaManagedAgentsFileResourceConfig object { file_id, type, mount_path }`
-
-      A file mounted into each session's container.
-
-      - `file_id: string`
-
-        ID of a previously uploaded file.
-
-      - `type: "file"`
-
-        - `"file"`
-
-      - `mount_path: optional string or null`
-
-        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-    - `BetaManagedAgentsMemoryStoreResourceConfig object { memory_store_id, type, access, instructions }`
-
-      A memory store attached to each session created from this deployment.
-
-      - `memory_store_id: string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
-
-        - `"memory_store"`
-
-      - `access: optional "read_write" or "read_only" or null`
-
-        Access mode for an attached memory store.
-
-        - `"read_write"`
-
-        - `"read_only"`
-
-      - `instructions: optional string or null`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-  - `schedule: BetaManagedAgentsSchedule or null`
-
-    5-field POSIX cron schedule with computed runtime timestamps.
-
-    - `expression: string`
-
-      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-    - `timezone: string`
-
-      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-    - `type: "cron"`
-
-      - `"cron"`
-
-    - `last_run_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `upcoming_runs_at: optional array of string`
-
-      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-  - `status: BetaManagedAgentsDeploymentStatus`
-
-    Lifecycle status of a deployment.
-
-    - `"active"`
-
-    - `"paused"`
-
-  - `type: "deployment"`
-
-    - `"deployment"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `vault_ids: array of string`
-
-    Vault IDs supplying stored credentials for sessions created from this deployment.
-
-  - `budget: optional BetaManagedAgentsBudgetLimit or null`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `max_list_cost: BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-      - `amount: string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `currency: BetaCurrency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-        - `"USD"`
-
-    - `type: "limit"`
-
-      - `"limit"`
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/deployments/$DEPLOYMENT_ID/pause \
-    -X POST \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Compiles yesterday's orders into a report every weekday morning.",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "initial_events": [
-    {
-      "content": [
-        {
-          "text": "Compile yesterday's orders into report.md.",
-          "type": "text"
-        }
-      ],
-      "type": "user.message"
-    }
-  ],
-  "metadata": {},
-  "name": "Daily order report",
-  "paused_reason": {
-    "type": "manual"
-  },
-  "resources": [
-    {
-      "type": "github_repository",
-      "url": "url",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      },
-      "mount_path": "mount_path"
-    }
-  ],
-  "schedule": {
-    "expression": "0 9 * * 1-5",
-    "timezone": "America/Los_Angeles",
-    "type": "cron",
-    "last_run_at": "2026-03-16T16:00:09Z",
-    "upcoming_runs_at": [
-      "2026-03-17T16:00:00Z",
-      "2026-03-18T16:00:00Z"
-    ]
-  },
-  "status": "active",
-  "type": "deployment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  }
-}
-```
-
-## Unpause Deployment
-
-**post** `/v1/deployments/{deployment_id}/unpause`
-
-Unpause Deployment
-
-### Path Parameters
-
-- `deployment_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsDeployment object { id, agent, archived_at, 14 more }`
-
-  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
-
-  - `id: string`
-
-    Unique identifier for this deployment.
-
-  - `agent: BetaManagedAgentsAgentReference`
-
-    A resolved agent reference with a concrete version.
-
-    - `id: string`
-
-    - `type: "agent"`
-
-      - `"agent"`
-
-    - `version: number`
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `description: string or null`
-
-    Description of what the deployment does.
-
-  - `environment_id: string`
-
-    ID of the `environment` where sessions run.
-
-  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
-
-    Events sent to each session immediately after creation.
-
-    - `BetaManagedAgentsDeploymentUserMessageEvent object { content, type }`
-
-      A user message sent to the session.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of content blocks for the user message.
-
-        - `BetaManagedAgentsTextBlock object { text, type }`
-
-          Regular text content.
-
-          - `text: string`
-
-            The text content.
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `BetaManagedAgentsImageBlock object { source, type }`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-              Base64-encoded image data.
-
-              - `data: string`
-
-                Base64-encoded image data.
-
-              - `media_type: string`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `type: "base64"`
-
-                - `"base64"`
-
-            - `BetaManagedAgentsURLImageSource object { type, url }`
-
-              Image referenced by URL.
-
-              - `type: "url"`
-
-                - `"url"`
-
-              - `url: string`
-
-                URL of the image to fetch.
-
-            - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-              Image referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-              - `type: "file"`
-
-                - `"file"`
-
-          - `type: "image"`
-
-            - `"image"`
-
-        - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-              Base64-encoded document data.
-
-              - `data: string`
-
-                Base64-encoded document data.
-
-              - `media_type: string`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `type: "base64"`
-
-                - `"base64"`
-
-            - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-              Plain text document content.
-
-              - `data: string`
-
-                The plain text content.
-
-              - `media_type: "text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"`
-
-              - `type: "text"`
-
-                - `"text"`
-
-            - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-              Document referenced by URL.
-
-              - `type: "url"`
-
-                - `"url"`
-
-              - `url: string`
-
-                URL of the document to fetch.
-
-            - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-              Document referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-              - `type: "file"`
-
-                - `"file"`
-
-          - `type: "document"`
-
-            - `"document"`
-
-          - `context: optional string or null`
-
-            Additional context about the document for the model.
-
-          - `title: optional string or null`
-
-            The title of the document.
-
-        - `BetaManagedAgentsRedactedBlock object { type }`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: "redacted"`
-
-            - `"redacted"`
-
-      - `type: "user.message"`
-
-        - `"user.message"`
-
-    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent object { description, rubric, type, max_iterations }`
-
-      An outcome the agent should work toward. The agent begins work on receipt.
-
-      - `description: string`
-
-        What the agent should produce. This is the task specification.
-
-      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `BetaManagedAgentsFileRubric object { file_id, type }`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `file_id: string`
-
-            ID of the rubric file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-        - `BetaManagedAgentsTextRubric object { content, type }`
-
-          Rubric content provided inline as text.
-
-          - `content: string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: "text"`
-
-            - `"text"`
-
-      - `type: "user.define_outcome"`
-
-        - `"user.define_outcome"`
-
-      - `max_iterations: optional number or null`
-
-        Eval→revision cycles before giving up. Default 3, max 20.
-
-    - `BetaManagedAgentsDeploymentSystemMessageEvent object { content, type }`
-
-      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks to append. Text-only.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `type: "system.message"`
-
-        - `"system.message"`
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs.
-
-  - `name: string`
-
-    Human-readable name.
-
-  - `paused_reason: BetaManagedAgentsDeploymentPausedReason or null`
-
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-    - `BetaManagedAgentsManualDeploymentPausedReason object { type }`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `type: "manual"`
-
-        - `"manual"`
-
-    - `BetaManagedAgentsErrorDeploymentPausedReason object { error, type }`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `error: BetaManagedAgentsDeploymentPausedReasonError`
-
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError object { type }`
-
-          The deployment's environment was archived.
-
-          - `type: "environment_archived_error"`
-
-            - `"environment_archived_error"`
-
-        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError object { type }`
-
-          The deployment's agent was archived.
-
-          - `type: "agent_archived_error"`
-
-            - `"agent_archived_error"`
-
-        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError object { type }`
-
-          The deployment's environment no longer exists.
-
-          - `type: "environment_not_found_error"`
-
-            - `"environment_not_found_error"`
-
-        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError object { type }`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `type: "vault_not_found_error"`
-
-            - `"vault_not_found_error"`
-
-        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError object { type }`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `type: "file_not_found_error"`
-
-            - `"file_not_found_error"`
-
-        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError object { type }`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `type: "session_resource_not_found_error"`
-
-            - `"session_resource_not_found_error"`
-
-        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError object { type }`
-
-          The deployment's workspace was archived.
-
-          - `type: "workspace_archived_error"`
-
-            - `"workspace_archived_error"`
-
-        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError object { type }`
-
-          The deployment's organization is disabled.
-
-          - `type: "organization_disabled_error"`
-
-            - `"organization_disabled_error"`
-
-        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError object { type }`
-
-          A memory store referenced by the deployment is archived.
-
-          - `type: "memory_store_archived_error"`
-
-            - `"memory_store_archived_error"`
-
-        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError object { type }`
-
-          A skill referenced by the deployment's agent no longer exists.
-
-          - `type: "skill_not_found_error"`
-
-            - `"skill_not_found_error"`
-
-        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError object { type }`
-
-          A vault referenced by the deployment is archived.
-
-          - `type: "vault_archived_error"`
-
-            - `"vault_archived_error"`
-
-        - `BetaManagedAgentsUnknownDeploymentPausedReasonError object { type }`
-
-          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-          - `type: "unknown_error"`
-
-            - `"unknown_error"`
-
-        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError object { type }`
-
-          The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-          - `type: "self_hosted_resources_unsupported_error"`
-
-            - `"self_hosted_resources_unsupported_error"`
-
-        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError object { type }`
-
-          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-          - `type: "mcp_egress_blocked_error"`
-
-            - `"mcp_egress_blocked_error"`
-
-      - `type: "error"`
-
-        - `"error"`
-
-  - `resources: array of BetaManagedAgentsSessionResourceConfig`
-
-    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
-
-    - `BetaManagedAgentsGitHubRepositoryResourceConfig object { type, url, checkout, mount_path }`
-
-      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-      - `type: "github_repository"`
-
-        - `"github_repository"`
-
-      - `url: string`
-
-        Github URL of the repository
-
-      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout or null`
-
-        Branch or commit to check out. Defaults to the repository's default branch.
-
-        - `BetaManagedAgentsBranchCheckout object { name, type }`
-
-          - `name: string`
-
-            Branch name to check out.
-
-          - `type: "branch"`
-
-            - `"branch"`
-
-        - `BetaManagedAgentsCommitCheckout object { sha, type }`
-
-          - `sha: string`
-
-            Full commit SHA to check out.
-
-          - `type: "commit"`
-
-            - `"commit"`
-
-      - `mount_path: optional string or null`
-
-        Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-    - `BetaManagedAgentsFileResourceConfig object { file_id, type, mount_path }`
-
-      A file mounted into each session's container.
-
-      - `file_id: string`
-
-        ID of a previously uploaded file.
-
-      - `type: "file"`
-
-        - `"file"`
-
-      - `mount_path: optional string or null`
-
-        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-    - `BetaManagedAgentsMemoryStoreResourceConfig object { memory_store_id, type, access, instructions }`
-
-      A memory store attached to each session created from this deployment.
-
-      - `memory_store_id: string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
-
-        - `"memory_store"`
-
-      - `access: optional "read_write" or "read_only" or null`
-
-        Access mode for an attached memory store.
-
-        - `"read_write"`
-
-        - `"read_only"`
-
-      - `instructions: optional string or null`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-  - `schedule: BetaManagedAgentsSchedule or null`
-
-    5-field POSIX cron schedule with computed runtime timestamps.
-
-    - `expression: string`
-
-      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-    - `timezone: string`
-
-      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-    - `type: "cron"`
-
-      - `"cron"`
-
-    - `last_run_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `upcoming_runs_at: optional array of string`
-
-      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-  - `status: BetaManagedAgentsDeploymentStatus`
-
-    Lifecycle status of a deployment.
-
-    - `"active"`
-
-    - `"paused"`
-
-  - `type: "deployment"`
-
-    - `"deployment"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `vault_ids: array of string`
-
-    Vault IDs supplying stored credentials for sessions created from this deployment.
-
-  - `budget: optional BetaManagedAgentsBudgetLimit or null`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `max_list_cost: BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-      - `amount: string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `currency: BetaCurrency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-        - `"USD"`
-
-    - `type: "limit"`
-
-      - `"limit"`
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/deployments/$DEPLOYMENT_ID/unpause \
-    -X POST \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Compiles yesterday's orders into a report every weekday morning.",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "initial_events": [
-    {
-      "content": [
-        {
-          "text": "Compile yesterday's orders into report.md.",
-          "type": "text"
-        }
-      ],
-      "type": "user.message"
-    }
-  ],
-  "metadata": {},
-  "name": "Daily order report",
-  "paused_reason": {
-    "type": "manual"
-  },
-  "resources": [
-    {
-      "type": "github_repository",
-      "url": "url",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      },
-      "mount_path": "mount_path"
-    }
-  ],
-  "schedule": {
-    "expression": "0 9 * * 1-5",
-    "timezone": "America/Los_Angeles",
-    "type": "cron",
-    "last_run_at": "2026-03-16T16:00:09Z",
-    "upcoming_runs_at": [
-      "2026-03-17T16:00:00Z",
-      "2026-03-18T16:00:00Z"
-    ]
-  },
-  "status": "active",
-  "type": "deployment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  }
-}
-```
-
-## Domain Types
-
-### Beta Managed Agents Agent Archived Deployment Paused Reason Error
-
-- `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError object { type }`
-
-  The deployment's agent was archived.
-
-  - `type: "agent_archived_error"`
-
-    - `"agent_archived_error"`
-
-### Beta Managed Agents Cron Schedule
-
-- `BetaManagedAgentsCronSchedule object { expression, timezone, type, 2 more }`
-
-  5-field POSIX cron schedule with computed runtime timestamps.
-
-  - `expression: string`
-
-    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-  - `timezone: string`
-
-    IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-  - `type: "cron"`
-
-    - `"cron"`
-
-  - `last_run_at: optional string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `upcoming_runs_at: optional array of string`
-
-    Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-### Beta Managed Agents Cron Schedule Params
-
-- `BetaManagedAgentsCronScheduleParams object { expression, timezone, type }`
-
-  5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
-
-  - `expression: string`
-
-    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-  - `timezone: string`
-
-    Required. IANA timezone identifier (e.g., "America/Los_Angeles", "UTC"). Validated against the IANA timezone database.
-
-  - `type: "cron"`
-
-    - `"cron"`
-
-### Beta Managed Agents Deployment
-
-- `BetaManagedAgentsDeployment object { id, agent, archived_at, 14 more }`
-
-  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
-
-  - `id: string`
-
-    Unique identifier for this deployment.
-
-  - `agent: BetaManagedAgentsAgentReference`
-
-    A resolved agent reference with a concrete version.
-
-    - `id: string`
-
-    - `type: "agent"`
-
-      - `"agent"`
-
-    - `version: number`
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `description: string or null`
-
-    Description of what the deployment does.
-
-  - `environment_id: string`
-
-    ID of the `environment` where sessions run.
-
-  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
-
-    Events sent to each session immediately after creation.
-
-    - `BetaManagedAgentsDeploymentUserMessageEvent object { content, type }`
-
-      A user message sent to the session.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of content blocks for the user message.
-
-        - `BetaManagedAgentsTextBlock object { text, type }`
-
-          Regular text content.
-
-          - `text: string`
-
-            The text content.
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `BetaManagedAgentsImageBlock object { source, type }`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-              Base64-encoded image data.
-
-              - `data: string`
-
-                Base64-encoded image data.
-
-              - `media_type: string`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `type: "base64"`
-
-                - `"base64"`
-
-            - `BetaManagedAgentsURLImageSource object { type, url }`
-
-              Image referenced by URL.
-
-              - `type: "url"`
-
-                - `"url"`
-
-              - `url: string`
-
-                URL of the image to fetch.
-
-            - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-              Image referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-              - `type: "file"`
-
-                - `"file"`
-
-          - `type: "image"`
-
-            - `"image"`
-
-        - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-              Base64-encoded document data.
-
-              - `data: string`
-
-                Base64-encoded document data.
-
-              - `media_type: string`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `type: "base64"`
-
-                - `"base64"`
-
-            - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-              Plain text document content.
-
-              - `data: string`
-
-                The plain text content.
-
-              - `media_type: "text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"`
-
-              - `type: "text"`
-
-                - `"text"`
-
-            - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-              Document referenced by URL.
-
-              - `type: "url"`
-
-                - `"url"`
-
-              - `url: string`
-
-                URL of the document to fetch.
-
-            - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-              Document referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-              - `type: "file"`
-
-                - `"file"`
-
-          - `type: "document"`
-
-            - `"document"`
-
-          - `context: optional string or null`
-
-            Additional context about the document for the model.
-
-          - `title: optional string or null`
-
-            The title of the document.
-
-        - `BetaManagedAgentsRedactedBlock object { type }`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: "redacted"`
-
-            - `"redacted"`
-
-      - `type: "user.message"`
-
-        - `"user.message"`
-
-    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent object { description, rubric, type, max_iterations }`
-
-      An outcome the agent should work toward. The agent begins work on receipt.
-
-      - `description: string`
-
-        What the agent should produce. This is the task specification.
-
-      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `BetaManagedAgentsFileRubric object { file_id, type }`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `file_id: string`
-
-            ID of the rubric file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-        - `BetaManagedAgentsTextRubric object { content, type }`
-
-          Rubric content provided inline as text.
-
-          - `content: string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: "text"`
-
-            - `"text"`
-
-      - `type: "user.define_outcome"`
-
-        - `"user.define_outcome"`
-
-      - `max_iterations: optional number or null`
-
-        Eval→revision cycles before giving up. Default 3, max 20.
-
-    - `BetaManagedAgentsDeploymentSystemMessageEvent object { content, type }`
-
-      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks to append. Text-only.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `type: "system.message"`
-
-        - `"system.message"`
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs.
-
-  - `name: string`
-
-    Human-readable name.
-
-  - `paused_reason: BetaManagedAgentsDeploymentPausedReason or null`
-
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-    - `BetaManagedAgentsManualDeploymentPausedReason object { type }`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `type: "manual"`
-
-        - `"manual"`
-
-    - `BetaManagedAgentsErrorDeploymentPausedReason object { error, type }`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `error: BetaManagedAgentsDeploymentPausedReasonError`
-
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError object { type }`
-
-          The deployment's environment was archived.
-
-          - `type: "environment_archived_error"`
-
-            - `"environment_archived_error"`
-
-        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError object { type }`
-
-          The deployment's agent was archived.
-
-          - `type: "agent_archived_error"`
-
-            - `"agent_archived_error"`
-
-        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError object { type }`
-
-          The deployment's environment no longer exists.
-
-          - `type: "environment_not_found_error"`
-
-            - `"environment_not_found_error"`
-
-        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError object { type }`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `type: "vault_not_found_error"`
-
-            - `"vault_not_found_error"`
-
-        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError object { type }`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `type: "file_not_found_error"`
-
-            - `"file_not_found_error"`
-
-        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError object { type }`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `type: "session_resource_not_found_error"`
-
-            - `"session_resource_not_found_error"`
-
-        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError object { type }`
-
-          The deployment's workspace was archived.
-
-          - `type: "workspace_archived_error"`
-
-            - `"workspace_archived_error"`
-
-        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError object { type }`
-
-          The deployment's organization is disabled.
-
-          - `type: "organization_disabled_error"`
-
-            - `"organization_disabled_error"`
-
-        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError object { type }`
-
-          A memory store referenced by the deployment is archived.
-
-          - `type: "memory_store_archived_error"`
-
-            - `"memory_store_archived_error"`
-
-        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError object { type }`
-
-          A skill referenced by the deployment's agent no longer exists.
-
-          - `type: "skill_not_found_error"`
-
-            - `"skill_not_found_error"`
-
-        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError object { type }`
-
-          A vault referenced by the deployment is archived.
-
-          - `type: "vault_archived_error"`
-
-            - `"vault_archived_error"`
-
-        - `BetaManagedAgentsUnknownDeploymentPausedReasonError object { type }`
-
-          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-          - `type: "unknown_error"`
-
-            - `"unknown_error"`
-
-        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError object { type }`
-
-          The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-          - `type: "self_hosted_resources_unsupported_error"`
-
-            - `"self_hosted_resources_unsupported_error"`
-
-        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError object { type }`
-
-          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-          - `type: "mcp_egress_blocked_error"`
-
-            - `"mcp_egress_blocked_error"`
-
-      - `type: "error"`
-
-        - `"error"`
-
-  - `resources: array of BetaManagedAgentsSessionResourceConfig`
-
-    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
-
-    - `BetaManagedAgentsGitHubRepositoryResourceConfig object { type, url, checkout, mount_path }`
-
-      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-      - `type: "github_repository"`
-
-        - `"github_repository"`
-
-      - `url: string`
-
-        Github URL of the repository
-
-      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout or null`
-
-        Branch or commit to check out. Defaults to the repository's default branch.
-
-        - `BetaManagedAgentsBranchCheckout object { name, type }`
-
-          - `name: string`
-
-            Branch name to check out.
-
-          - `type: "branch"`
-
-            - `"branch"`
-
-        - `BetaManagedAgentsCommitCheckout object { sha, type }`
-
-          - `sha: string`
-
-            Full commit SHA to check out.
-
-          - `type: "commit"`
-
-            - `"commit"`
-
-      - `mount_path: optional string or null`
-
-        Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-    - `BetaManagedAgentsFileResourceConfig object { file_id, type, mount_path }`
-
-      A file mounted into each session's container.
-
-      - `file_id: string`
-
-        ID of a previously uploaded file.
-
-      - `type: "file"`
-
-        - `"file"`
-
-      - `mount_path: optional string or null`
-
-        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-    - `BetaManagedAgentsMemoryStoreResourceConfig object { memory_store_id, type, access, instructions }`
-
-      A memory store attached to each session created from this deployment.
-
-      - `memory_store_id: string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
-
-        - `"memory_store"`
-
-      - `access: optional "read_write" or "read_only" or null`
-
-        Access mode for an attached memory store.
-
-        - `"read_write"`
-
-        - `"read_only"`
-
-      - `instructions: optional string or null`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-  - `schedule: BetaManagedAgentsSchedule or null`
-
-    5-field POSIX cron schedule with computed runtime timestamps.
-
-    - `expression: string`
-
-      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-    - `timezone: string`
-
-      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-    - `type: "cron"`
-
-      - `"cron"`
-
-    - `last_run_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `upcoming_runs_at: optional array of string`
-
-      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-  - `status: BetaManagedAgentsDeploymentStatus`
-
-    Lifecycle status of a deployment.
-
-    - `"active"`
-
-    - `"paused"`
-
-  - `type: "deployment"`
-
-    - `"deployment"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `vault_ids: array of string`
-
-    Vault IDs supplying stored credentials for sessions created from this deployment.
-
-  - `budget: optional BetaManagedAgentsBudgetLimit or null`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `max_list_cost: BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-      - `amount: string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `currency: BetaCurrency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-        - `"USD"`
-
-    - `type: "limit"`
-
-      - `"limit"`
-
-### Beta Managed Agents Deployment Initial Event
-
-- `BetaManagedAgentsDeploymentInitialEvent = BetaManagedAgentsDeploymentUserMessageEvent or BetaManagedAgentsDeploymentUserDefineOutcomeEvent or BetaManagedAgentsDeploymentSystemMessageEvent`
-
-  An event sent to a session immediately after it is created. Supports `user.message`, `user.define_outcome`, and `system.message`.
-
-  - `BetaManagedAgentsDeploymentUserMessageEvent object { content, type }`
-
-    A user message sent to the session.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Array of content blocks for the user message.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource object { type, url }`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context: optional string or null`
-
-          Additional context about the document for the model.
-
-        - `title: optional string or null`
-
-          The title of the document.
-
-      - `BetaManagedAgentsRedactedBlock object { type }`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-        - `type: "redacted"`
-
-          - `"redacted"`
-
-    - `type: "user.message"`
-
-      - `"user.message"`
-
-  - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent object { description, rubric, type, max_iterations }`
-
-    An outcome the agent should work toward. The agent begins work on receipt.
-
-    - `description: string`
-
-      What the agent should produce. This is the task specification.
-
-    - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-      Rubric for grading the quality of an outcome.
-
-      - `BetaManagedAgentsFileRubric object { file_id, type }`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `file_id: string`
-
-          ID of the rubric file.
-
-        - `type: "file"`
-
-          - `"file"`
-
-      - `BetaManagedAgentsTextRubric object { content, type }`
-
-        Rubric content provided inline as text.
-
-        - `content: string`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-        - `type: "text"`
-
-          - `"text"`
-
-    - `type: "user.define_outcome"`
-
-      - `"user.define_outcome"`
-
-    - `max_iterations: optional number or null`
-
-      Eval→revision cycles before giving up. Default 3, max 20.
-
-  - `BetaManagedAgentsDeploymentSystemMessageEvent object { content, type }`
-
-    Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-    - `content: array of BetaManagedAgentsSystemContentBlock`
-
-      System content blocks to append. Text-only.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `type: "system.message"`
-
-      - `"system.message"`
-
-### Beta Managed Agents Deployment Initial Event Params
-
-- `BetaManagedAgentsDeploymentInitialEventParams = BetaManagedAgentsUserMessageEventParams or BetaManagedAgentsUserDefineOutcomeEventParams or BetaManagedAgentsSystemMessageEventParams`
-
-  An event sent to a session immediately after it is created. Supports `user.message`, `user.define_outcome`, and `system.message`.
-
-  - `BetaManagedAgentsUserMessageEventParams object { content, type }`
-
-    Parameters for sending a user message to the session.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Array of content blocks for the user message.
-
-      - `BetaManagedAgentsTextBlock object { text, type }`
-
-        Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
-
-      - `BetaManagedAgentsImageBlock object { source, type }`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource object { type, url }`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
-      - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context: optional string or null`
-
-          Additional context about the document for the model.
-
-        - `title: optional string or null`
-
-          The title of the document.
-
-      - `BetaManagedAgentsRedactedBlock object { type }`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-        - `type: "redacted"`
-
-          - `"redacted"`
-
-    - `type: "user.message"`
-
-      - `"user.message"`
-
-  - `BetaManagedAgentsUserDefineOutcomeEventParams object { description, rubric, type, max_iterations }`
-
-    Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
-
-    - `description: string`
-
-      What the agent should produce. This is the task specification.
-
-    - `rubric: BetaManagedAgentsFileRubricParams or BetaManagedAgentsTextRubricParams`
-
-      Rubric for grading the quality of an outcome.
-
-      - `BetaManagedAgentsFileRubricParams object { file_id, type }`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `file_id: string`
-
-          ID of the rubric file.
-
-        - `type: "file"`
-
-          - `"file"`
-
-      - `BetaManagedAgentsTextRubricParams object { content, type }`
-
-        Rubric content provided inline as text.
-
-        - `content: string`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
-
-        - `type: "text"`
-
-          - `"text"`
-
-    - `type: "user.define_outcome"`
-
-      - `"user.define_outcome"`
-
-    - `max_iterations: optional number or null`
-
-      Eval→revision cycles before giving up. Default 3, max 20.
-
-  - `BetaManagedAgentsSystemMessageEventParams object { content, type }`
-
-    Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
-
-    - `content: array of BetaManagedAgentsSystemContentBlock`
-
-      System content blocks to append. Text-only.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `type: "system.message"`
-
-      - `"system.message"`
-
-### Beta Managed Agents Deployment Paused Reason
-
-- `BetaManagedAgentsDeploymentPausedReason = BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
-
-  Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-  - `BetaManagedAgentsManualDeploymentPausedReason object { type }`
-
-    The caller invoked the pause endpoint on the deployment.
-
-    - `type: "manual"`
-
-      - `"manual"`
-
-  - `BetaManagedAgentsErrorDeploymentPausedReason object { error, type }`
-
-    A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-    - `error: BetaManagedAgentsDeploymentPausedReasonError`
-
-      The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-      - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError object { type }`
-
-        The deployment's environment was archived.
-
-        - `type: "environment_archived_error"`
-
-          - `"environment_archived_error"`
-
-      - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError object { type }`
-
-        The deployment's agent was archived.
-
-        - `type: "agent_archived_error"`
-
-          - `"agent_archived_error"`
-
-      - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError object { type }`
-
-        The deployment's environment no longer exists.
-
-        - `type: "environment_not_found_error"`
-
-          - `"environment_not_found_error"`
-
-      - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError object { type }`
-
-        A vault referenced by the deployment no longer exists.
-
-        - `type: "vault_not_found_error"`
-
-          - `"vault_not_found_error"`
-
-      - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError object { type }`
-
-        A file resource referenced by the deployment no longer exists.
-
-        - `type: "file_not_found_error"`
-
-          - `"file_not_found_error"`
-
-      - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError object { type }`
-
-        A referenced resource no longer exists and its kind was not reported.
-
-        - `type: "session_resource_not_found_error"`
-
-          - `"session_resource_not_found_error"`
-
-      - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError object { type }`
-
-        The deployment's workspace was archived.
-
-        - `type: "workspace_archived_error"`
-
-          - `"workspace_archived_error"`
-
-      - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError object { type }`
-
-        The deployment's organization is disabled.
-
-        - `type: "organization_disabled_error"`
-
-          - `"organization_disabled_error"`
-
-      - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError object { type }`
-
-        A memory store referenced by the deployment is archived.
-
-        - `type: "memory_store_archived_error"`
-
-          - `"memory_store_archived_error"`
-
-      - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError object { type }`
-
-        A skill referenced by the deployment's agent no longer exists.
-
-        - `type: "skill_not_found_error"`
-
-          - `"skill_not_found_error"`
-
-      - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError object { type }`
-
-        A vault referenced by the deployment is archived.
-
-        - `type: "vault_archived_error"`
-
-          - `"vault_archived_error"`
-
-      - `BetaManagedAgentsUnknownDeploymentPausedReasonError object { type }`
-
-        An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-        - `type: "unknown_error"`
-
-          - `"unknown_error"`
-
-      - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError object { type }`
-
-        The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-        - `type: "self_hosted_resources_unsupported_error"`
-
-          - `"self_hosted_resources_unsupported_error"`
-
-      - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError object { type }`
-
-        An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-        - `type: "mcp_egress_blocked_error"`
-
-          - `"mcp_egress_blocked_error"`
-
-    - `type: "error"`
-
-      - `"error"`
-
-### Beta Managed Agents Deployment Paused Reason Error
-
-- `BetaManagedAgentsDeploymentPausedReasonError = BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
-
-  The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-  - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError object { type }`
-
-    The deployment's environment was archived.
-
-    - `type: "environment_archived_error"`
-
-      - `"environment_archived_error"`
-
-  - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError object { type }`
-
-    The deployment's agent was archived.
-
-    - `type: "agent_archived_error"`
-
-      - `"agent_archived_error"`
-
-  - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError object { type }`
-
-    The deployment's environment no longer exists.
-
-    - `type: "environment_not_found_error"`
-
-      - `"environment_not_found_error"`
-
-  - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError object { type }`
-
-    A vault referenced by the deployment no longer exists.
-
-    - `type: "vault_not_found_error"`
-
-      - `"vault_not_found_error"`
-
-  - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError object { type }`
-
-    A file resource referenced by the deployment no longer exists.
-
-    - `type: "file_not_found_error"`
-
-      - `"file_not_found_error"`
-
-  - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError object { type }`
-
-    A referenced resource no longer exists and its kind was not reported.
-
-    - `type: "session_resource_not_found_error"`
-
-      - `"session_resource_not_found_error"`
-
-  - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError object { type }`
-
-    The deployment's workspace was archived.
-
-    - `type: "workspace_archived_error"`
-
-      - `"workspace_archived_error"`
-
-  - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError object { type }`
-
-    The deployment's organization is disabled.
-
-    - `type: "organization_disabled_error"`
-
-      - `"organization_disabled_error"`
-
-  - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError object { type }`
-
-    A memory store referenced by the deployment is archived.
-
-    - `type: "memory_store_archived_error"`
-
-      - `"memory_store_archived_error"`
-
-  - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError object { type }`
-
-    A skill referenced by the deployment's agent no longer exists.
-
-    - `type: "skill_not_found_error"`
-
-      - `"skill_not_found_error"`
-
-  - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError object { type }`
-
-    A vault referenced by the deployment is archived.
-
-    - `type: "vault_archived_error"`
-
-      - `"vault_archived_error"`
-
-  - `BetaManagedAgentsUnknownDeploymentPausedReasonError object { type }`
-
-    An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-    - `type: "unknown_error"`
-
-      - `"unknown_error"`
-
-  - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError object { type }`
-
-    The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-    - `type: "self_hosted_resources_unsupported_error"`
-
-      - `"self_hosted_resources_unsupported_error"`
-
-  - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError object { type }`
-
-    An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-    - `type: "mcp_egress_blocked_error"`
-
-      - `"mcp_egress_blocked_error"`
-
-### Beta Managed Agents Deployment Status
-
-- `BetaManagedAgentsDeploymentStatus = "active" or "paused"`
-
-  Lifecycle status of a deployment.
-
-  - `"active"`
-
-  - `"paused"`
-
-### Beta Managed Agents Deployment System Message Event
-
-- `BetaManagedAgentsDeploymentSystemMessageEvent object { content, type }`
-
-  Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-  - `content: array of BetaManagedAgentsSystemContentBlock`
-
-    System content blocks to append. Text-only.
-
-    - `text: string`
-
-      The text content.
-
-    - `type: "text"`
-
-      - `"text"`
-
-  - `type: "system.message"`
-
-    - `"system.message"`
-
-### Beta Managed Agents Deployment User Define Outcome Event
-
-- `BetaManagedAgentsDeploymentUserDefineOutcomeEvent object { description, rubric, type, max_iterations }`
-
-  An outcome the agent should work toward. The agent begins work on receipt.
-
-  - `description: string`
-
-    What the agent should produce. This is the task specification.
-
-  - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-    Rubric for grading the quality of an outcome.
-
-    - `BetaManagedAgentsFileRubric object { file_id, type }`
-
-      Rubric referenced by a file uploaded via the Files API.
-
-      - `file_id: string`
-
-        ID of the rubric file.
-
-      - `type: "file"`
-
-        - `"file"`
-
-    - `BetaManagedAgentsTextRubric object { content, type }`
-
-      Rubric content provided inline as text.
-
-      - `content: string`
-
-        Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-      - `type: "text"`
-
-        - `"text"`
-
-  - `type: "user.define_outcome"`
-
-    - `"user.define_outcome"`
-
-  - `max_iterations: optional number or null`
-
-    Eval→revision cycles before giving up. Default 3, max 20.
-
-### Beta Managed Agents Deployment User Message Event
-
-- `BetaManagedAgentsDeploymentUserMessageEvent object { content, type }`
-
-  A user message sent to the session.
-
-  - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-    Array of content blocks for the user message.
-
-    - `BetaManagedAgentsTextBlock object { text, type }`
-
-      Regular text content.
-
-      - `text: string`
-
-        The text content.
-
-      - `type: "text"`
-
-        - `"text"`
-
-    - `BetaManagedAgentsImageBlock object { source, type }`
-
-      Image content specified directly as base64 data or as a reference via a URL.
-
-      - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-        Union type for image source variants.
-
-        - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
-
-          Base64-encoded image data.
-
-          - `data: string`
-
-            Base64-encoded image data.
-
-          - `media_type: string`
-
-            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-          - `type: "base64"`
-
-            - `"base64"`
-
-        - `BetaManagedAgentsURLImageSource object { type, url }`
-
-          Image referenced by URL.
-
-          - `type: "url"`
-
-            - `"url"`
-
-          - `url: string`
-
-            URL of the image to fetch.
-
-        - `BetaManagedAgentsFileImageSource object { file_id, type }`
-
-          Image referenced by file ID.
-
-          - `file_id: string`
-
-            ID of a previously uploaded file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-      - `type: "image"`
-
-        - `"image"`
-
-    - `BetaManagedAgentsDocumentBlock object { source, type, context, title }`
-
-      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-        Union type for document source variants.
-
-        - `BetaManagedAgentsBase64DocumentSource object { data, media_type, type }`
-
-          Base64-encoded document data.
-
-          - `data: string`
-
-            Base64-encoded document data.
-
-          - `media_type: string`
-
-            MIME type of the document (e.g., "application/pdf").
-
-          - `type: "base64"`
-
-            - `"base64"`
-
-        - `BetaManagedAgentsPlainTextDocumentSource object { data, media_type, type }`
-
-          Plain text document content.
-
-          - `data: string`
-
-            The plain text content.
-
-          - `media_type: "text/plain"`
-
-            MIME type of the text content. Must be "text/plain".
-
-            - `"text/plain"`
-
-          - `type: "text"`
-
-            - `"text"`
-
-        - `BetaManagedAgentsURLDocumentSource object { type, url }`
-
-          Document referenced by URL.
-
-          - `type: "url"`
-
-            - `"url"`
-
-          - `url: string`
-
-            URL of the document to fetch.
-
-        - `BetaManagedAgentsFileDocumentSource object { file_id, type }`
-
-          Document referenced by file ID.
-
-          - `file_id: string`
-
-            ID of a previously uploaded file.
-
-          - `type: "file"`
-
-            - `"file"`
-
-      - `type: "document"`
-
-        - `"document"`
-
-      - `context: optional string or null`
-
-        Additional context about the document for the model.
-
-      - `title: optional string or null`
-
-        The title of the document.
-
-    - `BetaManagedAgentsRedactedBlock object { type }`
-
-      Placeholder for content withheld by Anthropic model policy.
-
-      - `type: "redacted"`
-
-        - `"redacted"`
-
-  - `type: "user.message"`
-
-    - `"user.message"`
-
-### Beta Managed Agents Environment Archived Deployment Paused Reason Error
-
-- `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError object { type }`
-
-  The deployment's environment was archived.
-
-  - `type: "environment_archived_error"`
-
-    - `"environment_archived_error"`
-
-### Beta Managed Agents Environment Not Found Deployment Paused Reason Error
-
-- `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError object { type }`
-
-  The deployment's environment no longer exists.
-
-  - `type: "environment_not_found_error"`
-
-    - `"environment_not_found_error"`
-
-### Beta Managed Agents Error Deployment Paused Reason
-
-- `BetaManagedAgentsErrorDeploymentPausedReason object { error, type }`
-
-  A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-  - `error: BetaManagedAgentsDeploymentPausedReasonError`
-
-    The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-    - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError object { type }`
-
-      The deployment's environment was archived.
-
-      - `type: "environment_archived_error"`
-
-        - `"environment_archived_error"`
-
-    - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError object { type }`
-
-      The deployment's agent was archived.
-
-      - `type: "agent_archived_error"`
-
-        - `"agent_archived_error"`
-
-    - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError object { type }`
-
-      The deployment's environment no longer exists.
-
-      - `type: "environment_not_found_error"`
-
-        - `"environment_not_found_error"`
-
-    - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError object { type }`
-
-      A vault referenced by the deployment no longer exists.
-
-      - `type: "vault_not_found_error"`
-
-        - `"vault_not_found_error"`
-
-    - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError object { type }`
-
-      A file resource referenced by the deployment no longer exists.
-
-      - `type: "file_not_found_error"`
-
-        - `"file_not_found_error"`
-
-    - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError object { type }`
-
-      A referenced resource no longer exists and its kind was not reported.
-
-      - `type: "session_resource_not_found_error"`
-
-        - `"session_resource_not_found_error"`
-
-    - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError object { type }`
-
-      The deployment's workspace was archived.
-
-      - `type: "workspace_archived_error"`
-
-        - `"workspace_archived_error"`
-
-    - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError object { type }`
-
-      The deployment's organization is disabled.
-
-      - `type: "organization_disabled_error"`
-
-        - `"organization_disabled_error"`
-
-    - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError object { type }`
-
-      A memory store referenced by the deployment is archived.
-
-      - `type: "memory_store_archived_error"`
-
-        - `"memory_store_archived_error"`
-
-    - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError object { type }`
-
-      A skill referenced by the deployment's agent no longer exists.
-
-      - `type: "skill_not_found_error"`
-
-        - `"skill_not_found_error"`
-
-    - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError object { type }`
-
-      A vault referenced by the deployment is archived.
-
-      - `type: "vault_archived_error"`
-
-        - `"vault_archived_error"`
-
-    - `BetaManagedAgentsUnknownDeploymentPausedReasonError object { type }`
-
-      An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-      - `type: "unknown_error"`
-
-        - `"unknown_error"`
-
-    - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError object { type }`
-
-      The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-      - `type: "self_hosted_resources_unsupported_error"`
-
-        - `"self_hosted_resources_unsupported_error"`
-
-    - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError object { type }`
-
-      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-      - `type: "mcp_egress_blocked_error"`
-
-        - `"mcp_egress_blocked_error"`
-
-  - `type: "error"`
-
-    - `"error"`
-
-### Beta Managed Agents File Not Found Deployment Paused Reason Error
-
-- `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError object { type }`
-
-  A file resource referenced by the deployment no longer exists.
-
-  - `type: "file_not_found_error"`
-
-    - `"file_not_found_error"`
-
-### Beta Managed Agents File Resource Config
-
-- `BetaManagedAgentsFileResourceConfig object { file_id, type, mount_path }`
-
-  A file mounted into each session's container.
-
-  - `file_id: string`
-
-    ID of a previously uploaded file.
-
-  - `type: "file"`
-
-    - `"file"`
-
-  - `mount_path: optional string or null`
-
-    Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-### Beta Managed Agents GitHub Repository Resource Config
-
-- `BetaManagedAgentsGitHubRepositoryResourceConfig object { type, url, checkout, mount_path }`
-
-  A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-  - `type: "github_repository"`
-
-    - `"github_repository"`
-
-  - `url: string`
-
-    Github URL of the repository
-
-  - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout or null`
-
-    Branch or commit to check out. Defaults to the repository's default branch.
-
-    - `BetaManagedAgentsBranchCheckout object { name, type }`
-
-      - `name: string`
-
-        Branch name to check out.
-
-      - `type: "branch"`
-
-        - `"branch"`
-
-    - `BetaManagedAgentsCommitCheckout object { sha, type }`
-
-      - `sha: string`
-
-        Full commit SHA to check out.
-
-      - `type: "commit"`
-
-        - `"commit"`
-
-  - `mount_path: optional string or null`
-
-    Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-### Beta Managed Agents Manual Deployment Paused Reason
-
-- `BetaManagedAgentsManualDeploymentPausedReason object { type }`
-
-  The caller invoked the pause endpoint on the deployment.
-
-  - `type: "manual"`
-
-    - `"manual"`
-
-### Beta Managed Agents MCP Egress Blocked Deployment Paused Reason Error
-
-- `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError object { type }`
-
-  An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-  - `type: "mcp_egress_blocked_error"`
-
-    - `"mcp_egress_blocked_error"`
-
-### Beta Managed Agents Memory Store Archived Deployment Paused Reason Error
-
-- `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError object { type }`
-
-  A memory store referenced by the deployment is archived.
-
-  - `type: "memory_store_archived_error"`
-
-    - `"memory_store_archived_error"`
-
-### Beta Managed Agents Memory Store Resource Config
-
-- `BetaManagedAgentsMemoryStoreResourceConfig object { memory_store_id, type, access, instructions }`
-
-  A memory store attached to each session created from this deployment.
-
-  - `memory_store_id: string`
-
-    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-  - `type: "memory_store"`
-
-    - `"memory_store"`
-
-  - `access: optional "read_write" or "read_only" or null`
-
-    Access mode for an attached memory store.
-
-    - `"read_write"`
-
-    - `"read_only"`
-
-  - `instructions: optional string or null`
-
-    Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-### Beta Managed Agents Organization Disabled Deployment Paused Reason Error
-
-- `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError object { type }`
-
-  The deployment's organization is disabled.
-
-  - `type: "organization_disabled_error"`
-
-    - `"organization_disabled_error"`
-
-### Beta Managed Agents Schedule
-
-- `BetaManagedAgentsSchedule object { expression, timezone, type, 2 more }`
-
-  5-field POSIX cron schedule with computed runtime timestamps.
-
-  - `expression: string`
-
-    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-  - `timezone: string`
-
-    IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-  - `type: "cron"`
-
-    - `"cron"`
-
-  - `last_run_at: optional string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `upcoming_runs_at: optional array of string`
-
-    Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-### Beta Managed Agents Schedule Params
-
-- `BetaManagedAgentsScheduleParams object { expression, timezone, type }`
-
-  5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
-
-  - `expression: string`
-
-    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-  - `timezone: string`
-
-    Required. IANA timezone identifier (e.g., "America/Los_Angeles", "UTC"). Validated against the IANA timezone database.
-
-  - `type: "cron"`
-
-    - `"cron"`
-
-### Beta Managed Agents Self Hosted Resources Unsupported Deployment Paused Reason Error
-
-- `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError object { type }`
-
-  The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-  - `type: "self_hosted_resources_unsupported_error"`
-
-    - `"self_hosted_resources_unsupported_error"`
-
-### Beta Managed Agents Session Resource Config
-
-- `BetaManagedAgentsSessionResourceConfig = BetaManagedAgentsGitHubRepositoryResourceConfig or BetaManagedAgentsFileResourceConfig or BetaManagedAgentsMemoryStoreResourceConfig`
-
-  A configured session resource. Echoes the input minus write-only credentials.
-
-  - `BetaManagedAgentsGitHubRepositoryResourceConfig object { type, url, checkout, mount_path }`
-
-    A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-    - `type: "github_repository"`
-
-      - `"github_repository"`
-
-    - `url: string`
-
-      Github URL of the repository
-
-    - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout or null`
-
-      Branch or commit to check out. Defaults to the repository's default branch.
-
-      - `BetaManagedAgentsBranchCheckout object { name, type }`
-
-        - `name: string`
-
-          Branch name to check out.
-
-        - `type: "branch"`
-
-          - `"branch"`
-
-      - `BetaManagedAgentsCommitCheckout object { sha, type }`
-
-        - `sha: string`
-
-          Full commit SHA to check out.
-
-        - `type: "commit"`
-
-          - `"commit"`
-
-    - `mount_path: optional string or null`
-
-      Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-  - `BetaManagedAgentsFileResourceConfig object { file_id, type, mount_path }`
-
-    A file mounted into each session's container.
-
-    - `file_id: string`
-
-      ID of a previously uploaded file.
-
-    - `type: "file"`
-
-      - `"file"`
-
-    - `mount_path: optional string or null`
-
-      Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-  - `BetaManagedAgentsMemoryStoreResourceConfig object { memory_store_id, type, access, instructions }`
-
-    A memory store attached to each session created from this deployment.
-
-    - `memory_store_id: string`
-
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `type: "memory_store"`
-
-      - `"memory_store"`
-
-    - `access: optional "read_write" or "read_only" or null`
-
-      Access mode for an attached memory store.
-
-      - `"read_write"`
-
-      - `"read_only"`
-
-    - `instructions: optional string or null`
-
-      Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-### Beta Managed Agents Session Resource Not Found Deployment Paused Reason Error
-
-- `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError object { type }`
-
-  A referenced resource no longer exists and its kind was not reported.
-
-  - `type: "session_resource_not_found_error"`
-
-    - `"session_resource_not_found_error"`
-
-### Beta Managed Agents Skill Not Found Deployment Paused Reason Error
-
-- `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError object { type }`
-
-  A skill referenced by the deployment's agent no longer exists.
-
-  - `type: "skill_not_found_error"`
-
-    - `"skill_not_found_error"`
-
-### Beta Managed Agents Unknown Deployment Paused Reason Error
-
-- `BetaManagedAgentsUnknownDeploymentPausedReasonError object { type }`
-
-  An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-  - `type: "unknown_error"`
-
-    - `"unknown_error"`
-
-### Beta Managed Agents Vault Archived Deployment Paused Reason Error
-
-- `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError object { type }`
-
-  A vault referenced by the deployment is archived.
-
-  - `type: "vault_archived_error"`
-
-    - `"vault_archived_error"`
-
-### Beta Managed Agents Vault Not Found Deployment Paused Reason Error
-
-- `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError object { type }`
-
-  A vault referenced by the deployment no longer exists.
-
-  - `type: "vault_not_found_error"`
-
-    - `"vault_not_found_error"`
-
-### Beta Managed Agents Workspace Archived Deployment Paused Reason Error
-
-- `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError object { type }`
-
-  The deployment's workspace was archived.
-
-  - `type: "workspace_archived_error"`
-
-    - `"workspace_archived_error"`
-
-# Deployment Runs
-
-## List Deployment Runs
-
-**get** `/v1/deployment_runs`
-
-List Deployment Runs
-
-### Query Parameters
-
-- `"created_at[gt]": optional string`
-
-  Return runs created strictly after this time (exclusive).
-
-- `"created_at[gte]": optional string`
-
-  Return runs created at or after this time (inclusive).
-
-- `"created_at[lt]": optional string`
-
-  Return runs created strictly before this time (exclusive).
-
-- `"created_at[lte]": optional string`
-
-  Return runs created at or before this time (inclusive).
-
-- `deployment_id: optional string`
-
-  Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent deployment_id returns 200 with empty data.
-
-- `has_error: optional boolean`
-
-  Filter: true for runs with non-null error, false for runs with non-null session_id. Omit for all.
-
-- `limit: optional number`
-
-  Maximum results per page. Default 20, maximum 1000.
-
-- `page: optional string`
-
-  Opaque pagination cursor. Pass next_page from the previous response. Invalid or expired cursors return 400.
-
-- `trigger_type: optional BetaManagedAgentsTriggerType`
-
-  Filter runs by what triggered them. Omit to return all runs.
-
-  - `"schedule"`
-
-  - `"manual"`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `data: array of BetaManagedAgentsDeploymentRun`
-
-  List of deployment runs.
-
-  - `id: string`
-
-    Unique identifier for this run (`drun_...`).
-
-  - `agent: BetaManagedAgentsAgentReference`
-
-    A resolved agent reference with a concrete version.
-
-    - `id: string`
-
-    - `type: "agent"`
-
-      - `"agent"`
-
-    - `version: number`
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `deployment_id: string`
-
-    ID of the deployment that produced this run.
-
-  - `error: BetaManagedAgentsEnvironmentArchivedRunError or BetaManagedAgentsAgentArchivedRunError or BetaManagedAgentsEnvironmentNotFoundRunError or 13 more or null`
-
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
-
-    - `BetaManagedAgentsEnvironmentArchivedRunError object { message, type }`
-
-      The deployment's environment was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "environment_archived_error"`
-
-        - `"environment_archived_error"`
-
-    - `BetaManagedAgentsAgentArchivedRunError object { message, type }`
-
-      The deployment's agent was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "agent_archived_error"`
-
-        - `"agent_archived_error"`
-
-    - `BetaManagedAgentsEnvironmentNotFoundRunError object { message, type }`
-
-      The deployment's environment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "environment_not_found_error"`
-
-        - `"environment_not_found_error"`
-
-    - `BetaManagedAgentsVaultNotFoundRunError object { message, type }`
-
-      A vault referenced by the deployment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "vault_not_found_error"`
-
-        - `"vault_not_found_error"`
-
-    - `BetaManagedAgentsVaultArchivedRunError object { message, type }`
-
-      A vault referenced by the deployment is archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "vault_archived_error"`
-
-        - `"vault_archived_error"`
-
-    - `BetaManagedAgentsFileNotFoundRunError object { message, type }`
-
-      A file resource referenced by the deployment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "file_not_found_error"`
-
-        - `"file_not_found_error"`
-
-    - `BetaManagedAgentsMemoryStoreArchivedRunError object { message, type }`
-
-      A memory store referenced by the deployment is archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "memory_store_archived_error"`
-
-        - `"memory_store_archived_error"`
-
-    - `BetaManagedAgentsSkillNotFoundRunError object { message, type }`
-
-      A skill referenced by the deployment's agent no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "skill_not_found_error"`
-
-        - `"skill_not_found_error"`
-
-    - `BetaManagedAgentsSessionResourceNotFoundRunError object { message, type }`
-
-      A referenced resource no longer exists and its kind was not reported.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_resource_not_found_error"`
-
-        - `"session_resource_not_found_error"`
-
-    - `BetaManagedAgentsWorkspaceArchivedRunError object { message, type }`
-
-      The deployment's workspace was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "workspace_archived_error"`
-
-        - `"workspace_archived_error"`
-
-    - `BetaManagedAgentsOrganizationDisabledRunError object { message, type }`
-
-      The deployment's organization is disabled.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "organization_disabled_error"`
-
-        - `"organization_disabled_error"`
-
-    - `BetaManagedAgentsSessionRateLimitedRunError object { message, type }`
-
-      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_rate_limited_error"`
-
-        - `"session_rate_limited_error"`
-
-    - `BetaManagedAgentsSessionCreationRejectedRunError object { message, type }`
-
-      The session create request was rejected with a non-retryable validation error.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_creation_rejected_error"`
-
-        - `"session_creation_rejected_error"`
-
-    - `BetaManagedAgentsUnknownRunError object { message, type }`
-
-      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "unknown_error"`
-
-        - `"unknown_error"`
-
-    - `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError object { message, type }`
-
-      The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "self_hosted_resources_unsupported_error"`
-
-        - `"self_hosted_resources_unsupported_error"`
-
-    - `BetaManagedAgentsMCPEgressBlockedRunError object { message, type }`
-
-      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "mcp_egress_blocked_error"`
-
-        - `"mcp_egress_blocked_error"`
-
-  - `session_id: string or null`
-
-    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
-
-  - `trigger_context: BetaManagedAgentsTriggerContext`
-
-    Describes what triggered a deployment run, with trigger-specific metadata.
-
-    - `BetaManagedAgentsScheduleTriggerContext object { scheduled_at, type }`
-
-      The run was fired by the deployment's cron schedule.
-
-      - `scheduled_at: string`
-
-        A timestamp in RFC 3339 format
-
-      - `type: "schedule"`
-
-        - `"schedule"`
-
-    - `BetaManagedAgentsManualTriggerContext object { type }`
-
-      The run was started manually by creating a session directly against the deployment.
-
-      - `type: "manual"`
-
-        - `"manual"`
-
-  - `type: "deployment_run"`
-
-    - `"deployment_run"`
-
-- `next_page: optional string or null`
-
-  Opaque cursor for the next page. Null when no more results.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/deployment_runs \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "agent": {
-        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-        "type": "agent",
-        "version": 1
-      },
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "deployment_id": "deployment_id",
-      "error": {
-        "message": "message",
-        "type": "environment_archived_error"
-      },
-      "session_id": "session_id",
-      "trigger_context": {
-        "scheduled_at": "2019-12-27T18:11:19.117Z",
-        "type": "schedule"
-      },
-      "type": "deployment_run"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-## Get Deployment Run
-
-**get** `/v1/deployment_runs/{deployment_run_id}`
-
-Get Deployment Run
-
-### Path Parameters
-
-- `deployment_run_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsDeploymentRun object { id, agent, created_at, 5 more }`
-
-  A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
-
-  - `id: string`
-
-    Unique identifier for this run (`drun_...`).
-
-  - `agent: BetaManagedAgentsAgentReference`
-
-    A resolved agent reference with a concrete version.
-
-    - `id: string`
-
-    - `type: "agent"`
-
-      - `"agent"`
-
-    - `version: number`
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `deployment_id: string`
-
-    ID of the deployment that produced this run.
-
-  - `error: BetaManagedAgentsEnvironmentArchivedRunError or BetaManagedAgentsAgentArchivedRunError or BetaManagedAgentsEnvironmentNotFoundRunError or 13 more or null`
-
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
-
-    - `BetaManagedAgentsEnvironmentArchivedRunError object { message, type }`
-
-      The deployment's environment was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "environment_archived_error"`
-
-        - `"environment_archived_error"`
-
-    - `BetaManagedAgentsAgentArchivedRunError object { message, type }`
-
-      The deployment's agent was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "agent_archived_error"`
-
-        - `"agent_archived_error"`
-
-    - `BetaManagedAgentsEnvironmentNotFoundRunError object { message, type }`
-
-      The deployment's environment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "environment_not_found_error"`
-
-        - `"environment_not_found_error"`
-
-    - `BetaManagedAgentsVaultNotFoundRunError object { message, type }`
-
-      A vault referenced by the deployment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "vault_not_found_error"`
-
-        - `"vault_not_found_error"`
-
-    - `BetaManagedAgentsVaultArchivedRunError object { message, type }`
-
-      A vault referenced by the deployment is archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "vault_archived_error"`
-
-        - `"vault_archived_error"`
-
-    - `BetaManagedAgentsFileNotFoundRunError object { message, type }`
-
-      A file resource referenced by the deployment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "file_not_found_error"`
-
-        - `"file_not_found_error"`
-
-    - `BetaManagedAgentsMemoryStoreArchivedRunError object { message, type }`
-
-      A memory store referenced by the deployment is archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "memory_store_archived_error"`
-
-        - `"memory_store_archived_error"`
-
-    - `BetaManagedAgentsSkillNotFoundRunError object { message, type }`
-
-      A skill referenced by the deployment's agent no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "skill_not_found_error"`
-
-        - `"skill_not_found_error"`
-
-    - `BetaManagedAgentsSessionResourceNotFoundRunError object { message, type }`
-
-      A referenced resource no longer exists and its kind was not reported.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_resource_not_found_error"`
-
-        - `"session_resource_not_found_error"`
-
-    - `BetaManagedAgentsWorkspaceArchivedRunError object { message, type }`
-
-      The deployment's workspace was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "workspace_archived_error"`
-
-        - `"workspace_archived_error"`
-
-    - `BetaManagedAgentsOrganizationDisabledRunError object { message, type }`
-
-      The deployment's organization is disabled.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "organization_disabled_error"`
-
-        - `"organization_disabled_error"`
-
-    - `BetaManagedAgentsSessionRateLimitedRunError object { message, type }`
-
-      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_rate_limited_error"`
-
-        - `"session_rate_limited_error"`
-
-    - `BetaManagedAgentsSessionCreationRejectedRunError object { message, type }`
-
-      The session create request was rejected with a non-retryable validation error.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_creation_rejected_error"`
-
-        - `"session_creation_rejected_error"`
-
-    - `BetaManagedAgentsUnknownRunError object { message, type }`
-
-      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "unknown_error"`
-
-        - `"unknown_error"`
-
-    - `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError object { message, type }`
-
-      The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "self_hosted_resources_unsupported_error"`
-
-        - `"self_hosted_resources_unsupported_error"`
-
-    - `BetaManagedAgentsMCPEgressBlockedRunError object { message, type }`
-
-      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "mcp_egress_blocked_error"`
-
-        - `"mcp_egress_blocked_error"`
-
-  - `session_id: string or null`
-
-    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
-
-  - `trigger_context: BetaManagedAgentsTriggerContext`
-
-    Describes what triggered a deployment run, with trigger-specific metadata.
-
-    - `BetaManagedAgentsScheduleTriggerContext object { scheduled_at, type }`
-
-      The run was fired by the deployment's cron schedule.
-
-      - `scheduled_at: string`
-
-        A timestamp in RFC 3339 format
-
-      - `type: "schedule"`
-
-        - `"schedule"`
-
-    - `BetaManagedAgentsManualTriggerContext object { type }`
-
-      The run was started manually by creating a session directly against the deployment.
-
-      - `type: "manual"`
-
-        - `"manual"`
-
-  - `type: "deployment_run"`
-
-    - `"deployment_run"`
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/deployment_runs/$DEPLOYMENT_RUN_ID \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-    "type": "agent",
-    "version": 1
-  },
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "deployment_id": "deployment_id",
-  "error": {
-    "message": "message",
-    "type": "environment_archived_error"
-  },
-  "session_id": "session_id",
-  "trigger_context": {
-    "scheduled_at": "2019-12-27T18:11:19.117Z",
-    "type": "schedule"
-  },
-  "type": "deployment_run"
-}
-```
-
-## Domain Types
-
-### Beta Managed Agents Agent Archived Run Error
-
-- `BetaManagedAgentsAgentArchivedRunError object { message, type }`
-
-  The deployment's agent was archived.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "agent_archived_error"`
-
-    - `"agent_archived_error"`
-
-### Beta Managed Agents Deployment Run
-
-- `BetaManagedAgentsDeploymentRun object { id, agent, created_at, 5 more }`
-
-  A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
-
-  - `id: string`
-
-    Unique identifier for this run (`drun_...`).
-
-  - `agent: BetaManagedAgentsAgentReference`
-
-    A resolved agent reference with a concrete version.
-
-    - `id: string`
-
-    - `type: "agent"`
-
-      - `"agent"`
-
-    - `version: number`
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `deployment_id: string`
-
-    ID of the deployment that produced this run.
-
-  - `error: BetaManagedAgentsEnvironmentArchivedRunError or BetaManagedAgentsAgentArchivedRunError or BetaManagedAgentsEnvironmentNotFoundRunError or 13 more or null`
-
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
-
-    - `BetaManagedAgentsEnvironmentArchivedRunError object { message, type }`
-
-      The deployment's environment was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "environment_archived_error"`
-
-        - `"environment_archived_error"`
-
-    - `BetaManagedAgentsAgentArchivedRunError object { message, type }`
-
-      The deployment's agent was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "agent_archived_error"`
-
-        - `"agent_archived_error"`
-
-    - `BetaManagedAgentsEnvironmentNotFoundRunError object { message, type }`
-
-      The deployment's environment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "environment_not_found_error"`
-
-        - `"environment_not_found_error"`
-
-    - `BetaManagedAgentsVaultNotFoundRunError object { message, type }`
-
-      A vault referenced by the deployment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "vault_not_found_error"`
-
-        - `"vault_not_found_error"`
-
-    - `BetaManagedAgentsVaultArchivedRunError object { message, type }`
-
-      A vault referenced by the deployment is archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "vault_archived_error"`
-
-        - `"vault_archived_error"`
-
-    - `BetaManagedAgentsFileNotFoundRunError object { message, type }`
-
-      A file resource referenced by the deployment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "file_not_found_error"`
-
-        - `"file_not_found_error"`
-
-    - `BetaManagedAgentsMemoryStoreArchivedRunError object { message, type }`
-
-      A memory store referenced by the deployment is archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "memory_store_archived_error"`
-
-        - `"memory_store_archived_error"`
-
-    - `BetaManagedAgentsSkillNotFoundRunError object { message, type }`
-
-      A skill referenced by the deployment's agent no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "skill_not_found_error"`
-
-        - `"skill_not_found_error"`
-
-    - `BetaManagedAgentsSessionResourceNotFoundRunError object { message, type }`
-
-      A referenced resource no longer exists and its kind was not reported.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_resource_not_found_error"`
-
-        - `"session_resource_not_found_error"`
-
-    - `BetaManagedAgentsWorkspaceArchivedRunError object { message, type }`
-
-      The deployment's workspace was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "workspace_archived_error"`
-
-        - `"workspace_archived_error"`
-
-    - `BetaManagedAgentsOrganizationDisabledRunError object { message, type }`
-
-      The deployment's organization is disabled.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "organization_disabled_error"`
-
-        - `"organization_disabled_error"`
-
-    - `BetaManagedAgentsSessionRateLimitedRunError object { message, type }`
-
-      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_rate_limited_error"`
-
-        - `"session_rate_limited_error"`
-
-    - `BetaManagedAgentsSessionCreationRejectedRunError object { message, type }`
-
-      The session create request was rejected with a non-retryable validation error.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_creation_rejected_error"`
-
-        - `"session_creation_rejected_error"`
-
-    - `BetaManagedAgentsUnknownRunError object { message, type }`
-
-      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "unknown_error"`
-
-        - `"unknown_error"`
-
-    - `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError object { message, type }`
-
-      The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "self_hosted_resources_unsupported_error"`
-
-        - `"self_hosted_resources_unsupported_error"`
-
-    - `BetaManagedAgentsMCPEgressBlockedRunError object { message, type }`
-
-      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "mcp_egress_blocked_error"`
-
-        - `"mcp_egress_blocked_error"`
-
-  - `session_id: string or null`
-
-    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
-
-  - `trigger_context: BetaManagedAgentsTriggerContext`
-
-    Describes what triggered a deployment run, with trigger-specific metadata.
-
-    - `BetaManagedAgentsScheduleTriggerContext object { scheduled_at, type }`
-
-      The run was fired by the deployment's cron schedule.
-
-      - `scheduled_at: string`
-
-        A timestamp in RFC 3339 format
-
-      - `type: "schedule"`
-
-        - `"schedule"`
-
-    - `BetaManagedAgentsManualTriggerContext object { type }`
-
-      The run was started manually by creating a session directly against the deployment.
-
-      - `type: "manual"`
-
-        - `"manual"`
-
-  - `type: "deployment_run"`
-
-    - `"deployment_run"`
-
-### Beta Managed Agents Environment Archived Run Error
-
-- `BetaManagedAgentsEnvironmentArchivedRunError object { message, type }`
-
-  The deployment's environment was archived.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "environment_archived_error"`
-
-    - `"environment_archived_error"`
-
-### Beta Managed Agents Environment Not Found Run Error
-
-- `BetaManagedAgentsEnvironmentNotFoundRunError object { message, type }`
-
-  The deployment's environment no longer exists.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "environment_not_found_error"`
-
-    - `"environment_not_found_error"`
-
-### Beta Managed Agents File Not Found Run Error
-
-- `BetaManagedAgentsFileNotFoundRunError object { message, type }`
-
-  A file resource referenced by the deployment no longer exists.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "file_not_found_error"`
-
-    - `"file_not_found_error"`
-
-### Beta Managed Agents Manual Trigger Context
-
-- `BetaManagedAgentsManualTriggerContext object { type }`
-
-  The run was started manually by creating a session directly against the deployment.
-
-  - `type: "manual"`
-
-    - `"manual"`
-
-### Beta Managed Agents MCP Egress Blocked Run Error
-
-- `BetaManagedAgentsMCPEgressBlockedRunError object { message, type }`
-
-  An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "mcp_egress_blocked_error"`
-
-    - `"mcp_egress_blocked_error"`
-
-### Beta Managed Agents Memory Store Archived Run Error
-
-- `BetaManagedAgentsMemoryStoreArchivedRunError object { message, type }`
-
-  A memory store referenced by the deployment is archived.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "memory_store_archived_error"`
-
-    - `"memory_store_archived_error"`
-
-### Beta Managed Agents Organization Disabled Run Error
-
-- `BetaManagedAgentsOrganizationDisabledRunError object { message, type }`
-
-  The deployment's organization is disabled.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "organization_disabled_error"`
-
-    - `"organization_disabled_error"`
-
-### Beta Managed Agents Schedule Trigger Context
-
-- `BetaManagedAgentsScheduleTriggerContext object { scheduled_at, type }`
-
-  The run was fired by the deployment's cron schedule.
-
-  - `scheduled_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `type: "schedule"`
-
-    - `"schedule"`
-
-### Beta Managed Agents Self Hosted Resources Unsupported Run Error
-
-- `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError object { message, type }`
-
-  The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "self_hosted_resources_unsupported_error"`
-
-    - `"self_hosted_resources_unsupported_error"`
-
-### Beta Managed Agents Session Creation Rejected Run Error
-
-- `BetaManagedAgentsSessionCreationRejectedRunError object { message, type }`
-
-  The session create request was rejected with a non-retryable validation error.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "session_creation_rejected_error"`
-
-    - `"session_creation_rejected_error"`
-
-### Beta Managed Agents Session Rate Limited Run Error
-
-- `BetaManagedAgentsSessionRateLimitedRunError object { message, type }`
-
-  Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "session_rate_limited_error"`
-
-    - `"session_rate_limited_error"`
-
-### Beta Managed Agents Session Resource Not Found Run Error
-
-- `BetaManagedAgentsSessionResourceNotFoundRunError object { message, type }`
-
-  A referenced resource no longer exists and its kind was not reported.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "session_resource_not_found_error"`
-
-    - `"session_resource_not_found_error"`
-
-### Beta Managed Agents Skill Not Found Run Error
-
-- `BetaManagedAgentsSkillNotFoundRunError object { message, type }`
-
-  A skill referenced by the deployment's agent no longer exists.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "skill_not_found_error"`
-
-    - `"skill_not_found_error"`
-
-### Beta Managed Agents Trigger Context
-
-- `BetaManagedAgentsTriggerContext = BetaManagedAgentsScheduleTriggerContext or BetaManagedAgentsManualTriggerContext`
-
-  Describes what triggered a deployment run, with trigger-specific metadata.
-
-  - `BetaManagedAgentsScheduleTriggerContext object { scheduled_at, type }`
-
-    The run was fired by the deployment's cron schedule.
-
-    - `scheduled_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `type: "schedule"`
-
-      - `"schedule"`
-
-  - `BetaManagedAgentsManualTriggerContext object { type }`
-
-    The run was started manually by creating a session directly against the deployment.
-
-    - `type: "manual"`
-
-      - `"manual"`
-
-### Beta Managed Agents Trigger Type
-
-- `BetaManagedAgentsTriggerType = "schedule" or "manual"`
-
-  What triggered a deployment run.
-
-  - `"schedule"`
-
-  - `"manual"`
-
-### Beta Managed Agents Unknown Run Error
-
-- `BetaManagedAgentsUnknownRunError object { message, type }`
-
-  An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "unknown_error"`
-
-    - `"unknown_error"`
-
-### Beta Managed Agents Vault Archived Run Error
-
-- `BetaManagedAgentsVaultArchivedRunError object { message, type }`
-
-  A vault referenced by the deployment is archived.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "vault_archived_error"`
-
-    - `"vault_archived_error"`
-
-### Beta Managed Agents Vault Not Found Run Error
-
-- `BetaManagedAgentsVaultNotFoundRunError object { message, type }`
-
-  A vault referenced by the deployment no longer exists.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "vault_not_found_error"`
-
-    - `"vault_not_found_error"`
-
-### Beta Managed Agents Workspace Archived Run Error
-
-- `BetaManagedAgentsWorkspaceArchivedRunError object { message, type }`
-
-  The deployment's workspace was archived.
-
-  - `message: string`
-
-    Human-readable error description.
-
-  - `type: "workspace_archived_error"`
-
-    - `"workspace_archived_error"`
-
-# Vaults
-
-## Create Vault
-
-**post** `/v1/vaults`
-
-Create Vault
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Body Parameters
-
-- `display_name: string`
-
-  Human-readable name for the vault. 1-255 characters.
-
-- `metadata: optional map[string]`
-
-  Arbitrary key-value metadata to attach to the vault. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-### Returns
-
-- `BetaManagedAgentsVault object { id, archived_at, created_at, 4 more }`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `id: string`
-
-    Unique identifier for the vault.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `display_name: string`
-
-    Human-readable name for the vault.
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
-
-    - `"vault"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{
-          "display_name": "Example vault",
-          "metadata": {
-            "environment": "production"
-          }
-        }'
-```
-
-#### Response
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-## List Vaults
-
-**get** `/v1/vaults`
-
-List Vaults
-
-### Query Parameters
-
-- `include_archived: optional boolean`
-
-  Whether to include archived vaults in the results.
-
-- `limit: optional number`
-
-  Maximum number of vaults to return per page. Defaults to 20, maximum 100.
-
-- `page: optional string`
-
-  Opaque pagination token from a previous `list_vaults` response.
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `data: optional array of BetaManagedAgentsVault`
-
-  List of vaults.
-
-  - `id: string`
-
-    Unique identifier for the vault.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `display_name: string`
-
-    Human-readable name for the vault.
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
-
-    - `"vault"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-- `next_page: optional string or null`
-
-  Pagination token for the next page, or null if no more results.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-      "archived_at": null,
-      "created_at": "2026-03-15T10:00:00Z",
-      "display_name": "Example vault",
-      "metadata": {
-        "environment": "production"
-      },
-      "type": "vault",
-      "updated_at": "2026-03-15T10:00:00Z"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-## Get Vault
-
-**get** `/v1/vaults/{vault_id}`
-
-Get Vault
-
-### Path Parameters
-
-- `vault_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsVault object { id, archived_at, created_at, 4 more }`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `id: string`
-
-    Unique identifier for the vault.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `display_name: string`
-
-    Human-readable name for the vault.
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
-
-    - `"vault"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-## Update Vault
-
-**post** `/v1/vaults/{vault_id}`
-
-Update Vault
-
-### Path Parameters
-
-- `vault_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Body Parameters
-
-- `display_name: optional string or null`
-
-  Updated human-readable name for the vault. 1-255 characters.
-
-- `metadata: optional map[string] or null`
-
-  Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
-
-### Returns
-
-- `BetaManagedAgentsVault object { id, archived_at, created_at, 4 more }`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `id: string`
-
-    Unique identifier for the vault.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `display_name: string`
-
-    Human-readable name for the vault.
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
-
-    - `"vault"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{
-          "display_name": "Example vault",
-          "metadata": {
-            "environment": "production"
-          }
-        }'
-```
-
-#### Response
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-## Delete Vault
-
-**delete** `/v1/vaults/{vault_id}`
-
-Delete Vault
-
-### Path Parameters
-
-- `vault_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsDeletedVault object { id, type }`
-
-  Confirmation of a deleted vault.
-
-  - `id: string`
-
-    Unique identifier of the deleted vault.
-
-  - `type: "vault_deleted"`
-
-    - `"vault_deleted"`
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID \
-    -X DELETE \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "type": "vault_deleted"
-}
-```
-
-## Archive Vault
-
-**post** `/v1/vaults/{vault_id}/archive`
-
-Archive Vault
-
-### Path Parameters
-
-- `vault_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsVault object { id, archived_at, created_at, 4 more }`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `id: string`
-
-    Unique identifier for the vault.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `display_name: string`
-
-    Human-readable name for the vault.
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
-
-    - `"vault"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID/archive \
-    -X POST \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-## Domain Types
-
-### Beta Managed Agents Deleted Vault
-
-- `BetaManagedAgentsDeletedVault object { id, type }`
-
-  Confirmation of a deleted vault.
-
-  - `id: string`
-
-    Unique identifier of the deleted vault.
-
-  - `type: "vault_deleted"`
-
-    - `"vault_deleted"`
-
-### Beta Managed Agents Vault
-
-- `BetaManagedAgentsVault object { id, archived_at, created_at, 4 more }`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `id: string`
-
-    Unique identifier for the vault.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `display_name: string`
-
-    Human-readable name for the vault.
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
-
-    - `"vault"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-# Credentials
-
-## Create Credential
-
-**post** `/v1/vaults/{vault_id}/credentials`
-
-Create Credential
-
-### Path Parameters
-
-- `vault_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Body Parameters
-
-- `auth: BetaManagedAgentsMCPOAuthCreateParams or BetaManagedAgentsStaticBearerCreateParams or BetaManagedAgentsEnvironmentVariableCreateParams`
-
-  Authentication details for creating a credential.
-
-  - `BetaManagedAgentsMCPOAuthCreateParams object { access_token, mcp_server_url, type, 2 more }`
-
-    Parameters for creating an MCP OAuth credential.
-
-    - `access_token: string`
-
-      OAuth access token.
-
-    - `mcp_server_url: string`
-
-      URL of the MCP server this credential authenticates against.
-
-    - `type: "mcp_oauth"`
-
-      - `"mcp_oauth"`
-
-    - `expires_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `refresh: optional BetaManagedAgentsMCPOAuthRefreshParams or null`
-
-      OAuth refresh token parameters for creating a credential with refresh support.
-
-      - `client_id: string`
-
-        OAuth client ID.
-
-      - `refresh_token: string`
-
-        OAuth refresh token.
-
-      - `token_endpoint: string`
-
-        Token endpoint URL used to refresh the access token.
-
-      - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam or BetaManagedAgentsTokenEndpointAuthBasicParam or BetaManagedAgentsTokenEndpointAuthPostParam`
-
-        Token endpoint requires no client authentication.
-
-        - `BetaManagedAgentsTokenEndpointAuthNoneParam object { type }`
-
-          Token endpoint requires no client authentication.
-
-          - `type: "none"`
-
-            - `"none"`
-
-        - `BetaManagedAgentsTokenEndpointAuthBasicParam object { client_secret, type }`
-
-          Token endpoint uses HTTP Basic authentication with client credentials.
-
-          - `client_secret: string`
-
-            OAuth client secret.
-
-          - `type: "client_secret_basic"`
-
-            - `"client_secret_basic"`
-
-        - `BetaManagedAgentsTokenEndpointAuthPostParam object { client_secret, type }`
-
-          Token endpoint uses POST body authentication with client credentials.
-
-          - `client_secret: string`
-
-            OAuth client secret.
-
-          - `type: "client_secret_post"`
-
-            - `"client_secret_post"`
-
-      - `resource: optional string or null`
-
-        OAuth resource indicator.
-
-      - `scope: optional string or null`
-
-        OAuth scope for the refresh request.
-
-  - `BetaManagedAgentsStaticBearerCreateParams object { token, mcp_server_url, type }`
-
-    Parameters for creating a static bearer token credential.
-
-    - `token: string`
-
-      Static bearer token value.
-
-    - `mcp_server_url: string`
-
-      URL of the MCP server this credential authenticates against.
-
-    - `type: "static_bearer"`
-
-      - `"static_bearer"`
-
-  - `BetaManagedAgentsEnvironmentVariableCreateParams object { networking, secret_name, secret_value, 2 more }`
-
-    Parameters for creating an environment variable credential.
-
-    - `networking: BetaManagedAgentsCredentialNetworkingParams`
-
-      Outbound hosts the secret value is substituted on.
-
-      - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams object { type }`
-
-        Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
-
-        - `type: "unrestricted"`
-
-          - `"unrestricted"`
-
-      - `BetaManagedAgentsLimitedCredentialNetworkingParams object { allowed_hosts, type }`
-
-        Substitute the secret only on requests to the listed hosts.
-
-        - `allowed_hosts: array of string`
-
-          Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
-
-        - `type: "limited"`
-
-          - `"limited"`
-
-    - `secret_name: string`
-
-      Name of the environment variable. Immutable after create.
-
-    - `secret_value: string`
-
-      Secret value. Write-only; never returned in responses.
-
-    - `type: "environment_variable"`
-
-      - `"environment_variable"`
-
-    - `injection_location: optional BetaManagedAgentsInjectionLocationParams`
-
-      Where in the outbound request the secret value may be substituted.
-
-      - `body: optional boolean`
-
-        Substitute when the placeholder appears in the request body.
-
-      - `header: optional boolean`
-
-        Substitute when the placeholder appears in a request header value.
-
-- `display_name: optional string or null`
-
-  Human-readable name for the credential. Up to 255 characters.
-
-- `metadata: optional map[string]`
-
-  Arbitrary key-value metadata to attach to the credential. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-### Returns
-
-- `BetaManagedAgentsCredential object { id, archived_at, auth, 6 more }`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `id: string`
-
-    Unique identifier for the credential.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-    Authentication details for a credential.
-
-    - `BetaManagedAgentsMCPOAuthAuthResponse object { mcp_server_url, type, expires_at, refresh }`
-
-      OAuth credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "mcp_oauth"`
-
-        - `"mcp_oauth"`
-
-      - `expires_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
-
-        OAuth refresh token configuration returned in credential responses.
-
-        - `client_id: string`
-
-          OAuth client ID.
-
-        - `token_endpoint: string`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
-
-          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
-
-            Token endpoint requires no client authentication.
-
-            - `type: "none"`
-
-              - `"none"`
-
-          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `type: "client_secret_basic"`
-
-              - `"client_secret_basic"`
-
-          - `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `type: "client_secret_post"`
-
-              - `"client_secret_post"`
-
-        - `resource: optional string or null`
-
-          OAuth resource indicator.
-
-        - `scope: optional string or null`
-
-          OAuth scope for the refresh request.
-
-    - `BetaManagedAgentsStaticBearerAuthResponse object { mcp_server_url, type }`
-
-      Static bearer token credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "static_bearer"`
-
-        - `"static_bearer"`
-
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `body: boolean`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `header: boolean`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object { type }`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `type: "unrestricted"`
-
-            - `"unrestricted"`
-
-        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object { allowed_hosts, type }`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `allowed_hosts: array of string`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-          - `type: "limited"`
-
-            - `"limited"`
-
-      - `secret_name: string`
-
-        Name of the environment variable.
-
-      - `type: "environment_variable"`
-
-        - `"environment_variable"`
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `type: "vault_credential"`
-
-    - `"vault_credential"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `vault_id: string`
-
-    Identifier of the vault this credential belongs to.
-
-  - `display_name: optional string or null`
-
-    Human-readable name for the credential.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{
-          "auth": {
-            "token": "bearer_exampletoken",
-            "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-            "type": "static_bearer"
-          },
-          "display_name": "Example credential",
-          "metadata": {
-            "environment": "production"
-          }
-        }'
-```
-
-#### Response
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "archived_at": null,
-  "auth": {
-    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-    "type": "static_bearer"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault_credential",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "display_name": "Example credential"
-}
-```
-
-## List Credentials
-
-**get** `/v1/vaults/{vault_id}/credentials`
-
-List Credentials
-
-### Path Parameters
-
-- `vault_id: string`
-
-### Query Parameters
-
-- `include_archived: optional boolean`
-
-  Whether to include archived credentials in the results.
-
-- `limit: optional number`
-
-  Maximum number of credentials to return per page. Defaults to 20, maximum 100.
-
-- `page: optional string`
-
-  Opaque pagination token from a previous `list_credentials` response.
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `data: optional array of BetaManagedAgentsCredential`
-
-  List of credentials.
-
-  - `id: string`
-
-    Unique identifier for the credential.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-    Authentication details for a credential.
-
-    - `BetaManagedAgentsMCPOAuthAuthResponse object { mcp_server_url, type, expires_at, refresh }`
-
-      OAuth credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "mcp_oauth"`
-
-        - `"mcp_oauth"`
-
-      - `expires_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
-
-        OAuth refresh token configuration returned in credential responses.
-
-        - `client_id: string`
-
-          OAuth client ID.
-
-        - `token_endpoint: string`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
-
-          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
-
-            Token endpoint requires no client authentication.
-
-            - `type: "none"`
-
-              - `"none"`
-
-          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `type: "client_secret_basic"`
-
-              - `"client_secret_basic"`
-
-          - `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `type: "client_secret_post"`
-
-              - `"client_secret_post"`
-
-        - `resource: optional string or null`
-
-          OAuth resource indicator.
-
-        - `scope: optional string or null`
-
-          OAuth scope for the refresh request.
-
-    - `BetaManagedAgentsStaticBearerAuthResponse object { mcp_server_url, type }`
-
-      Static bearer token credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "static_bearer"`
-
-        - `"static_bearer"`
-
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `body: boolean`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `header: boolean`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object { type }`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `type: "unrestricted"`
-
-            - `"unrestricted"`
-
-        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object { allowed_hosts, type }`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `allowed_hosts: array of string`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-          - `type: "limited"`
-
-            - `"limited"`
-
-      - `secret_name: string`
-
-        Name of the environment variable.
-
-      - `type: "environment_variable"`
-
-        - `"environment_variable"`
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `type: "vault_credential"`
-
-    - `"vault_credential"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `vault_id: string`
-
-    Identifier of the vault this credential belongs to.
-
-  - `display_name: optional string or null`
-
-    Human-readable name for the credential.
-
-- `next_page: optional string or null`
-
-  Pagination token for the next page, or null if no more results.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-      "archived_at": null,
-      "auth": {
-        "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-        "type": "static_bearer"
-      },
-      "created_at": "2026-03-15T10:00:00Z",
-      "metadata": {
-        "environment": "production"
-      },
-      "type": "vault_credential",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-      "display_name": "Example credential"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-## Get Credential
-
-**get** `/v1/vaults/{vault_id}/credentials/{credential_id}`
-
-Get Credential
-
-### Path Parameters
-
-- `vault_id: string`
-
-- `credential_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsCredential object { id, archived_at, auth, 6 more }`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `id: string`
-
-    Unique identifier for the credential.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-    Authentication details for a credential.
-
-    - `BetaManagedAgentsMCPOAuthAuthResponse object { mcp_server_url, type, expires_at, refresh }`
-
-      OAuth credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "mcp_oauth"`
-
-        - `"mcp_oauth"`
-
-      - `expires_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
-
-        OAuth refresh token configuration returned in credential responses.
-
-        - `client_id: string`
-
-          OAuth client ID.
-
-        - `token_endpoint: string`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
-
-          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
-
-            Token endpoint requires no client authentication.
-
-            - `type: "none"`
-
-              - `"none"`
-
-          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `type: "client_secret_basic"`
-
-              - `"client_secret_basic"`
-
-          - `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `type: "client_secret_post"`
-
-              - `"client_secret_post"`
-
-        - `resource: optional string or null`
-
-          OAuth resource indicator.
-
-        - `scope: optional string or null`
-
-          OAuth scope for the refresh request.
-
-    - `BetaManagedAgentsStaticBearerAuthResponse object { mcp_server_url, type }`
-
-      Static bearer token credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "static_bearer"`
-
-        - `"static_bearer"`
-
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `body: boolean`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `header: boolean`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object { type }`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `type: "unrestricted"`
-
-            - `"unrestricted"`
-
-        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object { allowed_hosts, type }`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `allowed_hosts: array of string`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-          - `type: "limited"`
-
-            - `"limited"`
-
-      - `secret_name: string`
-
-        Name of the environment variable.
-
-      - `type: "environment_variable"`
-
-        - `"environment_variable"`
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `type: "vault_credential"`
-
-    - `"vault_credential"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `vault_id: string`
-
-    Identifier of the vault this credential belongs to.
-
-  - `display_name: optional string or null`
-
-    Human-readable name for the credential.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "archived_at": null,
-  "auth": {
-    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-    "type": "static_bearer"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault_credential",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "display_name": "Example credential"
-}
-```
-
-## Update Credential
-
-**post** `/v1/vaults/{vault_id}/credentials/{credential_id}`
-
-Update Credential
-
-### Path Parameters
-
-- `vault_id: string`
-
-- `credential_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Body Parameters
-
-- `auth: optional BetaManagedAgentsMCPOAuthUpdateParams or BetaManagedAgentsStaticBearerUpdateParams or BetaManagedAgentsEnvironmentVariableUpdateParams`
-
-  Updated authentication details for a credential.
-
-  - `BetaManagedAgentsMCPOAuthUpdateParams object { type, access_token, expires_at, refresh }`
-
-    Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
-
-    - `type: "mcp_oauth"`
-
-      - `"mcp_oauth"`
-
-    - `access_token: optional string or null`
-
-      Updated OAuth access token.
-
-    - `expires_at: optional string or null`
-
-      A timestamp in RFC 3339 format
-
-    - `refresh: optional BetaManagedAgentsMCPOAuthRefreshUpdateParams or null`
-
-      Parameters for updating OAuth refresh token configuration.
-
-      - `refresh_token: optional string or null`
-
-        Updated OAuth refresh token.
-
-      - `scope: optional string or null`
-
-        Updated OAuth scope for the refresh request.
-
-      - `token_endpoint_auth: optional BetaManagedAgentsTokenEndpointAuthBasicUpdateParam or BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
-
-        Updated HTTP Basic authentication parameters for the token endpoint.
-
-        - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam object { type, client_secret }`
-
-          Updated HTTP Basic authentication parameters for the token endpoint.
-
-          - `type: "client_secret_basic"`
-
-            - `"client_secret_basic"`
-
-          - `client_secret: optional string or null`
-
-            Updated OAuth client secret.
-
-        - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam object { type, client_secret }`
-
-          Updated POST body authentication parameters for the token endpoint.
-
-          - `type: "client_secret_post"`
-
-            - `"client_secret_post"`
-
-          - `client_secret: optional string or null`
-
-            Updated OAuth client secret.
-
-  - `BetaManagedAgentsStaticBearerUpdateParams object { type, token }`
-
-    Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
-
-    - `type: "static_bearer"`
-
-      - `"static_bearer"`
-
-    - `token: optional string or null`
-
-      Updated static bearer token value.
-
-  - `BetaManagedAgentsEnvironmentVariableUpdateParams object { type, injection_location, networking, secret_value }`
-
-    Parameters for updating an environment variable credential. `secret_name` is immutable.
-
-    - `type: "environment_variable"`
-
-      - `"environment_variable"`
-
-    - `injection_location: optional BetaManagedAgentsInjectionLocationUpdateParams`
-
-      Updated injection location.
-
-      - `body: optional boolean`
-
-        Substitute when the placeholder appears in the request body.
-
-      - `header: optional boolean`
-
-        Substitute when the placeholder appears in a request header value.
-
-    - `networking: optional BetaManagedAgentsCredentialNetworkingParams or null`
-
-      Updated networking scope. Full replacement.
-
-      - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams object { type }`
-
-        Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
-
-        - `type: "unrestricted"`
-
-          - `"unrestricted"`
-
-      - `BetaManagedAgentsLimitedCredentialNetworkingParams object { allowed_hosts, type }`
-
-        Substitute the secret only on requests to the listed hosts.
-
-        - `allowed_hosts: array of string`
-
-          Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
-
-        - `type: "limited"`
-
-          - `"limited"`
-
-    - `secret_value: optional string or null`
-
-      Updated secret value.
-
-- `display_name: optional string or null`
-
-  Updated human-readable name for the credential. 1-255 characters.
-
-- `metadata: optional map[string] or null`
-
-  Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
-
-### Returns
-
-- `BetaManagedAgentsCredential object { id, archived_at, auth, 6 more }`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `id: string`
-
-    Unique identifier for the credential.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-    Authentication details for a credential.
-
-    - `BetaManagedAgentsMCPOAuthAuthResponse object { mcp_server_url, type, expires_at, refresh }`
-
-      OAuth credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "mcp_oauth"`
-
-        - `"mcp_oauth"`
-
-      - `expires_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
-
-        OAuth refresh token configuration returned in credential responses.
-
-        - `client_id: string`
-
-          OAuth client ID.
-
-        - `token_endpoint: string`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
-
-          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
-
-            Token endpoint requires no client authentication.
-
-            - `type: "none"`
-
-              - `"none"`
-
-          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `type: "client_secret_basic"`
-
-              - `"client_secret_basic"`
-
-          - `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `type: "client_secret_post"`
-
-              - `"client_secret_post"`
-
-        - `resource: optional string or null`
-
-          OAuth resource indicator.
-
-        - `scope: optional string or null`
-
-          OAuth scope for the refresh request.
-
-    - `BetaManagedAgentsStaticBearerAuthResponse object { mcp_server_url, type }`
-
-      Static bearer token credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "static_bearer"`
-
-        - `"static_bearer"`
-
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `body: boolean`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `header: boolean`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object { type }`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `type: "unrestricted"`
-
-            - `"unrestricted"`
-
-        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object { allowed_hosts, type }`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `allowed_hosts: array of string`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-          - `type: "limited"`
-
-            - `"limited"`
-
-      - `secret_name: string`
-
-        Name of the environment variable.
-
-      - `type: "environment_variable"`
-
-        - `"environment_variable"`
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `type: "vault_credential"`
-
-    - `"vault_credential"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `vault_id: string`
-
-    Identifier of the vault this credential belongs to.
-
-  - `display_name: optional string or null`
-
-    Human-readable name for the credential.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{
-          "display_name": "Example credential",
-          "metadata": {
-            "environment": "production"
-          }
-        }'
-```
-
-#### Response
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "archived_at": null,
-  "auth": {
-    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-    "type": "static_bearer"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault_credential",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "display_name": "Example credential"
-}
-```
-
-## Delete Credential
-
-**delete** `/v1/vaults/{vault_id}/credentials/{credential_id}`
-
-Delete Credential
-
-### Path Parameters
-
-- `vault_id: string`
-
-- `credential_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsDeletedCredential object { id, type }`
-
-  Confirmation of a deleted credential.
-
-  - `id: string`
-
-    Unique identifier of the deleted credential.
-
-  - `type: "vault_credential_deleted"`
-
-    - `"vault_credential_deleted"`
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID \
-    -X DELETE \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "type": "vault_credential_deleted"
-}
-```
-
-## Archive Credential
-
-**post** `/v1/vaults/{vault_id}/credentials/{credential_id}/archive`
-
-Archive Credential
-
-### Path Parameters
-
-- `vault_id: string`
-
-- `credential_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsCredential object { id, archived_at, auth, 6 more }`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `id: string`
-
-    Unique identifier for the credential.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-    Authentication details for a credential.
-
-    - `BetaManagedAgentsMCPOAuthAuthResponse object { mcp_server_url, type, expires_at, refresh }`
-
-      OAuth credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "mcp_oauth"`
-
-        - `"mcp_oauth"`
-
-      - `expires_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
-
-        OAuth refresh token configuration returned in credential responses.
-
-        - `client_id: string`
-
-          OAuth client ID.
-
-        - `token_endpoint: string`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
-
-          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
-
-            Token endpoint requires no client authentication.
-
-            - `type: "none"`
-
-              - `"none"`
-
-          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `type: "client_secret_basic"`
-
-              - `"client_secret_basic"`
-
-          - `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `type: "client_secret_post"`
-
-              - `"client_secret_post"`
-
-        - `resource: optional string or null`
-
-          OAuth resource indicator.
-
-        - `scope: optional string or null`
-
-          OAuth scope for the refresh request.
-
-    - `BetaManagedAgentsStaticBearerAuthResponse object { mcp_server_url, type }`
-
-      Static bearer token credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "static_bearer"`
-
-        - `"static_bearer"`
-
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `body: boolean`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `header: boolean`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object { type }`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `type: "unrestricted"`
-
-            - `"unrestricted"`
-
-        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object { allowed_hosts, type }`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `allowed_hosts: array of string`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-          - `type: "limited"`
-
-            - `"limited"`
-
-      - `secret_name: string`
-
-        Name of the environment variable.
-
-      - `type: "environment_variable"`
-
-        - `"environment_variable"`
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `type: "vault_credential"`
-
-    - `"vault_credential"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `vault_id: string`
-
-    Identifier of the vault this credential belongs to.
-
-  - `display_name: optional string or null`
-
-    Human-readable name for the credential.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/archive \
-    -X POST \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "archived_at": null,
-  "auth": {
-    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-    "type": "static_bearer"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault_credential",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "display_name": "Example credential"
-}
-```
-
-## Validate Credential
-
-**post** `/v1/vaults/{vault_id}/credentials/{credential_id}/mcp_oauth_validate`
-
-Validate Credential
-
-### Path Parameters
-
-- `vault_id: string`
-
-- `credential_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsCredentialValidation object { credential_id, has_refresh_token, mcp_probe, 5 more }`
-
-  Result of live-probing a credential against its configured MCP server.
-
-  - `credential_id: string`
-
-    Unique identifier of the credential that was validated.
-
-  - `has_refresh_token: boolean`
-
-    Whether the credential has a refresh token configured.
-
-  - `mcp_probe: BetaManagedAgentsMCPProbe or null`
-
-    The failing step of an MCP validation probe.
-
-    - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
-
-      An HTTP response captured during a credential validation probe.
-
-      - `body: string`
-
-        Response body. May be truncated and has sensitive values scrubbed.
-
-      - `body_truncated: boolean`
-
-        Whether `body` was truncated.
-
-      - `content_type: string`
-
-        Value of the `Content-Type` response header.
-
-      - `status_code: number`
-
-        HTTP status code.
-
-    - `method: string`
-
-      The MCP method that failed (for example `initialize` or `tools/list`).
-
-  - `refresh: BetaManagedAgentsRefreshObject or null`
-
-    Outcome of a refresh-token exchange attempted during credential validation.
-
-    - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
-
-      An HTTP response captured during a credential validation probe.
-
-    - `status: "succeeded" or "failed" or "connect_error" or "no_refresh_token"`
-
-      Outcome of a refresh-token exchange attempted during credential validation.
-
-      - `"succeeded"`
-
-      - `"failed"`
-
-      - `"connect_error"`
-
-      - `"no_refresh_token"`
-
-  - `status: BetaManagedAgentsCredentialValidationStatus`
-
-    Overall verdict of a credential validation probe.
-
-    - `"valid"`
-
-    - `"invalid"`
-
-    - `"unknown"`
-
-  - `type: "vault_credential_validation"`
-
-    - `"vault_credential_validation"`
-
-  - `validated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `vault_id: string`
-
-    Identifier of the vault containing the credential.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mcp_oauth_validate \
-    -X POST \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "has_refresh_token": true,
-  "mcp_probe": {
-    "http_response": {
-      "body": "body",
-      "body_truncated": true,
-      "content_type": "content_type",
-      "status_code": 0
-    },
-    "method": "method"
-  },
-  "refresh": {
-    "http_response": {
-      "body": "body",
-      "body_truncated": true,
-      "content_type": "content_type",
-      "status_code": 0
-    },
-    "status": "succeeded"
-  },
-  "status": "valid",
-  "type": "vault_credential_validation",
-  "validated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-}
-```
-
-## Domain Types
-
-### Beta Managed Agents Credential
-
-- `BetaManagedAgentsCredential object { id, archived_at, auth, 6 more }`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `id: string`
-
-    Unique identifier for the credential.
-
-  - `archived_at: string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-    Authentication details for a credential.
-
-    - `BetaManagedAgentsMCPOAuthAuthResponse object { mcp_server_url, type, expires_at, refresh }`
-
-      OAuth credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "mcp_oauth"`
-
-        - `"mcp_oauth"`
-
-      - `expires_at: optional string or null`
-
-        A timestamp in RFC 3339 format
-
-      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
-
-        OAuth refresh token configuration returned in credential responses.
-
-        - `client_id: string`
-
-          OAuth client ID.
-
-        - `token_endpoint: string`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
-
-          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
-
-            Token endpoint requires no client authentication.
-
-            - `type: "none"`
-
-              - `"none"`
-
-          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `type: "client_secret_basic"`
-
-              - `"client_secret_basic"`
-
-          - `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `type: "client_secret_post"`
-
-              - `"client_secret_post"`
-
-        - `resource: optional string or null`
-
-          OAuth resource indicator.
-
-        - `scope: optional string or null`
-
-          OAuth scope for the refresh request.
-
-    - `BetaManagedAgentsStaticBearerAuthResponse object { mcp_server_url, type }`
-
-      Static bearer token credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "static_bearer"`
-
-        - `"static_bearer"`
-
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `body: boolean`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `header: boolean`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object { type }`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `type: "unrestricted"`
-
-            - `"unrestricted"`
-
-        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object { allowed_hosts, type }`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `allowed_hosts: array of string`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-          - `type: "limited"`
-
-            - `"limited"`
-
-      - `secret_name: string`
-
-        Name of the environment variable.
-
-      - `type: "environment_variable"`
-
-        - `"environment_variable"`
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `type: "vault_credential"`
-
-    - `"vault_credential"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `vault_id: string`
-
-    Identifier of the vault this credential belongs to.
-
-  - `display_name: optional string or null`
-
-    Human-readable name for the credential.
-
-### Beta Managed Agents Credential Networking Params
-
-- `BetaManagedAgentsCredentialNetworkingParams = BetaManagedAgentsUnrestrictedCredentialNetworkingParams or BetaManagedAgentsLimitedCredentialNetworkingParams`
-
-  Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
-
-  - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams object { type }`
-
-    Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
-
-    - `type: "unrestricted"`
-
-      - `"unrestricted"`
-
-  - `BetaManagedAgentsLimitedCredentialNetworkingParams object { allowed_hosts, type }`
-
-    Substitute the secret only on requests to the listed hosts.
-
-    - `allowed_hosts: array of string`
-
-      Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
-
-    - `type: "limited"`
-
-      - `"limited"`
-
-### Beta Managed Agents Credential Validation
-
-- `BetaManagedAgentsCredentialValidation object { credential_id, has_refresh_token, mcp_probe, 5 more }`
-
-  Result of live-probing a credential against its configured MCP server.
-
-  - `credential_id: string`
-
-    Unique identifier of the credential that was validated.
-
-  - `has_refresh_token: boolean`
-
-    Whether the credential has a refresh token configured.
-
-  - `mcp_probe: BetaManagedAgentsMCPProbe or null`
-
-    The failing step of an MCP validation probe.
-
-    - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
-
-      An HTTP response captured during a credential validation probe.
-
-      - `body: string`
-
-        Response body. May be truncated and has sensitive values scrubbed.
-
-      - `body_truncated: boolean`
-
-        Whether `body` was truncated.
-
-      - `content_type: string`
-
-        Value of the `Content-Type` response header.
-
-      - `status_code: number`
-
-        HTTP status code.
-
-    - `method: string`
-
-      The MCP method that failed (for example `initialize` or `tools/list`).
-
-  - `refresh: BetaManagedAgentsRefreshObject or null`
-
-    Outcome of a refresh-token exchange attempted during credential validation.
-
-    - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
-
-      An HTTP response captured during a credential validation probe.
-
-    - `status: "succeeded" or "failed" or "connect_error" or "no_refresh_token"`
-
-      Outcome of a refresh-token exchange attempted during credential validation.
-
-      - `"succeeded"`
-
-      - `"failed"`
-
-      - `"connect_error"`
-
-      - `"no_refresh_token"`
-
-  - `status: BetaManagedAgentsCredentialValidationStatus`
-
-    Overall verdict of a credential validation probe.
-
-    - `"valid"`
-
-    - `"invalid"`
-
-    - `"unknown"`
-
-  - `type: "vault_credential_validation"`
-
-    - `"vault_credential_validation"`
-
-  - `validated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `vault_id: string`
-
-    Identifier of the vault containing the credential.
-
-### Beta Managed Agents Credential Validation Status
-
-- `BetaManagedAgentsCredentialValidationStatus = "valid" or "invalid" or "unknown"`
-
-  Overall verdict of a credential validation probe.
-
-  - `"valid"`
-
-  - `"invalid"`
-
-  - `"unknown"`
-
-### Beta Managed Agents Deleted Credential
-
-- `BetaManagedAgentsDeletedCredential object { id, type }`
-
-  Confirmation of a deleted credential.
-
-  - `id: string`
-
-    Unique identifier of the deleted credential.
-
-  - `type: "vault_credential_deleted"`
-
-    - `"vault_credential_deleted"`
-
-### Beta Managed Agents Environment Variable Auth Response
-
-- `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
-
-  Environment variable credential details. The secret value is never returned.
-
-  - `injection_location: BetaManagedAgentsInjectionLocationResponse`
-
-    Where in the outbound request the secret value is substituted.
-
-    - `body: boolean`
-
-      Whether the placeholder is substituted in the request body.
-
-    - `header: boolean`
-
-      Whether the placeholder is substituted in request header values.
-
-  - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-    Outbound hosts the secret value is substituted on.
-
-    - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object { type }`
-
-      The secret is substituted on any host the session's Environment network policy permits egress to.
-
-      - `type: "unrestricted"`
-
-        - `"unrestricted"`
-
-    - `BetaManagedAgentsLimitedCredentialNetworkingResponse object { allowed_hosts, type }`
-
-      The secret is substituted only on requests to the listed hosts.
-
-      - `allowed_hosts: array of string`
-
-        Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-      - `type: "limited"`
-
-        - `"limited"`
-
-  - `secret_name: string`
-
-    Name of the environment variable.
-
-  - `type: "environment_variable"`
-
-    - `"environment_variable"`
-
-### Beta Managed Agents Environment Variable Create Params
-
-- `BetaManagedAgentsEnvironmentVariableCreateParams object { networking, secret_name, secret_value, 2 more }`
-
-  Parameters for creating an environment variable credential.
-
-  - `networking: BetaManagedAgentsCredentialNetworkingParams`
-
-    Outbound hosts the secret value is substituted on.
-
-    - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams object { type }`
-
-      Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
-
-      - `type: "unrestricted"`
-
-        - `"unrestricted"`
-
-    - `BetaManagedAgentsLimitedCredentialNetworkingParams object { allowed_hosts, type }`
-
-      Substitute the secret only on requests to the listed hosts.
-
-      - `allowed_hosts: array of string`
-
-        Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
-
-      - `type: "limited"`
-
-        - `"limited"`
-
-  - `secret_name: string`
-
-    Name of the environment variable. Immutable after create.
-
-  - `secret_value: string`
-
-    Secret value. Write-only; never returned in responses.
-
-  - `type: "environment_variable"`
-
-    - `"environment_variable"`
-
-  - `injection_location: optional BetaManagedAgentsInjectionLocationParams`
-
-    Where in the outbound request the secret value may be substituted.
-
-    - `body: optional boolean`
-
-      Substitute when the placeholder appears in the request body.
-
-    - `header: optional boolean`
-
-      Substitute when the placeholder appears in a request header value.
-
-### Beta Managed Agents Environment Variable Update Params
-
-- `BetaManagedAgentsEnvironmentVariableUpdateParams object { type, injection_location, networking, secret_value }`
-
-  Parameters for updating an environment variable credential. `secret_name` is immutable.
-
-  - `type: "environment_variable"`
-
-    - `"environment_variable"`
-
-  - `injection_location: optional BetaManagedAgentsInjectionLocationUpdateParams`
-
-    Updated injection location.
-
-    - `body: optional boolean`
-
-      Substitute when the placeholder appears in the request body.
-
-    - `header: optional boolean`
-
-      Substitute when the placeholder appears in a request header value.
-
-  - `networking: optional BetaManagedAgentsCredentialNetworkingParams or null`
-
-    Updated networking scope. Full replacement.
-
-    - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams object { type }`
-
-      Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
-
-      - `type: "unrestricted"`
-
-        - `"unrestricted"`
-
-    - `BetaManagedAgentsLimitedCredentialNetworkingParams object { allowed_hosts, type }`
-
-      Substitute the secret only on requests to the listed hosts.
-
-      - `allowed_hosts: array of string`
-
-        Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
-
-      - `type: "limited"`
-
-        - `"limited"`
-
-  - `secret_value: optional string or null`
-
-    Updated secret value.
-
-### Beta Managed Agents Injection Location Params
-
-- `BetaManagedAgentsInjectionLocationParams object { body, header }`
-
-  Where in the outbound request the secret value may be substituted.
-
-  - `body: optional boolean`
-
-    Substitute when the placeholder appears in the request body.
-
-  - `header: optional boolean`
-
-    Substitute when the placeholder appears in a request header value.
-
-### Beta Managed Agents Injection Location Response
-
-- `BetaManagedAgentsInjectionLocationResponse object { body, header }`
-
-  Where in the outbound request the secret value is substituted.
-
-  - `body: boolean`
-
-    Whether the placeholder is substituted in the request body.
-
-  - `header: boolean`
-
-    Whether the placeholder is substituted in request header values.
-
-### Beta Managed Agents Injection Location Update Params
-
-- `BetaManagedAgentsInjectionLocationUpdateParams object { body, header }`
-
-  Updated injection location.
-
-  - `body: optional boolean`
-
-    Substitute when the placeholder appears in the request body.
-
-  - `header: optional boolean`
-
-    Substitute when the placeholder appears in a request header value.
-
-### Beta Managed Agents Limited Credential Networking Params
-
-- `BetaManagedAgentsLimitedCredentialNetworkingParams object { allowed_hosts, type }`
-
-  Substitute the secret only on requests to the listed hosts.
-
-  - `allowed_hosts: array of string`
-
-    Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
-
-  - `type: "limited"`
-
-    - `"limited"`
-
-### Beta Managed Agents Limited Credential Networking Response
-
-- `BetaManagedAgentsLimitedCredentialNetworkingResponse object { allowed_hosts, type }`
-
-  The secret is substituted only on requests to the listed hosts.
-
-  - `allowed_hosts: array of string`
-
-    Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-  - `type: "limited"`
-
-    - `"limited"`
-
-### Beta Managed Agents MCP OAuth Auth Response
-
-- `BetaManagedAgentsMCPOAuthAuthResponse object { mcp_server_url, type, expires_at, refresh }`
-
-  OAuth credential details for an MCP server.
-
-  - `mcp_server_url: string`
-
-    URL of the MCP server this credential authenticates against.
-
-  - `type: "mcp_oauth"`
-
-    - `"mcp_oauth"`
-
-  - `expires_at: optional string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
-
-    OAuth refresh token configuration returned in credential responses.
-
-    - `client_id: string`
-
-      OAuth client ID.
-
-    - `token_endpoint: string`
-
-      Token endpoint URL used to refresh the access token.
-
-    - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-      Token endpoint requires no client authentication.
-
-      - `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
-
-        Token endpoint requires no client authentication.
-
-        - `type: "none"`
-
-          - `"none"`
-
-      - `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
-
-        Token endpoint uses HTTP Basic authentication with client credentials.
-
-        - `type: "client_secret_basic"`
-
-          - `"client_secret_basic"`
-
-      - `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
-
-        Token endpoint uses POST body authentication with client credentials.
-
-        - `type: "client_secret_post"`
-
-          - `"client_secret_post"`
-
-    - `resource: optional string or null`
-
-      OAuth resource indicator.
-
-    - `scope: optional string or null`
-
-      OAuth scope for the refresh request.
-
-### Beta Managed Agents MCP OAuth Create Params
-
-- `BetaManagedAgentsMCPOAuthCreateParams object { access_token, mcp_server_url, type, 2 more }`
-
-  Parameters for creating an MCP OAuth credential.
-
-  - `access_token: string`
-
-    OAuth access token.
-
-  - `mcp_server_url: string`
-
-    URL of the MCP server this credential authenticates against.
-
-  - `type: "mcp_oauth"`
-
-    - `"mcp_oauth"`
-
-  - `expires_at: optional string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `refresh: optional BetaManagedAgentsMCPOAuthRefreshParams or null`
-
-    OAuth refresh token parameters for creating a credential with refresh support.
-
-    - `client_id: string`
-
-      OAuth client ID.
-
-    - `refresh_token: string`
-
-      OAuth refresh token.
-
-    - `token_endpoint: string`
-
-      Token endpoint URL used to refresh the access token.
-
-    - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam or BetaManagedAgentsTokenEndpointAuthBasicParam or BetaManagedAgentsTokenEndpointAuthPostParam`
-
-      Token endpoint requires no client authentication.
-
-      - `BetaManagedAgentsTokenEndpointAuthNoneParam object { type }`
-
-        Token endpoint requires no client authentication.
-
-        - `type: "none"`
-
-          - `"none"`
-
-      - `BetaManagedAgentsTokenEndpointAuthBasicParam object { client_secret, type }`
-
-        Token endpoint uses HTTP Basic authentication with client credentials.
-
-        - `client_secret: string`
-
-          OAuth client secret.
-
-        - `type: "client_secret_basic"`
-
-          - `"client_secret_basic"`
-
-      - `BetaManagedAgentsTokenEndpointAuthPostParam object { client_secret, type }`
-
-        Token endpoint uses POST body authentication with client credentials.
-
-        - `client_secret: string`
-
-          OAuth client secret.
-
-        - `type: "client_secret_post"`
-
-          - `"client_secret_post"`
-
-    - `resource: optional string or null`
-
-      OAuth resource indicator.
-
-    - `scope: optional string or null`
-
-      OAuth scope for the refresh request.
-
-### Beta Managed Agents MCP OAuth Refresh Params
-
-- `BetaManagedAgentsMCPOAuthRefreshParams object { client_id, refresh_token, token_endpoint, 3 more }`
-
-  OAuth refresh token parameters for creating a credential with refresh support.
-
-  - `client_id: string`
-
-    OAuth client ID.
-
-  - `refresh_token: string`
-
-    OAuth refresh token.
-
-  - `token_endpoint: string`
-
-    Token endpoint URL used to refresh the access token.
-
-  - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam or BetaManagedAgentsTokenEndpointAuthBasicParam or BetaManagedAgentsTokenEndpointAuthPostParam`
-
-    Token endpoint requires no client authentication.
-
-    - `BetaManagedAgentsTokenEndpointAuthNoneParam object { type }`
-
-      Token endpoint requires no client authentication.
-
-      - `type: "none"`
-
-        - `"none"`
-
-    - `BetaManagedAgentsTokenEndpointAuthBasicParam object { client_secret, type }`
-
-      Token endpoint uses HTTP Basic authentication with client credentials.
-
-      - `client_secret: string`
-
-        OAuth client secret.
-
-      - `type: "client_secret_basic"`
-
-        - `"client_secret_basic"`
-
-    - `BetaManagedAgentsTokenEndpointAuthPostParam object { client_secret, type }`
-
-      Token endpoint uses POST body authentication with client credentials.
-
-      - `client_secret: string`
-
-        OAuth client secret.
-
-      - `type: "client_secret_post"`
-
-        - `"client_secret_post"`
-
-  - `resource: optional string or null`
-
-    OAuth resource indicator.
-
-  - `scope: optional string or null`
-
-    OAuth scope for the refresh request.
-
-### Beta Managed Agents MCP OAuth Refresh Response
-
-- `BetaManagedAgentsMCPOAuthRefreshResponse object { client_id, token_endpoint, token_endpoint_auth, 2 more }`
-
-  OAuth refresh token configuration returned in credential responses.
-
-  - `client_id: string`
-
-    OAuth client ID.
-
-  - `token_endpoint: string`
-
-    Token endpoint URL used to refresh the access token.
-
-  - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-    Token endpoint requires no client authentication.
-
-    - `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
-
-      Token endpoint requires no client authentication.
-
-      - `type: "none"`
-
-        - `"none"`
-
-    - `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
-
-      Token endpoint uses HTTP Basic authentication with client credentials.
-
-      - `type: "client_secret_basic"`
-
-        - `"client_secret_basic"`
-
-    - `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
-
-      Token endpoint uses POST body authentication with client credentials.
-
-      - `type: "client_secret_post"`
-
-        - `"client_secret_post"`
-
-  - `resource: optional string or null`
-
-    OAuth resource indicator.
-
-  - `scope: optional string or null`
-
-    OAuth scope for the refresh request.
-
-### Beta Managed Agents MCP OAuth Refresh Update Params
-
-- `BetaManagedAgentsMCPOAuthRefreshUpdateParams object { refresh_token, scope, token_endpoint_auth }`
-
-  Parameters for updating OAuth refresh token configuration.
-
-  - `refresh_token: optional string or null`
-
-    Updated OAuth refresh token.
-
-  - `scope: optional string or null`
-
-    Updated OAuth scope for the refresh request.
-
-  - `token_endpoint_auth: optional BetaManagedAgentsTokenEndpointAuthBasicUpdateParam or BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
-
-    Updated HTTP Basic authentication parameters for the token endpoint.
-
-    - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam object { type, client_secret }`
-
-      Updated HTTP Basic authentication parameters for the token endpoint.
-
-      - `type: "client_secret_basic"`
-
-        - `"client_secret_basic"`
-
-      - `client_secret: optional string or null`
-
-        Updated OAuth client secret.
-
-    - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam object { type, client_secret }`
-
-      Updated POST body authentication parameters for the token endpoint.
-
-      - `type: "client_secret_post"`
-
-        - `"client_secret_post"`
-
-      - `client_secret: optional string or null`
-
-        Updated OAuth client secret.
-
-### Beta Managed Agents MCP OAuth Update Params
-
-- `BetaManagedAgentsMCPOAuthUpdateParams object { type, access_token, expires_at, refresh }`
-
-  Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
-
-  - `type: "mcp_oauth"`
-
-    - `"mcp_oauth"`
-
-  - `access_token: optional string or null`
-
-    Updated OAuth access token.
-
-  - `expires_at: optional string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `refresh: optional BetaManagedAgentsMCPOAuthRefreshUpdateParams or null`
-
-    Parameters for updating OAuth refresh token configuration.
-
-    - `refresh_token: optional string or null`
-
-      Updated OAuth refresh token.
-
-    - `scope: optional string or null`
-
-      Updated OAuth scope for the refresh request.
-
-    - `token_endpoint_auth: optional BetaManagedAgentsTokenEndpointAuthBasicUpdateParam or BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
-
-      Updated HTTP Basic authentication parameters for the token endpoint.
-
-      - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam object { type, client_secret }`
-
-        Updated HTTP Basic authentication parameters for the token endpoint.
-
-        - `type: "client_secret_basic"`
-
-          - `"client_secret_basic"`
-
-        - `client_secret: optional string or null`
-
-          Updated OAuth client secret.
-
-      - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam object { type, client_secret }`
-
-        Updated POST body authentication parameters for the token endpoint.
-
-        - `type: "client_secret_post"`
-
-          - `"client_secret_post"`
-
-        - `client_secret: optional string or null`
-
-          Updated OAuth client secret.
-
-### Beta Managed Agents MCP Probe
-
-- `BetaManagedAgentsMCPProbe object { http_response, method }`
-
-  The failing step of an MCP validation probe.
-
-  - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
-
-    An HTTP response captured during a credential validation probe.
-
-    - `body: string`
-
-      Response body. May be truncated and has sensitive values scrubbed.
-
-    - `body_truncated: boolean`
-
-      Whether `body` was truncated.
-
-    - `content_type: string`
-
-      Value of the `Content-Type` response header.
-
-    - `status_code: number`
-
-      HTTP status code.
-
-  - `method: string`
-
-    The MCP method that failed (for example `initialize` or `tools/list`).
-
-### Beta Managed Agents Refresh HTTP Response
-
-- `BetaManagedAgentsRefreshHTTPResponse object { body, body_truncated, content_type, status_code }`
-
-  An HTTP response captured during a credential validation probe.
-
-  - `body: string`
-
-    Response body. May be truncated and has sensitive values scrubbed.
-
-  - `body_truncated: boolean`
-
-    Whether `body` was truncated.
-
-  - `content_type: string`
-
-    Value of the `Content-Type` response header.
-
-  - `status_code: number`
-
-    HTTP status code.
-
-### Beta Managed Agents Refresh Object
-
-- `BetaManagedAgentsRefreshObject object { http_response, status }`
-
-  Outcome of a refresh-token exchange attempted during credential validation.
-
-  - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
-
-    An HTTP response captured during a credential validation probe.
-
-    - `body: string`
-
-      Response body. May be truncated and has sensitive values scrubbed.
-
-    - `body_truncated: boolean`
-
-      Whether `body` was truncated.
-
-    - `content_type: string`
-
-      Value of the `Content-Type` response header.
-
-    - `status_code: number`
-
-      HTTP status code.
-
-  - `status: "succeeded" or "failed" or "connect_error" or "no_refresh_token"`
-
-    Outcome of a refresh-token exchange attempted during credential validation.
-
-    - `"succeeded"`
-
-    - `"failed"`
-
-    - `"connect_error"`
-
-    - `"no_refresh_token"`
-
-### Beta Managed Agents Static Bearer Auth Response
-
-- `BetaManagedAgentsStaticBearerAuthResponse object { mcp_server_url, type }`
-
-  Static bearer token credential details for an MCP server.
-
-  - `mcp_server_url: string`
-
-    URL of the MCP server this credential authenticates against.
-
-  - `type: "static_bearer"`
-
-    - `"static_bearer"`
-
-### Beta Managed Agents Static Bearer Create Params
-
-- `BetaManagedAgentsStaticBearerCreateParams object { token, mcp_server_url, type }`
-
-  Parameters for creating a static bearer token credential.
-
-  - `token: string`
-
-    Static bearer token value.
-
-  - `mcp_server_url: string`
-
-    URL of the MCP server this credential authenticates against.
-
-  - `type: "static_bearer"`
-
-    - `"static_bearer"`
-
-### Beta Managed Agents Static Bearer Update Params
-
-- `BetaManagedAgentsStaticBearerUpdateParams object { type, token }`
-
-  Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
-
-  - `type: "static_bearer"`
-
-    - `"static_bearer"`
-
-  - `token: optional string or null`
-
-    Updated static bearer token value.
-
-### Beta Managed Agents Token Endpoint Auth Basic Param
-
-- `BetaManagedAgentsTokenEndpointAuthBasicParam object { client_secret, type }`
-
-  Token endpoint uses HTTP Basic authentication with client credentials.
-
-  - `client_secret: string`
-
-    OAuth client secret.
-
-  - `type: "client_secret_basic"`
-
-    - `"client_secret_basic"`
-
-### Beta Managed Agents Token Endpoint Auth Basic Response
-
-- `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
-
-  Token endpoint uses HTTP Basic authentication with client credentials.
-
-  - `type: "client_secret_basic"`
-
-    - `"client_secret_basic"`
-
-### Beta Managed Agents Token Endpoint Auth Basic Update Param
-
-- `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam object { type, client_secret }`
-
-  Updated HTTP Basic authentication parameters for the token endpoint.
-
-  - `type: "client_secret_basic"`
-
-    - `"client_secret_basic"`
-
-  - `client_secret: optional string or null`
-
-    Updated OAuth client secret.
-
-### Beta Managed Agents Token Endpoint Auth None Param
-
-- `BetaManagedAgentsTokenEndpointAuthNoneParam object { type }`
-
-  Token endpoint requires no client authentication.
-
-  - `type: "none"`
-
-    - `"none"`
-
-### Beta Managed Agents Token Endpoint Auth None Response
-
-- `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
-
-  Token endpoint requires no client authentication.
-
-  - `type: "none"`
-
-    - `"none"`
-
-### Beta Managed Agents Token Endpoint Auth Post Param
-
-- `BetaManagedAgentsTokenEndpointAuthPostParam object { client_secret, type }`
-
-  Token endpoint uses POST body authentication with client credentials.
-
-  - `client_secret: string`
-
-    OAuth client secret.
-
-  - `type: "client_secret_post"`
-
-    - `"client_secret_post"`
-
-### Beta Managed Agents Token Endpoint Auth Post Response
-
-- `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
-
-  Token endpoint uses POST body authentication with client credentials.
-
-  - `type: "client_secret_post"`
-
-    - `"client_secret_post"`
-
-### Beta Managed Agents Token Endpoint Auth Post Update Param
-
-- `BetaManagedAgentsTokenEndpointAuthPostUpdateParam object { type, client_secret }`
-
-  Updated POST body authentication parameters for the token endpoint.
-
-  - `type: "client_secret_post"`
-
-    - `"client_secret_post"`
-
-  - `client_secret: optional string or null`
-
-    Updated OAuth client secret.
-
-### Beta Managed Agents Unrestricted Credential Networking Params
-
-- `BetaManagedAgentsUnrestrictedCredentialNetworkingParams object { type }`
-
-  Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
-
-  - `type: "unrestricted"`
-
-    - `"unrestricted"`
-
-### Beta Managed Agents Unrestricted Credential Networking Response
-
-- `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object { type }`
-
-  The secret is substituted on any host the session's Environment network policy permits egress to.
-
-  - `type: "unrestricted"`
-
-    - `"unrestricted"`
-
-# Memory Stores
-
-## Create a memory store
-
-**post** `/v1/memory_stores`
-
-Create a memory store
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Body Parameters
-
-- `name: string`
-
-  Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
-
-- `description: optional string`
-
-  Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent.
-
-- `metadata: optional map[string]`
-
-  Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Not visible to the agent.
-
-### Returns
-
-- `BetaManagedAgentsMemoryStore object { id, created_at, name, 5 more }`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `id: string`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `name: string`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `type: "memory_store"`
-
-    - `"memory_store"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `archived_at: optional string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `description: optional string`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: optional map[string]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/memory_stores \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{
-          "name": "x"
-        }'
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  }
-}
-```
-
-## List memory stores
-
-**get** `/v1/memory_stores`
-
-List memory stores
-
-### Query Parameters
-
-- `"created_at[gte]": optional string`
-
-  Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
-
-- `"created_at[lte]": optional string`
-
-  Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
-
-- `include_archived: optional boolean`
-
-  When `true`, archived stores are included in the results. Defaults to `false` (archived stores are excluded).
-
-- `limit: optional number`
-
-  Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
-
-- `page: optional string`
-
-  Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `data: optional array of BetaManagedAgentsMemoryStore`
-
-  Memory stores on this page, newest first. Empty when there are no stores matching the filters.
-
-  - `id: string`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `name: string`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `type: "memory_store"`
-
-    - `"memory_store"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `archived_at: optional string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `description: optional string`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: optional map[string]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-- `next_page: optional string or null`
-
-  Opaque cursor for the next page (a `page_...` value). Pass as `page` on the next request. `null` when there are no more results.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/memory_stores \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "name": "name",
-      "type": "memory_store",
-      "updated_at": "2019-12-27T18:11:19.117Z",
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "description": "description",
-      "metadata": {
-        "foo": "string"
-      }
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-## Retrieve a memory store
-
-**get** `/v1/memory_stores/{memory_store_id}`
-
-Retrieve a memory store
-
-### Path Parameters
-
-- `memory_store_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsMemoryStore object { id, created_at, name, 5 more }`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `id: string`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `name: string`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `type: "memory_store"`
-
-    - `"memory_store"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `archived_at: optional string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `description: optional string`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: optional map[string]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  }
-}
-```
-
-## Update a memory store
-
-**post** `/v1/memory_stores/{memory_store_id}`
-
-Update a memory store
-
-### Path Parameters
-
-- `memory_store_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Body Parameters
-
-- `description: optional string or null`
-
-  New description for the store, up to 1024 characters. Pass an empty string to clear it.
-
-- `metadata: optional map[string] or null`
-
-  Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
-
-- `name: optional string or null`
-
-  New human-readable name for the store. 1–255 characters; no control characters. Renaming changes the slug used for the store's `mount_path` in sessions created after the update.
-
-### Returns
-
-- `BetaManagedAgentsMemoryStore object { id, created_at, name, 5 more }`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `id: string`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `name: string`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `type: "memory_store"`
-
-    - `"memory_store"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `archived_at: optional string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `description: optional string`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: optional map[string]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{}'
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  }
-}
-```
-
-## Delete a memory store
-
-**delete** `/v1/memory_stores/{memory_store_id}`
-
-Delete a memory store
-
-### Path Parameters
-
-- `memory_store_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsDeletedMemoryStore object { id, type }`
-
-  Confirmation that a `memory_store` was deleted.
-
-  - `id: string`
-
-    ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
-
-  - `type: "memory_store_deleted"`
-
-    - `"memory_store_deleted"`
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID \
-    -X DELETE \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "type": "memory_store_deleted"
-}
-```
-
-## Archive a memory store
-
-**post** `/v1/memory_stores/{memory_store_id}/archive`
-
-Archive a memory store
-
-### Path Parameters
-
-- `memory_store_id: string`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsMemoryStore object { id, created_at, name, 5 more }`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `id: string`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `name: string`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `type: "memory_store"`
-
-    - `"memory_store"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `archived_at: optional string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `description: optional string`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: optional map[string]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/archive \
-    -X POST \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  }
-}
-```
-
-## Domain Types
-
-### Beta Managed Agents Deleted Memory Store
-
-- `BetaManagedAgentsDeletedMemoryStore object { id, type }`
-
-  Confirmation that a `memory_store` was deleted.
-
-  - `id: string`
-
-    ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
-
-  - `type: "memory_store_deleted"`
-
-    - `"memory_store_deleted"`
-
-### Beta Managed Agents Memory Store
-
-- `BetaManagedAgentsMemoryStore object { id, created_at, name, 5 more }`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `id: string`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `name: string`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `type: "memory_store"`
-
-    - `"memory_store"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `archived_at: optional string or null`
-
-    A timestamp in RFC 3339 format
-
-  - `description: optional string`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: optional map[string]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-# Memories
-
-## Create a memory
-
-**post** `/v1/memory_stores/{memory_store_id}/memories`
-
-Create a memory
-
-### Path Parameters
-
-- `memory_store_id: string`
-
-### Query Parameters
-
-- `view: optional BetaManagedAgentsMemoryView`
-
-  Query parameter for view
-
-  - `"basic"`
-
-  - `"full"`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Body Parameters
-
-- `content: string or null`
-
-  UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
-
-- `path: string`
-
-  Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive.
-
-### Returns
-
-- `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `id: string`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: string`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: number`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_store_id: string`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: string`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: string`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: "memory"`
-
-    - `"memory"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `content: optional string or null`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{
-          "content": "content",
-          "path": "xx"
-        }'
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_store_id": "memory_store_id",
-  "memory_version_id": "memory_version_id",
-  "path": "path",
-  "type": "memory",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "content": "content"
-}
-```
-
-## List memories
-
-**get** `/v1/memory_stores/{memory_store_id}/memories`
-
-List memories
-
-### Path Parameters
-
-- `memory_store_id: string`
-
-### Query Parameters
-
-- `depth: optional number`
-
-  `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
-
-- `limit: optional number`
-
-  Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
-
-- `page: optional string`
-
-  Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
-
-- `path_prefix: optional string`
-
-  Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
-
-- `view: optional BetaManagedAgentsMemoryView`
-
-  Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
-
-  - `"basic"`
-
-  - `"full"`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `data: optional array of BetaManagedAgentsMemoryListItem`
-
-  One page of results. Each item is either a `memory` object or, when `depth` was set, a `memory_prefix` rollup marker. Items are returned in a stable, server-defined order.
-
-  - `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
-
-    A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-    - `id: string`
-
-      Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-    - `content_sha256: string`
-
-      Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-    - `content_size_bytes: number`
-
-      Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-    - `created_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `memory_store_id: string`
-
-      ID of the memory store this memory belongs to (a `memstore_...` value).
-
-    - `memory_version_id: string`
-
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-    - `path: string`
-
-      Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-    - `type: "memory"`
-
-      - `"memory"`
-
-    - `updated_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `content: optional string or null`
-
-      The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-  - `BetaManagedAgentsMemoryPrefix object { path, type }`
-
-    A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
-    - `path: string`
-
-      The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-    - `type: "memory_prefix"`
-
-      - `"memory_prefix"`
-
-- `next_page: optional string or null`
-
-  Opaque cursor for the next page (a `page_...` value), or `null` if there are no more results. Pass as `page` on the next request.
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "content_sha256": "content_sha256",
-      "content_size_bytes": 0,
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "memory_store_id": "memory_store_id",
-      "memory_version_id": "memory_version_id",
-      "path": "path",
-      "type": "memory",
-      "updated_at": "2019-12-27T18:11:19.117Z",
-      "content": "content"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-## Retrieve a memory
-
-**get** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
-
-Retrieve a memory
-
-### Path Parameters
-
-- `memory_store_id: string`
-
-- `memory_id: string`
-
-### Query Parameters
-
-- `view: optional BetaManagedAgentsMemoryView`
-
-  Query parameter for view
-
-  - `"basic"`
-
-  - `"full"`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `id: string`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: string`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: number`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_store_id: string`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: string`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: string`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: "memory"`
-
-    - `"memory"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `content: optional string or null`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMORY_ID \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_store_id": "memory_store_id",
-  "memory_version_id": "memory_version_id",
-  "path": "path",
-  "type": "memory",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "content": "content"
-}
-```
-
-## Update a memory
-
-**post** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
-
-Update a memory
-
-### Path Parameters
-
-- `memory_store_id: string`
-
-- `memory_id: string`
-
-### Query Parameters
-
-- `view: optional BetaManagedAgentsMemoryView`
-
-  Query parameter for view
-
-  - `"basic"`
-
-  - `"full"`
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Body Parameters
-
-- `content: optional string or null`
-
-  New UTF-8 text content for the memory. Maximum 100 kB (102,400 bytes). Omit to leave the content unchanged (e.g., for a rename-only update).
-
-- `path: optional string or null`
-
-  New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
-
-- `precondition: optional BetaManagedAgentsPrecondition`
-
-  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
-  - `type: "content_sha256"`
-
-    - `"content_sha256"`
-
-  - `content_sha256: optional string`
-
-    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
-
-### Returns
-
-- `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `id: string`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: string`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: number`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_store_id: string`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: string`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: string`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: "memory"`
-
-    - `"memory"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `content: optional string or null`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMORY_ID \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{}'
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_store_id": "memory_store_id",
-  "memory_version_id": "memory_version_id",
-  "path": "path",
-  "type": "memory",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "content": "content"
-}
-```
-
-## Delete a memory
-
-**delete** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
-
-Delete a memory
-
-### Path Parameters
-
-- `memory_store_id: string`
-
-- `memory_id: string`
-
-### Query Parameters
-
-- `expected_content_sha256: optional string`
-
-  Query parameter for expected_content_sha256
-
-### Header Parameters
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-### Returns
-
-- `BetaManagedAgentsDeletedMemory object { id, type }`
-
-  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
-
-  - `id: string`
-
-    ID of the deleted memory (a `mem_...` value).
-
-  - `type: "memory_deleted"`
-
-    - `"memory_deleted"`
-
-### Example
-
-```http
-curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMORY_ID \
-    -X DELETE \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-#### Response
-
-```json
-{
-  "id": "id",
-  "type": "memory_deleted"
-}
-```
-
-## Domain Types
-
-### Beta Managed Agents Conflict Error
-
-- `BetaManagedAgentsConflictError object { type, message }`
-
-  - `type: "conflict_error"`
-
-    - `"conflict_error"`
-
-  - `message: optional string`
-
-### Beta Managed Agents Content Sha256 Precondition
-
-- `BetaManagedAgentsContentSha256Precondition object { type, content_sha256 }`
-
-  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
-  - `type: "content_sha256"`
-
-    - `"content_sha256"`
-
-  - `content_sha256: optional string`
-
-    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
-
-### Beta Managed Agents Deleted Memory
-
-- `BetaManagedAgentsDeletedMemory object { id, type }`
-
-  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
-
-  - `id: string`
-
-    ID of the deleted memory (a `mem_...` value).
-
-  - `type: "memory_deleted"`
-
-    - `"memory_deleted"`
-
-### Beta Managed Agents Error
-
-- `BetaManagedAgentsError = BetaInvalidRequestError or BetaAuthenticationError or BetaBillingError or 9 more`
-
-  - `BetaInvalidRequestError object { message, type }`
-
-    - `message: string`
-
-    - `type: "invalid_request_error"`
-
-      - `"invalid_request_error"`
-
-  - `BetaAuthenticationError object { message, type }`
-
-    - `message: string`
-
-    - `type: "authentication_error"`
-
-      - `"authentication_error"`
-
-  - `BetaBillingError object { message, type }`
-
-    - `message: string`
-
-    - `type: "billing_error"`
-
-      - `"billing_error"`
-
-  - `BetaPermissionError object { message, type }`
-
-    - `message: string`
-
-    - `type: "permission_error"`
-
-      - `"permission_error"`
-
-  - `BetaNotFoundError object { message, type }`
-
-    - `message: string`
-
-    - `type: "not_found_error"`
-
-      - `"not_found_error"`
-
-  - `BetaRateLimitError object { message, type }`
-
-    - `message: string`
-
-    - `type: "rate_limit_error"`
-
-      - `"rate_limit_error"`
-
-  - `BetaGatewayTimeoutError object { message, type }`
-
-    - `message: string`
-
-    - `type: "timeout_error"`
-
-      - `"timeout_error"`
-
-  - `BetaAPIError object { message, type }`
-
-    - `message: string`
-
-    - `type: "api_error"`
-
-      - `"api_error"`
-
-  - `BetaOverloadedError object { message, type }`
-
-    - `message: string`
-
-    - `type: "overloaded_error"`
-
-      - `"overloaded_error"`
-
-  - `BetaManagedAgentsMemoryPreconditionFailedError object { type, message }`
-
-    - `type: "memory_precondition_failed_error"`
-
-      - `"memory_precondition_failed_error"`
-
-    - `message: optional string`
-
-  - `BetaManagedAgentsMemoryPathConflictError object { type, conflicting_memory_id, conflicting_path, message }`
-
-    - `type: "memory_path_conflict_error"`
-
-      - `"memory_path_conflict_error"`
-
-    - `conflicting_memory_id: optional string`
-
-    - `conflicting_path: optional string`
-
-    - `message: optional string`
-
-  - `BetaManagedAgentsConflictError object { type, message }`
-
-    - `type: "conflict_error"`
-
-      - `"conflict_error"`
-
-    - `message: optional string`
-
-### Beta Managed Agents Memory
-
-- `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `id: string`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: string`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: number`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_store_id: string`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: string`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: string`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: "memory"`
-
-    - `"memory"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `content: optional string or null`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-### Beta Managed Agents Memory List Item
-
-- `BetaManagedAgentsMemoryListItem = BetaManagedAgentsMemory or BetaManagedAgentsMemoryPrefix`
-
-  One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
-
-  - `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
-
-    A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-    - `id: string`
-
-      Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-    - `content_sha256: string`
-
-      Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-    - `content_size_bytes: number`
-
-      Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-    - `created_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `memory_store_id: string`
-
-      ID of the memory store this memory belongs to (a `memstore_...` value).
-
-    - `memory_version_id: string`
-
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-    - `path: string`
-
-      Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-    - `type: "memory"`
-
-      - `"memory"`
-
-    - `updated_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `content: optional string or null`
-
-      The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-  - `BetaManagedAgentsMemoryPrefix object { path, type }`
-
-    A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
-    - `path: string`
-
-      The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-    - `type: "memory_prefix"`
-
-      - `"memory_prefix"`
-
-### Beta Managed Agents Memory Path Conflict Error
-
-- `BetaManagedAgentsMemoryPathConflictError object { type, conflicting_memory_id, conflicting_path, message }`
-
-  - `type: "memory_path_conflict_error"`
-
-    - `"memory_path_conflict_error"`
-
-  - `conflicting_memory_id: optional string`
-
-  - `conflicting_path: optional string`
-
-  - `message: optional string`
-
-### Beta Managed Agents Memory Precondition Failed Error
-
-- `BetaManagedAgentsMemoryPreconditionFailedError object { type, message }`
-
-  - `type: "memory_precondition_failed_error"`
-
-    - `"memory_precondition_failed_error"`
-
-  - `message: optional string`
-
-### Beta Managed Agents Memory Prefix
-
-- `BetaManagedAgentsMemoryPrefix object { path, type }`
-
-  A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
-  - `path: string`

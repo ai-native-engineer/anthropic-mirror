@@ -63,6 +63,7 @@ The configuration that the app downloads for a user includes the following setti
 | The folders a user can choose as a workspace | [Allowed workspace folders](https://claude.com/docs/government/config/settings#allowed-workspace-folders) |
 | The banner shown across the top of the app | [Claude Desktop banner](https://claude.com/docs/government/config/settings#claude-desktop-banner) |
 | Where the app sends your agency’s own telemetry, if you have set a collector | [Telemetry endpoint (Claude Desktop)](https://claude.com/docs/government/config/settings#telemetry-endpoint-claude-desktop) |
+| Whether automatic updates are blocked, and the restart deadline for an update the app has downloaded | [Block automatic updates](https://claude.com/docs/government/config/settings#block-automatic-updates) and [Restart deadline for updates](https://claude.com/docs/government/config/settings#restart-deadline-for-updates) on the Config page |
 
 ##  Configure a single machine
 
@@ -116,9 +117,9 @@ The recommended profile contains two keys. In the macOS and Windows profiles bel
 | Key | Value | Purpose |
 | --- | --- | --- |
 | `bootstrapUrl` | `https://<claude-for-government-host>/gateway-api/user/bootstrap` | Required. Points the app at Claude for Government. |
-| `disableDeploymentModeChooser` | `"true"` | Recommended. Hides the claude.ai sign-in option so users can only sign in to Claude for Government. |
+| `disableDeploymentModeChooser` | `"true"` | Recommended. Hides the claude.ai sign-in option so users can only sign in to Claude for Government. Like any recognized key other than the automatic update settings, it also marks the device as managed (see [Order of deployment](#order-of-deployment)). |
 
-No other keys are needed; Claude for Government supplies everything else per user after sign-in. The profile contains no secrets, only a host. Keys documented for other Claude plans, such as `forceLoginOrgUUID` or `loginSsoOrgDomain`, apply only to claude.ai workspaces and are not used here.
+No other keys are needed to connect the app; Claude for Government supplies everything else per user after sign-in. If your agency distributes Claude Desktop updates itself, [Automatic updates](#automatic-updates) below describes one more key to add. The profile contains no secrets, only a host. Keys documented for other Claude plans, such as `forceLoginOrgUUID` or `loginSsoOrgDomain`, apply only to claude.ai workspaces and are not used here.
 
 ###  macOS
 
@@ -133,7 +134,6 @@ Claude Desktop reads managed preferences in the `com.anthropic.claudefordesktop`
 ```
 
 Most device management consoles, including Jamf and Intune, build the profile around these keys for you. For a complete `.mobileconfig` ready to upload, use the Export menu described in the single-machine path.
-For a device-management rollout on macOS, also set `disableAutoUpdates` to the string `"true"` in the profile and push updates through your management system, so the in-app updater never prompts users for administrator rights.
 
 ###  Windows
 
@@ -169,9 +169,18 @@ The file must be a regular file (not a symlink), and the file and its directory 
 
 Deploy the configuration before the app wherever you can. A user whose device already has the profile opens Claude Desktop for the first time and lands directly on the Claude for Government sign-in screen, with no opportunity to sign in to claude.ai by mistake.
 
-Once `bootstrapUrl` or any other connection key is present in the profile, the device is managed. The in-app configuration window becomes read-only, and locally authored settings, including a single-machine test configuration, are ignored in favor of the profile. Removing the profile returns the device to local control.
+Once `bootstrapUrl`, `disableDeploymentModeChooser`, or any other recognized key except the automatic update settings is present in the profile, the device is managed. The in-app configuration window becomes read-only, and locally authored settings, including a single-machine test configuration, are ignored in favor of the profile. A managed device uses only the connection in the profile: users cannot add, import, or switch to other configurations in that window. If a group of users needs a different connection, scope a different profile to their devices or users in your management system, or leave those devices without a profile and set them up as described under [Configure a single machine](#configure-a-single-machine). Removing the profile returns the device to local control.
 
 The app reads managed configuration at launch. After you change the profile on a device where the app is already running, have the user fully quit and reopen it.
+
+###  Automatic updates
+
+On macOS and Windows, Claude Desktop downloads and installs its own updates by default. If your agency distributes Claude Desktop updates itself, turn automatic updates off in both of the following places so that devices never update themselves.
+
+* **On the Config page.** Have a tenant administrator or organization owner turn on [Block automatic updates](https://claude.com/docs/government/config/settings#block-automatic-updates) and [lock](https://claude.com/docs/government/config/overview#locks) it, so that no level below theirs can turn updates back on. Claude Desktop applies this setting once a user has signed in and the app has loaded their configuration from Claude for Government. With that configuration loaded, the app follows this setting alone, whether it is on or off, and ignores the profile value.
+* **In the profile.** Add `disableAutoUpdates` with the value `"true"` to the [macOS](#macos) and [Windows](#windows) profiles above. The app applies the profile value only when it starts without a signed-in user, for example on a newly deployed device or when a user opens the app and has to sign in again because their session expired. Without the Config page setting, the profile value does not stop signed-in devices from updating.
+
+Claude Desktop reads its update settings when it starts. If the app is already running on a device when you change the Config page setting or the profile, the change applies the next time the app starts. If you leave automatic updates on, [Restart deadline for updates](https://claude.com/docs/government/config/settings#restart-deadline-for-updates) on the Config page sets how long a user can put off the restart that installs a downloaded update.
 
 ##  Confirm it worked
 
@@ -222,5 +231,4 @@ For anything else, the app writes its log to `~/Library/Logs/Claude-3p/main.log`
 
 * Configuration changes made in this portal do not need to be pushed to devices. The app re-checks Claude for Government for changes about every 30 minutes and at each launch, and prompts users to relaunch when something changed.
 * New and retired models appear in the model picker without any profile change or app update; model access is controlled through [seat tiers](https://claude.com/docs/government/org-admin/seat-tiers).
-* Claude Desktop keeps itself updated by default. If your agency distributes software through its own pipeline, add `disableAutoUpdates` with the value `"true"` to the same profile and redistribute installers yourself.
 * The sign-in flow and what a user sees on the [Sessions](https://claude.com/docs/government/account/sessions) page after pairing a device are covered on that page.

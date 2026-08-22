@@ -11,7 +11,7 @@
 Requires Claude Desktop **1.10628.0** or later. Earlier builds ignore the `bootstrapUrl` keys.
 
 A **bootstrap server** is an HTTPS endpoint you host that authenticates each user against your identity provider and returns that user’s configuration as JSON. Use it when your organization doesn’t have MDM, or when configuration varies too widely for per-group profiles: per-user gateway credentials, per-team model allowlists, or per-user OpenTelemetry attribution. When one configuration or a few group-scoped profiles cover your fleet, [deploying with MDM](https://claude.com/docs/third-party/claude-desktop/mdm) is simpler; most MDMs support role-based distribution.
-When a bootstrap response is available, it **is** the effective configuration. The MDM profile supplies the trust anchor (`bootstrapUrl`, optional `bootstrapOidc`, and the `bootstrapEnabled` opt-out), and Claude Desktop does not consult MDM for any key the bootstrap server is permitted to set. A bootstrap-settable key that your response **omits** is treated as unset, not inherited from MDM, so return every key you want applied.
+When a bootstrap response is available, it **is** the effective configuration. The MDM profile supplies the trust anchor (`bootstrapUrl`, optional `bootstrapOidc` or `bootstrapHeaders`/`bootstrapHeadersHelper`, and the `bootstrapEnabled` opt-out), and Claude Desktop does not consult MDM for any key the bootstrap server is permitted to set. A bootstrap-settable key that your response **omits** is treated as unset, not inherited from MDM, so return every key you want applied.
 
 Your bootstrap server is fully trusted. Its response can set inference credentials, the egress allowlist, MCP servers, and every other key in the [published schema](#response-schema). Treat compromise of this endpoint as credential compromise: restrict who can deploy it, log every response, and harden it as you would any secrets-issuing service.
 
@@ -26,7 +26,7 @@ If you set `deploymentOrganizationUuid`, include it in the MDM profile or import
 ##  How it works
 
 1. Your managed configuration (MDM or imported) sets `bootstrapUrl` (and `bootstrapOidc` if you use a separate identity provider).
-2. At launch, the app authenticates the user via one of [two modes](#authentication) and sends `GET <bootstrapUrl>` with `Authorization: Bearer <token>`.
+2. At launch, the app authenticates via one of the [modes below](#authentication) and sends `GET <bootstrapUrl>` with the resulting `Authorization: Bearer <token>` or the request headers you configured.
 3. Your server validates the token, **authorizes** the caller against your directory or entitlement source, and returns a JSON object whose keys are the same managed-configuration key names documented in the [configuration reference](https://claude.com/docs/third-party/claude-desktop/configuration).
 4. The app validates each key against the [response schema](#response-schema), drops anything it doesn’t recognize or that fails validation, and applies the result as the effective configuration.
 5. The response is cached in memory (until your `expiresAt`, or 1 hour by default). The app also re-polls in the background every 30 minutes with a conditional request, so an unchanged configuration costs your server a `304` (see [Caching and `expiresAt`](#caching-and-expiresat)).
@@ -113,12 +113,13 @@ Set `Cache-Control: no-store` on the response. Without it, a reverse proxy or CD
 
 ##  Authentication
 
-The bootstrap request always carries a bearer token; there is no unauthenticated mode. There are two ways to obtain that token, chosen by whether you set `bootstrapOidc` in MDM:
+The bootstrap request is always authenticated: either each user signs in and the app sends their bearer token, or the device sends request headers you configure. The mode is chosen by which keys you set alongside `bootstrapUrl`:
 
 | Mode | When to use it | MDM keys |
 | --- | --- | --- |
 | **Separate identity provider (PKCE)** | Users sign in through your existing OIDC provider (Microsoft Entra ID, Okta, Ping, or any compliant provider). The app runs an OAuth authorization-code grant with PKCE in the system browser. | `bootstrapUrl` and `bootstrapOidc` |
 | **Bootstrap server as authorization server (device code)** | Your bootstrap server (or the gateway it fronts) implements RFC 8414 discovery and the RFC 8628 device-code grant. One sign-in covers both the configuration fetch and inference when they share an origin. | `bootstrapUrl` only |
+| **Request headers (no per-user sign-in)** | The endpoint authenticates the device or a service account rather than the user: a static `Authorization: Basic …` or API-key header, or a short-lived token a script on the device fetches from your secrets manager. No browser step; the response cannot vary by signed-in user unless your headers identify one. | `bootstrapUrl` and `bootstrapHeaders` and/or `bootstrapHeadersHelper` (1.32885.1 or later) |
 
 ###  Separate identity provider (PKCE)
 
@@ -231,13 +232,17 @@ Implement the device-code grant
 { "access_token": "eyJhbGciOiJSUzI1NiIs...", "expires_in": 3600 }
 ```
 
-The polling interval is clamped between 1 and 30 seconds; the grant times out after 5 minutes; token TTL is clamped between 5 minutes and 24 hours.
+The polling interval is clamped between 1 and 30 seconds; the grant times out after 5 minutes; the token lifetime you return is clamped between 5 minutes and 30 days (24 hours before 1.17377.1).When `inferenceGatewayBaseUrl` shares the `bootstrapUrl` origin, so the same sign-in also serves inference, you may also return a `refresh_token` (optionally with `refresh_token_expires_in` in seconds): as the access token nears expiry during use, Claude Desktop 1.34493.0 and later renews it with an RFC 6749 `grant_type=refresh_token` POST to your `token_endpoint` rather than interrupting the user. The configuration fetch at launch still asks the user to sign in if the access token itself has already expired. Answer `400` with `{"error":"invalid_grant"}` to revoke the refresh token and require a fresh sign-in.
 
 3
 
 Serve the configuration endpoint
 
 On `GET <bootstrapUrl>` with a valid bearer, look up the user from the token claims and return their configuration (see [the HTTP contract](#the-http-contract)).
+
+###  Request headers (no per-user sign-in)
+
+Requires Claude Desktop 1.32885.1 or later. Set `bootstrapHeaders` to a JSON object of headers to send on every bootstrap fetch, or `bootstrapHeadersHelper` to the absolute path of an executable that prints such an object on stdout (run with no arguments; its output is cached for a few minutes and merged over the static headers, the helper winning on a conflict). When either key is set and `bootstrapOidc` is not, the app treats the headers as sufficient authentication and fetches the configuration without prompting the user to sign in. If your server answers `401` or `403`, the app discards the cached helper output so the next fetch (the next background check, or a relaunch) re-runs the helper. At launch the app also shows a sign-in prompt; that sign-in succeeds only if your server implements the [device-code grant](#bootstrap-server-as-authorization-server-device-code), so a headers-only server should return `401`/`403` only for a genuinely unusable credential. A `401`/`403` on a background check keeps the running configuration and retries at the next check without prompting. A signed-in user’s bearer token replaces any `Authorization` header you configured. Both keys are read from device management or the local configuration file only, never from the bootstrap response, and header values are masked in the diagnostic report. [Origin pinning](#origin-pinning) applies in this mode exactly as in device-code mode. Use this instead of embedding `user:password@` in `bootstrapUrl`, which the app refuses.
 
 ##  The HTTP contract
 
@@ -250,6 +255,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIs...
 If-None-Match: "abc123"
 ```
 
+In request-headers mode the `Authorization` line is whatever your configured headers supply.
 The path is whatever you set in `bootstrapUrl`; there is no required path. Redirects are **not** followed: a `3xx` is treated as an error so a same-origin open redirect cannot exfiltrate the bearer. The request times out after 30 seconds.
 
 ###  Response
@@ -273,7 +279,7 @@ Return `200 OK` with `Content-Type: application/json` and a JSON object whose ke
 | --- | --- |
 | `200` | Parse and apply. |
 | `304` | Re-serve the cached response (the app sends `If-None-Match` when it has one). |
-| `401`, `403` | Discard the cached token and prompt the user to sign in again. A `401` on a background refresh keeps the running session and retries without prompting. Return `401` when the token is missing, expired, or the wrong audience; return `403` when the token is valid but the caller is not entitled. |
+| `401`, `403` | Discard the cached token and prompt the user to sign in again. A `401` on a background refresh keeps the running configuration. When the same sign-in also serves inference, the app treats it as an ended session and asks the user to sign in again (1.34493.0 and later); otherwise it retries at the next check without prompting. Return `401` when the token is missing, expired, or the wrong audience; return `403` when the token is valid but the caller is not entitled. |
 | Other non-2xx, or `3xx` | Fetch error. Falls back to the last good response from this session if one exists; otherwise the app stays in the degraded sign-in state. |
 
 A `200` that is not a JSON object (an empty body, an HTML page from a captive portal or load balancer, or a JSON array) is a parse error. Make sure intermediate proxies do not rewrite the response.
@@ -288,11 +294,11 @@ The full set of bootstrap-settable keys is published as a machine-readable JSON 
 Reference the schema with `"$schema"` in your response template, or with `# yaml-language-server: $schema=…` in YAML, for autocomplete and validation.
 The response can supply any key in that schema, including inference credentials, model allowlists, MCP servers, the egress allowlist, telemetry endpoints, and the organization banner.
 
-Organization plugins and skills can be delivered over the network by returning `organizationPluginsUrl` in the bootstrap response when using [device-code mode](#bootstrap-server-as-authorization-server-device-code), or through the filesystem `org-plugins/` directory described in [Connectors and extensions](https://claude.com/docs/third-party/claude-desktop/extensions). Network delivery is not available in PKCE mode.
+Organization plugins and skills can be delivered over the network by returning `allowedPluginMarketplaces` in the bootstrap response (see [Plugin marketplaces](https://claude.com/docs/third-party/claude-desktop/extensions#plugin-marketplaces-admin)), or through the filesystem `org-plugins/` directory described in [Connectors and extensions](https://claude.com/docs/third-party/claude-desktop/extensions).
 
 A small set of keys are **structurally excluded** and ignored if returned:
 
-* `bootstrapUrl`, `bootstrapOidc`, `bootstrapEnabled`, and `trustBootstrapDelivery`: the trust anchor cannot redirect itself or grant trust in itself. These are the keys whose Availability column reads **MDM only** in the [configuration reference](https://claude.com/docs/third-party/claude-desktop/configuration).
+* `bootstrapUrl`, `bootstrapOidc`, `bootstrapHeaders`, `bootstrapHeadersHelper`, `bootstrapEnabled`, and `trustBootstrapDelivery`: the trust anchor cannot redirect itself, authenticate itself, or grant trust in itself. These are the keys whose Availability column reads **MDM only** in the [configuration reference](https://claude.com/docs/third-party/claude-desktop/configuration).
 * Loopback hosts (`127.0.0.1`, `localhost`, `[::1]`) in any URL-valued key, regardless of scheme.
 
 `managedMcpServers` entries are not restricted by transport in version 1.19367.0 and later: remote (`http`/`sse`) servers, local `stdio` commands, and the built-in `microsoft365` and `websearch` connectors can all be delivered in the bootstrap response. Earlier versions accept only remote entries and drop the rest. Because a `stdio` entry names a command that runs on the device, a bootstrap response can start local processes — part of why the warning at the top of this page says to treat this endpoint as fully trusted. Entries whose server URL or OAuth authorization-server URL is loopback or non-HTTPS are still dropped, and the desktop log (see [Troubleshooting](#troubleshooting)) records which keys were dropped and why.
@@ -326,7 +332,7 @@ Omitted → cache for 1 hour. A number ≥ 10¹² is read as Unix epoch **millis
 
 ###  Origin pinning
 
-When the bootstrap server is its own authorization server (no `bootstrapOidc`), the response is fenced: `inferenceGatewayBaseUrl`, `inferenceVertexBaseUrl`, `inferenceBedrockBaseUrl`, and `organizationPluginsUrl` must share the `bootstrapUrl` origin or the field is dropped. A compromised configuration response cannot redirect inference to an attacker-controlled host because the only host it can name is the one the user already authenticated to.
+When no `bootstrapOidc` is set (device-code or request-headers mode), the response is fenced: `inferenceGatewayBaseUrl`, `inferenceVertexBaseUrl`, and `inferenceBedrockBaseUrl` must share the `bootstrapUrl` origin or the field is dropped. A compromised configuration response cannot redirect inference to an attacker-controlled host because the only host it can name is your bootstrap server’s own origin.
 When you supply `bootstrapOidc`, your configuration server and gateway are independent hosts you control, so origin pinning is disabled and the response can name any HTTPS host. In this mode the bootstrap server’s integrity is the only control on where inference and MCP traffic are sent.
 
 ##  MDM configuration keys

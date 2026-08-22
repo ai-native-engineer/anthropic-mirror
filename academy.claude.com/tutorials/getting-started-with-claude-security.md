@@ -4,7 +4,7 @@
 
 Claude Security is a capability built into Claude.ai, which scans your codebases for security vulnerabilities and suggests targeted software patches for you to review, allowing you and your team to find and fix security issues that traditional methods often miss (See our [announcement(opens in new tab)](https://claude.com/product/claude-security) for more). It is a beta feature available to Claude Enterprise accounts.
 
-Most engineering teams don’t have the reviewer-hours and skills to identify sophisticated vulnerabilities across every change, and many issues are easy to miss without a security-focused mindset. Claude Security helps close that gap: it scans your codebase, surfaces the issues that actually matter, and proposes patches that you or your team can review and apply.
+Most engineering teams don’t have the reviewer-hours and skills to identify sophisticated vulnerabilities across every change, and many issues are easy to miss without a security-focused mindset. Claude Security helps close that gap: it scans your codebase, surfaces the issues that actually matter, and proposes patches that you or your team can review and apply. Enterprise users with a premium seat can run scans on Claude Mythos 5.
 
 This guide covers everything you need to set up Claude Security, run your first scan, review findings, and operationalize the tool for ongoing use.
 
@@ -59,13 +59,12 @@ Findings are categorized by severity to help you prioritize your remediation eff
 To make ongoing use easier, you can:
 
 * **Run multiple scans at the same time and have multiple working Projects.** Use separate Projects to scope work meaningfully — one per repository, per service, or per team — so that findings stay attributable and reviewers aren’t wading through results that belong to someone else. Parallel scans are useful when you want to triage several repos at once or compare a hardened branch against main without waiting for one to finish before starting the next.
-* **Users can configure scan effort.** On the first scan, or after material changes, they can choose between "Regular" and "Extended" — use Extended for a deeper review.
+* **Choose the scan effort.** On the first scan, or after material changes, choose between "Standard" and "Extended". Use Extended for a deeper review. Scans run on Claude Mythos 5.
 * **Schedule scans on a decided cadence.** A weekly cadence works well for many teams — frequent enough to catch issues introduced by recent changes, infrequent enough that reviewers actually work through the backlog between runs. Tie the cadence to something you already do: a Monday triage meeting, a sprint boundary, or a pre-release checkpoint. Scheduled scans matter most when paired with a named owner; otherwise findings accumulate and the backlog becomes the thing people avoid rather than the thing they act on.
 * **Export CSVs and findings to desired tracking and audit systems, or share it with your team members.** Export findings into that system so triage, assignment, and status live alongside everything else the team is using. For audit and compliance purposes, keep the CSV exports themselves: they’re the paper trail that shows what was scanned, when, and how the team responded.
-* **You can also configure webhook endpoints per Project** to push scan-completion and new-finding events into your own systems in real time, and connect tools like Slack and Jira to notify your team automatically when a scan completes or a new finding lands — so triage can start without anyone having to check the dashboard. Users can also set email notifications through the “Notifications” section under “General” in personal settings.
+* **Configure webhooks to push scan-completion and new-finding events into your own systems in real time.** You can wire these webhooks into tools like Slack or Jira to notify your team automatically when a scan completes or a new finding lands, so triage can start without anyone having to check the dashboard. You can also set email notifications through the “Notifications” section under “General” in personal settings.
 * **When triaging findings, set dismissal reasons to create an audit trail and clarity for future reviewers.**
 * **Scope large repositories.** For large repositories or monorepos, we recommend scoping scans to individual modules or subdirectories rather than running against the full repo. Narrower scope increases determinism and focuses the agent's attention, while still allowing it to trace logic and pull context from across the broader codebase as needed.
-* **RBAC and access management can be controlled by the admins.** Admins can set custom roles through Claude Enterprise RBAC to enforce who can run a scan.
 
 
 

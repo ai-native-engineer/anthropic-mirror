@@ -18,7 +18,7 @@ DSIT and Anthropic plan to deepen their partnership by exploring additional oppo
 * Securing the supply chain for advanced AI and the UK’s future infrastructure;
 * Boosting the innovation economy with Anthropic’s AI systems and tools, supporting the UK’s world-leading startup community as well as universities and other organisations.
 
-The collaboration will also draw on Anthropic's recently released [Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)—which uses anonymized conversations on [Claude.ai](https://claude.ai/redirect/website.v1.b1c3d609-f439-4c90-a274-af7be0287d86) to understand AI's effects on labor markets and the economy over time—to provide insights to help the UK adapt its workforce and innovation strategies for an AI-enabled future.
+The collaboration will also draw on Anthropic's recently released [Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)—which uses anonymized conversations on [Claude.ai](https://claude.ai/redirect/website.v1.00c90bca-4a96-4d5a-a0d3-eaaf280a5978) to understand AI's effects on labor markets and the economy over time—to provide insights to help the UK adapt its workforce and innovation strategies for an AI-enabled future.
 
 Anthropic will continue to work closely with the UK AI Security Institute to research and evaluate AI capabilities and potential security risks. Together, we're committed to developing robust safeguards that will help unlock the significant opportunities AI presents while ensuring its responsible and secure deployment.
 

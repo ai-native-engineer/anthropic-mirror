@@ -46,17 +46,17 @@ The window is organized into sections in the left sidebar. Work through them in 
 
 | Section | What you set |
 | --- | --- |
-| **Connection** | Inference provider (Gateway, Anthropic API, Google Cloud’s Agent Platform, Bedrock, or Foundry) and its credentials Model list Organization UUID Optional credential-helper script |
+| **Connection** | Inference provider (Gateway, Claude API, Google Cloud’s Agent Platform, Bedrock, Bedrock Mantle, or Foundry) and its credentials Model list Organization UUID Optional credential-helper script |
 | **Workspace** | Which of Cowork, Code, and Chat are available Allowed egress hosts for the sandbox Disabled built-in tools Allowed workspace folders |
-| **Connectors** | Managed MCP servers pushed to all users Whether users can add their own local MCP servers Whether desktop extensions (`.mcpb`) are allowed Whether the extension directory is shown Whether unsigned extensions are rejected |
+| **Connectors** | Managed MCP servers pushed to all users Whether users can add their own local MCP servers Whether desktop extensions (`.mcpb`) are allowed Whether unsigned extensions are rejected |
 | **Telemetry & updates** | OpenTelemetry collector endpoint Whether auto-updates are blocked, and the enforcement window if not The three Anthropic-bound telemetry toggles (essential, nonessential, nonessential services) |
 | **Limits** | Per-device token cap and its window length |
-| **Appearance** | Persistent banner shown across the app window |
-| **Plugins** | [Plugin marketplaces](https://claude.com/docs/third-party/claude-desktop/extensions#plugin-marketplaces-admin), added by GitHub repo or git URL Shows the org-plugins folder path for your platform; plugin bundles are mounted to that folder via your MDM, not through this window |
+| **Appearance** | Persistent banner shown across the app window Deployment display name and subtitle Whether the signed-in user’s identity is shown and exported (end-user attribution) Whether feature announcements are shown |
+| **Plugins** | [Plugin marketplaces](https://claude.com/docs/third-party/claude-desktop/extensions#plugin-marketplaces-admin), added by GitHub repo, git URL, or hosted `marketplace.json` URL Shows the org-plugins folder path for your platform; plugin bundles are mounted to that folder via your MDM, not through this window |
 | **Egress** | A read-only firewall allowlist derived from everything you’ve entered above, grouped by feature **Copy hostnames**, **Download .txt**, and **Test connectivity** actions |
 | **Source** | The bootstrap keys, if you are using the [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap) delivery model instead of a full MDM profile Bootstrap-delivered configuration takes priority over MDM-delivered values: it replaces them wholesale rather than merging key by key |
 
-When a managed (MDM-delivered) configuration is already present on the device, the configuration window opens read-only: it shows what the admin deployed, marks the configuration as organization-managed, and directs users to their IT administrator. To author a new configuration, use a device without a managed profile, or temporarily remove the profile. Profiles that set [only the two update keys](#update-keys-and-managed-precedence) leave the window editable.
+When a managed (MDM-delivered) configuration is already present on the device, the configuration window opens read-only: it shows what the admin deployed, marks the configuration as organization-managed, and directs users to their IT administrator. To author a new configuration, use a device without a managed profile, or temporarily remove the profile. Profiles that set [only the update keys](#update-keys-and-managed-precedence) leave the window editable.
 
 ##  2. Export the profile
 
@@ -124,11 +124,11 @@ Values must sit directly under `HKLM\SOFTWARE\Policies\Claude` or `HKCU\SOFTWARE
 
 In releases before v1.19367.0, the app read both hives and merged them key by key, with the `HKLM` value winning where a key appeared in both. Fleets that split keys across both hives must consolidate the full configuration into one hive before updating to v1.19367.0 or later.
 
-When a managed source sets any key other than the two update keys, the managed configuration owns the device: it takes effect, the in-app configuration window becomes read-only, and locally authored values in `configLibrary/` are ignored.
+When a managed source sets any key other than the update keys, the managed configuration owns the device: it takes effect, the in-app configuration window becomes read-only, and locally authored values in `configLibrary/` are ignored.
 
 ###  Update keys and managed precedence
 
-The update keys `disableAutoUpdates` and `autoUpdaterEnforcementHours` are treated specially, so you can set an update policy from MDM without managing the whole configuration. When a managed source sets only these keys (one or both), the device keeps its locally authored configuration and the configuration window stays editable. The update keys themselves are still enforced as a pair: both are resolved from the managed source alone, so a locally set value for either key is ignored even if the profile only sets the other one.
+The update keys `disableAutoUpdates`, `autoUpdaterEnforcementHours`, and `updateViaUpdatesHost` are treated specially, so you can set an update policy from MDM without managing the whole configuration. When a managed source sets only these keys (any of them), the device keeps its locally authored configuration and the configuration window stays editable. The update keys themselves are still enforced as a group: all of them are resolved from the managed source alone, so a locally set value for any of them is ignored even if the profile sets only one.
 If the managed profile sets any other recognized key, the normal rule above applies and the whole configuration is managed.
 
 ##  5. Distribute the app

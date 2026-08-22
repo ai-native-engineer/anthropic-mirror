@@ -39,7 +39,7 @@ with Claude"
           API reference
         </HomeCardLink>
 
-        <HomeCardLink icon="code-brackets" href="https://platform.claude.com/docs/en/api/client-sdks">
+        <HomeCardLink icon="code-brackets" href="https://platform.claude.com/docs/en/cli-sdks-libraries/overview">
           Client SDKs
         </HomeCardLink>
       </HomePlatformCard>
@@ -92,7 +92,7 @@ with Claude"
             Choose a model
           </HomeJourneyLink>
 
-          <HomeJourneyLink icon="code-brackets" href="https://platform.claude.com/docs/en/api/client-sdks">
+          <HomeJourneyLink icon="code-brackets" href="https://platform.claude.com/docs/en/cli-sdks-libraries/overview">
             Install an SDK
           </HomeJourneyLink>
 

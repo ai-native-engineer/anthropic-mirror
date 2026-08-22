@@ -3095,7 +3095,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `version: string`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `content: Array<ContentBlock>`
 
@@ -10714,7 +10714,7 @@ console.log(messageTokensCount.input_tokens);
 
     - `version: string`
 
-      Skill version or 'latest' for most recent version
+      The resolved version: a skill version ID for custom skills.
 
 ### Container Params
 
@@ -10766,7 +10766,7 @@ console.log(messageTokensCount.input_tokens);
 
   - `version: string`
 
-    Skill version or 'latest' for most recent version
+    The resolved version: a skill version ID for custom skills.
 
 ### Container Upload Block
 
@@ -13478,7 +13478,7 @@ console.log(messageTokensCount.input_tokens);
 
       - `version: string`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `content: Array<ContentBlock>`
 
@@ -18260,7 +18260,7 @@ console.log(messageTokensCount.input_tokens);
 
         - `version: string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `stop_details: RefusalStopDetails | null`
 
@@ -18424,7 +18424,7 @@ console.log(messageTokensCount.input_tokens);
 
         - `version: string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: Array<ContentBlock>`
 
@@ -19407,7 +19407,7 @@ console.log(messageTokensCount.input_tokens);
 
           - `version: string`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `content: Array<ContentBlock>`
 
@@ -30689,7 +30689,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `version: string`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `content: Array<ContentBlock>`
 
@@ -32008,7 +32008,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `version: string`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `content: Array<ContentBlock>`
 
@@ -33119,7 +33119,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `version: string`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `content: Array<ContentBlock>`
 
@@ -34192,7 +34192,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `version: string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: Array<ContentBlock>`
 

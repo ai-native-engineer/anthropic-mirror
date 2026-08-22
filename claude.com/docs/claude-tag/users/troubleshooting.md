@@ -50,8 +50,7 @@ A reaction or an “is thinking…” line without a reply usually means Claude 
 **How to resolve**
 
 1. @-mention Claude in the same thread to ask for a status check.
-2. If it has replied before in the thread, open the session from the link in its last message to watch live progress. Long tasks often show steady movement there while the Slack thread looks idle.
-3. If the silence has stretched well past what the task should need, send [`@Claude !restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session) in the thread; it archives the session and starts a fresh one that still reads the thread. Starting a new thread and restating the request also works.
+2. If the silence has stretched well past what the task should need, send [`@Claude !restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session) in the thread; it archives the session and starts a fresh one that still reads the thread. Starting a new thread and restating the request also works.
 
 Restarting abandons whatever the session was midway through, and there’s no way to resume it. A silent session may still be working through a long task, so treat `!restart` as a last resort.
 

@@ -296,31 +296,19 @@ Developer docs
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
 
-Aug 20, 2026
+Aug 13, 2026
 
-### The Claude Code guide for startups
+### Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
-Claude Code
+Agents
 
-[The Claude Code guide for startups](#)The Claude Code guide for startups
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
-[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
-
-Aug 18, 2026
-
-### Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
-
-Enterprise AI
-
-[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](#)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
-
-[Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures](https://claude.com/blog/ai-ci-cd-on-call)Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
 Jul 24, 2026
 
@@ -332,17 +320,29 @@ Claude Code
 
 [The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
-Jul 24, 2026
+Aug 21, 2026
 
-### Claude models explained: choosing the best model for your use case
+### The AI-Native SDLC playbook
 
 Enterprise AI
 
-[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
 
-[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Aug 20, 2026
+
+### The Claude Code guide for startups
+
+Claude Code
+
+[The Claude Code guide for startups](#)The Claude Code guide for startups
+
+[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
 
 ## Transform how your organization operates with Claude
 

@@ -87,7 +87,7 @@ Admins can enable or disable member-to-member invites from the admin settings. W
 
 ## Remove members
 
-You can remove a member by navigating to **[Organization settings > Members](https://claude.ai/admin-settings/members)**, clicking the menu button to the right of the member, then selecting "Remove from team."
+You can remove a member by navigating to **[Organization settings > Members](https://claude.ai/admin-settings/members)**, clicking the menu button to the right of the member, then selecting "Remove from team." However, if you are an Owner or Primary Owner, you can't remove yourself from your organization. Another Primary Owner or Owner must remove you from the team.
 
 For Enterprise organizations using SCIM provisioning, members are automatically removed from Claude when they are removed from your Identity Provider.
 
@@ -99,7 +99,7 @@ When a member is removed:
 
 Removing a member frees up their seat for reassignment, but does not automatically reduce your plan's total seat count. See our guides for **[Team plans](https://support.claude.com/en/articles/12004354-purchasing-and-managing-seats)** and **[Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans)** for information on reducing seats.
 
-**Note:** You cannot remove yourself as a Primary Owner or Owner. Another Primary Owner or Owner must remove you from the team.
+**Note:** If you're on a Team plan, the option to remove members from **[Organization settings > Members](https://claude.ai/admin-settings/members)** will no longer be available after you cancel your plan. For more information, see **[Cancel your organization's Team plan subscription](https://support.claude.com/en/articles/9267323)**.
 
 ---
 
@@ -157,4 +157,4 @@ When Anthropic provides a new Enterprise organization and invites the Primary Ow
 * [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
 * [Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)
-* [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
+* [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)

@@ -232,6 +232,14 @@ Put Claude to work across your organization. Help everyone think deeper, do more
 
 ## Related stories
 
+[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
+
+How Notion ships and scales agents with Claude Managed Agents
+
+Customer story
+
+[Customer story](https://claude.com/customers/notion-qa)Customer story
+
 [Deepgram ships 4–10x more durable code with Claude](https://claude.com/customers/deepgram) Deepgram ships 4–10x more durable code with Claude
 
 Deepgram ships 4–10x more durable code with Claude
@@ -255,11 +263,3 @@ Office Hours: Asynchronous coding and the end of the IDE with Spotify
 Customer story
 
 [Customer story](https://claude.com/customers/spotify-boris-office-hours)Customer story
-
-[How Miro's champions run their week with Claude Cowork](https://claude.com/customers/miro-qa)How Miro's champions run their week with Claude Cowork
-
-How Miro's champions run their week with Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/miro-qa)Customer story

@@ -390,7 +390,7 @@ Claude Opus
 
 high-severity vulnerabilities found that survived decades of scrutiny and automated analysis
 
-## Cyber defense powered by Claude Opus, available through our partners
+## Cyber defense powered by Claude, available through our partners
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68f679a0b07cb25d6830bc76_accenture_logo.svg.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68f679a262980d8650836fd9_accenture_logo.svg-1.svg)
 
@@ -414,11 +414,11 @@ high-severity vulnerabilities found that survived decades of scrutiny and automa
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62992a26768fd09893ec9f_logo_wiz-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a629937ba76a79d9b30127d_logo_wiz-dark.svg)
 
-Claude Opus
+Frontier capabilities
 
 ### Leverage powerful models for defense
 
-Opus reads code carefully, understands real risks, and sustains the long workflows that continuous defense requires. Verified practitioners can request [adjusted safeguards](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude) for dual-use work.
+Claude reads code carefully, understands real risks, and sustains the long workflows that continuous defense requires. Verified practitioners can request [adjusted safeguards](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet) for dual-use work.
 
 Learn more
 

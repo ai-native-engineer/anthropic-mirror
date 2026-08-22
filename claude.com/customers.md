@@ -88,6 +88,26 @@ Grid
 
 List
 
+[View story](https://claude.com/customers/notion-qa)View story
+
+![Notion logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ba17a186e44af7d97dae57_Frame.svg)![Notion logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ba179c1c4432fa78b2f126_Frame-1.svg)
+
+How Notion ships and scales agents with Claude Managed Agents
+
+Notion Q&A
+
+Large
+
+North America
+
+August 21, 2026
+
+Claude Managed Agents
+
+Software
+
+Claude Managed Agents
+
 [View story](https://claude.com/customers/deepgram)View story
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a84c544207da56365de9165_logo_deepgram-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a84c5496d5290209c339478_logo_deepgram-dark-mode.png)
@@ -381,28 +401,6 @@ North America
 July 17, 2026
 
 Professional services
-
-Claude Platform
-
-[View story](https://claude.com/customers/epilepsy-foundation)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65c6fd705dd371878f31_Epilepsy-foundation_light.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65bf5bef5e4e2da75b45_epilepsy-foundation_dark.png)
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Epilepsy Foundation case study
-
-Medium
-
-AWS
-
-North America
-
-July 17, 2026
-
-Claude Platform
-
-Beneficial Deployments
 
 Claude Platform
 

@@ -18,6 +18,22 @@ List
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
+Aug 21, 2026
+
+The AI-Native SDLC playbook
+
+Enterprise AI
+
+The AI-Native SDLC playbook
+
+August 21, 2026
+
+[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+
+[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
 Aug 20, 2026
 
 The Claude Code guide for startups
@@ -63,6 +79,22 @@ August 14, 2026
 [Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
 
 [Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
+
+Aug 13, 2026
+
+Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+Agents
+
+Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+August 13, 2026
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
 
@@ -112,7 +144,7 @@ August 6, 2026
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
 Jul 24, 2026
 
@@ -224,38 +256,6 @@ July 16, 2026
 
 [How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
-
-Jul 7, 2026
-
-Bringing Claude Code and Claude Cowork to government
-
-Product announcements
-
-Bringing Claude Code and Claude Cowork to government
-
-July 7, 2026
-
-[Bringing Claude Code and Claude Cowork to government](https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government)Bringing Claude Code and Claude Cowork to government
-
-[Bringing Claude Code and Claude Cowork to government](#)Bringing Claude Code and Claude Cowork to government
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22651dd05046d0fdb0b_39c40393e610cc0a5e65f50ad12ff5ada273f792-1000x1000.svg)
-
-Jul 7, 2026
-
-Choosing a Claude model and effort level in Claude Code
-
-Claude Code
-
-Choosing a Claude model and effort level in Claude Code
-
-July 7, 2026
-
-[Choosing a Claude model and effort level in Claude Code](https://claude.com/blog/claude-model-and-effort-level-in-claude-code)Choosing a Claude model and effort level in Claude Code
-
-[Choosing a Claude model and effort level in Claude Code](#)Choosing a Claude model and effort level in Claude Code
-
 [View more](https://claude.com/blog-category/claude-code?1e959936_page=2)
 
 Category
@@ -263,6 +263,22 @@ Category
 Product
 
 Usecase
+
+### The AI-Native SDLC playbook
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 21, 2026
+
+[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+
+[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
 
 ### The Claude Code guide for startups
 
@@ -311,6 +327,22 @@ August 14, 2026
 [Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)Maximizing the value of your Claude Code sessions
 
 [Maximizing the value of your Claude Code sessions](#)Maximizing the value of your Claude Code sessions
+
+### Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+August 13, 2026
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+
+[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
 ### Auto mode is now the default in Claude Code for Pro, Max, and Team plans
 
@@ -471,38 +503,6 @@ July 16, 2026
 [How Anthropic runs large-scale code migrations with Claude Code](https://claude.com/blog/ai-code-migration)How Anthropic runs large-scale code migrations with Claude Code
 
 [How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
-
-### Bringing Claude Code and Claude Cowork to government
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-July 7, 2026
-
-[Bringing Claude Code and Claude Cowork to government](https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government)Bringing Claude Code and Claude Cowork to government
-
-[Bringing Claude Code and Claude Cowork to government](#)Bringing Claude Code and Claude Cowork to government
-
-### Choosing a Claude model and effort level in Claude Code
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 7, 2026
-
-[Choosing a Claude model and effort level in Claude Code](https://claude.com/blog/claude-model-and-effort-level-in-claude-code)Choosing a Claude model and effort level in Claude Code
-
-[Choosing a Claude model and effort level in Claude Code](#)Choosing a Claude model and effort level in Claude Code
 
 [View more](https://claude.com/blog-category/claude-code?2f226f2c_page=2)
 

@@ -14,7 +14,7 @@ When `inferenceProvider` is `anthropic`, inference traffic goes to Anthropic’s
 
 ##  Choose an authentication approach
 
-A static API key in the managed configuration is the simplest path. For environments where static API keys aren’t permitted, set [`inferenceCredentialHelper`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencecredentialhelper) to an executable that fetches a short-lived credential at runtime; see [Write a credential helper](https://claude.com/docs/third-party/claude-desktop/credential-helper).
+There are three options. With neither a static key nor a credential helper configured, each user sees **Sign in with Claude Console** on first launch: the app opens the browser, the user signs in and selects a Claude Console (API) organization, and the app creates a personal API key for them and stores it encrypted on the device until it is revoked in Console; usage is billed to that Console organization. Alternatively, place a static API key in the managed configuration as `inferenceAnthropicApiKey`, or, where static keys aren’t permitted, set [`inferenceCredentialHelper`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencecredentialhelper) to an executable that fetches a short-lived credential at runtime; see [Write a credential helper](https://claude.com/docs/third-party/claude-desktop/credential-helper). Browser sign-in reaches `platform.claude.com` in addition to `api.anthropic.com`.
 
 ##  Configure the app
 

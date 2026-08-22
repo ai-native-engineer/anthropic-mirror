@@ -9,7 +9,7 @@ Follow these steps:
 1. Navigate to **[Organization settings > Data and privacy](https://claude.ai/admin-settings/data-privacy-controls)**.
 2. Find **Public projects** and toggle it off
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1787298300&signature=757a34a1ac3efa26799075f4660cb96b61c4b1db474d0f84adf5b5aab937d23e&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2CmYghcYabJlVJ9VPxOK1EY1%2B9%2Ffvre4B%2BY%0ATKRYNEAJkxxkzzE6DxA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1787298300&signature=757a34a1ac3efa26799075f4660cb96b61c4b1db474d0f84adf5b5aab937d23e&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2CmYghcYabJlVJ9VPxOK1EY1%2B9%2Ffvre4B%2BY%0ATKRYNEAJkxxkzzE6DxA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1787358600&signature=03d4d4b22e61fd05d9a332843ad12c7a29ada67ab3e113a6f8801587a0122e83&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2CnbghZYabJlVJ9VPzUNPVxdOZVfsv0%2F4GF%0A3MVAcR35GpxHKfgcefQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1787358600&signature=03d4d4b22e61fd05d9a332843ad12c7a29ada67ab3e113a6f8801587a0122e83&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2CnbghZYabJlVJ9VPzUNPVxdOZVfsv0%2F4GF%0A3MVAcR35GpxHKfgcefQ%3D%0A)
 
 ## How does disabling public projects work?
 
@@ -42,5 +42,5 @@ If you choose to re-enable public projects after disabling them:
 * [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
 * [Manage project visibility and sharing](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)
 * [What happens to a user's data when they are removed from a Team or Enterprise organization?](https://support.claude.com/en/articles/12053672-what-happens-to-a-user-s-data-when-they-are-removed-from-a-team-or-enterprise-organization)
-* [Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)
+* [Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
 * [Manage plugins for your organization](https://support.claude.com/en/articles/13837433-manage-plugins-for-your-organization)

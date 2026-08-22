@@ -52,7 +52,7 @@ Configuration reaches devices in one of two ways. Both typically use your MDM to
 
 |  | MDM profile | Bootstrap server |
 | --- | --- | --- |
-| What you deploy to devices | The full configuration, exported as a `.mobileconfig` or `.reg` profile | A minimal profile containing only the bootstrap keys (`bootstrapUrl`, optionally `bootstrapOidc`) |
+| What you deploy to devices | The full configuration, exported as a `.mobileconfig` or `.reg` profile | A minimal profile containing only the bootstrap keys (`bootstrapUrl`, optionally `bootstrapOidc` or request headers) |
 | Where settings live | In the profile, identical for every device the profile targets | On an HTTPS endpoint you operate, which returns each user’s configuration at sign-in |
 | Per-user values | Separate profiles per device group | The server keys its response to the signed-in user |
 | Changing settings | Export and push an updated profile | Change your server’s response; devices pick it up at the next fetch, with no profile push |

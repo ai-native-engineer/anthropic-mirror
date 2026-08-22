@@ -319,49 +319,299 @@ Create Agent
 
         Per-tool configuration overrides.
 
-        - `Name name`
+        - `class BetaManagedAgentsBashToolConfigParams:`
 
-          Built-in agent tool identifier.
+          Configuration override for the bash tool.
 
-          - `BASH("bash")`
+          - `JsonValue; name "bash"constant`
 
-          - `EDIT("edit")`
+            Must be "bash".
 
-          - `READ("read")`
+            - `BASH("bash")`
 
-          - `WRITE("write")`
+          - `Optional<Boolean> enabled`
 
-          - `GLOB("glob")`
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-          - `GREP("grep")`
+          - `Optional<PermissionPolicy> permissionPolicy`
 
-          - `WEB_FETCH("web_fetch")`
+            Permission policy for tool execution.
 
-          - `WEB_SEARCH("web_search")`
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
-        - `Optional<Boolean> enabled`
+              Tool calls are automatically approved without user confirmation.
 
-          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+              - `Type type`
 
-        - `Optional<PermissionPolicy> permissionPolicy`
+                - `ALWAYS_ALLOW("always_allow")`
 
-          Permission policy for tool execution.
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy:`
+              Tool calls require user confirmation before execution.
 
-            Tool calls are automatically approved without user confirmation.
+              - `Type type`
 
-            - `Type type`
+                - `ALWAYS_ASK("always_ask")`
 
-              - `ALWAYS_ALLOW("always_allow")`
+          - `Optional<Type> type`
 
-          - `class BetaManagedAgentsAlwaysAskPolicy:`
+            - `BASH("bash")`
 
-            Tool calls require user confirmation before execution.
+        - `class BetaManagedAgentsEditToolConfigParams:`
 
-            - `Type type`
+          Configuration override for the edit tool.
 
-              - `ALWAYS_ASK("always_ask")`
+          - `JsonValue; name "edit"constant`
+
+            Must be "edit".
+
+            - `EDIT("edit")`
+
+          - `Optional<Boolean> enabled`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `Optional<PermissionPolicy> permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `Optional<Type> type`
+
+            - `EDIT("edit")`
+
+        - `class BetaManagedAgentsReadToolConfigParams:`
+
+          Configuration override for the read tool.
+
+          - `JsonValue; name "read"constant`
+
+            Must be "read".
+
+            - `READ("read")`
+
+          - `Optional<Boolean> enabled`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `Optional<PermissionPolicy> permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `Optional<Type> type`
+
+            - `READ("read")`
+
+        - `class BetaManagedAgentsWriteToolConfigParams:`
+
+          Configuration override for the write tool.
+
+          - `JsonValue; name "write"constant`
+
+            Must be "write".
+
+            - `WRITE("write")`
+
+          - `Optional<Boolean> enabled`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `Optional<PermissionPolicy> permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `Optional<Type> type`
+
+            - `WRITE("write")`
+
+        - `class BetaManagedAgentsGlobToolConfigParams:`
+
+          Configuration override for the glob tool.
+
+          - `JsonValue; name "glob"constant`
+
+            Must be "glob".
+
+            - `GLOB("glob")`
+
+          - `Optional<Boolean> enabled`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `Optional<PermissionPolicy> permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `Optional<Type> type`
+
+            - `GLOB("glob")`
+
+        - `class BetaManagedAgentsGrepToolConfigParams:`
+
+          Configuration override for the grep tool.
+
+          - `JsonValue; name "grep"constant`
+
+            Must be "grep".
+
+            - `GREP("grep")`
+
+          - `Optional<Boolean> enabled`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `Optional<PermissionPolicy> permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `Optional<Type> type`
+
+            - `GREP("grep")`
+
+        - `class BetaManagedAgentsWebFetchToolConfigParams:`
+
+          Configuration override for the web_fetch tool.
+
+          - `JsonValue; name "web_fetch"constant`
+
+            Must be "web_fetch".
+
+            - `WEB_FETCH("web_fetch")`
+
+          - `Optional<List<String>> allowedDomains`
+
+            Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+          - `Optional<List<String>> blockedDomains`
+
+            Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+          - `Optional<Boolean> enabled`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `Optional<Long> maxContentTokens`
+
+            Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+          - `Optional<PermissionPolicy> permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `Optional<Type> type`
+
+            - `WEB_FETCH("web_fetch")`
+
+        - `class BetaManagedAgentsWebSearchToolConfigParams:`
+
+          Configuration override for the web_search tool.
+
+          - `JsonValue; name "web_search"constant`
+
+            Must be "web_search".
+
+            - `WEB_SEARCH("web_search")`
+
+          - `Optional<List<String>> allowedDomains`
+
+            Only return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+          - `Optional<List<String>> blockedDomains`
+
+            Never return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+          - `Optional<Boolean> enabled`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `Optional<PermissionPolicy> permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `Optional<Type> type`
+
+            - `WEB_SEARCH("web_search")`
+
+          - `Optional<BetaManagedAgentsUserLocation> userLocation`
+
+            Approximate user location for search result localization.
+
+            - `JsonValue; type "approximate"constant`
+
+              Location precision. Only "approximate" is supported.
+
+              - `APPROXIMATE("approximate")`
+
+            - `Optional<String> city`
+
+              City name.
+
+            - `Optional<String> country`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `Optional<String> region`
+
+              Region or state name.
+
+            - `Optional<String> timezone`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
 
       - `Optional<BetaManagedAgentsAgentToolsetDefaultConfigParams> defaultConfig`
 
@@ -687,47 +937,257 @@ Create Agent
 
       - `List<BetaManagedAgentsAgentToolConfig> configs`
 
-        - `boolean enabled`
+        - `class BetaManagedAgentsBashToolConfig:`
 
-        - `Name name`
+          Configuration for the bash tool.
 
-          Built-in agent tool identifier.
+          - `boolean enabled`
 
-          - `BASH("bash")`
+          - `JsonValue; name "bash"constant`
 
-          - `EDIT("edit")`
+            - `BASH("bash")`
 
-          - `READ("read")`
+          - `PermissionPolicy permissionPolicy`
 
-          - `WRITE("write")`
+            Permission policy for tool execution.
 
-          - `GLOB("glob")`
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
-          - `GREP("grep")`
+              Tool calls are automatically approved without user confirmation.
 
-          - `WEB_FETCH("web_fetch")`
+              - `Type type`
 
-          - `WEB_SEARCH("web_search")`
+                - `ALWAYS_ALLOW("always_allow")`
 
-        - `PermissionPolicy permissionPolicy`
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
 
-          Permission policy for tool execution.
+              Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy:`
+              - `Type type`
 
-            Tool calls are automatically approved without user confirmation.
+                - `ALWAYS_ASK("always_ask")`
 
-            - `Type type`
+          - `JsonValue; type "bash"constant`
 
-              - `ALWAYS_ALLOW("always_allow")`
+            - `BASH("bash")`
 
-          - `class BetaManagedAgentsAlwaysAskPolicy:`
+        - `class BetaManagedAgentsEditToolConfig:`
 
-            Tool calls require user confirmation before execution.
+          Configuration for the edit tool.
 
-            - `Type type`
+          - `boolean enabled`
 
-              - `ALWAYS_ASK("always_ask")`
+          - `JsonValue; name "edit"constant`
+
+            - `EDIT("edit")`
+
+          - `PermissionPolicy permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `JsonValue; type "edit"constant`
+
+            - `EDIT("edit")`
+
+        - `class BetaManagedAgentsReadToolConfig:`
+
+          Configuration for the read tool.
+
+          - `boolean enabled`
+
+          - `JsonValue; name "read"constant`
+
+            - `READ("read")`
+
+          - `PermissionPolicy permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `JsonValue; type "read"constant`
+
+            - `READ("read")`
+
+        - `class BetaManagedAgentsWriteToolConfig:`
+
+          Configuration for the write tool.
+
+          - `boolean enabled`
+
+          - `JsonValue; name "write"constant`
+
+            - `WRITE("write")`
+
+          - `PermissionPolicy permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `JsonValue; type "write"constant`
+
+            - `WRITE("write")`
+
+        - `class BetaManagedAgentsGlobToolConfig:`
+
+          Configuration for the glob tool.
+
+          - `boolean enabled`
+
+          - `JsonValue; name "glob"constant`
+
+            - `GLOB("glob")`
+
+          - `PermissionPolicy permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `JsonValue; type "glob"constant`
+
+            - `GLOB("glob")`
+
+        - `class BetaManagedAgentsGrepToolConfig:`
+
+          Configuration for the grep tool.
+
+          - `boolean enabled`
+
+          - `JsonValue; name "grep"constant`
+
+            - `GREP("grep")`
+
+          - `PermissionPolicy permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `JsonValue; type "grep"constant`
+
+            - `GREP("grep")`
+
+        - `class BetaManagedAgentsWebFetchToolConfig:`
+
+          Configuration for the web_fetch tool.
+
+          - `boolean enabled`
+
+          - `JsonValue; name "web_fetch"constant`
+
+            - `WEB_FETCH("web_fetch")`
+
+          - `PermissionPolicy permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `JsonValue; type "web_fetch"constant`
+
+            - `WEB_FETCH("web_fetch")`
+
+          - `Optional<List<String>> allowedDomains`
+
+          - `Optional<List<String>> blockedDomains`
+
+          - `Optional<Long> maxContentTokens`
+
+        - `class BetaManagedAgentsWebSearchToolConfig:`
+
+          Configuration for the web_search tool.
+
+          - `boolean enabled`
+
+          - `JsonValue; name "web_search"constant`
+
+            - `WEB_SEARCH("web_search")`
+
+          - `PermissionPolicy permissionPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+              Tool calls require user confirmation before execution.
+
+          - `JsonValue; type "web_search"constant`
+
+            - `WEB_SEARCH("web_search")`
+
+          - `Optional<List<String>> allowedDomains`
+
+          - `Optional<List<String>> blockedDomains`
+
+          - `Optional<BetaManagedAgentsUserLocation> userLocation`
+
+            Approximate user location for search result localization.
+
+            - `JsonValue; type "approximate"constant`
+
+              Location precision. Only "approximate" is supported.
+
+              - `APPROXIMATE("approximate")`
+
+            - `Optional<String> city`
+
+              City name.
+
+            - `Optional<String> country`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `Optional<String> region`
+
+              Region or state name.
+
+            - `Optional<String> timezone`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
 
       - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
 
@@ -915,7 +1375,8 @@ public final class Main {
           "name": "bash",
           "permission_policy": {
             "type": "always_allow"
-          }
+          },
+          "type": "bash"
         }
       ],
       "default_config": {

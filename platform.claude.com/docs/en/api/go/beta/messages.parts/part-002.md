@@ -3,6 +3,10 @@
 
 <!-- chunk-start -->
 
+    - `const NoneNone None = "none"`
+
+### Beta Tool Choice Tool
+
 - `type BetaToolChoiceTool struct{…}`
 
   The model will use the specified tool with `tool_choice.name`.
@@ -10849,7 +10853,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Version string`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `Content []BetaContentBlockUnion`
 
@@ -12763,7 +12767,7 @@ func main() {
 
             - `Version string`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `Content []BetaContentBlockUnion`
 
@@ -14453,7 +14457,7 @@ func main() {
 
           - `Version string`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `Content []BetaContentBlockUnion`
 
@@ -16105,7 +16109,7 @@ func main() {
 
         - `Version string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `Content []BetaContentBlockUnion`
 

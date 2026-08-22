@@ -50,5 +50,3 @@ Frontier AI research labs should participate in public-private cooperation in th
 It can be tempting to deprioritize security: when everything is going well, it can feel like it isn’t necessary or that it is in tension with other company goals. But this technology is becoming more powerful and will require enhanced precautions. We also believe that while security can sometimes interfere with productivity, that there are creative ways to ensure that its effects are limited and that research and other work can proceed effectively.
 
 The development of artificial intelligence has incredible potential to benefit humanity, but it also comes with risks if not pursued thoughtfully. As an AI company working on the frontier of this technology, we take our responsibility seriously to build and deploy Claude in a way that is safe, secure and aligned with human values. We will continue sharing our perspectives on the responsible development of AI.
-
-Frontier Model Security \ Anthropic

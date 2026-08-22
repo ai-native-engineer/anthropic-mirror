@@ -312,6 +312,22 @@ Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
 
+Claude in Microsoft Foundry: Tool Integrations in Practice
+
+Sep 3, 2026
+
+2026-09-03
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/claude-in-microsoft-foundry-tool-integrations-in-practice)
+
+Rebroadcast: Claude on Google Cloud: Monitoring and Securing Agents at Scale
+
+Sep 1, 2026
+
+2026-09-01
+
+[Learn more about this webinar](#)
+
 How to control costs and show ROI for Claude Code on Google Cloud
 
 Sep 1, 2026
@@ -359,22 +375,6 @@ Jul 24, 2026
 2026-07-24
 
 [Learn more about this webinar](https://anthropic.ondemand.goldcast.io/on-demand/0dc79613-f360-435c-bde3-fa88e32d44ff)
-
-Claude for Investing Teams
-
-Jul 24, 2026
-
-2026-07-24
-
-[Learn more about this webinar](https://anthropic.ondemand.goldcast.io/on-demand/3008911f-0ffd-4473-b176-7385ba425a7c)
-
-Voice and Intelligence: Building the Human Interface for Customer Experience
-
-Jul 22, 2026
-
-2026-07-22
-
-[Learn more about this webinar](https://anthropic.ondemand.goldcast.io/on-demand/8e39b703-835e-45a4-9fff-f0a790f8d2ea)
 
 [Show more](https://www.anthropic.com/events?e45d281a_page=2)
 

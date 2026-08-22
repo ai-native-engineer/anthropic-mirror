@@ -69,7 +69,6 @@ To start a session, type `@Claude` in a Slack message and say what you need in t
 
 Once your message sends, an “is thinking…” line at the bottom of the thread means Claude picked it up. What happens next depends on the size of the ask. Questions and one-off requests get a direct reply. A longer task, like Jordan’s, gets a checklist instead. [How the checklist updates](#how-the-checklist-updates) covers how it works and how to read one while it runs.
 While a session runs, check in by replying in the same thread. Asking “how’s it going?” in the thread is enough; it reads new replies as it works.
-Each delivery ends with an “Open session in Claude” link showing the full record of the work, including every tool call. To open it, you need a Claude account in your organization; without one, the link shows a not-found page. If the thread is in a private channel, you also need to be a member of that channel. The page is read-only; follow-ups go in the Slack thread.
 
 ###  Reply in the thread to steer
 

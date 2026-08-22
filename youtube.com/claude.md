@@ -8,7 +8,6 @@
 - [How Ramp engineers work with AI agents at every step](claude/260806-how-ramp-engineers-work-with-ai-agents-at-every-step.md) — 2026-08-06
 - [What happens when you talk to AI?](claude/260805-what-happens-when-you-talk-to-ai.md) — 2026-08-05
 - [How auto mode works with Claude Code](claude/260804-how-auto-mode-works-with-claude-code.md) — 2026-08-04
-- [Build data-driven lesson plans with Claude for Teachers](claude/260715-build-data-driven-lesson-plans-with-claude-for-teachers.md) — 2026-07-15
 - [Plan smarter with Claude for Teachers](claude/260714-plan-smarter-with-claude-for-teachers.md) — 2026-07-14
 - [The Briefing: AI for Science](claude/260713-the-briefing-ai-for-science.md) — 2026-07-13
 - [Building the future of agentic infrastructure](claude/260710-building-the-future-of-agentic-infrastructure.md) — 2026-07-10
@@ -149,6 +148,7 @@
 - [A.A.Murakami's The Moon Underwater](claude/260202-a-a-murakami-s-the-moon-underwater.md) — 2026-02-02
 - [Getting started with Claude in Excel](claude/260130-getting-started-with-claude-in-excel.md) — 2026-01-30
 - [How Anthropic uses Claude in Marketing](claude/260127-how-anthropic-uses-claude-in-marketing.md) — 2026-01-27
+- [How to choose the right Claude model for any task](claude/260819-how-to-choose-the-right-claude-model-for-any-task.md) — 2026-08-19 (자막없음)
 - [What does AI actually know about you?](claude/260814-what-does-ai-actually-know-about-you.md) — 2026-08-14
 - [Can you trust what AI tells you?](claude/260811-can-you-trust-what-ai-tells-you-O0Bf2A.md) — 2026-08-11
 - [What happens when you talk to AI?](claude/260808-what-happens-when-you-talk-to-ai.md) — 2026-08-08

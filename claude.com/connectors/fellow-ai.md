@@ -88,14 +88,18 @@ May 1, 2026
 
 Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
 
+Productivity
+
 Communication
 
 Claude
 
-February 11, 2026
+Claude Code
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf5cf91d777702ff2e6a_Fireflies.jpg)
+August 21, 2026
 
-### Fireflies
+[![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
 
-Analyze and generate insights from meeting transcripts](https://claude.com/connectors/fireflies)
+### DeepL
+
+Translate text and documents across 100+ languages, with your style applied](https://claude.com/connectors/deepl)

@@ -55,7 +55,12 @@ Per-scope version changes (workspace and channel) are reversible; see [Migrate f
 
 ##  Revoke a pairing
 
-In the **Connected workspaces** list, select **Disconnect** on the workspace’s row. Disconnecting revokes the pairing so `@Claude` no longer runs in that workspace, but the workspace’s scope and any bundles bound to it remain in the **Slack** tab; remove the scope separately if you want it gone. Claude stops responding in that workspace immediately. Its scopes remain in the Claude Tag’s access section, so credentials and instructions are preserved, until you remove them.
+In the **Connected workspaces** list, select **Disconnect** on the workspace’s row, then confirm in the dialog. Claude stops responding in that workspace immediately, and your organization is no longer billed for Claude usage there.
+
+When you disconnect a workspace, Anthropic permanently deletes its Claude data within 30 days: the workspace’s sessions and transcripts, its channel and workspace memory, the routines set up in its channels, its scopes with their instructions and bundle bindings, and the links between members’ Slack and Claude accounts. This can’t be undone. Routines a person set up in a direct message with Claude belong to that person’s account and aren’t deleted with the workspace.
+
+Access bundles belong to your organization, not to a workspace, so they stay available to attach to other scopes; only their bindings to the deleted scopes go.
+The Slack app stays installed, so a workspace admin can pair the workspace again by sending `@Claude connect` in it, to the same Claude organization or a different one. The new pairing starts without the deleted data. To remove the app from Slack as well, uninstall it from the workspace’s Slack app settings; see [Quiet or remove Claude Tag](https://claude.com/docs/claude-tag/admins/restrict-access#quiet-or-remove-claude-tag).
 
 ##  Related resources
 

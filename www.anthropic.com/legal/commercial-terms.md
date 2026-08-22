@@ -145,3 +145,5 @@ M.8. **Export and Sanctions.** Customer may not export or provide access to the 
 M.9. **Integration.** These Terms (including the [Usage Policy](https://console.anthropic.com/legal/aup), [Supported Regions Policy](https://www.anthropic.com/supported-countries), [Service Specific Terms](https://www.anthropic.com/legal/service-specific-terms), [DPA](https://www.anthropic.com/legal/data-processing-addendum), [Model Pricing Page](https://anthropic.com/pricing) and other documents or terms that are incorporated by reference by these Terms) constitute the parties’ entire understanding as to the Services’ provision and use. These Terms supersede all other understandings or agreements between the parties regarding the Services.
 
 M.10. **Force Majeure.** Neither party will be liable for failure or delay in performance to the extent caused by circumstances beyond its reasonable control.
+
+Commercial Terms of Service \ Anthropic

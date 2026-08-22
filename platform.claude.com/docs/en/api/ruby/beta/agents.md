@@ -301,49 +301,299 @@ Create Agent
 
       Per-tool configuration overrides.
 
-      - `name: :bash | :edit | :read | 5 more`
+      - `class BetaManagedAgentsBashToolConfigParams`
 
-        Built-in agent tool identifier.
+        Configuration override for the bash tool.
 
-        - `:bash`
+        - `name: :bash`
 
-        - `:edit`
+          Must be "bash".
 
-        - `:read`
+          - `:bash`
 
-        - `:write`
+        - `enabled: bool`
 
-        - `:glob`
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `:grep`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-        - `:web_fetch`
+          Permission policy for tool execution.
 
-        - `:web_search`
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-      - `enabled: bool`
+            Tool calls are automatically approved without user confirmation.
 
-        Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+            - `type: :always_allow`
 
-      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+              - `:always_allow`
 
-        Permission policy for tool execution.
+          - `class BetaManagedAgentsAlwaysAskPolicy`
 
-        - `class BetaManagedAgentsAlwaysAllowPolicy`
+            Tool calls require user confirmation before execution.
 
-          Tool calls are automatically approved without user confirmation.
+            - `type: :always_ask`
 
-          - `type: :always_allow`
+              - `:always_ask`
 
-            - `:always_allow`
+        - `type: :bash`
 
-        - `class BetaManagedAgentsAlwaysAskPolicy`
+          - `:bash`
 
-          Tool calls require user confirmation before execution.
+      - `class BetaManagedAgentsEditToolConfigParams`
 
-          - `type: :always_ask`
+        Configuration override for the edit tool.
 
-            - `:always_ask`
+        - `name: :edit`
+
+          Must be "edit".
+
+          - `:edit`
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :edit`
+
+          - `:edit`
+
+      - `class BetaManagedAgentsReadToolConfigParams`
+
+        Configuration override for the read tool.
+
+        - `name: :read`
+
+          Must be "read".
+
+          - `:read`
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :read`
+
+          - `:read`
+
+      - `class BetaManagedAgentsWriteToolConfigParams`
+
+        Configuration override for the write tool.
+
+        - `name: :write`
+
+          Must be "write".
+
+          - `:write`
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :write`
+
+          - `:write`
+
+      - `class BetaManagedAgentsGlobToolConfigParams`
+
+        Configuration override for the glob tool.
+
+        - `name: :glob`
+
+          Must be "glob".
+
+          - `:glob`
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :glob`
+
+          - `:glob`
+
+      - `class BetaManagedAgentsGrepToolConfigParams`
+
+        Configuration override for the grep tool.
+
+        - `name: :grep`
+
+          Must be "grep".
+
+          - `:grep`
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :grep`
+
+          - `:grep`
+
+      - `class BetaManagedAgentsWebFetchToolConfigParams`
+
+        Configuration override for the web_fetch tool.
+
+        - `name: :web_fetch`
+
+          Must be "web_fetch".
+
+          - `:web_fetch`
+
+        - `allowed_domains: Array[String]`
+
+          Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+        - `blocked_domains: Array[String]`
+
+          Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `max_content_tokens: Integer`
+
+          Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :web_fetch`
+
+          - `:web_fetch`
+
+      - `class BetaManagedAgentsWebSearchToolConfigParams`
+
+        Configuration override for the web_search tool.
+
+        - `name: :web_search`
+
+          Must be "web_search".
+
+          - `:web_search`
+
+        - `allowed_domains: Array[String]`
+
+          Only return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+        - `blocked_domains: Array[String]`
+
+          Never return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :web_search`
+
+          - `:web_search`
+
+        - `user_location: BetaManagedAgentsUserLocation`
+
+          Approximate user location for search result localization.
+
+          - `type: :approximate`
+
+            Location precision. Only "approximate" is supported.
+
+            - `:approximate`
+
+          - `city: String`
+
+            City name.
+
+          - `country: String`
+
+            Two-letter ISO 3166-1 country code, uppercase.
+
+          - `region: String`
+
+            Region or state name.
+
+          - `timezone: String`
+
+            IANA timezone identifier, e.g. "America/Los_Angeles".
 
     - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
@@ -753,47 +1003,257 @@ Create Agent
 
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-        - `enabled: bool`
+        - `class BetaManagedAgentsBashToolConfig`
 
-        - `name: :bash | :edit | :read | 5 more`
+          Configuration for the bash tool.
 
-          Built-in agent tool identifier.
+          - `enabled: bool`
 
-          - `:bash`
+          - `name: :bash`
 
-          - `:edit`
+            - `:bash`
 
-          - `:read`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-          - `:write`
+            Permission policy for tool execution.
 
-          - `:glob`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-          - `:grep`
+              Tool calls are automatically approved without user confirmation.
 
-          - `:web_fetch`
+              - `type: :always_allow`
 
-          - `:web_search`
+                - `:always_allow`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
-          Permission policy for tool execution.
+              Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy`
+              - `type: :always_ask`
 
-            Tool calls are automatically approved without user confirmation.
+                - `:always_ask`
 
-            - `type: :always_allow`
+          - `type: :bash`
 
-              - `:always_allow`
+            - `:bash`
 
-          - `class BetaManagedAgentsAlwaysAskPolicy`
+        - `class BetaManagedAgentsEditToolConfig`
 
-            Tool calls require user confirmation before execution.
+          Configuration for the edit tool.
 
-            - `type: :always_ask`
+          - `enabled: bool`
 
-              - `:always_ask`
+          - `name: :edit`
+
+            - `:edit`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :edit`
+
+            - `:edit`
+
+        - `class BetaManagedAgentsReadToolConfig`
+
+          Configuration for the read tool.
+
+          - `enabled: bool`
+
+          - `name: :read`
+
+            - `:read`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :read`
+
+            - `:read`
+
+        - `class BetaManagedAgentsWriteToolConfig`
+
+          Configuration for the write tool.
+
+          - `enabled: bool`
+
+          - `name: :write`
+
+            - `:write`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :write`
+
+            - `:write`
+
+        - `class BetaManagedAgentsGlobToolConfig`
+
+          Configuration for the glob tool.
+
+          - `enabled: bool`
+
+          - `name: :glob`
+
+            - `:glob`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :glob`
+
+            - `:glob`
+
+        - `class BetaManagedAgentsGrepToolConfig`
+
+          Configuration for the grep tool.
+
+          - `enabled: bool`
+
+          - `name: :grep`
+
+            - `:grep`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :grep`
+
+            - `:grep`
+
+        - `class BetaManagedAgentsWebFetchToolConfig`
+
+          Configuration for the web_fetch tool.
+
+          - `enabled: bool`
+
+          - `name: :web_fetch`
+
+            - `:web_fetch`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_fetch`
+
+            - `:web_fetch`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `max_content_tokens: Integer`
+
+        - `class BetaManagedAgentsWebSearchToolConfig`
+
+          Configuration for the web_search tool.
+
+          - `enabled: bool`
+
+          - `name: :web_search`
+
+            - `:web_search`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_search`
+
+            - `:web_search`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `user_location: BetaManagedAgentsUserLocation`
+
+            Approximate user location for search result localization.
+
+            - `type: :approximate`
+
+              Location precision. Only "approximate" is supported.
+
+              - `:approximate`
+
+            - `city: String`
+
+              City name.
+
+            - `country: String`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `region: String`
+
+              Region or state name.
+
+            - `timezone: String`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -970,7 +1430,8 @@ puts(beta_managed_agents_agent)
           "name": "bash",
           "permission_policy": {
             "type": "always_allow"
-          }
+          },
+          "type": "bash"
         }
       ],
       "default_config": {
@@ -1322,47 +1783,257 @@ List Agents
 
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-        - `enabled: bool`
+        - `class BetaManagedAgentsBashToolConfig`
 
-        - `name: :bash | :edit | :read | 5 more`
+          Configuration for the bash tool.
 
-          Built-in agent tool identifier.
+          - `enabled: bool`
 
-          - `:bash`
+          - `name: :bash`
 
-          - `:edit`
+            - `:bash`
 
-          - `:read`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-          - `:write`
+            Permission policy for tool execution.
 
-          - `:glob`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-          - `:grep`
+              Tool calls are automatically approved without user confirmation.
 
-          - `:web_fetch`
+              - `type: :always_allow`
 
-          - `:web_search`
+                - `:always_allow`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
-          Permission policy for tool execution.
+              Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy`
+              - `type: :always_ask`
 
-            Tool calls are automatically approved without user confirmation.
+                - `:always_ask`
 
-            - `type: :always_allow`
+          - `type: :bash`
 
-              - `:always_allow`
+            - `:bash`
 
-          - `class BetaManagedAgentsAlwaysAskPolicy`
+        - `class BetaManagedAgentsEditToolConfig`
 
-            Tool calls require user confirmation before execution.
+          Configuration for the edit tool.
 
-            - `type: :always_ask`
+          - `enabled: bool`
 
-              - `:always_ask`
+          - `name: :edit`
+
+            - `:edit`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :edit`
+
+            - `:edit`
+
+        - `class BetaManagedAgentsReadToolConfig`
+
+          Configuration for the read tool.
+
+          - `enabled: bool`
+
+          - `name: :read`
+
+            - `:read`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :read`
+
+            - `:read`
+
+        - `class BetaManagedAgentsWriteToolConfig`
+
+          Configuration for the write tool.
+
+          - `enabled: bool`
+
+          - `name: :write`
+
+            - `:write`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :write`
+
+            - `:write`
+
+        - `class BetaManagedAgentsGlobToolConfig`
+
+          Configuration for the glob tool.
+
+          - `enabled: bool`
+
+          - `name: :glob`
+
+            - `:glob`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :glob`
+
+            - `:glob`
+
+        - `class BetaManagedAgentsGrepToolConfig`
+
+          Configuration for the grep tool.
+
+          - `enabled: bool`
+
+          - `name: :grep`
+
+            - `:grep`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :grep`
+
+            - `:grep`
+
+        - `class BetaManagedAgentsWebFetchToolConfig`
+
+          Configuration for the web_fetch tool.
+
+          - `enabled: bool`
+
+          - `name: :web_fetch`
+
+            - `:web_fetch`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_fetch`
+
+            - `:web_fetch`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `max_content_tokens: Integer`
+
+        - `class BetaManagedAgentsWebSearchToolConfig`
+
+          Configuration for the web_search tool.
+
+          - `enabled: bool`
+
+          - `name: :web_search`
+
+            - `:web_search`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_search`
+
+            - `:web_search`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `user_location: BetaManagedAgentsUserLocation`
+
+            Approximate user location for search result localization.
+
+            - `type: :approximate`
+
+              Location precision. Only "approximate" is supported.
+
+              - `:approximate`
+
+            - `city: String`
+
+              City name.
+
+            - `country: String`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `region: String`
+
+              Region or state name.
+
+            - `timezone: String`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -1538,7 +2209,8 @@ puts(page)
               "name": "bash",
               "permission_policy": {
                 "type": "always_allow"
-              }
+              },
+              "type": "bash"
             }
           ],
           "default_config": {
@@ -1879,47 +2551,257 @@ Get Agent
 
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-        - `enabled: bool`
+        - `class BetaManagedAgentsBashToolConfig`
 
-        - `name: :bash | :edit | :read | 5 more`
+          Configuration for the bash tool.
 
-          Built-in agent tool identifier.
+          - `enabled: bool`
 
-          - `:bash`
+          - `name: :bash`
 
-          - `:edit`
+            - `:bash`
 
-          - `:read`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-          - `:write`
+            Permission policy for tool execution.
 
-          - `:glob`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-          - `:grep`
+              Tool calls are automatically approved without user confirmation.
 
-          - `:web_fetch`
+              - `type: :always_allow`
 
-          - `:web_search`
+                - `:always_allow`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
-          Permission policy for tool execution.
+              Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy`
+              - `type: :always_ask`
 
-            Tool calls are automatically approved without user confirmation.
+                - `:always_ask`
 
-            - `type: :always_allow`
+          - `type: :bash`
 
-              - `:always_allow`
+            - `:bash`
 
-          - `class BetaManagedAgentsAlwaysAskPolicy`
+        - `class BetaManagedAgentsEditToolConfig`
 
-            Tool calls require user confirmation before execution.
+          Configuration for the edit tool.
 
-            - `type: :always_ask`
+          - `enabled: bool`
 
-              - `:always_ask`
+          - `name: :edit`
+
+            - `:edit`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :edit`
+
+            - `:edit`
+
+        - `class BetaManagedAgentsReadToolConfig`
+
+          Configuration for the read tool.
+
+          - `enabled: bool`
+
+          - `name: :read`
+
+            - `:read`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :read`
+
+            - `:read`
+
+        - `class BetaManagedAgentsWriteToolConfig`
+
+          Configuration for the write tool.
+
+          - `enabled: bool`
+
+          - `name: :write`
+
+            - `:write`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :write`
+
+            - `:write`
+
+        - `class BetaManagedAgentsGlobToolConfig`
+
+          Configuration for the glob tool.
+
+          - `enabled: bool`
+
+          - `name: :glob`
+
+            - `:glob`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :glob`
+
+            - `:glob`
+
+        - `class BetaManagedAgentsGrepToolConfig`
+
+          Configuration for the grep tool.
+
+          - `enabled: bool`
+
+          - `name: :grep`
+
+            - `:grep`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :grep`
+
+            - `:grep`
+
+        - `class BetaManagedAgentsWebFetchToolConfig`
+
+          Configuration for the web_fetch tool.
+
+          - `enabled: bool`
+
+          - `name: :web_fetch`
+
+            - `:web_fetch`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_fetch`
+
+            - `:web_fetch`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `max_content_tokens: Integer`
+
+        - `class BetaManagedAgentsWebSearchToolConfig`
+
+          Configuration for the web_search tool.
+
+          - `enabled: bool`
+
+          - `name: :web_search`
+
+            - `:web_search`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_search`
+
+            - `:web_search`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `user_location: BetaManagedAgentsUserLocation`
+
+            Approximate user location for search result localization.
+
+            - `type: :approximate`
+
+              Location precision. Only "approximate" is supported.
+
+              - `:approximate`
+
+            - `city: String`
+
+              City name.
+
+            - `country: String`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `region: String`
+
+              Region or state name.
+
+            - `timezone: String`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -2093,7 +2975,8 @@ puts(beta_managed_agents_agent)
           "name": "bash",
           "permission_policy": {
             "type": "always_allow"
-          }
+          },
+          "type": "bash"
         }
       ],
       "default_config": {
@@ -2407,49 +3290,299 @@ Update Agent
 
       Per-tool configuration overrides.
 
-      - `name: :bash | :edit | :read | 5 more`
+      - `class BetaManagedAgentsBashToolConfigParams`
 
-        Built-in agent tool identifier.
+        Configuration override for the bash tool.
 
-        - `:bash`
+        - `name: :bash`
 
-        - `:edit`
+          Must be "bash".
 
-        - `:read`
+          - `:bash`
 
-        - `:write`
+        - `enabled: bool`
 
-        - `:glob`
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `:grep`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-        - `:web_fetch`
+          Permission policy for tool execution.
 
-        - `:web_search`
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-      - `enabled: bool`
+            Tool calls are automatically approved without user confirmation.
 
-        Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+            - `type: :always_allow`
 
-      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+              - `:always_allow`
 
-        Permission policy for tool execution.
+          - `class BetaManagedAgentsAlwaysAskPolicy`
 
-        - `class BetaManagedAgentsAlwaysAllowPolicy`
+            Tool calls require user confirmation before execution.
 
-          Tool calls are automatically approved without user confirmation.
+            - `type: :always_ask`
 
-          - `type: :always_allow`
+              - `:always_ask`
 
-            - `:always_allow`
+        - `type: :bash`
 
-        - `class BetaManagedAgentsAlwaysAskPolicy`
+          - `:bash`
 
-          Tool calls require user confirmation before execution.
+      - `class BetaManagedAgentsEditToolConfigParams`
 
-          - `type: :always_ask`
+        Configuration override for the edit tool.
 
-            - `:always_ask`
+        - `name: :edit`
+
+          Must be "edit".
+
+          - `:edit`
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :edit`
+
+          - `:edit`
+
+      - `class BetaManagedAgentsReadToolConfigParams`
+
+        Configuration override for the read tool.
+
+        - `name: :read`
+
+          Must be "read".
+
+          - `:read`
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :read`
+
+          - `:read`
+
+      - `class BetaManagedAgentsWriteToolConfigParams`
+
+        Configuration override for the write tool.
+
+        - `name: :write`
+
+          Must be "write".
+
+          - `:write`
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :write`
+
+          - `:write`
+
+      - `class BetaManagedAgentsGlobToolConfigParams`
+
+        Configuration override for the glob tool.
+
+        - `name: :glob`
+
+          Must be "glob".
+
+          - `:glob`
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :glob`
+
+          - `:glob`
+
+      - `class BetaManagedAgentsGrepToolConfigParams`
+
+        Configuration override for the grep tool.
+
+        - `name: :grep`
+
+          Must be "grep".
+
+          - `:grep`
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :grep`
+
+          - `:grep`
+
+      - `class BetaManagedAgentsWebFetchToolConfigParams`
+
+        Configuration override for the web_fetch tool.
+
+        - `name: :web_fetch`
+
+          Must be "web_fetch".
+
+          - `:web_fetch`
+
+        - `allowed_domains: Array[String]`
+
+          Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+        - `blocked_domains: Array[String]`
+
+          Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `max_content_tokens: Integer`
+
+          Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :web_fetch`
+
+          - `:web_fetch`
+
+      - `class BetaManagedAgentsWebSearchToolConfigParams`
+
+        Configuration override for the web_search tool.
+
+        - `name: :web_search`
+
+          Must be "web_search".
+
+          - `:web_search`
+
+        - `allowed_domains: Array[String]`
+
+          Only return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+        - `blocked_domains: Array[String]`
+
+          Never return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+        - `type: :web_search`
+
+          - `:web_search`
+
+        - `user_location: BetaManagedAgentsUserLocation`
+
+          Approximate user location for search result localization.
+
+          - `type: :approximate`
+
+            Location precision. Only "approximate" is supported.
+
+            - `:approximate`
+
+          - `city: String`
+
+            City name.
+
+          - `country: String`
+
+            Two-letter ISO 3166-1 country code, uppercase.
+
+          - `region: String`
+
+            Region or state name.
+
+          - `timezone: String`
+
+            IANA timezone identifier, e.g. "America/Los_Angeles".
 
     - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
@@ -2863,47 +3996,257 @@ Update Agent
 
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-        - `enabled: bool`
+        - `class BetaManagedAgentsBashToolConfig`
 
-        - `name: :bash | :edit | :read | 5 more`
+          Configuration for the bash tool.
 
-          Built-in agent tool identifier.
+          - `enabled: bool`
 
-          - `:bash`
+          - `name: :bash`
 
-          - `:edit`
+            - `:bash`
 
-          - `:read`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-          - `:write`
+            Permission policy for tool execution.
 
-          - `:glob`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-          - `:grep`
+              Tool calls are automatically approved without user confirmation.
 
-          - `:web_fetch`
+              - `type: :always_allow`
 
-          - `:web_search`
+                - `:always_allow`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
-          Permission policy for tool execution.
+              Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy`
+              - `type: :always_ask`
 
-            Tool calls are automatically approved without user confirmation.
+                - `:always_ask`
 
-            - `type: :always_allow`
+          - `type: :bash`
 
-              - `:always_allow`
+            - `:bash`
 
-          - `class BetaManagedAgentsAlwaysAskPolicy`
+        - `class BetaManagedAgentsEditToolConfig`
 
-            Tool calls require user confirmation before execution.
+          Configuration for the edit tool.
 
-            - `type: :always_ask`
+          - `enabled: bool`
 
-              - `:always_ask`
+          - `name: :edit`
+
+            - `:edit`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :edit`
+
+            - `:edit`
+
+        - `class BetaManagedAgentsReadToolConfig`
+
+          Configuration for the read tool.
+
+          - `enabled: bool`
+
+          - `name: :read`
+
+            - `:read`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :read`
+
+            - `:read`
+
+        - `class BetaManagedAgentsWriteToolConfig`
+
+          Configuration for the write tool.
+
+          - `enabled: bool`
+
+          - `name: :write`
+
+            - `:write`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :write`
+
+            - `:write`
+
+        - `class BetaManagedAgentsGlobToolConfig`
+
+          Configuration for the glob tool.
+
+          - `enabled: bool`
+
+          - `name: :glob`
+
+            - `:glob`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :glob`
+
+            - `:glob`
+
+        - `class BetaManagedAgentsGrepToolConfig`
+
+          Configuration for the grep tool.
+
+          - `enabled: bool`
+
+          - `name: :grep`
+
+            - `:grep`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :grep`
+
+            - `:grep`
+
+        - `class BetaManagedAgentsWebFetchToolConfig`
+
+          Configuration for the web_fetch tool.
+
+          - `enabled: bool`
+
+          - `name: :web_fetch`
+
+            - `:web_fetch`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_fetch`
+
+            - `:web_fetch`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `max_content_tokens: Integer`
+
+        - `class BetaManagedAgentsWebSearchToolConfig`
+
+          Configuration for the web_search tool.
+
+          - `enabled: bool`
+
+          - `name: :web_search`
+
+            - `:web_search`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_search`
+
+            - `:web_search`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `user_location: BetaManagedAgentsUserLocation`
+
+            Approximate user location for search result localization.
+
+            - `type: :approximate`
+
+              Location precision. Only "approximate" is supported.
+
+              - `:approximate`
+
+            - `city: String`
+
+              City name.
+
+            - `country: String`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `region: String`
+
+              Region or state name.
+
+            - `timezone: String`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -3077,7 +4420,8 @@ puts(beta_managed_agents_agent)
           "name": "bash",
           "permission_policy": {
             "type": "always_allow"
-          }
+          },
+          "type": "bash"
         }
       ],
       "default_config": {
@@ -3411,47 +4755,257 @@ Archive Agent
 
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-        - `enabled: bool`
+        - `class BetaManagedAgentsBashToolConfig`
 
-        - `name: :bash | :edit | :read | 5 more`
+          Configuration for the bash tool.
 
-          Built-in agent tool identifier.
+          - `enabled: bool`
 
-          - `:bash`
+          - `name: :bash`
 
-          - `:edit`
+            - `:bash`
 
-          - `:read`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-          - `:write`
+            Permission policy for tool execution.
 
-          - `:glob`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-          - `:grep`
+              Tool calls are automatically approved without user confirmation.
 
-          - `:web_fetch`
+              - `type: :always_allow`
 
-          - `:web_search`
+                - `:always_allow`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
-          Permission policy for tool execution.
+              Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy`
+              - `type: :always_ask`
 
-            Tool calls are automatically approved without user confirmation.
+                - `:always_ask`
 
-            - `type: :always_allow`
+          - `type: :bash`
 
-              - `:always_allow`
+            - `:bash`
 
-          - `class BetaManagedAgentsAlwaysAskPolicy`
+        - `class BetaManagedAgentsEditToolConfig`
 
-            Tool calls require user confirmation before execution.
+          Configuration for the edit tool.
 
-            - `type: :always_ask`
+          - `enabled: bool`
 
-              - `:always_ask`
+          - `name: :edit`
+
+            - `:edit`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :edit`
+
+            - `:edit`
+
+        - `class BetaManagedAgentsReadToolConfig`
+
+          Configuration for the read tool.
+
+          - `enabled: bool`
+
+          - `name: :read`
+
+            - `:read`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :read`
+
+            - `:read`
+
+        - `class BetaManagedAgentsWriteToolConfig`
+
+          Configuration for the write tool.
+
+          - `enabled: bool`
+
+          - `name: :write`
+
+            - `:write`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :write`
+
+            - `:write`
+
+        - `class BetaManagedAgentsGlobToolConfig`
+
+          Configuration for the glob tool.
+
+          - `enabled: bool`
+
+          - `name: :glob`
+
+            - `:glob`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :glob`
+
+            - `:glob`
+
+        - `class BetaManagedAgentsGrepToolConfig`
+
+          Configuration for the grep tool.
+
+          - `enabled: bool`
+
+          - `name: :grep`
+
+            - `:grep`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :grep`
+
+            - `:grep`
+
+        - `class BetaManagedAgentsWebFetchToolConfig`
+
+          Configuration for the web_fetch tool.
+
+          - `enabled: bool`
+
+          - `name: :web_fetch`
+
+            - `:web_fetch`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_fetch`
+
+            - `:web_fetch`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `max_content_tokens: Integer`
+
+        - `class BetaManagedAgentsWebSearchToolConfig`
+
+          Configuration for the web_search tool.
+
+          - `enabled: bool`
+
+          - `name: :web_search`
+
+            - `:web_search`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_search`
+
+            - `:web_search`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `user_location: BetaManagedAgentsUserLocation`
+
+            Approximate user location for search result localization.
+
+            - `type: :approximate`
+
+              Location precision. Only "approximate" is supported.
+
+              - `:approximate`
+
+            - `city: String`
+
+              City name.
+
+            - `country: String`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `region: String`
+
+              Region or state name.
+
+            - `timezone: String`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -3625,7 +5179,8 @@ puts(beta_managed_agents_agent)
           "name": "bash",
           "permission_policy": {
             "type": "always_allow"
-          }
+          },
+          "type": "bash"
         }
       ],
       "default_config": {
@@ -3887,47 +5442,257 @@ puts(beta_managed_agents_agent)
 
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-        - `enabled: bool`
+        - `class BetaManagedAgentsBashToolConfig`
 
-        - `name: :bash | :edit | :read | 5 more`
+          Configuration for the bash tool.
 
-          Built-in agent tool identifier.
+          - `enabled: bool`
 
-          - `:bash`
+          - `name: :bash`
 
-          - `:edit`
+            - `:bash`
 
-          - `:read`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-          - `:write`
+            Permission policy for tool execution.
 
-          - `:glob`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-          - `:grep`
+              Tool calls are automatically approved without user confirmation.
 
-          - `:web_fetch`
+              - `type: :always_allow`
 
-          - `:web_search`
+                - `:always_allow`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
-          Permission policy for tool execution.
+              Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy`
+              - `type: :always_ask`
 
-            Tool calls are automatically approved without user confirmation.
+                - `:always_ask`
 
-            - `type: :always_allow`
+          - `type: :bash`
 
-              - `:always_allow`
+            - `:bash`
 
-          - `class BetaManagedAgentsAlwaysAskPolicy`
+        - `class BetaManagedAgentsEditToolConfig`
 
-            Tool calls require user confirmation before execution.
+          Configuration for the edit tool.
 
-            - `type: :always_ask`
+          - `enabled: bool`
 
-              - `:always_ask`
+          - `name: :edit`
+
+            - `:edit`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :edit`
+
+            - `:edit`
+
+        - `class BetaManagedAgentsReadToolConfig`
+
+          Configuration for the read tool.
+
+          - `enabled: bool`
+
+          - `name: :read`
+
+            - `:read`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :read`
+
+            - `:read`
+
+        - `class BetaManagedAgentsWriteToolConfig`
+
+          Configuration for the write tool.
+
+          - `enabled: bool`
+
+          - `name: :write`
+
+            - `:write`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :write`
+
+            - `:write`
+
+        - `class BetaManagedAgentsGlobToolConfig`
+
+          Configuration for the glob tool.
+
+          - `enabled: bool`
+
+          - `name: :glob`
+
+            - `:glob`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :glob`
+
+            - `:glob`
+
+        - `class BetaManagedAgentsGrepToolConfig`
+
+          Configuration for the grep tool.
+
+          - `enabled: bool`
+
+          - `name: :grep`
+
+            - `:grep`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :grep`
+
+            - `:grep`
+
+        - `class BetaManagedAgentsWebFetchToolConfig`
+
+          Configuration for the web_fetch tool.
+
+          - `enabled: bool`
+
+          - `name: :web_fetch`
+
+            - `:web_fetch`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_fetch`
+
+            - `:web_fetch`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `max_content_tokens: Integer`
+
+        - `class BetaManagedAgentsWebSearchToolConfig`
+
+          Configuration for the web_search tool.
+
+          - `enabled: bool`
+
+          - `name: :web_search`
+
+            - `:web_search`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_search`
+
+            - `:web_search`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `user_location: BetaManagedAgentsUserLocation`
+
+            Approximate user location for search result localization.
+
+            - `type: :approximate`
+
+              Location precision. Only "approximate" is supported.
+
+              - `:approximate`
+
+            - `city: String`
+
+              City name.
+
+            - `country: String`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `region: String`
+
+              Region or state name.
+
+            - `timezone: String`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -4047,101 +5812,561 @@ puts(beta_managed_agents_agent)
 
 ### Beta Managed Agents Agent Tool Config
 
-- `class BetaManagedAgentsAgentToolConfig`
+- `BetaManagedAgentsAgentToolConfig = BetaManagedAgentsBashToolConfig | BetaManagedAgentsEditToolConfig | BetaManagedAgentsReadToolConfig | 5 more`
 
   Configuration for a specific agent tool.
 
-  - `enabled: bool`
+  - `class BetaManagedAgentsBashToolConfig`
 
-  - `name: :bash | :edit | :read | 5 more`
+    Configuration for the bash tool.
 
-    Built-in agent tool identifier.
+    - `enabled: bool`
 
-    - `:bash`
+    - `name: :bash`
 
-    - `:edit`
+      - `:bash`
 
-    - `:read`
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-    - `:write`
+      Permission policy for tool execution.
 
-    - `:glob`
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-    - `:grep`
+        Tool calls are automatically approved without user confirmation.
 
-    - `:web_fetch`
+        - `type: :always_allow`
 
-    - `:web_search`
+          - `:always_allow`
 
-  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+      - `class BetaManagedAgentsAlwaysAskPolicy`
 
-    Permission policy for tool execution.
+        Tool calls require user confirmation before execution.
 
-    - `class BetaManagedAgentsAlwaysAllowPolicy`
+        - `type: :always_ask`
 
-      Tool calls are automatically approved without user confirmation.
+          - `:always_ask`
 
-      - `type: :always_allow`
+    - `type: :bash`
 
-        - `:always_allow`
+      - `:bash`
 
-    - `class BetaManagedAgentsAlwaysAskPolicy`
+  - `class BetaManagedAgentsEditToolConfig`
 
-      Tool calls require user confirmation before execution.
+    Configuration for the edit tool.
 
-      - `type: :always_ask`
+    - `enabled: bool`
 
-        - `:always_ask`
+    - `name: :edit`
+
+      - `:edit`
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :edit`
+
+      - `:edit`
+
+  - `class BetaManagedAgentsReadToolConfig`
+
+    Configuration for the read tool.
+
+    - `enabled: bool`
+
+    - `name: :read`
+
+      - `:read`
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :read`
+
+      - `:read`
+
+  - `class BetaManagedAgentsWriteToolConfig`
+
+    Configuration for the write tool.
+
+    - `enabled: bool`
+
+    - `name: :write`
+
+      - `:write`
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :write`
+
+      - `:write`
+
+  - `class BetaManagedAgentsGlobToolConfig`
+
+    Configuration for the glob tool.
+
+    - `enabled: bool`
+
+    - `name: :glob`
+
+      - `:glob`
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :glob`
+
+      - `:glob`
+
+  - `class BetaManagedAgentsGrepToolConfig`
+
+    Configuration for the grep tool.
+
+    - `enabled: bool`
+
+    - `name: :grep`
+
+      - `:grep`
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :grep`
+
+      - `:grep`
+
+  - `class BetaManagedAgentsWebFetchToolConfig`
+
+    Configuration for the web_fetch tool.
+
+    - `enabled: bool`
+
+    - `name: :web_fetch`
+
+      - `:web_fetch`
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :web_fetch`
+
+      - `:web_fetch`
+
+    - `allowed_domains: Array[String]`
+
+    - `blocked_domains: Array[String]`
+
+    - `max_content_tokens: Integer`
+
+  - `class BetaManagedAgentsWebSearchToolConfig`
+
+    Configuration for the web_search tool.
+
+    - `enabled: bool`
+
+    - `name: :web_search`
+
+      - `:web_search`
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :web_search`
+
+      - `:web_search`
+
+    - `allowed_domains: Array[String]`
+
+    - `blocked_domains: Array[String]`
+
+    - `user_location: BetaManagedAgentsUserLocation`
+
+      Approximate user location for search result localization.
+
+      - `type: :approximate`
+
+        Location precision. Only "approximate" is supported.
+
+        - `:approximate`
+
+      - `city: String`
+
+        City name.
+
+      - `country: String`
+
+        Two-letter ISO 3166-1 country code, uppercase.
+
+      - `region: String`
+
+        Region or state name.
+
+      - `timezone: String`
+
+        IANA timezone identifier, e.g. "America/Los_Angeles".
 
 ### Beta Managed Agents Agent Tool Config Params
 
-- `class BetaManagedAgentsAgentToolConfigParams`
+- `BetaManagedAgentsAgentToolConfigParams = BetaManagedAgentsBashToolConfigParams | BetaManagedAgentsEditToolConfigParams | BetaManagedAgentsReadToolConfigParams | 5 more`
 
   Configuration override for a specific tool within a toolset.
 
-  - `name: :bash | :edit | :read | 5 more`
+  - `class BetaManagedAgentsBashToolConfigParams`
 
-    Built-in agent tool identifier.
+    Configuration override for the bash tool.
 
-    - `:bash`
+    - `name: :bash`
 
-    - `:edit`
+      Must be "bash".
 
-    - `:read`
+      - `:bash`
 
-    - `:write`
+    - `enabled: bool`
 
-    - `:glob`
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-    - `:grep`
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-    - `:web_fetch`
+      Permission policy for tool execution.
 
-    - `:web_search`
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-  - `enabled: bool`
+        Tool calls are automatically approved without user confirmation.
 
-    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+        - `type: :always_allow`
 
-  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `:always_allow`
 
-    Permission policy for tool execution.
+      - `class BetaManagedAgentsAlwaysAskPolicy`
 
-    - `class BetaManagedAgentsAlwaysAllowPolicy`
+        Tool calls require user confirmation before execution.
 
-      Tool calls are automatically approved without user confirmation.
+        - `type: :always_ask`
 
-      - `type: :always_allow`
+          - `:always_ask`
 
-        - `:always_allow`
+    - `type: :bash`
 
-    - `class BetaManagedAgentsAlwaysAskPolicy`
+      - `:bash`
 
-      Tool calls require user confirmation before execution.
+  - `class BetaManagedAgentsEditToolConfigParams`
 
-      - `type: :always_ask`
+    Configuration override for the edit tool.
 
-        - `:always_ask`
+    - `name: :edit`
+
+      Must be "edit".
+
+      - `:edit`
+
+    - `enabled: bool`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :edit`
+
+      - `:edit`
+
+  - `class BetaManagedAgentsReadToolConfigParams`
+
+    Configuration override for the read tool.
+
+    - `name: :read`
+
+      Must be "read".
+
+      - `:read`
+
+    - `enabled: bool`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :read`
+
+      - `:read`
+
+  - `class BetaManagedAgentsWriteToolConfigParams`
+
+    Configuration override for the write tool.
+
+    - `name: :write`
+
+      Must be "write".
+
+      - `:write`
+
+    - `enabled: bool`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :write`
+
+      - `:write`
+
+  - `class BetaManagedAgentsGlobToolConfigParams`
+
+    Configuration override for the glob tool.
+
+    - `name: :glob`
+
+      Must be "glob".
+
+      - `:glob`
+
+    - `enabled: bool`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :glob`
+
+      - `:glob`
+
+  - `class BetaManagedAgentsGrepToolConfigParams`
+
+    Configuration override for the grep tool.
+
+    - `name: :grep`
+
+      Must be "grep".
+
+      - `:grep`
+
+    - `enabled: bool`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :grep`
+
+      - `:grep`
+
+  - `class BetaManagedAgentsWebFetchToolConfigParams`
+
+    Configuration override for the web_fetch tool.
+
+    - `name: :web_fetch`
+
+      Must be "web_fetch".
+
+      - `:web_fetch`
+
+    - `allowed_domains: Array[String]`
+
+      Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+    - `blocked_domains: Array[String]`
+
+      Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+    - `enabled: bool`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `max_content_tokens: Integer`
+
+      Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :web_fetch`
+
+      - `:web_fetch`
+
+  - `class BetaManagedAgentsWebSearchToolConfigParams`
+
+    Configuration override for the web_search tool.
+
+    - `name: :web_search`
+
+      Must be "web_search".
+
+      - `:web_search`
+
+    - `allowed_domains: Array[String]`
+
+      Only return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+    - `blocked_domains: Array[String]`
+
+      Never return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+    - `enabled: bool`
+
+      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+      Permission policy for tool execution.
+
+      - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+        Tool calls are automatically approved without user confirmation.
+
+      - `class BetaManagedAgentsAlwaysAskPolicy`
+
+        Tool calls require user confirmation before execution.
+
+    - `type: :web_search`
+
+      - `:web_search`
+
+    - `user_location: BetaManagedAgentsUserLocation`
+
+      Approximate user location for search result localization.
+
+      - `type: :approximate`
+
+        Location precision. Only "approximate" is supported.
+
+        - `:approximate`
+
+      - `city: String`
+
+        City name.
+
+      - `country: String`
+
+        Two-letter ISO 3166-1 country code, uppercase.
+
+      - `region: String`
+
+        Region or state name.
+
+      - `timezone: String`
+
+        IANA timezone identifier, e.g. "America/Los_Angeles".
 
 ### Beta Managed Agents Agent Toolset Default Config
 
@@ -4207,47 +6432,257 @@ puts(beta_managed_agents_agent)
 
   - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-    - `enabled: bool`
+    - `class BetaManagedAgentsBashToolConfig`
 
-    - `name: :bash | :edit | :read | 5 more`
+      Configuration for the bash tool.
 
-      Built-in agent tool identifier.
+      - `enabled: bool`
 
-      - `:bash`
+      - `name: :bash`
 
-      - `:edit`
+        - `:bash`
 
-      - `:read`
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-      - `:write`
+        Permission policy for tool execution.
 
-      - `:glob`
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-      - `:grep`
+          Tool calls are automatically approved without user confirmation.
 
-      - `:web_fetch`
+          - `type: :always_allow`
 
-      - `:web_search`
+            - `:always_allow`
 
-    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `class BetaManagedAgentsAlwaysAskPolicy`
 
-      Permission policy for tool execution.
+          Tool calls require user confirmation before execution.
 
-      - `class BetaManagedAgentsAlwaysAllowPolicy`
+          - `type: :always_ask`
 
-        Tool calls are automatically approved without user confirmation.
+            - `:always_ask`
 
-        - `type: :always_allow`
+      - `type: :bash`
 
-          - `:always_allow`
+        - `:bash`
 
-      - `class BetaManagedAgentsAlwaysAskPolicy`
+    - `class BetaManagedAgentsEditToolConfig`
 
-        Tool calls require user confirmation before execution.
+      Configuration for the edit tool.
 
-        - `type: :always_ask`
+      - `enabled: bool`
 
-          - `:always_ask`
+      - `name: :edit`
+
+        - `:edit`
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :edit`
+
+        - `:edit`
+
+    - `class BetaManagedAgentsReadToolConfig`
+
+      Configuration for the read tool.
+
+      - `enabled: bool`
+
+      - `name: :read`
+
+        - `:read`
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :read`
+
+        - `:read`
+
+    - `class BetaManagedAgentsWriteToolConfig`
+
+      Configuration for the write tool.
+
+      - `enabled: bool`
+
+      - `name: :write`
+
+        - `:write`
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :write`
+
+        - `:write`
+
+    - `class BetaManagedAgentsGlobToolConfig`
+
+      Configuration for the glob tool.
+
+      - `enabled: bool`
+
+      - `name: :glob`
+
+        - `:glob`
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :glob`
+
+        - `:glob`
+
+    - `class BetaManagedAgentsGrepToolConfig`
+
+      Configuration for the grep tool.
+
+      - `enabled: bool`
+
+      - `name: :grep`
+
+        - `:grep`
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :grep`
+
+        - `:grep`
+
+    - `class BetaManagedAgentsWebFetchToolConfig`
+
+      Configuration for the web_fetch tool.
+
+      - `enabled: bool`
+
+      - `name: :web_fetch`
+
+        - `:web_fetch`
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :web_fetch`
+
+        - `:web_fetch`
+
+      - `allowed_domains: Array[String]`
+
+      - `blocked_domains: Array[String]`
+
+      - `max_content_tokens: Integer`
+
+    - `class BetaManagedAgentsWebSearchToolConfig`
+
+      Configuration for the web_search tool.
+
+      - `enabled: bool`
+
+      - `name: :web_search`
+
+        - `:web_search`
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :web_search`
+
+        - `:web_search`
+
+      - `allowed_domains: Array[String]`
+
+      - `blocked_domains: Array[String]`
+
+      - `user_location: BetaManagedAgentsUserLocation`
+
+        Approximate user location for search result localization.
+
+        - `type: :approximate`
+
+          Location precision. Only "approximate" is supported.
+
+          - `:approximate`
+
+        - `city: String`
+
+          City name.
+
+        - `country: String`
+
+          Two-letter ISO 3166-1 country code, uppercase.
+
+        - `region: String`
+
+          Region or state name.
+
+        - `timezone: String`
+
+          IANA timezone identifier, e.g. "America/Los_Angeles".
 
   - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -4368,49 +6803,299 @@ puts(beta_managed_agents_agent)
 
     Per-tool configuration overrides.
 
-    - `name: :bash | :edit | :read | 5 more`
+    - `class BetaManagedAgentsBashToolConfigParams`
 
-      Built-in agent tool identifier.
+      Configuration override for the bash tool.
 
-      - `:bash`
+      - `name: :bash`
 
-      - `:edit`
+        Must be "bash".
 
-      - `:read`
+        - `:bash`
 
-      - `:write`
+      - `enabled: bool`
 
-      - `:glob`
+        Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-      - `:grep`
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-      - `:web_fetch`
+        Permission policy for tool execution.
 
-      - `:web_search`
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-    - `enabled: bool`
+          Tool calls are automatically approved without user confirmation.
 
-      Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+          - `type: :always_allow`
 
-    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `:always_allow`
 
-      Permission policy for tool execution.
+        - `class BetaManagedAgentsAlwaysAskPolicy`
 
-      - `class BetaManagedAgentsAlwaysAllowPolicy`
+          Tool calls require user confirmation before execution.
 
-        Tool calls are automatically approved without user confirmation.
+          - `type: :always_ask`
 
-        - `type: :always_allow`
+            - `:always_ask`
 
-          - `:always_allow`
+      - `type: :bash`
 
-      - `class BetaManagedAgentsAlwaysAskPolicy`
+        - `:bash`
 
-        Tool calls require user confirmation before execution.
+    - `class BetaManagedAgentsEditToolConfigParams`
 
-        - `type: :always_ask`
+      Configuration override for the edit tool.
 
-          - `:always_ask`
+      - `name: :edit`
+
+        Must be "edit".
+
+        - `:edit`
+
+      - `enabled: bool`
+
+        Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :edit`
+
+        - `:edit`
+
+    - `class BetaManagedAgentsReadToolConfigParams`
+
+      Configuration override for the read tool.
+
+      - `name: :read`
+
+        Must be "read".
+
+        - `:read`
+
+      - `enabled: bool`
+
+        Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :read`
+
+        - `:read`
+
+    - `class BetaManagedAgentsWriteToolConfigParams`
+
+      Configuration override for the write tool.
+
+      - `name: :write`
+
+        Must be "write".
+
+        - `:write`
+
+      - `enabled: bool`
+
+        Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :write`
+
+        - `:write`
+
+    - `class BetaManagedAgentsGlobToolConfigParams`
+
+      Configuration override for the glob tool.
+
+      - `name: :glob`
+
+        Must be "glob".
+
+        - `:glob`
+
+      - `enabled: bool`
+
+        Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :glob`
+
+        - `:glob`
+
+    - `class BetaManagedAgentsGrepToolConfigParams`
+
+      Configuration override for the grep tool.
+
+      - `name: :grep`
+
+        Must be "grep".
+
+        - `:grep`
+
+      - `enabled: bool`
+
+        Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :grep`
+
+        - `:grep`
+
+    - `class BetaManagedAgentsWebFetchToolConfigParams`
+
+      Configuration override for the web_fetch tool.
+
+      - `name: :web_fetch`
+
+        Must be "web_fetch".
+
+        - `:web_fetch`
+
+      - `allowed_domains: Array[String]`
+
+        Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+      - `blocked_domains: Array[String]`
+
+        Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+      - `enabled: bool`
+
+        Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+      - `max_content_tokens: Integer`
+
+        Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :web_fetch`
+
+        - `:web_fetch`
+
+    - `class BetaManagedAgentsWebSearchToolConfigParams`
+
+      Configuration override for the web_search tool.
+
+      - `name: :web_search`
+
+        Must be "web_search".
+
+        - `:web_search`
+
+      - `allowed_domains: Array[String]`
+
+        Only return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+      - `blocked_domains: Array[String]`
+
+        Never return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+      - `enabled: bool`
+
+        Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+        Permission policy for tool execution.
+
+        - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+          Tool calls are automatically approved without user confirmation.
+
+        - `class BetaManagedAgentsAlwaysAskPolicy`
+
+          Tool calls require user confirmation before execution.
+
+      - `type: :web_search`
+
+        - `:web_search`
+
+      - `user_location: BetaManagedAgentsUserLocation`
+
+        Approximate user location for search result localization.
+
+        - `type: :approximate`
+
+          Location precision. Only "approximate" is supported.
+
+          - `:approximate`
+
+        - `city: String`
+
+          City name.
+
+        - `country: String`
+
+          Two-letter ISO 3166-1 country code, uppercase.
+
+        - `region: String`
+
+          Region or state name.
+
+        - `timezone: String`
+
+          IANA timezone identifier, e.g. "America/Los_Angeles".
 
   - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
@@ -4517,6 +7202,82 @@ puts(beta_managed_agents_agent)
 
     Version to pin. Defaults to latest if omitted.
 
+### Beta Managed Agents Bash Tool Config
+
+- `class BetaManagedAgentsBashToolConfig`
+
+  Configuration for the bash tool.
+
+  - `enabled: bool`
+
+  - `name: :bash`
+
+    - `:bash`
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :bash`
+
+    - `:bash`
+
+### Beta Managed Agents Bash Tool Config Params
+
+- `class BetaManagedAgentsBashToolConfigParams`
+
+  Configuration override for the bash tool.
+
+  - `name: :bash`
+
+    Must be "bash".
+
+    - `:bash`
+
+  - `enabled: bool`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :bash`
+
+    - `:bash`
+
 ### Beta Managed Agents Custom Skill
 
 - `class BetaManagedAgentsCustomSkill`
@@ -4619,6 +7380,82 @@ puts(beta_managed_agents_agent)
 
     - `:custom`
 
+### Beta Managed Agents Edit Tool Config
+
+- `class BetaManagedAgentsEditToolConfig`
+
+  Configuration for the edit tool.
+
+  - `enabled: bool`
+
+  - `name: :edit`
+
+    - `:edit`
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :edit`
+
+    - `:edit`
+
+### Beta Managed Agents Edit Tool Config Params
+
+- `class BetaManagedAgentsEditToolConfigParams`
+
+  Configuration override for the edit tool.
+
+  - `name: :edit`
+
+    Must be "edit".
+
+    - `:edit`
+
+  - `enabled: bool`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :edit`
+
+    - `:edit`
+
 ### Beta Managed Agents Effort High
 
 - `class BetaManagedAgentsEffortHigh`
@@ -4668,6 +7505,158 @@ puts(beta_managed_agents_agent)
   - `type: :xhigh`
 
     - `:xhigh`
+
+### Beta Managed Agents Glob Tool Config
+
+- `class BetaManagedAgentsGlobToolConfig`
+
+  Configuration for the glob tool.
+
+  - `enabled: bool`
+
+  - `name: :glob`
+
+    - `:glob`
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :glob`
+
+    - `:glob`
+
+### Beta Managed Agents Glob Tool Config Params
+
+- `class BetaManagedAgentsGlobToolConfigParams`
+
+  Configuration override for the glob tool.
+
+  - `name: :glob`
+
+    Must be "glob".
+
+    - `:glob`
+
+  - `enabled: bool`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :glob`
+
+    - `:glob`
+
+### Beta Managed Agents Grep Tool Config
+
+- `class BetaManagedAgentsGrepToolConfig`
+
+  Configuration for the grep tool.
+
+  - `enabled: bool`
+
+  - `name: :grep`
+
+    - `:grep`
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :grep`
+
+    - `:grep`
+
+### Beta Managed Agents Grep Tool Config Params
+
+- `class BetaManagedAgentsGrepToolConfigParams`
+
+  Configuration override for the grep tool.
+
+  - `name: :grep`
+
+    Must be "grep".
+
+    - `:grep`
+
+  - `enabled: bool`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :grep`
+
+    - `:grep`
 
 ### Beta Managed Agents MCP Server URL Definition
 
@@ -5363,6 +8352,82 @@ puts(beta_managed_agents_agent)
 
     - `:self`
 
+### Beta Managed Agents Read Tool Config
+
+- `class BetaManagedAgentsReadToolConfig`
+
+  Configuration for the read tool.
+
+  - `enabled: bool`
+
+  - `name: :read`
+
+    - `:read`
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :read`
+
+    - `:read`
+
+### Beta Managed Agents Read Tool Config Params
+
+- `class BetaManagedAgentsReadToolConfigParams`
+
+  Configuration override for the read tool.
+
+  - `name: :read`
+
+    Must be "read".
+
+    - `:read`
+
+  - `enabled: bool`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :read`
+
+    - `:read`
+
 ### Beta Managed Agents Session Thread Agent
 
 - `class BetaManagedAgentsSessionThreadAgent`
@@ -5545,47 +8610,257 @@ puts(beta_managed_agents_agent)
 
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-        - `enabled: bool`
+        - `class BetaManagedAgentsBashToolConfig`
 
-        - `name: :bash | :edit | :read | 5 more`
+          Configuration for the bash tool.
 
-          Built-in agent tool identifier.
+          - `enabled: bool`
 
-          - `:bash`
+          - `name: :bash`
 
-          - `:edit`
+            - `:bash`
 
-          - `:read`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-          - `:write`
+            Permission policy for tool execution.
 
-          - `:glob`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-          - `:grep`
+              Tool calls are automatically approved without user confirmation.
 
-          - `:web_fetch`
+              - `type: :always_allow`
 
-          - `:web_search`
+                - `:always_allow`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
-          Permission policy for tool execution.
+              Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy`
+              - `type: :always_ask`
 
-            Tool calls are automatically approved without user confirmation.
+                - `:always_ask`
 
-            - `type: :always_allow`
+          - `type: :bash`
 
-              - `:always_allow`
+            - `:bash`
 
-          - `class BetaManagedAgentsAlwaysAskPolicy`
+        - `class BetaManagedAgentsEditToolConfig`
 
-            Tool calls require user confirmation before execution.
+          Configuration for the edit tool.
 
-            - `type: :always_ask`
+          - `enabled: bool`
 
-              - `:always_ask`
+          - `name: :edit`
+
+            - `:edit`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :edit`
+
+            - `:edit`
+
+        - `class BetaManagedAgentsReadToolConfig`
+
+          Configuration for the read tool.
+
+          - `enabled: bool`
+
+          - `name: :read`
+
+            - `:read`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :read`
+
+            - `:read`
+
+        - `class BetaManagedAgentsWriteToolConfig`
+
+          Configuration for the write tool.
+
+          - `enabled: bool`
+
+          - `name: :write`
+
+            - `:write`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :write`
+
+            - `:write`
+
+        - `class BetaManagedAgentsGlobToolConfig`
+
+          Configuration for the glob tool.
+
+          - `enabled: bool`
+
+          - `name: :glob`
+
+            - `:glob`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :glob`
+
+            - `:glob`
+
+        - `class BetaManagedAgentsGrepToolConfig`
+
+          Configuration for the grep tool.
+
+          - `enabled: bool`
+
+          - `name: :grep`
+
+            - `:grep`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :grep`
+
+            - `:grep`
+
+        - `class BetaManagedAgentsWebFetchToolConfig`
+
+          Configuration for the web_fetch tool.
+
+          - `enabled: bool`
+
+          - `name: :web_fetch`
+
+            - `:web_fetch`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_fetch`
+
+            - `:web_fetch`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `max_content_tokens: Integer`
+
+        - `class BetaManagedAgentsWebSearchToolConfig`
+
+          Configuration for the web_search tool.
+
+          - `enabled: bool`
+
+          - `name: :web_search`
+
+            - `:web_search`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_search`
+
+            - `:web_search`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `user_location: BetaManagedAgentsUserLocation`
+
+            Approximate user location for search result localization.
+
+            - `type: :approximate`
+
+              Location precision. Only "approximate" is supported.
+
+              - `:approximate`
+
+            - `city: String`
+
+              City name.
+
+            - `country: String`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `region: String`
+
+              Region or state name.
+
+            - `timezone: String`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -5738,6 +9013,344 @@ puts(beta_managed_agents_agent)
   - `url: String`
 
     Endpoint URL for the MCP server.
+
+### Beta Managed Agents User Location
+
+- `class BetaManagedAgentsUserLocation`
+
+  Approximate user location for search result localization.
+
+  - `type: :approximate`
+
+    Location precision. Only "approximate" is supported.
+
+    - `:approximate`
+
+  - `city: String`
+
+    City name.
+
+  - `country: String`
+
+    Two-letter ISO 3166-1 country code, uppercase.
+
+  - `region: String`
+
+    Region or state name.
+
+  - `timezone: String`
+
+    IANA timezone identifier, e.g. "America/Los_Angeles".
+
+### Beta Managed Agents Web Fetch Tool Config
+
+- `class BetaManagedAgentsWebFetchToolConfig`
+
+  Configuration for the web_fetch tool.
+
+  - `enabled: bool`
+
+  - `name: :web_fetch`
+
+    - `:web_fetch`
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :web_fetch`
+
+    - `:web_fetch`
+
+  - `allowed_domains: Array[String]`
+
+  - `blocked_domains: Array[String]`
+
+  - `max_content_tokens: Integer`
+
+### Beta Managed Agents Web Fetch Tool Config Params
+
+- `class BetaManagedAgentsWebFetchToolConfigParams`
+
+  Configuration override for the web_fetch tool.
+
+  - `name: :web_fetch`
+
+    Must be "web_fetch".
+
+    - `:web_fetch`
+
+  - `allowed_domains: Array[String]`
+
+    Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+  - `blocked_domains: Array[String]`
+
+    Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+  - `enabled: bool`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `max_content_tokens: Integer`
+
+    Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :web_fetch`
+
+    - `:web_fetch`
+
+### Beta Managed Agents Web Search Tool Config
+
+- `class BetaManagedAgentsWebSearchToolConfig`
+
+  Configuration for the web_search tool.
+
+  - `enabled: bool`
+
+  - `name: :web_search`
+
+    - `:web_search`
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :web_search`
+
+    - `:web_search`
+
+  - `allowed_domains: Array[String]`
+
+  - `blocked_domains: Array[String]`
+
+  - `user_location: BetaManagedAgentsUserLocation`
+
+    Approximate user location for search result localization.
+
+    - `type: :approximate`
+
+      Location precision. Only "approximate" is supported.
+
+      - `:approximate`
+
+    - `city: String`
+
+      City name.
+
+    - `country: String`
+
+      Two-letter ISO 3166-1 country code, uppercase.
+
+    - `region: String`
+
+      Region or state name.
+
+    - `timezone: String`
+
+      IANA timezone identifier, e.g. "America/Los_Angeles".
+
+### Beta Managed Agents Web Search Tool Config Params
+
+- `class BetaManagedAgentsWebSearchToolConfigParams`
+
+  Configuration override for the web_search tool.
+
+  - `name: :web_search`
+
+    Must be "web_search".
+
+    - `:web_search`
+
+  - `allowed_domains: Array[String]`
+
+    Only return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+  - `blocked_domains: Array[String]`
+
+    Never return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+  - `enabled: bool`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :web_search`
+
+    - `:web_search`
+
+  - `user_location: BetaManagedAgentsUserLocation`
+
+    Approximate user location for search result localization.
+
+    - `type: :approximate`
+
+      Location precision. Only "approximate" is supported.
+
+      - `:approximate`
+
+    - `city: String`
+
+      City name.
+
+    - `country: String`
+
+      Two-letter ISO 3166-1 country code, uppercase.
+
+    - `region: String`
+
+      Region or state name.
+
+    - `timezone: String`
+
+      IANA timezone identifier, e.g. "America/Los_Angeles".
+
+### Beta Managed Agents Write Tool Config
+
+- `class BetaManagedAgentsWriteToolConfig`
+
+  Configuration for the write tool.
+
+  - `enabled: bool`
+
+  - `name: :write`
+
+    - `:write`
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :write`
+
+    - `:write`
+
+### Beta Managed Agents Write Tool Config Params
+
+- `class BetaManagedAgentsWriteToolConfigParams`
+
+  Configuration override for the write tool.
+
+  - `name: :write`
+
+    Must be "write".
+
+    - `:write`
+
+  - `enabled: bool`
+
+    Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+    Permission policy for tool execution.
+
+    - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+      Tool calls are automatically approved without user confirmation.
+
+      - `type: :always_allow`
+
+        - `:always_allow`
+
+    - `class BetaManagedAgentsAlwaysAskPolicy`
+
+      Tool calls require user confirmation before execution.
+
+      - `type: :always_ask`
+
+        - `:always_ask`
+
+  - `type: :write`
+
+    - `:write`
 
 # Versions
 
@@ -6065,47 +9678,257 @@ List Agent Versions
 
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
-        - `enabled: bool`
+        - `class BetaManagedAgentsBashToolConfig`
 
-        - `name: :bash | :edit | :read | 5 more`
+          Configuration for the bash tool.
 
-          Built-in agent tool identifier.
+          - `enabled: bool`
 
-          - `:bash`
+          - `name: :bash`
 
-          - `:edit`
+            - `:bash`
 
-          - `:read`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
-          - `:write`
+            Permission policy for tool execution.
 
-          - `:glob`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
-          - `:grep`
+              Tool calls are automatically approved without user confirmation.
 
-          - `:web_fetch`
+              - `type: :always_allow`
 
-          - `:web_search`
+                - `:always_allow`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
-          Permission policy for tool execution.
+              Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy`
+              - `type: :always_ask`
 
-            Tool calls are automatically approved without user confirmation.
+                - `:always_ask`
 
-            - `type: :always_allow`
+          - `type: :bash`
 
-              - `:always_allow`
+            - `:bash`
 
-          - `class BetaManagedAgentsAlwaysAskPolicy`
+        - `class BetaManagedAgentsEditToolConfig`
 
-            Tool calls require user confirmation before execution.
+          Configuration for the edit tool.
 
-            - `type: :always_ask`
+          - `enabled: bool`
 
-              - `:always_ask`
+          - `name: :edit`
+
+            - `:edit`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :edit`
+
+            - `:edit`
+
+        - `class BetaManagedAgentsReadToolConfig`
+
+          Configuration for the read tool.
+
+          - `enabled: bool`
+
+          - `name: :read`
+
+            - `:read`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :read`
+
+            - `:read`
+
+        - `class BetaManagedAgentsWriteToolConfig`
+
+          Configuration for the write tool.
+
+          - `enabled: bool`
+
+          - `name: :write`
+
+            - `:write`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :write`
+
+            - `:write`
+
+        - `class BetaManagedAgentsGlobToolConfig`
+
+          Configuration for the glob tool.
+
+          - `enabled: bool`
+
+          - `name: :glob`
+
+            - `:glob`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :glob`
+
+            - `:glob`
+
+        - `class BetaManagedAgentsGrepToolConfig`
+
+          Configuration for the grep tool.
+
+          - `enabled: bool`
+
+          - `name: :grep`
+
+            - `:grep`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :grep`
+
+            - `:grep`
+
+        - `class BetaManagedAgentsWebFetchToolConfig`
+
+          Configuration for the web_fetch tool.
+
+          - `enabled: bool`
+
+          - `name: :web_fetch`
+
+            - `:web_fetch`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_fetch`
+
+            - `:web_fetch`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `max_content_tokens: Integer`
+
+        - `class BetaManagedAgentsWebSearchToolConfig`
+
+          Configuration for the web_search tool.
+
+          - `enabled: bool`
+
+          - `name: :web_search`
+
+            - `:web_search`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: :web_search`
+
+            - `:web_search`
+
+          - `allowed_domains: Array[String]`
+
+          - `blocked_domains: Array[String]`
+
+          - `user_location: BetaManagedAgentsUserLocation`
+
+            Approximate user location for search result localization.
+
+            - `type: :approximate`
+
+              Location precision. Only "approximate" is supported.
+
+              - `:approximate`
+
+            - `city: String`
+
+              City name.
+
+            - `country: String`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `region: String`
+
+              Region or state name.
+
+            - `timezone: String`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -6281,7 +10104,8 @@ puts(page)
               "name": "bash",
               "permission_policy": {
                 "type": "always_allow"
-              }
+              },
+              "type": "bash"
             }
           ],
           "default_config": {

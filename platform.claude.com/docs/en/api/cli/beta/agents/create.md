@@ -275,47 +275,223 @@ Create Agent
 
       - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-        - `enabled: boolean`
+        - `beta_managed_agents_bash_tool_config: object { enabled, name, permission_policy, type }`
 
-        - `name: "bash" or "edit" or "read" or 5 more`
+          Configuration for the bash tool.
 
-          Built-in agent tool identifier.
+          - `enabled: boolean`
 
-          - `"bash"`
+          - `name: "bash"`
 
-          - `"edit"`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-          - `"read"`
+            Permission policy for tool execution.
 
-          - `"write"`
+            - `beta_managed_agents_always_allow_policy: object { type }`
 
-          - `"glob"`
+              Tool calls are automatically approved without user confirmation.
 
-          - `"grep"`
+              - `type: "always_allow"`
 
-          - `"web_fetch"`
+                - `"always_allow"`
 
-          - `"web_search"`
+            - `beta_managed_agents_always_ask_policy: object { type }`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              Tool calls require user confirmation before execution.
 
-          Permission policy for tool execution.
+              - `type: "always_ask"`
 
-          - `beta_managed_agents_always_allow_policy: object { type }`
+                - `"always_ask"`
 
-            Tool calls are automatically approved without user confirmation.
+          - `type: "bash"`
 
-            - `type: "always_allow"`
+        - `beta_managed_agents_edit_tool_config: object { enabled, name, permission_policy, type }`
 
-              - `"always_allow"`
+          Configuration for the edit tool.
 
-          - `beta_managed_agents_always_ask_policy: object { type }`
+          - `enabled: boolean`
 
-            Tool calls require user confirmation before execution.
+          - `name: "edit"`
 
-            - `type: "always_ask"`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
-              - `"always_ask"`
+            Permission policy for tool execution.
+
+            - `beta_managed_agents_always_allow_policy: object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `beta_managed_agents_always_ask_policy: object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: "edit"`
+
+        - `beta_managed_agents_read_tool_config: object { enabled, name, permission_policy, type }`
+
+          Configuration for the read tool.
+
+          - `enabled: boolean`
+
+          - `name: "read"`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `beta_managed_agents_always_allow_policy: object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `beta_managed_agents_always_ask_policy: object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: "read"`
+
+        - `beta_managed_agents_write_tool_config: object { enabled, name, permission_policy, type }`
+
+          Configuration for the write tool.
+
+          - `enabled: boolean`
+
+          - `name: "write"`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `beta_managed_agents_always_allow_policy: object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `beta_managed_agents_always_ask_policy: object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: "write"`
+
+        - `beta_managed_agents_glob_tool_config: object { enabled, name, permission_policy, type }`
+
+          Configuration for the glob tool.
+
+          - `enabled: boolean`
+
+          - `name: "glob"`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `beta_managed_agents_always_allow_policy: object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `beta_managed_agents_always_ask_policy: object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: "glob"`
+
+        - `beta_managed_agents_grep_tool_config: object { enabled, name, permission_policy, type }`
+
+          Configuration for the grep tool.
+
+          - `enabled: boolean`
+
+          - `name: "grep"`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `beta_managed_agents_always_allow_policy: object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `beta_managed_agents_always_ask_policy: object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: "grep"`
+
+        - `beta_managed_agents_web_fetch_tool_config: object { enabled, name, permission_policy, 4 more }`
+
+          Configuration for the web_fetch tool.
+
+          - `enabled: boolean`
+
+          - `name: "web_fetch"`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `beta_managed_agents_always_allow_policy: object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `beta_managed_agents_always_ask_policy: object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: "web_fetch"`
+
+          - `allowed_domains: optional array of string`
+
+          - `blocked_domains: optional array of string`
+
+          - `max_content_tokens: optional number`
+
+        - `beta_managed_agents_web_search_tool_config: object { enabled, name, permission_policy, 4 more }`
+
+          Configuration for the web_search tool.
+
+          - `enabled: boolean`
+
+          - `name: "web_search"`
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `beta_managed_agents_always_allow_policy: object { type }`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `beta_managed_agents_always_ask_policy: object { type }`
+
+              Tool calls require user confirmation before execution.
+
+          - `type: "web_search"`
+
+          - `allowed_domains: optional array of string`
+
+          - `blocked_domains: optional array of string`
+
+          - `user_location: optional object { type, city, country, 2 more }`
+
+            Approximate user location for search result localization.
+
+            - `type: "approximate"`
+
+              Location precision. Only "approximate" is supported.
+
+            - `city: optional string`
+
+              City name.
+
+            - `country: optional string`
+
+              Two-letter ISO 3166-1 country code, uppercase.
+
+            - `region: optional string`
+
+              Region or state name.
+
+            - `timezone: optional string`
+
+              IANA timezone identifier, e.g. "America/Los_Angeles".
 
       - `default_config: object { enabled, permission_policy }`
 
@@ -484,7 +660,8 @@ ant beta:agents create \
           "name": "bash",
           "permission_policy": {
             "type": "always_allow"
-          }
+          },
+          "type": "bash"
         }
       ],
       "default_config": {

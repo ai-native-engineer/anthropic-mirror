@@ -2,6 +2,8 @@
 <!-- part of: https://platform.claude.com/docs/en/api/cli/beta/messages -->
 
 <!-- chunk-start -->
+
+            The retry is sent either with the same request body (`system`, `messages`,
             `tools`, and other render-shaping fields), or with the same body plus one
             appended `assistant` message whose content is the partial text (with any
             trailing whitespace stripped from the final text block) and paired
@@ -765,7 +767,7 @@
 
           - `version: string`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `content: array of BetaContentBlock`
 
@@ -2521,7 +2523,7 @@
 
         - `version: string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: array of BetaContentBlock`
 

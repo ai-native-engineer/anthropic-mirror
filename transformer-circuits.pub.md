@@ -8,6 +8,12 @@ The Interpretability team strives to change that — to understand these models 
 future of
 safe AI.
 
+August 2026
+
+[### Characterizing interference weights in a tiny language model
+
+We identify interference weights in a 1-layer transformer by measuring their effect on model outputs and loss.](https://transformer-circuits.pub/2026/interference_effectiveness_helpfulness/index.html)
+
 July 2026
 
 [![](https://transformer-circuits.pub/images/workspace.png)

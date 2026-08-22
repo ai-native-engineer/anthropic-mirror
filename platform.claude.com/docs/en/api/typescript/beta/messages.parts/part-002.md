@@ -2,6 +2,7 @@
 <!-- part of: https://platform.claude.com/docs/en/api/typescript/beta/messages -->
 
 <!-- chunk-start -->
+                        `tabs` entry, which must include the same `tab_id`. A tab opened
                         during a failed call gets no deferred `tab_opened`; it simply appears
                         in the next result's `tabs` inventory.
 
@@ -4518,7 +4519,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `version: string`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `content: Array<BetaContentBlock>`
 
@@ -6412,7 +6413,7 @@ console.log(betaMessageBatchIndividualResponse.custom_id);
 
             - `version: string`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `content: Array<BetaContentBlock>`
 
@@ -8098,7 +8099,7 @@ console.log(betaMessageBatchIndividualResponse.custom_id);
 
           - `version: string`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `content: Array<BetaContentBlock>`
 
@@ -9746,7 +9747,7 @@ console.log(betaMessageBatchIndividualResponse.custom_id);
 
         - `version: string`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: Array<BetaContentBlock>`
 

@@ -23,3 +23,5 @@ Anthropic and Amazon are both committed to the safe training and deployment of a
 As part of the investment, Amazon will take a minority stake in Anthropic. Our corporate governance structure remains unchanged, with the [Long Term Benefit Trust](https://www.anthropic.com/news/the-long-term-benefit-trust) continuing to guide Anthropic in accordance with our [Responsible Scaling Policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy). As outlined in this policy, we will conduct pre-deployment tests of new models to help us manage the risks of increasingly capable AI systems.
 
 Training state-of-the-art models requires extensive resources including compute power and research programs. Amazon’s investment and supply of AWS Trainium and Inferentia technology will ensure we’re equipped to continue advancing the frontier of AI safety and research. We look forward to working closely with Amazon to responsibly scale adoption of Claude and deliver safe AI cloud technologies to organizations around the world.
+
+Expanding access to safer AI with Amazon \ Anthropic

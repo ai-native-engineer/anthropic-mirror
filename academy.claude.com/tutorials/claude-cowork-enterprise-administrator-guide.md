@@ -53,7 +53,7 @@ Verify your fleet and network can support it — endpoint and network issues are
 
 #### Start your security review
 
-* Assemble your review packet from the [Anthropic Trust Center(opens in new tab)](https://trust.anthropic.com) and the [Use Claude Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135) article. This can run in parallel with the rest of Phase 1. Note that the Compliance API and Audit Logs do not cover Claude Cowork yet.
+* Assemble your review packet from the [Anthropic Trust Center(opens in new tab)](https://trust.anthropic.com) and the [Use Claude Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135) article. This can run in parallel with the rest of Phase 1. Note that Audit Logs do not cover Claude Cowork yet. The Compliance API returns Claude Cowork session transcripts, in beta for Claude Enterprise organizations.
 
 ### Identity & Access
 

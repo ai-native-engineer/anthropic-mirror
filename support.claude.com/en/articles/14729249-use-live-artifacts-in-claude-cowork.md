@@ -109,7 +109,7 @@ How sharing works:
 * **Live artifacts use your connectors without asking.** Live artifacts can only use the connectors you approved during creation or update. However, artifacts don't ask for permission before using connectors, even if your session mode would normally require approval. Use care when creating live artifacts that use connectors that can make changes to your data.
 
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
+* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
 * [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
 * [Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)
-* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

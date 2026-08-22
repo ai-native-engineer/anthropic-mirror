@@ -5063,7 +5063,7 @@ var_dump($betaMessageTokensCount);
 
   - `string version`
 
-    Skill version or 'latest' for most recent version
+    The resolved version: a skill version ID for custom skills.
 
 ### Beta Skill Params
 

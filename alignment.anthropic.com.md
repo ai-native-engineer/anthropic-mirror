@@ -6,6 +6,10 @@
 
 August 2026
 
+[### Would This Change Your Answer? Evaluating Explanations of LLM Behavior in the Wild with Counterfactual Experiments
+
+We evaluate whether interpretability tools are useful for predicting counterfactual behaviors under
+prompt edits.](https://alignment.anthropic.com/2026/chive/)
 [### Introducing the Conceptual Reasoning Index
 
 We design benchmarks to measure models' capabilities to reason about questions whose answers are

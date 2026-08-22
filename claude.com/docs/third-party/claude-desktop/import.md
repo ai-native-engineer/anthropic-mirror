@@ -13,6 +13,7 @@ Each import is a one-time copy. New activity on claude.ai after you import does 
 
 ##  Before you start
 
+* Your administrator has turned import on by setting [`claudeAiImport`](https://claude.com/docs/third-party/claude-desktop/configuration#claudeaiimport) with `enabled` set to `true` in the managed configuration. Import is off by default; until then, **Settings → Import & export** reports that import isn’t enabled for this deployment.
 * Claude Desktop is installed and running in third-party mode. See [Installation and setup](https://claude.com/docs/third-party/claude-desktop/installation).
 * To bring history over from a claude.ai Team or Enterprise workspace, an owner of that workspace has enabled member data export (next section). Personal claude.ai accounts can always export.
 
@@ -108,6 +109,10 @@ Open any imported conversation from the sidebar and keep chatting. The first tim
 ![An imported conversation open in Cowork with a yellow Resume imported session card offering Go back and Trust and resume buttons.](https://mintcdn.com/claude-ai/HpR2FaaZXZXkiUcV/images/third-party/import/import-trust-resume.png?fit=max&auto=format&n=HpR2FaaZXZXkiUcV&q=85&s=806d0d2018d7fc0f10afb71035b1f807)
 
 The trust prompt shown the first time you resume an imported session.
+
+##  Export sessions to move them to another device
+
+When your administrator also sets `exportEnabled` to `true` under `claudeAiImport`, **Settings → Import & export** offers **Export…**, which writes this computer’s chats, Cowork tasks, and Code sessions (not terminal Claude Code sessions) to a zip file. On the other device, open the import wizard and select that zip with **Choose file…**; the wizard lists its sessions in the [Cowork & Code step](#step-2-local-cowork-and-code-sessions). The export is a one-time snapshot, not a sync, and the zip contains full conversation content, so handle it as sensitive data.
 
 ##  What is and isn’t included
 

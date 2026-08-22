@@ -3700,7 +3700,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Version string`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `Content []BetaContentBlockUnion`
 

@@ -6,10 +6,16 @@
 
 * Category
 
-  No items found.
+  [Agents](https://claude.com/blog/category/agents)
+
+  [Enterprise AI](https://claude.com/blog/category/enterprise-ai)
+
+  [Product announcements](https://claude.com/blog/category/announcements)
+
+  [Claude Code](https://claude.com/blog/category/claude-code)
 * Product
 
-  No items found.
+  [Claude Tag](https://claude.com/product/tag)
 * Date
 
   August 13, 2026
@@ -1077,7 +1083,53 @@ Add Claude to Slack
 
 Explore more product news and best practices for teams building with Claude.
 
-No items found.
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+Aug 21, 2026
+
+### Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+Product announcements
+
+[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](#)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Jul 24, 2026
+
+### The new rules of context engineering for Claude 5 generation models
+
+Claude Code
+
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
+
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Aug 21, 2026
+
+### The AI-Native SDLC playbook
+
+Enterprise AI
+
+[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+
+[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Aug 20, 2026
+
+### How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+Agents
+
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](#)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
+
+[How monday.com transformed its platform into an agent-first product where humans and agents collaborate](https://claude.com/blog/how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
 
 ## Transform how your organization operates with Claude
 
@@ -1096,3 +1148,5 @@ Product updates, how-tos, community spotlights, and more. Delivered monthly to y
 Thank you! You’re subscribed.
 
 Sorry, there was a problem with your submission, please try again later.
+
+Claude Tag

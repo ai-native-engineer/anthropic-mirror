@@ -119,3 +119,5 @@ Here, we identify a few examples of behavioral tendencies in current frontier mo
 We're sharing a review of the evidence on worker retraining programs, coauthored by independent researcher David Roodman and Anthropic's Maxim Massenkoff.
 
 [Read more](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)
+
+India Country Brief: The Anthropic Economic Index \ Anthropic

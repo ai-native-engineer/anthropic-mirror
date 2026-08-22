@@ -3,6 +3,8 @@
 
 <!-- chunk-start -->
 
+                    - `class BetaFileImageSource:`
+
                       - `String fileId`
 
                       - `JsonValue; type "file"constant`
@@ -5912,7 +5914,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `String version`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `List<BetaContentBlock> content`
 
@@ -7808,7 +7810,7 @@ public final class Main {
 
             - `String version`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `List<BetaContentBlock> content`
 
@@ -9490,7 +9492,7 @@ public final class Main {
 
           - `String version`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `List<BetaContentBlock> content`
 
@@ -11134,7 +11136,7 @@ public final class Main {
 
         - `String version`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `List<BetaContentBlock> content`
 

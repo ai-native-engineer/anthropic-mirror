@@ -158,6 +158,14 @@ Staff Product Manager for AI, Box
 
 ## Related stories
 
+[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
+
+How Notion ships and scales agents with Claude Managed Agents
+
+Customer story
+
+[Customer story](https://claude.com/customers/notion-qa)Customer story
+
 [Deepgram ships 4–10x more durable code with Claude](https://claude.com/customers/deepgram) Deepgram ships 4–10x more durable code with Claude
 
 Deepgram ships 4–10x more durable code with Claude
@@ -181,11 +189,3 @@ Office Hours: Asynchronous coding and the end of the IDE with Spotify
 Customer story
 
 [Customer story](https://claude.com/customers/spotify-boris-office-hours)Customer story
-
-[Office Hours: Building for the model that doesn't exist yet](https://claude.com/customers/ramp-boris-office-hours)Office Hours: Building for the model that doesn't exist yet
-
-Office Hours: Building for the model that doesn't exist yet
-
-Customer story
-
-[Customer story](https://claude.com/customers/ramp-boris-office-hours)Customer story

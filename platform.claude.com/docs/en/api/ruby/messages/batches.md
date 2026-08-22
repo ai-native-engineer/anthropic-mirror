@@ -3756,7 +3756,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `version: String`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `content: Array[ContentBlock]`
 
@@ -5075,7 +5075,7 @@ puts(message_batch_individual_response)
 
             - `version: String`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `content: Array[ContentBlock]`
 
@@ -6190,7 +6190,7 @@ puts(message_batch_individual_response)
 
           - `version: String`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `content: Array[ContentBlock]`
 
@@ -7267,7 +7267,7 @@ puts(message_batch_individual_response)
 
         - `version: String`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: Array[ContentBlock]`
 

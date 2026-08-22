@@ -3075,7 +3075,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `version: String`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `content: Array[ContentBlock]`
 
@@ -10696,7 +10696,7 @@ puts(message_tokens_count)
 
     - `version: String`
 
-      Skill version or 'latest' for most recent version
+      The resolved version: a skill version ID for custom skills.
 
 ### Container Params
 
@@ -10748,7 +10748,7 @@ puts(message_tokens_count)
 
   - `version: String`
 
-    Skill version or 'latest' for most recent version
+    The resolved version: a skill version ID for custom skills.
 
 ### Container Upload Block
 
@@ -13460,7 +13460,7 @@ puts(message_tokens_count)
 
       - `version: String`
 
-        Skill version or 'latest' for most recent version
+        The resolved version: a skill version ID for custom skills.
 
   - `content: Array[ContentBlock]`
 
@@ -18250,7 +18250,7 @@ puts(message_tokens_count)
 
         - `version: String`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `stop_details: RefusalStopDetails`
 
@@ -18414,7 +18414,7 @@ puts(message_tokens_count)
 
         - `version: String`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: Array[ContentBlock]`
 
@@ -19401,7 +19401,7 @@ puts(message_tokens_count)
 
           - `version: String`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `content: Array[ContentBlock]`
 
@@ -30672,7 +30672,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `version: String`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `content: Array[ContentBlock]`
 
@@ -31991,7 +31991,7 @@ puts(message_batch_individual_response)
 
             - `version: String`
 
-              Skill version or 'latest' for most recent version
+              The resolved version: a skill version ID for custom skills.
 
         - `content: Array[ContentBlock]`
 
@@ -33106,7 +33106,7 @@ puts(message_batch_individual_response)
 
           - `version: String`
 
-            Skill version or 'latest' for most recent version
+            The resolved version: a skill version ID for custom skills.
 
       - `content: Array[ContentBlock]`
 
@@ -34183,7 +34183,7 @@ puts(message_batch_individual_response)
 
         - `version: String`
 
-          Skill version or 'latest' for most recent version
+          The resolved version: a skill version ID for custom skills.
 
     - `content: Array[ContentBlock]`
 

@@ -156,6 +156,38 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+Aug 21, 2026
+
+Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+Product announcements
+
+Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+August 21, 2026
+
+[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](#)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Aug 21, 2026
+
+The AI-Native SDLC playbook
+
+Enterprise AI
+
+The AI-Native SDLC playbook
+
+August 21, 2026
+
+[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+
+[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
 
 Aug 20, 2026
@@ -290,6 +322,8 @@ Aug 13, 2026
 
 Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
+Agents
+
 Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
 August 13, 2026
@@ -362,38 +396,6 @@ August 11, 2026
 
 [Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225588ad176f7c4aafd_abc884c723daea810d2e986455358281a2f94102-1000x1000.svg)
-
-Aug 7, 2026
-
-How Anthropic's business development team uses Claude to run inbound and outbound at scale
-
-Enterprise AI
-
-How Anthropic's business development team uses Claude to run inbound and outbound at scale
-
-August 7, 2026
-
-[How Anthropic's business development team uses Claude to run inbound and outbound at scale](https://claude.com/blog/how-anthropics-business-development-team-uses-claude-to-run-inbound-and-outbound-at-scale)How Anthropic's business development team uses Claude to run inbound and outbound at scale
-
-[How Anthropic's business development team uses Claude to run inbound and outbound at scale](#)How Anthropic's business development team uses Claude to run inbound and outbound at scale
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
-
-Aug 7, 2026
-
-Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-Claude Code
-
-Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-August 7, 2026
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
 [View more](https://claude.com/blog?b7eea976_page=2)
 
 1 / 15
@@ -403,6 +405,38 @@ Category
 Product
 
 Usecase
+
+### Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 21, 2026
+
+[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](#)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
+
+### The AI-Native SDLC playbook
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 21, 2026
+
+[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+
+[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
 
 ### Anthropic’s approach to teaching and learning AI
 
@@ -536,7 +570,7 @@ August 14, 2026
 
 Category
 
-No items found.
+Agents
 
 Product
 
@@ -612,38 +646,6 @@ August 11, 2026
 
 [Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
 
-### How Anthropic's business development team uses Claude to run inbound and outbound at scale
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 7, 2026
-
-[How Anthropic's business development team uses Claude to run inbound and outbound at scale](https://claude.com/blog/how-anthropics-business-development-team-uses-claude-to-run-inbound-and-outbound-at-scale)How Anthropic's business development team uses Claude to run inbound and outbound at scale
-
-[How Anthropic's business development team uses Claude to run inbound and outbound at scale](#)How Anthropic's business development team uses Claude to run inbound and outbound at scale
-
-### Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-August 7, 2026
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](https://claude.com/blog/auto-mode-default-in-claude-code)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
-[Auto mode is now the default in Claude Code for Pro, Max, and Team plans](#)Auto mode is now the default in Claude Code for Pro, Max, and Team plans
-
 [View more](https://claude.com/blog?d7430fcd_page=2)
 
 1 / 15
@@ -662,18 +664,17 @@ Webinar
 
 Link
 
-## Building trusted
-AI in the enterprise
+## The AI-Native SDLC playbook
 
-Anthropic’s guide to starting, scaling, and succeeding based on real-world examples and best practices
+How to transform your software development lifecycle with AI—stage by stage.
 
-Download now
+Read more
 
-[Download now](https://assets.anthropic.com/m/66daaa23018ab0fd/original/Anthropic-enterprise-ebook-digital.pdf)Download now
+[Read more](https://claude.com/blog/the-ai-native-sdlc-playbook)Read more
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e9140968560c6fe367e267_Hand-City-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e9140d1a23dfc2e7405210_Hand-City-dark.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a887fb7499f6c70801d5e42_illo-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a887fc0af0379f689797a01_illo-dark.svg)
 
 Thank you! Your submission has been received!
 

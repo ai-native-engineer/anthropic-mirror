@@ -91,7 +91,7 @@ Outlook, OneDrive, SharePoint, and Teams. Requires registering an app in your En
 ##  Plugin marketplaces (admin)
 
 A **plugin marketplace** is a catalog file (`marketplace.json`) that lists one or more Claude plugins. You host it either as a git repository or as a plain file over HTTPS. Claude Desktop fetches it on each device, shows the plugins under **Settings → Plugins → Organization** in both **Cowork** and [**Code**](https://claude.com/docs/third-party/claude-desktop/code), and keeps them in sync with the revision you pin. You control which plugins are available, which install automatically, and which are required.
-This is the recommended way to distribute organization plugins. Use the [system-wide directory](#organization-plugins-admin) path instead when end-user devices cannot reach a git server or an HTTPS file host.
+This is the recommended way to distribute organization plugins. For a git-hosted marketplace, Claude Desktop clones with the git already installed on each device, so include git in your device baseline (Git for Windows on Windows; the Xcode Command Line Tools provide it on macOS); devices without git can use a [marketplace hosted over HTTPS](#host-the-marketplace-over-https-instead-of-git) instead. Use the [system-wide directory](#organization-plugins-admin) path when end-user devices cannot reach a git server or an HTTPS file host.
 
 Plugin marketplaces are in beta and require Claude Desktop 1.17377.1 or later.
 
