@@ -46,7 +46,10 @@ STATE_FILE = ".anthropic-mirror-state.json"
 # Playwright driver가 응답을 멈추면 goto 밖의 await(wait_for_selector, evaluate, click)도 같이 멈춘다.
 # await마다 타임아웃을 붙이는 대신 코스 하나를 자식 프로세스로 돌리고, 자식이 남기는 heartbeat가
 # 멈추면 프로세스 그룹째 죽인다. heartbeat 없이 정상적으로 가장 오래 걸리는 구간은
-# fetch_jw_stt의 apple-stt(1800s)라 기본 임계값은 그보다 길게 잡는다.
+# fetch_jw_stt의 apple-stt(1800s)다 -- 그 앞의 yt-dlp(900s) 뒤에도 beat()를 찍어 둘이 이어
+# 붙지 않게 했다. 기본 임계값은 1800s보다 길게 잡는다.
+YTDLP_TIMEOUT = 900
+STT_TIMEOUT = 1800
 STALL_SECONDS = int(os.environ.get("ACADEMY_STALL_SECONDS", "2100"))
 HEARTBEAT = os.environ.get("ACADEMY_HEARTBEAT")
 
@@ -292,7 +295,7 @@ def fetch_jw_stt(media_id):
                 ],
                 stdin=subprocess.DEVNULL,
                 capture_output=True,
-                timeout=900,
+                timeout=YTDLP_TIMEOUT,
                 check=False,
             )
         except subprocess.TimeoutExpired:
@@ -310,12 +313,13 @@ def fetch_jw_stt(media_id):
             print(f"[!] JW 오디오 파일 없음: {media_id}", flush=True)
             return ""
         txt = dpath / "transcript.txt"
+        beat()  # yt-dlp(900s)와 apple-stt(1800s) 사이 -- 없으면 정상 구간이 2700s까지 벌어진다
         try:
             subprocess.run(
                 ["apple-stt", "-l", "en-US", "-q", "-o", str(txt), str(audio)],
                 stdin=subprocess.DEVNULL,
                 capture_output=True,
-                timeout=1800,
+                timeout=STT_TIMEOUT,
                 check=False,
             )
         except subprocess.TimeoutExpired:
@@ -594,6 +598,9 @@ async def main():
         flaky = FlakyPage()
         assert await open_lesson(flaky, "https://example.com/lesson")
         assert flaky.calls == 2
+
+        # heartbeat 사이 정상 최장 구간(apple-stt)보다 임계값이 커야 멀쩡한 전사를 안 죽인다.
+        assert STALL_SECONDS > STT_TIMEOUT
 
         calls = []
 
