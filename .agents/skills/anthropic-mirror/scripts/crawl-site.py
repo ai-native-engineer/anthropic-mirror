@@ -51,7 +51,26 @@ HTML_SITEMAPS = [
     ("https://claude.com/docs/sitemap.xml", lambda u: True),              # 실측 ~127 (태그형 help 문서, robots.txt가 선언하는 2번째 sitemap)
     ("https://support.claude.com/sitemap.xml", lambda u: "/en/" in u),    # 실측 영어 ~370 (Help Center)
     ("https://privacy.claude.com/sitemap.xml", lambda u: "/en/" in u),   # Privacy Center 영어 정본
+    # Academy(구 anthropic.skilljar.com에서 이전). 실측 725: courses 438(코스 22 + 레슨 415),
+    # use-cases 149, tutorials 120, products 8, collections 7. 전량 영어라 로케일 필터 불필요.
+    # 레슨 본문까지 SSR로 오므로 브라우저가 필요 없다(curl_cffi impersonate로 3,800자+).
+    # robots.txt가 막는 경로(/api/, /login, /dashboard, /badges/, /certificates/ 등)는
+    # sitemap에 없지만, 나중에 섞여도 수집하지 않도록 예측자로 한 번 더 막는다.
+    ("https://academy.claude.com/sitemap.xml", lambda u: not academy_blocked(u)),
 ]
+
+# academy.claude.com/robots.txt의 Disallow 목록. 공개 sitemap만 따르더라도
+# 사이트가 규칙을 바꿨을 때 조용히 넘어가지 않도록 수집기 쪽에서도 지킨다.
+ACADEMY_DISALLOW = (
+    "/api/", "/mcp", "/search-corpus.json", "/admin/", "/badges/",
+    "/certificates/", "/dashboard", "/settings", "/garden", "/login",
+    "/oauth/", "/start",
+)
+
+
+def academy_blocked(u):
+    path = urlsplit(u).path
+    return any(path == d.rstrip("/") or path.startswith(d) for d in ACADEMY_DISALLOW)
 # Mintlify docs: sitemap의 각 URL + ".md"로 raw 마크다운을 받는다.
 # platform = API/플랫폼 개발자 문서, code = Claude Code CLI 문서(hooks·subagents·settings·slash-commands·agent-sdk 등).
 DOCS_SITEMAPS = [
