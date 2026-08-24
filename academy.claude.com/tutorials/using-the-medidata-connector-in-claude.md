@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-medidata-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the Medidata Connector in Claude
+
+Set up and use the Medidata integration with Claude to streamline platform support and optimize site selection for clinical trials.
+
+3 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-cwnmszwx.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-g8rfr2po.png)
+
 Medidata is a leading provider of clinical trial solutions to the life sciences industry. This article explains how to set up and use the Medidata integration with Claude to streamline platform support and optimize site selection.
 
 The Medidata integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -55,17 +69,23 @@ Technical details of the Medidata integration can be found in Medidata’s MCP S
 
 **Site Ranking use cases:**
 
-* “What are the top ‘n’ predicted high performing sites for my core criteria i.e. within phase & indication of interest?”
-* “What are the top ‘n’ predicted high performing sites based on more granular study criteria i.e. including age & eligibility, no. of study arms, etc.”
-* “Which sites rank in the top 25% for predicted performance based on my specified criteria?”
-* “What is the physical address of the top performing site(s) in indication X?”
-* “Which sites are located in the country (s) of interest?”
-* “What is the geographical distribution (no. of sites by countries or regions) of the top performing sites?”
-* “Can you research which sites have access to advanced neuroimaging equipment like tau PET and the capability to perform lumbar punctures?”
+* “What are the top ‘n’ predicted high performing sites for my core criteria i.e. within phase & indication of interest?”
+* “What are the top ‘n’ predicted high performing sites based on more granular study criteria i.e. including age & eligibility, no. of study arms, etc.”
+* “Which sites rank in the top 25% for predicted performance based on my specified criteria?”
+* “What is the physical address of the top performing site(s) in indication X?”
+* “Which sites are located in the country (s) of interest?”
+* “What is the geographical distribution (no. of sites by countries or regions) of the top performing sites?”
+* “Can you research which sites have access to advanced neuroimaging equipment like tau PET and the capability to perform lumbar punctures?”
 
 **Platform Help use cases:**
 
-* “How do I create a derived dataset in Data Connect?”
-* “How do I configure edit checks for Rave EDC?”
-* “When is the last release of Clinical Data Studio and what features did it include?”
-* “We need to import external lab data into Data Connect. How do I do this and ensure alignment with our SOPs?”
+* “How do I create a derived dataset in Data Connect?”
+* “How do I configure edit checks for Rave EDC?”
+* “When is the last release of Clinical Data Studio and what features did it include?”
+* “We need to import external lab data into Data Connect. How do I do this and ensure alignment with our SOPs?”
+
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the Medidata integration](#who-should-use-the-medidata-integration)
+* [Who can access the Medidata integration](#who-can-access-the-medidata-integration)
+* [Setting up the Medidata integration](#setting-up-the-medidata-integration)
+* [Example use cases](#example-use-cases)

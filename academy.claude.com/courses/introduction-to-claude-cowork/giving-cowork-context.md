@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context -->
 
-Lesson 6 of 14 · Introduction to Claude CoworkStanding context: Global instructions and projects
+Lesson 6 of 14 · Introduction to Claude CoworkStanding context: Global instructions and projects
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# Standing context: Global instructions and projects
+
+Lesson 615 min
+
+In this lessonBy the end, you’ll be able to
+
+* Set global instructions so Claude starts every session already knowing how you work
+* Decide when a piece of work belongs in a project
+* Choose between the three ways to start a project
 
 ## Onboard your new collaborator
 
@@ -18,8 +32,6 @@ To set them up:
 
 What to put in it: who you are and what you do; the shorthand and acronyms you use (so Claude doesn't have to ask what "the QBR deck" is); and how you like output delivered (format, length, tone, etc.). The interactive below shows a few worked examples based on different roles.
 
-Loading
-
 Your global instructions don't need to be complete on day one. As you work with Cowork more, you'll notice corrections you keep giving (*"share the bottom line up front in your responses"* or *"don't use Oxford commas"*) — those are global-instruction candidates.
 
 ## Projects: a scoped workspace for a stream of work
@@ -36,8 +48,6 @@ A project is a workspace tied to a specific stream of work — a customer, a rec
 That last one is the difference projects make. Outside of a project, each session starts fresh apart from your global instructions. Inside one, every conversation adds to what Claude knows — so the next task opens with the client's situation, last week's decisions, and what's still open already in hand.
 
 Review the examples below to get a sense for the makeup of a Cowork project.
-
-Loading
 
 Some streams of work that are good for a project:
 
@@ -69,9 +79,52 @@ Put both layers in place — global instructions for you, and one project for a 
    concise — lead with the recommendation, keep background to one paragraph.
    I like to review the .md previews before creating the final document file.
 
-   Copy prompt
+   Copy prompt
 2. **Create a project for one stream of work.** Pick something recurring — a customer account, a monthly deliverable, a current initiative. Point it at the folder where the materials already live, or start fresh if there isn't one yet.
 
 ## What’s next
 
 In the next lesson, you'll meet skills — how to teach Claude the processes you and your team rely on, so the way you do specialized work happens automatically.
+
+[Previous lessonGet better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)[Next lessonSkills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+
+Lesson 6 of 14 · Introduction to Claude CoworkStanding context: Global instructions and projects
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [Onboard your new collaborator](#onboard-your-new-collaborator)
+* [Global instructions: the brief that applies to every session](#global-instructions-the-brief-that-applies-to-every-session)
+* [Projects: a scoped workspace for a stream of work](#projects-a-scoped-workspace-for-a-stream-of-work)
+* [Three ways to start a project](#three-ways-to-start-a-project)
+* [Try it now](#try-it-now)
+* [What’s next](#whats-next)

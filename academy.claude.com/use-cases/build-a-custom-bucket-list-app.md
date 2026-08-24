@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/build-a-custom-bucket-list-app -->
 
-![Build a custom bucket list result](https://academy.claude.com/assets/v1/build-a-custom-bucket-list-app-dmmmw0gr.png)[Open artifact](https://claude.ai/public/artifacts/9bb7b6aa-88d1-4a1b-83f6-256750f8acd6)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Build a custom bucket list
+
+Turn any tracker, organizer, or goal system you've imagined into a working interactive tool. Describe what you want and watch Claude build it.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-hlfboz7l.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-x6agz3n5.png)
+
+![Build a custom bucket list result](https://academy.claude.com/assets/v1/build-a-custom-bucket-list-app-dmmmw0gr.png)[Open artifact](https://claude.ai/public/artifacts/9bb7b6aa-88d1-4a1b-83f6-256750f8acd6)
 
 ## 1. Describe the task
 
@@ -18,9 +32,7 @@ I want to create an interactive "bucket list builder" that feels like browsing a
 
 Populate it with beautiful life experiences to browse. Then, add in some additional fun surprises!
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -32,7 +44,7 @@ Claude can build interactive apps directly in conversation. No uploads or extern
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) to give Claude more time to reason through creating its outputs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -64,9 +76,7 @@ Make the app a launchpad, not just a list. Add a button that generates a ready-t
 
 Add a 'Make this happen' button on each saved card. When I click it, show me a prompt I can copy into a new Claude chat. The prompt should include the experience name and my description, then ask Claude to help me research to help me accomplish it.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Receive suggestions for what's next
 
@@ -74,9 +84,7 @@ Embed Claude's intelligence directly in your app. Artifacts can call Claude to a
 
 Add a 'Surprise me with something new' button. When I tap it, have the app send my saved experiences to Claude and ask it to suggest one I haven't considered—something that fits the patterns in what I've chosen and show Claude's reasoning.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Add animation and personalization
 
@@ -84,9 +92,7 @@ Motion and small personal touches make the difference between a prototype and so
 
 Add a first-time setup that asks my name and birthday. Use my name in the header and calculate my age somewhere subtle. When I mark something complete, animate the card to explode into hundreds of tiny, dissolving particles that keep the card's colors. Make it satisfying.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -116,4 +122,11 @@ Include: Experiences by category; saving certain experiences to "My List"; toggl
 
 Populate it with beautiful life experiences to browse. Then, add in some additional fun surprises!
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

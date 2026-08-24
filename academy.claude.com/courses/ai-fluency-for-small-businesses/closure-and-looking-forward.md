@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/closure-and-looking-forward -->
 
-Lesson 9 of 9 · AI Fluency for Small BusinessesClosure and looking forward
+Lesson 9 of 9 · AI Fluency for Small BusinessesClosure and looking forward
+
+3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+
+[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+
+# Closure and looking forward
+
+Lesson 915 min
+
+In this lessonBy the end, you’ll be able to
+
+* Access blueprints and resources to continue building your AI fluency
+* Share what you've learned with colleagues and partners in your business
+* Learn where to collect your completion badge
 
 ## Next steps
-
-Loading
 
 Next steps · 3 min
 
@@ -76,3 +88,43 @@ After completing the task, consider:
 ## What's next
 
 **Congratulations!** You'll be able to earn a completion badge in the next lesson after answering a few quick quiz questions.
+
+[Previous lessonHuman in the loop](https://academy.claude.com/courses/ai-fluency-for-small-businesses/human-in-the-loop)[Next lessonCourse quiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses/course-quiz)
+
+Lesson 9 of 9 · AI Fluency for Small BusinessesClosure and looking forward
+
+Introduction and AI Fluency framework
+
+* [AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-fluency-for-small-businesses)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-small-businesses/the-4d-framework)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
+
+The Description-Discernment loop
+
+* [Refining with AI](https://academy.claude.com/courses/ai-fluency-for-small-businesses/researching-with-ai)
+
+The Delegation-Diligence loop
+
+* [Transparent AI use](https://academy.claude.com/courses/ai-fluency-for-small-businesses/using-data-with-ai)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-small-businesses/tying-it-all-together)
+* [Human in the loop](https://academy.claude.com/courses/ai-fluency-for-small-businesses/human-in-the-loop)
+
+Conclusion and badge
+
+* [Closure and looking forward](https://academy.claude.com/courses/ai-fluency-for-small-businesses/closure-and-looking-forward)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-small-businesses/badge)
+
+* [Next steps](#next-steps)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

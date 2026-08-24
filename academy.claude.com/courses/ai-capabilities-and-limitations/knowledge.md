@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/knowledge -->
 
-Lesson 6 of 13 · AI Capabilities and LimitationsKnowledge
+Lesson 6 of 13 · AI Capabilities and LimitationsKnowledge
+
+3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+
+[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+
+# Knowledge
+
+Lesson 625 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain how an AI model's knowledge is formed during training and why it has a fixed cutoff
+* Predict which topics sit in the capability zone (frequent, recent-in-training, consistent) versus the edge (rare, post-cutoff, niche, contested)
+* Identify staleness, uneven coverage, inherited bias, and source amnesia as characteristic knowledge failures
+* Recognize web search, retrieval/RAG, and tool use as the product features that address this limitation
 
 ## Understanding knowledge gaps in AI models
-
-Loading
 
 Knowledge · 5 min
 
@@ -16,8 +29,6 @@ knowledge cutoff. The practical question isn't "does the AI know this?" but
 "how well-represented was this in what it read?"
 
 ## What the model read, and when it stopped reading
-
-Loading
 
 ## Key takeaways
 
@@ -58,3 +69,48 @@ Go back to your task list and add a second annotation: for each task, flag wheth
 ## What's next
 
 Knowledge covers what the model absorbed during training. Working Memory covers what it's paying attention to right now: your prompt, your documents, your conversation. This property has the hardest edge of all four.
+
+[Previous lessonTry It Out: Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out)[Next lessonTry It Out: Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-31vzkl2dgi907)
+
+Lesson 6 of 13 · AI Capabilities and LimitationsKnowledge
+
+Getting started
+
+* [Intro to AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations/intro-to-ai-capabilities-and-limitations)
+* [What We Mean by AI](https://academy.claude.com/courses/ai-capabilities-and-limitations/what-we-mean-by-ai)
+* [How AI Gets Its Character](https://academy.claude.com/courses/ai-capabilities-and-limitations/how-ai-gets-its-character)
+
+Next Token Prediction
+
+* [Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-token-prediction)
+* [Try It Out: Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out)
+
+Knowledge
+
+* [Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/knowledge)
+* [Try It Out: Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-31vzkl2dgi907)
+
+Working Memory
+
+* [Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/working-memory)
+* [Try It Out: Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-q7hdjm9twcbt)
+
+Steerability
+
+* [Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/steerability)
+* [Try It Out: Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-y02xgkpa6wa7)
+
+Putting it all together and next steps
+
+* [When Properties Collide](https://academy.claude.com/courses/ai-capabilities-and-limitations/when-properties-collide)
+* [Next Steps](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-steps)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-capabilities-and-limitations/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-capabilities-and-limitations/badge)
+
+* [Understanding knowledge gaps in AI models](#understanding-knowledge-gaps-in-ai-models)
+* [What the model read, and when it stopped reading](#what-the-model-read-and-when-it-stopped-reading)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

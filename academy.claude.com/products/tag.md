@@ -1,5 +1,15 @@
 <!-- source: https://academy.claude.com/products/tag -->
 
+[Overview](https://academy.claude.com/products/tag)
+
+Browse
+
+[Tutorials](https://academy.claude.com/products/tag/tutorials)
+
+[Claude Tag docs (opens in new tab)](https://claude.com/docs/claude-tag/overview)[Introducing Claude Tag (opens in new tab)](https://www.anthropic.com/news/introducing-claude-tag)[Help Center (opens in new tab)](https://support.claude.com)
+
+[Academy](https://academy.claude.com/)
+
 # Claude Tag
 
 Learn to tag Claude into your team's channels and hand it work everyone can follow.
@@ -18,7 +28,7 @@ Tutorial·10 min](https://academy.claude.com/tutorials/best-practices-using-clau
 
 A catalog of tasks to try handing to Claude Tag once it's in your workspace, each with the prompt that starts it and what comes back.
 
-Tutorial·9 min](https://academy.claude.com/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)[### Hand Claude Tag your first task 
+Tutorial·9 min](https://academy.claude.com/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)[### Hand Claude Tag your first task
 
 It's already in your channel: send your first message and follow along as it works.
 
@@ -28,34 +38,34 @@ claude.com
 
 ## Learn more
 
-[View all](https://academy.claude.com/all?product=tag)
+[View all](https://academy.claude.com/all?product=tag)
 
-* [How Claude Tag works claude.com
+* [How Claude Tag works claude.com
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/concepts/how-it-works)
-* [Claude Tag use case library claude.com
+* [Claude Tag use case library claude.com
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/users/use-cases)
-* [Good habits for scoping and reviewing work claude.com
+* [Good habits for scoping and reviewing work claude.com
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/users/good-habits)
-* [What Claude Tag remembers claude.com
+* [What Claude Tag remembers claude.com
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/users/memory)
-* [Scheduled jobs and channel watching claude.com
+* [Scheduled jobs and channel watching claude.com
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/users/proactivity)
-* [How Anthropic works with Claude Tag in Slack www.anthropic.com
+* [How Anthropic works with Claude Tag in Slack www.anthropic.com
 
   www.anthropic.com
 
@@ -63,27 +73,27 @@ claude.com
 
 ## Docs and reference
 
-* [Set up Claude Tag claude.com
+* [Set up Claude Tag claude.com
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/admins/setup-overview)
-* [Add connections claude.com
+* [Add connections claude.com
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/admins/add-connections)
-* [Set a spend limit claude.com
+* [Set a spend limit claude.com
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/admins/set-spend-limit)
-* [Security and data handling claude.com
+* [Security and data handling claude.com
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/concepts/security-and-data)
-* [What is Claude Tag? support.claude.com
+* [What is Claude Tag? support.claude.com
 
   support.claude.com
 
@@ -91,4 +101,4 @@ claude.com
 
 ## Browse it all
 
-[Tutorials2 tutorials](https://academy.claude.com/all?kind=tutorial&product=tag)[Claude Tag docs claude.com (opens in new tab)](https://claude.com/docs/claude-tag/overview)[Introducing Claude Tag www.anthropic.com (opens in new tab)](https://www.anthropic.com/news/introducing-claude-tag)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Tutorials2 tutorials](https://academy.claude.com/all?kind=tutorial&product=tag)[Claude Tag docs claude.com (opens in new tab)](https://claude.com/docs/claude-tag/overview)[Introducing Claude Tag www.anthropic.com (opens in new tab)](https://www.anthropic.com/news/introducing-claude-tag)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

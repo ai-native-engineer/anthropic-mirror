@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/plan-your-career-path -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Plan your career path
+
+Map the jobs you want to a career plan—skill gaps, timelines, people to contact, and specific next steps.
+
+15 minEducationClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-b4hv41sc.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-it72wa8i.png)
+
 ![Plan your career path result](https://academy.claude.com/assets/v1/plan-your-career-path-iar8vg4f.png)
 
 ## 1. Describe the task
@@ -20,9 +34,7 @@ After analyzing my resume against these roles, build:
 
 **Skills Portfolio Log (Excel):** Backward-looking evidence bank showing what I've done. Log completed projects with metrics, skills inventory with proof points, quantified achievements, learning completions, and STAR stories tagged by competency. Built for mining resume bullets and cover letters.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -42,9 +54,9 @@ ResumeDOC
 
 Google Drive
 
-[Connect](https://claude.ai/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context
 
@@ -92,9 +104,7 @@ Come prepared with informed questions and connect your experience to what matter
 
 I'm meeting a product manager from the streaming company next week. Research the company's product philosophy and competitive positioning, and then create a prep sheet with questions to help me understand their challenges, as well as aspects of my background that are important to highlight.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Draft differentiated application materials
 
@@ -102,9 +112,7 @@ Claude can teach you how to adapt your materials for different roles and what ma
 
 Using my portfolio log, show me how to adapt my resume for PM, design, and research roles—what should I emphasize for each?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Update with new goals
 
@@ -112,9 +120,7 @@ Claude can revise your career plan when priorities shift or new opportunities em
 
 I just discovered UX writing roles that combine my interests. Can you analyze this job posting and update my action plan to include this career path?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -152,4 +158,11 @@ Action Tracker (Google Doc): Forward-looking planner showing what to do next. In
 
 Skills Portfolio Log (Excel): Backward-looking evidence bank showing what I've done. Log completed projects with metrics, skills inventory with proof points, quantified achievements, learning completions, and STAR stories tagged by competency. Built for mining resume bullets and cover letters.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

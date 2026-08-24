@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-platform-101/context-management -->
 
-Lesson 10 of 13 · Claude Platform 101Context management
+Lesson 10 of 13 · Claude Platform 101Context management
 
-Loading
+3. /[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+# Context management
+
+Lesson 106 min
 
 Context management
 
@@ -41,7 +47,7 @@ Think of a compliance review agent. It doesn't get the entire building code book
 
 When a conversation runs long, Anthropic's **server-side compaction** summarizes old turns into a single block. You opt in by adding a `context_management` key to your request, holding an edit with a type:
 
-python
+python
 
 ```
 response = client.beta.messages.create(
@@ -91,3 +97,49 @@ Each pattern handles a different failure mode: **cost**, **window size**, **stat
 * **Prompt caching**: mark stable parts of the request and reuse them across calls at a fraction of the cost.
 * **The memory tool**: Claude reads and writes a memory directory via tool calls; you own the storage backend, so context survives across sessions.
 * Four patterns, one goal. Wire them up by hand, or use Claude managed agents, which ship with caching and compaction on by default.
+
+[Previous lessonMCP](https://academy.claude.com/courses/claude-platform-101/mcp)[Next lessonWhat are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)
+
+Lesson 10 of 13 · Claude Platform 101Context management
+
+What is the Claude Platform?
+
+* [What is the Claude Platform?](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)
+* [Your first API call](https://academy.claude.com/courses/claude-platform-101/your-first-api-call)
+* [Choosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)
+
+Teaching your agent
+
+* [The agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)
+* [What is tool use?](https://academy.claude.com/courses/claude-platform-101/what-is-tool-use)
+* [What is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)
+
+Extending your agent
+
+* [Built-in tools](https://academy.claude.com/courses/claude-platform-101/built-in-tools)
+* [Skills](https://academy.claude.com/courses/claude-platform-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-platform-101/mcp)
+* [Context management](https://academy.claude.com/courses/claude-platform-101/context-management)
+
+Managed Agents
+
+* [What are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)
+* [Building your first managed agent](https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent)
+
+Building with Claude Code
+
+* [Building with Claude Code](https://academy.claude.com/courses/claude-platform-101/building-with-claude-code)
+
+Quiz
+
+* [Claude Platform 101 quizQuiz](https://academy.claude.com/courses/claude-platform-101/claude-platform-101-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-platform-101/badge)
+
+* [What counts as context](#what-counts-as-context)
+* [Pattern 1: Just-in-time context](#pattern-1-just-in-time-context)
+* [Pattern 2: Server-side compaction](#pattern-2-server-side-compaction)
+* [Pattern 3: Prompt caching](#pattern-3-prompt-caching)
+* [Pattern 4: The memory tool](#pattern-4-the-memory-tool)
+* [Layering the patterns](#layering-the-patterns)
+* [Recap](#recap)

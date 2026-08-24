@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/next-token-prediction -->
 
-Lesson 4 of 13 · AI Capabilities and LimitationsNext Token Prediction
+Lesson 4 of 13 · AI Capabilities and LimitationsNext Token Prediction
+
+3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+
+[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+
+# Next Token Prediction
+
+Lesson 420 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain Next Token Prediction as the core mechanism of generative AI and why it produces both fluency and hallucination
+* Locate tasks on the Next Token Prediction continuum (well-worn path vs. novel territory)
+* Identify specificity (names, dates, citations, statistics) as the zone where fabrication concentrates
+* Recognize product features (citations, uncertainty signaling, constrained generation, generator-verifier pattern) that are mitigations for this limitation
 
 ## How AI models use next token prediction
-
-Loading
 
 Next Token Prediction · 4 min
 
@@ -15,8 +28,6 @@ search engine. It writes answers word by word based on what tends to follow
 what. That single property gives you both the fluency and the hallucination.
 
 ## Autocomplete at scale
-
-Loading
 
 ## Key takeaways
 
@@ -51,3 +62,48 @@ Now run three probes:
 ## What's next
 
 Next Token Prediction explains how the AI generates. Next we look at what it's generating *from*: the Knowledge property. What does the model actually know, where does that knowledge come from, and where are the gaps?
+
+[Previous lessonHow AI Gets Its Character](https://academy.claude.com/courses/ai-capabilities-and-limitations/how-ai-gets-its-character)[Next lessonTry It Out: Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out)
+
+Lesson 4 of 13 · AI Capabilities and LimitationsNext Token Prediction
+
+Getting started
+
+* [Intro to AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations/intro-to-ai-capabilities-and-limitations)
+* [What We Mean by AI](https://academy.claude.com/courses/ai-capabilities-and-limitations/what-we-mean-by-ai)
+* [How AI Gets Its Character](https://academy.claude.com/courses/ai-capabilities-and-limitations/how-ai-gets-its-character)
+
+Next Token Prediction
+
+* [Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-token-prediction)
+* [Try It Out: Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out)
+
+Knowledge
+
+* [Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/knowledge)
+* [Try It Out: Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-31vzkl2dgi907)
+
+Working Memory
+
+* [Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/working-memory)
+* [Try It Out: Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-q7hdjm9twcbt)
+
+Steerability
+
+* [Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/steerability)
+* [Try It Out: Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-y02xgkpa6wa7)
+
+Putting it all together and next steps
+
+* [When Properties Collide](https://academy.claude.com/courses/ai-capabilities-and-limitations/when-properties-collide)
+* [Next Steps](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-steps)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-capabilities-and-limitations/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-capabilities-and-limitations/badge)
+
+* [How AI models use next token prediction](#how-ai-models-use-next-token-prediction)
+* [Autocomplete at scale](#autocomplete-at-scale)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

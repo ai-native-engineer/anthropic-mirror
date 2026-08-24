@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/courses/claude-101/getting-better-results -->
 
-Lesson 3 of 13 · Claude 101Getting better results
+Lesson 3 of 13 · Claude 101Getting better results
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# Getting better results
+
+Lesson 310 min
+
+In this lessonBy the end, you’ll be able to
+
+* Recognize common challenges when starting out with AI and use troubleshooting techniques to overcome them
+* Define AI Fluency and know where to go to learn more about working with AI in a fluent way
+* Explain how you might set up evals to better understand how Claude might perform with your unique workflows
 
 ## Common challenges and how to fix them
 
@@ -67,8 +81,6 @@ You don't need complex infrastructure to evaluate Claude. Here's a practical app
 
 ### Example: Using Claude for data analysis
 
-Loading
-
 Getting better results
 
 In our last lesson, we dealt with data privacy and security—what you absolutely need to protect and how to do it. So now, let's talk about the question that's probably stopped you from using AI for data analysis in the first place: How can I trust the results?
@@ -125,3 +137,45 @@ Before moving on, consider:
 ## What's next
 
 In the next lesson, you'll explore the Claude desktop app and the three ways you'll work with Claude there — turn by turn (Chat), handing work off (Cowork), and building software (Claude Code).
+
+[Previous lessonYour first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)[Next lessonHow you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Lesson 3 of 13 · Claude 101Getting better results
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [Common challenges and how to fix them](#common-challenges-and-how-to-fix-them)
+* [The iteration mindset](#the-iteration-mindset)
+* [What is AI Fluency?](#what-is-ai-fluency)
+* [Evaluating Claude for your workflows](#evaluating-claude-for-your-workflows)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

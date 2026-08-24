@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/create-a-custom-webpage -->
 
-![Create a custom webpage result](https://academy.claude.com/assets/v1/create-a-custom-webpage-t6a9u3em.png)[Open artifact](https://claude.ai/public/artifacts/b7659aff-fe0a-4777-9d3b-3c2bc7f33f6d)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create a custom webpage
+
+Build a portfolio site to showcase your work and learn how to deploy it live without writing a line of code.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-ktp24exx.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gapzxql3.png)
+
+![Create a custom webpage result](https://academy.claude.com/assets/v1/create-a-custom-webpage-t6a9u3em.png)[Open artifact](https://claude.ai/public/artifacts/b7659aff-fe0a-4777-9d3b-3c2bc7f33f6d)
 
 ## 1. Describe the task
 
@@ -14,9 +28,7 @@ For the design direction, I want something sophisticated and editorial—think h
 
 After you create it, walk me through publishing it live on the internet. Assume I've never deployed a website—I need exact steps that don't require any coding knowledge.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -28,15 +40,9 @@ Upload files that capture your professional story, like your resume, past projec
 
 Also include any files that convey your aesthetic preferences. Screenshots of portfolios you admire or even UI code snippets from designs you like help Claude understand your aesthetic direction.
 
-
-
 ResumePDF
 
-
-
 Project descriptions (3-5 detailed examples of your best work)PDF
-
-
 
 ResumePDF
 
@@ -44,7 +50,7 @@ ResumePDF
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can spend more time creating high quality outputs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -68,9 +74,7 @@ Claude can connect to [Netlify(opens in new tab)](https://claude.ai/directory/ne
 
 Using the code from my portfolio artifact, I want to create a real site. Use my Netlify connector, create a new site project directly in Netlify and walk me through deploying this live. I'm sharing the code from my portfolio artifact. Use my Netlify connector to create a new site project and deploy this as a live website. Give me the URL once it's live, and explain how I can update the site later if I want to make changes.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Build interactive effects
 
@@ -78,9 +82,7 @@ Add polish through coded animations and interactions. Claude can write HTML, CSS
 
 Add hover effects on the project cards—maybe a subtle shift or border change. When I scroll to a section, have the heading fade in slightly. Nothing flashy, just refined interactions that show attention to detail.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Expand one project into a detailed case study
 
@@ -88,9 +90,7 @@ Deep-dive into your most important work with the full design process.
 
 Take the Infrastructure Monitoring Dashboard project and expand it into a full case study page. Include the problem, research phase, design process, iterations, challenges we faced, how we solved them, and measurable impact. Add sections for wireframes, user feedback, and lessons learned.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -112,4 +112,11 @@ For the design direction, I want something sophisticated and editorial—think h
 
 After you create it, walk me through publishing it live on the internet. Assume I've never deployed a website—I need exact steps that don't require any coding knowledge.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

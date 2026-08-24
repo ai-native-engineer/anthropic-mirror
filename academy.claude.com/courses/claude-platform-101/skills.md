@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-platform-101/skills -->
 
-Lesson 8 of 13 · Claude Platform 101Skills
+Lesson 8 of 13 · Claude Platform 101Skills
 
-Loading
+3. /[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+# Skills
+
+Lesson 86 min
 
 Skills
 
@@ -31,7 +37,7 @@ One more thing worth knowing: Skills don't load fully into context on startup. O
 
 Skills are uploaded once to your workspace, then referenced by ID. You can upload directly on the Claude Platform, or do it programmatically:
 
-python
+python
 
 ```
 skill = client.beta.skills.create(
@@ -48,7 +54,7 @@ For this example, I want a **status report generator**. All the rules for what m
 
 Skills attach to a request through the container configuration — a `skills` array inside the container, where each entry names a `skill_id` and `version`. Here's the full call for the status report generator:
 
-python
+python
 
 ```
 response = client.beta.messages.create(
@@ -103,3 +109,47 @@ In a production app, this is how a team standardizes output across an entire fea
 * **Upload once** with `client.beta.skills.create`, then **attach** with `container.skills` on any `messages.create` call — a list, so you can layer multiple Skills.
 * **Pair with code execution** when the Skill's procedure needs to do real work.
 * Reach for a Skill when the **how** matters as much as the **what**.
+
+[Previous lessonBuilt-in tools](https://academy.claude.com/courses/claude-platform-101/built-in-tools)[Next lessonMCP](https://academy.claude.com/courses/claude-platform-101/mcp)
+
+Lesson 8 of 13 · Claude Platform 101Skills
+
+What is the Claude Platform?
+
+* [What is the Claude Platform?](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)
+* [Your first API call](https://academy.claude.com/courses/claude-platform-101/your-first-api-call)
+* [Choosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)
+
+Teaching your agent
+
+* [The agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)
+* [What is tool use?](https://academy.claude.com/courses/claude-platform-101/what-is-tool-use)
+* [What is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)
+
+Extending your agent
+
+* [Built-in tools](https://academy.claude.com/courses/claude-platform-101/built-in-tools)
+* [Skills](https://academy.claude.com/courses/claude-platform-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-platform-101/mcp)
+* [Context management](https://academy.claude.com/courses/claude-platform-101/context-management)
+
+Managed Agents
+
+* [What are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)
+* [Building your first managed agent](https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent)
+
+Building with Claude Code
+
+* [Building with Claude Code](https://academy.claude.com/courses/claude-platform-101/building-with-claude-code)
+
+Quiz
+
+* [Claude Platform 101 quizQuiz](https://academy.claude.com/courses/claude-platform-101/claude-platform-101-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-platform-101/badge)
+
+* [Skills vs. tools](#skills-vs-tools)
+* [Uploading a Skill](#uploading-a-skill)
+* [Attaching a Skill to a request](#attaching-a-skill-to-a-request)
+* [Running it](#running-it)
+* [Recap](#recap)

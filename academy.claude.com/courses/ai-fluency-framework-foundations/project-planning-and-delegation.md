@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/project-planning-and-delegation -->
 
-Lesson 7 of 14 · AI Fluency: Framework & FoundationsProject planning and Delegation
+Lesson 7 of 14 · AI Fluency: Framework & FoundationsProject planning and Delegation
+
+3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+
+[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+
+# Project planning and Delegation
+
+Lesson 73 min
+
+In this lessonBy the end, you’ll be able to
+
+* Apply your understanding of Delegation to a practical multi-step project you'll work on throughout the rest of this course
 
 ## Project planning and delegation
 
@@ -73,3 +85,58 @@ Before moving on, take a moment to consider:
 ## What's next
 
 In the next lesson, we'll explore the second core competency: Description. You'll learn approaches for communicating effectively with AI systems, which will help you implement the plan you've just created. This includes techniques for defining what you want, guiding how the AI approaches the task, and specifying how you want the AI to interact with you throughout the process.
+
+[Previous lessonA closer look at Delegation](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-delegation)[Next lessonA closer look at Description](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-description)
+
+Lesson 7 of 14 · AI Fluency: Framework & FoundationsProject planning and Delegation
+
+Introduction to AI Fluency
+
+* [Introduction to AI Fluency](https://academy.claude.com/courses/ai-fluency-framework-foundations/introduction-to-ai-fluency)
+
+The AI Fluency Framework
+
+* [Why do we need AI Fluency?](https://academy.claude.com/courses/ai-fluency-framework-foundations/why-do-we-need-ai-fluency)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework)
+
+Deep Dive 1: What is Generative AI? (Part 1)
+
+* [Generative AI fundamentals](https://academy.claude.com/courses/ai-fluency-framework-foundations/generative-ai-fundamentals)
+* [Capabilities & limitations](https://academy.claude.com/courses/ai-fluency-framework-foundations/capabilities-limitations)
+
+Delegation
+
+* [A closer look at Delegation](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-delegation)
+* [Project planning and Delegation](https://academy.claude.com/courses/ai-fluency-framework-foundations/project-planning-and-delegation)
+
+Description
+
+* [A closer look at Description](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-description)
+
+Deep Dive 2: Effective prompting techniques
+
+* [Effective prompting techniques](https://academy.claude.com/courses/ai-fluency-framework-foundations/effective-prompting-techniques)
+
+Discernment
+
+* [A closer look at Discernment](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-discernment)
+
+The Description-Discernment loop
+
+* [The Description-Discernment loop](https://academy.claude.com/courses/ai-fluency-framework-foundations/the-description-discernment-loop)
+
+Diligence
+
+* [A closer look at Diligence](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-diligence)
+
+Conclusion & badge
+
+* [Conclusion](https://academy.claude.com/courses/ai-fluency-framework-foundations/conclusion)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-framework-foundations/certificate-of-completion)
+* [Additional activities](https://academy.claude.com/courses/ai-fluency-framework-foundations/additional-activities)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-framework-foundations/badge)
+
+* [Project planning and delegation](#project-planning-and-delegation)
+* [Reflection](#reflection)
+* [What's next](#whats-next)

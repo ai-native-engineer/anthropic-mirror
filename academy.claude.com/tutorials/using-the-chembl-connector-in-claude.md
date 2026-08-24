@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-chembl-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the ChEMBL Connector in Claude
+
+Set up and use the ChEMBL integration with Claude to access bioactive compound data, biological targets, and activity measurements for drug discovery.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-oknl2y2r.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-g9x5xciu.png)
+
 The ChEMBL connector gives Claude access to EMBL-EBI's ChEMBL database, a manually curated repository of bioactive molecules with drug-like properties, their biological targets, and quantitative activity measurements. This article explains how to set up and use the ChEMBL integration with Claude to accelerate drug discovery through bioactive compound data.
 
 The ChEMBL integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -61,21 +75,15 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Find all approved kinase inhibitors that target EGFR with IC50 less than 100 nM
 
-
-
-Open in Claude
+Open in Claude
 
 What compounds have been tested against the BCL2 protein? Show me the most potent ones with their bioactivity data
 
-
-
-Open in Claude
+Open in Claude
 
 Search for GPCR agonists targeting the adenosine A2A receptor and show their mechanism of action
 
-
-
-Open in Claude
+Open in Claude
 
 **Compound Optimization & SAR Analysis**
 
@@ -84,21 +92,15 @@ Search for GPCR agonists targeting the adenosine A2A receptor and show their mec
 
 Find structural analogs of imatinib with similarity > 85% and compare their target selectivity profiles
 
-
-
-Open in Claude
+Open in Claude
 
 What are the ADMET properties for aspirin? Does it pass Lipinski's Rule of Five?
 
-
-
-Open in Claude
+Open in Claude
 
 Show me compounds similar to this SMILES structure: CC(=O)Oc1ccccc1C(=O)O, and compare their bioactivity against cyclooxygenase
 
-
-
-Open in Claude
+Open in Claude
 
 **Competitive Intelligence & Drug Repurposing**
 
@@ -107,18 +109,17 @@ Show me compounds similar to this SMILES structure: CC(=O)Oc1ccccc1C(=O)O, and c
 
 What are all the approved drugs for treating hypertension? Show their mechanisms of action
 
-
-
-Open in Claude
+Open in Claude
 
 Find the mechanism of action for pembrolizumab and identify all other compounds targeting the same protein
 
-
-
-Open in Claude
+Open in Claude
 
 Search for approved oncology drugs that also show bioactivity against inflammatory disease targets
 
-
+Open in Claude
 
-Open in Claude
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the ChEMBL integration](#who-should-use-the-chembl-integration)
+* [Setting up the ChEMBL integration](#setting-up-the-chembl-integration)
+* [Example use cases](#example-use-cases)

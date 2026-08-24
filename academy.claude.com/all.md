@@ -1,14 +1,14 @@
 <!-- source: https://academy.claude.com/all -->
 
+[Academy](https://academy.claude.com/)
+
 # All resources
 
 Every use case, tutorial, and course in the academy, in one place.
 
 AllCoursesTutorialsUse cases
 
-
-
-ProductAll
+ProductAll
 
 289 resources
 

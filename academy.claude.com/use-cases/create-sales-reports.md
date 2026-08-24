@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/create-sales-reports -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create sales reports
+
+Pull metrics from your CRM, analyze trends, and generate polished reports with data visualizations and strategic insights—all without manual data formatting.
+
+15 minSalesClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-nm3ukauo.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-m8atnx4w.png)
+
 ![Create sales reports result](https://academy.claude.com/assets/v1/create-sales-reports-tco4ryx7.png)
 
 ## 1. Describe the task
@@ -21,9 +35,7 @@ Show me:
 
 Create this as a professional document with clean serif fonts, information dense with tight spacing, proper text hierarchy, and embedded charts PNGs that seamlessly integrate into the layout as opposed to looking pasted in. Use proper business style. Opt out of using your default styles.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -33,15 +45,11 @@ Connect your CRM using [connectors(opens in new tab)](https://claude.ai/customiz
 
 In Settings > Capabilities, find and enable your [HubSpot(opens in new tab)](https://mcp.hubspot.com/anthropic) connector. Once connected, Claude can read sales data and pull metrics on demand without you exporting files or copying data manually. Add any additional context your CRM doesn't capture to help Claude conduct analysis more tailored to your business.
 
-
-
 HubSpot
 
-[Connect](https://claude.ai/directory/hubspot)
+[Connect](https://claude.ai/directory/hubspot)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
-
-
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 Q4 Sales Goals documentFILE
 
@@ -49,7 +57,7 @@ Q4 Sales Goals documentFILE
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can better reason through your analysis and create high quality outputs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -91,9 +99,7 @@ After generating the report, ask Claude to question you on the findings. This en
 
 Quiz me on the findings from this report like your manager. In addition to just the numbers, test me with questions about trends, what's driving them, and why it matters.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Combine internal data with external intelligence
 
@@ -101,9 +107,7 @@ Enable Research and request market context for Claude to compare your data with 
 
 Pull my metrics, then research industry benchmarks for SaaS companies our size. How do we compare on win rate and sales cycle?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Deep dive by segment
 
@@ -111,9 +115,7 @@ After reading the report, zoom in on an area of particular interest to analyze s
 
 Take the Enterprise segment data and create a detailed analysis document. Break down performance by rep, identify which industries or company sizes are converting best, and analyze deal characteristics for our highest-value wins. I want to understand what's making Enterprise work so we can replicate it.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -146,4 +148,11 @@ Show me:
 
 Create this as a professional document with clean serif fonts, information dense with tight spacing, proper text hierarchy, and embedded charts PNGs that seamlessly integrate into the layout as opposed to looking pasted in. Use proper business style. Opt out of using your default styles.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/build-customer-personas -->
 
-![Build customer personas result](https://academy.claude.com/assets/v1/build-customer-personas-e5oq7q7v.png)[Open artifact](https://claude.ai/public/artifacts/9135973a-be0d-4a9a-815d-1689c217b38a)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Build customer personas
+
+Create personas with demographics, goals, and pain points synthesized from your research data.
+
+15 minMarketingClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-imqgawn0.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mkm685zm.png)
+
+![Build customer personas result](https://academy.claude.com/assets/v1/build-customer-personas-e5oq7q7v.png)[Open artifact](https://claude.ai/public/artifacts/9135973a-be0d-4a9a-815d-1689c217b38a)
 
 ## 1. Describe the task
 
@@ -12,9 +26,7 @@ I've uploaded customer feedback from different sources—could be sales call not
 
 Create an interactive artifact where I can explore each persona and see their journey. Show their goals, what frustrates them, and include actual quotes from customers. Make the artifact professionally and elegantly designed, as it will be shared with others. Focus on creating analytical and helpful content. Take time to analyze thoroughly, outline carefully, and validate your work.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -26,25 +38,19 @@ Upload your customer research files and connect your CRM and customer experience
 
 Upload your customer research files and enable access to your CRM, like [HubSpot(opens in new tab)](https://claude.ai/directory/hubspot), and to your customer service data, like [Intercom(opens in new tab)](https://claude.ai/directory/intercom), so Claude can analyze patterns across all your data sources.
 
-
-
 HubSpot
 
-[Connect](https://claude.ai/directory/hubspot)
+[Connect](https://claude.ai/directory/hubspot)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%231F8DED'%20d='M21%200H3a3%203%200%200%200-3%203v18a3%203%200%200%200%203%203h18a3%203%200%200%200%203-3V3a3%203%200%200%200-3-3ZM7.2%204.8a.8.8%200%201%201%201.6%200v9.067a.8.8%200%201%201-1.6%200V4.8Zm-3.2.8a.8.8%200%201%201%201.6%200v6.933a.8.8%200%201%201-1.6%200V5.6Zm16.533%2011.933c-.12.107-2.987%202.534-8.533%202.534s-8.413-2.427-8.533-2.534a.8.8%200%200%201%201.066-1.2c.04.04%202.56%202.134%207.467%202.134s7.413-2.08%207.467-2.134a.8.8%200%200%201%201.066%201.2ZM20%2012.533a.8.8%200%201%201-1.6%200V5.6a.8.8%200%201%201%201.6%200v6.933Zm-3.2%201.334a.8.8%200%201%201-1.6%200V4.8a.8.8%200%201%201%201.6%200v9.067Zm-3.2.8a.8.8%200%201%201-1.6%200V4a.8.8%200%201%201%201.6%200v10.667Zm-3.2%200a.8.8%200%201%201-1.6%200V4a.8.8%200%201%201%201.6%200v10.667Z'/%3e%3c/svg%3e)
 
 Intercom
 
-[Connect](https://claude.ai/directory/intercom)
+[Connect](https://claude.ai/directory/intercom)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
-
-
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 Customer interview transcriptsPDF
-
-
 
 Survey responsesFILE
 
@@ -52,7 +58,7 @@ Survey responsesFILE
 
 Turn on [extended thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so it can analyze thoroughly and spot patterns across all your sources at once.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -83,9 +89,7 @@ Convert the interactive visualization into a document format for distribution. C
 
 Create a written report from your analysis that I can share with our executive team. Include the behavioral segments you found, what each segment needs, journey friction points, and specific recommendations for our product roadmap.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Identify the biggest revenue opportunity
 
@@ -93,9 +97,7 @@ Translate persona insights into concrete product decisions by identifying which 
 
 Which segment represents the biggest revenue opportunity if we optimized the product experience for them? Walk through what we'd need to change.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Find quick wins from support tickets
 
@@ -103,9 +105,7 @@ Identify quick wins that would reduce support volume and improve experience for 
 
 For the largest segment, pull the most common support ticket themes and show me which product changes would eliminate the top three issues.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -129,4 +129,11 @@ I've uploaded customer feedback from different sources—could be sales call not
 
 Create an interactive artifact where I can explore each persona and see their journey. Show their goals, what frustrates them, and include actual quotes from customers. Make the artifact professionally and elegantly designed, as it will be shared with others. Focus on creating analytical and helpful content. Take time to analyze thoroughly, outline carefully, and validate your work.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

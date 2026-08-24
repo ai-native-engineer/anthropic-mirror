@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/create-a-company-newsletter -->
 
-![Create a company newsletter result](https://academy.claude.com/assets/v1/create-a-company-newsletter-okvleal3.png)[Open artifact](https://claude.ai/public/artifacts/5c2b5a3f-69ac-4b56-b54e-9cf60dca5bc7)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create a company newsletter
+
+Stay informed with a publication-style digest that synthesizes company news from all your channels.
+
+10 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-nbb5909g.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dixev1s8.png)
+
+![Create a company newsletter result](https://academy.claude.com/assets/v1/create-a-company-newsletter-okvleal3.png)[Open artifact](https://claude.ai/public/artifacts/5c2b5a3f-69ac-4b56-b54e-9cf60dca5bc7)
 
 ## 1. Describe the task
 
@@ -16,9 +30,7 @@ Include data visualizations where useful. Use a dense but readable layout. Pack 
 
 Go for a British newspaper aesthetic: no gradients, shadows, rounded corners, or bright colors. Print-like typography with tight leading. Include institutional publishing elements—standfirsts, pull quotes with left borders, desk attributions, sourced charts using Chart.js. This should look hand-crafted by an editorial designer. Include substantive developments formatted like a real publication I'd read on Sunday evening.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -36,27 +48,27 @@ Google Drive documents, coupled with Gmail and Slack discussions, offer both inf
 
 Google Drive
 
-[Connect](https://claude.ai/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/directory/google-drive-drivemcp)
 
 ![](data:image/svg+xml,%3csvg%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_4766_38693)'%3e%3cpath%20d='M11.9091%2034H16.3636V23.6969L10%2019.1515V32.1818C10%2033.1879%2010.8559%2034%2011.9091%2034Z'%20fill='%234285F4'/%3e%3cpath%20d='M31.6364%2034H36.0909C37.1473%2034%2038%2033.1848%2038%2032.1818V19.1515L31.6364%2023.6969'%20fill='%2334A853'/%3e%3cpath%20d='M31.6364%2015.8182V23.6969L38%2019.1515V16.7272C38%2014.4788%2035.305%2013.1969%2033.4182%2014.5454'%20fill='%23FBBC04'/%3e%3cpath%20d='M16.3636%2023.697V15.8182L24%2021.2727L31.6364%2015.8182V23.697L24%2029.1515'%20fill='%23EA4335'/%3e%3cpath%20d='M10%2016.7272V19.1515L16.3636%2023.6969V15.8182L14.5818%2014.5454C12.6918%2013.1969%2010%2014.4788%2010%2016.7272Z'%20fill='%23C5221F'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4766_38693'%3e%3crect%20width='28'%20height='20'%20fill='white'%20transform='translate(10%2014)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e)
 
 Gmail
 
-[Connect](https://claude.ai/directory/gmail-gmailmcp)
+[Connect](https://claude.ai/directory/gmail-gmailmcp)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M3.951%209.85a1.47%201.47%200%201%201-2.94%200%201.47%201.47%200%200%201%201.47-1.471h1.47V9.85Zm.735%200a1.47%201.47%200%201%201%202.94%200v3.679a1.47%201.47%200%201%201-2.94%200V9.85Z'%20fill='%23E01E5A'/%3e%3cpath%20d='M6.157%203.943a1.47%201.47%200%201%201%200-2.943%201.47%201.47%200%200%201%201.47%201.471v1.472h-1.47Zm0%20.746a1.47%201.47%200%201%201%200%202.943H2.47a1.47%201.47%200%201%201%200-2.943h3.687Z'%20fill='%2336C5F0'/%3e%3cpath%20d='M12.049%206.16a1.47%201.47%200%201%201%202.94%200%201.47%201.47%200%200%201-1.47%201.472h-1.47V6.16Zm-.736%200a1.47%201.47%200%201%201-2.94%200V2.471a1.47%201.47%200%201%201%202.94%200V6.16Z'%20fill='%232EB67D'/%3e%3cpath%20d='M9.843%2012.057a1.47%201.47%200%201%201%200%202.943%201.47%201.47%200%200%201-1.47-1.471v-1.472h1.47Zm0-.735a1.47%201.47%200%201%201%200-2.943h3.687a1.47%201.47%200%201%201%200%202.943H9.843Z'%20fill='%23ECB22E'/%3e%3c/svg%3e)
 
 Slack
 
-[Connect](https://claude.ai/directory/slack)
+[Connect](https://claude.ai/directory/slack)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can better analyze your information and create high quality outputs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -90,9 +102,7 @@ Add more pages and mimic a full publication. Tell Claude to include more channel
 
 Turn this artifact into a complete online publication with clickable sections and full articles. Give each department its own section with more in-depth analysis, charts, pull quotes, and context.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Add visualizations
 
@@ -100,9 +110,7 @@ Include charts, tables, or other visual elements to make new data and trends imm
 
 Add Chart.js visualizations: customer sentiment (positive vs issues, 4-week trend), engineering velocity (features shipped per week), pipeline breakdown by stage with values. Use line charts for trends, bar charts for comparisons.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -130,4 +138,11 @@ Include data visualizations where useful. Use a dense but readable layout. Pack 
 
 Go for a British newspaper aesthetic: no gradients, shadows, rounded corners, or bright colors. Print-like typography with tight leading. Include institutional publishing elements—standfirsts, pull quotes with left borders, desk attributions, sourced charts using Chart.js. This should look hand-crafted by an editorial designer. Include substantive developments formatted like a real publication I'd read on Sunday evening.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

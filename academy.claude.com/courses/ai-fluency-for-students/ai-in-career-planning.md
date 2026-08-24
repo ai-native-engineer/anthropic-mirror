@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-students/ai-in-career-planning -->
 
-Lesson 4 of 5 · AI Fluency for studentsAI in career planning
+Lesson 4 of 5 · AI Fluency for studentsAI in career planning
+
+3. /[AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students)
+
+[AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students)
+
+# AI in career planning
+
+Lesson 445 min
+
+In this lessonBy the end, you’ll be able to
+
+* Use AI thoughtfully for career exploration, skill building, job searching and job application support
+* Create authentic application materials with AI support while maintaining your unique voice
+* Practice interview skills with AI as your coach
+* Build a strategic approach to career development that leverages AI appropriately
 
 ## AI as a learning partner
-
-Loading
 
 AI in career planning
 
@@ -76,3 +89,29 @@ Have the AI ask you questions to explore:
 ## What's next
 
 In our final lesson, we'll explore what it means to be "the human in the loop." You'll create a personal AI collaboration policy that reflects your values, develop guidelines for responsible AI use, and build a framework for continued growth in AI fluency that will serve you throughout your academic and professional journey.
+
+[Previous lessonAI as a learning partner](https://academy.claude.com/courses/ai-fluency-for-students/ai-as-a-learning-partner)[Next lessonBeing the human in the loop](https://academy.claude.com/courses/ai-fluency-for-students/being-the-human-in-the-loop)
+
+Lesson 4 of 5 · AI Fluency for studentsAI in career planning
+
+Introduction and AI Fluency Framework
+
+* [Welcome to AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students/welcome-to-ai-fluency-for-students)
+* [AI Fluency Framework](https://academy.claude.com/courses/ai-fluency-for-students/ai-fluency-framework)
+
+AI Fluency Framework applications for students
+
+* [AI as a learning partner](https://academy.claude.com/courses/ai-fluency-for-students/ai-as-a-learning-partner)
+* [AI in career planning](https://academy.claude.com/courses/ai-fluency-for-students/ai-in-career-planning)
+
+Conclusion & badge
+
+* [Being the human in the loop](https://academy.claude.com/courses/ai-fluency-for-students/being-the-human-in-the-loop)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-students/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-students/badge)
+
+* [AI as a learning partner](#ai-as-a-learning-partner)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [What's next](#whats-next)

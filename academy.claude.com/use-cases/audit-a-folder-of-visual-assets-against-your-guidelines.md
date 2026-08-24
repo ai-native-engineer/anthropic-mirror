@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Audit a folder of visual assets against your guidelines
+
+In Claude Cowork, Claude Opus 4.7 can read a large folder of image exports at full resolution to spot off-brand colors, outdated logos, and missing legal copy. Point Claude at your assets folder and your brand guidelines, and get back a categorized list of violations with a confidence rating on each one.
+
+15 minMarketingClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-dk9zo6ae.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-e548vu0j.png)
+
 ![Audit a folder of visual assets against your guidelines result](https://academy.claude.com/assets/v1/audit-a-folder-of-visual-assets-against-your-guidelines-jt2onlse.png)
 
 ## 1. Describe the task
@@ -20,9 +34,7 @@ Flag:
 
 Group by violation type. For each one give me **filename, issue, guideline value, asset value, and confidence**. End with how many assets passed all checks.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -82,9 +94,7 @@ The exports are one step removed from what customers see. With [Claude in Chrome
 
 For each high-confidence violation, open the live page listed in asset-urls.csv in Chrome and tell me whether the published version has the same issue or has already been corrected.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### File each high-confidence violation as a task
 
@@ -92,9 +102,7 @@ With [Asana(opens in new tab)](https://claude.com/connectors/asana) or [Linear(o
 
 Create an Asana task in the Brand Compliance project for every high-confidence violation, assigned to the asset owner, with the filename, the guideline, and the corrected value in the description.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Save the audit as a skill and put it on a schedule
 
@@ -102,9 +110,7 @@ When the rules and grouping are right, save them as a [skill(opens in new tab)](
 
 Save this as a skill called brand-compliance-audit, then schedule it to run every Friday at 2pm and post the summary to #brand-ops.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -134,4 +140,11 @@ Flag:
 
 Group by violation type. For each one give me filename, issue, guideline value, asset value, and confidence. End with how many assets passed all checks.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

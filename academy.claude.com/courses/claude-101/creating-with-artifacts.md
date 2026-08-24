@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/courses/claude-101/creating-with-artifacts -->
 
-Lesson 6 of 13 · Claude 101Creating with artifacts
+Lesson 6 of 13 · Claude 101Creating with artifacts
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# Creating with artifacts
+
+Lesson 610 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain what artifacts are and when Claude creates them
+* Share artifacts with colleagues and publish them publicly
+* Troubleshoot common artifact issues
 
 ## What are artifacts?
 
@@ -32,10 +46,10 @@ Creating an artifact is as simple as having a conversation. Just describe what y
 
 For example, you might say:
 
-* “Create a flowchart showing our customer onboarding process”Note: Claude may now generate visual diagrams like flowcharts as HTML using Imagine, in addition to code-based artifacts.
-* “Build an interactive dashboard that lets me input monthly expenses and see a breakdown”
-* “Design a landing page for a productivity app with a hero section and feature list”
-* “Write a project brief template I can reuse for new initiatives”
+* “Create a flowchart showing our customer onboarding process”Note: Claude may now generate visual diagrams like flowcharts as HTML using Imagine, in addition to code-based artifacts.
+* “Build an interactive dashboard that lets me input monthly expenses and see a breakdown”
+* “Design a landing page for a productivity app with a hero section and feature list”
+* “Write a project brief template I can reuse for new initiatives”
 
 If Claude doesn't automatically create an artifact when you expect one, you can explicitly ask: "Create this as an artifact" or "Show me this in an artifact."
 
@@ -82,3 +96,46 @@ Before moving on, consider:
 ## What's next
 
 In the next lesson, you'll learn about Skills — reusable instruction sets that teach Claude specialized workflows.
+
+[Previous lessonIntroduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)[Next lessonWorking with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Lesson 6 of 13 · Claude 101Creating with artifacts
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [What are artifacts?](#what-are-artifacts)
+* [Common artifact types](#common-artifact-types)
+* [Creating your first artifact](#creating-your-first-artifact)
+* [Sharing and publishing artifacts](#sharing-and-publishing-artifacts)
+* [Tips for getting the most from artifacts](#tips-for-getting-the-most-from-artifacts)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

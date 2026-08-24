@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to install and use the Claude for Small Business plugin
+
+Install the plugin, see what's in it, customize it for your business, and run your first task. By the end, you'll have the plugin tailored to your business and a first task already done.
+
+15 minClaude Cowork
+
+[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-n72n3pr1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gj20jqdi.png)
+
 The Small Business [plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork) in [Claude Cowork(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps) puts Claude to work across the tools you already use — your accounting, payments, CRM, design, contracts, email, files, and calendar. You describe the job in plain English, and Claude reads the data, does the work, and shows you the result before anything sends, posts, or pays.
 
 Running the plugin well is an act of delegation, in two moves: you put the job into plain words so Claude picks the right skill for it, and you stay involved while the work happens, reading what Claude stages before anything goes out. Claude works as a collaborator you direct: it brings the capability, and the intent and the judgment calls stay with you.
@@ -75,9 +89,7 @@ In **Customize → Plugins**, open **Claude for Small Business** and click **Cus
 
 Customize the "smb-complete" plugin for me based on my company.
 
-
-
-Open in Cowork
+Open in Cowork
 
 Claude asks about your business — what you do, who works with you, what's hardest right now — and rewrites the plugin's defaults to match. From then on, the skills carry your context: your industry, your team size, your priorities, the way you like things done.
 
@@ -125,9 +137,7 @@ Take one job from your week, one where you already know roughly what the answer 
 
 Which invoices are overdue, and which ones should I follow up on first?
 
-
-
-Open in Cowork
+Open in Cowork
 
 Swap in your own job if invoices aren't the one on your mind this week, keeping the wording plain, with no skill name. Claude picks the skill that fits. If what comes back isn't the job you meant, type `/` and choose the skill yourself.
 
@@ -152,3 +162,10 @@ The habit to keep: describe the job, let Claude pick the skill, and check the re
 * [Using Claude for your small business(opens in new tab)](https://academy.claude.com/tutorials/using-claude-for-your-small-business) — four workflows the plugin runs end to end
 * [How to customize plugins in Cowork(opens in new tab)](https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork) — make the skills run from your context
 * [What are skills(opens in new tab)](https://academy.claude.com/tutorials/what-are-skills) — how skills work in Claude
+
+* [Install and run the plugin](#install-and-run-the-plugin)
+* [What's in the plugin](#whats-in-the-plugin)
+* [Customize the plugin for your business](#customize-the-plugin-for-your-business)
+* [Examples to try](#examples-to-try)
+* [Things to note](#things-to-note)
+* [Learn more](#learn-more)

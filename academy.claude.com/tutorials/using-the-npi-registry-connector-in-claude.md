@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-npi-registry-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the NPI Registry Connector in Claude
+
+Set up and use the NPI Registry integration with Claude to validate, look up, and search US healthcare provider credentials in the CMS NPPES registry.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-lhfk8yng.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-c5j7rv4s.png)
+
 The NPI Registry connector gives Claude access to the CMS National Plan and Provider Enumeration System (NPPES) to validate, look up, and search healthcare providers in the United States by their National Provider Identifier (NPI). This article explains how to set up and use the NPI Registry integration with Claude to search and verify US healthcare provider credentials.
 
 The NPI Registry integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -57,21 +71,15 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Validate NPI 1043248818 and show me their credentials and specialty
 
-
-
-Open in Claude
+Open in Claude
 
 Look up the provider with NPI 1679576722 and tell me if they're actively licensed
 
-
-
-Open in Claude
+Open in Claude
 
 Check if NPI 1234567893 is valid and what type of provider it belongs to
 
-
-
-Open in Claude
+Open in Claude
 
 **Provider Discovery by Specialty and Location**
 
@@ -80,27 +88,19 @@ Check if NPI 1234567893 is valid and what type of provider it belongs to
 
 Find all cardiologists practicing in Boston, Massachusetts
 
-
-
-Open in Claude
+Open in Claude
 
 Search for nurse practitioners in ZIP code 90210
 
-
-
-Open in Claude
+Open in Claude
 
 Show me orthopedic surgeons in California with their practice addresses
 
-
-
-Open in Claude
+Open in Claude
 
 Find all general acute care hospitals in New York
 
-
-
-Open in Claude
+Open in Claude
 
 **Clinical Trial Investigator Verification**
 
@@ -109,18 +109,17 @@ Find all general acute care hospitals in New York
 
 I have a clinical trial investigator named Dr. Sarah Johnson in Minnesota. Can you find her NPI and verify her credentials?
 
-
-
-Open in Claude
+Open in Claude
 
 Verify that the principal investigator John Smith, MD is a licensed oncologist in Texas
 
-
-
-Open in Claude
+Open in Claude
 
 Find the NPI and specialty for Dr. Robert Chen who lists Mayo Clinic as his affiliation
 
-
+Open in Claude
 
-Open in Claude
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the NPI Registry integration](#who-should-use-the-npi-registry-integration)
+* [Setting up the NPI Registry integration](#setting-up-the-npi-registry-integration)
+* [Example use cases](#example-use-cases)

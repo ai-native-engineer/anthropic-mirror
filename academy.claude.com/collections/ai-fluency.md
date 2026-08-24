@@ -1,5 +1,7 @@
 <!-- source: https://academy.claude.com/collections/ai-fluency -->
 
+[Academy](https://academy.claude.com/)
+
 # AI Fluency
 
 Learn what AI is good at, where it breaks down, and how to work with it effectively.
@@ -114,6 +116,8 @@ Tutorial·20 min](https://academy.claude.com/tutorials/parametric-memory-and-con
 
 Research, frameworks, and resources about how people are collaborating with AI. Delivered quarterly to your inbox.
 
+Subscribe
+
 ## More resources
 
-[Claude for Education claude.com (opens in new tab)](https://claude.com/solutions/education)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Claude for Education claude.com (opens in new tab)](https://claude.com/solutions/education)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

@@ -1,17 +1,29 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses -->
 
-9 lessons · 1 quizAI Fluency for Small Businesses
+[Courses](https://academy.claude.com/courses)
+
+# AI Fluency for Small Businesses
+
+Helps small business owners and staff build practical AI collaboration skills using the 4D Framework: Delegation, Description, Discernment, and Diligence. Applies the framework to everyday business tasks like research, customer data, and operations while staying true to your mission and values.
+
+9 lessons4 hr1 quizCompletion badge
+
+[Start course](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-fluency-for-small-businesses)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-small-businesses)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-mpyjyp46.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bw011lwh.png)
+
+9 lessons · 1 quizAI Fluency for Small Businesses
 
 What you’ll learnBy the end of this course, you’ll be able to
 
-* Define AI Fluency and the 4D Framework (Delegation, Description, Discernment, Diligence) and explain how each competency applies to small business work
-* Recognize the capabilities and limitations of generative AI, including hallucinations and knowledge cutoffs, to set realistic expectations for business use
-* Apply the Description-Discernment loop to craft effective prompts and critically evaluate AI-generated research before acting on it
-* Practice data hygiene and privacy safeguards when sharing sensitive business information with AI tools
-* Decide which repetitive business tasks are good candidates for AI automation and which should stay human-led
-* Build a repeatable AI-augmented workflow using Product, Process, and Performance Descriptions and plan for Diligence at every stage
-* Draft an AI use policy for your business that addresses transparency, accountability, and concerns about AI dependency
-* Apply the full 4D Framework to a real task from your own business operations
+* Define AI Fluency and the 4D Framework (Delegation, Description, Discernment, Diligence) and explain how each competency applies to small business work
+* Recognize the capabilities and limitations of generative AI, including hallucinations and knowledge cutoffs, to set realistic expectations for business use
+* Apply the Description-Discernment loop to craft effective prompts and critically evaluate AI-generated research before acting on it
+* Practice data hygiene and privacy safeguards when sharing sensitive business information with AI tools
+* Decide which repetitive business tasks are good candidates for AI automation and which should stay human-led
+* Build a repeatable AI-augmented workflow using Product, Process, and Performance Descriptions and plan for Diligence at every stage
+* Draft an AI use policy for your business that addresses transparency, accountability, and concerns about AI dependency
+* Apply the full 4D Framework to a real task from your own business operations
 
 At Anthropic, we believe that empowering people with AI, and ensuring that AI makes safe contributions to society, requires engaging with a wide range of human perspectives and experiences. Small businesses are uniquely positioned to leverage AI to advance their mission—but only if they can approach it intentionally, with resilience and clear purpose.
 
@@ -87,3 +99,33 @@ Apply the Description-Discernment loop to real research and the Delegation-Dilig
 Bring all four dimensions of the 4D Framework together to build a repeatable AI-augmented workflow and a short, honest AI use policy that fits your business and your team—then plan your next steps and earn your completion badge.
 
 ![](https://academy.claude.com/assets/media/0c4b52e94043e479b451ea1f94d2f6f6e6e45da17dda0467f02f05c8d66a11a9.webp)![](https://academy.claude.com/assets/media/c261cc8050c413f9733d90dbcf7a7c6bff4753ee50a0f966d18907c8a4c1d63c.webp)
+
+Introduction and AI Fluency framework
+
+* [AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-fluency-for-small-businesses)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-small-businesses/the-4d-framework)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
+
+The Description-Discernment loop
+
+* [Refining with AI](https://academy.claude.com/courses/ai-fluency-for-small-businesses/researching-with-ai)
+
+The Delegation-Diligence loop
+
+* [Transparent AI use](https://academy.claude.com/courses/ai-fluency-for-small-businesses/using-data-with-ai)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-small-businesses/tying-it-all-together)
+* [Human in the loop](https://academy.claude.com/courses/ai-fluency-for-small-businesses/human-in-the-loop)
+
+Conclusion and badge
+
+* [Closure and looking forward](https://academy.claude.com/courses/ai-fluency-for-small-businesses/closure-and-looking-forward)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-small-businesses/badge)

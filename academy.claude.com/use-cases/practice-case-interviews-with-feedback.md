@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/practice-case-interviews-with-feedback -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Practice case interviews with feedback
+
+Work through consulting cases with structured frameworks, guidance, and intelligent feedback
+
+15 minEducationClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-ctvicpxf.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-yob4z3wf.png)
+
 ![Practice case interviews with feedback result](https://academy.claude.com/assets/v1/practice-case-interviews-with-feedback-jcm7a9ka.png)
 
 ## 1. Describe the task
@@ -12,9 +26,7 @@ I'm practicing for consulting interviews. Set up this practice scenario for me�
 
 After I finish my analysis and write my recommendation, I'll share it for feedback. Review it like a senior partner would: check my numbers, evaluate my logic, and tell me specifically what needs improvement.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -24,15 +36,13 @@ To receive tailored practice materials, provide Claude with your case materials 
 
 Upload your practice study files so that Claude can analyze the case, find relevant data points, and build the tools you need to practice effectively.
 
-
-
 Practice case problemPDF
 
 ### Optional context
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can spend more time building high quality outputs and reasoning through complex problems.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -84,9 +94,7 @@ Ask Claude to describe other valid approaches so you can understand new ways to 
 
 What would a different but equally strong approach look like? Show me an alternative analytical path I could have taken.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Dive deeper into certain frameworks
 
@@ -94,9 +102,7 @@ Learn specific analytical techniques and how to apply them effectively when bein
 
 Walk me through how to use a profitability tree for this case. What should I be calculating at each branch? Show me what insights I'm looking for at each level.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Request a review on your work
 
@@ -104,9 +110,7 @@ Get specific feedback on logical gaps, weak conclusions, or missing analysis bef
 
 Here's my draft recommendation for the restaurant expansion case: [paste your analysis]. Is my logic sound? What assumptions am I making that I haven't tested? What would make this recommendation stronger?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -130,4 +134,11 @@ I'm practicing for consulting interviews. Set up this practice scenario for me�
 
 After I finish my analysis and write my recommendation, I'll share it for feedback. Review it like a senior partner would: check my numbers, evaluate my logic, and tell me specifically what needs improvement.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

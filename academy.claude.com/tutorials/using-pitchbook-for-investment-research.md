@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-pitchbook-for-investment-research -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using PitchBook for investment research
+
+Set up and use PitchBook Premium's integration with Claude for accessing private capital market data, company profiles, investor information, and deal details.
+
+10 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-m187nooh.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ia5o0tce.png)
+
 The PitchBook Premium integration gives Claude access to proprietary private capital market data and analytical metrics. This article outlines the steps to set up and use PitchBook data for financial research, including financial analysis, competitive benchmarking, network relationship mapping, and investor portfolio analysis.
 
 The PitchBook integration relies on Claude’s ability to use [remote connectors(opens in new tab)](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp).
@@ -52,9 +66,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Using PitchBook data, tell me about Plaid’s funding status, including the most recent investment date, round type, and use of proceeds. Include a list of lenders, active and former investors, and relevant news coverage about previous investment rounds.
 
-
-
-Open in Claude
+Open in Claude
 
 Streamline the financial research journey from search to insight. Claude can retrieve comprehensive PitchBook data on a specific company, including an overview, financials, deal history, key personnel, and investors. When comparing multiple companies from a user- or Claude-generated list, Claude retrieves PitchBook data from each company before compiling results into a single list to spot deal opportunities.
 
@@ -64,9 +76,7 @@ Streamline the financial research journey from search to insight. Claude can ret
 
 Using PitchBook data, help me identify investment opportunities by benchmarking companies in the healthtech wearables market. Provide details on each company’s recent investment history, profitability, liquidity, and growth rates.
 
-
-
-Open in Claude
+Open in Claude
 
 Quickly compare targets to identify promising opportunities for investments, mergers and acquisitions, and partnerships. Claude performs this action using company and deal lists provided by users, or by generating company lists from the web and other sources. The LLM accesses PitchBook’s comprehensive company intelligence, including investment history, product details, financial performance, and more, to retrieve critical details for each company on the list. Users can accelerate deal flow by comparing these metrics in a convenient and readable output.
 
@@ -76,9 +86,7 @@ Quickly compare targets to identify promising opportunities for investments, mer
 
 Using PitchBook data, identify Instacart investors. Then, pull portfolios for each investor’s top 3 VCs to see other companies in this space, and analyze those VC companies’ investors to map the competitive landscape.
 
-
-
-Open in Claude
+Open in Claude
 
 Discover unexpected connections between companies, investors, and professionals by using Claude to transform PitchBook’s comprehensive private capital market data into market maps that demonstrate complex relationships within the industry. Claude accesses PitchBook’s proprietary data to accelerate financial research by extracting these insights and producing easy-to-read competitive clusters.
 
@@ -95,3 +103,13 @@ Discover unexpected connections between companies, investors, and professionals 
 ## Contact
 
 If you are having trouble completing the PitchBook Premium integration, you can contact [support@pitchbook.com(opens in new tab)](mailto:support@pitchbook.com) for help.
+
+* [What This Integration Provides](#what-this-integration-provides)
+* [Capabilities](#capabilities)
+* [How Claude Uses PitchBook's Data](#how-claude-uses-pitchbooks-data)
+* [Setting Up PitchBook Integration](#setting-up-pitchbook-integration)
+* [Common Use Cases](#common-use-cases)
+* [Competitive Analysis](#competitive-analysis)
+* [Relationship Mapping](#relationship-mapping)
+* [Tips for Using PitchBook's Data](#tips-for-using-pitchbooks-data)
+* [Contact](#contact)

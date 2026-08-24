@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/create-custom-course-materials -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create custom course materials
+
+Transform handwritten equations and notes into formatted LaTeX documents without manual typesetting.
+
+10 minEducationClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-gr1skpk7.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hormhdsy.png)
+
 ![Create custom course materials result](https://academy.claude.com/assets/v1/create-custom-course-materials-juo6vuzz.png)
 
 ## 1. Describe the task
@@ -15,9 +29,7 @@ I'm a math professor converting my handwritten integration notes into a professi
 
 Craft a professional-looking LaTeX document, resembling a published textbook page with colored boxes and precise equations, then convert it to PDF.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -29,11 +41,7 @@ Upload photos of handwritten notes or equations or any relevant existing course 
 
 Click the (+) button in the chat bar to browse and [upload your files,(opens in new tab)](https://support.claude.com/en/articles/8241126-what-kinds-of-documents-can-i-upload-to-claude) or alternatively, drag and drop files into the chat box area.
 
-
-
 Handwritten notesJPEG
-
-
 
 Class syllabusPDF
 
@@ -41,7 +49,7 @@ Class syllabusPDF
 
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for more complex tasks, like working with mathematical content, and for creating high quality outputs, like compiling LaTeX documents into PDFs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -72,9 +80,7 @@ Add additional design elements beyond the basics—margin notes, visual hierarch
 
 Add margin notes with key insights, a visual table of contents at the chapter start, and use different shading for 'Quick Check' boxes where students can test understanding before moving forward.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Generate matching problem sets
 
@@ -82,9 +88,7 @@ Create practice materials that complement educational content. Claude generates 
 
 Create a separate homework assignment document with 15 integration by parts problems organized by difficulty. Include worked solution templates showing the u and dv selection, but leave the actual integration steps blank for students to complete.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -111,4 +115,11 @@ I'm a math professor converting my handwritten integration notes into a professi
 
 Craft a professional-looking LaTeX document, resembling a published textbook page with colored boxes and precise equations, then convert it to PDF.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

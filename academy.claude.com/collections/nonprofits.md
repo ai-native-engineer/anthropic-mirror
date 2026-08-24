@@ -1,5 +1,7 @@
 <!-- source: https://academy.claude.com/collections/nonprofits -->
 
+[Academy](https://academy.claude.com/)
+
 # Claude for nonprofits
 
 Accelerate the work that matters most. Courses, connector guides, and workflows that help nonprofit teams turn limited resources into lasting impact.
@@ -171,22 +173,22 @@ Use case·Personal·15 min](https://academy.claude.com/use-cases/create-a-custom
 
 ## Webinars
 
-* [Claude for nonprofits: moving your workflow beyond chat www.anthropic.com
+* [Claude for nonprofits: moving your workflow beyond chat www.anthropic.com
 
   www.anthropic.com
 
    (opens in new tab)](https://www.anthropic.com/webinars/claude-for-nonprofits-moving-your-workflow-beyond-chat)
-* [Claude IT setup for nonprofits www.anthropic.com
+* [Claude IT setup for nonprofits www.anthropic.com
 
   www.anthropic.com
 
    (opens in new tab)](https://www.anthropic.com/webinars/claude-it-setup-for-nonprofits)
-* [Cowork workshop: foundations www.anthropic.com
+* [Cowork workshop: foundations www.anthropic.com
 
   www.anthropic.com
 
    (opens in new tab)](https://www.anthropic.com/webinars/cowork-workshop-foundations)
-* [Claude Code foundations www.anthropic.com
+* [Claude Code foundations www.anthropic.com
 
   www.anthropic.com
 
@@ -194,4 +196,4 @@ Use case·Personal·15 min](https://academy.claude.com/use-cases/create-a-custom
 
 ## More resources
 
-[Claude for Nonprofits claude.com (opens in new tab)](https://claude.com/solutions/nonprofits)[Claude for Life Sciences claude.com (opens in new tab)](https://claude.com/solutions/life-sciences)[Nonprofit plan upgrade claude.ai (opens in new tab)](https://claude.ai/upgrade/nonprofit)[Trust Center trust.anthropic.com (opens in new tab)](https://trust.anthropic.com/)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Claude for Nonprofits claude.com (opens in new tab)](https://claude.com/solutions/nonprofits)[Claude for Life Sciences claude.com (opens in new tab)](https://claude.com/solutions/life-sciences)[Nonprofit plan upgrade claude.ai (opens in new tab)](https://claude.ai/upgrade/nonprofit)[Trust Center trust.anthropic.com (opens in new tab)](https://trust.anthropic.com/)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

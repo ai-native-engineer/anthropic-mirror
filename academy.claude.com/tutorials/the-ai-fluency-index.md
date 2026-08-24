@@ -1,5 +1,17 @@
 <!-- source: https://academy.claude.com/tutorials/the-ai-fluency-index -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Anthropic Education Report: The AI Fluency Index
+
+Anthropic's AI Fluency Index measures 11 observable behaviors across thousands of Claude.ai conversations to understand how people develop AI collaboration skills.
+
+10 min
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-cq67r4kj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-d9qi1x8j.png)
+
 *Originally published February 23, 2026.*
 
 People are integrating AI tools into their daily routines at a pace that would have been difficult to predict even a year ago. But adoption alone doesn't tell us much about the impact of these tools. **A further, equally important question is: as AI becomes part of everyday life, are individuals developing the skills to use it well?**
@@ -90,7 +102,7 @@ We expect that the nature of AI fluency will develop and evolve substantially ov
 
 If you'd like to cite this post, you can use the following Bibtex key:
 
-text
+text
 
 ```
 @online{swanson2026aifluency,
@@ -110,3 +122,12 @@ Kristen Swanson designed the research, led the analysis, and wrote this report. 
 
 1. When researching how people use AI models, protecting user privacy is paramount. For this project, we used our [privacy-preserving analysis tool(opens in new tab)](https://www.anthropic.com/research/clio), which enables bottom-up discovery of AI usage patterns by distilling user conversations into high-level usage summaries, such as "troubleshoot code" or "explain economic concepts." For this analysis, we ran 11 separate binary classifiers (one per behavioral indicator) using Claude Sonnet 4 for behavioral classification and Claude Haiku 3.5 for language detection. This means a single conversation could indicate multiple AI fluency behavioral indicators. Conversations were filtered to substantive exchanges with multiple back-and-forths using a screener that excluded greetings, single-word exchanges, test messages, and pure chitchat. Manual review of 200 chats that were screened out indicated that chats of this nature did not qualify for any AI Fluency indicators, so we feel confident that the screener did not influence the relative rankings of AI fluency behaviors observed in the study. No personally identifiable information appears in the analysis.
 2. Behavioral indicators were calculated across a one-week sample (January 20–26, 2026) and held stable day-to-day, with most behaviors varying by only 1–5 percentage points. Saturday rates were slightly lower for some behaviors (e.g., iteration and refinement was 81.4% for Saturday compared to a weekday peak of 87.9%), suggesting modest differences in casual versus purposeful use, but no day showed meaningful structural deviation. Rates were also consistent across six languages (English, French, Spanish, Chinese, Japanese, and German), with most behaviors varying by 3 percentage points or fewer across language groups. Together, these findings suggest that the behavioral patterns captured here reflect consistent habits in how people engage with AI, rather than being artifacts of timing, day of week, or linguistic and cultural context.
+
+* [Measuring AI fluency](#measuring-ai-fluency)
+* [Results](#results)
+* [Developing your own AI fluency](#developing-your-own-ai-fluency)
+* [Limitations](#limitations)
+* [Looking ahead](#looking-ahead)
+* [Bibtex](#bibtex)
+* [Acknowledgements](#acknowledgements)
+* [Footnotes](#footnotes)

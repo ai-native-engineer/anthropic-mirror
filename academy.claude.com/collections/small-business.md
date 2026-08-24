@@ -1,5 +1,7 @@
 <!-- source: https://academy.claude.com/collections/small-business -->
 
+[Academy](https://academy.claude.com/)
+
 # Claude for small business
 
 Every day millions of small businesses use AI to manage finances, develop marketing materials, and ultimately provide the essential goods and services that their customers and communities depend on. These resources are designed to help you get the most out of AI for your business.
@@ -155,4 +157,4 @@ Tutorial·2 min](https://academy.claude.com/tutorials/working-smarter-with-claud
 
 ## More resources
 
-[Claude for Small Business claude.com (opens in new tab)](https://claude.com/solutions/small-business)[The Small Business plugin claude.com (opens in new tab)](https://claude.com/plugins/small-business)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Claude for Small Business claude.com (opens in new tab)](https://claude.com/solutions/small-business)[The Small Business plugin claude.com (opens in new tab)](https://claude.com/plugins/small-business)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

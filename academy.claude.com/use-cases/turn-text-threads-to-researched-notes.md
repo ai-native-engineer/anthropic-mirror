@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/turn-text-threads-to-researched-notes -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Turn text threads to researched notes
+
+Search messages for information, research answers, and create organized notes directly in your Notes app.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-o2j8fq6m.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-du8u44gt.png)
+
 ![Turn text threads to researched notes result](https://academy.claude.com/assets/v1/turn-text-threads-to-researched-notes-payiriue.png)
 
 ## 1. Describe the task
@@ -16,9 +30,7 @@ Research dessert options that fit those criteriasave recipe opping list to my No
 
 To ensure correct formatting in my notes, using HTML tags to create natural line breaks. Use abbreviations and concise language so the note isn't overly long.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -32,29 +44,25 @@ Then, in [Settings > Connectors(opens in new tab)](https://claude.ai/customize/c
 
 Turn on [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) in the chat bar so Claude can search for recipes and reviews online as a next step.
 
-
-
 Read and Send iMessages
 
 A desktop extension of the Claude app on a Mac — enable it under Desktop extensions once the app is installed.
 
-[Connect](https://claude.ai/customize/connectors)
-
-
+[Connect](https://claude.ai/customize/connectors)
 
 Read and Write Apple Notes
 
 A desktop extension of the Claude app on a Mac — enable it under Desktop extensions once the app is installed.
 
-[Connect](https://claude.ai/customize/connectors)
+[Connect](https://claude.ai/customize/connectors)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context
 
 Make sure [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is turned on in the chat bar so Claude can search for recipes and reviews online as a next step.
 
-[
+[
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
@@ -84,9 +92,7 @@ Ask Claude to reply to the host with what you're bringing and to set a reminder 
 
 Please send Sarah a message back saying I'll bring brownies for 15 people. Let her know I can make a small gluten-free batch too. Then, set a reminder for 6pm to stop at the grocery store on the way home from work.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Adapt to new information
 
@@ -94,9 +100,7 @@ Have Claude intelligently adjust the output when details change.
 
 Sarah just texted that it's 25 people now. Update my Notes with 1.5x quantities for both the recipe and shopping list.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Try it out in other platforms
 
@@ -104,9 +108,7 @@ Claude can connect to a variety of your communication tools. Apply this workflow
 
 My team's been chatting about a workshop in Slack. Read those messages, research venue options nearby, and save a planning timeline to my Notes.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -134,4 +136,11 @@ Research dessert options that fit those criteriasave recipe opping list to my No
 
 To ensure correct formatting in my notes, using HTML tags to create natural line breaks. Use abbreviations and concise language so the note isn't overly long.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

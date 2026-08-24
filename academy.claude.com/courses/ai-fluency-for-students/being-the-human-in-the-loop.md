@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-students/being-the-human-in-the-loop -->
 
-Lesson 5 of 5 · AI Fluency for studentsBeing the human in the loop
+Lesson 5 of 5 · AI Fluency for studentsBeing the human in the loop
+
+3. /[AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students)
+
+[AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students)
+
+# Being the human in the loop
+
+Lesson 545 min
+
+In this lessonBy the end, you’ll be able to
+
+* Understand what it means to be "the human in the loop" in AI interactions
+* Create a personal AI collaboration policy that reflects your values
+* Develop guidelines for responsible AI use in your academic and professional life
+* Build a framework for continued growth in AI Fluency
 
 ## Being the human in the loop & developing a personal commitment
-
-Loading
 
 Being the human in the loop
 
@@ -68,3 +81,29 @@ Congratulations on completing AI Fluency for Students! You now have:
 * **A personal AI policy** that reflects your individual values and sets you up not just as a responsible AI user but as an AI leader.
 
 Take the final quiz in the next lesson to earn your completion badge for this course material.
+
+[Previous lessonAI in career planning](https://academy.claude.com/courses/ai-fluency-for-students/ai-in-career-planning)[Next lessonCourse quiz](https://academy.claude.com/courses/ai-fluency-for-students/certificate-of-completion)
+
+Lesson 5 of 5 · AI Fluency for studentsBeing the human in the loop
+
+Introduction and AI Fluency Framework
+
+* [Welcome to AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students/welcome-to-ai-fluency-for-students)
+* [AI Fluency Framework](https://academy.claude.com/courses/ai-fluency-for-students/ai-fluency-framework)
+
+AI Fluency Framework applications for students
+
+* [AI as a learning partner](https://academy.claude.com/courses/ai-fluency-for-students/ai-as-a-learning-partner)
+* [AI in career planning](https://academy.claude.com/courses/ai-fluency-for-students/ai-in-career-planning)
+
+Conclusion & badge
+
+* [Being the human in the loop](https://academy.claude.com/courses/ai-fluency-for-students/being-the-human-in-the-loop)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-students/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-students/badge)
+
+* [Being the human in the loop & developing a personal commitment](#being-the-human-in-the-loop-developing-a-personal-commitment)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [What's next](#whats-next)

@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-platform-101/what-is-tool-use -->
 
-Lesson 5 of 13 · Claude Platform 101What is tool use?
+Lesson 5 of 13 · Claude Platform 101What is tool use?
 
-Loading
+3. /[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+# What is tool use?
+
+Lesson 58 min
 
 What is tool use?
 
@@ -29,7 +35,7 @@ The **description** is what Claude reads to decide whether to call the tool. If 
 
 Here's what a tool definition looks like:
 
-json
+json
 
 ```
 {
@@ -64,7 +70,7 @@ One tool is useful, but the interesting part is giving Claude **multiple tools**
 
 Picture this scenario: you're packing for a three-day trip to Denver, and you want both today's weather and the forecast for the next few days. So we declare two tools instead of one:
 
-typescript
+typescript
 
 ```
 const tools = [
@@ -95,7 +101,7 @@ const tools = [
 
 The loop is identical to the agent loops we've already seen. The only new piece is a `runTool` function that **dispatches on the tool name** with a switch statement — this block of code is just where your code actually runs:
 
-typescript
+typescript
 
 ```
 function runTool(name, input) {
@@ -151,7 +157,7 @@ That's where the **tool runner** comes in. It ships in beta in the Claude SDKs: 
 
 Your code shrinks down to: describe the tool, send the prompt, wait for the result. Here's the same two-tool weather demo wired through the tool runner:
 
-typescript
+typescript
 
 ```
 // The same two lookups we ran by hand — just plain TypeScript functions
@@ -206,3 +212,48 @@ Take a compliance review agent: its tools are thin wrappers around `lookup_build
 * For multiple tools, dispatch on the tool name. Adding a tool means adding to the array and adding a case.
 * The SDK's **tool runner** (available in beta across the Claude SDKs) builds schemas from your actual functions and handles the whole loop — or you can run the loop yourself.
 * You execute, or you delegate the loop. At the far end of that spectrum, **managed agents** delegate the whole agent to Anthropic.
+
+[Previous lessonThe agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)[Next lessonWhat is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)
+
+Lesson 5 of 13 · Claude Platform 101What is tool use?
+
+What is the Claude Platform?
+
+* [What is the Claude Platform?](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)
+* [Your first API call](https://academy.claude.com/courses/claude-platform-101/your-first-api-call)
+* [Choosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)
+
+Teaching your agent
+
+* [The agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)
+* [What is tool use?](https://academy.claude.com/courses/claude-platform-101/what-is-tool-use)
+* [What is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)
+
+Extending your agent
+
+* [Built-in tools](https://academy.claude.com/courses/claude-platform-101/built-in-tools)
+* [Skills](https://academy.claude.com/courses/claude-platform-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-platform-101/mcp)
+* [Context management](https://academy.claude.com/courses/claude-platform-101/context-management)
+
+Managed Agents
+
+* [What are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)
+* [Building your first managed agent](https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent)
+
+Building with Claude Code
+
+* [Building with Claude Code](https://academy.claude.com/courses/claude-platform-101/building-with-claude-code)
+
+Quiz
+
+* [Claude Platform 101 quizQuiz](https://academy.claude.com/courses/claude-platform-101/claude-platform-101-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-platform-101/badge)
+
+* [What a tool is](#what-a-tool-is)
+* [How tools are defined](#how-tools-are-defined)
+* [Multiple tools: letting Claude pick](#multiple-tools-letting-claude-pick)
+* [The tool runner: skip the boilerplate](#the-tool-runner-skip-the-boilerplate)
+* [Real tools wrap your existing code](#real-tools-wrap-your-existing-code)
+* [Recap](#recap)

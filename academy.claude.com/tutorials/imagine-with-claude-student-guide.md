@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/imagine-with-claude-student-guide -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Visuals that appear as you study with Claude
+
+A guide for students. What the feature is, how to use it well, and what it can do for your coursework.
+
+10 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-m2mff15b.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lc54n5dd.png)
+
 Some things land faster drawn than said, and a good teacher knows when to reach for the whiteboard.
 
 Now, Claude can do that too. When a visual is the clearer answer to what you asked, Claude builds one as part of its response. The visual sits alongside the text, shaped directly to your ask — a diagram you click into as Claude explains, a chart you filter while you ask follow-ups, something that plays when the concept is a sound.
@@ -24,27 +38,17 @@ Here's what it looks like in practice — the prompt, the response, and the visu
 
 A concept from lecture, a dense passage from a textbook, a thing you keep hearing about but can't picture— drawn so you can see what it actually means.
 
-Loading
-
 ### Interacting with the concept in chat
 
 Some things you need to hear, or change, or click. Claude builds the interactive version so you're doing, not just reading.
-
-Loading
 
 ### Visualizing how things connect
 
 Some concepts are spatial — things connect, one number feeds into another. Text forces you to hold it all in your head. Claude draws the connections so you can trace them.
 
-Loading
-
-Loading
-
 ### Practicing what you just learned
 
 Stay hands-on while you study — the quiz appears right where you're learning, so you're trying things while the idea is fresh.
-
-Loading
 
 ## Things to try out while studying with Claude
 
@@ -133,3 +137,9 @@ Each of these is a complete use case with a tested prompt, a chat-window view of
 * [Plan your syllabus in chat with Claude — see which weeks are locked(opens in new tab)](https://academy.claude.com/use-cases/plan-your-syllabus-see-which-weeks-are-locked)
 
 Next time something isn't clicking, ask Claude to imagine it with you. Claude draws it, and the conversation continues from there.
+
+* [A few moments where this may help you](#a-few-moments-where-this-may-help-you)
+* [Things to try out while studying with Claude](#things-to-try-out-while-studying-with-claude)
+* [What you can do with what Claude draws](#what-you-can-do-with-what-claude-draws)
+* [A few practical things](#a-few-practical-things)
+* [Go deeper — the full set of walkthroughs](#go-deeper-the-full-set-of-walkthroughs)

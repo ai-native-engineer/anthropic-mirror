@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-healthex-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the HealthEx Connector in Claude
+
+Using the HealthEx Connector in Claude
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-m6w51vq2.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-c71g2xhj.png)
+
 HealthEx connects Claude to your personal health records from all your care providers. This article explains how to set up and use the HealthEx integration with Claude to understand and manage your health data.
 
 The HealthEx integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -43,33 +57,25 @@ The HealthEx connector helps people understand, organize, and act on their own h
 
 Show me a summary of my health records.
 
-
-
-Open in Claude
+Open in Claude
 
 **Learn about your health:**
 
 Help me understand my most recent lab results.
 
-
-
-Open in Claude
+Open in Claude
 
 **Plan your care:**
 
 What questions should I ask my doctor at my next visit?
 
-
-
-Open in Claude
+Open in Claude
 
 **Guide your daily routine:**
 
 What types of exercise would be best for me?
 
-
-
-Open in Claude
+Open in Claude
 
 ## **Setting up the HealthEx integration in Claude**
 
@@ -129,3 +135,11 @@ Chats that use the HealthEx integration are never used to train our models. We�
 **Empowering you, not replacing your doctor**
 
 Claude is designed to help you better understand and take ownership of your healthcare journey — not to provide medical advice, diagnoses, or treatment recommendations. Always consult your physician for medical decisions.
+
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the HealthEx integration](#who-should-use-the-healthex-integration)
+* [Who can access the HealthEx integration](#who-can-access-the-healthex-integration)
+* [Example use cases](#example-use-cases)
+* [Setting up the HealthEx integration in Claude](#setting-up-the-healthex-integration-in-claude)
+* [How to securely connect to your HealthEx account](#how-to-securely-connect-to-your-healthex-account)
+* [How does Claude protect my data privacy and safety?](#how-does-claude-protect-my-data-privacy-and-safety)

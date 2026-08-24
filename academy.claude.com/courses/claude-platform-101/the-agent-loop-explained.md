@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained -->
 
-Lesson 4 of 13 · Claude Platform 101The agent loop explained
+Lesson 4 of 13 · Claude Platform 101The agent loop explained
 
-Loading
+3. /[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+# The agent loop explained
+
+Lesson 47 min
 
 The agent loop explained
 
@@ -31,7 +37,7 @@ To see this loop run end to end without dragging in a database or a UI, we'll wi
 
 Here's the whole script:
 
-python
+python
 
 ```
 import anthropic
@@ -143,3 +149,47 @@ The shape of the loop is identical to what you just ran. The differences are:
 * **You own the loop and the tools. Claude owns the reasoning.**
 * The same loop shape scales from a mock weather demo to a production compliance agent — only the tools and plumbing change.
 * When you don't want to own the loop, managed agents run this exact loop for you on Anthropic's infrastructure.
+
+[Previous lessonChoosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)[Next lessonWhat is tool use?](https://academy.claude.com/courses/claude-platform-101/what-is-tool-use)
+
+Lesson 4 of 13 · Claude Platform 101The agent loop explained
+
+What is the Claude Platform?
+
+* [What is the Claude Platform?](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)
+* [Your first API call](https://academy.claude.com/courses/claude-platform-101/your-first-api-call)
+* [Choosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)
+
+Teaching your agent
+
+* [The agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)
+* [What is tool use?](https://academy.claude.com/courses/claude-platform-101/what-is-tool-use)
+* [What is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)
+
+Extending your agent
+
+* [Built-in tools](https://academy.claude.com/courses/claude-platform-101/built-in-tools)
+* [Skills](https://academy.claude.com/courses/claude-platform-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-platform-101/mcp)
+* [Context management](https://academy.claude.com/courses/claude-platform-101/context-management)
+
+Managed Agents
+
+* [What are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)
+* [Building your first managed agent](https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent)
+
+Building with Claude Code
+
+* [Building with Claude Code](https://academy.claude.com/courses/claude-platform-101/building-with-claude-code)
+
+Quiz
+
+* [Claude Platform 101 quizQuiz](https://academy.claude.com/courses/claude-platform-101/claude-platform-101-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-platform-101/badge)
+
+* [What an agent actually is](#what-an-agent-actually-is)
+* [A minimal working example](#a-minimal-working-example)
+* [Running it](#running-it)
+* [The same loop in production](#the-same-loop-in-production)
+* [Recap](#recap)

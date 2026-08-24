@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/uxr-synthesis -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Synthesize user interviews into findings
+
+Themed findings and quotes from raw transcripts.
+
+10 minDesignClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-e7bnk7fu.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gpzn7vel.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Design plugin ships with `/research-synthesis` and other research and spec skills as a starting point, already structured to cluster observations and pull supporting quotes. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 Design8 skills for research synthesis, spec drafting, brand enforcement, and prototype generation
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=design)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=design)
 
 `/research-synthesis`Cluster interview transcripts into themed findings with supporting quotes
 
@@ -22,7 +32,7 @@ Design8 skills for research synthesis, spec drafting, brand enforcement, and pro
 
 [Run](claude://cowork/new?q=%2Fdesign-handoff)
 
-Show all 7 skills
+Show all 7 skills
 
 ### Connect your tools
 
@@ -36,7 +46,7 @@ Airtable
 
 Read the research tracker so findings, participants, and tags stay linked to the source sessions.
 
-[Connect](https://claude.ai/desktop/directory/airtable)
+[Connect](https://claude.ai/desktop/directory/airtable)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
@@ -44,7 +54,7 @@ Google Drive
 
 Read transcript docs from the study folder and write the findings doc back.
 
-[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='24'%20height='24'%20rx='5'%20fill='%23FFD02F'/%3e%3cpath%20fill='%23050038'%20d='M16.59%203.52h-2.65l2.2%203.87-4.85-3.87H8.64l2.43%204.84-5.08-4.84H3.34l2.7%206.16-2.7%2010.8h2.65l5.08-11.77-2.43%2011.77h2.65l4.85-12.74-2.2%2012.74h2.65l4.87-14.19z'/%3e%3c/svg%3e)
 
@@ -52,11 +62,9 @@ MiroOptional
 
 Drop the themes onto a board as sticky clusters for the workshop debrief.
 
-[Connect](https://claude.ai/desktop/directory/miro)
+[Connect](https://claude.ai/desktop/directory/miro)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -72,7 +80,7 @@ P02-transcript.txtApr 21, 202641 KB
 
 discussion-guide.pdfApr 14, 202688 KB
 
-In Cowork’s chat bar:Research / Onboarding-Study-Q2
+In Cowork’s chat bar:Research / Onboarding-Study-Q2
 
 ## The prompt
 
@@ -80,35 +88,33 @@ In Cowork’s chat bar:Research / Onboarding-Study-Q2
 
 Synthesize the interview transcripts into a research findings doc. Cluster the observations into 5-7 themes, name each plainly, support each with 2-3 verbatim quotes attributed to participant ID, and end with the open questions the team still needs to answer.
 
-
-
-Research / Onboarding-Study-Q2Open in Cowork
+Research / Onboarding-Study-Q2Open in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Give a number range.** Five to seven forces real clustering, not a laundry list.
 
-Prompt
+Prompt
 
 **Ask for attributed evidence.** Evidence stays in the participant's words, attributed by ID.
 
-Prompt
+Prompt
 
 **End on open questions.** The doc tells the team what to study next.
 
-Source
+Source
 
 **Let the folder supply the context.** Every transcript is read; nothing depends on memory.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -118,11 +124,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /research-synthesis skill with my feedback.
 
-
-
-ResearchOpen in Cowork
-
-
+ResearchOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -134,9 +136,7 @@ A findings doc goes stale once the next round of interviews comes in. Ask Cowork
 
 Publish those themes as a live artifact for the product team. Keep a "what shifted since last round" note at the top.
 
-
-
-Research / Onboarding-Study-Q2Open in Cowork
+Research / Onboarding-Study-Q2Open in Cowork
 
 ### Run it after every interview day
 
@@ -144,23 +144,19 @@ Sessions wrap, the synthesis should already be cooking. Type `/schedule` in the 
 
 **/schedule** Weekdays at 6pm, check Research/Onboarding-Study-Q2 for new transcripts and re-run /research-synthesis, updating the findings doc and noting which themes moved.
 
-
+ResearchOpen in Cowork
 
-ResearchOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Rolling research synthesis
 
 Each weekday at 6pm, checks the study folder for new transcripts, re-runs `/research-synthesis`, and updates the findings doc with a note on which themes moved.
 
-Every **weekday at 6 pm · checks Research/Onboarding-Study-Q2 for new transcripts**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **weekday at 6 pm · checks Research/Onboarding-Study-Q2 for new transcripts**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/research-synthesis` now carries your taxonomy, your quote format, and your readout structure. Share it so every researcher on the team clusters the same way, and PMs see a consistent findings doc no matter who ran the study.
-
-
 
 Share the skill
 
@@ -180,6 +176,13 @@ Claude Design
 
 Turn the findings into the on-brand readout deck
 
-Open](https://claude.ai/design)
+Open](https://claude.ai/design)
 
-[Next: Design spec from scattered threads](https://academy.claude.com/use-cases/design-spec-from-threads)
+[Next: Design spec from scattered threads](https://academy.claude.com/use-cases/design-spec-from-threads)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [What changes for the research team](#what-changes-for-the-research-team)

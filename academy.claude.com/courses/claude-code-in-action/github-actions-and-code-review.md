@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review -->
 
-Lesson 7 of 9 · Claude Code in ActionGitHub Actions and Code Review
+Lesson 7 of 9 · Claude Code in ActionGitHub Actions and Code Review
 
-Loading
+3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+# GitHub Actions and Code Review
+
+Lesson 76 min
 
 GitHub Actions and Code Review
 
@@ -60,7 +66,7 @@ The action itself is `anthropics/claude-code-action@v1`. Here are the inputs you
 
 Drop a workflow into `.github/workflows/claude.yaml` and it listens for `@claude` on PR comments and issue comments. The core step looks like this:
 
-yaml
+yaml
 
 ```
 - uses: anthropics/claude-code-action@v1
@@ -96,3 +102,42 @@ Here's the short version:
 * Reach for the action when the job is more than review. Use `/install-github-app` for setup, one workflow for `@claude` mentions, one for cron, and all the tuning lives in `claude_args`.
 
 Start with the managed service. Move to the action the moment you need Claude to actually do something in CI, not just comment on it.
+
+[Previous lessonRoutines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)[Next lessonTrust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)
+
+Lesson 7 of 9 · Claude Code in ActionGitHub Actions and Code Review
+
+Steer the work
+
+* [Steering long sessions](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)
+
+Configure Claude
+
+* [A CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)
+* [Verification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)
+* [Permission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)
+* [Hooks](https://academy.claude.com/courses/claude-code-in-action/hooks)
+
+Automate repeat work
+
+* [Routines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)
+* [GitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)
+
+Verify and share
+
+* [Trust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)
+* [Plugins](https://academy.claude.com/courses/claude-code-in-action/plugins)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-in-action/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-in-action/badge)
+
+* [The managed path: Code Review](#the-managed-path-code-review)
+* [What Code Review will and won't do](#what-code-review-will-and-wont-do)
+* [The do-it-yourself path: the GitHub Action](#the-do-it-yourself-path-the-github-action)
+* [A workflow that responds to @claude](#a-workflow-that-responds-to-claude)
+* [A workflow that runs on a schedule](#a-workflow-that-runs-on-a-schedule)
+* [Tuning the run with claudeargs](#tuning-the-run-with-claudeargs)
+* [Which one should you use?](#which-one-should-you-use)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/log-sales-calls-to-your-crm -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Log sales calls to your CRM
+
+Claude in Chrome can read your calendar, match attendees to Salesforce contacts, and draft activity logs for each call. You add notes and approve before anything gets created.
+
+10 minSalesClaude in Chrome
+
+Get Claude in ChromeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-en74js1a.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ora2nm1q.png)
+
 ![Log sales calls to your CRM result](https://academy.claude.com/assets/v1/log-sales-calls-to-your-crm-j8g34vm9.png)
 
 ## 1. Describe the task
@@ -19,7 +33,7 @@ Log my calls from today in Salesforce.
 
 **Do not submit.** Show me everything for review before saving to Salesforce.
 
-Copy prompt
+Copy prompt
 
 ## 2. Give Claude context
 
@@ -106,7 +120,7 @@ While logging activities, update the opportunity records based on what you learn
 
 For Acme Corp, move the opportunity to "Demo Scheduled" and update the close date to end of Q1. Add Competitor X to the competitors field.
 
-Copy prompt
+Copy prompt
 
 ### Catch up on the week
 
@@ -114,7 +128,7 @@ Process multiple days of calls at once before a pipeline review.
 
 I've fallen behind on logging. Can you do this for all my external meetings from the past week? I'll review everything before our Monday pipeline meeting.
 
-Copy prompt
+Copy prompt
 
 ### Create missing contacts
 
@@ -122,7 +136,7 @@ Add new contacts when attendees don't exist in Salesforce yet. Claude can create
 
 Go ahead and create a contact for Alex at NewCo. His title is Director of Partnerships—you can pull the rest from his email signature in the calendar invite. Then log the activity against that new record.
 
-Copy prompt
+Copy prompt
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -143,3 +157,10 @@ Once you have an activity log format that works, save the prompt as a shortcut b
 Claude in Chrome is available to all paid plan users. Install the extension, log into Google Calendar and Salesforce, and ask Claude to log today's calls. It works with your existing browser sessions—no integrations to configure.
 
 [Try in Claude(opens in new tab)](https://claude.com/download)
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

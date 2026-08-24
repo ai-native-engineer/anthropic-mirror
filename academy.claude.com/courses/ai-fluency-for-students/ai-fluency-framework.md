@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-students/ai-fluency-framework -->
 
-Lesson 2 of 5 · AI Fluency for studentsAI Fluency Framework
+Lesson 2 of 5 · AI Fluency for studentsAI Fluency Framework
+
+3. /[AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students)
+
+[AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students)
+
+# AI Fluency Framework
+
+Lesson 245 min
+
+In this lessonBy the end, you’ll be able to
+
+* Define AI Fluency means and explain why it matters for your academic and professional future
+* Apply the 4D Framework (Delegation, Description, Discernment, Diligence) to your AI interactions
+* Recognize the difference between using AI for automation versus augmentation
+* Create a personal learning context document to guide future AI collaborations
 
 ## The 4Ds - Understanding the AI Fluency Framework
-
-Loading
 
 AI Fluency Framework
 
@@ -71,3 +84,29 @@ Before engaging with AI, clarify your own position as a learner. Consider your:
 ## What's next
 
 In the next lesson, we'll explore using AI as a genuine learning partner. You'll discover the crucial difference between having AI do work for you versus helping you learn, create an AI study buddy configured for your needs, and build a learning journal system that tracks your real growth over time.
+
+[Previous lessonWelcome to AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students/welcome-to-ai-fluency-for-students)[Next lessonAI as a learning partner](https://academy.claude.com/courses/ai-fluency-for-students/ai-as-a-learning-partner)
+
+Lesson 2 of 5 · AI Fluency for studentsAI Fluency Framework
+
+Introduction and AI Fluency Framework
+
+* [Welcome to AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students/welcome-to-ai-fluency-for-students)
+* [AI Fluency Framework](https://academy.claude.com/courses/ai-fluency-for-students/ai-fluency-framework)
+
+AI Fluency Framework applications for students
+
+* [AI as a learning partner](https://academy.claude.com/courses/ai-fluency-for-students/ai-as-a-learning-partner)
+* [AI in career planning](https://academy.claude.com/courses/ai-fluency-for-students/ai-in-career-planning)
+
+Conclusion & badge
+
+* [Being the human in the loop](https://academy.claude.com/courses/ai-fluency-for-students/being-the-human-in-the-loop)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-students/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-students/badge)
+
+* [The 4Ds - Understanding the AI Fluency Framework](#the-4ds---understanding-the-ai-fluency-framework)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [What's next](#whats-next)

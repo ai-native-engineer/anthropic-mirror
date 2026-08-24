@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/visualize-program-data -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Visualize program data
+
+Transform spreadsheets of program statistics into presentation-ready charts, infographics, and dashboards that tell your impact story visually and help demonstrate program satisfaction to stakeholders.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-hed4429w.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-pdsn7leg.png)
+
 ![Visualize program data result](https://academy.claude.com/assets/v1/visualize-program-data-j89ybsd7.png)
 
 ## 1. Describe the task
@@ -19,9 +33,7 @@ The board cares most about program satisfaction, completion rates, and demonstra
 
 Design these with consulting-firm quality and use colors that feel professional but warm (we're a health nonprofit, not a corporate consultancy).
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -46,9 +58,9 @@ Make sure code execution and file creation is enabled in [settings(opens in new 
 
 Google Drive
 
-[Connect](https://claude.ai/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ![](https://academy.claude.com/surfaces/excel-icon.svg)
 
@@ -97,9 +109,7 @@ Understand which communities you're serving most effectively.
 
 Create an additional analysis sheet showing how satisfaction and completion rates vary by participant age group and zip code. This will help us understand which communities we're serving most effectively.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Focus on specific programs
 
@@ -107,9 +117,7 @@ Generate a deep-dive analysis for a specific program.
 
 Generate a deep-dive PowerPoint specifically for our Mental Health First Aid program. Show quarterly trends, participant testimonial themes, and compare our results to national certification standards.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Leverage Research to Understand Benchmarks
 
@@ -117,9 +125,7 @@ Use Research mode to find nonprofit sector benchmarks for comparison.
 
 Use Research mode to find nonprofit sector benchmarks for our key metrics. I need comparison points for: donor retention rates for organizations in our budget range ($500K-$1M annual), average gift sizes for similar mission areas, and program satisfaction scores for workforce development nonprofits. Then add these benchmarks as reference lines on our existing charts.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -160,4 +166,11 @@ The board cares most about program satisfaction, completion rates, and demonstra
 
 Design these with consulting-firm quality and use colors that feel professional but warm (we're a health nonprofit, not a corporate consultancy).
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

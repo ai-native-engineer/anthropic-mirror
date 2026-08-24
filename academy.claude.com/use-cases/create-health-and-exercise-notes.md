@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/create-health-and-exercise-notes -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create health and exercise notes
+
+Research specific exercises and save organized notes directly to your Notes app.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-dqyhqc8w.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-naat4n0h.png)
+
 ![Create health and exercise notes result](https://academy.claude.com/assets/v1/create-health-and-exercise-notes-nywplaxg.png)
 
 ## 1. Describe the task
@@ -14,9 +28,7 @@ Save this to my Notes app as "Knee Strengthening Routine" so I can pull it up on
 
 Format for Apple Notes on my phone. Use HTML <br> tags in order to create natural line breaks. Use abbreviations and keep it scannable - clear headers, quick reference info only, cut verbose explanations. Optimize for mobile, not desktop.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -28,21 +40,19 @@ The Notes connector is a desktop extension: it runs in the Claude [desktop app(o
 
 Connect your Notes app in [Settings > Connectors > Browse connectors > Desktop extensions(opens in new tab)](https://claude.ai/customize/connectors) so Claude can save content directly—no downloading or manual copying required.
 
-
-
 Read and Write Apple Notes
 
 A desktop extension of the Claude app on a Mac — enable it under Desktop extensions once the app is installed.
 
-[Connect](https://claude.ai/customize/connectors)
+[Connect](https://claude.ai/customize/connectors)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context
 
 Turn on [Web Search(opens in new tab)](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research) to provide Claude the ability to browse online for recent information.
 
-[
+[
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
@@ -72,9 +82,7 @@ Build a spreadsheet to log workouts and track improvement over time. Claude can 
 
 Create an Excel spreadsheet to track this routine. Include columns for date, each exercise with sets/reps, pain level before and after (1-10 scale), notes about how it felt, and any modifications I made. Add a summary sheet that calculates weekly totals and shows progress trends over time.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Learn the science behind it
 
@@ -82,9 +90,7 @@ Understand what's actually happening in your knee and why it hurts. Claude can r
 
 Explain the anatomy of patellar tendinitis—what structures are damaged, why do they get inflamed, and what's the mechanical problem causing pain? Then show me how each exercise in this routine addresses a specific part of the issue. I want to understand what I'm fixing, not just follow instructions.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Adapt the routine as you improve
 
@@ -92,9 +98,7 @@ Modify exercises when they become too easy or your situation changes. Claude can
 
 These exercises are getting easier—I can do the full sets without much effort now. Progress this routine to the next level: harder variations, more resistance, or additional exercises that build on what I've mastered. Keep it appropriate for continuing knee rehab.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -116,4 +120,11 @@ Save this to my Notes app as "Knee Strengthening Routine" so I can pull it up on
 
 Format for Apple Notes on my phone. Use HTML <br> tags in order to create natural line breaks. Use abbreviations and keep it scannable - clear headers, quick reference info only, cut verbose explanations. Optimize for mobile, not desktop.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

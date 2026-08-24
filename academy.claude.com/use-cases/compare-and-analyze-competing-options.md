@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/compare-and-analyze-competing-options -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Compare and analyze competing options
+
+Upload vendor proposals in any format and get a normalized comparison spreadsheet that extracts pricing structures, contract terms, and feature differences
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-nrgu8exx.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bav3xbdv.png)
+
 ![Compare and analyze competing options result](https://academy.claude.com/assets/v1/compare-and-analyze-competing-options-gvhst2gn.png)
 
 ## 1. Describe the task
@@ -14,9 +28,7 @@ Extract and compare base monthly costs and fees, onboarding timelines, contract 
 
 This spreadsheet should be extremely well-designed. Think: professional not playful, expert-grade execution, and surgical precision and craft.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -26,15 +38,13 @@ Provide the vendor proposals you received so Claude can use them to compare term
 
 Click the (+) button in the chat to upload files, or drag them directly into the conversation. Claude can work with a [variety of formats(opens in new tab)](https://support.claude.com/en/articles/8241126-what-kinds-of-documents-can-i-upload-to-claude) and types of data, so you don’t need to organize or clean up the documents first.
 
-
-
 Vendor proposalsPDF
 
 ### Optional context
 
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for Claude to spend more time analyzing complex proposals or comparisons and developing high quality outputs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -74,9 +84,7 @@ Claude synthesizes the comparison data into a recommendation document you can sh
 
 Write a memo recommending which vendor we should choose. Include the cost comparison, why this vendor fits our needs better than the alternatives, what we're giving up by not choosing the others, and what we need to negotiate before signing. Make it professionally formatted and include visual elements like tables or charts, if needed.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Create questions for vendor calls after reviewing the comparison
 
@@ -84,9 +92,7 @@ Easily spot unclear terms, missing information, and potential concerns within th
 
 I'm meeting with each vendor this week. Based on what you found in the proposals, what questions should I ask? Focus on the unclear terms, the add-on costs, and anything that needs clarification before we commit.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Calculate costs for your business
 
@@ -94,9 +100,7 @@ Claude can find and extract important data from the vendor proposals to build fi
 
 At what team size does WorkForces flat rate become cheaper than TeamSync’s per-employee model? Show me the breakeven point and create a chart showing total cost as we scale from 20 to 50 employees.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -118,4 +122,11 @@ Extract and compare base monthly costs and fees, onboarding timelines, contract 
 
 This spreadsheet should be extremely well-designed. Think: professional not playful, expert-grade execution, and surgical precision and craft.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

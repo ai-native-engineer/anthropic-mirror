@@ -1,8 +1,19 @@
 <!-- source: https://academy.claude.com/help/faq -->
 
+[Academy](https://academy.claude.com/)
+
 # Frequently asked questions
 
 Answers to common questions about Claude Academy: signing in, moving from Skilljar, badges and certificates, courses, and your data.
+
+* [Sign-in and access](#sign-in)
+* [Migrating from Skilljar](#skilljar-migration)
+* [Course completion badges and certificates of completion](#badges)
+* [Courses and progress](#courses)
+* [Emails and notifications](#emails)
+* [Privacy and data](#privacy)
+* [Content and licensing](#licensing)
+* [Partners and third-party learners (still on Skilljar)](#partners)
 
 ## Sign-in and access
 
@@ -139,3 +150,12 @@ Maybe. Talk to your CSM about content licensing for your company. Occasionally, 
 ### I’m a partner (or third-party) learner — do I move to Academy now? What happens to my Skilljar history?
 
 If you’re learning through the partner program, Skilljar stays your learning home for now. In the meantime nothing changes about your Skilljar access, courses, or certificates.
+
+* [Sign-in and access](#sign-in)
+* [Migrating from Skilljar](#skilljar-migration)
+* [Course completion badges and certificates of completion](#badges)
+* [Courses and progress](#courses)
+* [Emails and notifications](#emails)
+* [Privacy and data](#privacy)
+* [Content and licensing](#licensing)
+* [Partners and third-party learners (still on Skilljar)](#partners)

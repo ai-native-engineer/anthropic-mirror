@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/organize-your-business-finances -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Organize your business finances
+
+Create spreadsheets that bring clarity to your finances. Spot trends, filter what matters, and understand what your numbers are telling you.
+
+15 minFinanceClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-gjth2a6j.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hpj6sgkj.png)
+
 ![Organize your business finances result](https://academy.claude.com/assets/v1/organize-your-business-finances-j0fvwk2s.png)
 
 ## 1. Describe the task
@@ -14,9 +28,7 @@ Can you create a cleaner version with a dashboard that shows my total income, br
 
 Make this a sophisticated financial dashboard with a "quiet luxury", editorial aesthetic—muted sage green accent, abundant whitespace, restrained typography. You may need to write a Python script using xlsxwriter to get the sparklines and advanced features working.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -27,15 +39,13 @@ Give Claude your business records, like invoice information, so Claude can analy
 Upload your spreadsheet or CSV file with your invoice data.
 Click the (+) in the chat bar settings to browse through your files, or alternatively, drag and drop your files into the chat box area.
 
-
-
 Invoice filesFILE
 
 ### Optional context
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) to help Claude spend more time thinking through organization and formatting
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -67,9 +77,7 @@ After seeing the dashboard, you can request improvements, like calculations, add
 
 Can you add a column showing how many days it's been since each invoice? I want to see which pending payments are getting old.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Update with new data
 
@@ -77,9 +85,7 @@ Upload new invoice records along with your dashboard file and Claude will update
 
 Here's my dashboard from last month and my new December invoices. Can you add the new data and update the monthly totals?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -105,4 +111,11 @@ Can you create a cleaner version with a dashboard that shows my total income, br
 
 Make this a sophisticated financial dashboard with a "quiet luxury", editorial aesthetic—muted sage green accent, abundant whitespace, restrained typography. You may need to write a Python script using xlsxwriter to get the sparklines and advanced features working.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

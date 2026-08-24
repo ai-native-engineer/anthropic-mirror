@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together -->
 
-Lesson 9 of 10 · AI Fluency for pK–12 EducatorsTying it all together
+Lesson 9 of 10 · AI Fluency for pK–12 EducatorsTying it all together
+
+3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+# Tying it all together
+
+Lesson 920 min
+
+In this lessonBy the end, you’ll be able to
+
+* Apply all four Ds in a single real workflow
+* Navigate between loops dynamically
+* Own the full process
 
 ## Tying it all together
-
-Loading
 
 Tying it all together · 8 min
 
@@ -63,3 +75,44 @@ Bring your log to a colleague and debrief—not to compare outputs, but to share
 ## What's next
 
 In the next lesson, we'll close out the course with a final build exercise and resources for continuing your practice.
+
+[Previous lessonAI's constitution, pedagogy, and you](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you)[Next lessonClosure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)
+
+Lesson 9 of 10 · AI Fluency for pK–12 EducatorsTying it all together
+
+How this course was made
+
+* [How this course was made](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations)
+
+Using AI responsibly
+
+* [Creating high quality AI outputs](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice)
+* [Ethics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)
+* [AI's constitution, pedagogy, and you](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)
+
+Conclusion and badge
+
+* [Closure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/badge)
+
+* [Tying it all together](#tying-it-all-together)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

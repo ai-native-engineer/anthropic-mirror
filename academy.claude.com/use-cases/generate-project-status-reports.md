@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/generate-project-status-reports -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Generate project status reports
+
+Pull status updates from your emails, Slack channels, meeting notes, and project tools to create a tracker that shows who's working on what, what's blocked, and where things stand—all in one place.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-mcxxuwcs.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ctzaje9n.png)
+
 ![Generate project status reports result](https://academy.claude.com/assets/v1/generate-project-status-reports-izl8gxwu.png)
 
 ## 1. Describe the task
@@ -28,9 +42,7 @@ Create an Excel tracker and include these features: visual status indicators, ce
 
 The tracker should make it obvious at a glance where the problems are and who needs help.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -46,21 +58,21 @@ Claude can then access your email threads, Drive file updates, calendar events, 
 
 Google Drive
 
-[Connect](https://claude.ai/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/directory/google-drive-drivemcp)
 
 ![](data:image/svg+xml,%3csvg%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_4766_38693)'%3e%3cpath%20d='M11.9091%2034H16.3636V23.6969L10%2019.1515V32.1818C10%2033.1879%2010.8559%2034%2011.9091%2034Z'%20fill='%234285F4'/%3e%3cpath%20d='M31.6364%2034H36.0909C37.1473%2034%2038%2033.1848%2038%2032.1818V19.1515L31.6364%2023.6969'%20fill='%2334A853'/%3e%3cpath%20d='M31.6364%2015.8182V23.6969L38%2019.1515V16.7272C38%2014.4788%2035.305%2013.1969%2033.4182%2014.5454'%20fill='%23FBBC04'/%3e%3cpath%20d='M16.3636%2023.697V15.8182L24%2021.2727L31.6364%2015.8182V23.697L24%2029.1515'%20fill='%23EA4335'/%3e%3cpath%20d='M10%2016.7272V19.1515L16.3636%2023.6969V15.8182L14.5818%2014.5454C12.6918%2013.1969%2010%2014.4788%2010%2016.7272Z'%20fill='%23C5221F'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4766_38693'%3e%3crect%20width='28'%20height='20'%20fill='white'%20transform='translate(10%2014)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e)
 
 Gmail
 
-[Connect](https://claude.ai/directory/gmail-gmailmcp)
+[Connect](https://claude.ai/directory/gmail-gmailmcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context
 
 Use [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for better results when making Word, Excel, and PowerPoint files.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -95,9 +107,7 @@ Pull all related conversations about a blocker to understand the full context.
 
 The tracker shows Lisa's been blocked on approval for 4 days. Find every mention of this blocker across Slack, email, and meeting notes. I need to see the complete escalation history and current status.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Create weekly status report
 
@@ -105,9 +115,7 @@ Generate an executive summary from the tracker data.
 
 Using the task tracker data, create a one-page status report for leadership. Include: overall progress percentage, number of blockers, which workstreams are at risk, and top 3 items that need executive attention.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -147,4 +155,11 @@ Create an Excel tracker and include these features: visual status indicators, ce
 
 The tracker should make it obvious at a glance where the problems are and who needs help.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

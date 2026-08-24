@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/chart-your-data-before-you-commit -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Chart your data in conversation with Claude before you commit to a reading
+
+Upload a CSV and Claude builds the correlation grid inline, flagging the patterns worth a second look. The flags are a starting point — you click into what's interesting and the conversation goes from there.
+
+15 minEducationClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-e4rnoq1t.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lsn6xpe9.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Here a researcher has survey data on study habits and GPA before a committee mee
 
 Show me what this data is telling me. I'm looking for the strongest relationships in here. Can you give me a correlation matrix and let me click into any pair to see the scatter? Flag anything that surprises you. Don't hold back on making this readable; I'm presenting this to a committee.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -21,8 +31,6 @@ The CSV is the context. Two lines in the prompt shape what comes back: "flag any
 ### Required context
 
 Upload the CSV.
-
-
 
 Survey responsesCSV
 
@@ -42,9 +50,7 @@ Click any cell in the matrix and Claude opens a scatter for that pair below — 
 
 Split the attendance-GPA relationship by study hours. For students in the top quartile of study time, does attendance still predict GPA?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to write up what the chart showed
 
@@ -52,9 +58,7 @@ Claude writes the report paragraph based on what the chart showed — including 
 
 Write the paragraph about attendance and GPA for my report, based on what the chart shows. Flag where I should hedge.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to turn the chart into a quiz
 
@@ -62,9 +66,7 @@ Claude picks cells from the matrix, you say what you'd conclude, and it catches 
 
 Quiz me on the matrix. Show me a few cells and ask what I'd conclude — catch me if I read causation into a confound.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -86,4 +88,11 @@ Try it on the dataset you've been meaning to look at — upload the CSV, ask wha
 
 Show me what this data is telling me. I'm looking for the strongest relationships in here. Can you give me a correlation matrix and let me click into any pair to see the scatter? Flag anything that surprises you. Don't hold back on making this readable; I'm presenting this to a committee.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

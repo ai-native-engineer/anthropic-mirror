@@ -1,12 +1,29 @@
 <!-- source: https://academy.claude.com/tutorials/using-claude-cowork-for-marketing-ops-review -->
 
-Loading
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Claude Cowork for marketing ops: run a weekly review that preps itself
+
+Claude Cowork runs the gathering for your weekly review on a schedule, so you’re not pulling the numbers and starting the draft by hand each week. Your time goes into what the review says.
+
+15 minClaude Cowork
+
+Watch[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-cx9tbvoi.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-k5ry1o36.png)
 
 **Watch the full workflow in the video, then follow the steps below to set it up yourself.**
 
 **In the video** — Ian, who works in marketing ops, runs his weekly metrics review: a detailed doc for the team and a one-slide summary for leadership. A skill he wrote does the gathering, a scheduled task runs it without him, and he steers the narrative on Monday morning.
 
-
+Follow along to set up
+
+1. [1Build the prep skillSet up once](#step-1-build-the-prep-skill)
+2. [2Schedule the prep runSet up once](#step-2-schedule-the-prep-run)
+3. [3Run the weekly reviewEvery week](#step-3-run-the-weekly-review)
+4. [4Save what you learned into the skillEvery week](#step-4-save-what-you-learned-into-the-skill)
 
 If you haven’t set up Cowork yet, start with [Get started in three steps(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps), then [Customize Cowork(opens in new tab)](https://academy.claude.com/tutorials/customize-claude-cowork) for connectors and skills.
 
@@ -31,9 +48,7 @@ To start now, open Cowork and describe the report you want to prepare — Claude
 
 Help me build a skill that prepares my [weekly metrics review]. Walk me through what to pull, where to find it, what the draft should look like, and when to pause and ask — then write it as a skill.
 
-
-
-Working folderOpen in Cowork
+Working folderOpen in Cowork
 
 ## Step 2: Schedule the prep run
 
@@ -47,9 +62,7 @@ Here’s the prompt to set it up — replace the blanks with your own:
 
 /schedule Every [Sunday around 5pm], run the prep step of [your weekly review skill]. Read last week's review, pull the data from [your warehouse], and write a starting draft to [your working folder].
 
-
-
-Working folderOpen in Cowork
+Working folderOpen in Cowork
 
 ## Step 3: Run the weekly review
 
@@ -69,8 +82,6 @@ From there, you can tell Claude to turn the weekly review into any format you ne
 * **Finished in your tools:** the summary message posted to your team’s channel, the follow-ups created as tasks in your tracker
 
 Anything that sends or shares waits for your yes.
-
-
 
 Where your judgment applies
 
@@ -115,3 +126,10 @@ When you arrive, the data is there and the candidates are named. The focus call 
 * [AI Fluency: Framework and Foundations(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations). The full AI fluency course for effective, efficient, and ethical AI use.
 * [The 4 Ds of AI Fluency(opens in new tab)](https://academy.claude.com/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators). The practical skills and mental models behind building AI fluency.
 * [Use Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135-use-cowork-safely). Access, approvals, and what Claude can see.
+
+* [Step 1: Build the prep skill](#step-1-build-the-prep-skill)
+* [Step 2: Schedule the prep run](#step-2-schedule-the-prep-run)
+* [Step 3: Run the weekly review](#step-3-run-the-weekly-review)
+* [Step 4: Save what you learned into the skill](#step-4-save-what-you-learned-into-the-skill)
+* [Make it yours](#make-it-yours)
+* [Learn more](#learn-more)

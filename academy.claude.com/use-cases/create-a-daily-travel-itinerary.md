@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/create-a-daily-travel-itinerary -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create a daily travel itinerary
+
+Create a customized travel itinerary with intelligent guidance, adapting to your preferences and desired activities.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-li4moz7a.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lseu5bnm.png)
+
 ![Create a daily travel itinerary result](https://academy.claude.com/assets/v1/create-a-daily-travel-itinerary-jzvnfhnk.png)
 
 ## 1. Describe the task
@@ -18,9 +32,7 @@ Create a Word document designed for mobile use: day-by-day timing, addresses, al
 
 Design this document like something a top-tier travel agency produces Think high-end travel magazine meets bespoke concierge service, not generic travel guide. Use a sophisticated color system, elegant typography, and organized text that feels expensive. Make every design choice serve both aesthetics and utility.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -34,7 +46,7 @@ Make sure [Web search(opens in new tab)](https://support.claude.com/en/articles/
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) to enable Claude to think through creating detailed, well-organized itinerary documents.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -62,9 +74,7 @@ Provide specific aesthetic instructions and ask Claude to push beyond defaults t
 
 The color scheme feels generic. Choose something unique and aesthetically beautiful—design this like you're a creative director at a top branding agency—every choice should be intentional and elevated. Tighten the formatting to reduce white space and pack in more detail without losing readability.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Research local context
 
@@ -72,9 +82,7 @@ Understand customs, etiquette, and practical details before you arrive. Use Rese
 
 Research practical local knowledge for Lisbon. What should I know about tipping culture, restaurant etiquette, how transit actually works, common tourist mistakes to avoid, and any customs I should respect? I want the full picture from multiple sources, not just one travel blog's take.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Build it into your actual schedule
 
@@ -82,9 +90,7 @@ Turn itinerary ideas into calendar events with realistic timing. Claude can crea
 
 Add all activities from my itinerary to my Google Calendar with location details and event notes.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -114,4 +120,11 @@ Create a Word document designed for mobile use: day-by-day timing, addresses, al
 
 Design this document like something a top-tier travel agency produces Think high-end travel magazine meets bespoke concierge service, not generic travel guide. Use a sophisticated color system, elegant typography, and organized text that feels expensive. Make every design choice serve both aesthetics and utility.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

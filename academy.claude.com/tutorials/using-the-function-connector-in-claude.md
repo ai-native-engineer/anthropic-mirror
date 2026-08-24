@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-function-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the Function Connector in Claude
+
+Set up and use the Function integration with Claude to securely view lab test results, ask health questions, and get nutrition plans.
+
+10 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-o7in2q4h.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lg4ny2y5.png)
+
 The Function integration allows Function members to securely view their lab test results, ask health questions, and get nutrition plans. This article explains how to set up and use the Function integration with Claude.
 
 The Function integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -39,41 +53,31 @@ Get a health summary:
 
 Summarize my overall Function lab results
 
-
-
-Open in Claude
+Open in Claude
 
 Decide where to focus:
 
 Which health categories are most out of range in my labs?
 
-
-
-Open in Claude
+Open in Claude
 
 Review nutrition plans:
 
 Show me my nutrition plan.
 
-
-
-Open in Claude
+Open in Claude
 
 Get answers to health questions:
 
 How's my heart health?
 
-
-
-Open in Claude
+Open in Claude
 
 Track progress over time:
 
 How have my lab results changed since my last Function test?
 
-
-
-Open in Claude
+Open in Claude
 
 ## **How does Claude protect my data privacy and safety?**
 
@@ -94,3 +98,9 @@ Chats that use the Function integration are not used to train our models. We've 
 **Empowering you, not replacing your doctor**
 
 Claude is designed to help you better understand and take ownership of your healthcare journey — not to provide medical advice, diagnoses, or treatment recommendations. Always consult your physician for medical decisions.
+
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the Function integration](#who-should-use-the-function-integration)
+* [Setting up the Function integration](#setting-up-the-function-integration)
+* [Example use cases](#example-use-cases)
+* [How does Claude protect my data privacy and safety?](#how-does-claude-protect-my-data-privacy-and-safety)

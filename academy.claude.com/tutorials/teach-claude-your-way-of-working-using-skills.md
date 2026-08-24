@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/tutorials/teach-claude-your-way-of-working-using-skills -->
 
-Loading
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Teach Claude your way of working using skills
+
+Learn how Claude Skills let you package proven work approaches so Claude automatically applies them across conversations.
+
+10 minClaude.ai
+
+Watch[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-oo54igq8.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dj768tsz.png)
 
 ## What are skills?
 
@@ -95,9 +107,7 @@ Then describe the skill to Claude in one message, with your own details in place
 
 Create a skill for my weekly team update. The format: three sections, wins, blockers, and priorities, each with at most three bullets. The tone: direct and factual, written for my manager to skim. Here's an example of an update that worked well: [paste one you were happy with].
 
-
-
-Open in Claude
+Open in Claude
 
 ### Check that your skill holds up
 
@@ -120,3 +130,10 @@ The habit worth keeping goes beyond skills themselves: whenever you hand Claude 
 * [Skill authoring best practices(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) - Learn the principles behind effective Skills
 * [Agent skills overview(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) - Understand how Skills work under the hood
 * [Skill cookbooks(opens in new tab)](https://platform.claude.com/cookbook) - Working examples you can adapt
+
+* [What are skills?](#what-are-skills)
+* [Why skills matter for your work](#why-skills-matter-for-your-work)
+* [Where Skills fit into how you work with Claude](#where-skills-fit-into-how-you-work-with-claude)
+* [Recognizing when a skill will help your work](#recognizing-when-a-skill-will-help-your-work)
+* [Ready to create a skill?](#ready-to-create-a-skill)
+* [Additional Resources](#additional-resources)

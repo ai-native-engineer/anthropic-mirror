@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-synapse-org-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the Synapse.org Connector in Claude
+
+Set up and use the Synapse.org integration with Claude to discover biomedical data and explore project structures across the Synapse platform.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-j90vbjdx.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cngwdsx8.png)
+
 The Synapse.org integration by Sage Bionetworks allows researchers to discover biomedical data across all of Synapse, see the structure of projects, and retrieve information on their data assets for authorized users. This article explains how to set up and use the Synapse.org integration with Claude to advance your research and analysis workflows.
 
 The Synapse.org integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -47,57 +61,44 @@ Technical details of the Synapse.org integration can be found in [Synapse’s MC
 
   Find RNA-seq datasets related to Alzheimer's disease in Synapse
 
-  
-
-  Open in Claude
+  Open in Claude
 
   Search Synapse for single-cell transcriptomics datasets
 
-  
-
-  Open in Claude
+  Open in Claude
 
   Find genomic sequencing data for plexiform neurofibromas in the NF Data Portal
 
-  
-
-  Open in Claude
+  Open in Claude
 * Authorized users can see hierarchy of folders, files, tables, datasets within projects to help organize and monitor data assets
 
   Explain the files and folders in the public AACR Project GENIE project
 
-  
-
-  Open in Claude
+  Open in Claude
 
   Give me a quick overview of the data assets in the SEA-AD challenge project with agentic track (syn66496696)?
 
-  
-
-  Open in Claude
+  Open in Claude
 * Get custom metadata of entities in Synapse
 
   What are the annotations and metadata for file syn4553239?
 
-  
-
-  Open in Claude
+  Open in Claude
 
   Show me the custom metadata fields for dataset syn66364675
 
-  
-
-  Open in Claude
+  Open in Claude
 * Get provenance information for entities in Synapse to help understand past data processing
 
   What's the processing history for file syn51543273?
 
-  
-
-  Open in Claude
+  Open in Claude
 
   Show me the data lineage and upstream dependencies for the dataset syn68719289
 
-  
+  Open in Claude
 
-  Open in Claude
+* [What this integration provides](#what-this-integration-provides)
+* [Who can access the Synapse.org integration](#who-can-access-the-synapseorg-integration)
+* [Setting up the Synapse.org integration](#setting-up-the-synapseorg-integration)
+* [Common use cases](#common-use-cases)

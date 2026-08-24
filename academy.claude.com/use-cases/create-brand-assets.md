@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/create-brand-assets -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create brand assets
+
+Generate professional business cards, flyers, and marketing materials that match your exact branding guidelines—ready to print or edit.
+
+15 minMarketingClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-fboe5pt4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ie2wjshc.png)
+
 ![Create brand assets result](https://academy.claude.com/assets/v1/create-brand-assets-ermvfjeb.png)
 
 ## 1. Describe the task
@@ -23,9 +37,7 @@ I need two things for my coffee shop, Morning Ritual:
 
 Match my branding guidelines document I've uploaded. Follow the typography, colors, and spacing exactly. The design should feel dawn-inspired with soft watercolor circles, paper grain, and organic dispersion with a premium, hand-crafted feel. Make sure no elements overlap or run off the page. Evaluate and grade your work to make sure all these standards are met. If there is room for improvement in your designs, iterate until you've reached success.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -34,8 +46,6 @@ Your brand guidelines document tells Claude the specific details to maintain vis
 ### Required context
 
 Upload your brand or style guidelines so Claude can match your exact visual identity—typography, colors, spacing, and overall aesthetic. In this case, the style guide is uploaded as a PDF.
-
-
 
 Style guidePDF
 
@@ -67,9 +77,7 @@ After your design collaboration, instruct Claude to create a reference document 
 
 Based on our conversation and the materials you just created, write a comprehensive brand guidelines document that captures: color palette with exact hex codes and usage rules, typography specifications (fonts, sizes, weights, spacing), the watercolor and letterpress aesthetic principles, paper grain texture approach, and how to maintain this handcrafted quality. Save this so future conversations can reference it instead of the original files.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Extend your brand to digital
 
@@ -77,9 +85,7 @@ Ask Claude to digitize your existing print materials and develop new digital con
 
 Create an HTML page that matches the aesthetic of these print materials—same watercolor circles, paper grain texture effect, layered typography. Include: hero section with the logo, menu with prices, location and hours, and the same elegant feel as the cards. Then walk me through how to deploy it on Netlify or GitHub Pages.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -114,4 +120,11 @@ I need two things for my coffee shop, Morning Ritual:
 
 Match my branding guidelines document I've uploaded. Follow the typography, colors, and spacing exactly. The design should feel dawn-inspired with soft watercolor circles, paper grain, and organic dispersion with a premium, hand-crafted feel. Make sure no elements overlap or run off the page. Evaluate and grade your work to make sure all these standards are met. If there is room for improvement in your designs, iterate until you've reached success.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

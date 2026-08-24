@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/size-a-market-using-your-research -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Size a market using your research
+
+With Cowork, ask Claude a market question and get back an analysis with professional deliverables. Claude researches, calculates, and outputs a PowerPoint presentation, Excel workbook with detailed methodology, and Markdown source document with citations.
+
+15 minClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-ftwo7a1q.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gxwdx9w7.png)
+
 ![Size a market using your research result](https://academy.claude.com/assets/v1/size-a-market-using-your-research-fs1r7icl.png)
 
 ## 1. Describe the task
@@ -20,9 +34,7 @@ Output as:
 
 Source all claims.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -70,9 +82,7 @@ Go deeper on the most attractive market. Focus research on a particular vertical
 
 *"Drill into the mid-market segment (100-500 employees). What's the specific opportunity there and who's winning that space?"*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Build a sensitivity model
 
@@ -80,9 +90,7 @@ Make the calculations interactive. Create an Excel model where you can adjust ke
 
 *"Turn the Excel into a sensitivity model. Let me adjust the growth rate, market penetration, and competitive capture assumptions to see different scenarios."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Generate competitor profiles
 
@@ -90,9 +98,7 @@ Research the competitive landscape in detail. Pull together profiles on the key 
 
 *"Create detailed competitor profiles for the top 5 players. Include recent product launches, funding, reported revenue if available, and positioning."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -124,4 +130,11 @@ Output as:
 
 Source all claims.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

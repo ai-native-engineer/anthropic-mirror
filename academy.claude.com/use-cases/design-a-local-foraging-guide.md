@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/design-a-local-foraging-guide -->
 
-![Design a local foraging guide result](https://academy.claude.com/assets/v1/design-a-local-foraging-guide-dh2oo11j.png)[Open artifact](https://claude.ai/public/artifacts/fb72e7a7-3e0f-4f81-859b-0e7a4667cb21)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Design a local foraging guide
+
+Build artifacts where the map is the menu. Select your state on an interactive map browse by category and export a printable reference.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-cytcoq0y.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gd5fhpr8.png)
+
+![Design a local foraging guide result](https://academy.claude.com/assets/v1/design-a-local-foraging-guide-dh2oo11j.png)[Open artifact](https://claude.ai/public/artifacts/fb72e7a7-3e0f-4f81-859b-0e7a4667cb21)
 
 ## 1. Describe the task
 
@@ -18,9 +32,7 @@ What it should do:
 
 Design: Quiet and organic. Warm cream, muted sage, soft olive. Think field journal meets editorial magazine—sophisticated but approachable. Smooth transitions, rounded corners, good type hierarchy.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -34,7 +46,7 @@ For complex, multi-component apps, turn on [Extended Thinking(opens in new tab)]
 
 ### Optional context
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -68,9 +80,7 @@ The guide uses sample data to demonstrate how it works. Once you're happy with h
 
 Replace the examples in the artifact with current foraging data for my region. Research verified harvest windows, accurate identification tips, and documented look-alikes. I want to use this in the field.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Identify something in the field
 
@@ -78,9 +88,7 @@ Upload a photo and work backwards from what's in front of you.
 
 I've attached a photo of something I've found along the trail. Based on the image and my region, what could it be? What should I check in person—gill structure, spore print, smell—to confirm? Tell me what you can and can't determine from the photo alone.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -110,4 +118,11 @@ What it should do:
 
 Design: Quiet and organic. Warm cream, muted sage, soft olive. Think field journal meets editorial magazine—sophisticated but approachable. Smooth transitions, rounded corners, good type hierarchy.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-morningstar-for-investment-research -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Morningstar for investment research
+
+Integrate Morningstar's investment research capabilities into Claude for financial metrics, analyst research, and thematic investment analysis.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-hnh3ivtc.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-0qofptez.png)
+
 The Morningstar integration provides Claude with access to investment research services and proprietary analytical metrics. This article explains how to set up and use Morningstar data for investment analysis, including fair value estimates, economic moat ratings, and star ratings.
 
 The Morningstar integration relies upon Claude's ability to use [remote connectors(opens in new tab)](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp).
@@ -47,9 +61,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 What is Microsoft's fair value estimate and economic moat rating compared to other mega-cap tech stocks? Include Apple, Google, and Amazon, showing their fair value ratios and whether they're trading above or below Morningstar's estimates.
 
-
-
-Open in Claude
+Open in Claude
 
 This type of analysis helps identify potentially undervalued securities by comparing current market prices to Morningstar's fair value estimates. The fair value methodology incorporates competitive advantages, growth prospects, and long-term earnings potential. When comparing multiple companies, Claude retrieves data for each individually and then presents the compiled results, making it easy to spot relative value opportunities within a peer group.
 
@@ -59,9 +71,7 @@ This type of analysis helps identify potentially undervalued securities by compa
 
 Provide Morningstar's outlook on renewable energy investments and key valuation metrics for clean energy ETFs. Include their analysis on regulatory tailwinds and which subsectors they view most favorably.
 
-
-
-Open in Claude
+Open in Claude
 
 Sector research combines thematic analysis with specific investment opportunities. Claude accesses Morningstar's editorial content on investment themes while also retrieving metrics for relevant funds and securities. This dual approach provides both the macro perspective on sector trends and specific vehicles for gaining exposure to those trends.
 
@@ -71,9 +81,7 @@ Sector research combines thematic analysis with specific investment opportunitie
 
 Get Morningstar analysis of Apple including fair value, moat rating, and uncertainty rating. Also provide their view on key risks and competitive positioning versus Android ecosystem players.
 
-
-
-Open in Claude
+Open in Claude
 
 Individual company analysis combines Morningstar's quantitative metrics with qualitative analyst insights. Claude retrieves both the numerical ratings and the reasoning behind them, providing a complete picture of Morningstar's view on a security. This includes their assessment of competitive advantages, management quality, and industry dynamics.
 
@@ -83,9 +91,7 @@ Individual company analysis combines Morningstar's quantitative metrics with qua
 
 Show Morningstar ratings and fair value ratios for my technology holdings: MSFT, AAPL, NVDA, and GOOGL. Identify which are trading at the biggest discount to fair value and have the widest economic moats.
 
-
-
-Open in Claude
+Open in Claude
 
 Portfolio analysis involves retrieving Morningstar data for each holding to identify rebalancing opportunities. Claude gathers metrics for each security individually, then synthesizes the information to highlight which positions might be overvalued or undervalued according to Morningstar's analysis. This systematic review helps maintain portfolio discipline and identify when market prices diverge significantly from fundamental values.
 
@@ -95,9 +101,7 @@ Portfolio analysis involves retrieving Morningstar data for each holding to iden
 
 Analyze Tesla from a risk perspective using Morningstar research. Focus on their assessment of execution risk, competition from traditional automakers, and regulatory challenges. Include their uncertainty rating and any concerns about valuation sustainability.
 
-
-
-Open in Claude
+Open in Claude
 
 Risk-focused analysis uses Morningstar's research capabilities to understand potential downside scenarios and investment risks. By requesting analysis focused on specific risk factors, Claude can provide Morningstar's view on what could go wrong with an investment. This includes both systematic risks affecting the entire sector and idiosyncratic risks specific to the company. The uncertainty rating provides a quantitative measure of how confident Morningstar is in their fair value estimate.
 
@@ -107,9 +111,7 @@ Risk-focused analysis uses Morningstar's research capabilities to understand pot
 
 What is Morningstar's perspective on ESG investing strategies and their performance versus traditional approaches? Include their recommendations for sustainable funds and whether they see ESG as a source of alpha or risk mitigation.
 
-
-
-Open in Claude
+Open in Claude
 
 Sustainable investing research taps into Morningstar's thematic content on ESG strategies and sustainable investment approaches. Claude can access both Morningstar's philosophical framework for sustainable investing and their practical recommendations for specific funds and strategies. This includes performance comparisons between ESG-focused and traditional investments, helping you understand the potential trade-offs and benefits of sustainable investing approaches.
 
@@ -124,3 +126,8 @@ Sustainable investing research taps into Morningstar's thematic content on ESG s
 * Note that research content reflects Morningstar's analytical views, not real-time market consensus.
 * Be aware that data is retrieved one security at a time, so complex portfolio analyses may take multiple steps.
 * Remember that Morningstar's ratings and estimates are based on fundamental analysis and may differ from market sentiment.
+
+* [What This Integration Provides](#what-this-integration-provides)
+* [Setting Up Morningstar Integration](#setting-up-morningstar-integration)
+* [Common Use Cases](#common-use-cases)
+* [Tips for Using Morningstar](#tips-for-using-morningstar)

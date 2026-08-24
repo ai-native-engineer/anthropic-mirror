@@ -1,5 +1,7 @@
 <!-- source: https://academy.claude.com/collections/build-with-claude -->
 
+[Academy](https://academy.claude.com/)
+
 # Build with Claude
 
 Courses and tutorials from Anthropic for developers. Learn Claude Code and the Claude API, then build agents with MCP, skills, and tool use.
@@ -70,17 +72,17 @@ Tutorial·4 min](https://academy.claude.com/tutorials/what-is-claude-managed-age
 * [Model Context Protocol: Advanced TopicsCourse11 lessons · 1 quiz
 
   Course·11 lessons · 1 quiz](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
-* [Building effective agents www.anthropic.com—
+* [Building effective agents www.anthropic.com—
 
   www.anthropic.com
 
    (opens in new tab)](https://www.anthropic.com/engineering/building-effective-agents)
-* [Build a tool-using agent platform.claude.com—
+* [Build a tool-using agent platform.claude.com—
 
   platform.claude.com
 
    (opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/build-a-tool-using-agent)
-* [Claude Agent SDK overview code.claude.com—
+* [Claude Agent SDK overview code.claude.com—
 
   code.claude.com
 
@@ -88,22 +90,22 @@ Tutorial·4 min](https://academy.claude.com/tutorials/what-is-claude-managed-age
 
 ## Prompt engineering, context, and evals
 
-* [Prompt engineering best practices platform.claude.com
+* [Prompt engineering best practices platform.claude.com
 
   platform.claude.com
 
    (opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices)
-* [Interactive prompt engineering tutorial github.com
+* [Interactive prompt engineering tutorial github.com
 
   github.com
 
    (opens in new tab)](https://github.com/anthropics/prompt-eng-interactive-tutorial)
-* [Effective context engineering for AI agents www.anthropic.com
+* [Effective context engineering for AI agents www.anthropic.com
 
   www.anthropic.com
 
    (opens in new tab)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
-* [Building evaluations platform.claude.com
+* [Building evaluations platform.claude.com
 
   platform.claude.com
 
@@ -111,4 +113,4 @@ Tutorial·4 min](https://academy.claude.com/tutorials/what-is-claude-managed-age
 
 ## More resources
 
-[Developer docs platform.claude.com (opens in new tab)](https://platform.claude.com/docs/en/home)[Claude Code docs code.claude.com (opens in new tab)](https://code.claude.com/docs/en/overview)[Claude cookbooks platform.claude.com (opens in new tab)](https://platform.claude.com/cookbook)[Claude Console platform.claude.com (opens in new tab)](https://platform.claude.com/)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Developer docs platform.claude.com (opens in new tab)](https://platform.claude.com/docs/en/home)[Claude Code docs code.claude.com (opens in new tab)](https://code.claude.com/docs/en/overview)[Claude cookbooks platform.claude.com (opens in new tab)](https://platform.claude.com/cookbook)[Claude Console platform.claude.com (opens in new tab)](https://platform.claude.com/)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

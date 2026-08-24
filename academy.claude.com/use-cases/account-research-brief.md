@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/account-research-brief -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Account research
+
+A one-page brief on what changed and where you fit.
+
+10 minSalesClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-mtc5a1pi.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ha2dvss7.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Sales plugin ships with `/account-research` and other prospecting skills as a starting point, already structured to pull CRM history, public signals, and notes into a single page. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 SalesProspect, craft outreach, and build deal strategy faster. Prep for calls, manage your pipeline, and write personalized messaging that moves deals forward.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=sales)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=sales)
 
 `/account-research`Research a company or person and get actionable sales intel.
 
@@ -22,7 +32,7 @@ SalesProspect, craft outreach, and build deal strategy faster. Prep for calls, m
 
 [Run](claude://cowork/new?q=%2Fcall-prep)
 
-Show all 9 skills
+Show all 9 skills
 
 ### Connect your tools
 
@@ -40,7 +50,7 @@ Custom connector
 
 Google Drive
 
-[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='24'%20height='24'%20rx='5'%20fill='%23FFC127'/%3e%3cpath%20fill='%23000'%20d='M12%204.2%205.4%2018.9h3.37l1.02-2.42h4.42l1.02%202.42h3.37L12%204.2Zm0%204.87%201.54%203.64h-3.08L12%209.07Z'/%3e%3c/svg%3e)
 
@@ -48,11 +58,9 @@ ApolloOptional
 
 Pull firmographics, contacts, and recent signals so the brief opens with who is in the room.
 
-[Connect](https://claude.ai/desktop/directory/apollo)
+[Connect](https://claude.ai/desktop/directory/apollo)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -68,7 +76,7 @@ northwind-10K-FY25.pdfFeb 18, 20263.1 MB
 
 account-plan.docxJan 9, 202642 KB
 
-In Cowork’s chat bar:Accounts / Northwind
+In Cowork’s chat bar:Accounts / Northwind
 
 ## The prompt
 
@@ -76,35 +84,33 @@ In Cowork’s chat bar:Accounts / Northwind
 
 Build a one-page account brief on Northwind. Pull from Salesforce, recent news, the 10-K, their exec LinkedIn posts, and our last call notes. Cover what they do, what's changed in the last quarter, where we fit, and three openers for the first call. Save it to the account folder.
 
-
-
-Accounts / NorthwindOpen in Cowork
+Accounts / NorthwindOpen in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **List the sections you want.** "What they do, what's changed, where we fit, three openers" gives Cowork the page structure up front, so the brief reads like yours instead of a generic company profile.
 
-Prompt
+Prompt
 
 **Set a time window.** "In the last quarter" forces the research toward recent filings, hires, and news, so the openers tie to a live trigger rather than evergreen facts.
 
-Source
+Source
 
 **Combine internal and public sources.** Naming Salesforce alongside the 10-K and LinkedIn means the brief opens with where you left off, then layers public signals on top, not the other way around.
 
-Source
+Source
 
 **Put your files in the working folder.** Your last call notes and the saved 10-K sit in the working folder, so Cowork reads them in place and writes the brief back next to them.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -114,11 +120,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /account-research skill with my feedback.
 
-
-
-AccountsOpen in Cowork
-
-
+AccountsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -130,23 +132,19 @@ The brief should be waiting before you open the account, not built while the pro
 
 **/schedule** Every Monday at 7am, run /account-research on the next five accounts in my target list and write each brief to the matching folder under Accounts.
 
-
+AccountsOpen in Cowork
 
-AccountsOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Weekly account briefs
 
 Runs `/account-research` on the next five accounts in the target list and writes each brief to its account folder.
 
-Every **Monday at 7:00 AM**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **Monday at 7:00 AM**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/account-research` now carries your ICP, your section order, and your opener style. Share it so every rep on the team researches accounts the same way, and managers see a consistent brief no matter who built it.
-
-
 
 Share the skill
 
@@ -158,7 +156,7 @@ In Cowork, open **Skills** → `/account-research` → **Share** and pick your t
 
 Your processes
 
-Sales plugin
+Sales plugin
 
 Your tools
 
@@ -166,8 +164,15 @@ Your tools
 
 Your workspace
 
-Accounts
+Accounts
 
 You have a current one-page brief for each account that combines your own history with recent public changes and where you fit. Prep is reading a page, not assembling one.
 
-[Next: Call prep](https://academy.claude.com/use-cases/call-prep-sheet)
+[Next: Call prep](https://academy.claude.com/use-cases/call-prep-sheet)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [Going forward](#going-forward)

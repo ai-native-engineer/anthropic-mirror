@@ -1,10 +1,21 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome -->
 
-Lesson 9 of 14 · Introduction to Claude CoworkClaude in Chrome
+Lesson 9 of 14 · Introduction to Claude CoworkClaude in Chrome
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# Claude in Chrome
+
+Lesson 910 min
+
+In this lessonBy the end, you’ll be able to
+
+* Recognize the kinds of work Claude in Chrome unlocks
+* Use Chrome alongside Cowork on a real piece of work
 
 ## Watch it work
-
-Loading
 
 Claude in Chrome brings AI where you're already working
 
@@ -36,11 +47,7 @@ In Cowork, you say:
 
 Open the customer health dashboard in Chrome, pull every account showing yellow or red, and for each one, pull the past 30 days of activity from the customer's folder in Drive and recent threads in #customer-success in Slack. Build a one-page summary I can review before my Friday call.
 
-
-
-Open in Cowork
-
-Loading
+Open in Cowork
 
 Claude hands the browser steps to Claude in Chrome, takes the data back, pulls the supporting context from Drive and Slack, and builds the summary in your folder. One delegation, three sources of context.
 
@@ -58,3 +65,47 @@ Pick one task on your plate that lives in a browser-based tool that doesn't have
 ## What’s next
 
 In the next lesson, you'll see Claude show up inside the M365 apps where a lot of work actually lands — Word, Excel, PowerPoint, and Outlook.
+
+[Previous lessonPlugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)[Next lessonClaude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Lesson 9 of 14 · Introduction to Claude CoworkClaude in Chrome
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [Watch it work](#watch-it-work)
+* [Key takeaways](#key-takeaways)
+* [What this unlocks](#what-this-unlocks)
+* [Use it with Cowork](#use-it-with-cowork)
+* [A few watch-outs](#a-few-watch-outs)
+* [Try it now](#try-it-now)
+* [What’s next](#whats-next)

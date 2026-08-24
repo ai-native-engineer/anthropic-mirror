@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/sprint-retro-handoff -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Write the sprint retro and on-call handoff
+
+What shipped, what slipped, and what the next on-call needs to know.
+
+10 minEngineeringClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-ko3ehgyx.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lth7yta3.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Engineering plugin ships with `/tech-debt` and `/standup` already structured to read a closed cycle and a channel window and split the output into discussion themes versus operational watch-fors. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 Engineering9 skills for postmortems, design docs, on-call handoffs, and cost reviews
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=engineering)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=engineering)
 
 `/tech-debt`Draft the sprint retro from the closed cycle and team channel
 
@@ -22,7 +32,7 @@ Engineering9 skills for postmortems, design docs, on-call handoffs, and cost rev
 
 [Run](claude://cowork/new?q=%2Fstandup)
 
-Show all 10 skills
+Show all 10 skills
 
 ### Connect your tools
 
@@ -36,7 +46,7 @@ Linear
 
 Read the closed cycle: what was planned, what shipped, what carried over and why.
 
-[Connect](https://claude.ai/desktop/directory/linear)
+[Connect](https://claude.ai/desktop/directory/linear)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M3.951%209.85a1.47%201.47%200%201%201-2.94%200%201.47%201.47%200%200%201%201.47-1.471h1.47V9.85Zm.735%200a1.47%201.47%200%201%201%202.94%200v3.679a1.47%201.47%200%201%201-2.94%200V9.85Z'%20fill='%23E01E5A'/%3e%3cpath%20d='M6.157%203.943a1.47%201.47%200%201%201%200-2.943%201.47%201.47%200%200%201%201.47%201.471v1.472h-1.47Zm0%20.746a1.47%201.47%200%201%201%200%202.943H2.47a1.47%201.47%200%201%201%200-2.943h3.687Z'%20fill='%2336C5F0'/%3e%3cpath%20d='M12.049%206.16a1.47%201.47%200%201%201%202.94%200%201.47%201.47%200%200%201-1.47%201.472h-1.47V6.16Zm-.736%200a1.47%201.47%200%201%201-2.94%200V2.471a1.47%201.47%200%201%201%202.94%200V6.16Z'%20fill='%232EB67D'/%3e%3cpath%20d='M9.843%2012.057a1.47%201.47%200%201%201%200%202.943%201.47%201.47%200%200%201-1.47-1.471v-1.472h1.47Zm0-.735a1.47%201.47%200%201%201%200-2.943h3.687a1.47%201.47%200%201%201%200%202.943H9.843Z'%20fill='%23ECB22E'/%3e%3c/svg%3e)
 
@@ -44,7 +54,7 @@ Slack
 
 Pull the team and on-call channels for the context the tickets don't capture: the why-it-slipped and the 2am page.
 
-[Connect](https://claude.ai/desktop/directory/slack)
+[Connect](https://claude.ai/desktop/directory/slack)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%2306AC38'%20d='M4.05%2017.71h4.6V24h-4.6zM16.59.32C14.75.01%2013.45%200%2011.13%200H4.05v14.19h7.24c2.05%200%203.59-.13%204.95-.96%201.5-.9%202.71-2.77%202.71-5.55%200-2.98-1.39-5.01-2.36-5.85C15.89.93%2016.59.32%2016.59.32zm-4.66%2010.39H8.65V3.55h2.87c2.96%200%204.45%201.12%204.45%203.53%200%202.59-1.62%203.63-4.04%203.63z'/%3e%3c/svg%3e)
 
@@ -52,11 +62,9 @@ PagerDutyOptional
 
 List every page in the rotation so toil is counted, not estimated.
 
-[Connect](https://claude.ai/desktop/directory/pagerduty)
+[Connect](https://claude.ai/desktop/directory/pagerduty)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -72,7 +80,7 @@ sprint-07-retro.mdApr 13, 20266 KB
 
 retro-action-items.mdApr 13, 20263 KB
 
-In Cowork’s chat bar:Platform / retros / 2026-sprint-08
+In Cowork’s chat bar:Platform / retros / 2026-sprint-08
 
 ## The prompt
 
@@ -80,35 +88,33 @@ In Cowork’s chat bar:Platform / retros / 2026-sprint-08
 
 Read the just-closed Linear cycle and two weeks of #team-platform and #oncall-platform. Write the sprint retro (shipped, slipped with reasons, themes worth discussing) and a separate on-call handoff (open alerts, toil, what the next rotation should watch). Pull quotes where they help. Keep each section to what's discussable in a 30-minute meeting.
 
-
-
-Platform / retros / 2026-sprint-08Open in Cowork
+Platform / retros / 2026-sprint-08Open in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Ask for the reason behind each item.** The retro is about why, not the list. Asking forces the synthesis.
 
-Prompt
+Prompt
 
 **Split outputs that serve different purposes.** One is a conversation, one is operational. Mixing them buries both.
 
-Prompt
+Prompt
 
 **Set a length limit.** A length budget kills the exhaustive list and surfaces what's worth talking about.
 
-Source
+Source
 
 **Combine complementary sources.** Tickets say what moved; Slack says why. The pair is the whole story.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -118,11 +124,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /tech-debt skill with my feedback.
 
-
-
-Platform / retrosOpen in Cowork
-
-
+Platform / retrosOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -134,23 +136,19 @@ Retro prep shouldn't be the TPM's Friday afternoon. Type `/schedule` in the prom
 
 **/schedule** Every Friday at 3pm, run /tech-debt on the cycle that just closed and /standup on the last two weeks, write both to Platform/retros/<sprint>/, and post the handoff to #oncall-platform.
 
-
+Platform / retrosOpen in Cowork
 
-Platform / retrosOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Sprint retro + on-call handoff
 
 At cycle close, runs `/tech-debt` and `/standup`, writes both to the dated retro folder, and posts the handoff to the on-call channel.
 
-Every **Friday at 3:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **Friday at 3:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/tech-debt` now knows your tracker, your channels, your template, and what counts as a theme versus a status update. Share it so every squad runs the same retro prep and on-call handoffs read the same way org-wide.
-
-
 
 Share the skill
 
@@ -162,4 +160,11 @@ The sprint retro and on-call handoff are drafted from the closed cycle and chann
 
 You did this for one sprint. The same approach covers incident postmortems, release notes, and the weekly status summary — each one becomes a skill your team runs the same way.
 
-[Next: Draft the incident postmortem](https://academy.claude.com/use-cases/incident-postmortem)
+[Next: Draft the incident postmortem](https://academy.claude.com/use-cases/incident-postmortem)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [What changes for retro day](#what-changes-for-retro-day)

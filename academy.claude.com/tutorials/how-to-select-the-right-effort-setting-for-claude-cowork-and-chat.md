@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-select-the-right-effort-setting-for-claude-cowork-and-chat -->
 
-Loading
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to select the right effort setting for Claude Cowork and Chat
+
+Understand how effort settings work in claude.ai and why adjusting effort on a frontier model often costs less per task than switching to a cheaper model.
+
+6 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-gz9r5qio.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nuxa5e6m.png)
 
 ## 1. What does Claude's effort setting control
 
@@ -16,15 +28,11 @@ All of this work (the thinking, the tool use, the checking and revision) affects
 
 On [claude.ai(opens in new tab)](https://claude.ai), in Chat and Cowork, your usage limit is measured in tokens, which are small units of text Claude processes. Everything Claude does (reading your prompt, processing files, thinking, writing responses) is measured that way and draws from your usage limit. Lower effort means Claude uses fewer tokens which results in less of your limit spent per task. Raising Claude's effort does the opposite. This is why matching effort to the task matters.
 
-Loading
-
 ## 3. Why adjust effort vs. switch models
 
 You have two levers for balancing what a task costs. Changing the selected Claude model changes both capability and cost. Switching from a model like Opus to Sonnet is cheaper per token, but less capable. Meanwhile, switching the effort setting changes cost while keeping the model's core capabilities intact: its advanced judgment, reasoning ability, and pattern recognition.
 
 Lowering effort on a frontier model doesn't remove these capabilities. It removes the model's time spent doing things like planning and exploring options more thoroughly or re-reading and verifying its work.
-
-Loading
 
 **This is the practical difference**: If you're thinking about switching to an older or smaller model to avoid hitting your limits, try lowering effort on the newer model instead. A frontier model at medium or low effort often outperforms an older model at high or maximum effort.
 
@@ -48,8 +56,6 @@ Claude comes set at a default effort, which is the recommended balance for every
 
 Consider choosing effort by the shape of the task:
 
-Loading
-
 Once Claude responds, watch for signs that the effort setting does or doesn't match the task:
 
 * **Too little effort:** Instructions get missed, or long work wraps up before it's finished. Turn the effort up, ask again, and watch whether the new answer follows your instructions.
@@ -61,3 +67,10 @@ Once Claude responds, watch for signs that the effort setting does or doesn't ma
 * [**Choosing the right effort level in Claude Code**(opens in new tab)](https://academy.claude.com/tutorials/choosing-the-right-effort-level-in-claude-code): the same setting in Claude Code, with `/effort`, the settings that control it, and a worked example.
 * [**Choosing a Claude model and effort level in Claude Code**(opens in new tab)](https://claude.com/blog/claude-model-and-effort-level-in-claude-code): the concepts behind model choice and effort, from the Claude Code team.
 * [**Claude models explained**(opens in new tab)](https://claude.com/blog/claude-models-explained): how the Claude models differ and how to choose one for your use case.
+
+* [1. What does Claude's effort setting control](#1-what-does-claudes-effort-setting-control)
+* [2. How effort affects your usage limit](#2-how-effort-affects-your-usage-limit)
+* [3. Why adjust effort vs. switch models](#3-why-adjust-effort-vs-switch-models)
+* [4. Cost per task vs. cost per token](#4-cost-per-task-vs-cost-per-token)
+* [5. How to know what effort setting a task needs](#5-how-to-know-what-effort-setting-a-task-needs)
+* [Learn more](#learn-more)

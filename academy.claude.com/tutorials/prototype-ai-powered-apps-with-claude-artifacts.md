@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/tutorials/prototype-ai-powered-apps-with-claude-artifacts -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Prototype AI-Powered Apps with Claude artifacts
+
+Learn how to rapidly build, test, and share AI-powered applications using Claude artifacts without API key management.
+
+8 minClaude.ai
+
+Watch[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-e0a70awd.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lqlj31zf.png)
+
 Traditionally, building AI applications has required a lot — managing API keys, stressing about costs, handling complex deployments, accidentally hitting rate limits, and more. With Claude’s artifacts, you can skip the hassle of configuration and build a fully functional, AI-powered application with Claude’s intelligence built right in. These artifacts use your existing usage limits—no API keys, no per-call charges, no deployment hassle — so you can focus on the fun stuff.
 
 In this guide, you’ll learn how to rapidly build, test, and share AI-powered applications using Claude.
-
-Loading
 
 ## Configuring a Claude API inside Claude artifacts
 
@@ -17,9 +29,7 @@ Use this simple prompt to test that the API embedded in the artifact is working 
 
 Create a simple chatbot that uses Claude. Respond with compliments to every user input.
 
-
-
-Open in Claude
+Open in Claude
 
 What you’ll see if you try this prompt, is that Claude will create a “compliment bot” where users can input anything and receive LLM-powered compliments in return!
 
@@ -101,3 +111,9 @@ In simplest terms, when someone uses your Claude-powered app:
 * Their API usage counts against *their* subscription, not yours
 * You pay nothing for their usage
 * No one needs to manage API keys
+
+* [Configuring a Claude API inside Claude artifacts](#configuring-a-claude-api-inside-claude-artifacts)
+* [Inspiration for your first AI artifact](#inspiration-for-your-first-ai-artifact)
+* [Tips for building artifacts with Claude](#tips-for-building-artifacts-with-claude)
+* [Sharing your Claude artifacts](#sharing-your-claude-artifacts)
+* [FAQs](#faqs)

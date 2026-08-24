@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-prompts -->
 
-Lesson 8 of 10 · Introduction to Model Context ProtocolDefining prompts
+Lesson 8 of 10 · Introduction to Model Context ProtocolDefining prompts
+
+3. /[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+# Defining prompts
+
+Lesson 85 min
 
 Prompts in MCP servers let you define pre-built, high-quality instructions that clients can use instead of writing their own prompts from scratch. Think of them as carefully crafted templates that give better results than what users might come up with on their own.
 
@@ -29,7 +37,7 @@ The workflow looks like this:
 
 Prompts use a similar decorator pattern to tools and resources:
 
-python
+python
 
 ```
 @mcp.prompt(
@@ -76,3 +84,38 @@ The inspector shows you exactly what messages will be sent to Claude, including 
 Prompts work best when they're specialized for your MCP server's domain. A document management server might have prompts for formatting, summarizing, or analyzing documents. A data analysis server might have prompts for generating reports or visualizations.
 
 The goal is to provide prompts that are so well-crafted and tested that users prefer them over writing their own instructions from scratch.
+
+[Previous lessonAccessing resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/accessing-resources)[Next lessonPrompts in the client](https://academy.claude.com/courses/introduction-to-model-context-protocol/prompts-in-the-client)
+
+Lesson 8 of 10 · Introduction to Model Context ProtocolDefining prompts
+
+Introduction
+
+* [Introducing MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/introducing-mcp)
+* [MCP clients](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-clients)
+
+Hands-on with MCP servers
+
+* [Defining tools with MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-tools-with-mcp)
+* [The server inspector](https://academy.claude.com/courses/introduction-to-model-context-protocol/the-server-inspector)
+
+Connecting with MCP clients
+
+* [Implementing a client](https://academy.claude.com/courses/introduction-to-model-context-protocol/implementing-a-client)
+* [Defining resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-resources)
+* [Accessing resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/accessing-resources)
+* [Defining prompts](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-prompts)
+* [Prompts in the client](https://academy.claude.com/courses/introduction-to-model-context-protocol/prompts-in-the-client)
+
+Assessment and wrap Up
+
+* [Final assessment on MCPQuiz](https://academy.claude.com/courses/introduction-to-model-context-protocol/final-assessment-on-mcp)
+* [MCP review](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-review)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-model-context-protocol/badge)
+
+* [Why Use Prompts?](#why-use-prompts)
+* [Building a Format Command](#building-a-format-command)
+* [Defining Prompts](#defining-prompts)
+* [Testing Your Prompts](#testing-your-prompts)
+* [Key Benefits](#key-benefits)

@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/preclinical-study-analysis -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Preclinical study analysis
+
+Build study reports by connecting to research platforms and compiling data across experiments.
+
+10 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-k3y0qtqk.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kzqqf3fw.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Start by telling Claude what studies you need to compare and what you want to un
 
 Summarize the study designs for ST042 and ST043 and how they're different, including a table indicating key differences. Link all my notebook entries and sources.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -24,13 +34,11 @@ To pull data directly from your Benchling workspace, use the [Benchling connecto
 
 After connecting, Claude will be able to access your electronic lab notebooks, experimental protocols, and study data.
 
-
-
 Benchling
 
-[Connect](https://claude.ai/directory/benchling)
+[Connect](https://claude.ai/directory/benchling)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ## 3. What Claude creates
 
@@ -118,9 +126,7 @@ After reviewing the study comparison, ask Claude to create a polished report.
 
 From these results, generate a Study Report that I can include in my regulatory submission.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -138,4 +144,11 @@ What used to take days of compiling and validating across tools now happens in m
 
 Summarize the study designs for ST042 and ST043 and how they're different, including a table indicating key differences. Link all my notebook entries and sources.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

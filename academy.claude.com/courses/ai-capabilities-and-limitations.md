@@ -1,17 +1,29 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations -->
 
-13 lessons · 1 quizAI Capabilities and Limitations
+[Courses](https://academy.claude.com/courses)
+
+# AI Capabilities and Limitations
+
+Build an accurate mental model of what large language models can and cannot do: next-token prediction, knowledge, working memory, steerability, and context limits.
+
+13 lessons3.5 hr1 quizCompletion badge
+
+[Start course](https://academy.claude.com/courses/ai-capabilities-and-limitations/intro-to-ai-capabilities-and-limitations)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-capabilities-and-limitations)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-mroir6wr.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dzjj3djt.png)
+
+13 lessons · 1 quizAI Capabilities and Limitations
 
 What you’ll learnBy the end of this course, you’ll be able to
 
-* Distinguish generative AI from classification and prediction AI, and frame its four core properties as capability-to-limitation continuums
-* Explain the two-stage training process (pretraining and fine-tuning) and recognize the behavioral fingerprints it leaves: sycophancy, verbosity, over-caution, and loose confidence calibration
-* Explain Next Token Prediction as the core generative mechanism and identify where fabrication concentrates
-* Describe how the knowledge cutoff and uneven training coverage shape what a model knows, and recognize when web search, retrieval, or tool use is the fix
-* Explain the context window as a hard-edged limit and apply context-placement strategies like front-loading, chunking, and re-supplying critical information
-* Predict where instruction-following is tight versus loose, and recognize reasoning drift and letter-over-spirit as steerability failures
-* Diagnose real-world AI failures by naming which properties are colliding and choose a targeted fix
-* Connect the four properties to the 4D Framework and practice calibrated trust by locating tasks on each continuum
+* Distinguish generative AI from classification and prediction AI, and frame its four core properties as capability-to-limitation continuums
+* Explain the two-stage training process (pretraining and fine-tuning) and recognize the behavioral fingerprints it leaves: sycophancy, verbosity, over-caution, and loose confidence calibration
+* Explain Next Token Prediction as the core generative mechanism and identify where fabrication concentrates
+* Describe how the knowledge cutoff and uneven training coverage shape what a model knows, and recognize when web search, retrieval, or tool use is the fix
+* Explain the context window as a hard-edged limit and apply context-placement strategies like front-loading, chunking, and re-supplying critical information
+* Predict where instruction-following is tight versus loose, and recognize reasoning drift and letter-over-spirit as steerability failures
+* Diagnose real-world AI failures by naming which properties are colliding and choose a targeted fix
+* Connect the four properties to the 4D Framework and practice calibrated trust by locating tasks on each continuum
 
 Most people's first experience with a generative AI system is a mix of delight and confusion. It produces a polished summary of a dense report in seconds, then confidently invents a citation that doesn't exist. It follows a detailed instruction perfectly, then ignores a simple one in the very next message. Without a mental model of what's happening underneath, these moments feel random — and it's hard to know whether to trust the next output, or how to fix the last one.
 
@@ -78,3 +90,37 @@ Your instructions are how you steer — but not all instructions land equally. S
 Real tasks rarely test one property at a time. A long contract review strains working memory while reaching past the model's knowledge; a vague creative brief tests steerability right where next-token prediction wants to fill in something plausible. This section shows you how the four properties collide, and gives you a diagnostic for any unexpected output: name which property is in play, place the task on its spectrum, and apply a targeted fix instead of just trying again.
 
 ![](https://academy.claude.com/assets/media/3ed895df4051eea55084388e6fa3d95829cf0baf3126ea8a07a07f65c288583a.png)![](https://academy.claude.com/assets/media/5bbcf48c033c840bc679be5a639323a5b4e26519518861e66a9bb883bf84a49a.png)
+
+Getting started
+
+* [Intro to AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations/intro-to-ai-capabilities-and-limitations)
+* [What We Mean by AI](https://academy.claude.com/courses/ai-capabilities-and-limitations/what-we-mean-by-ai)
+* [How AI Gets Its Character](https://academy.claude.com/courses/ai-capabilities-and-limitations/how-ai-gets-its-character)
+
+Next Token Prediction
+
+* [Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-token-prediction)
+* [Try It Out: Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out)
+
+Knowledge
+
+* [Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/knowledge)
+* [Try It Out: Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-31vzkl2dgi907)
+
+Working Memory
+
+* [Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/working-memory)
+* [Try It Out: Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-q7hdjm9twcbt)
+
+Steerability
+
+* [Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/steerability)
+* [Try It Out: Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-y02xgkpa6wa7)
+
+Putting it all together and next steps
+
+* [When Properties Collide](https://academy.claude.com/courses/ai-capabilities-and-limitations/when-properties-collide)
+* [Next Steps](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-steps)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-capabilities-and-limitations/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-capabilities-and-limitations/badge)

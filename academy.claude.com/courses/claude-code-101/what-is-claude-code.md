@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-101/what-is-claude-code -->
 
-Lesson 1 of 12 · Claude Code 101What is Claude Code?
+Lesson 1 of 12 · Claude Code 101What is Claude Code?
 
-Loading
+3. /[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+# What is Claude Code?
+
+Lesson 15 min
 
 What is Claude Code?
 
@@ -43,3 +49,43 @@ To use Claude Code effectively, keep these three concepts in mind:
 ## Recap
 
 Claude Code is an agentic coding tool. It reads your codebase, edits your files, runs commands, and connects to external tools to help you ship faster. You can use it today in your terminal, VS Code, JetBrains, and the Claude Desktop app.
+
+[Next lessonHow Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Lesson 1 of 12 · Claude Code 101What is Claude Code?
+
+What is Claude Code?
+
+* [What is Claude Code?](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)
+* [How Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Your first prompt
+
+* [Installing Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)
+* [Your first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Daily workflows
+
+* [The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+* [Context management](https://academy.claude.com/courses/claude-code-101/context-management)
+* [Code review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Customizing Claude Code
+
+* [The CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
+* [Subagents](https://academy.claude.com/courses/claude-code-101/subagents)
+* [Skills](https://academy.claude.com/courses/claude-code-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-code-101/mcp)
+* [Hooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)
+
+* [What Separates Claude Code from Claude?](#what-separates-claude-code-from-claude)
+* [What is an Agent?](#what-is-an-agent)
+* [What Can Claude Code Actually Do?](#what-can-claude-code-actually-do)
+* [Using Claude Code Effectively](#using-claude-code-effectively)
+* [Recap](#recap)

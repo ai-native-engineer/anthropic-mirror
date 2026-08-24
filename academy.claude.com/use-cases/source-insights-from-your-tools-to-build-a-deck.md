@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/source-insights-from-your-tools-to-build-a-deck -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Source insights from your tools to build a deck
+
+Claude Opus 4.6 chases leads across scattered sources, surfaces what no single source shows on its own, and builds a presentation around the through-line.
+
+15 minClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-b9xzy335.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-0v2kfxf1.png)
+
 ![Source insights from your tools to build a deck result](https://academy.claude.com/assets/v1/source-insights-from-your-tools-to-build-a-deck-nmg2vyrt.png)
 
 ## 1. Describe the task
@@ -14,9 +28,7 @@ State the decision the deck has to support, lay out the path Claude should follo
 
 *The board needs to understand whether the consolidation bet is paying off despite the churn. Create a PowerPoint deck (12–15 slides) with speaker notes, an Excel data appendix, and a two-page Word brief. Make an argument, not a summary.*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -36,21 +48,21 @@ What Claude gives you back is mostly determined by what you let it read. One mor
 
 Slack
 
-[Connect](https://claude.ai/desktop/directory/slack)
+[Connect](https://claude.ai/desktop/directory/slack)
 
 ![](data:image/svg+xml,%3csvg%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_4766_38693)'%3e%3cpath%20d='M11.9091%2034H16.3636V23.6969L10%2019.1515V32.1818C10%2033.1879%2010.8559%2034%2011.9091%2034Z'%20fill='%234285F4'/%3e%3cpath%20d='M31.6364%2034H36.0909C37.1473%2034%2038%2033.1848%2038%2032.1818V19.1515L31.6364%2023.6969'%20fill='%2334A853'/%3e%3cpath%20d='M31.6364%2015.8182V23.6969L38%2019.1515V16.7272C38%2014.4788%2035.305%2013.1969%2033.4182%2014.5454'%20fill='%23FBBC04'/%3e%3cpath%20d='M16.3636%2023.697V15.8182L24%2021.2727L31.6364%2015.8182V23.697L24%2029.1515'%20fill='%23EA4335'/%3e%3cpath%20d='M10%2016.7272V19.1515L16.3636%2023.6969V15.8182L14.5818%2014.5454C12.6918%2013.1969%2010%2014.4788%2010%2016.7272Z'%20fill='%23C5221F'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4766_38693'%3e%3crect%20width='28'%20height='20'%20fill='white'%20transform='translate(10%2014)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e)
 
 Gmail
 
-[Connect](https://claude.ai/desktop/directory/gmail-gmailmcp)
+[Connect](https://claude.ai/desktop/directory/gmail-gmailmcp)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
 Google Drive
 
-[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 ### Optional context
 
@@ -88,9 +100,7 @@ Fourteen slides is more deck than most board slots hold. Cutting is easier when 
 
 *Cut the deck to ten slides without losing the argument. Fold the engineering velocity detail into the appendix, merge the churn slides, and keep the revenue reconciliation slide intact. Update the speaker notes to match.*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Pre-brief each board member on what matters to them
 
@@ -98,9 +108,7 @@ Opus 4.6 already knows the quarter’s full context. Use that to draft targeted 
 
 *Draft a Slack message for each board member based on what they’ll care about most. The CFO gets the revenue reconciliation and Apex economics. The product lead gets the consolidation impact and engineering velocity. The customer advocate gets the churn story and the NPS data. Personalize each one — don’t just cut the same deck three ways.*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Stress-test the narrative before you present it
 
@@ -108,9 +116,7 @@ The hardest board questions come from the data you glossed over. Opus 4.6 has re
 
 *You’ve seen all the raw data. Play devil’s advocate — what are the three toughest questions the board could ask about this quarter, and where is our narrative weakest? Then update the speaker notes with how to handle each one, citing specific data points from the appendix.*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -136,4 +142,11 @@ Start with the Q3 project tracker in my local files; it has the key people, chan
 
 The board needs to understand whether the consolidation bet is paying off despite the churn. Create a PowerPoint deck (12–15 slides) with speaker notes, an Excel data appendix, and a two-page Word brief. Make an argument, not a summary.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

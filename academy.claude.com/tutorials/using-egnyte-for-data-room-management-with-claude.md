@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-egnyte-for-data-room-management-with-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Egnyte for data room management with Claude
+
+Set up and use the Egnyte connector with Claude for secure document management, search, analysis, and AI-powered content retrieval.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-gfqvpvl4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mkael38w.png)
+
 The Egnyte connector provides Claude with secure access to your organization’s content stored in Egnyte, enabling advanced document search, AI-powered analysis, and intelligent content management. Through the Egnyte Remote MCP Server, Claude can search for files, retrieve document content, ask questions about specific documents, generate summaries, and interact with Egnyte AI capabilities like Copilot and Knowledge Bases.
 
 ## What This Connector Provides
@@ -76,9 +90,7 @@ Example input prompt:
 
 Search our due diligence folder for documents related to TechCorp’s financials and operations. Summarize the key financial metrics and operational risks.
 
-
-
-Open in Claude
+Open in Claude
 
 For this task, Claude might:
 
@@ -98,9 +110,7 @@ Example input prompt:
 
 What is our company’s remote work policy? Are there any recent updates to travel expense guidelines?
 
-
-
-Open in Claude
+Open in Claude
 
 For this request, Claude might:
 
@@ -120,9 +130,7 @@ Example input prompt:
 
 Find all project deliverables for Acme Corp from Q4 2024, and summarize the project outcomes.
 
-
-
-Open in Claude
+Open in Claude
 
 For this analysis, Claude might:
 
@@ -144,3 +152,9 @@ Claude would provide a comprehensive summary of all project deliverables with ke
 * Remember that all access respects your Egnyte permissions. Claude can only access files and folders you have permission to view, ensuring security and proper access control.
 * For complex analyses involving multiple documents, consider providing folder paths or specific file IDs to help Claude locate the right content efficiently.
 * When working with large document sets, use filters and metadata to narrow results before asking Claude to analyze or summarize content.
+
+* [What This Connector Provides](#what-this-connector-provides)
+* [How Claude Uses Egnyte Content](#how-claude-uses-egnyte-content)
+* [Setting up the Egnyte Connector](#setting-up-the-egnyte-connector)
+* [Common Use Cases](#common-use-cases)
+* [Tips for Using Egnyte](#tips-for-using-egnyte)

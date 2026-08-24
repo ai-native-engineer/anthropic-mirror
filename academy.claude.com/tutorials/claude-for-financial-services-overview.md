@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/claude-for-financial-services-overview -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Claude for financial services overview
+
+Overview of how Claude serves financial professionals with AI assistance for research, analysis, and document creation tasks.
+
+4 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-np12e57m.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-90cwpf8h.png)
+
 Claude for Financial Services provides financial professionals with AI assistance for research, analysis, and documentation tasks. This article explains what Claude for Financial Services offers and how it supports common financial workflows.
 
 ## Who uses Claude for Financial Services
@@ -97,3 +111,9 @@ Be aware of these limitations when using Claude for Financial Services:
 * PowerPoint creation has limited support for complex templates and formatting
 * Excel models may require manual review and adjustment for complex formulas
 * Large files or numerous documents may exceed the input limit of Claude
+
+* [Who uses Claude for Financial Services](#who-uses-claude-for-financial-services)
+* [Core capabilities](#core-capabilities)
+* [Common use cases](#common-use-cases)
+* [Tips for organizing financial projects](#tips-for-organizing-financial-projects)
+* [Current limitations](#current-limitations)

@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/routines-and-headless -->
 
-Lesson 6 of 9 · Claude Code in ActionRoutines and headless
+Lesson 6 of 9 · Claude Code in ActionRoutines and headless
 
-Loading
+3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+# Routines and headless
+
+Lesson 67 min
 
 Routines and headless
 
@@ -39,7 +45,7 @@ You can create a routine from the web at `claude.ai/code/routines`. You give it 
 
 You can also create one from inside Claude Code without leaving your terminal. Just run the `/schedule` command and describe what you want in plain language, for example:
 
-`/schedule daily dependency audit at 9am`
+`/schedule daily dependency audit at 9am`
 
 Same idea, either entry point. Pick whichever fits your flow.
 
@@ -57,7 +63,7 @@ Routines are great when the work fits in the cloud. But sometimes the job needs 
 
 The core of headless mode is the `-p` flag (short for `--print`). It runs Claude Code as a one-shot command with no interactive UI. It reads standard in and writes standard out, so it pipes like any other shell tool:
 
-`claude -p "summarize the changes in this diff"`
+`claude -p "summarize the changes in this diff"`
 
 One thing worth knowing: `-p` skips auto-discovery of hooks, skills, plugins, MCP servers, and the CLAUDE.md file. You get Claude plus the tools you allow explicitly, and nothing the local environment happens to load. The upside is that startup is much faster this way.
 
@@ -67,7 +73,7 @@ Because headless mode pipes like any shell tool, you'll often want structured da
 
 The object that matches your schema lands in the `structured_output` field of the JSON response. So you can pull it out with a `jq` command and pipe it into a database or another script:
 
-bash
+bash
 
 ```
 claude -p "Extract the exported function names from src/core/style.js" \
@@ -82,7 +88,7 @@ That gives you a clean array you can hand to whatever comes next.
 
 For work that happens across multiple steps, you don't have to cram everything into one command. Capture the session's ID from the JSON output and resume it later:
 
-`claude --resume "$(jq -r .session_id /tmp/plan.json)"`
+`claude --resume "$(jq -r .session_id /tmp/plan.json)"`
 
 One script kicks off the work. Another resumes it later with full context. This is handy when the first pass produces a plan and a second pass carries it out.
 
@@ -114,3 +120,44 @@ Here's the quick decision guide:
 * **The Agent SDK** is for when the work belongs inside your own product.
 
 Start with routines. Drop down the spectrum only when the job actually needs the extra control.
+
+[Previous lessonHooks](https://academy.claude.com/courses/claude-code-in-action/hooks)[Next lessonGitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)
+
+Lesson 6 of 9 · Claude Code in ActionRoutines and headless
+
+Steer the work
+
+* [Steering long sessions](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)
+
+Configure Claude
+
+* [A CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)
+* [Verification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)
+* [Permission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)
+* [Hooks](https://academy.claude.com/courses/claude-code-in-action/hooks)
+
+Automate repeat work
+
+* [Routines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)
+* [GitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)
+
+Verify and share
+
+* [Trust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)
+* [Plugins](https://academy.claude.com/courses/claude-code-in-action/plugins)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-in-action/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-in-action/badge)
+
+* [Routines: a saved prompt that runs in the cloud](#routines-a-saved-prompt-that-runs-in-the-cloud)
+* [Two ways to create one](#two-ways-to-create-one)
+* [Three things to know before you rely on routines](#three-things-to-know-before-you-rely-on-routines)
+* [Headless mode: when you need your own environment](#headless-mode-when-you-need-your-own-environment)
+* [Getting structured output back](#getting-structured-output-back)
+* [Multi-step automation with sessions](#multi-step-automation-with-sessions)
+* [Deterministic runs for CI](#deterministic-runs-for-ci)
+* [The Agent SDK: Claude Code inside your own app](#the-agent-sdk-claude-code-inside-your-own-app)
+* [Which one should you reach for?](#which-one-should-you-reach-for)

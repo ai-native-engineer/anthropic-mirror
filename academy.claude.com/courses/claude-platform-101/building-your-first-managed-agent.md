@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent -->
 
-Lesson 12 of 13 · Claude Platform 101Building your first managed agent
+Lesson 12 of 13 · Claude Platform 101Building your first managed agent
 
-Loading
+3. /[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+# Building your first managed agent
+
+Lesson 128 min
 
 Building your first managed agent
 
@@ -45,7 +51,7 @@ For tools, we'll use the **agent toolset** — Anthropic's bundled file, bash, a
 
 First, we create the agent. Note the agent toolset defined right in the `tools` array — that's the bundled toolset:
 
-python
+python
 
 ```
 import anthropic
@@ -68,7 +74,7 @@ Remember: the agent is reusable. Create it once and run it across many sessions.
 
 Next, the environment. This spins up the container template — cloud, with unrestricted networking. This is the sandbox where the file actually gets written:
 
-python
+python
 
 ```
 environment = client.beta.environments.create(
@@ -84,7 +90,7 @@ environment = client.beta.environments.create(
 
 Then we create a session with our agent and environment, plus an optional title. The session is the unit of work:
 
-python
+python
 
 ```
 session = client.beta.sessions.create(
@@ -98,7 +104,7 @@ session = client.beta.sessions.create(
 
 Now we open the event stream — and notice that we do this **first**. The stream only delivers events that occur after it opens, so always open it before sending the kickoff message. Then we send the user message into the live stream:
 
-python
+python
 
 ```
 with client.beta.sessions.events.stream(session_id=session.id) as stream:
@@ -130,7 +136,7 @@ Finally, we consume the stream. There are three event types that matter for this
 * `agent.tool_use` — what tool Claude picked
 * `session.status_idle` — the agent is done
 
-python
+python
 
 ```
     for event in stream:
@@ -165,3 +171,52 @@ In a production app, this is the shape for long-running, file-touching, "go orga
 * Open the event stream **before** sending your kickoff message — it only delivers events that occur after it opens.
 * Watch for three events: `agent.message` (text), `agent.tool_use` (tool picks), and `session.status_idle` (done).
 * Reach for managed agents when the loop would run too long, do too much, or need to survive a hiccup. Reach for a manual loop when you want full control.
+
+[Previous lessonWhat are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)[Next lessonBuilding with Claude Code](https://academy.claude.com/courses/claude-platform-101/building-with-claude-code)
+
+Lesson 12 of 13 · Claude Platform 101Building your first managed agent
+
+What is the Claude Platform?
+
+* [What is the Claude Platform?](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)
+* [Your first API call](https://academy.claude.com/courses/claude-platform-101/your-first-api-call)
+* [Choosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)
+
+Teaching your agent
+
+* [The agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)
+* [What is tool use?](https://academy.claude.com/courses/claude-platform-101/what-is-tool-use)
+* [What is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)
+
+Extending your agent
+
+* [Built-in tools](https://academy.claude.com/courses/claude-platform-101/built-in-tools)
+* [Skills](https://academy.claude.com/courses/claude-platform-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-platform-101/mcp)
+* [Context management](https://academy.claude.com/courses/claude-platform-101/context-management)
+
+Managed Agents
+
+* [What are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)
+* [Building your first managed agent](https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent)
+
+Building with Claude Code
+
+* [Building with Claude Code](https://academy.claude.com/courses/claude-platform-101/building-with-claude-code)
+
+Quiz
+
+* [Claude Platform 101 quizQuiz](https://academy.claude.com/courses/claude-platform-101/claude-platform-101-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-platform-101/badge)
+
+* [What is a managed agent?](#what-is-a-managed-agent)
+* [The four primitives](#the-four-primitives)
+* [The smallest possible managed agent](#the-smallest-possible-managed-agent)
+* [Step 1: Create the agent](#step-1-create-the-agent)
+* [Step 2: Create the environment](#step-2-create-the-environment)
+* [Step 3: Create the session](#step-3-create-the-session)
+* [Step 4: Open the stream, then send the kickoff](#step-4-open-the-stream-then-send-the-kickoff)
+* [Step 5: Consume the stream](#step-5-consume-the-stream)
+* [The trade](#the-trade)
+* [Recap](#recap)

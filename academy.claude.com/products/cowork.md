@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/products/cowork -->
 
+[Overview](https://academy.claude.com/products/cowork)
+
+Browse
+
+[Use cases](https://academy.claude.com/products/cowork/use-cases)[Tutorials](https://academy.claude.com/products/cowork/tutorials)[Courses](https://academy.claude.com/products/cowork/courses)
+
+Your org
+
+[Admin setup](https://academy.claude.com/products/cowork/setup)[Setup checklist](https://academy.claude.com/products/cowork/setup/checklist)
+
+[Help Center (opens in new tab)](https://support.claude.com)
+
+[Academy](https://academy.claude.com/)
+
 # Claude Cowork
 
 Learn to hand off whole tasks and get polished deliverables back, for yourself and your team.
@@ -28,11 +42,11 @@ Tutorial·7 min](https://academy.claude.com/tutorials/customize-claude-cowork)
 
 Rolling Cowork out to your org? Start with the enterprise admin guide and the rollout playbook.
 
-Admin setup](https://academy.claude.com/products/cowork/setup)
+Admin setup](https://academy.claude.com/products/cowork/setup)
 
 ## Try a task
 
-[View all](https://academy.claude.com/all?kind=use-case&product=cowork)
+[View all](https://academy.claude.com/all?kind=use-case&product=cowork)
 
 GeneralMarketingProductEngineeringHRFinanceOperationsDataDesignLegalSalesResearchEducationPersonal
 
@@ -76,7 +90,7 @@ Use case·Marketing·10 min](https://academy.claude.com/use-cases/campaign-brief
 
 ## Learn more
 
-[View all](https://academy.claude.com/all?product=cowork)
+[View all](https://academy.claude.com/all?product=cowork)
 
 * [Delegating your first task in Claude CoworkTutorial4 min
 
@@ -96,22 +110,22 @@ Use case·Marketing·10 min](https://academy.claude.com/use-cases/campaign-brief
 * [How to build a plugin from scratch in Claude CoworkTutorial15 min
 
   Tutorial·15 min](https://academy.claude.com/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)
-* [Working with Claude Fable 5 in Claude Cowork claude.com—
+* [Working with Claude Fable 5 in Claude Cowork claude.com—
 
   claude.com
 
    (opens in new tab)](https://claude.com/blog/working-with-claude-fable-5-in-claude-cowork)
-* [Use Claude Cowork safely support.claude.com—
+* [Use Claude Cowork safely support.claude.com—
 
   support.claude.com
 
    (opens in new tab)](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Schedule recurring tasks support.claude.com—
+* [Schedule recurring tasks support.claude.com—
 
   support.claude.com
 
    (opens in new tab)](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork)
-* [Use live artifacts support.claude.com—
+* [Use live artifacts support.claude.com—
 
   support.claude.com
 
@@ -119,4 +133,4 @@ Use case·Marketing·10 min](https://academy.claude.com/use-cases/campaign-brief
 
 ## Browse it all
 
-[Use cases72 use cases](https://academy.claude.com/all?kind=use-case&product=cowork)[Tutorials17 tutorials](https://academy.claude.com/all?kind=tutorial&product=cowork)[Courses1 course](https://academy.claude.com/all?kind=course&product=cowork)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Use cases72 use cases](https://academy.claude.com/all?kind=use-case&product=cowork)[Tutorials17 tutorials](https://academy.claude.com/all?kind=tutorial&product=cowork)[Courses1 course](https://academy.claude.com/all?kind=course&product=cowork)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

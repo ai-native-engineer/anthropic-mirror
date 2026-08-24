@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/adapt-a-standard-textbook-page-to-every-reading-level -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Adapt a standard textbook page to every reading level
+
+Claude Opus 5 reads a single source page in detail and returns a finished file for each audience that needs it. Here, one textbook spread becomes a slide deck and reading handouts at three levels.
+
+15 minEducationClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-nij2xg3n.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ipcuvz2b.png)
+
 ![Adapt a standard textbook page to every reading level result](https://academy.claude.com/assets/v1/adapt-a-standard-textbook-page-to-every-reading-level-eix1o9nc.png)
 
 ## 1. Describe the task
@@ -22,9 +36,7 @@ From the textbook spread, build me:
 
 Keep every version on the same concepts and the same standard. List the vocabulary you simplified for Level A.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -64,9 +76,7 @@ The rules for each version are already stated, so adding a fourth is one line. O
 
 Add a Level A-EL version: same as Level A, with a glossary box of the five key terms in both English and Spanish, and one labeled-diagram question instead of question 3.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Rebuild the deck with a different emphasis
 
@@ -74,9 +84,7 @@ When the slides need to lead with a different idea, ask for the reorder. The fil
 
 Rebuild the slide deck so it opens with the surface results (mountains, trenches, earthquakes) and gets to boundary types second. Keep it to 9 slides.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Set it up to repeat in Cowork
 
@@ -84,9 +92,7 @@ In claude.ai chat, you upload the page and restate your rules in each new conver
 
 Build the deck, three reading handouts, and exit ticket for tectonics-textbook-p218-219.jpg. Use the standards and version rules in project instructions.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -118,4 +124,11 @@ From the textbook spread, build me:
 
 Keep every version on the same concepts and the same standard. List the vocabulary you simplified for Level A.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,8 +1,20 @@
 <!-- source: https://academy.claude.com/courses/claude-101/enterprise-search -->
 
-Lesson 9 of 13 · Claude 101Enterprise search
+Lesson 9 of 13 · Claude 101Enterprise search
 
-
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# Enterprise search
+
+Lesson 915 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain what Enterprise Search is and the types of questions Enterprise Search can answer
+* Understand how the setup process works for both admins and users
+* Recognize how security and permissions protect organizational data
 
 Plan availability
 
@@ -20,33 +32,33 @@ Enterprise Search is particularly valuable for questions that span multiple sour
 
 **Getting up to speed**
 
-* “What happened yesterday while I was out?”
-* “Summarize key updates across the business from the last week”
-* “What are the current blockers on the Platform project?”
+* “What happened yesterday while I was out?”
+* “Summarize key updates across the business from the last week”
+* “What are the current blockers on the Platform project?”
 
 **Policy and process questions**
 
-* “What is our company's remote work policy?”
-* “How do I submit an expense report?”
-* “What's the process for requesting time off?”
+* “What is our company's remote work policy?”
+* “How do I submit an expense report?”
+* “What's the process for requesting time off?”
 
 **Research and analysis**
 
-* “What are the main reasons customers cite for choosing competitors?”
-* “Summarize discussions about the Q4 product roadmap”
-* “Find information about our customer onboarding process”
+* “What are the main reasons customers cite for choosing competitors?”
+* “Summarize discussions about the Q4 product roadmap”
+* “Find information about our customer onboarding process”
 
 **Onboarding new team members**
 
-* “How does our authentication system work?”
-* “Who should I talk to about learning the billing system?”
-* “What tools does the engineering team use for deployment?”
+* “How does our authentication system work?”
+* “Who should I talk to about learning the billing system?”
+* “What tools does the engineering team use for deployment?”
 
 **Performance and project tracking**
 
-* “Find discussions and documents related to the marketing campaign”
-* “What were the key decisions from last week's leadership meetings?”
-* “Summarize team contributions to the Infrastructure initiative”
+* “Find discussions and documents related to the marketing campaign”
+* “What were the key decisions from last week's leadership meetings?”
+* “Summarize team contributions to the Infrastructure initiative”
 
 When you ask a question, Claude searches across all your connected tools—such as SharePoint documents, Slack conversations, Gmail threads, and Google Drive files—and synthesizes information into a unified response. Plus, it always cites its sources so you can get the full context.
 
@@ -95,3 +107,45 @@ Before moving on, consider:
 In the next lesson, you'll learn about Research — Claude's capability for deep, multi-step investigations that go beyond quick lookups to comprehensive analysis.
 
 For more information on Enterprise Search, visit the [Anthropic Help Center(opens in new tab)](https://support.claude.com/en/articles/12489464-using-enterprise-search).
+
+[Previous lessonConnecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)[Next lessonResearch for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Lesson 9 of 13 · Claude 101Enterprise search
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [What is Enterprise Search?](#what-is-enterprise-search)
+* [What can you ask?](#what-can-you-ask)
+* [Setting up Enterprise Search](#setting-up-enterprise-search)
+* [That's a lot of data … is this safe?](#thats-a-lot-of-data-is-this-safe)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

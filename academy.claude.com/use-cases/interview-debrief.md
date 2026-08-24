@@ -1,6 +1,16 @@
 <!-- source: https://academy.claude.com/use-cases/interview-debrief -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Interview debrief synthesis
+
+Where the panel agreed, where they split, what to resolve.
+
+10 minHRClaude Cowork
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-off27hqc.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-esddo3nx.png)
 
 ## 1. Set up
 
@@ -8,15 +18,13 @@ Loading
 
 The Human Resources plugin ships with `/recruiting-pipeline` and other recruiting skills as a starting point, already structured to compare scorecards against a rubric and surface agreement and splits. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 Human ResourcesStreamline people operations — recruiting, onboarding, performance reviews, compensation analysis, and policy guidance. Maintain compliance and keep your team running smoothly.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=human-resources)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=human-resources)
 
 `/recruiting-pipeline`Track and manage recruiting pipeline stages.
 
-Show all 9 skills
+Show all 9 skills
 
 ### Connect your tools
 
@@ -28,23 +36,21 @@ Navigate to **Customize → Connectors** in Cowork to set up.
 
 Google Drive
 
-[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M3.951%209.85a1.47%201.47%200%201%201-2.94%200%201.47%201.47%200%200%201%201.47-1.471h1.47V9.85Zm.735%200a1.47%201.47%200%201%201%202.94%200v3.679a1.47%201.47%200%201%201-2.94%200V9.85Z'%20fill='%23E01E5A'/%3e%3cpath%20d='M6.157%203.943a1.47%201.47%200%201%201%200-2.943%201.47%201.47%200%200%201%201.47%201.471v1.472h-1.47Zm0%20.746a1.47%201.47%200%201%201%200%202.943H2.47a1.47%201.47%200%201%201%200-2.943h3.687Z'%20fill='%2336C5F0'/%3e%3cpath%20d='M12.049%206.16a1.47%201.47%200%201%201%202.94%200%201.47%201.47%200%200%201-1.47%201.472h-1.47V6.16Zm-.736%200a1.47%201.47%200%201%201-2.94%200V2.471a1.47%201.47%200%201%201%202.94%200V6.16Z'%20fill='%232EB67D'/%3e%3cpath%20d='M9.843%2012.057a1.47%201.47%200%201%201%200%202.943%201.47%201.47%200%200%201-1.47-1.471v-1.472h1.47Zm0-.735a1.47%201.47%200%201%201%200-2.943h3.687a1.47%201.47%200%201%201%200%202.943H9.843Z'%20fill='%23ECB22E'/%3e%3c/svg%3e)
 
 Slack
 
-[Connect](https://claude.ai/desktop/directory/slack)
+[Connect](https://claude.ai/desktop/directory/slack)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23F25022'%20d='M1%201h10.5v10.5H1z'/%3e%3cpath%20fill='%237FBA00'%20d='M12.5%201H23v10.5H12.5z'/%3e%3cpath%20fill='%2300A4EF'%20d='M1%2012.5h10.5V23H1z'/%3e%3cpath%20fill='%23FFB900'%20d='M12.5%2012.5H23V23H12.5z'/%3e%3c/svg%3e)
 
 Microsoft 365
 
-[Connect](https://claude.ai/desktop/directory/microsoft-365)
+[Connect](https://claude.ai/desktop/directory/microsoft-365)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a
 working folder, point Cowork at the folder, and start with the prompt.
@@ -61,7 +67,7 @@ competency-rubric.pdfFeb 10, 2026142 KB
 
 interview-plan.docxFeb 10, 202636 KB
 
-In Cowork’s chat bar:Hiring / Senior-PM-Growth / debrief
+In Cowork’s chat bar:Hiring / Senior-PM-Growth / debrief
 
 ## 2. The prompt
 
@@ -69,31 +75,29 @@ In Cowork’s chat bar:Hiring / Senior-PM-Growth / debrief
 
 Synthesize the interviewer scorecards into the debrief brief: where the panel converged, where they split, which signals are strong versus anecdotal, which competencies weren't covered, and the three questions to resolve in the debrief. Do not recommend hire or no-hire; that decision belongs to the panel.
 
-
-
-Hiring / Senior-PM-Growth / debriefOpen in Cowork
+Hiring / Senior-PM-Growth / debriefOpen in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **State what not to do.** "Do not recommend hire or no-hire" is in the
 prompt because Claude does not make hiring decisions; the brief organizes
 the evidence so the people in the room can.
 
-Prompt
+Prompt
 
 **Ask it to weigh the evidence.** Asking which signals are "strong versus
 anecdotal" forces the brief to weight a pattern across four scorecards
 differently from one interviewer's aside.
 
-Prompt
+Prompt
 
 **Ask for what's missing.** "Which competencies weren't covered" checks the
 scorecards against the rubric in the folder so the panel knows where it's
 deciding without evidence.
 
-Source
+Source
 
 **Include your criteria with the data.** The scorecards, the competency
 rubric, and the interview plan sit in the working folder, so convergence and
@@ -101,12 +105,12 @@ gaps are measured against the bar you set for this role.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and
 Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about"
 so you know where to look first when you review the draft.
@@ -118,11 +122,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 Make what we've done in this task so far into a skill, or edit the
 /recruiting-pipeline skill with my feedback.
 
-
-
-HiringOpen in Cowork
-
-
+HiringOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -136,11 +136,9 @@ The brief should be waiting before the debrief starts. Type `/schedule` in the p
 scorecards in, run /recruiting-pipeline on each, and write the brief to
 Hiring/<role>/debrief.
 
-
+HiringOpen in Cowork
 
-HiringOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Debrief brief on scorecard complete
 
@@ -148,13 +146,11 @@ Runs `/recruiting-pipeline` each weekday morning on any candidate with all
 scorecards in the hiring folder and writes the brief to that role's debrief
 folder.
 
-Every **Weekdays at 9am · checks the hiring folder for complete scorecard sets**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **Weekdays at 9am · checks the hiring folder for complete scorecard sets**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## 5. Share with your teammates
 
 Your customized `/recruiting-pipeline` now carries your rubric, your convergence threshold, and the rule that the decision stays with humans. Share it so every hiring manager and recruiter walks into debrief with the same brief, and the panel spends its time on the open questions instead of re-reading scorecards.
-
-
 
 Share the skill
 
@@ -169,7 +165,7 @@ don't repeat Steps 1-3.
 
 Your processes
 
-Human Resources plugin
+Human Resources plugin
 
 Your tools
 
@@ -177,10 +173,17 @@ Your tools
 
 Your workspace
 
-Hiring / debrief
+Hiring / debrief
 
 Interviewer feedback is organized into one brief before the meeting, so the
 panel starts from the same summary and uses the time to decide instead of
 re-reading scorecards.
 
-[Next: Offer process](https://academy.claude.com/use-cases/offer-process)
+[Next: Offer process](https://academy.claude.com/use-cases/offer-process)
+
+* [1. Set up](#1-set-up)
+* [2. The prompt](#2-the-prompt)
+* [3. Make Cowork work for you](#3-make-cowork-work-for-you)
+* [4. Make it repeatable](#4-make-it-repeatable)
+* [5. Share with your teammates](#5-share-with-your-teammates)
+* [Going forward](#going-forward)

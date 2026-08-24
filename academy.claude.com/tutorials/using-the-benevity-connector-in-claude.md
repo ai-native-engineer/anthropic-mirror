@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-benevity-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the Benevity connector in Claude
+
+Connect Claude to Benevity's database of 2.5M+ nonprofits to discover and research charitable organizations.
+
+9 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-lzaj8nst.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kkw47t08.png)
+
 The Benevity connector gives Claude access to a database of 2.5M+ nonprofit organizations. Search by cause, location, or keyword, and get detailed profiles including mission statements, program descriptions, and geographic focus.
 
 The Benevity integration relies on Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -37,33 +51,25 @@ Available to all paid Claude plan users (Pro, Max, Team, or Enterprise). No Bene
 
 Find nonprofits working on ocean conservation in the Pacific Northwest
 
-
-
-Open in Claude
+Open in Claude
 
 **Local charity research:**
 
 What community organizations serve homeless populations in Denver?
 
-
-
-Open in Claude
+Open in Claude
 
 **Pre-donation research:**
 
 Tell me about the mission and programs of [organization name]
 
-
-
-Open in Claude
+Open in Claude
 
 **Corporate giving:**
 
 Find verified nonprofits focused on STEM education for workplace giving programs
 
-
-
-Open in Claude
+Open in Claude
 
 ## Frequently asked questions
 
@@ -82,3 +88,9 @@ Claude accesses Benevity's database in real time. Organization profiles are upda
 ### Does it include international organizations?
 
 Yes. The database includes nonprofit organizations worldwide.
+
+* [What this connector provides](#what-this-connector-provides)
+* [Who can use this](#who-can-use-this)
+* [Setting up the connector](#setting-up-the-connector)
+* [Example use cases](#example-use-cases)
+* [Frequently asked questions](#frequently-asked-questions)

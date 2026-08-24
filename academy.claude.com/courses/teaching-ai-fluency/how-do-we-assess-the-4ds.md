@@ -1,10 +1,21 @@
 <!-- source: https://academy.claude.com/courses/teaching-ai-fluency/how-do-we-assess-the-4ds -->
 
-Lesson 4 of 7 · Teaching AI FluencyHow do we assess the 4Ds?
+Lesson 4 of 7 · Teaching AI FluencyHow do we assess the 4Ds?
+
+3. /[Teaching AI Fluency](https://academy.claude.com/courses/teaching-ai-fluency)
+
+[Teaching AI Fluency](https://academy.claude.com/courses/teaching-ai-fluency)
+
+# How do we assess the 4Ds?
+
+Lesson 445 min
+
+In this lessonBy the end, you’ll be able to
+
+* Apply outcome, process, and reflection-based assessment strategies to evaluate AI Fluency
+* Create rubrics that capture the 4D competencies in your specific teaching context
 
 ## How do we assess the 4Ds?
-
-Loading
 
 How do we assess the 4Ds?
 
@@ -61,3 +72,34 @@ Start a new conversation with Claude or continue the conversation from Lesson 1:
 ## What's next
 
 In the next lesson, we'll focus on designing assignments that help students both develop and demonstrate AI Fluency.
+
+[Previous lessonThe Description-Discernment loop](https://academy.claude.com/courses/teaching-ai-fluency/the-description-discernment-loop)[Next lessonDesigning assignments for AI Fluency](https://academy.claude.com/courses/teaching-ai-fluency/designing-assignments-for-ai-fluency)
+
+Lesson 4 of 7 · Teaching AI FluencyHow do we assess the 4Ds?
+
+Introduction and approaches to teaching AI Fluency
+
+* [Welcome & approaches to teaching AI Fluency](https://academy.claude.com/courses/teaching-ai-fluency/welcome-approaches-to-teaching-ai-fluency)
+* [The Delegation-Diligence loop](https://academy.claude.com/courses/teaching-ai-fluency/the-delegation-diligence-loop)
+* [The Description-Discernment loop](https://academy.claude.com/courses/teaching-ai-fluency/the-description-discernment-loop)
+
+Assessing AI Fluency
+
+* [How do we assess the 4Ds?](https://academy.claude.com/courses/teaching-ai-fluency/how-do-we-assess-the-4ds)
+* [Designing assignments for AI Fluency](https://academy.claude.com/courses/teaching-ai-fluency/designing-assignments-for-ai-fluency)
+
+AI's Impact on disciplinary content
+
+* [AI's impact and your discipline](https://academy.claude.com/courses/teaching-ai-fluency/ai-s-impact-and-your-discipline)
+* [Applying discipline expertise to AI Fluency](https://academy.claude.com/courses/teaching-ai-fluency/applying-discipline-expertise-to-ai-fluency)
+
+Conclusion & badge
+
+* [Course quizQuiz](https://academy.claude.com/courses/teaching-ai-fluency/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/teaching-ai-fluency/badge)
+
+* [How do we assess the 4Ds?](#how-do-we-assess-the-4ds)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [What's next](#whats-next)

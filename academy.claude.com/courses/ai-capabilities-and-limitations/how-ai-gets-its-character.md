@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/how-ai-gets-its-character -->
 
-Lesson 3 of 13 · AI Capabilities and LimitationsHow AI Gets Its Character
+Lesson 3 of 13 · AI Capabilities and LimitationsHow AI Gets Its Character
+
+3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+
+[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+
+# How AI Gets Its Character
+
+Lesson 320 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain the two-stage training process for generative AI (pretraining and fine-tuning) in plain language
+* Recognize the behavioral fingerprints each stage leaves: sycophancy, verbosity, over-caution, loose confidence calibration
+* Apply this understanding to interpret behaviors you see in your own AI interactions
 
 ## How AI gets its character
-
-Loading
 
 How AI Gets Its Character · 5 min
 
@@ -15,8 +27,6 @@ trained in, layer by layer, and each training stage leaves specific,
 predictable fingerprints on how the system interacts with you.
 
 ## Pretraining, fine-tuning, and the fingerprints they leave
-
-Loading
 
 ## Key takeaways
 
@@ -47,3 +57,48 @@ Now step back. Which fingerprint showed up most clearly on your work? Did naming
 ## What's next
 
 Now we start on the four properties themselves, beginning with the one that explains more about AI behavior than any other: Next Token Prediction. Where do AI answers actually come from?
+
+[Previous lessonWhat We Mean by AI](https://academy.claude.com/courses/ai-capabilities-and-limitations/what-we-mean-by-ai)[Next lessonNext Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-token-prediction)
+
+Lesson 3 of 13 · AI Capabilities and LimitationsHow AI Gets Its Character
+
+Getting started
+
+* [Intro to AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations/intro-to-ai-capabilities-and-limitations)
+* [What We Mean by AI](https://academy.claude.com/courses/ai-capabilities-and-limitations/what-we-mean-by-ai)
+* [How AI Gets Its Character](https://academy.claude.com/courses/ai-capabilities-and-limitations/how-ai-gets-its-character)
+
+Next Token Prediction
+
+* [Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-token-prediction)
+* [Try It Out: Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out)
+
+Knowledge
+
+* [Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/knowledge)
+* [Try It Out: Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-31vzkl2dgi907)
+
+Working Memory
+
+* [Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/working-memory)
+* [Try It Out: Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-q7hdjm9twcbt)
+
+Steerability
+
+* [Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/steerability)
+* [Try It Out: Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-y02xgkpa6wa7)
+
+Putting it all together and next steps
+
+* [When Properties Collide](https://academy.claude.com/courses/ai-capabilities-and-limitations/when-properties-collide)
+* [Next Steps](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-steps)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-capabilities-and-limitations/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-capabilities-and-limitations/badge)
+
+* [How AI gets its character](#how-ai-gets-its-character)
+* [Pretraining, fine-tuning, and the fingerprints they leave](#pretraining-fine-tuning-and-the-fingerprints-they-leave)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

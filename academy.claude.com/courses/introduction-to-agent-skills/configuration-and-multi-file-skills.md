@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills -->
 
-Lesson 3 of 6 · Introduction to agent skillsConfiguration and multi-file skills
+Lesson 3 of 6 · Introduction to agent skillsConfiguration and multi-file skills
+
+3. /[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+# Configuration and multi-file skills
+
+Lesson 310 min
+
+In this lessonBy the end, you’ll be able to
+
+* Configure advanced skill metadata fields including allowed-tools and model
+* Write effective skill descriptions that reliably trigger on the right requests
+* Use allowed-tools to restrict what Claude can do when a skill is active
+* Organize complex skills using progressive disclosure and multi-file structures
 
 ## Configuration and multi-file skills
-
-Loading
 
 Configuration and multi-file skills · 4 min
 
@@ -53,7 +66,7 @@ Sometimes you want a skill that can only read files, not modify them. This is us
 
 In this example, the `allowed-tools` field is set to `Read, Grep, Glob, Bash`. When this skill is active, Claude can only use those tools without asking permission — no editing, no writing.
 
-yaml
+yaml
 
 ```
 ---
@@ -106,3 +119,28 @@ This is particularly useful for:
 ## What's next
 
 In the next lesson, we'll compare skills to the other ways you can customize Claude Code — CLAUDE.md, subagents, hooks, and MCP servers — so you can choose the right tool for each situation.
+
+[Previous lessonCreating your first skill](https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill)[Next lessonSkills vs. other Claude Code features](https://academy.claude.com/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features)
+
+Lesson 3 of 6 · Introduction to agent skillsConfiguration and multi-file skills
+
+Lessons
+
+* [What are skills?](https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills)
+* [Creating your first skill](https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill)
+* [Configuration and multi-file skills](https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills)
+* [Skills vs. other Claude Code features](https://academy.claude.com/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features)
+* [Sharing skills](https://academy.claude.com/courses/introduction-to-agent-skills/sharing-skills)
+* [Troubleshooting skills](https://academy.claude.com/courses/introduction-to-agent-skills/troubleshooting-skills)
+
+* [Course complete](https://academy.claude.com/courses/introduction-to-agent-skills/complete)
+
+* [Configuration and multi-file skills](#configuration-and-multi-file-skills)
+* [Key takeaways](#key-takeaways)
+* [Skill Metadata Fields](#skill-metadata-fields)
+* [Writing Effective Descriptions](#writing-effective-descriptions)
+* [Restricting Tools with allowed-tools](#restricting-tools-with-allowed-tools)
+* [Progressive Disclosure](#progressive-disclosure)
+* [Using Scripts Efficiently](#using-scripts-efficiently)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

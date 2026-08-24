@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/explore-what-claude-can-do-for-you -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Explore what Claude can do for you
+
+New to Claude? Start here. Tell Claude your role and get a personalized guide to the capabilities that will matter for your work.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-d2q52a81.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oqcjuafg.png)
+
 ![Explore what Claude can do for you result](https://academy.claude.com/assets/v1/explore-what-claude-can-do-for-you-e2llkjto.png)
 
 ## 1. Describe the task
@@ -14,9 +28,7 @@ I'm new to Claude. How can I use you most efficiently? Can you give me 5 example
 
 I’ve given you access to my docs (I think) to help you understand better what I do. Thanks!
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -34,7 +46,7 @@ None. This prompt works with just a role description.
 
 **Enable Extended Thinking**: For a more thorough breakdown of capabilities and how they connect to your workflow.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -42,9 +54,9 @@ Extended Thinking](https://support.claude.com/en/articles/10574485-using-extende
 
 Google DriveOptional
 
-[Connect](https://claude.ai/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ## 3. What Claude creates
 
@@ -86,9 +98,7 @@ Move from examples to your actual work. Bring Claude something you need to produ
 
 Let's try the 1-pager. I need to get buy-in for simplifying our onboarding flow. Here are my rough notes from the last few weeks. Turn this into something I can send to leadership by end of day.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to interview you about a problem
 
@@ -96,9 +106,7 @@ If you're not sure what you need, let Claude ask the questions instead.
 
 I'm not sure how to frame the onboarding problem for leadership. Can you interview me about it? Ask me questions that will help us figure out the right angle.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Learn about features beyond chat
 
@@ -106,9 +114,7 @@ Claude has capabilities like [Projects(opens in new tab)](https://support.claude
 
 What Claude features should I know about beyond this chat? From all of your tools, what would be most helpful to me in my role?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -138,4 +144,11 @@ I'm new to Claude. How can I use you most efficiently? Can you give me 5 example
 
 I’ve given you access to my docs (I think) to help you understand better what I do. Thanks!
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

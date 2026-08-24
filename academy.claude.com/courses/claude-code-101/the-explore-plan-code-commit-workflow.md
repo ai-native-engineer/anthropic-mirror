@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow -->
 
-Lesson 5 of 12 · Claude Code 101The explore → plan → code → commit workflow
+Lesson 5 of 12 · Claude Code 101The explore → plan → code → commit workflow
 
-Loading
+3. /[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+# The explore → plan → code → commit workflow
+
+Lesson 58 min
 
 The explore → plan → code → commit workflow
 
@@ -21,9 +27,7 @@ To enter plan mode, press `Shift + Tab` until you see "Plan Mode" under the text
 
 I need to add WebP conversion to our image upload pipeline. Figure out where in the pipeline it should happen, whether we need new dependencies, and how to approach it.
 
-
-
-Open in Claude Code
+Open in Claude Code
 
 Claude will read relevant files, run some web searches, and give you a plan of action. Review it and decide if it meets your criteria. If not, ask it to revise specific areas.
 
@@ -45,8 +49,6 @@ A few tips to make the coding phase smoother:
   ![The Claude in Chrome extension page in the Chrome Web Store](https://academy.claude.com/assets/media/bf3b9eb343e3a61fbd3b6a12ad8f99f1ca989cc945977f386cc92771c4c516ff.jpg)
 * **Include a test suite.** Give Claude a test suite it can continuously validate against. Claude can even write tests for you. Before handing this off, make sure the tests are a reliable source of truth to avoid false positives.
 
-
-
 **Quick tip:** If you find Claude keeps running into the same issues, ask it to save the solution to its CLAUDE.md file.
 
 ## Commit
@@ -65,3 +67,42 @@ To be effective with Claude Code, follow the Explore, Plan, Code, and Commit wor
 * **Plan** creates a plan of action that Claude uses to measure success.
 * **Code** is the back and forth between you and Claude before settling on the final outcome.
 * **Commit** helps you review and push your code so you can start on your next feature.
+
+[Previous lessonYour first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)[Next lessonContext management](https://academy.claude.com/courses/claude-code-101/context-management)
+
+Lesson 5 of 12 · Claude Code 101The explore → plan → code → commit workflow
+
+What is Claude Code?
+
+* [What is Claude Code?](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)
+* [How Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Your first prompt
+
+* [Installing Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)
+* [Your first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Daily workflows
+
+* [The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+* [Context management](https://academy.claude.com/courses/claude-code-101/context-management)
+* [Code review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Customizing Claude Code
+
+* [The CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
+* [Subagents](https://academy.claude.com/courses/claude-code-101/subagents)
+* [Skills](https://academy.claude.com/courses/claude-code-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-code-101/mcp)
+* [Hooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)
+
+* [Explore and Plan](#explore-and-plan)
+* [Code](#code)
+* [Commit](#commit)
+* [Recap](#recap)

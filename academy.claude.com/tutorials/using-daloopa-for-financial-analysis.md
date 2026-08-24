@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-daloopa-for-financial-analysis -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Daloopa for financial analysis
+
+Set up and use the Daloopa integration with Claude for accessing financial data from public company filings covering 3,500+ companies.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-edk9l3rr.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cz938h03.png)
+
 The Daloopa integration provides Claude with access to a financial data extraction service that covers public company filings and metrics. This article explains how to set up and use Daloopa to retrieve financial data for your analysis.
 
 The Daloopa integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -50,9 +64,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Using Daloopa, compare cash-on-cash returns for CAVA, SHAK, and CMG over the last 8 quarters. Include both the absolute values and quarter-over quarter growth rates to identify which company is improving operational efficiency fastest.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Evaluating relative performance across peer companies for investment decisions or competitive analysis.
 
@@ -62,9 +74,7 @@ Using Daloopa, compare cash-on-cash returns for CAVA, SHAK, and CMG over the las
 
 Pull revenue and gross margin trends for MSFT from Q1 2023 to Q1 2025. Show both the quarterly values and calculate the year-over-year growth rates for each quarter.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Tracking company performance over time to identify trends, seasonality, or inflection points.
 
@@ -74,9 +84,7 @@ Pull revenue and gross margin trends for MSFT from Q1 2023 to Q1 2025. Show both
 
 Show me non-GAAP gross margins for top analog semiconductor companies. Focus on AMD, NVDA, INTC, AVGO, and QCOM to understand margin profiles in the sector.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Comparing operational efficiency metrics across companies in the same industry.
 
@@ -86,9 +94,7 @@ Show me non-GAAP gross margins for top analog semiconductor companies. Focus on 
 
 What changed most materially in Apple's latest quarter versus prior quarter? Focus on revenue, operating margin, and free cash flow changes.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Understanding momentum and recent changes in company performance, particularly useful right after earnings releases.
 
@@ -98,9 +104,7 @@ What changed most materially in Apple's latest quarter versus prior quarter? Foc
 
 Microsoft just reported earnings yesterday - pull their Q4 2024 results and compare them to both the prior quarter (Q3 2024) and year-ago quarter (Q4 2023). Include revenue by segment, operating margins, and any operational metrics like Azure growth or Office 365 subscribers that are available.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Immediately after a company reports earnings to quickly assess performance against multiple comparison periods.
 
@@ -112,9 +116,7 @@ Microsoft just reported earnings yesterday - pull their Q4 2024 results and comp
 
 I'm analyzing Spotify (SPOT) and need to understand their key business metrics beyond standard financials. Search Daloopa for all available metrics related to subscribers, ARPU, content costs, and any other operational KPIs they report for the last 8 quarters.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Beginning analysis on an unfamiliar company or sector where you need to understand what unique metrics are tracked.
 
@@ -129,3 +131,13 @@ I'm analyzing Spotify (SPOT) and need to understand their key business metrics b
 * Request specific metrics rather than general categories
 * Limit scope to reasonable number of companies for clear comparisons
 * Consider data freshness - Daloopa updates after earnings releases but may not have real-time intraday data
+
+* [What This Integration Provides](#what-this-integration-provides)
+* [How Claude Uses Daloopa Data](#how-claude-uses-daloopa-data)
+* [Setting Up Daloopa Integration](#setting-up-daloopa-integration)
+* [Common Use Cases](#common-use-cases)
+* [Operational KPI Analysis](#operational-kpi-analysis)
+* [Quarter-over-Quarter Analysis](#quarter-over-quarter-analysis)
+* [Post-Earnings Analysis](#post-earnings-analysis)
+* [Discovering Available Metrics](#discovering-available-metrics)
+* [Tips for Using Daloopa](#tips-for-using-daloopa)

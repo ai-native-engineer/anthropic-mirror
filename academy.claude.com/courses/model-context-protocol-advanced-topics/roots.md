@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots -->
 
-Lesson 5 of 11 · Model Context Protocol: Advanced TopicsRoots
+Lesson 5 of 11 · Model Context Protocol: Advanced TopicsRoots
+
+3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+
+[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+
+# Roots
+
+Lesson 52 min
 
 Roots are a way to grant MCP servers access to specific files and folders on your local machine. Think of them as a permission system that says "Hey, MCP server, you can access these files" - but they do much more than just grant permission.
 
@@ -54,3 +62,36 @@ You then call this function in any tool that accesses files or directories befor
 * **Flexibility** - You can provide roots through tools or inject them directly into prompts
 
 Roots make MCP servers both more powerful and more secure by giving Claude the context it needs to find files while maintaining clear boundaries around what it can access.
+
+[Previous lessonNotifications walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/notifications-walkthrough)[Next lessonRoots walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots-walkthrough)
+
+Lesson 5 of 11 · Model Context Protocol: Advanced TopicsRoots
+
+Core MCP features
+
+* [Sampling](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling)
+* [Sampling walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling-walkthrough)
+* [Log and progress notifications](https://academy.claude.com/courses/model-context-protocol-advanced-topics/log-and-progress-notifications)
+* [Notifications walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/notifications-walkthrough)
+* [Roots](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots)
+* [Roots walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots-walkthrough)
+
+Transports and communication
+
+* [JSON message types](https://academy.claude.com/courses/model-context-protocol-advanced-topics/json-message-types)
+* [The STDIO transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-stdio-transport)
+* [The StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-streamablehttp-transport)
+* [StreamableHTTP in depth](https://academy.claude.com/courses/model-context-protocol-advanced-topics/streamablehttp-in-depth)
+* [State and the StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/state-and-the-streamablehttp-transport)
+
+Assessment and next steps
+
+* [Assessment on MCP conceptsQuiz](https://academy.claude.com/courses/model-context-protocol-advanced-topics/assessment-on-mcp-concepts)
+
+* [Completion badge](https://academy.claude.com/courses/model-context-protocol-advanced-topics/badge)
+
+* [The Problem Roots Solve](#the-problem-roots-solve)
+* [Roots in Action](#roots-in-action)
+* [Security and Boundaries](#security-and-boundaries)
+* [Implementation Details](#implementation-details)
+* [Key Benefits](#key-benefits)

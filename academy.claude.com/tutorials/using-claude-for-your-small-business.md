@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/tutorials/using-claude-for-your-small-business -->
 
-Loading
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Claude Cowork for your small business
+
+Walk through four workflows from the Small Business plugin — plan payroll, close the month, get a Monday brief, run a campaign — and what Claude does at each step.
+
+15 minClaude Cowork
+
+[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-lov8vstm.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cnsmqju3.png)
 
 Running a small business means working across a lot of tools — your books, your payments, your CRM, your inbox. The answers you need usually live across all of them.
 
@@ -8,26 +20,22 @@ With the [Claude for Small Business(opens in new tab)](https://www.anthropic.com
 
 Below are four examples: what each prompt runs, what Claude does at each step, and what you have when it's done.
 
-
-
 ***Tip***: To set up the plugin that enables the workflows below and see the full inventory of skills, visit [How to install and use the Claude for Small Business plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin)
 
 **To learn more:** see [Customize Claude Cowork(opens in new tab)](https://academy.claude.com/tutorials/customize-claude-cowork) and [Customizing plugins in Claude Cowork(opens in new tab)](https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork)
 
 In this guide
 
-1. [Get a pulse on your businessOne Monday-morning page that covers what you'd otherwise check across four browser tabs.](#get-a-pulse-on-your-business)
-2. [Run your next campaignFind the slow stretch in your sales and stage the whole campaign across the tools you already use.](#run-your-next-campaign)
-3. [Close the month with fewer errorsReconcile your books against your settlements and hand your accountant a packet that's already done.](#close-the-month-with-fewer-errors)
-4. [Plan payroll with confidenceSee whether payroll is covered, then chase what's owed — with reminders calibrated to how each customer pays.](#plan-payroll-with-confidence)
+1. [Get a pulse on your businessOne Monday-morning page that covers what you'd otherwise check across four browser tabs.](#get-a-pulse-on-your-business)
+2. [Run your next campaignFind the slow stretch in your sales and stage the whole campaign across the tools you already use.](#run-your-next-campaign)
+3. [Close the month with fewer errorsReconcile your books against your settlements and hand your accountant a packet that's already done.](#close-the-month-with-fewer-errors)
+4. [Plan payroll with confidenceSee whether payroll is covered, then chase what's owed — with reminders calibrated to how each customer pays.](#plan-payroll-with-confidence)
 
 ## Get a pulse on your business
 
 Help me build a Monday morning brief every week in Slack. Pull my cash position from QuickBooks, incoming settlements from PayPal, pipeline movement from HubSpot, and what's on my calendar this week. Tell me the three things that need my attention today.
 
-
-
-BusinessOpen in Cowork
+BusinessOpen in Cowork
 
 This prompt starts the /monday-brief skill, which gives Claude instructions for reading every connected business tool and writing a single page you can scan in a minute. After [customizing the plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin), Claude leads with what matters most for your business.
 
@@ -57,9 +65,7 @@ A one-page brief saved to your folder, ready every Monday morning if you put it 
 
 Find my weakest revenue month from last year and plan a promo to address it. Draft the strategy, generate the campaign assets in Canva, segment my list in HubSpot, and stage the send. Show me everything before anything goes out.
 
-
-
-BusinessOpen in Cowork
+BusinessOpen in Cowork
 
 This prompt starts the /run-campaign skill, which gives Claude instructions for finding your slow season, drafting an offer, building the assets, and staging the send. After [customizing the plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin), Claude works with your tone and your audience.
 
@@ -101,9 +107,7 @@ A campaign plan, the designs, the copy, and a staged send — built across the t
 
 Close out March for me. Reconcile my QuickBooks transactions against PayPal settlements, flag anything that doesn't match, and write the P&L narrative as a document I can send straight to my accountant.
 
-
-
-BusinessOpen in Cowork
+BusinessOpen in Cowork
 
 This prompt starts the /close-month skill, which gives Claude instructions for reconciling your books, flagging anything that doesn't line up, and writing a close packet for your accountant. After [customizing the plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin), Claude follows your category conventions and the flags you care about.
 
@@ -139,9 +143,7 @@ The close packet saved to your folder, ready for your accountant to work from. C
 
 Get me ready for payroll on the 15th. Pull my cash position from QuickBooks, my incoming PayPal settlements, and any overdue invoices. Show me whether the next 30 days covers payroll, then draft a reminder for each overdue customer matched to how they've paid before. Show me the drafts before anything sends.
 
-
-
-BusinessOpen in Cowork
+BusinessOpen in Cowork
 
 This prompt starts the /plan-payroll skill, which gives Claude instructions for forecasting the next 30 days of cash and drafting reminders for overdue invoices. After [customizing the plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin), Claude knows your team and how each customer pays.
 
@@ -188,3 +190,10 @@ A 30-day cash chart, a ranked overdue list with payment history, a reminder for 
 * [How to customize plugins in Cowork(opens in new tab)](https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork) — make the skills run from your context
 * [What are skills(opens in new tab)](https://academy.claude.com/tutorials/what-are-skills) — how skills work in Claude
 * [AI Fluency for Small Business(opens in new tab)](https://academy.claude.com/courses/ai-fluency-for-small-businesses) — a free course on running a small business with AI
+
+* [Get a pulse on your business](#get-a-pulse-on-your-business)
+* [Run your next campaign](#run-your-next-campaign)
+* [Close the month with fewer errors](#close-the-month-with-fewer-errors)
+* [Plan payroll with confidence](#plan-payroll-with-confidence)
+* [Things to note](#things-to-note)
+* [Learn more](#learn-more)

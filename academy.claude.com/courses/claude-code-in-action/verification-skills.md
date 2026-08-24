@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/verification-skills -->
 
-Lesson 3 of 9 · Claude Code in ActionVerification skills
+Lesson 3 of 9 · Claude Code in ActionVerification skills
 
-Loading
+3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+# Verification skills
+
+Lesson 35 min
 
 Verification skills
 
@@ -51,3 +57,39 @@ There's a third case. A rule that Claude must not be able to skip belongs in a h
 A skill is a folder with a `skill.md` inside it: a name, a description that triggers it, and the procedure itself. Only the descriptions load into context until a skill is actually needed, so there's no cost to packaging every procedure you repeat.
 
 Start with verification. Build the skill, check it into your project's `.claude/skills`, and now the whole team inherits the same move. Everyone's work gets checked the same way, automatically, without anyone having to remember to ask.
+
+[Previous lessonA CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)[Next lessonPermission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)
+
+Lesson 3 of 9 · Claude Code in ActionVerification skills
+
+Steer the work
+
+* [Steering long sessions](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)
+
+Configure Claude
+
+* [A CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)
+* [Verification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)
+* [Permission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)
+* [Hooks](https://academy.claude.com/courses/claude-code-in-action/hooks)
+
+Automate repeat work
+
+* [Routines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)
+* [GitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)
+
+Verify and share
+
+* [Trust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)
+* [Plugins](https://academy.claude.com/courses/claude-code-in-action/plugins)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-in-action/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-in-action/badge)
+
+* [Why a verification skill is the one to build first](#why-a-verification-skill-is-the-one-to-build-first)
+* [A skill folder can hold more than instructions](#a-skill-folder-can-hold-more-than-instructions)
+* [Which instruction surface owns which rule](#which-instruction-surface-owns-which-rule)
+* [The recap](#the-recap)

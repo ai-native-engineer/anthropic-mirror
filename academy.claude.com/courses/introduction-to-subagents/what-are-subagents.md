@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-subagents/what-are-subagents -->
 
-Lesson 1 of 4 · Introduction to subagentsWhat are subagents?
+Lesson 1 of 4 · Introduction to subagentsWhat are subagents?
 
-Loading
+3. /[Introduction to subagents](https://academy.claude.com/courses/introduction-to-subagents)
+
+[Introduction to subagents](https://academy.claude.com/courses/introduction-to-subagents)
+
+# What are subagents?
+
+Lesson 15 min
 
 What are subagents?
 
@@ -56,3 +62,22 @@ Subagents give you three main benefits:
 * They bring back just the information you need as a concise summary
 
 Whether you're using the built-in subagents or creating your own, they're a practical way to get more out of longer Claude Code sessions. The less noise in your main context, the longer and more effectively you can work.
+
+[Next lessonCreating a subagent](https://academy.claude.com/courses/introduction-to-subagents/creating-a-subagent)
+
+Lesson 1 of 4 · Introduction to subagentsWhat are subagents?
+
+Lessons
+
+* [What are subagents?](https://academy.claude.com/courses/introduction-to-subagents/what-are-subagents)
+* [Creating a subagent](https://academy.claude.com/courses/introduction-to-subagents/creating-a-subagent)
+* [Designing effective subagents](https://academy.claude.com/courses/introduction-to-subagents/designing-effective-subagents)
+* [Using subagents effectively](https://academy.claude.com/courses/introduction-to-subagents/using-subagents-effectively)
+
+* [Course complete](https://academy.claude.com/courses/introduction-to-subagents/complete)
+
+* [Why Subagents Matter](#why-subagents-matter)
+* [A Practical Example](#a-practical-example)
+* [Built-in Subagents](#built-in-subagents)
+* [Custom Subagents](#custom-subagents)
+* [Key Takeaways](#key-takeaways)

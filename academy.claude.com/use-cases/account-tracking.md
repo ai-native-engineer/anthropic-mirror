@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/account-tracking -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Account tracking
+
+Account health in green/yellow/red with this week's two moves.
+
+10 minSalesClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-kb8jxxpj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lt8ltc3p.png)
 
 ## 1. Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Sales plugin ships with `/pipeline-review` and other customer success skills as a starting point, already structured to weigh usage, tickets, and sentiment into one call. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 Sales8 skills for account research, call prep, pipeline review, and account health
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=sales)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=sales)
 
 `/pipeline-review`Score account health from usage, tickets, NPS, and the success plan
 
@@ -22,7 +32,7 @@ Sales8 skills for account research, call prep, pipeline review, and account heal
 
 [Run](claude://cowork/new?q=%2Fcall-summary)
 
-Show all 9 skills
+Show all 9 skills
 
 ### Connect your tools
 
@@ -42,17 +52,15 @@ Intercom
 
 Read open conversations and recent tickets so the health call reflects what support is actually seeing.
 
-[Connect](https://claude.ai/desktop/directory/intercom)
+[Connect](https://claude.ai/desktop/directory/intercom)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
 Google Drive
 
-[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a
 working folder, point Cowork at the folder, and start with the prompt.
@@ -69,7 +77,7 @@ success-plan.docxFeb 3, 202638 KB
 
 nps-responses-q1.csvApr 2, 202612 KB
 
-In Cowork’s chat bar:Accounts / Northwind / health
+In Cowork’s chat bar:Accounts / Northwind / health
 
 ## 2. The prompt
 
@@ -77,31 +85,29 @@ In Cowork’s chat bar:Accounts / Northwind / health
 
 From the usage data, open Zendesk tickets, NPS responses, and success plan for Northwind, write the account health summary to the account folder: call it red, yellow, or green with the reason in one or two sentences, then the two actions to take this week.
 
-
-
-Accounts / Northwind / healthOpen in Cowork
+Accounts / Northwind / healthOpen in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Give a fixed set of answers.** "Red, yellow, or green" makes Cowork commit
 to one status instead of hedging, and "with the reason" means the call is
 defensible when leadership asks.
 
-Prompt
+Prompt
 
 **Say how many items you want.** "Two actions I should take this week" keeps
 the output to what you'll actually do before Friday, not a backlog of
 everything that could help.
 
-Source
+Source
 
 **Name the sources to weigh together.** Naming usage, tickets, NPS, and the
 success plan together means health is weighed across product, support,
 sentiment, and goals, not just whichever dashboard you checked last.
 
-Source
+Source
 
 **Include the goals to measure against.** The success plan and usage export
 sit in the working folder, so the health call is measured against the goals
@@ -109,12 +115,12 @@ you actually agreed with the customer.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and
 Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about"
 so you know where to look first when you review the draft.
@@ -126,11 +132,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 Make what we've done in this task so far into a skill, or edit the
 /pipeline-review skill with my feedback.
 
-
-
-AccountsOpen in Cowork
-
-
+AccountsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -144,24 +146,20 @@ Health should be tracked, not checked when something breaks. Type `/schedule` in
 book and write the summary to the matching health folder under Accounts. Roll
 up anything red into one digest at the top.
 
-
+AccountsOpen in Cowork
 
-AccountsOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Weekly account health
 
 Runs `/pipeline-review` for every account in your book and writes the summary
 to its health folder, with red accounts rolled up into one digest.
 
-Every **Monday at 7:00 AM**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **Monday at 7:00 AM**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## 5. Share with your teammates
 
 Your customized `/pipeline-review` now carries your usage thresholds, your risk rules, and your summary format. Share it so every CSM scores health the same way, and the red/yellow/green means the same thing across the whole book.
-
-
 
 Share the skill
 
@@ -175,7 +173,7 @@ with your thresholds and format baked in, so they don't repeat Steps 1-3.
 
 Your processes
 
-Sales plugin
+Sales plugin
 
 Your tools
 
@@ -183,8 +181,15 @@ Your tools
 
 Your workspace
 
-Accounts
+Accounts
 
 Every account in your book has a current health summary — scored the same way, written to its folder, with the next actions already named.
 
-[Next: Transcript theme extractor](https://academy.claude.com/use-cases/transcript-themes)
+[Next: Transcript theme extractor](https://academy.claude.com/use-cases/transcript-themes)
+
+* [1. Set up](#1-set-up)
+* [2. The prompt](#2-the-prompt)
+* [3. Make Cowork work for you](#3-make-cowork-work-for-you)
+* [4. Make it repeatable](#4-make-it-repeatable)
+* [5. Share with your teammates](#5-share-with-your-teammates)
+* [Going forward](#going-forward)

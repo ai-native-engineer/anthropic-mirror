@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/customize-claude-cowork -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Customize Claude Cowork
+
+The set up that makes Claude Cowork specific to your work or team.
+
+7 minClaude Cowork
+
+[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-jeypcq29.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bsl631sl.png)
+
 [Claude Cowork(opens in new tab)](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) runs full tasks across your files and tools. Customizing it once means every task after that starts with your systems connected and your team's process already in place. For the quickstart, see [Get started in Cowork in three steps(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps).
 
 ## Level 1: Your context and tools
@@ -9,8 +23,6 @@
 [Connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) plug Cowork into the systems where your work already is — Slack, HubSpot, Microsoft 365, Jira, your company's internal tools — giving it the context to understand a task and the ability to act on it. With a connector enabled, Claude can read your data *and* write back: update a ticket, draft a reply, post to a channel, save a file.
 
 Enable connectors from the **Customize** panel in the left sidebar. Authorize once; Claude can then use that tool in any session.
-
-
 
 **Permissions.** For enterprise users, your admin controls which connectors are available — including Claude in Chrome — and whether each has read-only or write authorization. You can adjust which tools are enabled for a given session from the **Customize** menu or in the chat bar. [More on connector permissions.(opens in new tab)](https://support.claude.com/en/collections/15399129-connectors)
 
@@ -38,9 +50,7 @@ Instructions apply to every task — they're like the background rules Claude fo
 
 Package what we just did into a skill.
 
-
-
-Open in Cowork
+Open in Cowork
 
 The built-in skill-creator captures the steps, templates, and source locations so the next run is one prompt. [Create your first skill in Cowork](claude://cowork/new?q=Walk%20me%20through%20creating%20my%20first%20Skill.%20Ask%20me%20about%20a%20task%20I%20repeat%20every%20week%2C%20then%20help%20me%20capture%20it.).
 
@@ -49,8 +59,6 @@ The built-in skill-creator captures the steps, templates, and source locations s
 ### **Plugins**
 
 [Plugins(opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork) bundle together Connectors and Skills so teammates have what they need to get started.
-
-Loading
 
 #### **Example plugins**
 
@@ -76,3 +84,8 @@ For more on working in Cowork:
 
 * [When to use Chat vs Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) — how to choose the right mode for the task you're working on.
 * [Building plugins from scratch(opens in new tab)](https://academy.claude.com/tutorials/how-to-build-a-plugin-from-scratch-in-cowork) — when the marketplace doesn't have what you need.
+
+* [Level 1: Your context and tools](#level-1-your-context-and-tools)
+* [Level 2: Capture your process](#level-2-capture-your-process)
+* [Level 3: Bundle and share](#level-3-bundle-and-share)
+* [Where to go from here](#where-to-go-from-here)

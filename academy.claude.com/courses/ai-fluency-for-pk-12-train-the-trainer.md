@@ -1,12 +1,24 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer -->
 
-4 lessonsAI Fluency for pK-12 Train the Trainer
+[Courses](https://academy.claude.com/courses)
+
+# AI Fluency for pK-12 Train the Trainer
+
+This course empowers pK–12 educators to lead AI fluency training for their colleagues — equipping them with a ready-to-run workshop kit grounded in the 4D Framework, while staying true to educators' mission and values.
+
+4 lessons45 min
+
+[Start course](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/introduction-from-learner-to-trainer)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-pk-12-train-the-trainer)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-mb3gyqvs.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kx19ab7a.png)
+
+4 lessonsAI Fluency for pK-12 Train the Trainer
 
 What you’ll learnBy the end of this course, you’ll be able to
 
-* See how this Train the Trainer kit connects to AI Fluency for pK-12 Educators
-* Understand why educator voice belongs at the center of AI decisions
-* Know what's in the kit and how to use it to run your own session
+* See how this Train the Trainer kit connects to AI Fluency for pK-12 Educators
+* Understand why educator voice belongs at the center of AI decisions
+* Know what's in the kit and how to use it to run your own session
 
 *This course is the result of a partnership between Anthropic and the American Federation of Teachers (AFT), built by educators, for educators.*
 
@@ -39,3 +51,15 @@ From learner to trainer: what it means to facilitate AI fluency for your colleag
 3 lessons
 
 Everything you need to run the workshop: how to use the kit, the slide deck with its facilitator guide, and the learner workbook with grade-band exercises built around the 4D Framework.
+
+Welcome
+
+* [Introduction: From learner to trainer](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/introduction-from-learner-to-trainer)
+
+pK-12 Train the Trainer Kit
+
+* [How to use the kit](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/how-to-use-the-kit)
+* [Deck and facilitator guide](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/deck-and-facilitator-guide)
+* [Learner workbook](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/learner-workbook)
+
+* [Course complete](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/complete)

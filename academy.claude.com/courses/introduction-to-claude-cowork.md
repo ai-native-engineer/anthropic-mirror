@@ -1,17 +1,29 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork -->
 
-14 lessons · 1 quizIntroduction to Claude Cowork
+[Courses](https://academy.claude.com/courses)
+
+# Introduction to Claude Cowork
+
+Delegate multi-step work to Claude in Cowork: set up workspaces, give context, run task loops, and use plugins for research, documents, and browser tasks.
+
+14 lessons2.5 hr1 quizCompletion badge
+
+[Start course](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fintroduction-to-claude-cowork)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-bsbmftgf.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bez8cadc.png)
+
+14 lessons · 1 quizIntroduction to Claude Cowork
 
 What you’ll learnBy the end of this course, you’ll be able to
 
-* Explain what Claude Cowork is and when to reach for it instead of Chat or Code
-* Set up a working folder, connectors, and permission mode, and apply safe-working habits as Cowork acts on your behalf
-* Delegate a multi-step task end to end: write the prompt, answer clarifying questions, steer mid-task, and review the deliverable
-* Run recurring work with scheduled tasks and run Cowork in the cloud to start tasks from your phone or any browser
-* Give Cowork standing context through global instructions and projects
-* Build skills for your recurring processes and install, customize, or bundle them into plugins
-* Extend Cowork to browser-based tools with Claude in Chrome and to Office documents with Claude for Microsoft 365
-* Validate a skill with evals and share team plugins through your organization's marketplace
+* Explain what Claude Cowork is and when to reach for it instead of Chat or Code
+* Set up a working folder, connectors, and permission mode, and apply safe-working habits as Cowork acts on your behalf
+* Delegate a multi-step task end to end: write the prompt, answer clarifying questions, steer mid-task, and review the deliverable
+* Run recurring work with scheduled tasks and run Cowork in the cloud to start tasks from your phone or any browser
+* Give Cowork standing context through global instructions and projects
+* Build skills for your recurring processes and install, customize, or bundle them into plugins
+* Extend Cowork to browser-based tools with Claude in Chrome and to Office documents with Claude for Microsoft 365
+* Validate a skill with evals and share team plugins through your organization's marketplace
 
 Who it’s for
 
@@ -59,3 +71,35 @@ Drive web apps with Claude in Chrome, and work inside Word, Excel, PowerPoint, a
 Work safely by reviewing plans and outputs, validate skills before you rely on them, and share plugins and workflows with your team.
 
 ![](https://academy.claude.com/assets/media/c776a2d7bea1859d4413a3ce05781d059819fabcb009f64f66d77ef368a95684.webp)![](https://academy.claude.com/assets/media/e91d6384c45559af314664c67d6982d284bd5325e30bcd22e9c1c05119b2ae46.webp)
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)

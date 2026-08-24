@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/steerability -->
 
-Lesson 10 of 13 · AI Capabilities and LimitationsSteerability
+Lesson 10 of 13 · AI Capabilities and LimitationsSteerability
+
+3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+
+[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+
+# Steerability
+
+Lesson 1025 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain why steerability works (fine-tuning taught the model instruction-following) and why it has limits (instructions are followed via pattern-matching, not understanding)
+* Predict where control is tightest (short, concrete, verifiable instructions) versus loosest (long reasoning chains, abstract asks, native precision tasks)
+* Identify reasoning drift, letter-over-spirit, and brittle arithmetic as characteristic steerability failures
+* Recognize system prompts, code execution, visible reasoning, and structured outputs as product features addressing this limitation
 
 ## How steerability affects generative AI outputs
-
-Loading
 
 Steerability · 5 min
 
@@ -16,8 +29,6 @@ there's always a gap between what you intended and what landed, and most of
 the interesting failures live in that gap.
 
 ## How much are you actually in control?
-
-Loading
 
 ## Key takeaways
 
@@ -53,3 +64,48 @@ Go back to your task list. For any multi-step tasks, note where you'd insert a c
 ## What's next
 
 You've now met all four properties individually. In the next lesson we look at how they interact, because most real-world failures are two properties meeting.
+
+[Previous lessonTry It Out: Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-q7hdjm9twcbt)[Next lessonTry It Out: Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-y02xgkpa6wa7)
+
+Lesson 10 of 13 · AI Capabilities and LimitationsSteerability
+
+Getting started
+
+* [Intro to AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations/intro-to-ai-capabilities-and-limitations)
+* [What We Mean by AI](https://academy.claude.com/courses/ai-capabilities-and-limitations/what-we-mean-by-ai)
+* [How AI Gets Its Character](https://academy.claude.com/courses/ai-capabilities-and-limitations/how-ai-gets-its-character)
+
+Next Token Prediction
+
+* [Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-token-prediction)
+* [Try It Out: Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out)
+
+Knowledge
+
+* [Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/knowledge)
+* [Try It Out: Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-31vzkl2dgi907)
+
+Working Memory
+
+* [Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/working-memory)
+* [Try It Out: Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-q7hdjm9twcbt)
+
+Steerability
+
+* [Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/steerability)
+* [Try It Out: Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-y02xgkpa6wa7)
+
+Putting it all together and next steps
+
+* [When Properties Collide](https://academy.claude.com/courses/ai-capabilities-and-limitations/when-properties-collide)
+* [Next Steps](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-steps)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-capabilities-and-limitations/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-capabilities-and-limitations/badge)
+
+* [How steerability affects generative AI outputs](#how-steerability-affects-generative-ai-outputs)
+* [How much are you actually in control?](#how-much-are-you-actually-in-control)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

@@ -1,5 +1,7 @@
 <!-- source: https://academy.claude.com/courses -->
 
+[Academy](https://academy.claude.com/)
+
 # Courses
 
 Structured learning paths with video lessons and assessments to help you master AI collaboration, Claude development, and MCP.

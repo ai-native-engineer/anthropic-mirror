@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/prepare-for-sales-deals -->
 
-![Prepare for sales deals result](https://academy.claude.com/assets/v1/prepare-for-sales-deals-bttnu00w.png)[Open artifact](https://claude.ai/public/artifacts/0ba5807a-ca9f-483e-9981-618ce2be1caf)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Prepare for sales deals
+
+Pull relevant CRM data, like details on comparable opportunities, to prepare for upcoming sales conversations.
+
+15 minSalesClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-ko8unt4x.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dfk17yqf.png)
+
+![Prepare for sales deals result](https://academy.claude.com/assets/v1/prepare-for-sales-deals-bttnu00w.png)[Open artifact](https://claude.ai/public/artifacts/0ba5807a-ca9f-483e-9981-618ce2be1caf)
 
 ## 1. Describe the task
 
@@ -14,9 +28,7 @@ Can you pull similar healthcare deals we've closed in the last year or two? I wa
 
 Create an artifact I can scan before my next call to feel the most prepared. This artifact should follow top-tier design standards. Create a industry-leading MedTech company meets top creative agency aesthetic.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -26,19 +38,17 @@ Claude needs access to your CRM to find and analyze comparable opportunities so 
 
 In [Settings > Capabilities(opens in new tab)](https://claude.ai/customize/connectors), find and enable your [HubSpot(opens in new tab)](https://mcp.hubspot.com/anthropic) connector so Claude can search opportunities and pull deal data.
 
-
-
 HubSpot
 
-[Connect](https://claude.ai/directory/hubspot)
+[Connect](https://claude.ai/directory/hubspot)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context
 
 Turn on Extended Thinking to improve the quality of your analysis.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -69,9 +79,7 @@ Dive deeper into a similar, relevant opportunity.
 
 The Meridian Health deal looks most similar to what I'm working on. Pull the full details from my CRM—all the notes, timeline of activities, who was involved, how the deal progressed through stages, and final contract terms. I want to understand that deal thoroughly since it's the closest match.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Create talking points
 
@@ -79,9 +87,7 @@ Turn your deal intelligence into actual conversation prep
 
 Based on the patterns from similar healthcare deals, create 5-6 talking points I can use in my next call. Focus on approaches that worked in comparable wins. Make these conversational—how I'd actually say them, not formal scripts.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Conduct further research
 
@@ -89,9 +95,7 @@ Research your competitor and create head-to-head comparison guidance that shows 
 
 They're evaluating us against [Competitor B]. Search the web to research their current positioning and messaging, then create a comparison doc: where we genuinely win for this buyer's priorities, how to differentiate without attacking, and specific language for handling "how are you different from them?" questions.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -117,4 +121,11 @@ Can you pull similar healthcare deals we've closed in the last year or two? I wa
 
 Create an artifact I can scan before my next call to feel the most prepared. This artifact should follow top-tier design standards. Create a industry-leading MedTech company meets top creative agency aesthetic.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/see-your-theory-of-change-in-chat-with-claude -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# See your theory of change in chat with Claude
+
+Describe your program and Claude draws the causal chain inline, inputs through impact, with every arrow clickable to show the assumption behind it. For when you know what you do but have never drawn why it works.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-oxaeog5i.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-l5d1fd7u.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Here a program officer runs a youth mentoring program and wants to see where the
 
 I run a youth mentoring program. We pair high schoolers with adult mentors for weekly meetings over a year, and the goal is higher graduation rates. Show me our theory of change, and I want to be able to click the arrows between boxes to see what assumption each one is riding on. Where are the weak links?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -42,9 +52,7 @@ Click any arrow and Claude expands on what's underneath it, naming the assumptio
 
 Focus on the link between contact hours and stronger school connection. What would have to be true for that to hold, and what would the early warning signs be if it isn't?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to redraw with one thing added
 
@@ -52,9 +60,7 @@ Describe a change to the program and Claude redraws the chain with the new compo
 
 Redraw this with a family engagement component added alongside the mentoring. What new assumptions does that introduce, and does it change any of the existing arrows?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to turn the weak links into a measurement plan
 
@@ -62,9 +68,7 @@ Claude takes the assumptions it flagged as shakiest and proposes one concrete th
 
 For each of the arrows you flagged as weak, give me one thing I could measure this year to know whether the assumption is holding.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -86,4 +90,11 @@ Try it on the program you run but have never drawn. Describe it in a sentence or
 
 I run a youth mentoring program. We pair high schoolers with adult mentors for weekly meetings over a year, and the goal is higher graduation rates. Show me our theory of change, and I want to be able to click the arrows between boxes to see what assumption each one is riding on. Where are the weak links?
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-pubmed-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the PubMed Connector in Claude
+
+Set up and use Claude's PubMed integration for access to millions of biomedical research articles and clinical studies.
+
+25 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-hegdjvte.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-d01uo0vw.png)
+
 The PubMed integration provides access to millions of biomedical research articles and clinical studies, allowing Claude to access abstracts and full papers to clarify experimental approaches, identify key findings, determine novelty and applicability, and surface specific papers for deeper exploration. This article explains how to set up and use the PubMed integration with Claude to accelerate your research workflows.
 
 The PubMed integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -53,15 +67,13 @@ The beta header: `anthropic-beta: mcp-client-2025-11-20`
 
 ### Setup
 
-
-
 1. Add the PubMed MCP server to your API request's `mcp_servers` array
 2. Reference the server in your `tools` array using an `mcp_toolset` entry
 3. Include the required beta header
 
 ### Example Request
 
-python
+python
 
 ```
 import anthropic
@@ -86,21 +98,15 @@ Ask Claude to find articles on biomedical or scientific topics of interest. Exam
 
 Find recent studies about immunotherapy for melanoma
 
-
-
-Open in Claude
+Open in Claude
 
 Show me research on CRISPR gene editing from the last month
 
-
-
-Open in Claude
+Open in Claude
 
 Find literature related to a proposal or gene that I am working on
 
-
-
-Open in Claude
+Open in Claude
 
 **Get Article Details and Metadata**
 
@@ -108,27 +114,19 @@ Retrieve comprehensive information about specific articles. Example prompts:
 
 What are the most cited papers on this topic?
 
-
-
-Open in Claude
+Open in Claude
 
 Find the most recent papers on this topic and summarize new contributions to the field?
 
-
-
-Open in Claude
+Open in Claude
 
 Who were the authors for that study?
 
-
-
-Open in Claude
+Open in Claude
 
 When was that paper published?
 
-
-
-Open in Claude
+Open in Claude
 
 **Access Full-Text Articles**
 
@@ -136,23 +134,15 @@ For articles available in PubMed Central, retrieve the complete text of the arti
 
 Compare the methods of these two papers
 
-
-
-Open in Claude
+Open in Claude
 
 What were the shared conclusions across these papers, and where did they differ?
 
-
-
-Open in Claude
+Open in Claude
 
 Read these papers and help me identify the most important conclusions for my hypothesis
 
-
-
-Open in Claude
-
-
+Open in Claude
 
 **Note:** Only articles in PubMed Central (PMC) have full text available. PubMed might only have access to abstracts of other articles.
 
@@ -162,15 +152,11 @@ Discover similar research across NCBI databases. Example prompts:
 
 Find similar studies to this one
 
-
-
-Open in Claude
+Open in Claude
 
 Compare the findings of this study to others in the field
 
-
-
-Open in Claude
+Open in Claude
 
 **Match Citations to PubMed IDs**
 
@@ -178,27 +164,19 @@ Verify citations and find PubMed IDs from journal references. Example prompts:
 
 Look up this citation: Smith J, Nature 2020, vol 52, page 811
 
-
-
-Open in Claude
+Open in Claude
 
 Find the PubMed entry for this reference from my bibliography
 
-
-
-Open in Claude
+Open in Claude
 
 I have a citation from a paper, can you find it in PubMed?
 
-
-
-Open in Claude
+Open in Claude
 
 I would like to have a discussion about the paper associated with this PMID
 
-
-
-Open in Claude
+Open in Claude
 
 ## Frequently asked questions
 
@@ -220,21 +198,15 @@ The integration primarily accesses PubMed and PubMed Central. However, you can d
 
 Find genes associated with this article
 
-
-
-Open in Claude
+Open in Claude
 
 Show me protein sequences referenced in this paper
 
-
-
-Open in Claude
+Open in Claude
 
 Are there any nucleotide sequences linked to this study?
 
-
-
-Open in Claude
+Open in Claude
 
 **Are there any rate limits I should know about?**
 
@@ -260,3 +232,12 @@ All data comes from official NCBI sources, but may not reflect the most current/
 ## Need More Help?
 
 If you're experiencing issues with the PubMed integration or have questions not covered here, please [contact Claude support(opens in new tab)](https://support.claude.com/en/articles/9015913-how-to-get-support) or visit our help center for additional troubleshooting guides.
+
+* [What this integration provides](#what-this-integration-provides)
+* [Setting up the PubMed integration](#setting-up-the-pubmed-integration)
+* [Using the PubMed MCP with the Messages API](#using-the-pubmed-mcp-with-the-messages-api)
+* [Common use cases](#common-use-cases)
+* [Frequently asked questions](#frequently-asked-questions)
+* [Privacy and Data Usage](#privacy-and-data-usage)
+* [Additional Resources](#additional-resources)
+* [Need More Help?](#need-more-help)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-tooluniverse-extension-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the ToolUniverse Extension in Claude
+
+Set up and use the ToolUniverse desktop extension to give Claude access to 600+ vetted scientific tools for hypothesis exploration, drug discovery, and multi-database research workflows.
+
+20 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-kgvcak3z.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nisd1d2t.png)
+
 The ToolUniverse MCP gives Claude access to a library of 600+ vetted scientific tools to explore large hypothesis spaces, compare competing hypotheses, and iterate through fast-to-slow cycles of analysis. This article explains how to set up and use the ToolUniverse integration with Claude.
 
 The ToolUniverse integration is available as a desktop extension in the Claude Desktop App ([download here(opens in new tab)](https://claude.ai/download)), and it relies upon Claude's ability to use [local connectors via a desktop extension(opens in new tab)](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop).
@@ -134,10 +148,10 @@ Learn about [installing desktop extensions from the directory(opens in new tab)]
 
 1. Command:
 
-   `/plugin marketplace add anthropics/life-sciences`
+   `/plugin marketplace add anthropics/life-sciences`
 2. Command:
 
-   `/plugin install tool-universe@life-sciences`
+   `/plugin install tool-universe@life-sciences`
 3. Restart Claude Code
 4. Verify that the server is connected with `/mcp`
 
@@ -152,9 +166,7 @@ Technical details of the ToolUniverse integration can be found in [ToolUniverse�
 
 Identify targets for hypercholesterolemia, prioritize one using evidence from OpenTargets and literature, then screen known drugs and close analogs, and rank candidates by predicted binding and ADMET tradeoffs. Provide intermediate evidence and a final shortlist.
 
-
-
-Open in Claude
+Open in Claude
 
 * **Workflow:** ToolUniverse-powered AI scientists:
   + Query disease-target associations using OpenTargets API
@@ -170,9 +182,7 @@ Identify targets for hypercholesterolemia, prioritize one using evidence from Op
 
 From GWAS hits for type 2 diabetes, map variants to candidate genes, summarize functional annotations and tissue expression, and return enriched pathways with supporting references and links to primary sources.
 
-
-
-Open in Claude
+Open in Claude
 
 * **Workflow:** ToolUniverse-powered AI scientists:
   + Search GWAS catalog for disease-associated genetic variants
@@ -187,9 +197,7 @@ From GWAS hits for type 2 diabetes, map variants to candidate genes, summarize f
 
 Search PubMed and Europe PMC for recent CRISPR off-target detection methods, extract key experimental settings and reported failure modes, and produce a structured comparison table with citations.
 
-
-
-Open in Claude
+Open in Claude
 
 * **Workflow:** ToolUniverse-powered AI scientists:
   + Multi-database literature searches (PubMed, Europe PMC, bioRxiv)
@@ -204,9 +212,7 @@ Search PubMed and Europe PMC for recent CRISPR off-target detection methods, ext
 
 Using ToolUniverse's OpenFDA and ADMET-AI tools, analyze the molecular properties of FDA-approved drugs for hypertension, predict their ADMET profiles, and identify potential side effect patterns.
 
-
-
-Open in Claude
+Open in Claude
 
 * Workflow: ToolUniverse-powered AI scientists:
   + Query FDA drug databases for approved medications
@@ -221,9 +227,7 @@ Using ToolUniverse's OpenFDA and ADMET-AI tools, analyze the molecular propertie
 
 Build a reusable workflow that runs multiple literature searches in parallel, consolidates results, and produces a reproducible report. Return the workflow as a composed tool with clear inputs and outputs. Using ToolUniverse's UniProt, PRIDE, and KEGG pathway tools, design a complete proteomics workflow: from protein identification using mass spectrometry data to functional analysis and pathway mapping.
 
-
-
-Open in Claude
+Open in Claude
 
 * **Workflow:** ToolUniverse-powered AI scientists:
   + Integrate multimodal proteomics databases (UniProt, PRIDE)
@@ -247,3 +251,11 @@ Documentation is available at [ToolUniverse Documentation(opens in new tab)](htt
 **Community Resources**
 
 Access community resources through our [Slack Community(opens in new tab)](https://join.slack.com/t/tooluniversehq/shared_invite/zt-3dic3eoio-5xxoJch7TLNibNQn5_AREQ) for peer support and collaboration, and [GitHub Issues(opens in new tab)](https://github.com/mims-harvard/ToolUniverse) for reporting bugs and requesting features.
+
+* [About the ToolUniverse integration](#about-the-tooluniverse-integration)
+* [Data sets and services available in this integration](#data-sets-and-services-available-in-this-integration)
+* [Who should use the ToolUniverse integration](#who-should-use-the-tooluniverse-integration)
+* [Who can access the ToolUniverse integration](#who-can-access-the-tooluniverse-integration)
+* [Setting up the ToolUniverse integration](#setting-up-the-tooluniverse-integration)
+* [Example use cases](#example-use-cases)
+* [Demos and Documentation](#demos-and-documentation)

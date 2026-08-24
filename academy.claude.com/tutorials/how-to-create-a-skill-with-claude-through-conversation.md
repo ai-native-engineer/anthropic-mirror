@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-create-a-skill-with-claude-through-conversation -->
 
-Loading
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to create a skill with Claude through conversation
+
+Learn how to create Claude Skills through natural conversation by describing workflows and having Claude structure them into reusable formats.
+
+6 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-d0jwbpi2.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lonro551.png)
 
 With Skills, you are able to teach Claude specific workflows, tools, and processes. By creating a skill, you're giving Claude a playbook it can reference whenever you need a particular type of help—whether that's generating reports in your company's format, cleaning and using data the way you normally do, or pulling and analyzing CRM data your way.
 
@@ -90,3 +102,8 @@ These are executable code files that Claude can run to handle complex operations
 * [Skill authoring best practices(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
 * [Skill cookbooks(opens in new tab)](https://platform.claude.com/cookbook)
 * [Agent skills overview(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
+
+* [Creating a skill through conversation](#creating-a-skill-through-conversation)
+* [Skills you can build](#skills-you-can-build)
+* [What you can include within a skill](#what-you-can-include-within-a-skill)
+* [Additional Resources](#additional-resources)

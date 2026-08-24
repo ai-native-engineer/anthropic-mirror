@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/verify-statistics-from-raw-data -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Verify statistics from raw data
+
+Learn to evaluate published statistics by checking them against raw data.
+
+15 minResearchClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-ll0wwlky.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mjll2bxc.png)
+
 ![Statistical reproducibility analysis workbook Claude creates to verify a paper's claims](https://academy.claude.com/assets/v1/verify-statistics-from-raw-data-8du7m0z5.png)
 
 ## 1. Describe the task
@@ -18,9 +32,7 @@ Then build me a detailed Excel workbook where I can see your complete verificati
 
 Make the spreadsheet well-designed and easy to navigate - professional formatting, frozen headers, filtered columns, and clear notes explaining what you found.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -29,8 +41,6 @@ Provide the published manuscript and its underlying raw data so Claude can verif
 ### Required context
 
 Click the (+) button in the chat bar to browse through your files or, alternatively, drag and drop the manuscript and any additional data files you want to analyze into the chat box area.
-
-
 
 ManuscriptPDF
 
@@ -42,7 +52,7 @@ Data filesXLSX
 
 For more thorough statistical verification and high quality outputs, enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking).
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -108,9 +118,7 @@ Verify that visual representations match the underlying data. Claude compares gr
 
 Check that all bar heights, error bars, and data points in Figure 2 match the actual data values. Show me any discrepancies.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Learn what to watch for next time
 
@@ -118,9 +126,7 @@ Claude can explain which red flags are worth investigating when you're reading p
 
 Based on what we found here, teach me what warning signs I should look for when reading other papers in my field. What patterns suggest I should be skeptical, even when I can't verify the raw data?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Draft reviewer comments
 
@@ -128,9 +134,7 @@ Frame statistical or methodological issues constructively so authors understand 
 
 Turn these statistical problems into helpful reviewer comments that are clear about what needs correcting but encouraging about how to fix it.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -156,4 +160,11 @@ Then build me a detailed Excel workbook where I can see your complete verificati
 
 Make the spreadsheet well-designed and easy to navigate - professional formatting, frozen headers, filtered columns, and clear notes explaining what you found.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/how-to-use-the-kit -->
 
-Lesson 2 of 4 · AI Fluency for pK-12 Train the TrainerHow to use the kit
+Lesson 2 of 4 · AI Fluency for pK-12 Train the TrainerHow to use the kit
+
+3. /[AI Fluency for pK-12 Train the Trainer](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer)
+
+[AI Fluency for pK-12 Train the Trainer](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer)
+
+# How to use the kit
+
+Lesson 21 min
 
 ## Your Train the Trainer kit
 
@@ -27,3 +35,23 @@ The workbook is in the last lesson, give it to the participants to follow along.
 #### Acknowledgments and license
 
 *Copyright 2026 Anthropic and the American Federation of Teachers. Based on the AI Fluency Framework developed by Prof. Rick Dakan (Ringling College of Art and Design) and Prof. Joseph Feller (University College Cork). Released under the CC BY-NC-SA 4.0 license.*
+
+[Previous lessonIntroduction: From learner to trainer](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/introduction-from-learner-to-trainer)[Next lessonDeck and facilitator guide](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/deck-and-facilitator-guide)
+
+Lesson 2 of 4 · AI Fluency for pK-12 Train the TrainerHow to use the kit
+
+Welcome
+
+* [Introduction: From learner to trainer](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/introduction-from-learner-to-trainer)
+
+pK-12 Train the Trainer Kit
+
+* [How to use the kit](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/how-to-use-the-kit)
+* [Deck and facilitator guide](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/deck-and-facilitator-guide)
+* [Learner workbook](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/learner-workbook)
+
+* [Course complete](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/complete)
+
+* [Your Train the Trainer kit](#your-train-the-trainer-kit)
+* [How to use the deck and facilitator guide](#how-to-use-the-deck-and-facilitator-guide)
+* [How to use the learner workbook](#how-to-use-the-learner-workbook)

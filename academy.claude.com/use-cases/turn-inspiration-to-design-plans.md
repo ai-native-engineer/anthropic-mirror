@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/turn-inspiration-to-design-plans -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Turn inspiration into design plans
+
+Turn your saved design inspirations into a personalized cost-effective renovation plan with a balanced investment strategy.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-e1un26db.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-1v53811p.png)
+
 ![Turn inspiration into design plans result](https://academy.claude.com/assets/v1/turn-inspiration-to-design-plans-m7f4gwnw.png)
 
 ## 1. Describe the task
@@ -21,9 +35,7 @@ I'm planning a kitchen reno and I've saved images of kitchens I love, but I'm ov
 
 Use elegant formatting with premium typography (Garamond headers, Inter body) and incorporate the aesthetic's color palette into the workbook with sophisticated visual hierarchy, and gallery-level design quality.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -33,11 +45,7 @@ Claude can analyze reference images to identify your design inspiration and find
 
 Upload your saved design inspiration images—Pinterest boards, screenshots of interior design you love, or photos of specific elements that catch your eye.
 
-
-
 mood board screenshotJPEG
-
-
 
 product reference imageJPEG
 
@@ -45,7 +53,7 @@ product reference imageJPEG
 
 Claude can [search the web(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) to find retailers that match your design style at different price points.
 
-[
+[
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
@@ -79,9 +87,7 @@ Use [Research(opens in new tab)](https://support.claude.com/en/articles/11088861
 
 Research the quartz countertop brands in my mid-range package. What do contractors say about installation issues? Are there common staining or etching complaints after a few years? Have any of these brands had quality problems or recalls? I want to know the reality before I order.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Adjust the format
 
@@ -89,9 +95,7 @@ Turn your research into a clear plan to share with contractors. Claude can synth
 
 Create a contractor brief document with the style breakdown, selected materials with specs and sources, budget allocation by category, must-haves versus flexible items, and key questions about their experience with these specific materials. Make it something I can send to get accurate bids.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Implement your ideas
 
@@ -99,9 +103,7 @@ Use your spreadsheet to map out the actual installation sequence and understand 
 
 Walk me through the actual installation sequence for this renovation. What happens first, what can't start until something else is done, and where do contractors typically wait on each other? If my cabinet delivery is delayed by three weeks, what does that do to the timeline?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -137,4 +139,11 @@ Create an workbook with:
 
 Use elegant formatting with premium typography (Garamond headers, Inter body) and incorporate the aesthetic's color palette into the workbook with sophisticated visual hierarchy, and gallery-level design quality.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

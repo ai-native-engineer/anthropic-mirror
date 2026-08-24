@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/permission-modes -->
 
-Lesson 4 of 9 · Claude Code in ActionPermission modes
+Lesson 4 of 9 · Claude Code in ActionPermission modes
 
-Loading
+3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+# Permission modes
+
+Lesson 45 min
 
 Permission modes
 
@@ -68,3 +74,41 @@ There are several permission modes, and you reach the everyday ones by cycling s
 * **Bypass permissions** belongs only inside isolated containers and VMs.
 
 Pick the mode that fits what you're doing, and let Claude run at that level.
+
+[Previous lessonVerification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)[Next lessonHooks](https://academy.claude.com/courses/claude-code-in-action/hooks)
+
+Lesson 4 of 9 · Claude Code in ActionPermission modes
+
+Steer the work
+
+* [Steering long sessions](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)
+
+Configure Claude
+
+* [A CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)
+* [Verification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)
+* [Permission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)
+* [Hooks](https://academy.claude.com/courses/claude-code-in-action/hooks)
+
+Automate repeat work
+
+* [Routines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)
+* [GitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)
+
+Verify and share
+
+* [Trust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)
+* [Plugins](https://academy.claude.com/courses/claude-code-in-action/plugins)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-in-action/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-in-action/badge)
+
+* [The six permission modes](#the-six-permission-modes)
+* [Cycling with shift-tab](#cycling-with-shift-tab)
+* [How auto mode works](#how-auto-mode-works)
+* [What the classifier can't do](#what-the-classifier-cant-do)
+* [Don't ask, for unattended runs](#dont-ask-for-unattended-runs)
+* [Match the mode to the job](#match-the-mode-to-the-job)

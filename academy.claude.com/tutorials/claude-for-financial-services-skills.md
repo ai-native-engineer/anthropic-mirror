@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/claude-for-financial-services-skills -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Six skills for financial service professionals
+
+Introduction to six specialized AI skills for financial professionals including valuation modeling, competitive analysis, research reports, and due diligence.
+
+5 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-igoovw7b.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-c1qn5jcg.png)
+
 Claude for Financial Services Skills are specialized tools designed to help financial services professionals with key workflows. These Skills provide Claude with targeted capabilities for common financial analysis, research, and document creation tasks, helping you work more efficiently and consistently.
 
 These Skills are in research preview and available exclusively to Claude for Financial Services users who sign up on [our waitlist(opens in new tab)](https://docs.google.com/forms/d/1HuMMD2JnSXq0LvQ6Y-VUwAIZdNrg5sLXdCpF3CjmjUE/edit). We will periodically review this list and grant interested users access to this feature. If you have an Enterprise plan, you should contact your account manager to receive priority access.
@@ -133,9 +147,7 @@ Pick a company you cover or know well and ask for a comps analysis. Name the ski
 
 Build a comps analysis for [a company you know well] with five public peers. Include valuation multiples and operating metrics for each peer, and a short write-up of the peer selection rationale. Please use the comps analysis skill.
 
-
-
-Open in Claude
+Open in Claude
 
 When the spreadsheet comes back, check it the way you would check a first draft from a new analyst. Trace two or three of the multiples back to the underlying fundamentals, and read the peer selection rationale against the set you would have chosen yourself. Expect to adjust the first pass: a peer you would swap out or an assumption you would set differently is normal, because the Skill produces the draft and the judgment stays yours. If something doesn’t tie out, point it out and ask Claude to revise.
 
@@ -153,3 +165,14 @@ One habit carries beyond these six Skills: whenever a deliverable has to fit an 
 * [What are Skills?(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills)
 * [Using Skills in Claude(opens in new tab)](https://support.claude.com/en/articles/12512180-using-skills-in-claude)
 * [How to create custom Skills(opens in new tab)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
+
+* [Prerequisites](#prerequisites)
+* [Comps analysis with public/private peers](#comps-analysis-with-publicprivate-peers)
+* [Discounted Cash Flow (DCF) modeling](#discounted-cash-flow-dcf-modeling)
+* [Initiating coverage research](#initiating-coverage-research)
+* [Strip profile/business overview creation](#strip-profilebusiness-overview-creation)
+* [Due diligence data pack creation](#due-diligence-data-pack-creation)
+* [Earnings Analysis](#earnings-analysis)
+* [How to use these Skills](#how-to-use-these-skills)
+* [Best Practices](#best-practices)
+* [Learn more about Skills](#learn-more-about-skills)

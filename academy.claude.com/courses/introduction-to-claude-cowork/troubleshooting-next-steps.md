@@ -1,10 +1,21 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps -->
 
-Lesson 14 of 14 · Introduction to Claude CoworkWrap up and next steps
+Lesson 14 of 14 · Introduction to Claude CoworkWrap up and next steps
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# Wrap up and next steps
+
+Lesson 142 min
+
+In this lessonBy the end, you’ll be able to
+
+* Recall the arc of Cowork 101 and what each module gave you
+* Pick the next moves that keep you using Cowork after the course ends
 
 ## What you've covered
-
-Loading
 
 The throughline: Cowork goes beyond chat to allow you to delegate real work. Everything else in the course builds on that.
 
@@ -26,3 +37,43 @@ A few learning paths worth knowing about:
 * [**AI Capabilities and Limitations**(opens in new tab)](https://academy.claude.com/courses/ai-capabilities-and-limitations)**.** A deeper survey of what generative AI tools can do across modalities and surfaces.
 * [**Claude 101**(opens in new tab)](https://academy.claude.com/courses/claude-101)**.** The companion course on using Claude across all surfaces.
 * [**Claude use-case library**(opens in new tab)](https://academy.claude.com/all?kind=use-case)**.** Filter to Claude Cowork for ideas and inspiration on what to delegate next.
+
+[Previous lessonShare what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)[Next lessonQuiz on Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+Lesson 14 of 14 · Introduction to Claude CoworkWrap up and next steps
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [What you've covered](#what-youve-covered)
+* [Try it now](#try-it-now)
+* [Go deeper](#go-deeper)

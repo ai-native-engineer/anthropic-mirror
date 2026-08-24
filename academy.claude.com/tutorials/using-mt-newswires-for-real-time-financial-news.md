@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-mt-newswires-for-real-time-financial-news -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using MT Newswires for real-Time financial news
+
+Set up and use MT Newswires for real-time financial news delivering original multi-asset class market intelligence.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-i697586c.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-k0ryiyqj.png)
+
 The MT Newswires integration provides Claude with access to a premium real-time financial news service delivering original, unbiased multi-asset class market intelligence. This article explains how to set up and use MT Newswires to monitor breaking news and stay informed about market-moving events. The MT Newswires integration relies upon Claude’s ability to use remote connectors.
 
 ## What This Integration Provides
@@ -47,9 +61,7 @@ Example input prompt:
 
 What’s the latest breaking news on Tesla (TSLA)? Focus on any news from the past 24 hours that could impact the stock price.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Monitor breaking news for specific securities you’re tracking or analyzing, particularly during trading hours or around major events.
 
@@ -61,9 +73,7 @@ Example input prompt:
 
 Track news for my portfolio holdings: AAPL, MSFT, GOOGL, AMZN, and NVDA. Alert me to any material corporate announcements or market-moving news affecting these companies.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Set up regular monitoring for portfolio positions to stay informed about developments that may impact your investments.
 
@@ -75,9 +85,7 @@ Example input prompt:
 
 What are the major news stories affecting the semiconductor industry today? Include companies like NVDA, AMD, INTC, and TSM.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Research sector trends and identify common themes or developments affecting multiple companies within an industry.
 
@@ -89,9 +97,7 @@ Example input prompt:
 
 Summarize the key developments and market reaction to Apple’s earnings announcement yesterday. What were the main highlights and how did analysts respond?
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Quickly understand market reactions and key takeaways following earnings releases, product launches, or other corporate events.
 
@@ -103,9 +109,7 @@ Example input prompt:
 
 Set up monitoring for breaking news related to Federal Reserve policy announcements, interest rate decisions, or inflation data releases.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Stay informed about macroeconomic developments that could impact broader market conditions and investment strategies.
 
@@ -120,3 +124,9 @@ Set up monitoring for breaking news related to Federal Reserve policy announceme
 * Set up regular monitoring for portfolio holdings or watchlist securities
 * Consider news freshness - MT Newswires provides real-time updates as events unfold
 * Focus on material events and filter out noise by requesting curated, relevant news only
+
+* [What This Integration Provides](#what-this-integration-provides)
+* [How Claude Uses MT Newswires Data](#how-claude-uses-mt-newswires-data)
+* [Setting Up MT Newswires Integration](#setting-up-mt-newswires-integration)
+* [Common Use Cases](#common-use-cases)
+* [Tips for Using MT Newswires](#tips-for-using-mt-newswires)

@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions -->
 
-Lesson 1 of 9 · Claude Code in ActionSteering long sessions
+Lesson 1 of 9 · Claude Code in ActionSteering long sessions
 
-Loading
+3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+# Steering long sessions
+
+Lesson 16 min
 
 Steering long sessions
 
@@ -31,7 +37,7 @@ Compact summarizes your conversation, uses that summary as the new context, and 
 
 So don't just run `/compact` on its own. Add instructions after the command to tell Claude how to summarize. For example, if you finished debugging a while back and now you only care about some API changes, say so:
 
-`/compact Focus on the --version flag implementation`
+`/compact Focus on the --version flag implementation`
 
 Anything you write after the command shapes what the summary keeps. That's your steering wheel for context.
 
@@ -57,7 +63,7 @@ Goal sets a completion condition. You describe what "done" looks like, and Claud
 
 For example:
 
-`/goal all tests in src/billing pass, and the type checker reports zero errors`
+`/goal all tests in src/billing pass, and the type checker reports zero errors`
 
 To cancel it, run `/goal clear`. One important constraint: the evaluator only reads the transcript. So your condition has to be checkable from the output Claude actually produces, like the results of a test run.
 
@@ -88,3 +94,40 @@ Handling long Claude Code sessions comes down to a handful of habits:
 5. Run parallel work in worktrees.
 
 Do that, and you can trust a long run without babysitting every step of it.
+
+[Next lessonA CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)
+
+Lesson 1 of 9 · Claude Code in ActionSteering long sessions
+
+Steer the work
+
+* [Steering long sessions](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)
+
+Configure Claude
+
+* [A CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)
+* [Verification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)
+* [Permission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)
+* [Hooks](https://academy.claude.com/courses/claude-code-in-action/hooks)
+
+Automate repeat work
+
+* [Routines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)
+* [GitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)
+
+Verify and share
+
+* [Trust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)
+* [Plugins](https://academy.claude.com/courses/claude-code-in-action/plugins)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-in-action/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-in-action/badge)
+
+* [Scope the work first with plan mode](#scope-the-work-first-with-plan-mode)
+* [Steer while Claude works](#steer-while-claude-works)
+* [Let Claude run more autonomously](#let-claude-run-more-autonomously)
+* [Run parallel work with worktrees](#run-parallel-work-with-worktrees)
+* [Putting it together](#putting-it-together)

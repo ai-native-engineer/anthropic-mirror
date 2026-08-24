@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-biorxiv-and-medrxiv-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the bioRxiv and medRxiv Connector in Claude
+
+Set up and use the bioRxiv integration with Claude to search, retrieve, and summarize preprints from the bioRxiv and medRxiv preprint servers.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-hh3ffby6.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-l7ms48m7.png)
+
 The bioRxiv connector gives Claude access to bioRxiv and medRxiv preprint servers, enabling researchers to search, retrieve, and summarize preprints. This article explains how to set up and use the bioRxiv integration with Claude to track emerging research before peer review publication.
 
 The bioRxiv integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -64,27 +78,19 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Find all neuroscience preprints posted in the last 30 days related to Alzheimer's disease
 
-
-
-Open in Claude
+Open in Claude
 
 Search medRxiv for recent COVID-19 clinical trial preprints from the past week
 
-
-
-Open in Claude
+Open in Claude
 
 Show me the latest CRISPR gene editing preprints in the molecular biology category
 
-
-
-Open in Claude
+Open in Claude
 
 What are the most recent cancer immunotherapy preprints on bioRxiv?
 
-
-
-Open in Claude
+Open in Claude
 
 **Publication Tracking & Impact Analysis**
 
@@ -93,27 +99,19 @@ What are the most recent cancer immunotherapy preprints on bioRxiv?
 
 Which bioRxiv preprints have been published in Nature journals in the past 6 months?
 
-
-
-Open in Claude
+Open in Claude
 
 Track preprints that were published in high-impact journals with DOI prefix 10.1126 (Science)
 
-
-
-Open in Claude
+Open in Claude
 
 Show me recent genomics preprints that have been formally published and compare preprint vs publication dates
 
-
-
-Open in Claude
+Open in Claude
 
 Find preprints from 2024 that successfully made it into peer-reviewed journals
 
-
-
-Open in Claude
+Open in Claude
 
 **Funding Agency Research Output Monitoring**
 
@@ -122,24 +120,21 @@ Find preprints from 2024 that successfully made it into peer-reviewed journals
 
 Find all preprints funded by the NIH (ROR ID: 021nxhr62) in the past year
 
-
-
-Open in Claude
+Open in Claude
 
 What research has the European Commission (ROR: 02mhbdp94) funded that's been posted as preprints?
 
-
-
-Open in Claude
+Open in Claude
 
 Show me bioRxiv preprints funded by the Wellcome Trust and track their publication outcomes
 
-
-
-Open in Claude
+Open in Claude
 
 Analyze preprint submission trends and usage statistics for platform growth over time
 
-
+Open in Claude
 
-Open in Claude
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the bioRxiv integration](#who-should-use-the-biorxiv-integration)
+* [Setting up the bioRxiv integration](#setting-up-the-biorxiv-integration)
+* [Example use cases](#example-use-cases)

@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/additional-activities -->
 
-Lesson 14 of 14 · AI Fluency: Framework & FoundationsAdditional activities
+Lesson 14 of 14 · AI Fluency: Framework & FoundationsAdditional activities
+
+3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+
+[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+
+# Additional activities
+
+Lesson 145 min
 
 The following activities are designed for self-directed learning after completing the AI Fluency: Framework and Foundations course.
 
@@ -92,3 +100,58 @@ Continue developing your Description and Discernment skills through these activi
 * **A Wizard Approaches You in the Tavern:** If you enjoy playing role playing games, try playing a game or two with a language model as either player or game master.
 * **Concepts & Constraints:** Choose a complex concept and really tight constraints like “explain using cooking metaphors only.” Then ask Claude to give you a challenge, try it yourself, and compare approaches.
 * **Advanced Puzzling:** Create your own logic or word puzzles, then challenge Claude to solve it. Alternatively, ask Claude to create puzzles for you to solve. (If you are a programmer, you can swap out the puzzles and instead tackle thorny problems like [https://projecteuler.net/(opens in new tab)](https://projecteuler.net/) with Claude).
+
+[Previous lessonCourse quiz](https://academy.claude.com/courses/ai-fluency-framework-foundations/certificate-of-completion)[Up nextCompletion badge](https://academy.claude.com/courses/ai-fluency-framework-foundations/badge)
+
+Lesson 14 of 14 · AI Fluency: Framework & FoundationsAdditional activities
+
+Introduction to AI Fluency
+
+* [Introduction to AI Fluency](https://academy.claude.com/courses/ai-fluency-framework-foundations/introduction-to-ai-fluency)
+
+The AI Fluency Framework
+
+* [Why do we need AI Fluency?](https://academy.claude.com/courses/ai-fluency-framework-foundations/why-do-we-need-ai-fluency)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework)
+
+Deep Dive 1: What is Generative AI? (Part 1)
+
+* [Generative AI fundamentals](https://academy.claude.com/courses/ai-fluency-framework-foundations/generative-ai-fundamentals)
+* [Capabilities & limitations](https://academy.claude.com/courses/ai-fluency-framework-foundations/capabilities-limitations)
+
+Delegation
+
+* [A closer look at Delegation](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-delegation)
+* [Project planning and Delegation](https://academy.claude.com/courses/ai-fluency-framework-foundations/project-planning-and-delegation)
+
+Description
+
+* [A closer look at Description](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-description)
+
+Deep Dive 2: Effective prompting techniques
+
+* [Effective prompting techniques](https://academy.claude.com/courses/ai-fluency-framework-foundations/effective-prompting-techniques)
+
+Discernment
+
+* [A closer look at Discernment](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-discernment)
+
+The Description-Discernment loop
+
+* [The Description-Discernment loop](https://academy.claude.com/courses/ai-fluency-framework-foundations/the-description-discernment-loop)
+
+Diligence
+
+* [A closer look at Diligence](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-diligence)
+
+Conclusion & badge
+
+* [Conclusion](https://academy.claude.com/courses/ai-fluency-framework-foundations/conclusion)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-framework-foundations/certificate-of-completion)
+* [Additional activities](https://academy.claude.com/courses/ai-fluency-framework-foundations/additional-activities)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-framework-foundations/badge)
+
+* [Build a personal AI fluency plan](#build-a-personal-ai-fluency-plan)
+* [Build a personal prompt & pattern library](#build-a-personal-prompt-pattern-library)
+* [Game night!](#game-night)

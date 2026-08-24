@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365 -->
 
-Lesson 10 of 14 · Introduction to Claude CoworkClaude for Microsoft 365
+Lesson 10 of 14 · Introduction to Claude CoworkClaude for Microsoft 365
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# Claude for Microsoft 365
+
+Lesson 105 min
+
+In this lessonBy the end, you’ll be able to
+
+* Recognize what Claude does inside Word, Excel, PowerPoint, and Outlook
+* Move work between the apps with one Claude conversation
+* Decide when to do the work in Cowork versus inside the document
 
 ## Collaborate with Claude across Microsoft 365 apps
-
-Loading
 
 ## Key takeaways
 
@@ -49,3 +61,47 @@ Open one of the M365 apps with a real document you're working on this week. Try 
 ## What’s next
 
 You've now seen Cowork everywhere it shows up — the desktop, the browser, and the documents themselves. Module 4 turns to the parts of using Cowork that matter once you're handing it real work: working safely, making sure the things you build behave, and sharing them with your team.
+
+[Previous lessonClaude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)[Next lessonBest practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+
+Lesson 10 of 14 · Introduction to Claude CoworkClaude for Microsoft 365
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [Collaborate with Claude across Microsoft 365 apps](#collaborate-with-claude-across-microsoft-365-apps)
+* [Key takeaways](#key-takeaways)
+* [What Claude does inside each app](#what-claude-does-inside-each-app)
+* [Move work across the apps in one conversation](#move-work-across-the-apps-in-one-conversation)
+* [When to use M365 versus Cowork](#when-to-use-m365-versus-cowork)
+* [Try it now](#try-it-now)
+* [What’s next](#whats-next)

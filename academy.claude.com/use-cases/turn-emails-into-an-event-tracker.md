@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/turn-emails-into-an-event-tracker -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Turn emails into an event tracker
+
+Build an event tracker by extracting dates, locations, and logistics from email threads.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-loadx44t.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cue85zt8.png)
+
 ![Turn emails into an event tracker result](https://academy.claude.com/assets/v1/turn-emails-into-an-event-tracker-js6qs8fq.png)
 
 ## 1. Describe the task
@@ -14,9 +28,7 @@ I'm organizing our annual conference in March and sent speaker invitations about
 
 We're locking in the agenda next week. Build me a tracker with formulas, color-coded cells, and clear sections.Make the spreadsheet look like a boutique design studio created a data visualization piece, not like someone filled out an Excel template. The typography and color should look editorial and refined with modern professionalism. Include professional spreadsheet elements like frozen headers, sortable columns, and working formulas.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -30,15 +42,15 @@ In Setting > Connectors, enable the [Gmail integration(opens in new tab)](https:
 
 Gmail
 
-[Connect](https://claude.ai/directory/gmail-gmailmcp)
+[Connect](https://claude.ai/directory/gmail-gmailmcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context
 
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) to help Claude complete complex tasks and create higher quality outputs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -76,9 +88,7 @@ With Google Calendar connected, Claude can create calendar events from your even
 
 Create calendar events for each confirmed speaker session on [conference dates]. Extract the speaker name, session title, and duration from the tracker and create a basic schedule into my calendar so I can start visualizing logistics.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Draft follow-up messages
 
@@ -86,9 +96,7 @@ Claude can help with the repetitive work of drafting similar emails for multiple
 
 For the 11 speakers missing bios, write friendly follow-up emails that reference their specific session topic and deadline. For the 8 sessions with complex A/V needs, draft separate emails about scheduling rehearsal time with our tech team.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ensure spreadsheets are dynamic
 
@@ -96,9 +104,7 @@ If Claude created a spreadsheet with hardcoded totals, ask it to rebuild those s
 
 The speaker count and session totals should use formulas like =COUNTIF() and =SUMIF(), not static numbers. When I add new speakers or update session types, I need everything to recalculate automatically.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -120,4 +126,11 @@ Search my Gmail for speaker confirmations and extract their name and company, wh
 
 We're locking in the agenda next week. Build me a tracker with formulas, color-coded cells, and clear sections.Make the spreadsheet look like a boutique design studio created a data visualization piece, not like someone filled out an Excel template. The typography and color should look editorial and refined with modern professionalism. Include professional spreadsheet elements like frozen headers, sortable columns, and working formulas.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

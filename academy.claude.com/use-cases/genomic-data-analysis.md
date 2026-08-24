@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/genomic-data-analysis -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Genomic data analysis
+
+With Claude as your research partner, analyze gene expression data to identify patterns and form testable hypotheses about biological mechanisms, while Claude handles the computational heavy lifting of bioinformatics and literature synthesis.
+
+10 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-g7zgo1aw.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oixpzgjv.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Share your genomic data with Claude and describe what you want to explore. Claud
 
 My colleagues recently published the attached single-cell dataset that describes gene expression differences between adult and pediatric liver samples with a focus on the immune system. I would like to explore these samples but focus on the parenchymal cells and differences between adult and pediatric liver. Can you help me first go through the differentially expressed genes and create a heatmap and then also identify pathways or sets of genes that are enriched in each sample?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -26,15 +36,13 @@ Use connectors to give Claude access to research databases. You can browse throu
 
 Claude can then use your genomic data files to perform computational analysis and generate visualizations.
 
-
-
 Differential expression data filesCSV
 
 ### Optional context
 
 Enable [Extended thinking(opens in new tab)](https://www.anthropic.com/news/visible-extended-thinking) for Claude to think through more complex tasks, like creating analysis reports and visualizations.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -137,9 +145,7 @@ Claude can search [PubMed(opens in new tab)](https://claude.ai/directory/pubmed)
 
 I'd like to focus on the extracellular matrix and its remodeling or function in the pediatric liver. I want to understand what is expected in these findings vs. what is new. Can you look at the ECM and remodeling proteins and explore the literature in PubMed to clarify citations of well-understood matrix proteins in the pediatric liver v. ECM components that do not currently have known functions in developmental or pediatric liver?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -165,4 +171,11 @@ Whether you're exploring differential expression, validating findings against li
 
 My colleagues recently published the attached single-cell dataset that describes gene expression differences between adult and pediatric liver samples with a focus on the immune system. I would like to explore these samples but focus on the parenchymal cells and differences between adult and pediatric liver. Can you help me first go through the differentially expressed genes and create a heatmap and then also identify pathways or sets of genes that are enriched in each sample?
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

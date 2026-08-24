@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-101/mcp -->
 
-Lesson 11 of 12 · Claude Code 101MCP
+Lesson 11 of 12 · Claude Code 101MCP
 
-Loading
+3. /[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+# MCP
+
+Lesson 116 min
 
 MCP
 
@@ -63,3 +69,43 @@ If your MCP tools exceed 10% of your context window, Claude Code automatically s
 ## Recap
 
 MCP connects Claude Code to your external tools and data sources. Add servers with `claude mcp add`. Scope them to your project with `.mcp.json` so your team gets them automatically. And keep an eye on context usage by disabling servers you're not actively using.
+
+[Previous lessonSkills](https://academy.claude.com/courses/claude-code-101/skills)[Next lessonHooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Lesson 11 of 12 · Claude Code 101MCP
+
+What is Claude Code?
+
+* [What is Claude Code?](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)
+* [How Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Your first prompt
+
+* [Installing Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)
+* [Your first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Daily workflows
+
+* [The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+* [Context management](https://academy.claude.com/courses/claude-code-101/context-management)
+* [Code review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Customizing Claude Code
+
+* [The CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
+* [Subagents](https://academy.claude.com/courses/claude-code-101/subagents)
+* [Skills](https://academy.claude.com/courses/claude-code-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-code-101/mcp)
+* [Hooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)
+
+* [What Can You Do With It?](#what-can-you-do-with-it)
+* [Adding an MCP Server](#adding-an-mcp-server)
+* [Scoping Servers](#scoping-servers)
+* [Context Costs](#context-costs)
+* [Recap](#recap)

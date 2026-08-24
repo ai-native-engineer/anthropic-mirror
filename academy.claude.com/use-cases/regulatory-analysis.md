@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/regulatory-analysis -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Regulatory and compliance
+
+What changed, what applies to you, what to do by when.
+
+10 minLegalClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-btqx4o1h.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mbqnkmu3.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Regulatory Legal plugin ships with `/policy-diff` and other regulatory-change skills as a starting point, already structured to read a new rule against your current policies and pull out which ones it touches and where the gaps are. It's one of twelve practice-area plugins for legal teams; if your admin manages plugins and it's not available yet, skip this, nothing below requires it.
 
-
-
 Regulatory LegalWatches regulatory feeds, diffs new rules against your policy library, tracks comment deadlines and open gaps, and writes the digest your team reads Monday morning.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fclaude-for-legal&plugin=regulatory-legal)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fclaude-for-legal&plugin=regulatory-legal)
 
 `/policy-diff`Diff a specific regulatory change against the indexed policy library.
 
@@ -26,9 +36,7 @@ Regulatory LegalWatches regulatory feeds, diffs new rules against your policy li
 
 [Run](claude://cowork/new?q=%2Fcold-start-interview)
 
-Show all 8 skills
-
-
+Show all 8 skills
 
 First run
 
@@ -44,31 +52,27 @@ Navigate to **Customize → Connectors** in Cowork to set up.
 
 Google Drive
 
-[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23F25022'%20d='M1%201h10.5v10.5H1z'/%3e%3cpath%20fill='%237FBA00'%20d='M12.5%201H23v10.5H12.5z'/%3e%3cpath%20fill='%2300A4EF'%20d='M1%2012.5h10.5V23H1z'/%3e%3cpath%20fill='%23FFB900'%20d='M12.5%2012.5H23V23H12.5z'/%3e%3c/svg%3e)
 
 Microsoft 365
 
-[Connect](https://claude.ai/desktop/directory/microsoft-365)
-
-
+[Connect](https://claude.ai/desktop/directory/microsoft-365)
 
 CoCounsel Legal (Thomson Reuters)
 
 Ground the applicability brief in authoritative content with citations you can verify.
 
-[Connect](https://claude.ai/desktop/directory/cocounsel-legal)
+[Connect](https://claude.ai/desktop/directory/cocounsel-legal)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 ### Set the working folder
 
 Put the regulation PDF, your product descriptions, and your current policies in one folder on your machine, then in Cowork click **+ Add folder** and select it. [Save it as a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) so your product context, instructions, and memory stay attached for the next rule that drops — Cowork reads from the folder and writes the applicability brief and action table back to it.
 
 Files you add stay on your machine and aren't used to train Claude — Cowork reads them locally to do the work.
-
-
 
 **Just want to try it once first?** Skip the project — click **+ Add folder** on a one-off folder and jump to the prompt below.
 
@@ -80,7 +84,7 @@ product-descriptions.docxMar 3, 202688 KB
 
 current-privacy-and-ai-policies.pdfJan 12, 2026612 KB
 
-In Cowork’s chat bar:Regulatory / EU-AI-Act
+In Cowork’s chat bar:Regulatory / EU-AI-Act
 
 ## The prompt
 
@@ -88,35 +92,33 @@ In Cowork’s chat bar:Regulatory / EU-AI-Act
 
 Read this regulation against our product descriptions and current policies. Draft the compliance brief: what changed from the prior rule, which provisions apply to us and why, and for each what we need to do and by when. Save it to the folder for product and compliance leads.
 
-
-
-Regulatory / EU-AI-ActOpen in Cowork
+Regulatory / EU-AI-ActOpen in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Compare against your own documents.** "Against our product descriptions and current policies" turns a 400-page rule into an applicability call, so the brief talks about your products by name, not the regulation in the abstract.
 
-Prompt
+Prompt
 
 **Ask for what's changed since last time.** "What changed from the prior rule" skips the parts you already comply with and puts the new obligations at the top of the brief.
 
-Prompt
+Prompt
 
 **Pair each action with a deadline.** "What we need to do and by when" makes every applicable provision land as an owner-ready task with a deadline, not a paragraph of analysis.
 
-Source
+Source
 
 **Let the working folder supply context.** The regulation, your product descriptions, and your policies sit in the working folder, so the brief is written against what you actually ship and the action table is saved next to the source text.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -126,11 +128,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /policy-diff skill with my feedback.
 
-
-
-RegulatoryOpen in Cowork
-
-
+RegulatoryOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -142,23 +140,19 @@ A final rule drops, the applicability brief should already be drafting. Type `/s
 
 **/schedule** Weekdays at 9am, check Regulatory/Watch for any new file and run /policy-diff against it and write the applicability brief and action table to a subfolder named for the regulation.
 
-
+RegulatoryOpen in Cowork
 
-RegulatoryOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 New-regulation applicability brief
 
 Runs `/policy-diff` on every new file in Regulatory/Watch and writes the brief and action table to a subfolder named for the regulation.
 
-Every **Weekdays at 9am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **Weekdays at 9am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/policy-diff` now carries your policy library, your jurisdictions, and your memo format. Share it so product, privacy, and compliance all read the same brief, and the action table follows the same structure every time a rule drops.
-
-
 
 Share the skill
 
@@ -170,7 +164,7 @@ In Cowork, open **Skills** → `/policy-diff` → **Share** and pick your teamma
 
 Your processes
 
-Regulatory Legal plugin
+Regulatory Legal plugin
 
 Your tools
 
@@ -178,8 +172,15 @@ Your tools
 
 Your workspace
 
-Regulatory
+Regulatory
 
 New regulations are read against your own products and policies, with a specific action and deadline for each provision that applies — ready to assign instead of research.
 
-[Next: Legal research](https://academy.claude.com/use-cases/legal-research-memo)
+[Next: Legal research](https://academy.claude.com/use-cases/legal-research-memo)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [Going forward](#going-forward)

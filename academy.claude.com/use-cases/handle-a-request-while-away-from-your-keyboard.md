@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/handle-a-request-while-away-from-your-keyboard -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Handle a request while away from your keyboard
+
+Use Dispatch in Claude Cowork to respond to requests from the Claude mobile app using everything on your computer. Claude finds the file, drafts the reply, and waits for your approval before sending.
+
+15 minClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-lyytfhz3.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jx0gutex.png)
 
 ## 1. Describe the task
 
@@ -14,9 +26,7 @@ A teammate asks for a budget spreadsheet over Slack. From your phone, you tell C
 
 Jamie just asked me on Slack for the latest Q2 budget spreadsheet. Find it in my Documents/Finance folder on my computer — the file with “Q2” and “budget” in the name. Post it to Jamie in the #proj-planning Slack channel. Add a note that the tab labeled “Revised” has the current numbers.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -33,9 +43,9 @@ For this task, Claude needs access to your local files and one connector:
 
 Slack
 
-[Connect](https://claude.ai/desktop/directory/slack)
+[Connect](https://claude.ai/desktop/directory/slack)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 ## 3. What Claude creates
 
@@ -61,9 +71,7 @@ Claude can draft messages using files on your computer, then wait for your appro
 
 Draft a reply to the client email about pricing. Use the proposal in my Documents folder for the numbers, but don't send until I approve.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Pick up the thread on your laptop
 
@@ -71,9 +79,7 @@ When you get back to your desk, continue in the same Dispatch conversation. Clau
 
 I'm back at my desk. Show me what you sent and any other requests that came in while I was out.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Use computer use to reach a desktop app
 
@@ -81,9 +87,7 @@ I'm back at my desk. Show me what you sent and any other requests that came in w
 
 There's a report I need from the analytics dashboard app on my computer. Open it and screenshot the Q1 summary.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -109,4 +113,11 @@ Get started with Dispatch: download the Claude desktop app and the Claude mobile
 
 Jamie just asked me on Slack for the latest Q2 budget spreadsheet. Find it in my Documents/Finance folder on my computer — the file with “Q2” and “budget” in the name. Post it to Jamie in the #proj-planning Slack channel. Add a note that the tab labeled “Revised” has the current numbers.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

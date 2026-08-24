@@ -1,6 +1,19 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team -->
 
-Lesson 13 of 14 · Introduction to Claude CoworkShare what you build with your team
+Lesson 13 of 14 · Introduction to Claude CoworkShare what you build with your team
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# Share what you build with your team
+
+Lesson 138 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain how plugins get distributed across an Enterprise organization
+* Apply a few good habits for keeping a shared plugin healthy over time
 
 ## Scaling workflows across your team
 
@@ -21,8 +34,6 @@ In practice, distribution is a hand-off. You bring the plugin to whoever owns th
 From your teammates' seat, the plugin simply shows up in their Directory labeled as coming from your company, alongside the public Anthropic ones. They can use it and turn it off (unless it's required), but they can't edit it — updates flow from whoever maintains it.
 
 What this looks like for *you* depends on what your admin has set up. Some organizations have a marketplace running and a clear owner to hand things to; others haven't switched it on yet. Use the interactive below to find your situation and the right next step.
-
-Loading
 
 Match what you see in your org to the distribution path that fits — and who to talk to if the marketplace isn't live yet.
 
@@ -47,3 +58,45 @@ If you don't know the answer to the second question yet, that's your real next s
 ## What’s next
 
 In the final lesson, you'll get a quick recap of the arc you've just been through and the next moves to keep the momentum going.
+
+[Previous lessonValidating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)[Next lessonWrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Lesson 13 of 14 · Introduction to Claude CoworkShare what you build with your team
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [Scaling workflows across your team](#scaling-workflows-across-your-team)
+* [Distributing a plugin in your organization](#distributing-a-plugin-in-your-organization)
+* [Habits worth keeping](#habits-worth-keeping)
+* [Lesson reflection](#lesson-reflection)
+* [What’s next](#whats-next)

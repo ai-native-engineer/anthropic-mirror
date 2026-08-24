@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork -->
 
-Lesson 1 of 14 · Introduction to Claude CoworkWhat is Claude Cowork
+Lesson 1 of 14 · Introduction to Claude CoworkWhat is Claude Cowork
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# What is Claude Cowork
+
+Lesson 115 min
+
+In this lessonBy the end, you’ll be able to
+
+* Define Claude Cowork and explain what makes it a different way of working with Claude
+* Understand Cowork as Claude working in your environment — on your files, in your apps, with your tools
+* Tell Chat, Cowork, and Code apart, and know which to reach for when
 
 ## Introducing Cowork
-
-Loading
 
 Introducing Cowork: Claude Code for the rest of your work
 
@@ -31,8 +43,6 @@ But the differences between the two go even deeper than this. Mechanically, Chat
 
 You can see what makes a great Cowork task below.
 
-Loading
-
 ## How Cowork works in your environment
 
 Cowork works in your environment. Not adjacent to it.
@@ -50,8 +60,6 @@ The three modes are built for different shapes of work. **Chat** is turn-by-turn
 
 The interactive below has two parts: a three-way comparison so you can see all three at a glance, and a six-task challenge that asks you to pick the right mode for each scenario.
 
-Loading
-
 To recap: **Chat is for thinking with Claude. Cowork is for delegating to Claude. Code is for building software with Claude.** Most knowledge workers will live in Chat and Cowork — and use them for very different things.
 
 ## Lesson reflection
@@ -63,3 +71,47 @@ Hold on to that task — you can come back to it in Lesson 3 when you start iden
 ## What’s next
 
 In the next lesson, you'll get Cowork set up: install the desktop app, point Claude at a working folder, add your first connectors, and learn the permissions model that keeps you in control of what Cowork can do.
+
+[Next lessonSetting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+
+Lesson 1 of 14 · Introduction to Claude CoworkWhat is Claude Cowork
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [Introducing Cowork](#introducing-cowork)
+* [Key takeaways](#key-takeaways)
+* [What Cowork actually is](#what-cowork-actually-is)
+* [How Cowork works in your environment](#how-cowork-works-in-your-environment)
+* [Chat vs. Cowork vs. Code](#chat-vs-cowork-vs-code)
+* [Lesson reflection](#lesson-reflection)
+* [What’s next](#whats-next)

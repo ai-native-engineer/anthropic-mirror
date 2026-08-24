@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-cms-coverage-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the CMS Coverage Connector in Claude
+
+Set up and use the CMS Coverage integration with Claude to search Medicare Part B coverage policies, NCDs, LCDs, and billing articles instantly.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-i8zhxq63.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dew51a0z.png)
+
 The CMS Coverage connector gives Claude access to the CMS Medicare Coverage Database, enabling searches and retrieval of National Coverage Determinations (NCDs), Local Coverage Determinations (LCDs), billing articles, and coverage policy updates for Medicare Part B services. This article explains how to set up and use the CMS Coverage integration with Claude to search Medicare Part B coverage policies instantly.
 
 The CMS Coverage integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -70,27 +84,19 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Does Medicare cover continuous glucose monitoring for type 2 diabetes patients?
 
-
-
-Open in Claude
+Open in Claude
 
 What are the medical necessity criteria for home oxygen therapy in California?
 
-
-
-Open in Claude
+Open in Claude
 
 Find the LCD for power wheelchairs in my region and tell me what documentation is required
 
-
-
-Open in Claude
+Open in Claude
 
 Is sacral nerve stimulation covered by Medicare for urinary incontinence?
 
-
-
-Open in Claude
+Open in Claude
 
 **Billing & Coding Compliance**
 
@@ -99,27 +105,19 @@ Is sacral nerve stimulation covered by Medicare for urinary incontinence?
 
 What are the covered ICD-10 codes for diabetes self-management training?
 
-
-
-Open in Claude
+Open in Claude
 
 Find the billing article for home oxygen equipment and show me the required HCPCS codes
 
-
-
-Open in Claude
+Open in Claude
 
 What modifiers are required for billing wheelchair accessories in Texas?
 
-
-
-Open in Claude
+Open in Claude
 
 Show me the documentation requirements for billing cardiac rehabilitation services
 
-
-
-Open in Claude
+Open in Claude
 
 **Policy Monitoring & Updates**
 
@@ -128,24 +126,21 @@ Show me the documentation requirements for billing cardiac rehabilitation servic
 
 What Medicare coverage policies have changed in the last 30 days?
 
-
-
-Open in Claude
+Open in Claude
 
 Show me recent LCD updates for my Medicare contractor
 
-
-
-Open in Claude
+Open in Claude
 
 Have there been any new NCDs published for cardiovascular procedures this quarter?
 
-
-
-Open in Claude
+Open in Claude
 
 Are there any proposed LCDs for laboratory testing that I should review?
 
-
+Open in Claude
 
-Open in Claude
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the CMS Coverage integration](#who-should-use-the-cms-coverage-integration)
+* [Setting up the CMS Coverage integration](#setting-up-the-cms-coverage-integration)
+* [Example use cases](#example-use-cases)

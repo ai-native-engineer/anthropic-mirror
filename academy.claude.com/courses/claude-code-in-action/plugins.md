@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/plugins -->
 
-Lesson 9 of 9 · Claude Code in ActionPlugins
+Lesson 9 of 9 · Claude Code in ActionPlugins
 
-Loading
+3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+# Plugins
+
+Lesson 97 min
 
 Plugins
 
@@ -23,7 +29,7 @@ A plugin is one installable unit. It bundles everything you'd otherwise share by
 
 Where the plugin lives decides how you install it. Inside a session, you can install one directly by name:
 
-`/plugin install github@claude-plugins-official`
+`/plugin install github@claude-plugins-official`
 
 Here's what that looks like. Claude Code installs it and tells you to run `/reload-plugins` to apply the change.
 
@@ -31,7 +37,7 @@ Here's what that looks like. Claude Code installs it and tells you to run `/relo
 
 For a team, the better move is to add a private marketplace once. A marketplace is a shared source that plugins resolve through:
 
-`/plugin marketplace add your-org/claude-plugins`
+`/plugin marketplace add your-org/claude-plugins`
 
 Call it whatever you want. Once it's added, every install after that resolves through it. You get centralized discovery, version tracking, and updates in one place instead of scattered across everyone's laptop.
 
@@ -80,7 +86,7 @@ The directory structure does most of the work. Claude Code discovers components 
 
 On top of that, there's an optional manifest. It lives at `.claude-plugin/plugin.json` and holds the name, version, description, and author:
 
-json
+json
 
 ```
 {
@@ -106,3 +112,42 @@ Two simple rules cover most of this:
 * When you build one, package your `.claude` the moment it works. One manifest, one install.
 
 That's the whole point. One installable unit, and the setup you trust reaches your entire team.
+
+[Previous lessonTrust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)[Next lessonCourse quiz](https://academy.claude.com/courses/claude-code-in-action/course-quiz)
+
+Lesson 9 of 9 · Claude Code in ActionPlugins
+
+Steer the work
+
+* [Steering long sessions](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)
+
+Configure Claude
+
+* [A CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)
+* [Verification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)
+* [Permission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)
+* [Hooks](https://academy.claude.com/courses/claude-code-in-action/hooks)
+
+Automate repeat work
+
+* [Routines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)
+* [GitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)
+
+Verify and share
+
+* [Trust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)
+* [Plugins](https://academy.claude.com/courses/claude-code-in-action/plugins)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-in-action/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-in-action/badge)
+
+* [What a plugin is](#what-a-plugin-is)
+* [Adding a marketplace for your team](#adding-a-marketplace-for-your-team)
+* [Read before you install](#read-before-you-install)
+* [Components run alongside yours](#components-run-alongside-yours)
+* [Packaging your own plugin](#packaging-your-own-plugin)
+* [The manifest](#the-manifest)
+* [The takeaway](#the-takeaway)

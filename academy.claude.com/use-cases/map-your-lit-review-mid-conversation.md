@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/map-your-lit-review-mid-conversation -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Map your lit review mid-conversation to surface the underlying debate
+
+Claude reads your stack of papers and draws the argument structure inline — clusters by claim, tension lines where camps disagree, blind spots per group. A reading of the debate you test against your own, as you work through the set.
+
+15 minResearchClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-bfvgtn6m.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lunhnhkm.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Here a grad student has read twenty papers on AI in K-12 and lost the thread. Cl
 
 I've read 20 papers on AI in K-12 and I've lost the thread. Can you map out who's actually agreeing with who and where the real disagreements are? I can't tell anymore which papers are building on each other and which are talking past each other. If I click into a group, give me the short version of what they've got and what they're missing.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -21,8 +31,6 @@ Attach the papers or notes. The more of each paper Claude can see — abstract, 
 ### Required context
 
 Papers or a consolidated notes file.
-
-
 
 Paper notesPDF
 
@@ -42,9 +50,7 @@ Click any element in the map and Claude expands it below — the map stays, the 
 
 Walk me through the assessment-vs-surveillance tension — which specific claims does the critical camp push back on, and do the analytics papers engage or talk past it?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to write up what the map showed
 
@@ -52,9 +58,7 @@ Claude writes the lit review section using the map as the outline — one paragr
 
 Draft the "state of the debate" section for my lit review from this map. One paragraph per cluster, then one per tension line.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Tell Claude where you'd draw it differently and it redraws
 
@@ -62,9 +66,7 @@ Tell Claude where you'd draw a boundary differently and it redraws — your corr
 
 I think the Williamson paper belongs between the analytics and critical camps, not inside analytics. Redraw with it as a bridge and show me what changes about the tension lines.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -86,4 +88,11 @@ Try it on the literature that's stopped making sense as a whole — attach what 
 
 I've read 20 papers on AI in K-12 and I've lost the thread. Can you map out who's actually agreeing with who and where the real disagreements are? I can't tell anymore which papers are building on each other and which are talking past each other. If I click into a group, give me the short version of what they've got and what they're missing.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

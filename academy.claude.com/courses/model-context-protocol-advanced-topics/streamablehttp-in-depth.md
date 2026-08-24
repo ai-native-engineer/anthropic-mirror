@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/streamablehttp-in-depth -->
 
-Lesson 10 of 11 · Model Context Protocol: Advanced TopicsStreamableHTTP in depth
+Lesson 10 of 11 · Model Context Protocol: Advanced TopicsStreamableHTTP in depth
+
+3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+
+[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+
+# StreamableHTTP in depth
+
+Lesson 102 min
 
 StreamableHTTP is MCP's solution to a fundamental problem: some MCP functionality requires the server to make requests to the client, but HTTP makes this challenging. Let's explore how StreamableHTTP works around this limitation and when you might need to break that workaround.
 
@@ -64,3 +72,36 @@ Setting these to `True` can break the SSE workaround mechanism. You might want t
 StreamableHTTP is more complex than other MCP transports because it has to work around HTTP's limitations. The SSE-based workaround enables full MCP functionality over HTTP, but understanding the dual-connection model is crucial for debugging and optimization.
 
 When building MCP applications with StreamableHTTP, remember that session IDs are required for all requests after initialization, and the system automatically manages multiple SSE connections to handle different types of server-to-client communication.
+
+[Previous lessonThe StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-streamablehttp-transport)[Next lessonState and the StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/state-and-the-streamablehttp-transport)
+
+Lesson 10 of 11 · Model Context Protocol: Advanced TopicsStreamableHTTP in depth
+
+Core MCP features
+
+* [Sampling](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling)
+* [Sampling walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling-walkthrough)
+* [Log and progress notifications](https://academy.claude.com/courses/model-context-protocol-advanced-topics/log-and-progress-notifications)
+* [Notifications walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/notifications-walkthrough)
+* [Roots](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots)
+* [Roots walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots-walkthrough)
+
+Transports and communication
+
+* [JSON message types](https://academy.claude.com/courses/model-context-protocol-advanced-topics/json-message-types)
+* [The STDIO transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-stdio-transport)
+* [The StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-streamablehttp-transport)
+* [StreamableHTTP in depth](https://academy.claude.com/courses/model-context-protocol-advanced-topics/streamablehttp-in-depth)
+* [State and the StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/state-and-the-streamablehttp-transport)
+
+Assessment and next steps
+
+* [Assessment on MCP conceptsQuiz](https://academy.claude.com/courses/model-context-protocol-advanced-topics/assessment-on-mcp-concepts)
+
+* [Completion badge](https://academy.claude.com/courses/model-context-protocol-advanced-topics/badge)
+
+* [The Core Problem](#the-core-problem)
+* [How StreamableHTTP Works](#how-streamablehttp-works)
+* [Tool Calls and Dual SSE Connections](#tool-calls-and-dual-sse-connections)
+* [Configuration Flags That Break the Workaround](#configuration-flags-that-break-the-workaround)
+* [Key Takeaways](#key-takeaways)

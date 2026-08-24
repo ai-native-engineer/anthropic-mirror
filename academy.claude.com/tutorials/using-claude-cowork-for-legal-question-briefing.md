@@ -1,12 +1,30 @@
 <!-- source: https://academy.claude.com/tutorials/using-claude-cowork-for-legal-question-briefing -->
 
-Loading
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Claude Cowork for legal: answer fast questions on past decisions
+
+When a question comes up about a past decision, Claude Cowork answers it from your own history of reviews, with a citation for every claim. You get the answer in minutes, and you can check the source yourself before you reply.
+
+15 minClaude Cowork
+
+Watch[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-cb32kcve.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nq1i2588.png)
 
 **Watch the full workflow in the video, then follow the steps below to set it up yourself.**
 
 **In the video** — Mark, a product lawyer, gets a Slack message from a product manager: does a feature change reopen a review he wrote in January? He has a few minutes and none of the context he had when he wrote the memo. A scheduled task had already sorted his morning; a skill pulls the prior decision; he verifies the source line before he replies.
 
-
+Follow along to set up
+
+1. [1Set up the brief skillSet up once](#step-1-set-up-the-brief-skill)
+2. [2Schedule the morning briefSet up once](#step-2-schedule-the-morning-brief)
+3. [3Run a brief on a questionPer question](#step-3-run-a-brief-on-a-question)
+4. [4Verify before you signPer question](#step-4-verify-before-you-sign)
+5. [5Reply and close the loopPer question](#step-5-reply-and-close-the-loop)
 
 If you haven’t set up Cowork yet, start with [Get started in three steps(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps), then [Customize Cowork(opens in new tab)](https://academy.claude.com/tutorials/customize-claude-cowork) for connectors and skills.
 
@@ -30,9 +48,7 @@ With the plugin installed and your sources connected, tell Claude to tailor `/br
 
 Customize the /brief skill from the Legal plugin for my team. Our reviews and past decisions live in [where our reviews are stored] — set up the daily memo and the topic brief around how my reviews are structured and the format I read fastest.
 
-
-
-Working folderOpen in Cowork
+Working folderOpen in Cowork
 
 Claude walks you through your document store and templates, then rewrites the skill to match. Run it on a question you already know the answer to, check the citations, and tell Claude to fix anything it got wrong.
 
@@ -48,9 +64,7 @@ Here’s the prompt to set it up — replace the blanks with your own:
 
 /schedule Every [weekday at 8am], read my [Gmail, issue tracker, and Slack] and run /brief in daily mode to write a memo: what's due today, what's new, and what's urgent.
 
-
-
-Working folderOpen in Cowork
+Working folderOpen in Cowork
 
 ## Step 3: Run a brief on a question
 
@@ -62,9 +76,7 @@ It’s the same skill, so it already knows where your reviews live — your prom
 
 /brief does [the new request] change our conclusion on [the prior review]?
 
-
-
-ReviewsOpen in Cowork
+ReviewsOpen in Cowork
 
 The brief comes back short and organized: what you’d decided before, what’s different now, and where the two don’t line up. Every point links to the exact source it came from, so you can check it yourself — which is the next step.
 
@@ -80,8 +92,6 @@ Step 3 gave you the brief: the question answered quickly, with every claim cited
 2. **Click the citation on the claim you’re relying on** — every claim links back to its source section.
 3. **Read the line in the source** — check that the brief quoted it correctly.
 4. **Make your call** — the answer is yours to sign once you’ve read the source yourself.
-
-
 
 Where your judgment applies
 
@@ -102,9 +112,7 @@ Claude asks before it sends or changes anything. You can do both in one prompt:
 
 Draft a reply to [the product manager] in [your messaging tool] — my view: [your call on the question]. Then close the ticket in [your task tracker]: post my decision and the brief's list of what the question reopens, link the source review, and mark it done.
 
-
-
-Working folderOpen in Cowork
+Working folderOpen in Cowork
 
 ## Make it yours
 
@@ -129,3 +137,11 @@ This setup isn’t legal-specific and can work for any role that fields fast que
 * [**AI Fluency: Framework and Foundations**(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations). Take the full AI fluency course to work towards effective, efficient, and ethical AI use.
 * [**The 4 Ds of AI Fluency**(opens in new tab)](https://academy.claude.com/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators). Learn practical skills and mental models behind building AI fluency.
 * [**Use Cowork safely**(opens in new tab)](https://support.claude.com/en/articles/13364135-use-cowork-safely). Understand access, approvals, and what Claude can see.
+
+* [Step 1: Set up the brief skill](#step-1-set-up-the-brief-skill)
+* [Step 2: Schedule the morning brief](#step-2-schedule-the-morning-brief)
+* [Step 3: Run a brief on a question](#step-3-run-a-brief-on-a-question)
+* [Step 4: Verify before you sign](#step-4-verify-before-you-sign)
+* [Step 5: Reply and close the loop](#step-5-reply-and-close-the-loop)
+* [Make it yours](#make-it-yours)
+* [Learn more](#learn-more)

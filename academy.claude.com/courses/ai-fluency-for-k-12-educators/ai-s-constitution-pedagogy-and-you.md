@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you -->
 
-Lesson 8 of 10 · AI Fluency for pK–12 EducatorsAI's constitution, pedagogy, and you
+Lesson 8 of 10 · AI Fluency for pK–12 EducatorsAI's constitution, pedagogy, and you
+
+3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+# AI's constitution, pedagogy, and you
+
+Lesson 820 min
+
+In this lessonBy the end, you’ll be able to
+
+* Recognize the differences between model personalities
+* Communicate what the usage of LLMs means for you and your work as an educator
+* Revisit and refine the AI values you set earlier in this course
 
 ## AI's constitution, pedagogy, and you
-
-Loading
 
 AI's constitution, pedagogy, and you · 6 min
 
@@ -53,3 +65,44 @@ AI ethics and practice aren't something you "finish." Add one concrete step you'
 ## What's next
 
 In the next lesson, you'll put everything together in a complete end-to-end 4D workflow on a real task from your own work.
+
+[Previous lessonEthics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)[Next lessonTying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)
+
+Lesson 8 of 10 · AI Fluency for pK–12 EducatorsAI's constitution, pedagogy, and you
+
+How this course was made
+
+* [How this course was made](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations)
+
+Using AI responsibly
+
+* [Creating high quality AI outputs](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice)
+* [Ethics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)
+* [AI's constitution, pedagogy, and you](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)
+
+Conclusion and badge
+
+* [Closure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/badge)
+
+* [AI's constitution, pedagogy, and you](#ais-constitution-pedagogy-and-you)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet -->
 
-![Evaluate a company from the science to the balance sheet result](https://academy.claude.com/assets/v1/evaluate-a-company-from-the-science-to-the-balance-sheet-56l1xsie.png)[Open artifact](https://claude.ai/public/artifacts/6b7948e9-f7fd-4c48-960a-b0b490b99b16)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Evaluate a company from the science to the balance sheet
+
+Claude Opus 4.6 runs due diligence across SEC filings, clinical trial data, and patent documents at once, evaluating the science, modeling the financials, and catching where one contradicts the other.
+
+15 minFinanceClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-nopkb6rc.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-is78zafq.png)
+
+![Evaluate a company from the science to the balance sheet result](https://academy.claude.com/assets/v1/evaluate-a-company-from-the-science-to-the-balance-sheet-56l1xsie.png)[Open artifact](https://claude.ai/public/artifacts/6b7948e9-f7fd-4c48-960a-b0b490b99b16)
 
 ## 1. Describe the task
 
@@ -14,9 +28,7 @@ Evaluate the science and trial design. Build a risk-adjusted pipeline valuation.
 
 Produce a research memo and a downloadable model. Tell me what I should be worried about that I haven't asked about.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -24,15 +36,9 @@ Upload all five documents together: the 10-K, 10-Q, proxy, trial protocol, and p
 
 ### Required context
 
-
-
 SEC filings (10-K, 10-Q, proxy)PDF
 
-
-
 Clinical trial protocolPDF
-
-
 
 Patent filingsPDF
 
@@ -42,7 +48,7 @@ If your filings are already on your computer, Cowork in [Claude Desktop(opens in
 
 [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) lets Claude scale how deeply it reasons based on task complexity. For multi-document financial analysis, it's worth turning on.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -100,9 +106,7 @@ The safety-study finding is an inference Claude built from two separate disclosu
 
 *Show me the exact disclosure on page 187 of the 10-K and the R&D guidance change in the 10-Q that the safety-study finding rests on. Quote both passages, then walk through the inference step by step so I can check it against the filings.*
 
-
-
-Open in Claude
+Open in Claude
 
 ### Push the analysis further
 
@@ -110,9 +114,7 @@ Opus 4.6 holds both the science and the financials in context at once, which mea
 
 *Model what happens if Phase III misses the superiority endpoint by a narrow margin. Walk through the decision tree: does management pivot to non-inferiority? How does that cascade through the timeline, cash runway, and valuation?*
 
-
-
-Open in Claude
+Open in Claude
 
 ### Stress-test the model's assumptions
 
@@ -120,9 +122,7 @@ The scenario ranges move with your discount rate, probability weights, and dilut
 
 *Rerun the scenario summary with a higher discount rate and a lower probability of success. Which scenario boundaries move the most, and at what inputs does the mid-range case stop holding?*
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -148,4 +148,11 @@ Evaluate the science and trial design. Build a risk-adjusted pipeline valuation.
 
 Produce a research memo and a downloadable model. Tell me what I should be worried about that I haven't asked about.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,8 +1,20 @@
 <!-- source: https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat -->
 
-Claude Cowork gives you an [agentic way(opens in new tab)](https://claude.com/product/cowork) of working with Claude. Compared to Chat (available on the [web(opens in new tab)](https://claude.ai), [desktop(opens in new tab)](https://claude.com/download), and [mobile(opens in new tab)](https://claude.com/download)), Claude Cowork can run on your computer and complete work across your files, browser, and tools. This tutorial covers when to use it instead of Chat.
+2. /[Tutorials](https://academy.claude.com/tutorials)
 
-Loading
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Choosing between Claude Cowork or Chat
+
+Same Claude, two ways of working. Chat is a conversation you steer turn by turn. Cowork is a delegation: you describe the goal, Claude works across your files and tools, and you come back to a finished result.
+
+5 minClaude Cowork
+
+[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-m7h6cx31.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bp8m6m89.png)
+
+Claude Cowork gives you an [agentic way(opens in new tab)](https://claude.com/product/cowork) of working with Claude. Compared to Chat (available on the [web(opens in new tab)](https://claude.ai), [desktop(opens in new tab)](https://claude.com/download), and [mobile(opens in new tab)](https://claude.com/download)), Claude Cowork can run on your computer and complete work across your files, browser, and tools. This tutorial covers when to use it instead of Chat.
 
 **Reach for Chat** when you have a one-off question or want a thought partner as you work through a problem. Also consider Chat using when the task is light on context, without a spread of files or sources. You're in the conversation the whole time, and the output is text you'll read or take elsewhere. Chat starts instantly, it's available across Claude apps (web, mobile, desktop app) and it remembers you across conversations through Memory.
 
@@ -19,8 +31,6 @@ Loading
 
 Cowork runs on the same agentic engine as [Claude Code(opens in new tab)](https://claude.com/product/claude-code) — the loop that lets Claude plan, work across tools, and check its own output — applied to your files and apps instead of a codebase. A Cowork task can follow these steps:
 
-Loading
-
 In Cowork, you can **delegate, but stay in control**. Claude's actions show up in the sidebar, you can interrupt and redirect at any point, and it asks for your approval before anything consequential — sending an email, posting a message, changing a file outside your working folder.
 
 ## What only Cowork can do
@@ -34,3 +44,7 @@ In Cowork, you can **delegate, but stay in control**. Claude's actions show up i
 ## Get started
 
 Select **Cowork** in the mode picker on the home page. If you haven't tried Claude Cowork before, install a [plugin(opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-claude) for your role or pick an ambitious task that spans many steps, files, or sources to get started.
+
+* [How a Claude Cowork task runs](#how-a-claude-cowork-task-runs)
+* [What only Cowork can do](#what-only-cowork-can-do)
+* [Get started](#get-started)

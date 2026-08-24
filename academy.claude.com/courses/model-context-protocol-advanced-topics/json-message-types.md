@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/json-message-types -->
 
-Lesson 7 of 11 · Model Context Protocol: Advanced TopicsJSON message types
+Lesson 7 of 11 · Model Context Protocol: Advanced TopicsJSON message types
+
+3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+
+[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+
+# JSON message types
+
+Lesson 72 min
 
 MCP (Model Context Protocol) uses JSON messages to handle communication between clients and servers. Understanding these message types is crucial for working with MCP, especially when dealing with different transport methods like the streamable HTTP transport.
 
@@ -57,3 +65,36 @@ The MCP specification organizes messages by who sends them:
 Understanding that servers can send messages to clients is particularly important when working with different transport methods. Some transports, like the streamable HTTP transport, have limitations on which types of messages can flow in which directions.
 
 The key insight is that MCP is designed as a bidirectional protocol - both clients and servers can initiate communication. This becomes crucial when you need to choose the right transport method for your specific use case.
+
+[Previous lessonRoots walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots-walkthrough)[Next lessonThe STDIO transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-stdio-transport)
+
+Lesson 7 of 11 · Model Context Protocol: Advanced TopicsJSON message types
+
+Core MCP features
+
+* [Sampling](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling)
+* [Sampling walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling-walkthrough)
+* [Log and progress notifications](https://academy.claude.com/courses/model-context-protocol-advanced-topics/log-and-progress-notifications)
+* [Notifications walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/notifications-walkthrough)
+* [Roots](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots)
+* [Roots walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots-walkthrough)
+
+Transports and communication
+
+* [JSON message types](https://academy.claude.com/courses/model-context-protocol-advanced-topics/json-message-types)
+* [The STDIO transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-stdio-transport)
+* [The StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-streamablehttp-transport)
+* [StreamableHTTP in depth](https://academy.claude.com/courses/model-context-protocol-advanced-topics/streamablehttp-in-depth)
+* [State and the StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/state-and-the-streamablehttp-transport)
+
+Assessment and next steps
+
+* [Assessment on MCP conceptsQuiz](https://academy.claude.com/courses/model-context-protocol-advanced-topics/assessment-on-mcp-concepts)
+
+* [Completion badge](https://academy.claude.com/courses/model-context-protocol-advanced-topics/badge)
+
+* [Message Format](#message-format)
+* [MCP Specification](#mcp-specification)
+* [Message Categories](#message-categories)
+* [Client vs Server Messages](#client-vs-server-messages)
+* [Why This Matters](#why-this-matters)

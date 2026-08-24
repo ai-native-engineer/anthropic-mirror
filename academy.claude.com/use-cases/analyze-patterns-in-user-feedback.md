@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/analyze-patterns-in-user-feedback -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Analyze patterns in user feedback
+
+Find recurring themes and pain points across user feedback to separate meaningful patterns from noise.
+
+15 minProductClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-b9tjjlgm.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-c5dd1y7u.png)
+
 ![Analyze patterns in user feedback result](https://academy.claude.com/assets/v1/analyze-patterns-in-user-feedback-lqu4yzye.png)
 
 ## 1. Describe the task
@@ -19,9 +33,7 @@ Read everything and tell me what patterns you're seeing:
 
 Create a data workbook (Excel) organizing all the feedback by theme with filters so I can dig into specific issues. Include the source for each piece of feedback (Intercom, NPS, or interview) and use professional formatting with frozen headers
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -39,15 +51,13 @@ Click the (+) button in the chat bar to browse through your files, or alternativ
 
 Intercom
 
-[Connect](https://claude.ai/directory/intercom)
+[Connect](https://claude.ai/directory/intercom)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ![](https://academy.claude.com/surfaces/excel-icon.svg)
 
 Customer feedback dataXLSX
-
-
 
 User transcriptsPDF
 
@@ -55,7 +65,7 @@ User transcriptsPDF
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for deeper pattern recognition across hundreds of feedback points.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -84,9 +94,7 @@ Claude responds to design language and quality cues by applying sophisticated fo
 
 Add visual polish to these files. For the document, refine with premium typography, sophisticated color schemes, and tighter formatting. For the spreadsheet, add charts to visualize trends, comparison tables, and callout boxes for key insights.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Compare segments
 
@@ -94,9 +102,7 @@ Break analysis down by meaningful groups to see how patterns differ. Claude iden
 
 Take the top three pain points and show me how they differ between enterprise and SMB customers. Are we solving the right problems for our highest-value segment?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Create a repeatable workflow
 
@@ -104,9 +110,7 @@ Turn workflows you’ve refined into reusable [skills(opens in new tab)](https:/
 
 Help me create a skill for analyzing user feedback. I want to capture where I pull data from, my analysis methodology, and the output structure I prefer—so I can reuse this process without re-explaining it every time.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -137,4 +141,11 @@ Read everything and tell me what patterns you're seeing:
 
 Create a data workbook (Excel) organizing all the feedback by theme with filters so I can dig into specific issues. Include the source for each piece of feedback (Intercom, NPS, or interview) and use professional formatting with frozen headers
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

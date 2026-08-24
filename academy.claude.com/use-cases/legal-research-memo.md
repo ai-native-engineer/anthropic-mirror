@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/legal-research-memo -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Legal research
+
+A structured memo with citations, not a list of links.
+
+10 minLegalClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-finygjm8.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gwhtyq3v.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Litigation Legal plugin is the starting point: its drafting skills, like `/brief-section-drafter`, tag every citation with the research source it came from and flag anything drawn from model knowledge alone as `[verify]`, so you know what to confirm before anyone relies on the memo. Later on this page you'll save the way you run this memo as your own `/research-memo` skill. It's one of twelve practice-area plugins for legal teams; if your admin manages plugins and it's not available yet, skip this, nothing below requires it.
 
-
-
 Litigation LegalManages the litigation portfolio — matters, deadlines, holds, demands, outside counsel — and does the work: claim charts (patent and civil), chronologies, depo prep, privilege logs, brief drafting. Adapts to how you work litigation: in-house, firm, or solo.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fclaude-for-legal&plugin=litigation-legal)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fclaude-for-legal&plugin=litigation-legal)
 
 `/brief-section-drafter`Draft a brief section in house style, consistent with the case theory — every fact cited, every case checked, every argument tied to the theory.
 
@@ -26,9 +36,7 @@ Litigation LegalManages the litigation portfolio — matters, deadlines, holds, 
 
 [Run](claude://cowork/new?q=%2Fcold-start-interview)
 
-Show all 19 skills
-
-
+Show all 19 skills
 
 First run
 
@@ -40,13 +48,11 @@ Claude Cowork is more powerful when it works directly with your systems. You con
 
 Navigate to **Customize → Connectors** in Cowork to set up.
 
-
-
 CoCounsel Legal (Thomson Reuters)
 
 Surface relevant case law and regulatory guidance from authoritative content so every citation is verifiable.
 
-[Connect](https://claude.ai/desktop/directory/cocounsel-legal)
+[Connect](https://claude.ai/desktop/directory/cocounsel-legal)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23F25022'%20d='M1%201h10.5v10.5H1z'/%3e%3cpath%20fill='%237FBA00'%20d='M12.5%201H23v10.5H12.5z'/%3e%3cpath%20fill='%2300A4EF'%20d='M1%2012.5h10.5V23H1z'/%3e%3cpath%20fill='%23FFB900'%20d='M12.5%2012.5H23V23H12.5z'/%3e%3c/svg%3e)
 
@@ -54,25 +60,21 @@ Microsoft 365
 
 The memo lands as a Word doc in your house format and saves to SharePoint, not a chat reply you reformat.
 
-[Connect](https://claude.ai/desktop/directory/microsoft-365)
-
-
+[Connect](https://claude.ai/desktop/directory/microsoft-365)
 
 iManage
 
 Pull prior memos on the same question from the matter workspace so the answer builds on what the team already knows.
 
-[Connect](https://claude.ai/desktop/directory/imanage)
+[Connect](https://claude.ai/desktop/directory/imanage)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 ### Set the working folder
 
 Put the research request, the relevant facts, and a prior memo in your house format in one folder on your machine, then in Cowork click **+ Add folder** and select it. [Save it as a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) so your memo format, instructions, and memory stay attached for the next question — Cowork reads from the folder and writes the memo back to it.
 
 Files you add stay on your machine and aren't used to train Claude — Cowork reads them locally to do the work.
-
-
 
 **Just want to try it once first?** Skip the project — click **+ Add folder** on a one-off folder and jump to the prompt below.
 
@@ -82,7 +84,7 @@ research-request-and-facts.docxMay 12, 202624 KB
 
 memo-template-house-format.docxJan 8, 202638 KB
 
-In Cowork’s chat bar:Research / Acme-Indemnification-Q
+In Cowork’s chat bar:Research / Acme-Indemnification-Q
 
 ## The prompt
 
@@ -90,35 +92,33 @@ In Cowork’s chat bar:Research / Acme-Indemnification-Q
 
 Research this question. Surface the relevant case law and regulatory guidance via Thomson Reuters and draft a research memo: question presented, short answer, the discussion grouped by authority, and a list of open issues. Cite every proposition to the source you relied on.
 
-
-
-Research / Acme-Indemnification-QOpen in Cowork
+Research / Acme-Indemnification-QOpen in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Name the source.** "Via Thomson Reuters" routes the search to authoritative content, so the citations are verifiable instead of plausible.
 
-Prompt
+Prompt
 
 **Dictate the structure.** Question presented, short answer, discussion, open issues is the format your readers expect, so the draft is editable rather than rewritable.
 
-Prompt
+Prompt
 
 **Require a citation for every proposition.** Forces the memo to show its work, and you can spot the unsupported sentence at a glance.
 
-Source
+Source
 
 **Let the working folder supply the facts.** The request and the relevant facts sit in the folder, so the memo applies the law to your situation rather than restating it in the abstract.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop a memo you like into the folder and Cowork matches your structure, citation style, and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -128,11 +128,7 @@ The plugin is a starting point — save the way you just ran this memo as a skil
 
 Make what we've done in this task so far into a skill called /research-memo, with my house format, citation style, and jurisdictions built in.
 
-
-
-ResearchOpen in Cowork
-
-
+ResearchOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -144,23 +140,19 @@ A research request lands in the intake folder, the cited first draft should alre
 
 **/schedule** Weekdays at 9am, check Research/Intake for new requests and run /research-memo on each one, saving the memo to a subfolder named for the question.
 
-
+ResearchOpen in Cowork
 
-ResearchOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 First-draft research memo
 
 Runs `/research-memo` on every new request in Research/Intake and saves the cited memo to a subfolder named for the question.
 
-Every **weekday at 9am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **weekday at 9am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your `/research-memo` skill now carries your house format, your citation style, and your jurisdictions. Share it so every memo the team produces reads the same way, and the requester gets a consistent first draft no matter who picks it up.
-
-
 
 Share the skill
 
@@ -172,16 +164,23 @@ In Cowork, open **Skills** → `/research-memo` → **Share** and pick your team
 
 Your processes
 
-Litigation Legal plugin
+Litigation Legal plugin
 
 Your tools
 
-CoCounsel Legal (Thomson Reuters)![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23F25022'%20d='M1%201h10.5v10.5H1z'/%3e%3cpath%20fill='%237FBA00'%20d='M12.5%201H23v10.5H12.5z'/%3e%3cpath%20fill='%2300A4EF'%20d='M1%2012.5h10.5V23H1z'/%3e%3cpath%20fill='%23FFB900'%20d='M12.5%2012.5H23V23H12.5z'/%3e%3c/svg%3e)Microsoft 365iManage
+CoCounsel Legal (Thomson Reuters)![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23F25022'%20d='M1%201h10.5v10.5H1z'/%3e%3cpath%20fill='%237FBA00'%20d='M12.5%201H23v10.5H12.5z'/%3e%3cpath%20fill='%2300A4EF'%20d='M1%2012.5h10.5V23H1z'/%3e%3cpath%20fill='%23FFB900'%20d='M12.5%2012.5H23V23H12.5z'/%3e%3c/svg%3e)Microsoft 365iManage
 
 Your workspace
 
-Research
+Research
 
 Research questions come back as a structured, cited memo in your house format. Your review starts at checking the authorities, not finding them.
 
-[Next: M&A diligence](https://academy.claude.com/use-cases/data-room-diligence)
+[Next: M&A diligence](https://academy.claude.com/use-cases/data-room-diligence)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [Going forward](#going-forward)

@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/build-financial-models -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Build financial models
+
+Create investment analyses with complete financial models, scenario planning, and risk evaluation.
+
+20 minFinanceClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-kv9emaq4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oise4nkg.png)
 
 ## 1. Describe the task
 
@@ -24,9 +36,7 @@ Deal structure: $75M growth equity stake at 3.6x ARR entry, exit at 7.0x in year
 
 Create an Excel model with scenarios (base, upside, downside), sensitivity analysis on growth and exit multiple, risk assessment focusing on customer concentration, and a comps table showing where public companies trade. Use sophisticated private equity formatting with premium visual quality, an intentional color scheme, working formulas, frozen panes, and conditional formatting.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -42,21 +52,21 @@ Enable connections to [S&P Global(opens in new tab)](https://support.claude.com/
 
 Daloopa
 
-[Connect](https://claude.ai/directory/daloopa)
+[Connect](https://claude.ai/directory/daloopa)
 
 ![](data:image/svg+xml,%3csvg%20width='24'%20height='25'%20viewBox='0%200%2024%2025'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_181_11527)'%3e%3cmask%20id='mask0_181_11527'%20style='mask-type:luminance'%20maskUnits='userSpaceOnUse'%20x='0'%20y='0'%20width='24'%20height='25'%3e%3cpath%20d='M19.2%200.855469H4.8C2.14903%200.855469%200%203.0045%200%205.65547V20.0555C0%2022.7064%202.14903%2024.8555%204.8%2024.8555H19.2C21.851%2024.8555%2024%2022.7064%2024%2020.0555V5.65547C24%203.0045%2021.851%200.855469%2019.2%200.855469Z'%20fill='white'/%3e%3c/mask%3e%3cg%20mask='url(%23mask0_181_11527)'%3e%3cpath%20d='M24%200.855469H0V24.8555H24V0.855469Z'%20fill='url(%23paint0_linear_181_11527)'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M12.1582%2014.6759C11.2427%2014.6759%2010.458%2013.8913%2010.458%2012.9322C10.458%2011.9732%2011.1991%2011.1885%2012.1582%2011.1885C13.0735%2011.1885%2013.8582%2011.9732%2013.8582%2012.9322C13.8582%2013.8913%2013.1172%2014.6759%2012.1582%2014.6759ZM7.1886%2014.6759C6.27316%2014.6759%205.48849%2013.8913%205.48849%2012.9322C5.48849%2011.9732%206.22956%2011.1885%207.1886%2011.1885C8.10405%2011.1885%208.8887%2011.9732%208.8887%2012.9322C8.8887%2013.8913%208.14763%2014.6759%207.1886%2014.6759ZM18.5226%2010.3602C18.7407%2010.0987%2019.1329%2010.0551%2019.3945%2010.273C19.656%2010.4474%2019.7433%2010.8397%2019.5253%2011.1013L17.956%2013.063L19.5253%2015.0247C19.7433%2015.2861%2019.656%2015.635%2019.3945%2015.8529C19.1329%2016.0273%2018.7407%2015.9837%2018.5226%2015.7657L17.1713%2014.1092L15.82%2015.7657C15.6019%2016.0273%2015.2097%2016.0708%2014.9481%2015.8529C14.6865%2015.6785%2014.5993%2015.2861%2014.8173%2015.0247L16.3866%2013.063L14.8609%2011.0577C14.6429%2010.7962%2014.7301%2010.4474%2014.9916%2010.2295C15.2532%2010.0551%2015.6455%2010.0987%2015.8635%2010.3166L17.2149%2012.0168L18.5226%2010.3602ZM4.96538%207.57031C5.27052%207.57031%205.53209%207.83186%205.53209%208.13701V10.6218C6.0116%2010.273%206.57831%2010.0551%207.23219%2010.0551C8.322%2010.0551%209.23745%2010.6654%209.71697%2011.6244C10.1965%2010.709%2011.1119%2010.0551%2012.2017%2010.0551C13.7711%2010.0551%2014.9916%2011.3629%2014.9916%2012.9758C14.9916%2014.5887%2013.7274%2015.8965%2012.2017%2015.8965C11.1119%2015.8965%2010.1965%2015.2861%209.71697%2014.3271C9.23745%2015.2426%208.322%2015.8965%207.23219%2015.8965C5.70645%2015.8965%204.44227%2014.6323%204.44227%2013.0193V8.13701C4.39868%207.83186%204.66023%207.57031%204.96538%207.57031Z'%20fill='white'/%3e%3c/g%3e%3c/g%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_181_11527'%20x1='12'%20y1='0.855469'%20x2='12'%20y2='24.8555'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%232486FC'/%3e%3cstop%20offset='1'%20stop-color='%230061D5'/%3e%3c/linearGradient%3e%3cclipPath%20id='clip0_181_11527'%3e%3crect%20width='24'%20height='24'%20fill='white'%20transform='translate(0%200.855469)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e)
 
 Box
 
-[Connect](https://claude.ai/directory/box)
+[Connect](https://claude.ai/directory/box)
 
 ![](data:image/svg+xml,%3csvg%20width='24'%20height='11'%20viewBox='0%200%2024%2011'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M3.55115%200.792969C5.06304%200.793105%206.9701%201.51652%206.9701%203.55469H5.4574C5.41357%203.09446%204.97109%202.17401%203.55115%202.17383C1.77581%202.17383%201.77576%203.35743%201.77576%203.55469C1.77583%203.75209%202.03857%204.67277%203.68201%204.67285C5.19434%204.67285%206.9701%205.13287%206.9701%207.30273C6.97007%208.02617%206.83743%2010.0645%203.68201%2010.0645C0.920312%2010.0643%20-0.0214425%208.0918%200.000369067%207.10547H1.64295C1.66526%207.65344%202.10464%208.74892%203.68201%208.74902C5.65388%208.74902%205.58828%207.76308%205.58826%207.30273C5.58826%206.84246%205.06332%206.05371%203.68201%206.05371C2.30072%206.05366%200.262138%205.52713%200.262088%203.55469C0.262088%201.58208%202.16996%200.792969%203.55115%200.792969ZM11.1781%200.792969C12.2301%200.793118%2013.676%201.46372%2013.6762%202.83105C13.6762%204.19842%2012.5372%205.11036%2011.9672%205.39551C12.3179%205.76815%2013.1245%206.63208%2013.5453%207.10547C13.8608%206.57946%2013.8518%205.4397%2013.808%204.93555H16.1097V6.05371H15.057C15.0043%207.15811%2014.6405%207.91617%2014.4652%208.15723L16.1097%209.86719H14.2025L13.5453%209.20898C13.2823%209.49389%2012.4404%2010.0643%2011.1781%2010.0645C9.00833%2010.0645%208.15279%208.61776%208.15271%207.30273C8.15271%206.25087%209.20472%205.28639%209.73084%204.93555C9.42394%204.69432%208.81092%203.93553%208.81092%202.83105C8.81109%201.45042%2010.1261%200.792969%2011.1781%200.792969ZM21.2377%200.924805C22.6185%200.924805%2023.9994%202.17419%2023.9994%203.68652C23.9992%205.39592%2022.7499%206.71094%2021.4349%206.71094H18.9369V9.86719H17.3588V0.924805H21.2377ZM10.5199%205.92188C10.1691%206.09741%209.46814%206.61915%209.46814%207.30273C9.46824%208.15745%2010.1919%208.88086%2011.1781%208.88086C11.967%208.88077%2012.559%208.44181%2012.7562%208.22266L10.5199%205.92188ZM18.9369%202.30566V5.26465H21.1068C21.8957%205.26455%2022.4875%204.6725%2022.4877%203.68652C22.4877%203.02903%2022.093%202.30576%2021.1068%202.30566H18.9369ZM11.1781%201.97656C10.9151%201.97656%2010.1254%202.2396%2010.1254%202.96289C10.1254%203.54151%2010.8274%204.16809%2011.1781%204.40918C11.5508%204.2337%2012.2953%203.6991%2012.2953%202.96289C12.2953%202.04264%2011.4414%201.9766%2011.1781%201.97656Z'%20fill='%23D7002B'/%3e%3c/svg%3e)
 
 S&P Global
 
-[Connect](https://claude.ai/directory/s-p-global)
+[Connect](https://claude.ai/directory/s-p-global)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context
 
@@ -64,9 +74,9 @@ Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/arti
 
 Make sure [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is enabled so Claude can incorporate current market context and historical scenario precedents.
 
-[
+[
 
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
+Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
@@ -109,9 +119,7 @@ Turn your financial model into a written investment recommendation. Claude conve
 
 Take the key insights from this model and create an investment memo. Use our standard IC template from Drive. Structure it with these sections: Deal Overview, Investment Thesis, Returns Summary, Key Risks, Recommendation.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Validate the growth assumptions
 
@@ -119,9 +127,7 @@ Check if your projections match reality. Claude researches how similar companies
 
 These growth numbers feel optimistic. Pull actual growth trajectories from similar healthcare SaaS companies—either from our portfolio or public comps. Show me year-over-year growth rates for companies that started at $50M ARR. Does our path match reality or are we being too aggressive?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Research recent exit multiples
 
@@ -129,9 +135,7 @@ Use [Research(opens in new tab)](https://support.claude.com/en/articles/11088861
 
 Find healthcare SaaS exit transactions in the last 18 months for companies in the $50-100M ARR range. What multiples did they actually achieve? How does our 7.0x exit assumption compare to recent deals, not just public trading multiples?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -167,4 +171,11 @@ Key questions to address: How do returns look if growth slows to 25% or 20%? Wha
 
 Create an Excel model with scenarios (base, upside, downside), sensitivity analysis on growth and exit multiple, risk assessment focusing on customer concentration, and a comps table showing where public companies trade. Use sophisticated private equity formatting with premium visual quality, an intentional color scheme, working formulas, frozen panes, and conditional formatting.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

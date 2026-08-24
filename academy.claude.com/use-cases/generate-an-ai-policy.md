@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/generate-an-ai-policy -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Generate an AI policy
+
+Create organization-specific AI usage policies covering data privacy, appropriate use cases, staff guidelines, and ethical considerations tailored to your nonprofit's mission and beneficiary protection needs.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-nxdbt4kg.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-e8nmrmfd.png)
+
 ![Generate an AI policy result](https://academy.claude.com/assets/v1/generate-an-ai-policy-b0u0aek1.png)
 
 ## 1. Describe the task
@@ -58,9 +72,7 @@ Ethical considerations:
 
 I need a comprehensive policy document (Word) and a simpler version for our website (md). Make these professional and board-ready with sophisticated formatting.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -79,15 +91,9 @@ These may include:
 * Any vendor management or procurement policies
 * Program overview or policy documents
 
-
-
 Data Privacy and Security PolicyPDF
 
-
-
 Organizational Code of Ethics and Values StatementPDF
-
-
 
 Data Privacy and Security PolicyPDF
 
@@ -95,7 +101,7 @@ Data Privacy and Security PolicyPDF
 
 Make sure [web search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is enabled to help Claude gather relevant context about nonprofit AI governance best practices, common policy frameworks, and sector-specific considerations before drafting your customized policy.
 
-[
+[
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
@@ -123,9 +129,7 @@ Provide staff with a high level understanding of the AI policy and pull out info
 
 Create training slides and handouts covering: policy highlights, practical examples relevant to our work, common scenarios staff will encounter, and clear decision trees for when to use AI versus when to escalate to human judgment.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Add board presentation deck
 
@@ -133,9 +137,7 @@ Create a PowerPoint presentation to introduce this policy to the board.
 
 Create a PowerPoint presentation I can use to introduce this policy to our board. Focus on: why AI governance matters for nonprofits serving vulnerable populations, key policy provisions and rationale, implementation timeline, how this protects our mission, and how we'll measure compliance.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Develop donor communication strategy
 
@@ -143,9 +145,7 @@ Draft messaging for donors explaining your approach to AI.
 
 Help me draft messaging for donors explaining our approach to AI - emphasizing data protection, ethical use, and mission alignment. Include language for annual reports, website FAQs, and responses to direct questions.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -225,4 +225,11 @@ Ethical considerations:
 
 I need a comprehensive policy document (Word) and a simpler version for our website (md). Make these professional and board-ready with sophisticated formatting.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-model-context-protocol/implementing-a-client -->
 
-Lesson 5 of 10 · Introduction to Model Context ProtocolImplementing a client
+Lesson 5 of 10 · Introduction to Model Context ProtocolImplementing a client
+
+3. /[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+# Implementing a client
+
+Lesson 510 min
 
 Now that we have our MCP server working, it's time to build the client side. The client is what allows our application code to communicate with the MCP server and access its functionality.
 
@@ -38,7 +46,7 @@ We need to implement two essential functions: `list_tools()` and `call_tool()`.
 
 This function gets all available tools from the MCP server:
 
-python
+python
 
 ```
 async def list_tools(self) -> list[types.Tool]:
@@ -52,7 +60,7 @@ It's straightforward - we access our session (the connection to the server), cal
 
 This function executes a specific tool on the server:
 
-python
+python
 
 ```
 async def call_tool(
@@ -67,7 +75,7 @@ We pass the tool name and input parameters (provided by Claude) to the server an
 
 The client file includes a simple test harness at the bottom. You can run it directly to verify everything works:
 
-`uv run mcp_client.py`
+`uv run mcp_client.py`
 
 This will connect to your MCP server and print out the available tools. You should see output showing your tool definitions, including descriptions and input schemas.
 
@@ -75,13 +83,13 @@ This will connect to your MCP server and print out the available tools. You shou
 
 Once the client functions are implemented, you can test the complete flow by running your main application:
 
-`uv run main.py`
+`uv run main.py`
 
 Try asking:
 
 What is the contents of the report.pdf document?
 
-Copy prompt
+Copy prompt
 
 Here's what happens behind the scenes:
 
@@ -92,3 +100,38 @@ Here's what happens behind the scenes:
 5. The result is returned to Claude, who then responds to you
 
 The client acts as the bridge between your application logic and the MCP server's functionality, making it easy to integrate powerful tools into your AI workflows.
+
+[Previous lessonThe server inspector](https://academy.claude.com/courses/introduction-to-model-context-protocol/the-server-inspector)[Next lessonDefining resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-resources)
+
+Lesson 5 of 10 · Introduction to Model Context ProtocolImplementing a client
+
+Introduction
+
+* [Introducing MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/introducing-mcp)
+* [MCP clients](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-clients)
+
+Hands-on with MCP servers
+
+* [Defining tools with MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-tools-with-mcp)
+* [The server inspector](https://academy.claude.com/courses/introduction-to-model-context-protocol/the-server-inspector)
+
+Connecting with MCP clients
+
+* [Implementing a client](https://academy.claude.com/courses/introduction-to-model-context-protocol/implementing-a-client)
+* [Defining resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-resources)
+* [Accessing resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/accessing-resources)
+* [Defining prompts](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-prompts)
+* [Prompts in the client](https://academy.claude.com/courses/introduction-to-model-context-protocol/prompts-in-the-client)
+
+Assessment and wrap Up
+
+* [Final assessment on MCPQuiz](https://academy.claude.com/courses/introduction-to-model-context-protocol/final-assessment-on-mcp)
+* [MCP review](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-review)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-model-context-protocol/badge)
+
+* [Understanding the Client Architecture](#understanding-the-client-architecture)
+* [How the Client Fits Into Our Application](#how-the-client-fits-into-our-application)
+* [Implementing Core Client Functions](#implementing-core-client-functions)
+* [Testing the Client](#testing-the-client)
+* [Putting It All Together](#putting-it-all-together)

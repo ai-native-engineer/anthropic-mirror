@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill -->
 
-Lesson 2 of 6 · Introduction to agent skillsCreating your first skill
+Lesson 2 of 6 · Introduction to agent skillsCreating your first skill
+
+3. /[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+# Creating your first skill
+
+Lesson 210 min
+
+In this lessonBy the end, you’ll be able to
+
+* Create a skill from scratch with proper frontmatter structure
+* Test and verify that a skill loads correctly in Claude Code
+* Explain how Claude Code matches incoming requests to available skills
+* Describe the skill priority hierarchy (Enterprise, Personal, Project, Plugins)
 
 ## Creating your first skill
-
-Loading
 
 Creating your first skill · 4 min
 
@@ -30,11 +43,11 @@ We'll build a personal skill that teaches Claude how to write PR descriptions in
 
 First, create a directory for your skill inside the skills folder. The directory name should match your skill name:
 
-`mkdir -p ~/.claude/skills/pr-description`
+`mkdir -p ~/.claude/skills/pr-description`
 
 Then create a `SKILL.md` file inside that directory. The file has two parts separated by frontmatter dashes:
 
-markdown
+markdown
 
 ```
 ---
@@ -106,3 +119,28 @@ To update a skill, edit its `SKILL.md` file. To remove one, delete its directory
 ## What's next
 
 In the next lesson, you'll learn about advanced configuration options including metadata fields, tool restrictions with `allowed-tools`, and how to structure larger skills using progressive disclosure and multi-file organization.
+
+[Previous lessonWhat are skills?](https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills)[Next lessonConfiguration and multi-file skills](https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills)
+
+Lesson 2 of 6 · Introduction to agent skillsCreating your first skill
+
+Lessons
+
+* [What are skills?](https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills)
+* [Creating your first skill](https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill)
+* [Configuration and multi-file skills](https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills)
+* [Skills vs. other Claude Code features](https://academy.claude.com/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features)
+* [Sharing skills](https://academy.claude.com/courses/introduction-to-agent-skills/sharing-skills)
+* [Troubleshooting skills](https://academy.claude.com/courses/introduction-to-agent-skills/troubleshooting-skills)
+
+* [Course complete](https://academy.claude.com/courses/introduction-to-agent-skills/complete)
+
+* [Creating your first skill](#creating-your-first-skill)
+* [Key takeaways](#key-takeaways)
+* [Creating a Skill](#creating-a-skill)
+* [Testing Your Skill](#testing-your-skill)
+* [How Skill Matching Works](#how-skill-matching-works)
+* [Skill Priority](#skill-priority)
+* [Updating and Removing Skills](#updating-and-removing-skills)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

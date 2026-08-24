@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/build-interactive-diagram-tools -->
 
-![Build interactive diagram tools result](https://academy.claude.com/assets/v1/build-interactive-diagram-tools-dbg1inft.png)[Open artifact](https://claude.ai/public/artifacts/f83ae1ec-6136-4b37-a502-4405235ebb05)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Build interactive diagram tools
+
+From body systems to molecular structures, turn a detailed prompt into a working reference app with the depth and design you specify.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-lmzl8w8i.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-b11puwfg.png)
+
+![Build interactive diagram tools result](https://academy.claude.com/assets/v1/build-interactive-diagram-tools-dbg1inft.png)[Open artifact](https://claude.ai/public/artifacts/f83ae1ec-6136-4b37-a502-4405235ebb05)
 
 ## 1. Describe the task
 
@@ -18,9 +32,7 @@ Build an **interactive anatomy explorer** using @ebi-gene-expression-group/anato
 
 Add tabbed information panels, physical-feeling sound feedback, and content rich enough to actually learn from. Build to flagship quality from the start—I'll iterate until this is exceptional.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -34,7 +46,7 @@ Artifacts are standalone, interactive outputs that Claude creates in a dedicated
 
 For complex multi-component apps, turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can plan architecture before building.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -76,9 +88,7 @@ Layer in more functionality, like an active learning mode that reinforces retent
 
 Add a quiz mode where I'm shown a description or function and have to identify the correct structure. Track my accuracy and show which systems I struggle with.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Add advanced features
 
@@ -86,9 +96,7 @@ Ask Claude to expand anatomical detail where you want more granularity.
 
 Add more body systems to the diagram. Also make the brain view more detailed.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Generate companion materials from the same session
 
@@ -96,9 +104,7 @@ Continue learning from different mediums. The app and study materials can share 
 
 From the anatomical data in this explorer, generate a printable PDF study guide with the same structures organized by system, plus a set of Anki-compatible flashcards I can import. Keep the terminology and clinical correlations consistent with what's in the app.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -134,4 +140,11 @@ Design requirements: Restrained and sophisticated. No glows, no emojis, no neon.
 
 Add tabbed information panels, physical-feeling sound feedback, and content rich enough to actually learn from. Build to flagship quality from the start—I'll iterate until this is exceptional.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8 -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to use the Prior Auth Review sample skill with Claude
+
+How to use the Prior Auth Review sample skill with Claude
+
+3 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-mjer1khs.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hn3u7z1d.png)
+
 ## **What is the Prior Auth Review sample skill?**
 
 The Prior Authorization skill is a sample skill that digests request packet documentation and performs several initial checks to be verified by a human reviewer. These include:
@@ -43,6 +57,11 @@ Learn about [provisioning and managing skills for your organization(opens in new
 
 Command
 
-`/plugin marketplace add anthropics/healthcare`
+`/plugin marketplace add anthropics/healthcare`
 
-`/plugin install prior-auth-review@healthcare`
+`/plugin install prior-auth-review@healthcare`
+
+* [What is the Prior Auth Review sample skill?](#what-is-the-prior-auth-review-sample-skill)
+* [Who should use the Prior Auth Review sample skill?](#who-should-use-the-prior-auth-review-sample-skill)
+* [How to access the skill in Claude.ai](#how-to-access-the-skill-in-claudeai)
+* [How to access the skill in Claude Code](#how-to-access-the-skill-in-claude-code)

@@ -1,15 +1,27 @@
 <!-- source: https://academy.claude.com/courses/teaching-ai-fluency -->
 
-7 lessons · 1 quizTeaching AI Fluency
+[Courses](https://academy.claude.com/courses)
+
+# Teaching AI Fluency
+
+Equips academic faculty and instructional designers to teach and assess AI fluency in instructor-led settings. Builds on the 4D AI Fluency Framework with strategies for assessment, assignment design, and discipline-specific application.
+
+7 lessons4.5 hr1 quizCompletion badge
+
+[Start course](https://academy.claude.com/courses/teaching-ai-fluency/welcome-approaches-to-teaching-ai-fluency)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fteaching-ai-fluency)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-nc8419pr.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lp5lxb5m.png)
+
+7 lessons · 1 quizTeaching AI Fluency
 
 What you’ll learnBy the end of this course, you’ll be able to
 
-* Select and adapt a linear, non-linear, focused, or loop-based approach to teaching the AI Fluency Framework for your students and context
-* Teach the Delegation-Diligence and Description-Discernment loops as connected strategic and tactical processes
-* Apply outcome, process, and reflection-based assessment strategies to evaluate the 4D competencies
-* Design authentic, iterative assignments that develop AI Fluency while keeping grading manageable
-* Analyze AI's impact on curriculum, pedagogy, and assessment in your discipline
-* Create discipline-specific applications of the 4Ds in collaboration with colleagues
+* Select and adapt a linear, non-linear, focused, or loop-based approach to teaching the AI Fluency Framework for your students and context
+* Teach the Delegation-Diligence and Description-Discernment loops as connected strategic and tactical processes
+* Apply outcome, process, and reflection-based assessment strategies to evaluate the 4D competencies
+* Design authentic, iterative assignments that develop AI Fluency while keeping grading manageable
+* Analyze AI's impact on curriculum, pedagogy, and assessment in your discipline
+* Create discipline-specific applications of the 4Ds in collaboration with colleagues
 
 At Anthropic, we believe that empowering people with AI, and ensuring that AI makes safe contributions to society, requires engaging with a wide range of human perspectives and experiences. Responsible AI development and engagement isn't something any single discipline or viewpoint can fully address. It demands collaborative approaches that span a wide range of technical, creative, business, scientific, and educational domains. That's why we partnered with educators who bring complementary expertise to create this course on AI collaboration for educators.
 
@@ -60,3 +72,25 @@ Designing assessments and assignments that develop and measure student AI Fluenc
 Building institutional capacity for responsible and meaningful AI integration in pedagogy, assessment, and curricula across disciplines.
 
 ![](https://academy.claude.com/assets/media/c3ce46721fbcfdfa3495f9aaff658aeb000f90d86ace70b66a259bf02e3b463e.webp)![](https://academy.claude.com/assets/media/f75087cc0aaad32e03a784470d636c57bd54b44aeafc3d1e027b253653f40d3f.webp)![](https://academy.claude.com/assets/media/a65e720b5e3b683ba7a92a97ff91f632c87490b49dbc3eda8fc433577d542fb2.webp)
+
+Introduction and approaches to teaching AI Fluency
+
+* [Welcome & approaches to teaching AI Fluency](https://academy.claude.com/courses/teaching-ai-fluency/welcome-approaches-to-teaching-ai-fluency)
+* [The Delegation-Diligence loop](https://academy.claude.com/courses/teaching-ai-fluency/the-delegation-diligence-loop)
+* [The Description-Discernment loop](https://academy.claude.com/courses/teaching-ai-fluency/the-description-discernment-loop)
+
+Assessing AI Fluency
+
+* [How do we assess the 4Ds?](https://academy.claude.com/courses/teaching-ai-fluency/how-do-we-assess-the-4ds)
+* [Designing assignments for AI Fluency](https://academy.claude.com/courses/teaching-ai-fluency/designing-assignments-for-ai-fluency)
+
+AI's Impact on disciplinary content
+
+* [AI's impact and your discipline](https://academy.claude.com/courses/teaching-ai-fluency/ai-s-impact-and-your-discipline)
+* [Applying discipline expertise to AI Fluency](https://academy.claude.com/courses/teaching-ai-fluency/applying-discipline-expertise-to-ai-fluency)
+
+Conclusion & badge
+
+* [Course quizQuiz](https://academy.claude.com/courses/teaching-ai-fluency/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/teaching-ai-fluency/badge)

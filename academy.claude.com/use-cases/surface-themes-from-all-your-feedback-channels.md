@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/surface-themes-from-all-your-feedback-channels -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Surface themes from all your feedback channels
+
+Synthesize feedback from call transcripts, Slack, CRM notes, and Linear issues to identify cross-platform patterns and generate prioritized product ideas.
+
+15 minResearchClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-k5oxrrdq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-orgsju4c.png)
 
 ## 1. Describe the task
 
@@ -19,9 +31,7 @@ Sources:
 
 Find the main themes and patterns across all sources — what keeps coming up? Give me counts by source, cross-platform patterns, and representative quotes. Then prioritize into product ideas based on frequency and business impact.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -71,9 +81,7 @@ Go deep on what matters most. Get every mention across all sources with full con
 
 *"Pull every mention of mobile app issues across all four sources. For each one, give me the full context — who said it, when, what they were trying to accomplish, and how frustrated they seemed."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Build a roadmap proposal
 
@@ -81,9 +89,7 @@ Turn insights into a document for stakeholders. Cowork writes directly to your f
 
 *"Based on this analysis, draft a one-page roadmap proposal for Q1. Prioritize by cross-platform signal strength and business impact. Include the key quotes that support each recommendation."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Track what specific customers said
 
@@ -91,9 +97,7 @@ Follow up with customers who raised issues. See everything a specific customer m
 
 *"What did Acme Corp say across all these sources? Pull everything they mentioned in calls, Slack, and CRM notes so I can follow up with them directly."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -124,4 +128,11 @@ Sources:
 
 Find the main themes and patterns across all sources — what keeps coming up? Give me counts by source, cross-platform patterns, and representative quotes. Then prioritize into product ideas based on frequency and business impact.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

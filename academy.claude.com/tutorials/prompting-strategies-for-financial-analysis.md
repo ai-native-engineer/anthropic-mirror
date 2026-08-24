@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/prompting-strategies-for-financial-analysis -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Prompting strategies for financial analysis
+
+Learn how to write effective prompts for Claude's financial analysis capabilities focusing on clarity, specificity, and data management.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.dark-lp0d98fl.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lp0d98fl.png)
+
 Effective prompting helps you use Claude's financial analysis capabilities efficiently and accurately. This guide provides strategies for writing clear, specific prompts that produce the results you need while avoiding common issues that can lead to incomplete or overwhelming outputs.
 
 ## Discovering What Data Claude Can Access
@@ -21,19 +35,17 @@ Claude has access to vast amounts of financial data through multiple sources. Wi
 
 Consider these contrasting examples:
 
-Bad prompt
+Bad prompt
 
 Claude, please Analyze Microsoft
 
 This vague request could trigger retrieval of hundreds of data points across multiple years, making it difficult to identify relevant insights. Claude won't know whether you want valuation metrics, operational performance, or competitive positioning.
 
-Good prompt
+Good prompt
 
 Using Daloopa, retrieve Microsoft's (MSFT) revenue, operating margin, and free cash flow for Q1 2023 through Q4 2024, then calculate year-over-year growth rates
 
-
-
-Open in Claude
+Open in Claude
 
 This specific request identifies the data source, company ticker, exact metrics, time period, and desired calculations. Claude knows precisely what to retrieve and how to process it. Your prompts should include company tickers, exact metric names, specific time periods, and the desired output format.
 
@@ -41,19 +53,17 @@ This specific request identifies the data source, company ticker, exact metrics,
 
 Financial integrations can pull extensive datasets covering hundreds of metrics across many years. Requesting everything available wastes time, increases processing complexity, and makes it harder to focus on what matters for your specific analysis. Targeted requests produce cleaner, more actionable results.
 
-Bad prompt
+Bad prompt
 
 Pull all financial data for Tesla, Ford, and GM
 
 This request could return thousands of data points including irrelevant metrics, making it difficult to conduct focused analysis.
 
-Good prompt
+Good prompt
 
 For Tesla (TSLA), Ford (F), and GM, retrieve only automotive revenue and gross margins for the last 4 quarters to compare operational efficiency
 
-
-
-Open in Claude
+Open in Claude
 
 This focused request retrieves only the metrics needed for operational comparison. When crafting prompts, think about your analytical objective first, then request only the data that directly supports that analysis. This approach produces more manageable outputs and clearer insights.
 
@@ -61,19 +71,17 @@ This focused request retrieves only the metrics needed for operational compariso
 
 Large data requests can slow down analysis and produce overwhelming outputs that are difficult to interpret. Managing scope ensures Claude can process requests efficiently and present results in digestible formats. This is particularly important when working with multiple companies or extended time periods.
 
-Bad prompt
+Bad prompt
 
 Get all available historical data for the entire S&P 500
 
 This request is likely to fail or produce unusable results due to the sheer volume of data involved.
 
-Good prompt
+Good prompt
 
 Retrieve the last 8 quarters of revenue and EBITDA margin for these 5 software companies: CRM, NOW, WDAY, TEAM, and ZM
 
-
-
-Open in Claude
+Open in Claude
 
 This manageable request focuses on a specific peer group with defined metrics and a reasonable time frame. As a general guideline, limit requests to 3-5 companies for detailed analysis, request specific line items rather than entire financial statements, and use date ranges that match your analytical needs rather than requesting all available history.
 
@@ -83,19 +91,17 @@ This manageable request focuses on a specific peer group with defined metrics an
 
 Complex financial analyses involve multiple steps, data sources, and assumptions. Having Claude outline the approach first lets you catch potential issues before time is spent on calculations. This is especially valuable for valuations, modeling, or multi-company comparisons where methodology choices significantly impact results. A clear plan also ensures alignment between your expectations and Claude's intended approach.
 
-Bad prompt
+Bad prompt
 
 Do a complete valuation analysis of Netflix
 
 This open-ended request leaves too many decisions to Claude, potentially resulting in an analysis that doesn't match your requirements or uses inappropriate assumptions.
 
-Good prompt
+Good prompt
 
 Create a plan for valuing Netflix (NFLX) using DCF methodology. List the data you'll need, calculations you'll perform, and assumptions you'll make. Let me review before you proceed.
 
-
-
-Open in Claude
+Open in Claude
 
 This approach gives you visibility into the planned methodology before execution begins. You can review the data sources Claude intends to use, verify that key assumptions are reasonable, identify any missing components, and adjust the approach before investing time in detailed calculations. This preliminary review often catches issues that would be costly to fix after the analysis is complete.
 
@@ -103,19 +109,17 @@ This approach gives you visibility into the planned methodology before execution
 
 Breaking complex analyses into discrete steps provides transparency into Claude's process and allows for course correction. You can verify data accuracy, check calculations, and adjust methodology between steps rather than discovering issues only in final results. This approach is particularly valuable when working with multiple data sources or when calculations build upon each other.
 
-Bad prompt
+Bad prompt
 
 Compare these 5 companies and tell me which is best
 
 This request produces a black-box analysis where you can't verify the underlying data or logic.
 
-Good prompt
+Good prompt
 
 Let's analyze these companies step by step. First, pull their P/E ratios. Show me the results before proceeding to the next metric.
 
-
-
-Open in Claude
+Open in Claude
 
 This incremental approach allows you to catch errors early, adjust the analysis based on initial findings, understand Claude's reasoning at each stage, and verify data accuracy before it's used in calculations. Each step becomes a checkpoint where you can ensure the analysis remains on track.
 
@@ -127,21 +131,15 @@ A typical incremental workflow might look like this:
 
 First, retrieve Amazon's segment revenue for the last 8 quarters and show me what's available
 
-
-
-Open in Claude
+Open in Claude
 
 Now calculate the growth rate for AWS specifically
 
-
-
-Open in Claude
+Open in Claude
 
 Finally, compare AWS growth to Azure's growth over the same period
 
-
-
-Open in Claude
+Open in Claude
 
 Each step builds on the previous one, ensuring that you have the necessary foundation before proceeding. This method is particularly useful when exploring unfamiliar companies or sectors where you may not know exactly what data is available until you start the analysis.
 
@@ -171,17 +169,15 @@ For example, instead of "*Analyze all REITs,*" try being more specific: "*Analyz
 
 Here's an example:
 
-Bad prompt
+Bad prompt
 
 Find me good value stocks
 
-Good prompt
+Good prompt
 
 Find companies with P/E below 15, positive free cash flow, and revenue growth above 5%
 
-
-
-Open in Claude
+Open in Claude
 
 The specific criteria ensure Claude identifies companies that match your investment philosophy and screening parameters. This precision is particularly important when building screens or identifying investment candidates.
 
@@ -198,3 +194,9 @@ The specific criteria ensure Claude identifies companies that match your investm
 * For recurring analyses, establish a consistent prompt structure you can reuse.
 
 These strategies help you get the most value from Claude's financial analysis capabilities while avoiding common pitfalls. As you develop experience with the system, you'll identify prompt patterns that work well for your specific analytical needs.
+
+* [Discovering What Data Claude Can Access](#discovering-what-data-claude-can-access)
+* [Core Prompting Principles](#core-prompting-principles)
+* [Structuring Complex Analyses](#structuring-complex-analyses)
+* [Common Issues and Solutions](#common-issues-and-solutions)
+* [Tips for Efficient Prompting](#tips-for-efficient-prompting)

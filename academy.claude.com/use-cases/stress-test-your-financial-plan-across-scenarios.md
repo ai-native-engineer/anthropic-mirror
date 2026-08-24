@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/stress-test-your-financial-plan-across-scenarios -->
 
-![Stress-test your financial plan across scenarios result](https://academy.claude.com/assets/v1/stress-test-your-financial-plan-across-scenarios-jf5kslme.png)[Open artifact](https://claude.ai/public/artifacts/1ca44b81-2605-4516-935f-25e35b24f955)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Stress-test your financial plan across scenarios
+
+Claude Opus 4.6 tests a financial plan against a full range of possible outcomes, traces how each risk cascades through the rest, and builds a working model you can adjust yourself.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-othme1zy.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-fi3pgdb7.png)
+
+![Stress-test your financial plan across scenarios result](https://academy.claude.com/assets/v1/stress-test-your-financial-plan-across-scenarios-jf5kslme.png)[Open artifact](https://claude.ai/public/artifacts/1ca44b81-2605-4516-935f-25e35b24f955)
 
 ## 1. Describe the task
 
@@ -12,9 +26,7 @@ I’m 52, hoping to retire at 62. My partner and I have about $1.2M across a 401
 
 I’ve uploaded our tax returns, investment statements, Social Security estimates, and budget. Where does this plan break and what are the highest-leverage moves?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -24,15 +36,9 @@ The more complete your uploads, the more connections Claude can find across your
 
 Upload your financial documents: tax returns, investment account statements, Social Security benefit estimates, and a monthly expense breakdown.
 
-
-
 Tax ReturnPDF
 
-
-
 Account StatementPDF
-
-
 
 Tax ReturnPDF
 
@@ -40,7 +46,7 @@ Tax ReturnPDF
 
 [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) lets Claude scale how deeply it reasons based on task complexity. Turning it on gives Claude more room to reason through complex, interdependent variables before producing results.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -74,9 +80,7 @@ Opus 4.6 stays with the full complexity when you throw a wrench in the plan. Des
 
 What if I lose my job at 57 and can only find work at $120K? How does that change the Roth conversion window?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Take the model into Excel
 
@@ -84,9 +88,7 @@ Opus 4.6 produces downloadable spreadsheets you can open in [Claude in Excel(ope
 
 I want to play with the inflation assumptions. What happens to the withdrawal sequence if we get a 5% inflation year in 2029?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask what you’re missing
 
@@ -94,9 +96,7 @@ Opus 4.6 reasons across finance and tax at domain-expert level and will surface 
 
 What would a financial planner flag about this plan that I haven’t asked about?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -124,4 +124,11 @@ I’m 52, hoping to retire at 62. My partner and I have about $1.2M across a 401
 
 I’ve uploaded our tax returns, investment statements, Social Security estimates, and budget. Where does this plan break and what are the highest-leverage moves?
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

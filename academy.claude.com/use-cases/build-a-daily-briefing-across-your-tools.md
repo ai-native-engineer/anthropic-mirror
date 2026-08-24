@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/build-a-daily-briefing-across-your-tools -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Build a daily briefing across your tools
+
+Generate a daily briefing that pulls from Slack, Notion, and your team dashboard to surface priorities and connections you'd miss scanning each platform separately.
+
+15 minClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-k4d623ry.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-llu6mang.png)
 
 ## 1. Describe the task
 
@@ -19,9 +31,7 @@ Structure it as:
 
 For urgent items, pull the deeper context: who's involved, what's been discussed, what's still unresolved.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -68,9 +78,7 @@ Get the full context behind a metric. Cowork pulls the related threads, tasks, a
 
 *"Tell me more about the pipeline velocity drop. Pull the full thread from #sales, any related tasks, and what's been discussed about those slipping deals."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Draft a response with full context
 
@@ -78,9 +86,7 @@ Move from briefing to action. Cowork drafts a reply using everything it knows ab
 
 *"Draft a response to Lisa's vendor contract thread. I want to confirm we're moving forward but need to flag the budget dependency."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Surface everything on one topic
 
@@ -88,9 +94,7 @@ Pull together all mentions of a project, person, or issue across sources.
 
 *"What else has been said about headcount planning? Pull from Slack, Notion, and anything on the dashboard related to hiring or team size."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -121,4 +125,11 @@ Structure it as:
 
 For urgent items, pull the deeper context: who's involved, what's been discussed, what's still unresolved.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

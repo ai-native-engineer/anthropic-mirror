@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-use-the-single-cell-rna-qc-skill-with-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to use the single-cell-rna-qc skill with Claude
+
+Learn how to use the single-cell-rna-qc skill to perform quality control analysis on single-cell RNA-seq data with MAD-based filtering and visualization capabilities.
+
+3 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-yflwdz60.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-yd3oywqm.png)
+
 ## What is the single-cell-rna-qc skill?
 
 The single-cell-rna-qc skill gives Claude the ability to perform quality control on single-cell RNA-seq data using scverse best practices with MAD-based filtering and comprehensive visualizations for .h5a and .h5ad files.
@@ -12,9 +26,9 @@ This skill is designed for bioinformaticians, computational biologists, single-c
 
 Command
 
-`/plugin marketplace add anthropics/life-sciences`
+`/plugin marketplace add anthropics/life-sciences`
 
-`/plugin install single-cell-rna-qc@life-sciences`
+`/plugin install single-cell-rna-qc@life-sciences`
 
 ## How to access the skill in [Claude.ai(opens in new tab)](http://claude.ai/)
 
@@ -35,3 +49,8 @@ Command
 2. From [Claude.ai(opens in new tab)](http://claude.ai), navigate to Settings > Capabilities > Skills (if Skills is not available, contact your team admin)
 3. Click “Upload skill”
 4. Upload the skill zip file
+
+* [What is the single-cell-rna-qc skill?](#what-is-the-single-cell-rna-qc-skill)
+* [Who should use the single-cell-rna-qc skill?](#who-should-use-the-single-cell-rna-qc-skill)
+* [How to access the skill in Claude Code](#how-to-access-the-skill-in-claude-code)
+* [How to access the skill in Claude.ai](#how-to-access-the-skill-in-claudeai)

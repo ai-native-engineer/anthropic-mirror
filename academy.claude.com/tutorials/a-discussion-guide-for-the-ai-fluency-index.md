@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/tutorials/a-discussion-guide-for-the-ai-fluency-index -->
 
-Loading
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# A discussion guide for the AI Fluency Index
+
+Explore how to build AI Fluency within your organization
+
+10 min
+
+Watch
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-blskv34c.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bv9w6wt2.png)
 
 This guide is designed to be used alongside the [Anthropic Education Report: The AI Fluency Index(opens in new tab)](https://www.anthropic.com/research/AI-fluency-index). It works for teams of any size, whether you're a leadership group exploring AI skills development, a faculty team discussing implications for your institution, or a professional learning community reflecting on how you collaborate with AI at work.
 
@@ -91,3 +103,11 @@ These resources provide additional context for the findings in the AI Fluency In
 * Previous Anthropic Education Reports on [university students(opens in new tab)](https://www.anthropic.com/news/anthropic-education-report-how-university-students-use-claude) and [educators(opens in new tab)](https://www.anthropic.com/news/anthropic-education-report-how-educators-use-claude) provide context on how specific populations are using AI.
 
 *This discussion guide is a companion to the* [*Anthropic Education Report: The AI Fluency Index (2026)*(opens in new tab)](https://www.anthropic.com/research/AI-fluency-index)*. It was created by the AI Fluency Program at Anthropic to support leaders, educators, and teams in making sense of the report's findings and cultivating stronger AI fluency across their organizations.*
+
+* [Set the stage](#set-the-stage)
+* [Topic 1: What your team is already doing well](#topic-1-what-your-team-is-already-doing-well)
+* [Topic 2: The iteration effect](#topic-2-the-iteration-effect)
+* [Topic 3: The artifact effect](#topic-3-the-artifact-effect)
+* [Topic 4: Cultivating AI fluency in your organization](#topic-4-cultivating-ai-fluency-in-your-organization)
+* [Optional activities](#optional-activities)
+* [Further reading](#further-reading)

@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows -->
 
-Lesson 2 of 9 · Claude Code in ActionA CLAUDE.md that follows
+Lesson 2 of 9 · Claude Code in ActionA CLAUDE.md that follows
 
-Loading
+3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+# A CLAUDE.md that follows
+
+Lesson 27 min
 
 A CLAUDE.md that follows
 
@@ -49,8 +55,6 @@ When your project file starts getting long, you can break it into pieces using t
 @.claude/conventions/workflow.md
 ```
 
-
-
 This is great for organizing. But know exactly what it buys you, because it's easy to get the wrong idea. When Claude launches, it expands those imported files inline, right where you referenced them. So imports help you keep things tidy, but everything still loads up front. They do not reduce the amount of context Claude has to read. Use imports to organize, not to shrink the load.
 
 ## Phrasing is what makes rules stick
@@ -96,3 +100,41 @@ Treat your CLAUDE.md like production code. If you can't justify a line, delete i
 5. Keep revising the file whenever Claude gets something wrong.
 
 The whole idea is simple. The leaner the file, the more of it Claude follows.
+
+[Previous lessonSteering long sessions](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)[Next lessonVerification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)
+
+Lesson 2 of 9 · Claude Code in ActionA CLAUDE.md that follows
+
+Steer the work
+
+* [Steering long sessions](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)
+
+Configure Claude
+
+* [A CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)
+* [Verification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)
+* [Permission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)
+* [Hooks](https://academy.claude.com/courses/claude-code-in-action/hooks)
+
+Automate repeat work
+
+* [Routines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)
+* [GitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)
+
+Verify and share
+
+* [Trust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)
+* [Plugins](https://academy.claude.com/courses/claude-code-in-action/plugins)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-in-action/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-in-action/badge)
+
+* [First, ask if CLAUDE.md is even the right tool](#first-ask-if-claudemd-is-even-the-right-tool)
+* [The four locations](#the-four-locations)
+* [Split up a big file with imports](#split-up-a-big-file-with-imports)
+* [Phrasing is what makes rules stick](#phrasing-is-what-makes-rules-stick)
+* [Keep the file under revision](#keep-the-file-under-revision)
+* [The bottom line](#the-bottom-line)

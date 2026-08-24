@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling -->
 
-Lesson 1 of 11 · Model Context Protocol: Advanced TopicsSampling
+Lesson 1 of 11 · Model Context Protocol: Advanced TopicsSampling
+
+3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+
+[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+
+# Sampling
+
+Lesson 19 min
 
 Sampling allows a server to access a language model like Claude through a connected MCP client. Instead of the server directly calling Claude, it asks the client to make the call on its behalf. This shifts the responsibility and cost of text generation from the server to the client.
 
@@ -42,7 +50,7 @@ Setting up sampling requires code on both sides:
 
 In your tool function, use the `create_message` function to request text generation:
 
-python
+python
 
 ```
 @mcp.tool()
@@ -76,7 +84,7 @@ async def summarize(text_to_summarize: str, ctx: Context):
 
 Create a sampling callback that handles the server's requests:
 
-python
+python
 
 ```
 async def sampling_callback(
@@ -94,7 +102,7 @@ async def sampling_callback(
 
 Then pass this callback when initializing your client session:
 
-python
+python
 
 ```
 async with ClientSession(
@@ -110,3 +118,36 @@ async with ClientSession(
 Sampling is most valuable when building publicly accessible MCP servers. You don't want random users generating unlimited text at your expense. By using sampling, each client pays for their own AI usage while still benefiting from your server's functionality.
 
 The technique essentially moves the AI integration complexity from your server to the client, which often already has the necessary connections and credentials in place.
+
+[Next lessonSampling walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling-walkthrough)
+
+Lesson 1 of 11 · Model Context Protocol: Advanced TopicsSampling
+
+Core MCP features
+
+* [Sampling](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling)
+* [Sampling walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling-walkthrough)
+* [Log and progress notifications](https://academy.claude.com/courses/model-context-protocol-advanced-topics/log-and-progress-notifications)
+* [Notifications walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/notifications-walkthrough)
+* [Roots](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots)
+* [Roots walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots-walkthrough)
+
+Transports and communication
+
+* [JSON message types](https://academy.claude.com/courses/model-context-protocol-advanced-topics/json-message-types)
+* [The STDIO transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-stdio-transport)
+* [The StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-streamablehttp-transport)
+* [StreamableHTTP in depth](https://academy.claude.com/courses/model-context-protocol-advanced-topics/streamablehttp-in-depth)
+* [State and the StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/state-and-the-streamablehttp-transport)
+
+Assessment and next steps
+
+* [Assessment on MCP conceptsQuiz](https://academy.claude.com/courses/model-context-protocol-advanced-topics/assessment-on-mcp-concepts)
+
+* [Completion badge](https://academy.claude.com/courses/model-context-protocol-advanced-topics/badge)
+
+* [The Problem Sampling Solves](#the-problem-sampling-solves)
+* [How Sampling Works](#how-sampling-works)
+* [Benefits of Sampling](#benefits-of-sampling)
+* [Implementation](#implementation)
+* [When to Use Sampling](#when-to-use-sampling)

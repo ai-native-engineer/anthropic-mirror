@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist -->
 
-Lesson 8 of 14 · Introduction to Claude CoworkPlugins: Encode your team's expertise
+Lesson 8 of 14 · Introduction to Claude CoworkPlugins: Encode your team's expertise
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# Plugins: Encode your team's expertise
+
+Lesson 815 min
+
+In this lessonBy the end, you’ll be able to
+
+* Define a plugin and what it bundles together
+* Recognize the two shapes plugins take
+* Install or customize a plugin against a real piece of your work
 
 ## Watch what a plugin unlocks
-
-Loading
 
 Cowork and Plugins: Helping enterprises move faster
 
@@ -27,8 +39,6 @@ Plugins come in two flavors — both useful, both common.
 
 Explore the interactive below to see the different shapes of plugins.
 
-Loading
-
 The shape that matters in either case: a plugin is a package built around *workflows*. "Renewal prep for our customer success team" is a plugin. "Equity research for our fund" is a plugin. "The monthly board cycle for the CFO's office" is a plugin.
 
 ## Install a plugin from the Anthropic marketplace
@@ -45,9 +55,7 @@ For example, you could say something like:
 
 Here are our last three red-lined NDAs. Update the /nda-triage skill in this plugin so the format and tone match these.
 
-
-
-Open in Cowork
+Open in Cowork
 
 Claude adapts the plugin in place. The more you shape it to your team's actual work, the more leverage it produces.
 
@@ -65,12 +73,55 @@ Let's find the plugins that fit your work. In a new Cowork conversation, type:
 
 /setup-cowork
 
-
-
-Open in Cowork
+Open in Cowork
 
 The skill starts a short interview. Claude asks about the type of work you do, then suggests a plugin that would work best for your needs. You can easily add the plugin right from chat and test it out in the conversation. Once installed, customize it for your team.
 
 ## What’s next
 
 You've now made Cowork yours for one piece of your work. The next module is about extending Cowork beyond the desktop — into your browser, and into the M365 apps where a lot of the work lands.
+
+[Previous lessonSkills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)[Next lessonClaude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+
+Lesson 8 of 14 · Introduction to Claude CoworkPlugins: Encode your team's expertise
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [Watch what a plugin unlocks](#watch-what-a-plugin-unlocks)
+* [Key takeaways](#key-takeaways)
+* [Two kinds of plugins](#two-kinds-of-plugins)
+* [Install a plugin from the Anthropic marketplace](#install-a-plugin-from-the-anthropic-marketplace)
+* [Customize a plugin to fit your team](#customize-a-plugin-to-fit-your-team)
+* [Build your own plugin](#build-your-own-plugin)
+* [Try it now](#try-it-now)
+* [What’s next](#whats-next)

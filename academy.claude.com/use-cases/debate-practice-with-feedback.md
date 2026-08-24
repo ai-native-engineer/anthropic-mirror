@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/debate-practice-with-feedback -->
 
-![Debate practice with feedback result](https://academy.claude.com/assets/v1/debate-practice-with-feedback-icpjw36x.png)[Open artifact](https://claude.ai/public/artifacts/be7d1d44-6c98-4a09-af20-38d51d5cd441)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Debate practice with feedback
+
+Test your ideas against opposing views through an interactive tool where you defend your position and get real-time pushback.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-op1ranyk.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mjcb2r99.png)
+
+![Debate practice with feedback result](https://academy.claude.com/assets/v1/debate-practice-with-feedback-icpjw36x.png)[Open artifact](https://claude.ai/public/artifacts/be7d1d44-6c98-4a09-af20-38d51d5cd441)
 
 ## 1. Describe the task
 
@@ -14,9 +28,7 @@ Can you create an artifact where I can practice debating any topic against the s
 
 The artifact's design should be offwhite with grayscale foundation with desaturated watercolor punctuation and analog fidelity through blueprint grids and paper textures. Think editorial refinement meets architectural drawing with transparency modulation, atmospheric zoning, and layered warmth.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -32,7 +44,7 @@ This lets Claude create interactive web applications that use Claude's reasoning
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for higher-quality file creation.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -75,9 +87,7 @@ Get detailed feedback on where your arguments fell short
 
 Review my responses from the practice session. From each weak point you identified, explain: (1) why it was weak, (2) what assumption I made that was flawed, (3) show how a skilled debater would have exploited that gap, and (4) a stronger version of what I could've said.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Create response cards for predictable questions
 
@@ -85,9 +95,7 @@ Identify the 5-10 topics or questions you're most likely to get and prepare stro
 
 Based on my position, what are the 5 questions I'm most likely to get asked? For each one, draft a 30-second response that directly answers the question, uses evidence, and doesn't sound rehearsed. I want to practice these until they feel conversational.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Handle specific rhetorical tactics
 
@@ -95,9 +103,7 @@ Prepare for the ways opponents actually derail arguments—emotional appeals, fa
 
 My opponent tends to pivot to emotional stories when data doesn't support their position. Practice that scenario—when I present evidence, respond with an emotional anecdote that sounds compelling. Then show me how to acknowledge the story while returning to the actual question without seeming cold.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -123,4 +129,11 @@ Can you create an artifact where I can practice debating any topic against the s
 
 The artifact's design should be offwhite with grayscale foundation with desaturated watercolor punctuation and analog fidelity through blueprint grids and paper textures. Think editorial refinement meets architectural drawing with transparency modulation, atmospheric zoning, and layered warmth.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

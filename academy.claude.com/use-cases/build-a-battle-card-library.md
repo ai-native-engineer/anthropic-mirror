@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/build-a-battle-card-library -->
 
-![Build a battle card library result](https://academy.claude.com/assets/v1/build-a-battle-card-library-fcd9z03z.png)[Open artifact](https://claude.ai/public/artifacts/bc9ae439-4d06-4a7e-a0ef-e772dd00a254)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Build a battle card library
+
+Turn sales losses and competitive data into ready-to-use battlecards with winning talk tracks, objection handlers, and differentiation strategies your team can use during actual calls.
+
+10 minSalesClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-h6tp8cgu.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-js7mbth9.png)
+
+![Build a battle card library result](https://academy.claude.com/assets/v1/build-a-battle-card-library-fcd9z03z.png)[Open artifact](https://claude.ai/public/artifacts/bc9ae439-4d06-4a7e-a0ef-e772dd00a254)
 
 ## 1. Describe the task
 
@@ -12,9 +26,7 @@ Pull our HubSpot closed-lost deals from the last 6 months where DataGuard, Backu
 
 Then, build a React-based competitive intelligence dashboard with a list view showing all three competitors and detailed battlecards for each. Build it like a modern analytics dashboard - clean, flat, metric-dense, with that tech meets creative minimalism. Think calculator app but for competitive intelligence.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -28,15 +40,11 @@ Make sure [Web Search(opens in new tab)](https://support.claude.com/en/articles/
 
 Upload a screenshot of your website or sales materials if you want the battlecard to match your brand's colors and fonts.
 
-
-
 HubSpot
 
-[Connect](https://claude.ai/directory/hubspot)
+[Connect](https://claude.ai/directory/hubspot)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
-
-
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 Website reference photoFILE
 
@@ -44,7 +52,7 @@ Website reference photoFILE
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for Claude to spend more time analyzing your sources and creating high quality outputs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -85,9 +93,7 @@ Use the competitive intelligence to create realistic role-play scenarios for new
 
 Create three realistic sales call scenarios using actual objections from our BackupPro losses. Include the objection, our response, and likely follow-up questions.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Analyze competitive trends over time
 
@@ -95,9 +101,7 @@ Claude can track how competitor positioning changes quarter over quarter, helpin
 
 Compare our current DataGuard intelligence to the battlecard from Q2. What has changed in their positioning, and should we update our counter-messaging?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -117,4 +121,11 @@ Pull our HubSpot closed-lost deals from the last 6 months where DataGuard, Backu
 
 Then, build a React-based competitive intelligence dashboard with a list view showing all three competitors and detailed battlecards for each. Build it like a modern analytics dashboard - clean, flat, metric-dense, with that tech meets creative minimalism. Think calculator app but for competitive intelligence.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

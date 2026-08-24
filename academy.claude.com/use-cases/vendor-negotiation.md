@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/vendor-negotiation -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Prep the vendor negotiation
+
+Talking points, leverage, and a redline summary from the contract.
+
+10 minOperationsClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-bpm02atf.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-1b7ie80y.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Operations plugin ships with `/vendor-review` already structured to diff two contract versions into a redline table and turn usage and comparables into leverage. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 OperationsOptimize business operations — vendor management, process documentation, change management, capacity planning, and compliance tracking. Keep your organization running efficiently.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=operations)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=operations)
 
 `/vendor-review`Evaluate a vendor — cost analysis, risk assessment, and recommendation.
 
@@ -22,7 +32,7 @@ OperationsOptimize business operations — vendor management, process documentat
 
 [Run](claude://cowork/new?q=%2Frisk-assessment)
 
-Show all 9 skills
+Show all 9 skills
 
 ### Connect your tools
 
@@ -36,15 +46,13 @@ Google Drive
 
 Pull the signed agreement, the renewal PDF, and the comparable quotes from the procurement folder.
 
-[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
-
-
+[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
 
 Brex
 
 Pull current spend with the vendor so the negotiation opens with the real number, not list price.
 
-[Connect](https://claude.ai/desktop/directory/brex)
+[Connect](https://claude.ai/desktop/directory/brex)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M3.951%209.85a1.47%201.47%200%201%201-2.94%200%201.47%201.47%200%200%201%201.47-1.471h1.47V9.85Zm.735%200a1.47%201.47%200%201%201%202.94%200v3.679a1.47%201.47%200%201%201-2.94%200V9.85Z'%20fill='%23E01E5A'/%3e%3cpath%20d='M6.157%203.943a1.47%201.47%200%201%201%200-2.943%201.47%201.47%200%200%201%201.47%201.471v1.472h-1.47Zm0%20.746a1.47%201.47%200%201%201%200%202.943H2.47a1.47%201.47%200%201%201%200-2.943h3.687Z'%20fill='%2336C5F0'/%3e%3cpath%20d='M12.049%206.16a1.47%201.47%200%201%201%202.94%200%201.47%201.47%200%200%201-1.47%201.472h-1.47V6.16Zm-.736%200a1.47%201.47%200%201%201-2.94%200V2.471a1.47%201.47%200%201%201%202.94%200V6.16Z'%20fill='%232EB67D'/%3e%3cpath%20d='M9.843%2012.057a1.47%201.47%200%201%201%200%202.943%201.47%201.47%200%200%201-1.47-1.471v-1.472h1.47Zm0-.735a1.47%201.47%200%201%201%200-2.943h3.687a1.47%201.47%200%201%201%200%202.943H9.843Z'%20fill='%23ECB22E'/%3e%3c/svg%3e)
 
@@ -52,11 +60,9 @@ SlackOptional
 
 Pull stakeholder asks and pain points from the vendor channel so the brief covers what the business actually wants.
 
-[Connect](https://claude.ai/desktop/directory/slack)
+[Connect](https://claude.ai/desktop/directory/slack)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -72,7 +78,7 @@ Northwind-renewal-proposal-2026.pdfApr 18, 2026388 KB
 
 usage-and-comparables.xlsxApr 24, 202638 KB
 
-In Cowork’s chat bar:Procurement / Northwind-renewal-2026
+In Cowork’s chat bar:Procurement / Northwind-renewal-2026
 
 ## The prompt
 
@@ -80,35 +86,33 @@ In Cowork’s chat bar:Procurement / Northwind-renewal-2026
 
 Compare the current agreement to the renewal proposal and summarize every material change as a redline table (clause, current, proposed, our position). Then write the negotiation brief: our leverage, their likely pushback, three asks ranked by value, and the walk-away line. Keep it to one page I can take into the call.
 
-
-
-Procurement / Northwind-renewal-2026Open in Cowork
+Procurement / Northwind-renewal-2026Open in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Name the columns you want.** Clause, current, proposed, our position: nothing slips through and Legal can scan it in two minutes.
 
-Prompt
+Prompt
 
 **Ask for a ranked shortlist.** Three, by value. You walk in knowing what to trade and what to hold.
 
-Prompt
+Prompt
 
 **Ask for the decision point.** The brief isn't done until it says when you'd leave the table.
 
-Source
+Source
 
 **Ground it in your own spend data.** The argument is built from your numbers, not the vendor's slide.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -118,11 +122,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /vendor-review skill with my feedback.
 
-
-
-ProcurementOpen in Cowork
-
-
+ProcurementOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -134,23 +134,19 @@ The brief should exist before the vendor's AE books the call. Type `/schedule` i
 
 **/schedule** Every Monday at 9am, check the contracts spreadsheet for any vendor renewing in the next 60 days, run /vendor-review against that vendor's folder, and write the brief to Procurement/<vendor>-renewal-<year>/.
 
-
+ProcurementOpen in Cowork
 
-ProcurementOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Renewal negotiation briefs
 
 Weekly, finds vendors renewing in the next 60 days, runs `/vendor-review` on each, and writes the redline and brief to the vendor folder.
 
-Every **Mondays at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **Mondays at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/vendor-review` now carries your standard fallback positions, your redline format, and what your Legal team will and won't accept. Share it so every category owner walks into renewals with the same prep.
-
-
 
 Share the skill
 
@@ -162,4 +158,11 @@ Every material change in the renewal is documented with your position on it, and
 
 You did this for one renewal. The same approach covers SOW reviews, contract amendments, and price-increase notices — each one becomes a skill your team runs the same way.
 
-[Next: Screen a vendor for risk](https://academy.claude.com/use-cases/vendor-risk-review)
+[Next: Screen a vendor for risk](https://academy.claude.com/use-cases/vendor-risk-review)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [What changes for the renewal call](#what-changes-for-the-renewal-call)

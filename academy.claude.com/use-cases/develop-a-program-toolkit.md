@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/develop-a-program-toolkit -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Develop a program toolkit
+
+Generate complete program design frameworks for new initiatives with logic models, evaluation plans, and resource guides that transform concepts into implementation-ready programs.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-c3arwr02.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hzh4q2ol.png)
+
 ![Develop a program toolkit result](https://academy.claude.com/assets/v1/develop-a-program-toolkit-kqxssobc.png)
 
 ## 1. Describe the task
@@ -19,9 +33,7 @@ Create a **comprehensive program design toolkit** in Excel with: program descrip
 
 Make this consulting-grade with premium formatting, sophisticated design, and advanced Excel features. Use a professional color scheme—avoid default Excel colors.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -31,13 +43,11 @@ Make this consulting-grade with premium formatting, sophisticated design, and ad
 
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) in the conversation settings before starting. This gives Claude space to think through your program's theory of change, identify potential evaluation challenges, and design a comprehensive framework that anticipates real world implementation needs. The extra reasoning time produces significantly more thoughtful program logic and strategic recommendations.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
 Provide Claude with information on your Theory of Change Model or share documentation that talks about your inputs, outputs, immediate outcomes, and goals. Consider sharing something in the form of: "If we do X → then Y happens → leading to Z impact".
-
-
 
 Program Logic Model and Impact FrameworkPDF
 
@@ -69,9 +79,7 @@ Use this to create an implementation timeline that can be leveraged to get the p
 
 Add a new sheet with a detailed implementation timeline. Break down the first year into phases: planning/partnership development, staff hiring and training, participant recruitment, program launch, and ongoing operations. Include key milestones, dependencies, and decision points. Use Gantt-style visual formatting.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Create external facing program materials
 
@@ -82,9 +90,7 @@ Using the program design toolkit, create external-facing materials to recruit pa
 1. A one-page program overview for potential participants explaining what TechBridge offers, eligibility, benefits, and how to apply—make it visually appealing and accessible for young adults.
 2. An FAQ document addressing common questions from participants, employers, and funders about program structure, expectations, costs, and outcomes.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Build data tracking system
 
@@ -92,9 +98,7 @@ Ensure you have proper measurement in place to track progress towards outcomes.
 
 Design a participant tracking sheet that connects to the evaluation framework. Include fields for intake data, training progress, certification completion, job placement details, and retention milestones. Add dropdown menus for status tracking and automatic calculations showing progress toward outcome targets.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -131,4 +135,11 @@ Create a comprehensive program design toolkit in Excel with: program description
 
 Make this consulting-grade with premium formatting, sophisticated design, and advanced Excel features. Use a professional color scheme—avoid default Excel colors.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

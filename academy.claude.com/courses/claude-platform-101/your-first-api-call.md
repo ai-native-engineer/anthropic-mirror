@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-platform-101/your-first-api-call -->
 
-Lesson 2 of 13 · Claude Platform 101Your first API call
+Lesson 2 of 13 · Claude Platform 101Your first API call
 
-Loading
+3. /[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+# Your first API call
+
+Lesson 25 min
 
 Your first API call
 
@@ -20,7 +26,7 @@ Take the API key and store it in a `.env.local` file so it stays out of your ver
 
 Next, install the SDK:
 
-`npm install @anthropic-ai/sdk`
+`npm install @anthropic-ai/sdk`
 
 ## The anatomy of a request
 
@@ -32,7 +38,7 @@ Every API call goes through the **`messages.create`** function. You specify thre
 
 Here's what that looks like in its most basic form:
 
-typescript
+typescript
 
 ```
 import Anthropic from "@anthropic-ai/sdk";
@@ -53,7 +59,7 @@ const msg = await client.messages.create({
 
 Let's give Claude something a little more interesting than "hello." We'll point it at some buggy code and ask for a review. Here's the whole thing — one file, about 20 lines of code:
 
-typescript
+typescript
 
 ```
 import Anthropic from "@anthropic-ai/sdk";
@@ -104,3 +110,47 @@ In a real product, this same `messages.create` shape is the engine behind someth
 * Add a **system prompt** to shape Claude's behavior.
 * The response `content` is an array of blocks — loop and check each block's `type`.
 * From here, everything builds on this pattern.
+
+[Previous lessonWhat is the Claude Platform?](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)[Next lessonChoosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)
+
+Lesson 2 of 13 · Claude Platform 101Your first API call
+
+What is the Claude Platform?
+
+* [What is the Claude Platform?](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)
+* [Your first API call](https://academy.claude.com/courses/claude-platform-101/your-first-api-call)
+* [Choosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)
+
+Teaching your agent
+
+* [The agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)
+* [What is tool use?](https://academy.claude.com/courses/claude-platform-101/what-is-tool-use)
+* [What is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)
+
+Extending your agent
+
+* [Built-in tools](https://academy.claude.com/courses/claude-platform-101/built-in-tools)
+* [Skills](https://academy.claude.com/courses/claude-platform-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-platform-101/mcp)
+* [Context management](https://academy.claude.com/courses/claude-platform-101/context-management)
+
+Managed Agents
+
+* [What are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)
+* [Building your first managed agent](https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent)
+
+Building with Claude Code
+
+* [Building with Claude Code](https://academy.claude.com/courses/claude-platform-101/building-with-claude-code)
+
+Quiz
+
+* [Claude Platform 101 quizQuiz](https://academy.claude.com/courses/claude-platform-101/claude-platform-101-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-platform-101/badge)
+
+* [Get set up](#get-set-up)
+* [The anatomy of a request](#the-anatomy-of-a-request)
+* [A real example: reviewing buggy code](#a-real-example-reviewing-buggy-code)
+* [From script to product](#from-script-to-product)
+* [Recap](#recap)

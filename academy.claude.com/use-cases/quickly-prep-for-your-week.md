@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/quickly-prep-for-your-week -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Quickly prep for your week
+
+Prepare and prioritize for your upcoming week through connecting your calendar and mail platforms.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-hteb4ys0.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-n0jyfw6m.png)
+
 ![Quickly prep for your week result](https://academy.claude.com/assets/v1/quickly-prep-for-your-week-holgruap.png)
 
 ## 1. Describe the task
@@ -16,9 +30,7 @@ From my Outlook inbox and summarize any weekend emails I need to handle, any thr
 
 Create an overview document of my must-dos, daily structure, preparation I still need to do, blocks of time I need for deep work, and email triage of high-priority vs can-wait.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -34,9 +46,9 @@ Claude can then search across your connected tools simultaneously—identifying 
 
 Microsoft 365
 
-[Connect](https://claude.ai/directory/microsoft-365)
+[Connect](https://claude.ai/directory/microsoft-365)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ## 3. What Claude creates
 
@@ -111,9 +123,7 @@ Ask Claude to write replies based on dashboard triage. Claude can identify urgen
 
 Draft three email responses: Reply to Finance (confirm I'll send the Q3 budget variance data by end of day Tuesday, apologize for delay). Reply to Legal (confirm vendor agreement will be signed and returned by Tuesday 3 PM). Reply to IT (approve contractor access request for the staging environment, apologize for 4-day response delay).
 
-
-
-Open in Claude
+Open in Claude
 
 ### Create meeting prep materials
 
@@ -121,9 +131,7 @@ After seeing which meetings need prep, Claude can search email threads, SharePoi
 
 For my Thursday board meeting, search my emails and documents for budget discussions, Q3 performance data, and board questions sent ahead. Create a one-page brief: decisions they expect, questions raised in advance, key numbers needed, topics requiring more input.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Adjust the output to your needs
 
@@ -131,9 +139,7 @@ Claude can quickly restructure the format of your document. If you want it more 
 
 Refine the output to have tighter spacing so more content fits on one page. Change the font and use Arial instead of Times New Roman. For each meeting, add who's attending and their email address.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -165,4 +171,11 @@ From my Outlook inbox and summarize any weekend emails I need to handle, any thr
 
 Create an overview document of my must-dos, daily structure, preparation I still need to do, blocks of time I need for deep work, and email triage of high-priority vs can-wait.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

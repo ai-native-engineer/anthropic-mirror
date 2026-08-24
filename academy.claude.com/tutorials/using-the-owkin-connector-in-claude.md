@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-owkin-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the Owkin Connector in Claude
+
+Set up and use the Owkin integration with Claude to access Pathology Explorer, an Owkin AI agent that transforms H&E pathology slides into queryable insights for drug discovery and clinical research.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-f4yex9ts.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jg90q9wm.png)
+
 The Owkin connector powers Pathology Explorer, an Owkin AI agent that transforms H&E pathology slides into queryable insights for drug discovery and development and clinical research. This article explains how to set up and use the Owkin integration with Claude to accelerate pathology-driven research.
 
 The Owkin integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -126,9 +140,7 @@ Example prompt:
 
 I'm looking for Lung Adenocarcinoma patients that might be resistant to immunotherapy. Are there cases with low immune infiltration in the TCGA cohort?
 
-
-
-Open in Claude
+Open in Claude
 
 **Visualize whole-slide images.** Build confidence in the model output by retrieving whole-slide images directly within the chat interface.
 
@@ -136,9 +148,7 @@ Example prompt:
 
 Find the slide the most enriched in eosinophils from cohort TCGA\_BRCA and plot it.
 
-
-
-Open in Claude
+Open in Claude
 
 **Assess prognostic value of H&E based markers.** Test clinical hypotheses by performing survival analysis on your cohorts, by splitting patients based on features such as specific cell densities or spatial scores.
 
@@ -146,9 +156,7 @@ Example prompt:
 
 Is the density of plasmocytes associated with overall survival in bladder carcinoma?
 
-
-
-Open in Claude
+Open in Claude
 
 **Extract quantitative evidence for reproducibility.** Build trust in AI-generated insights by retrieving the underlying raw data for independent verification or downstream analysis.
 
@@ -156,9 +164,7 @@ Example prompt:
 
 Export the breakdown of all cell types for patient TCGA-A2-A0YI-01Z-00-DX1.1CF2EC2D-C722-467F-8832-409B823E8D8F.svs in parquet format, so I can reproduce this analysis.
 
-
-
-Open in Claude
+Open in Claude
 
 **Understand Owkin’s Pathology Explorer capabilities and context.** Gain transparency into the model by querying its technical specifications directly. Learn about the supported cell types, the pan-cancer training dataset and more, to ensure the model is appropriate for your research question.
 
@@ -166,6 +172,10 @@ Example prompt:
 
 Can you provide an overview of Owkin’s Pathology Explorer model and its capabilities?
 
-
+Open in Claude
 
-Open in Claude
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the Owkin integration](#who-should-use-the-owkin-integration)
+* [Who can access the Owkin integration](#who-can-access-the-owkin-integration)
+* [Setting up the Owkin integration](#setting-up-the-owkin-integration)
+* [Example use cases](#example-use-cases)

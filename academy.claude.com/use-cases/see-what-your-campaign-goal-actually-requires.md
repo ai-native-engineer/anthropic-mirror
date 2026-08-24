@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/see-what-your-campaign-goal-actually-requires -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# See what your campaign goal actually requires
+
+Type a campaign goal and Claude draws the gift pyramid inline, tiered from the lead gift down, with each tier showing how many gifts you need and how many qualified prospects that realistically takes. Drag the goal and the whole shape rebuilds. For when you're wondering whether a campaign is feasible before you say yes to it.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-gokcztzn.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nqgcnxqq.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Here a development director is weighing a $2M capital campaign and wants to see 
 
 We're thinking about a $2M capital campaign. Show me what the gift pyramid needs to look like, meaning how many donors at each tier and how many qualified prospects I'd realistically need behind each one. Let me drag the goal and watch the shape change, and flag the tiers where I'm probably thin.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -42,9 +52,7 @@ Click any tier and Claude compares the prospect requirement against a typical pi
 
 Focus on the $100K to $250K tier. How many qualified prospects do I realistically need, how many does a typical org my size have at that level, and what do campaigns usually do when the gap is that big?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to redraw with a constraint
 
@@ -52,9 +60,7 @@ The top of the pyramid carries most of the weight, so telling Claude your lead g
 
 Redraw this assuming our lead gift tops out at $250K. What does that do to the rest of the pyramid, and where does the pressure move?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to turn the pyramid into a cultivation timeline
 
@@ -62,9 +68,7 @@ A gift pyramid is a snapshot, but the feasibility question is really about time.
 
 For each tier, give me a rough cultivation timeline, meaning how long from first real conversation to close, and lay it out so I can see whether an 18-month campaign is realistic given where our pipeline actually is today.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -86,4 +90,11 @@ Try it on the campaign number someone floated in a board meeting. Type the goal 
 
 We're thinking about a $2M capital campaign. Show me what the gift pyramid needs to look like, meaning how many donors at each tier and how many qualified prospects I'd realistically need behind each one. Let me drag the goal and watch the shape change, and flag the tiers where I'm probably thin.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

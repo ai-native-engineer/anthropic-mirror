@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-model-context-protocol/the-server-inspector -->
 
-Lesson 4 of 10 · Introduction to Model Context ProtocolThe server inspector
+Lesson 4 of 10 · Introduction to Model Context ProtocolThe server inspector
+
+3. /[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+# The server inspector
+
+Lesson 43 min
 
 When building MCP servers, you need a way to test your functionality without connecting to a full application. The Python MCP SDK includes a built-in browser-based inspector that lets you debug and test your server in real-time.
 
@@ -8,7 +16,7 @@ When building MCP servers, you need a way to test your functionality without con
 
 First, make sure your Python environment is activated (check your project's README for the exact command). Then run the inspector with:
 
-`mcp dev mcp_server.py`
+`mcp dev mcp_server.py`
 
 This starts a development server and gives you a local URL, typically something like `http://127.0.0.1:6274`. Open this URL in your browser to access the MCP Inspector.
 
@@ -53,3 +61,38 @@ The MCP Inspector becomes an essential part of your development process. Instead
 * Debug issues in real-time
 
 This immediate feedback loop makes MCP server development much more efficient and helps catch issues early in the development process.
+
+[Previous lessonDefining tools with MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-tools-with-mcp)[Next lessonImplementing a client](https://academy.claude.com/courses/introduction-to-model-context-protocol/implementing-a-client)
+
+Lesson 4 of 10 · Introduction to Model Context ProtocolThe server inspector
+
+Introduction
+
+* [Introducing MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/introducing-mcp)
+* [MCP clients](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-clients)
+
+Hands-on with MCP servers
+
+* [Defining tools with MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-tools-with-mcp)
+* [The server inspector](https://academy.claude.com/courses/introduction-to-model-context-protocol/the-server-inspector)
+
+Connecting with MCP clients
+
+* [Implementing a client](https://academy.claude.com/courses/introduction-to-model-context-protocol/implementing-a-client)
+* [Defining resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-resources)
+* [Accessing resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/accessing-resources)
+* [Defining prompts](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-prompts)
+* [Prompts in the client](https://academy.claude.com/courses/introduction-to-model-context-protocol/prompts-in-the-client)
+
+Assessment and wrap Up
+
+* [Final assessment on MCPQuiz](https://academy.claude.com/courses/introduction-to-model-context-protocol/final-assessment-on-mcp)
+* [MCP review](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-review)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-model-context-protocol/badge)
+
+* [Starting the Inspector](#starting-the-inspector)
+* [Using the Inspector Interface](#using-the-inspector-interface)
+* [Testing Your Tools](#testing-your-tools)
+* [Testing Tool Interactions](#testing-tool-interactions)
+* [Development Workflow](#development-workflow)

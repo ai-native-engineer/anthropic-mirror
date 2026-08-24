@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/scaling-workflows-with-claude-cowork-at-your-organization -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Scaling workflows with Claude Cowork at your organization
+
+A playbook for rolling out Claude Cowork across your organization.
+
+15 minClaude Cowork
+
+[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-eb38a4h1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j0al2e51.png)
+
 ## The scaling mindset
 
 Skills, plugins, and connectors compose into an operating model that transforms work across departments. Once Cowork is set up and you’re ready to roll it out to your teams, the question becomes: "we've deployed Cowork, now how do we think about building and governing the workflows that make it valuable?"
@@ -231,9 +245,7 @@ Lasting adoption means Claude Cowork is already running when users sit down in t
 
   Every weekday at 8am, pull our open pipeline from the connected CRM, summarize the deals that changed stage yesterday, and post the digest to our team channel.
 
-  
-
-  Open in Cowork
+  Open in Cowork
 
   A scheduled task runs with the same access as any other Cowork session, so whatever it produces lands in your real tools. Before rolling the habit out, check the result the way you'd check a new hire's first report: open the channel after the first run and confirm the digest is there, covers yesterday's changes, and reads the way your team expects. A task that runs on time but posts the wrong summary is one your team will quietly stop trusting. See [Scheduled tasks(opens in new tab)](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork).
 * **Embed in existing rituals**. The standard for a weekly pipeline review becomes the Claude Cowork-generated digest. The standard for a monthly board deck becomes a Claude Cowork-assembled first draft. Attach Claude Cowork to existing working rhythms.
@@ -257,3 +269,11 @@ Lasting adoption means Claude Cowork is already running when users sit down in t
 **Where do I go for help with desktop app installation or connector setup?** See the [Claude Cowork Enterprise Admin Guide(opens in new tab)](https://academy.claude.com/tutorials/claude-cowork-enterprise-administrator-guide), which covers desktop app deployment, connector configuration, and org architecture setup.
 
 *Further reading:* [*Cowork Enterprise Admin Settings*(opens in new tab)](https://academy.claude.com/tutorials/claude-cowork-enterprise-administrator-guide) *·*[*Provision and manage Skills for your organization*(opens in new tab)](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization) *·* [*Manage Cowork plugins for your organizations*(opens in new tab)](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization) *·* [*Schedule recurring tasks in Cowork*(opens in new tab)](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-cowork)
+
+* [The scaling mindset](#the-scaling-mindset)
+* [Building blocks](#building-blocks)
+* [2. Choosing a governance posture](#2-choosing-a-governance-posture)
+* [3. Champion model](#3-champion-model)
+* [4. Rollout phases](#4-rollout-phases)
+* [5. Enablement methods](#5-enablement-methods)
+* [6. FAQ](#6-faq)

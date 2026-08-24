@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-use-claude-in-excel-for-accounting-revenue-model-validation -->
 
-Loading
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to use Claude in Excel for accounting: Revenue model validation
+
+Use Claude to validate ASC 606 revenue models, surface reconciliation issues, and build financial visualizations
+
+20 minClaude in Excel
+
+Watch
+
+![](https://academy.claude.com/assets/v1/thumbnail.dark-kzu7czxl.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kzu7czxl.png)
 
 [Claude in Excel(opens in new tab)](https://support.claude.com/en/articles/12650343-claude-in-excel) works directly inside your spreadsheet through a sidebar, reading your data and making changes through conversation. In this tutorial, you'll see how an accountant uses Claude to validate an ASC 606 revenue recognition model—the kind of multi-tab workbook you might inherit during an audit or acquire in a transaction.
 
@@ -26,7 +38,7 @@ Ask Claude to explain a workbook you've inherited or need to audit. Claude reads
 
 Walk me through this model. What's on each tab and how does everything tie together?
 
-Copy prompt
+Copy prompt
 
 #### 1:13 — Let Claude surface issues for you
 
@@ -34,7 +46,7 @@ After reading the workbook, Claude proactively identifies problems: reconciliati
 
 Yes, please look at the reconciliation issue first.
 
-Copy prompt
+Copy prompt
 
 #### 2:17 — Fix data with confirmation
 
@@ -42,7 +54,7 @@ Claude shows you what it found and what it recommends. It won't make changes unt
 
 Yes, go ahead.
 
-Copy prompt
+Copy prompt
 
 #### 3:09 — Add columns through conversation
 
@@ -50,7 +62,7 @@ Describe what you want—status indicators, legends, new calculations—and Clau
 
 Add a check mark column showing testing status for each contract. Use ✓ for tested, IP for in progress, and NP for not yet started. Add a legend at the bottom.
 
-Copy prompt
+Copy prompt
 
 #### 4:24 — Create charts by describing them
 
@@ -58,7 +70,7 @@ Tell Claude what visualization you need. It creates helper tables when necessary
 
 Create a waterfall chart showing the Q3 deferred revenue rollforward—beginning balance, bookings, revenue recognized, adjustments, and ending balance.
 
-Copy prompt
+Copy prompt
 
 #### 6:11 — Return to earlier issues
 
@@ -66,7 +78,7 @@ Claude remembers everything from your conversation. Circle back to issues it fla
 
 Let's go back to the issues you identified—a missing journal entry and one other I think?
 
-Copy prompt
+Copy prompt
 
 ## What to notice
 
@@ -99,3 +111,8 @@ This tutorial shows one use case: validating an ASC 606 revenue model with recon
 
 * [Claude in Excel help article(opens in new tab)](https://support.claude.com/en/articles/12650343-claude-in-excel)
 * [What is the Max plan?(opens in new tab)](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+
+* [What you'll learn](#what-youll-learn)
+* [In this video](#in-this-video)
+* [What to notice](#what-to-notice)
+* [Next steps](#next-steps)

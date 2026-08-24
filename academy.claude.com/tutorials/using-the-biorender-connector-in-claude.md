@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-biorender-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the BioRender Connector in Claude
+
+Set up and use the BioRender integration with Claude to search scientific figure templates and icon collections.
+
+9 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-owwjdvmb.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-o8xue557.png)
+
 The BioRender integration searches BioRender’s extensive scientific figure template and icon collection for relevant content to create figures faster. This article explains how to set up and use the BioRender integration with Claude to accelerate scientific content creation.
 
 The BioRender integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -58,22 +72,21 @@ Technical details of the BioRender integration can be found in [BioRender’s MC
 
 I'm working on a figure for a grant proposal about chimeric CAR T cell therapy targeting solid tumors. I need two panels: 1. T cells engineered with chimeric antigen receptors 2. CAR T cells mediate cancer cell death. Can you help me find templates that show CAR T cells receptors and CAR T cells trafficking and targeting cancer cells?
 
-
-
-Open in Claude
+Open in Claude
 
 * **Journal figures & graphical abstracts** - use the text of your paper’s key findings to get template and icon suggestions for creating publication visuals
 
 I need to create a graphical abstract about CRISPR-Cas9 gene editing in plant cells. I want to show the Cas9 protein, guide RNA, DNA double-strand break, and the DNA repair process. Can you find me templates for CRISPR mechanisms and plant cell structures?
 
-
-
-Open in Claude
+Open in Claude
 
 * **Presentations for conferences & internal lab meetings** - describe your experimental workflow or steps to get icon and template recommendations for use in internal lab teams meetings and for creating presentations and posters for use at conferences
 
 I need to explain the experimental workflow for protein crystallization during a presentation. Can you find templates showing the process, including protein expression and purification, protein crystallization, and X-ray diffraction?
 
-
+Open in Claude
 
-Open in Claude
+* [What this integration provides](#what-this-integration-provides)
+* [Who can access the BioRender integration](#who-can-access-the-biorender-integration)
+* [Setting up the BioRender integration](#setting-up-the-biorender-integration)
+* [Common use cases](#common-use-cases)

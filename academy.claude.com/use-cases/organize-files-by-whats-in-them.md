@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/organize-files-by-whats-in-them -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Organize files across your desktop
+
+Grant Cowork access to your cluttered desktop and walk away. It reads your files, figures out what they are, and sorts them into folders while you do something else.
+
+15 minPersonalClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-nqyf55m6.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ju4mx93c.png)
+
 ![Organize files across your desktop result](https://academy.claude.com/assets/v1/organize-files-by-whats-in-them-iaux70mt.png)
 
 ## 1. Describe the task
@@ -10,9 +24,7 @@ Come back to a tidy desktop and a summary of what went where.
 
 Please help organize my desktop. Evaluate all of the scattered files and organize based on the contents inside of them.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -64,9 +76,7 @@ Apply your own categories instead of the defaults. If you organize by client, by
 
 *"Actually, split the Projects folder by language — Python projects in one folder, JavaScript in another, and everything else in misc."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Find something you lost
 
@@ -74,9 +84,7 @@ Cowork remembers what it moved and where. If you're hunting for a file in the ne
 
 *"Where did that budget spreadsheet end up? I think it was called Q3\_budget or something like that."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Create an ongoing system
 
@@ -84,9 +92,7 @@ Set up folder conventions you can maintain. One cleanup helps, but a system keep
 
 *"Set up a Downloads folder too, and show me a simple system for where new files should go so this doesn't pile up again."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -112,4 +118,11 @@ The next time your desktop gets cluttered, open Cowork and let it handle the sor
 
 Please help organize my desktop. Evaluate all of the scattered files and organize based on the contents inside of them.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

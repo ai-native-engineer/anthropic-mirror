@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations -->
 
-Lesson 5 of 10 · AI Fluency for pK–12 EducatorsAI capabilities and limitations
+Lesson 5 of 10 · AI Fluency for pK–12 EducatorsAI capabilities and limitations
+
+3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+# AI capabilities and limitations
+
+Lesson 525 min
+
+In this lessonBy the end, you’ll be able to
+
+* Define generative AI and how it differs from other AI types
+* Recognize the key characteristics and technological foundations of generative AI
+* Identify major capabilities and limitations of current generative AI
 
 ## What is generative AI?
-
-Loading
 
 AI capabilities and limitations · 12 min
 
@@ -43,3 +55,44 @@ Pick a topic you know cold—one where you'd spot an error instantly—and open 
 ## What's next
 
 In the next lesson, we'll start to explore the Description-Discernment loop.
+
+[Previous lessonExplore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)[Next lessonCreating high quality AI outputs](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice)
+
+Lesson 5 of 10 · AI Fluency for pK–12 EducatorsAI capabilities and limitations
+
+How this course was made
+
+* [How this course was made](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations)
+
+Using AI responsibly
+
+* [Creating high quality AI outputs](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice)
+* [Ethics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)
+* [AI's constitution, pedagogy, and you](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)
+
+Conclusion and badge
+
+* [Closure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/badge)
+
+* [What is generative AI?](#what-is-generative-ai)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-databricks-for-data-analysis -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Databricks for Data Analysis
+
+Integrate Claude with Databricks to access organizational data through Unity Catalog using custom functions, vector search, and natural language queries.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-oaszh3jx.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-k1t9w93z.png)
+
 The Databricks connector provides Claude with access to your organization's internal data through Unity Catalog, enabling analysis of your databases, running custom business logic, and accessing unstructured documents. Databricks provides three separate connectors: one for functions, one for vector search, and one for Genie, each accessing different capabilities within your Databricks workspace.
 
 ## Reminder on Databricks Components
@@ -82,9 +96,7 @@ Example input prompt:
 
 Which portfolio companies are ready for exit? Show valuation ranges and expected returns based on current market multiples.
 
-
-
-Open in Claude
+Open in Claude
 
 For this analysis, Claude might use the different UC Functions and Genie in the following steps:
 
@@ -101,9 +113,7 @@ Example input prompt:
 
 We're evaluating TechCorp acquisition (SaaS, $45M revenue, $12M EBITDA).What's a fair valuation and how much debt can we support? Include previous due diligence records in your analysis.
 
-
-
-Open in Claude
+Open in Claude
 
 To complete this request, Claude might follow this workflow:
 
@@ -120,9 +130,7 @@ Example input prompt:
 
 If we see a 15-25% EBITDA decline across the portfolio, which companies risk covenant breaches? What actions should we take?
 
-
-
-Open in Claude
+Open in Claude
 
 For this task, Claude might use the following resources:
 
@@ -144,3 +152,12 @@ Claude might then respond with a breach risk analysis, organized by company and 
 * Remember that all data access permissions follow your Unity Catalog permissions. Claude can only access the data that you can access.
 * Custom functions provide consistent calculations. Consider adding UC Functions for calculating standardized metrics.
 * Complex analyses may require multiple steps. Ask for a plan first and review Claude's proposed approach.
+
+* [Reminder on Databricks Components](#reminder-on-databricks-components)
+* [What This Connector Provides](#what-this-connector-provides)
+* [Setting up the Databricks Connector](#setting-up-the-databricks-connector)
+* [Common Use Cases](#common-use-cases)
+* [Portfolio Exit Readiness Analysis](#portfolio-exit-readiness-analysis)
+* [New Deal Valuation](#new-deal-valuation)
+* [Covenant Breach Risk Assessment](#covenant-breach-risk-assessment)
+* [Tips for Using Databricks](#tips-for-using-databricks)

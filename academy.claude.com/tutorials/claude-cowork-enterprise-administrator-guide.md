@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/claude-cowork-enterprise-administrator-guide -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Claude Cowork Enterprise Admin Guide
+
+Claude Cowork brings Claude’s agentic capabilities to the Claude Desktop app, enabling multi-step knowledge work beyond coding
+
+20 minClaude Cowork
+
+[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-epz8s4e9.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oerjm7gu.png)
+
 ## Introduction
 
 ### What Is Claude Cowork?
@@ -319,3 +333,9 @@ Claude Cowork’s value comes from capabilities working together — file access
 Scaling Claude Cowork isn’t a launch, it’s an ongoing program. The organizations that see compounding value are the ones that treat adoption as a discipline: continuously surfacing new use cases, curating the best workflows into reusable skills, and connecting what teams learn back into the enablement program.
 
 For the full operational playbook — program ownership models, champion councils, quarterly review cadences, and long-term sustaining frameworks — see [Scaling workflows with Claude Cowork at your organization(opens in new tab)](https://academy.claude.com/tutorials/scaling-workflows-with-claude-cowork-at-your-organization).
+
+* [Introduction](#introduction)
+* [Phase 1: Technical Setup](#phase-1-technical-setup)
+* [Phase 2: Change Management & Launch](#phase-2-change-management-launch)
+* [Phase 3: Enablement & Training](#phase-3-enablement-training)
+* [Phase 4: Scaling Adoption](#phase-4-scaling-adoption)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-blackbaud-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the Blackbaud connector in Claude
+
+Connect Claude to Raiser's Edge NXT to access donor records, gift history, events, and draft personalized communications.
+
+10 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-f6w4dl86.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gybx8tt3.png)
+
 The Blackbaud connector gives Claude secure access to your Raiser's Edge NXT fundraising data. Look up donor profiles, review gift history, search events, and draft personalized communications through natural language.
 
 The Blackbaud integration relies on Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -44,9 +58,7 @@ The Blackbaud integration relies on Claude's ability to [use remote connectors(o
 
 Show me the profile for Jane Smith, including her contact information and recent donations.
 
-
-
-Open in Claude
+Open in Claude
 
 *When to use: Preparing for donor meetings, reviewing relationships, verifying contact details.*
 
@@ -54,9 +66,7 @@ Show me the profile for Jane Smith, including her contact information and recent
 
 What are the details of John Doe's donations over the past year? Include amounts, dates, and campaigns.
 
-
-
-Open in Claude
+Open in Claude
 
 *When to use: Reviewing engagement, preparing acknowledgments, analyzing patterns. Works well with 1–3 year timeframes.*
 
@@ -64,9 +74,7 @@ What are the details of John Doe's donations over the past year? Include amounts
 
 Find any events titled 'Annual Gala' and show details including attendance and funds raised.
 
-
-
-Open in Claude
+Open in Claude
 
 *When to use: Planning future events, comparing performance, researching past activities.*
 
@@ -74,9 +82,7 @@ Find any events titled 'Annual Gala' and show details including attendance and f
 
 Draft a personalized thank-you email to Sarah Johnson for her recent $500 donation to the Building Fund campaign.
 
-
-
-Open in Claude
+Open in Claude
 
 *When to use: Following up on donations, acknowledging major gifts. Claude retrieves donor info and gift details for personalized communications.*
 
@@ -84,9 +90,7 @@ Draft a personalized thank-you email to Sarah Johnson for her recent $500 donati
 
 Find all constituents named Williams in our database.
 
-
-
-Open in Claude
+Open in Claude
 
 *When to use: Locating donors with partial names, finding family members.*
 
@@ -98,3 +102,8 @@ Find all constituents named Williams in our database.
 * Combine multiple requests when helpful
 * Review AI-generated communications before sending, especially with sensitive donor data
 * Claude only accesses data your Blackbaud account authorizes
+
+* [What this connector provides](#what-this-connector-provides)
+* [Setting up the connector](#setting-up-the-connector)
+* [Common use cases](#common-use-cases)
+* [Tips for using the connector](#tips-for-using-the-connector)

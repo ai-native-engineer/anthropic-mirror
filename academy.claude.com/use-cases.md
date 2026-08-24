@@ -1,5 +1,7 @@
 <!-- source: https://academy.claude.com/use-cases -->
 
+[Academy](https://academy.claude.com/)
+
 # Use cases
 
 Browse practical examples across research, writing, coding, analysis, and everyday tasks, whether you're working solo or with a team.
@@ -8,7 +10,7 @@ GeneralMarketingProductEngineeringHRFinanceOperationsDataDesignLegalSalesResearc
 
 ## Claude.ai
 
-[View all](https://academy.claude.com/all?kind=use-case&product=chat)
+[View all](https://academy.claude.com/all?kind=use-case&product=chat)
 
 [![](https://academy.claude.com/assets/v1/thumbnail.light-d2q52a81.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oqcjuafg.png)
 
@@ -38,7 +40,7 @@ Product·15 min](https://academy.claude.com/use-cases/analyze-patterns-in-user-f
 
 ## Claude Cowork
 
-[View all](https://academy.claude.com/all?kind=use-case&product=cowork)
+[View all](https://academy.claude.com/all?kind=use-case&product=cowork)
 
 [![](https://academy.claude.com/assets/v1/thumbnail.light-mtc5a1pi.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ha2dvss7.png)
 
@@ -68,7 +70,7 @@ Engineering·10 min](https://academy.claude.com/use-cases/incident-postmortem)
 
 ## More ways to use Claude
 
-[View all](https://academy.claude.com/all?kind=use-case)
+[View all](https://academy.claude.com/all?kind=use-case)
 
 [![](https://academy.claude.com/assets/v1/thumbnail.light-kwid434h.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oxk6j3m6.png)
 

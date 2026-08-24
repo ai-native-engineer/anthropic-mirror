@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-benchling-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the Benchling connector in Claude
+
+Set up and use the Benchling integration with Claude to connect to Benchling R&D platform data for experiments, notebooks, and structured records.
+
+10 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-h6cjxas2.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mc6mqld7.png)
+
 The Benchling integration connects Claude to Benchling R&D platform data, enabling scientists to ask questions and receive clear summaries with links back to source experiments, notebooks, and structured records—all while maintaining existing access permissions. This article explains how to set up and use the Benchling integration with Claude to advance your R&D workflows.
 
 The Benchling integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -56,30 +70,28 @@ Technical details of the Benchling integration can be found in [Benchling’s MC
 
 Compare the IC50 results from my last two Benchling experiments with recent PubMed articles on AAV stability.
 
-
-
-Open in Claude
+Open in Claude
 
 **Insight Summarization:**
 
 Summarize the key findings from Benchling experiments and highlight how they align with external literature trends.
 
-
-
-Open in Claude
+Open in Claude
 
 **Recommendations:**
 
 Based on our last three in vivo results in Benchling and recent FDA guidance, what should we test next?
 
-
-
-Open in Claude
+Open in Claude
 
 **Portfolio Insights:**
 
 Aggregate results from our top five Benchling programs and highlight which ones are showing the strongest early efficacy signals compared with industry benchmarks.
 
-
+Open in Claude
 
-Open in Claude
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the Benchling integration](#who-should-use-the-benchling-integration)
+* [Who can access the Benchling integration](#who-can-access-the-benchling-integration)
+* [Setting up the Benchling integration](#setting-up-the-benchling-integration)
+* [Example use cases](#example-use-cases)

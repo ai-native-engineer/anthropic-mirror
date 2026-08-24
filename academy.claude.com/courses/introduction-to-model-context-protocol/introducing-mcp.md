@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-model-context-protocol/introducing-mcp -->
 
-Lesson 1 of 10 · Introduction to Model Context ProtocolIntroducing MCP
+Lesson 1 of 10 · Introduction to Model Context ProtocolIntroducing MCP
+
+3. /[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+# Introducing MCP
+
+Lesson 12 min
 
 Model Context Protocol (MCP) is a communication layer that provides Claude with context and tools without requiring you to write a bunch of tedious integration code. Think of it as a way to shift the burden of tool definitions and execution away from your server to specialized MCP servers.
 
@@ -51,3 +59,37 @@ MCP servers provide tool schemas and functions already defined for you. If you w
 This is a common misconception. MCP servers and tool use are complementary but different concepts. MCP servers provide tool schemas and functions already defined for you, while tool use is about how Claude actually calls those tools. The key difference is who does the work - with MCP, someone else has already implemented the tools for you.
 
 The benefit is clear: instead of maintaining a complex set of integrations yourself, you can leverage MCP servers that handle the heavy lifting of connecting to external services.
+
+[Next lessonMCP clients](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-clients)
+
+Lesson 1 of 10 · Introduction to Model Context ProtocolIntroducing MCP
+
+Introduction
+
+* [Introducing MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/introducing-mcp)
+* [MCP clients](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-clients)
+
+Hands-on with MCP servers
+
+* [Defining tools with MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-tools-with-mcp)
+* [The server inspector](https://academy.claude.com/courses/introduction-to-model-context-protocol/the-server-inspector)
+
+Connecting with MCP clients
+
+* [Implementing a client](https://academy.claude.com/courses/introduction-to-model-context-protocol/implementing-a-client)
+* [Defining resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-resources)
+* [Accessing resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/accessing-resources)
+* [Defining prompts](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-prompts)
+* [Prompts in the client](https://academy.claude.com/courses/introduction-to-model-context-protocol/prompts-in-the-client)
+
+Assessment and wrap Up
+
+* [Final assessment on MCPQuiz](https://academy.claude.com/courses/introduction-to-model-context-protocol/final-assessment-on-mcp)
+* [MCP review](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-review)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-model-context-protocol/badge)
+
+* [The Problem MCP Solves](#the-problem-mcp-solves)
+* [How MCP Works](#how-mcp-works)
+* [MCP Servers Explained](#mcp-servers-explained)
+* [Common Questions](#common-questions)

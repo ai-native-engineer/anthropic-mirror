@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/getting-started-with-claude-for-nonprofits -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Getting started with Claude for nonprofits
+
+Learn how to access Claude's nonprofit pricing, connect to fundraising and donor management tools, and get your team started.
+
+3 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-bxsusxgj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-e856elbs.png)
+
 Claude for nonprofits enhances mission-driven organizations with specialized capabilities, connecting to donor management platforms, foundation research databases, and collaboration tools while maintaining transparency and accountability. Learn more on the [nonprofit solutions page(opens in new tab)](https://claude.com/solutions/nonprofits).
 
 ## How to access nonprofit tools and features
@@ -81,3 +95,10 @@ Visit the [use case library(opens in new tab)](https://academy.claude.com/all?ki
 * **Team plan option greyed out:** Make sure you're signed in to the correct account and have admin permissions
 * **Email domain questions:** All team members don't need the same domain. Learn about [allowed email domains(opens in new tab)](https://support.claude.com/en/articles/13325567-account-management-faqs#h_b54c41c86c).
 * **Connecting tools:** Learn how to [browse and connect tools from the directory(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory).
+
+* [How to access nonprofit tools and features](#how-to-access-nonprofit-tools-and-features)
+* [Nonprofit operations and fundraising connectors](#nonprofit-operations-and-fundraising-connectors)
+* [AI fluency for nonprofits](#ai-fluency-for-nonprofits)
+* [Common nonprofit use cases](#common-nonprofit-use-cases)
+* [Frequently asked questions](#frequently-asked-questions)
+* [Troubleshooting](#troubleshooting)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/getting-started-with-claude-for-life-sciences -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Getting Started with Claude for Life Sciences
+
+Learn what Claude for Life Sciences offers and how to access the connectors and tools that support research, clinical operations, and regulatory workflows.
+
+4 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-nl47vzgi.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-e9qz4tjy.png)
+
 ## What is Claude for Life Sciences
 
 Claude for Life Sciences enhances Claude with specialized capabilities for life sciences researchers and organizations. It connects Claude to the data sources, tools, and systems that teams use daily across R&D, clinical operations, and regulatory affairs — eliminating the need to toggle between platforms and enabling insights that span your entire product lifecycle. The result: accelerated timelines from discovery through approval, with the rigor and traceability these workflows demand.
@@ -45,3 +59,8 @@ You can also add custom connectors to connect Claude directly to the tools and d
 * **Single-cell data processing:** Synthesize days of bioinformatics and computational analysis in minutes with automated cell population identification. Check out the [single-cell-rna-qc skill(opens in new tab)](https://support.claude.com/en/articles/12621831-how-to-use-the-single-cell-rna-qc-skill-with-claude) which gives Claude the ability to perform quality control on single-cell RNA-seq data using scverse best practices.
 * **Experimental design automation:** Generate literature-informed experimental designs automatically.
 * **Figure interpretation and analysis:** Accelerate figure creation and analysis with automated visualization.
+
+* [What is Claude for Life Sciences](#what-is-claude-for-life-sciences)
+* [How do I access life sciences tools and features?](#how-do-i-access-life-sciences-tools-and-features)
+* [Connectors for the life sciences development cycle](#connectors-for-the-life-sciences-development-cycle)
+* [Common research & discovery use cases](#common-research-discovery-use-cases)

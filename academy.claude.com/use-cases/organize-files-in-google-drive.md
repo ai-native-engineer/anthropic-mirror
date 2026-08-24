@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/organize-files-in-google-drive -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Organize files in Google Drive
+
+Claude in Chrome sorts through your Drive, creates a folder structure, moves files where they belong, and flags duplicates and old files for you to review. You approve the changes instead of doing the sorting yourself.
+
+15 minPersonalClaude in Chrome
+
+Get Claude in ChromeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-otq7e1m0.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-h3av1hun.png)
+
 ![Organize files in Google Drive result](https://academy.claude.com/assets/v1/organize-files-in-google-drive-mhi29x6i.png)
 
 ## 1. Describe the task
@@ -19,7 +33,7 @@ I need to organize my Google Drive by reviewing all files and creating a logical
 
 **Before moving files:** Show me your proposed folder structure and any files you're uncertain about. I'll review before you finalize.
 
-Copy prompt
+Copy prompt
 
 ## 2. Give Claude context
 
@@ -92,7 +106,7 @@ Clean up redundant copies once you've confirmed which version to keep. Claude ca
 
 Go ahead and delete the duplicate files you found. Keep the most recent version of each.
 
-Copy prompt
+Copy prompt
 
 ### Archive old files
 
@@ -100,7 +114,7 @@ Move untouched files out of your main view without deleting them. Useful for any
 
 Move everything that hasn't been opened in over a year to an Archive folder. I'll look through it later but get it out of my main view.
 
-Copy prompt
+Copy prompt
 
 ### Rename files consistently
 
@@ -108,7 +122,7 @@ Replace generic names with descriptive ones based on file contents. Easier to se
 
 A lot of these files have useless names like 'Document (3)' or 'Screenshot 2023-04-12'. Can you rename them based on what's actually in them?
 
-Copy prompt
+Copy prompt
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -130,4 +144,11 @@ Claude in Chrome is available to all paid subscribers. Install the extension and
 
 I need to organize my Google Drive by reviewing all files and creating a logical folder structure.
 
-Get Claude in Chrome
+Get Claude in Chrome
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

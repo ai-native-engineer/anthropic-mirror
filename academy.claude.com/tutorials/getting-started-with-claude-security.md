@@ -1,5 +1,17 @@
 <!-- source: https://academy.claude.com/tutorials/getting-started-with-claude-security -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Getting started with Claude Security
+
+Getting started with Claude Security
+
+6 minClaude Security
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-h62nz1hq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jcrg0885.png)
+
 ![](https://academy.claude.com/assets/media/7442485a1a64b789216cc80456f7ff291b578839cef64d75787bda356a6840e9.png)
 
 Claude Security is a capability built into Claude.ai, which scans your codebases for security vulnerabilities and suggests targeted software patches for you to review, allowing you and your team to find and fix security issues that traditional methods often miss (See our [announcement(opens in new tab)](https://claude.com/product/claude-security) for more). It is a beta feature available to Claude Enterprise accounts.
@@ -17,8 +29,6 @@ Before you can use Claude Security, the following requirements must be in place:
 * **Extra Usage**: Extra usage needs to be enabled in order for consumption billing to work.
 * **GitHub App Installed:** Your administrator must have installed the Anthropic GitHub App and granted it access to the repositories you wish to scan. This is the same GitHub App used for Claude Code on the Web.
 * **User Seats:** Each user who will run scans needs a premium seat on your organization’s Claude.ai account.
-
-
 
 **Note:** Claude Security currently supports repositories hosted on GitHub.com.
 
@@ -66,6 +76,10 @@ To make ongoing use easier, you can:
 * **When triaging findings, set dismissal reasons to create an audit trail and clarity for future reviewers.**
 * **Scope large repositories.** For large repositories or monorepos, we recommend scoping scans to individual modules or subdirectories rather than running against the full repo. Narrower scope increases determinism and focuses the agent's attention, while still allowing it to trace logic and pull context from across the broader codebase as needed.
 
-
-
 For more information and FAQ, please visit our [support center.(opens in new tab)](https://support.claude.com/en/articles/14661296-use-claude-security)
+
+* [Prerequisites](#prerequisites)
+* [Setup](#setup)
+* [Running a Scan](#running-a-scan)
+* [Reviewing and Acting on Findings](#reviewing-and-acting-on-findings)
+* [Operationalizing the tool for ongoing use](#operationalizing-the-tool-for-ongoing-use)

@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/ask-the-company -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Build an 'Ask the Company' agent
+
+Plain-English answers over your wiki, code, and warehouse.
+
+10 minEngineeringClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-mjmk2gjq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bpm7r9eg.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Engineering plugin ships with `/documentation` as a starting point, already structured to fan out across connected sources, cite what it finds, and name an owner when it's not sure. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 EngineeringStreamline engineering workflows — standups, code review, architecture decisions, incident response, and technical documentation. Works with your existing tools or standalone.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=engineering)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=engineering)
 
 `/documentation`Write and maintain technical documentation.
 
@@ -22,7 +32,7 @@ EngineeringStreamline engineering workflows — standups, code review, architect
 
 [Run](claude://cowork/new?q=%2Farchitecture)
 
-Show all 10 skills
+Show all 10 skills
 
 ### Connect your tools
 
@@ -36,7 +46,7 @@ Confluence
 
 Search the wiki and runbooks for the documented answer first. Confluence access comes through the Atlassian Rovo connector (Jira and Confluence).
 
-[Connect](https://claude.ai/desktop/directory/atlassian)
+[Connect](https://claude.ai/desktop/directory/atlassian)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23181717'%20d='M12%20.3a12%2012%200%200%200-3.8%2023.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73%201.2.09%201.84%201.24%201.84%201.24%201.07%201.83%202.81%201.3%203.49%201%20.11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93%200-1.31.47-2.38%201.24-3.22-.13-.3-.54-1.52.11-3.18%200%200%201.01-.32%203.3%201.23a11.5%2011.5%200%200%201%206%200c2.29-1.55%203.3-1.23%203.3-1.23.65%201.66.24%202.88.12%203.18.77.84%201.23%201.91%201.23%203.22%200%204.61-2.8%205.63-5.48%205.92.43.37.81%201.1.81%202.22v3.29c0%20.32.22.7.82.58A12%2012%200%200%200%2012%20.3'/%3e%3c/svg%3e)
 
@@ -44,19 +54,15 @@ GitHub
 
 Read code, READMEs, and CODEOWNERS to answer "how does X work" and "who owns X."
 
-[Connect](https://claude.ai/desktop/directory/github)
-
-
+[Connect](https://claude.ai/desktop/directory/github)
 
 SnowflakeOptional
 
 Query the warehouse for "how many" and "why did the metric move" questions.
 
-[Connect](https://claude.ai/desktop/directory/snowflake)
+[Connect](https://claude.ai/desktop/directory/snowflake)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -72,7 +78,7 @@ glossary.mdMar 2, 202611 KB
 
 team-directory.mdApr 1, 20266 KB
 
-In Cowork’s chat bar:Platform / ask-company
+In Cowork’s chat bar:Platform / ask-company
 
 ## The prompt
 
@@ -80,35 +86,33 @@ In Cowork’s chat bar:Platform / ask-company
 
 Build an internal "ask anything" agent for engineers. When someone asks "how do I get a staging API key," "what owns the orders table," or "why did deploys slow down last month," find the answer across our systems, cite the source, and tell them who to ask if you're not sure. Get one good answer first, then turn it into a shared skill.
 
-
-
-Platform / ask-companyOpen in Cowork
+Platform / ask-companyOpen in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Give an example for each question type.** A how-to, an ownership lookup, a metric why: covers the question types engineers actually ask.
 
-Prompt
+Prompt
 
 **Cite the source, every time.** Engineers trust the link, not the prose; citations make the answer verifiable.
 
-Prompt
+Prompt
 
 **Name an owner when unsure.** Asking for "the owning team or channel" gives Claude something to fall back on when it's not confident. You get a pointer to follow up on instead of a guess to verify.
 
-Source
+Source
 
 **Put reference docs in the working folder.** Service catalog and team directory tell Cowork where to look and who to point to.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -118,11 +122,7 @@ The plugin's `/documentation` is a generic starting point. Once Step 2 answers y
 
 Make what we've done in this task so far into a skill, or edit the /documentation skill with my feedback.
 
-
-
-Platform / ask-companyOpen in Cowork
-
-
+Platform / ask-companyOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -138,23 +138,19 @@ The agent gets better when you know where it falls short. Type `/schedule` or op
 
 **/schedule** Every Friday at 4pm, list the questions /documentation couldn't confidently answer this week, group them by topic, and write them to Platform/ask-company/gaps-<week>.md with a suggested owner for each.
 
-
+Platform / ask-companyOpen in Cowork
 
-Platform / ask-companyOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Ask-company gap report
 
 Weekly, lists the questions the agent couldn't answer, groups them by topic, and writes a gap report with suggested owners.
 
-Every **Friday at 4:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **Friday at 4:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/documentation` now carries your sources, your routing table, and your confidence rules. Share it workspace-wide so every engineer asks the company the same way, and the answer to "how do I…" stops depending on who's in the channel.
-
-
 
 Share the skill
 
@@ -166,4 +162,11 @@ Internal questions get a sourced answer from across your wiki, code, and warehou
 
 You did this for everyday engineering questions. The same approach covers on-call runbook lookup, data-catalog search, and new-hire onboarding — each one becomes a skill in your team's shared plugin.
 
-[Next: Write the design doc or RFC](https://academy.claude.com/use-cases/design-doc)
+[Next: Write the design doc or RFC](https://academy.claude.com/use-cases/design-doc)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [What changes for the org](#what-changes-for-the-org)

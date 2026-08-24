@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/see-budget-futures-side-by-side -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# See budget futures side by side, in chat with Claude
+
+Type your budget split and the thing that might change, and Claude draws three scenarios next to each other with a toggle between dollars and percentages. Click any scenario for a one-line read on where the real pressure lands.
+
+15 minFinanceClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-j2rbxebc.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-orwc7e0m.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Here an ED might lose a major grant and needs to walk into a board call with a c
 
 We might lose our $400K federal grant next year. Current budget is about $2.1M: Roughly 60% programs, 25% ops, 15% fundraising. Show me three scenarios side by side: We lose the grant, we stay flat, it grows a bit. I want to flip between dollars and percentages, and if I click a scenario give me the one-line version of what it actually means.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -42,9 +52,7 @@ A proportional cut is rarely what you'd actually do, so the button holds one cat
 
 Rerun Scenario A but hold fundraising at the current dollar amount. Show me where the extra cut goes and rewrite the one-liner.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to stretch one scenario across time
 
@@ -52,9 +60,7 @@ A one-time cut looks different from a taper, so asking Claude to redraw with a s
 
 What if the grant doesn't drop all at once? Say we lose half in year one and the rest in year two. Redraw Scenario A across two years and tell me if that changes the read.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to write the board-ready version
 
@@ -62,9 +68,7 @@ The bars show you the shape, but what the board needs is a sentence, and Claude 
 
 For each of the three scenarios, write me the one sentence I'd say to the board. The real tradeoff, not the numbers.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -86,4 +90,11 @@ Try it on the budget question you've been re-cutting in a spreadsheet. Type your
 
 We might lose our $400K federal grant next year. Current budget is about $2.1M: Roughly 60% programs, 25% ops, 15% fundraising. Show me three scenarios side by side: We lose the grant, we stay flat, it grows a bit. I want to flip between dollars and percentages, and if I click a scenario give me the one-line version of what it actually means.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

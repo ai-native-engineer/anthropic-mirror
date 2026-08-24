@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks -->
 
-Lesson 3 of 14 · Introduction to Claude CoworkWhat Claude Cowork can do for you
+Lesson 3 of 14 · Introduction to Claude CoworkWhat Claude Cowork can do for you
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# What Claude Cowork can do for you
+
+Lesson 310 min
+
+In this lessonBy the end, you’ll be able to
+
+* Spot the three patterns of work that suit Cowork: multi-step, file-based, multi-tool
+* Set up a scheduled task with /schedule
+* Run Cowork tasks in the cloud (in beta, on eligible plans), and start or check on them from your phone or any browser
 
 ## What makes a task right for Claude Cowork
 
@@ -29,13 +43,9 @@ Examples:
 
 Explore the interactive below to see how Cowork performs across the three patterns.
 
-Loading
-
 The through-line across all three patterns is the same: work that used to mean juggling steps, files, and tools in your own head can now be handed off as a single task. When you spot that shape, give it to Cowork.
 
 ## Scheduled tasks: have Claude work on a cadence
-
-Loading
 
 Scheduled Tasks in Cowork: Set it once, Claude handles the rest
 
@@ -68,8 +78,6 @@ Examples:
 * On the way in, you remember today's client call needs a one-page summary of last quarter's support tickets. From the Claude app on your phone, ask Cowork to pull the quarter's tickets from your connected support tool and draft the one-pager. It gets started while you commute; you review the draft when you're at your desk.
 * A vendor sends revised contract terms while you're at an offsite. From your phone, ask Cowork to compare them against last year's agreement in your Drive and list every change. When it's done, read the comparison from your phone or any browser.
 
-Loading
-
 If you don't have Cowork in the cloud yet, availability varies by plan and by your organization as the beta rolls out.
 
 ## Bringing it together
@@ -83,3 +91,46 @@ Look at your calendar or to-do list for this week. Pick one piece of work that m
 ## What’s next
 
 In the next lesson, you'll walk through delegating that task end to end — from prompt to finished deliverable.
+
+[Previous lessonSetting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)[Next lessonHand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Lesson 3 of 14 · Introduction to Claude CoworkWhat Claude Cowork can do for you
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [What makes a task right for Claude Cowork](#what-makes-a-task-right-for-claude-cowork)
+* [Scheduled tasks: have Claude work on a cadence](#scheduled-tasks-have-claude-work-on-a-cadence)
+* [Run Cowork in the cloud: work away from your desk](#run-cowork-in-the-cloud-work-away-from-your-desk)
+* [Bringing it together](#bringing-it-together)
+* [Lesson reflection](#lesson-reflection)
+* [What’s next](#whats-next)

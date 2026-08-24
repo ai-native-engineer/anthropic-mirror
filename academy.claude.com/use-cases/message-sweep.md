@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/message-sweep -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Slack and Teams message sweep
+
+A topic-grouped sweep of your important channels.
+
+10 minClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-jabaz0im.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nbrkrt31.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Productivity plugin ships with `/start` and other personal-inbox skills as a starting point, already structured to read across apps and sort by urgency. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 Productivity6 skills for inbox sweeps, daily rundowns, meeting prep, and decision logs
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=productivity)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=productivity)
 
 `/start`Sweep unreads across Slack, Teams, and email and group by topic
 
@@ -22,7 +32,7 @@ Productivity6 skills for inbox sweeps, daily rundowns, meeting prep, and decisio
 
 [Run](claude://cowork/new?q=%2Fupdate)
 
-Show all 4 skills
+Show all 4 skills
 
 ### Connect your tools
 
@@ -34,7 +44,7 @@ Navigate to **Customize → Connectors** in Cowork to set up.
 
 Slack
 
-[Connect](https://claude.ai/desktop/directory/slack)
+[Connect](https://claude.ai/desktop/directory/slack)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23F25022'%20d='M1%201h10.5v10.5H1z'/%3e%3cpath%20fill='%237FBA00'%20d='M12.5%201H23v10.5H12.5z'/%3e%3cpath%20fill='%2300A4EF'%20d='M1%2012.5h10.5V23H1z'/%3e%3cpath%20fill='%23FFB900'%20d='M12.5%2012.5H23V23H12.5z'/%3e%3c/svg%3e)
 
@@ -42,17 +52,15 @@ Microsoft 365
 
 Sweep Teams chats and Outlook threads so the daily roundup covers the Microsoft side too.
 
-[Connect](https://claude.ai/desktop/directory/microsoft-365)
+[Connect](https://claude.ai/desktop/directory/microsoft-365)
 
 ![](data:image/svg+xml,%3csvg%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_4766_38693)'%3e%3cpath%20d='M11.9091%2034H16.3636V23.6969L10%2019.1515V32.1818C10%2033.1879%2010.8559%2034%2011.9091%2034Z'%20fill='%234285F4'/%3e%3cpath%20d='M31.6364%2034H36.0909C37.1473%2034%2038%2033.1848%2038%2032.1818V19.1515L31.6364%2023.6969'%20fill='%2334A853'/%3e%3cpath%20d='M31.6364%2015.8182V23.6969L38%2019.1515V16.7272C38%2014.4788%2035.305%2013.1969%2033.4182%2014.5454'%20fill='%23FBBC04'/%3e%3cpath%20d='M16.3636%2023.697V15.8182L24%2021.2727L31.6364%2015.8182V23.697L24%2029.1515'%20fill='%23EA4335'/%3e%3cpath%20d='M10%2016.7272V19.1515L16.3636%2023.6969V15.8182L14.5818%2014.5454C12.6918%2013.1969%2010%2014.4788%2010%2016.7272Z'%20fill='%23C5221F'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4766_38693'%3e%3crect%20width='28'%20height='20'%20fill='white'%20transform='translate(10%2014)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e)
 
 Gmail
 
-[Connect](https://claude.ai/desktop/directory/gmail-gmailmcp)
+[Connect](https://claude.ai/desktop/directory/gmail-gmailmcp)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -66,7 +74,7 @@ sweep-2026-04-24.mdApr 24, 20263 KB
 
 sweep-2026-04-23.mdApr 23, 20262 KB
 
-In Cowork’s chat bar:Notes / Inbox-Sweeps
+In Cowork’s chat bar:Notes / Inbox-Sweeps
 
 ## The prompt
 
@@ -74,35 +82,33 @@ In Cowork’s chat bar:Notes / Inbox-Sweeps
 
 Sweep my unread Slack DMs and mentions, Teams activity feed, and Gmail inbox from the last 24 hours. Group everything by topic, not by app. For each topic, tell me whether it needs a reply from me, needs reading, or is just FYI. Draft a reply for everything in the first bucket and keep each to three sentences or fewer.
 
-
-
-Notes / Inbox-SweepsOpen in Cowork
+Notes / Inbox-SweepsOpen in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Say how to group the results.** The same conversation often spans a Slack thread, a Teams ping, and an email; "by topic, not by app" collapses them into one item so you reply once instead of three times.
 
-Prompt
+Prompt
 
 **Sort by the action needed.** Separating "needs a reply" from "needs me to read it" from "FYI" means the drafts only land where you'd actually type, and the rest is skimmable.
 
-Prompt
+Prompt
 
 **Set a length limit.** "Three sentences or fewer" keeps the replies in your voice for a quick edit-and-send rather than a paragraph you'd never write yourself.
 
-Source
+Source
 
 **Let the connected tools supply context.** Slack, Teams, and Gmail are read live through the connectors, so the sweep reflects what's actually sitting unread right now, not a stale export.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -112,11 +118,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /start skill with my feedback.
 
-
-
-NotesOpen in Cowork
-
-
+NotesOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -128,23 +130,19 @@ The sweep should be waiting before you open Slack. Type `/schedule` in the promp
 
 **/schedule** Run /start every weekday at 8:00am against Slack, Teams, and Gmail, and post the topic-grouped sweep with drafts to me as a Slack DM.
 
-
+NotesOpen in Cowork
 
-NotesOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Morning message sweep
 
 Runs `/start` across Slack, Teams, and Gmail and DMs you the topic-grouped list with reply drafts.
 
-Every **weekday at 8:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **weekday at 8:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/start` now carries your channel list, your priority senders, and your skip rules. Share it so teammates with the same channels get the same sorted morning, and new joiners inherit the watch-list on day one.
-
-
 
 Share the skill
 
@@ -156,7 +154,7 @@ In Cowork, open **Skills** → `/start` → **Share** and pick your teammates (o
 
 Your processes
 
-Productivity plugin
+Productivity plugin
 
 Your tools
 
@@ -164,8 +162,15 @@ Your tools
 
 Your workspace
 
-Inbox-Sweeps
+Inbox-Sweeps
 
 `/start` groups your unreads across Slack, Teams, and email by topic, with drafts ready for the messages that need a reply — one list to act on instead of three apps to check.
 
-[Next: Prep call look-ahead](https://academy.claude.com/use-cases/week-ahead-prep)
+[Next: Prep call look-ahead](https://academy.claude.com/use-cases/week-ahead-prep)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [Going forward](#going-forward)

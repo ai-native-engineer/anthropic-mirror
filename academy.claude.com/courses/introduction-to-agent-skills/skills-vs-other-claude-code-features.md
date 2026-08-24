@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features -->
 
-Lesson 4 of 6 · Introduction to agent skillsSkills vs. other Claude Code features
+Lesson 4 of 6 · Introduction to agent skillsSkills vs. other Claude Code features
+
+3. /[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+# Skills vs. other Claude Code features
+
+Lesson 46 min
+
+In this lessonBy the end, you’ll be able to
+
+* Compare skills to CLAUDE.md, subagents, hooks, and MCP servers
+* Choose the right Claude Code customization feature for a given use case
+* Design a complementary setup that combines multiple features effectively
 
 ## Skills vs. other Claude Code features
-
-Loading
 
 Skills vs. other Claude Code features · 3 min
 
@@ -100,3 +112,27 @@ Use skills when you have knowledge that Claude should apply automatically when t
 ## What's next
 
 In the next lesson, you'll learn how to share skills with your team and organization — from committing them to repositories, to distributing via plugins, to enterprise-wide deployment through managed settings.
+
+[Previous lessonConfiguration and multi-file skills](https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills)[Next lessonSharing skills](https://academy.claude.com/courses/introduction-to-agent-skills/sharing-skills)
+
+Lesson 4 of 6 · Introduction to agent skillsSkills vs. other Claude Code features
+
+Lessons
+
+* [What are skills?](https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills)
+* [Creating your first skill](https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill)
+* [Configuration and multi-file skills](https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills)
+* [Skills vs. other Claude Code features](https://academy.claude.com/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features)
+* [Sharing skills](https://academy.claude.com/courses/introduction-to-agent-skills/sharing-skills)
+* [Troubleshooting skills](https://academy.claude.com/courses/introduction-to-agent-skills/troubleshooting-skills)
+
+* [Course complete](https://academy.claude.com/courses/introduction-to-agent-skills/complete)
+
+* [Skills vs. other Claude Code features](#skills-vs-other-claude-code-features)
+* [Key takeaways](#key-takeaways)
+* [CLAUDE.md vs Skills](#claudemd-vs-skills)
+* [Skills vs Subagents](#skills-vs-subagents)
+* [Skills vs Hooks](#skills-vs-hooks)
+* [Putting It All Together](#putting-it-all-together)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

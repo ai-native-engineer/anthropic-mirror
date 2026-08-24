@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/getting-started-with-claude-for-financial-services -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Getting Started with Claude for Financial Services
+
+Introduction to Claude for Financial Services connecting professionals to key data sources through AI for market analysis and investment research.
+
+2 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-molyh3zn.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dr7exrd4.png)
+
 Claude for Financial Services transforms how financial professionals analyze markets, conduct research, and make investment decisions by providing direct access to essential data sources through a unified interface.
 
 ## What is Claude for Financial Services?
@@ -43,3 +57,9 @@ Claude for Financial Services includes specialized training and support designed
 For questions about Claude for Financial Services, [contact our Sales team(opens in new tab)](https://claude.com/contact-sales).
 
 **Note:** Claude for Financial Services is built for research and analysis - not investment advice.
+
+* [What is Claude for Financial Services?](#what-is-claude-for-financial-services)
+* [Financial data provider connectors](#financial-data-provider-connectors)
+* [Getting started](#getting-started)
+* [Common use cases](#common-use-cases)
+* [Support and training](#support-and-training)

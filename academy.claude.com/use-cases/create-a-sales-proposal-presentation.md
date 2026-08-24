@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/create-a-sales-proposal-presentation -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create a sales proposal presentation
+
+Create a polished client proposal deck with professional layouts data visualizations and cohesive design—then refine through feedback until it matches your standards.
+
+15 minSalesClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-3h1av45a.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-eukoxmfk.png)
+
 ![Create a sales proposal presentation result](https://academy.claude.com/assets/v1/create-a-sales-proposal-presentation-ixxpg950.png)
 
 ## 1. Describe the task
@@ -16,9 +30,7 @@ I'm putting together a proposal deck for Midwest Regional Health, a healthcare n
 
 **Design direction:** Clean and professional, but not sterile. I want something modern and approachable while still appropriate for hospital executives. Use premium typography (not default fonts) and our brand colors from the logo I'm uploading. Make sure text is conservatively sized so nothing gets cut off, and verify that no elements overlap.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -34,9 +46,9 @@ Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/artic
 
 Google Drive
 
-[Connect](https://claude.ai/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ![](https://academy.claude.com/surfaces/powerpoint-icon.svg)
 
@@ -46,15 +58,13 @@ Past proposal slidesPPTX
 
 Discovery call notesDOC
 
-
-
 Company logoJPEG
 
 ### Optional context
 
 For more complex, multi-step tasks turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) in the chat input bar for Claude to consider sophisticated layouts and narrative structure throughout the slides.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -86,9 +96,7 @@ Pricing is where hospital executives slow down, so give that slide its own pass.
 
 The pricing slide is too dense. Split the implementation fee and the annual subscription into separate line items, and move the support details into a smaller note at the bottom. Keep the layout consistent with the rest of the deck.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Reframe the story around their goals
 
@@ -96,9 +104,7 @@ Their RFP already names what they care about, so borrow its language.
 
 Rewrite the executive summary to lead with the three challenges from the discovery notes, then show how we address each one. Use the same terms their RFP uses for their goals, and keep it to four bullet points.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -126,4 +132,11 @@ Pull the relevant information to build out these slides: Make sure to include ex
 
 Design direction: Clean and professional, but not sterile. I want something modern and approachable while still appropriate for hospital executives. Use premium typography (not default fonts) and our brand colors from the logo I'm uploading. Make sure text is conservatively sized so nothing gets cut off, and verify that no elements overlap.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/work-through-grant-options-in-chat-with-claude -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Work through grant options in chat
+
+Claude plots every funder in one view — odds, award, deadline, effort — and you filter, test scenarios, ask for a prioritization, narrow down together. For decisions where no single sort order shows the full picture.
+
+15 minResearchClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-ca7px1ry.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-b21nei0w.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Here a researcher has a long list and needs to decide which few to write. Claude
 
 I'm planning grant submissions for next year and there are a lot of funders to choose between. Can you show me the tradeoffs in a way I can actually see — like, which ones are long shots for big money versus safer bets for smaller awards? Flag anything with a deadline coming up soon.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -38,9 +48,7 @@ Click any point on the chart and Claude expands it below — the chart stays, th
 
 The NSF CAREER dot — open it up. Deadline, page limits, what makes an application competitive.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to write a schedule from the chart
 
@@ -48,9 +56,7 @@ Claude writes a week-by-week schedule using the deadlines from the chart, with s
 
 Turn the next-90-days grants into a submission timeline. Work backwards from each deadline and tell me when to start each one.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Tell Claude what's changed and it redraws the chart
 
@@ -58,9 +64,7 @@ Claude redraws the chart with your update — the submitted grant moves to in-pr
 
 I submitted the R03 yesterday. Redraw with that one marked as in-progress and re-rank what's left.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -82,4 +86,11 @@ Try it on the decision you've been re-sorting — describe the tradeoffs you're 
 
 I'm planning grant submissions for next year and there are a lot of funders to choose between. Can you show me the tradeoffs in a way I can actually see — like, which ones are long shots for big money versus safer bets for smaller awards? Flag anything with a deadline coming up soon.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

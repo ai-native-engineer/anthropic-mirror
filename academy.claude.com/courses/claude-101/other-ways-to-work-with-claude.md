@@ -1,14 +1,24 @@
 <!-- source: https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude -->
 
-Lesson 12 of 13 · Claude 101Other ways to work with Claude
+Lesson 12 of 13 · Claude 101Other ways to work with Claude
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# Other ways to work with Claude
+
+Lesson 1215 min
+
+In this lessonBy the end, you’ll be able to
+
+* Understand when to use additional Claude products including Claude Code, Claude Tag, Claude Design, Claude for Microsoft 365, and Claude in Chrome
 
 As we mentioned at the start of this course, Claude is an intelligence. [Claude.ai(opens in new tab)](https://Claude.ai) is just one way of working with it.
 
 Claude is also available in several specialized tools designed to meet you where you already work. This lesson introduces additional ways to work with Claude, each tailored to specific workflows and use cases.
 
 ## Claude Code
-
-Loading
 
 Claude Code
 
@@ -26,8 +36,6 @@ language.
 * You prefer working in your terminal alongside your existing IDE and development tools rather than switching to a separate interface
 
 ## Claude Tag
-
-Loading
 
 Claude Tag
 
@@ -55,8 +63,6 @@ Claude Design is a dedicated space for turning ideas into working interfaces. De
 * You want a prototype that uses your team's design system, so what you hand off matches what engineering will build
 
 ## Claude for Excel
-
-Loading
 
 Claude for Excel
 
@@ -99,8 +105,6 @@ Claude for Word brings Claude into Microsoft Word as a sidebar, so you can draft
 
 Claude for Outlook brings Claude into your inbox as a sidebar, so you can triage mail, draft replies with context from related threads and your calendar, and turn a long email chain into a clear summary or a set of next steps.
 
-
-
 Availability
 
 Claude for Outlook is currently in beta and is installed separately from the
@@ -109,8 +113,6 @@ other Microsoft 365 add-ins. See
 for setup.
 
 ## Claude in Chrome
-
-Loading
 
 Claude in Chrome
 
@@ -125,8 +127,6 @@ directly within your browser.
 * You're filling out repetitive forms and want to automate the process
 * You want to test website features or navigate multi-step workflows without manually clicking through each step
 * You need a browsing assistant that maintains context as you move between tabs and tasks. This makes it great for pulling context from niche internal tools, CRMs, or dashboards.
-
-
 
 Important note
 
@@ -155,3 +155,49 @@ Each of these tools extends Claude's capabilities into the specific environments
 ## What's next
 
 Wrap up with a short recap of this course and a quiz to earn your completion badge that you can share on LinkedIn, and with your team.
+
+[Previous lessonClaude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)[Next lessonWhat's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+
+Lesson 12 of 13 · Claude 101Other ways to work with Claude
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [Claude Code](#claude-code)
+* [Claude Tag](#claude-tag)
+* [Claude Design](#claude-design)
+* [Claude for Excel](#claude-for-excel)
+* [Claude for PowerPoint](#claude-for-powerpoint)
+* [Claude for Word](#claude-for-word)
+* [Claude for Outlook](#claude-for-outlook)
+* [Claude in Chrome](#claude-in-chrome)
+* [Summary](#summary)
+* [What's next](#whats-next)

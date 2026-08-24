@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/stand-behind-what-you-build -->
 
-Lesson 8 of 9 · AI Fluency for BuildersStand behind what you build
+Lesson 8 of 9 · AI Fluency for BuildersStand behind what you build
+
+3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+
+[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+
+# Stand behind what you build
+
+Lesson 815 min
+
+In this lessonBy the end, you’ll be able to
+
+* Articulate what you own when you ship something AI helped build
+* Identify the technical realities that surface at ship time and build feedback loops that catch them
+* Make the call: ship it, fix it, or stop it
 
 ## Diligence & sharing your work
-
-Loading
 
 Diligence & sharing your work · 3 min
 
@@ -45,3 +57,43 @@ Once you’ve worked through these, deploy your app or host it as a prototype, s
 ## What's next
 
 You’ve built, evaluated, and shipped the Clinic Wait Time Checker. In the final lesson, you’ll bring the full 4D Framework together and leave with a real task already in motion.
+
+[Previous lessonDiscernment for user experience](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-user-experience)[Next lessonClosure & looking forward](https://academy.claude.com/courses/ai-fluency-for-builders/closure-looking-forward)
+
+Lesson 8 of 9 · AI Fluency for BuildersStand behind what you build
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-builders/the-4d-framework)
+
+How AI works
+
+* [AI capabilities & limitations](https://academy.claude.com/courses/ai-fluency-for-builders/ai-capabilities-and-limitations)
+
+The 4D framework for builders
+
+* [Delegation & the builder's toolkit](https://academy.claude.com/courses/ai-fluency-for-builders/delegation-the-builder-s-toolkit)
+* [Description & building great things](https://academy.claude.com/courses/ai-fluency-for-builders/description-building-great-things)
+
+Discernment for builders
+
+* [Discernment for code](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-code)
+* [Discernment for user experience](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-user-experience)
+
+Tying it all together
+
+* [Stand behind what you build](https://academy.claude.com/courses/ai-fluency-for-builders/stand-behind-what-you-build)
+
+Wrapping up
+
+* [Closure & looking forward](https://academy.claude.com/courses/ai-fluency-for-builders/closure-looking-forward)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-builders/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-builders/badge)
+
+* [Diligence & sharing your work](#diligence-sharing-your-work)
+* [Key takeaways](#key-takeaways)
+* [Exercise](#exercise)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

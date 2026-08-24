@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/plan-your-syllabus-see-which-weeks-are-locked -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Plan your syllabus
+
+Attach your syllabus and Claude shows which weeks are locked by real prerequisites and which you're free to rearrange — right in chat as you work through the order.
+
+10 minEducationClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-d63z6zqx.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ejq94ftq.png)
 
 ## 1. Describe the task
 
@@ -12,9 +24,7 @@ Here an econ professor keeps reordering the middle of a fifteen-week intro cours
 
 I'm building a 15-week Intro to Macro syllabus and I keep second-guessing the order. Can you map out which topics actually depend on which — like, what do they need to get first before the later stuff makes sense? I want to see where I have flexibility and where the sequence is locked. If I click a topic, tell me if there's another common way to order it.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -23,8 +33,6 @@ Attach the working syllabus — topic list with week numbers is enough. If you'r
 ### Required context
 
 The syllabus.
-
-
 
 Previous syllabusPDF
 
@@ -44,9 +52,7 @@ Try a reorder before you commit to it — name the move, Claude redraws, and any
 
 Redraw the map with Money & Banking in Week 4 instead of Week 8. Show me what downstream topics lose a prereq.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to write the revised syllabus from the graph
 
@@ -54,9 +60,7 @@ Claude writes the week-by-week syllabus based on the order you landed on in the 
 
 Write the revised schedule based on the reorder we landed on. Week by week, with chapter mappings.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -78,4 +82,11 @@ Try it on the syllabus where the middle keeps moving around — attach it, ask w
 
 I'm building a 15-week Intro to Macro syllabus and I keep second-guessing the order. Can you map out which topics actually depend on which — like, what do they need to get first before the later stuff makes sense? I want to see where I have flexibility and where the sequence is locked. If I click a topic, tell me if there's another common way to order it.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

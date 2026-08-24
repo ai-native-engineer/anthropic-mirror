@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-101/skills -->
 
-Lesson 10 of 12 · Claude Code 101Skills
+Lesson 10 of 12 · Claude Code 101Skills
 
-Loading
+3. /[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+# Skills
+
+Lesson 103 min
 
 Skills
 
@@ -19,3 +25,37 @@ Claude Code has several ways to customize behavior. Skills are unique because th
 Slash commands require you to type them, skills don't. Claude applies them when it recognizes the situation. These work best for specialized knowledge that applies to specific tasks. Code review standards your team follows, commit message formats that you prefer, brand guidelines of your organization. If you find yourself explaining the same thing to Claude repeatedly, well, that's a skill waiting to be written.
 
 **Want to go deeper?** Check out our dedicated course: [Introduction to agent skills(opens in new tab)](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+[Previous lessonSubagents](https://academy.claude.com/courses/claude-code-101/subagents)[Next lessonMCP](https://academy.claude.com/courses/claude-code-101/mcp)
+
+Lesson 10 of 12 · Claude Code 101Skills
+
+What is Claude Code?
+
+* [What is Claude Code?](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)
+* [How Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Your first prompt
+
+* [Installing Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)
+* [Your first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Daily workflows
+
+* [The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+* [Context management](https://academy.claude.com/courses/claude-code-101/context-management)
+* [Code review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Customizing Claude Code
+
+* [The CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
+* [Subagents](https://academy.claude.com/courses/claude-code-101/subagents)
+* [Skills](https://academy.claude.com/courses/claude-code-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-code-101/mcp)
+* [Hooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)

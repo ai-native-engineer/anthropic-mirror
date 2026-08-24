@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/create-digital-recipe-cards -->
 
-![Create digital recipe cards result](https://academy.claude.com/assets/v1/create-digital-recipe-cards-bz3utxkk.png)[Open artifact](https://claude.ai/public/artifacts/9be097fc-d42e-4bd5-92bc-2d20a56eb032)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create digital recipe cards
+
+Turn handwritten family recipes into digitally formatted recipes to save and share.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-guzc56y8.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-iqais9te.png)
+
+![Create digital recipe cards result](https://academy.claude.com/assets/v1/create-digital-recipe-cards-bz3utxkk.png)[Open artifact](https://claude.ai/public/artifacts/9be097fc-d42e-4bd5-92bc-2d20a56eb032)
 
 ## 1. Describe the task
 
@@ -16,9 +30,7 @@ Create an **interactive recipe artifact** (for digital sharing). Include:
 * A small, elegantly integrated "Explore the Tradition" box with buttons that fetch cultural facts when clicked
 * The original handwritten recipe displayed at the end in a museum-quality frame.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -29,15 +41,13 @@ Provide the recipe so Claude can read the handwriting, interpret abbreviations, 
 Upload a photo or file of your recipe card.
 Click the (+) button in the chat bar to browse through your files, or alternatively, drag and drop files into the chat box area. Claude supports various [upload formats(opens in new tab)](https://support.claude.com/en/articles/8241126-what-kinds-of-documents-can-i-upload-to-claude).
 
-
-
 Recipe imageJPEG
 
 ### Optional context
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for higher-quality file creation.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -68,9 +78,7 @@ Turn any recipe into a cooking lesson. Claude can explain the reasoning and scie
 
 Give me a more detailed walkthrough of the entire recipe. Explain the technique behind the sofrito base—why does the order of adding vegetables matter? What's happening chemically when I brown the rice first?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Quickly create shopping lists
 
@@ -78,9 +86,7 @@ Create and save to-do or shopping lists directly to your Notes or Reminders apps
 
 I'm making this recipe this week. Create a shopping list with all the ingredients I need and save it to my Notes app, organized by store section. Then, add a reminder to go to the grocery store after work in my Reminders app.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Create a complete recipe collection
 
@@ -88,9 +94,7 @@ Build a family cookbook from multiple recipes, with matching structure, tone, an
 
 I'm uploading five more family recipes. Format them to match this first one exactly—same layout, typography, color palette—so they feel like a cohesive collection. Create a table of contents page too.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -124,4 +128,11 @@ Create an interactive recipe artifact (for digital sharing). Include:
 • A small, elegantly integrated "Explore the Tradition" box with buttons that fetch cultural facts when clicked
 • The original handwritten recipe displayed at the end in a museum-quality frame.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

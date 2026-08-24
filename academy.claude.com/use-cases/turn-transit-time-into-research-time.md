@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/turn-transit-time-into-research-time -->
 
-![One-page meeting prep summary doc Claude creates: The Case for Simplifying Onboarding, with executive summary and current-state metrics](https://academy.claude.com/assets/v1/turn-transit-time-into-research-time-ilpgqnne.png)[Open artifact](https://claude.ai/public/artifacts/21643ab5-f49d-48d3-ba03-5a75676b6c22)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Turn transit time into research time
+
+Capture rough thoughts by voice on mobile, then let Claude research your ideas and produce polished deliverables at your desk. Claude maintains full context across devices, so your commute becomes productive thinking time.
+
+20 minResearchClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-1w9se75n.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mcqayb1y.png)
+
+![One-page meeting prep summary doc Claude creates: The Case for Simplifying Onboarding, with executive summary and current-state metrics](https://academy.claude.com/assets/v1/turn-transit-time-into-research-time-ilpgqnne.png)[Open artifact](https://claude.ai/public/artifacts/21643ab5-f49d-48d3-ba03-5a75676b6c22)
 
 ## 1. Describe the task
 
@@ -16,9 +30,7 @@ Can you pull in our Q1 planning doc because I need to remember where we landed o
 
 Can you please look through the doc, do some competitor research on their onboarding flows, find any good onboarding stats, and prep me for later? Thanks.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -32,9 +44,9 @@ Enable [web search(opens in new tab)](https://support.claude.com/en/articles/106
 
 Enable Extended Thinking: For complex planning tasks, Extended Thinking helps Claude develop more thorough structures and anticipate gaps in your thinking.
 
-[
+[
 
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
+Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
@@ -129,9 +141,7 @@ Pick up exactly where you left off. Claude remembers the context and is ready to
 
 I'm at my desk now. That research is exactly what I needed. Can you create a one-page summary doc I can share with the team before the meeting? Include the key stats, the competitor examples, and my proposed talking points.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Dig deeper on a specific finding
 
@@ -139,9 +149,7 @@ Ask Claude to expand on the most relevant piece of research. If one insight stoo
 
 The adaptive onboarding trend is interesting. Can you find more examples of companies that moved from linear checklists to contextual onboarding? I want to know what their results looked like before and after.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Pressure-test the argument
 
@@ -149,9 +157,7 @@ Strengthen your argument by understanding what the research says on the other si
 
 What does the research say about when longer onboarding actually works better? Are there cases where more steps improved retention? I don't want to be blindsided if someone brings up a study that contradicts my point.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -181,4 +187,11 @@ Can you pull in our Q1 planning doc because I need to remember where we landed o
 
 Can you please look through the doc, do some competitor research on their onboarding flows, find any good onboarding stats, and prep me for later? Thanks.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

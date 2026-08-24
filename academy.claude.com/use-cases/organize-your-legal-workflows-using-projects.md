@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/organize-your-legal-workflows-using-projects -->
 
-![Organize your legal workflows using Projects result](https://academy.claude.com/assets/v1/organize-your-legal-workflows-using-projects-hkym4oh1.png)[Open artifact](https://claude.ai/public/artifacts/b405e6c9-608b-448a-b2b8-8c8982e582ff)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Organize your legal workflows using Projects
+
+Stop explaining your review standards for every contract. Claude Projects let you upload your playbooks once and reference them automatically across hundreds of reviews.
+
+15 minLegalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-l0eu13eo.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bjr745ao.png)
+
+![Organize your legal workflows using Projects result](https://academy.claude.com/assets/v1/organize-your-legal-workflows-using-projects-hkym4oh1.png)[Open artifact](https://claude.ai/public/artifacts/b405e6c9-608b-448a-b2b8-8c8982e582ff)
 
 ## 1. Describe the task
 
@@ -12,9 +26,7 @@ I've uploaded our NDA playbook, our standard mutual NDA template, and our list o
 
 Then help me craft optimized **project instructions** I can paste into the custom instructions field—instructions that tell Claude to reference the standards guide and apply our approach.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -34,7 +46,7 @@ Sample redlines or review comments: If you have examples of completed reviews, t
 
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking): For complex document analysis and pattern extraction, Extended Thinking helps Claude produce more thorough and nuanced standards guides.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -88,9 +100,7 @@ Create a new Project, upload the Standards Guide to the knowledge base, and past
 
 Here's an NDA we received yesterday from a potential vendor. Review it against our standards guide and flag any deviations. Format your comments the way our associates would, with risk level and recommended alternative language for each issue.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Expand to other contract types
 
@@ -98,9 +108,7 @@ Once your NDA workflow is running, replicate the approach for other high-volume 
 
 We also review about 15 MSAs per month. I'm uploading our MSA playbook and template. Create a separate standards guide for MSA reviews following the same structure as the NDA guide, and give me project instructions I can use for a new MSA Review Project.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Create a training resource for new associates
 
@@ -108,9 +116,7 @@ Turn your systematized approach into onboarding material.
 
 Based on the NDA standards guide, create a training document for new associates joining the contracts team. It should explain our review philosophy, walk through the workflow, and include 3-4 annotated examples showing how we'd handle common issues. Make it something they can reference during their first few weeks.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -144,4 +150,11 @@ I've uploaded our NDA playbook, our standard mutual NDA template, and our list o
 
 Then help me craft optimized project instructions I can paste into the custom instructions field—instructions that tell Claude to reference the standards guide and apply our approach.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

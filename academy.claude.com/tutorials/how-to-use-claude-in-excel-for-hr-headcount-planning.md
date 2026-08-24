@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning -->
 
-Loading
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to use Claude in Excel for HR: Headcount planning
+
+Use Claude to understand inherited spreadsheets, fix formula errors, and run what-if scenarios
+
+20 minClaude in Excel
+
+Watch
+
+![](https://academy.claude.com/assets/v1/thumbnail.dark-ofw0higc.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ofw0higc.png)
 
 [Claude in Excel(opens in new tab)](https://support.claude.com/en/articles/12650343-claude-in-excel) brings Claude directly into your spreadsheet workflow. It appears as a sidebar that can read your entire workbook—every tab, every formula, every relationship between cells—and help you understand, fix, and extend what's there.
 
@@ -38,7 +50,7 @@ The spreadsheet has four tabs—Assumptions, Headcount, Compensation, Summary—
 
 Walk me through this workbook—what's on each tab and how do they connect?
 
-Copy prompt
+Copy prompt
 
 ### 1:18 — Claude maps data flow and finds errors
 
@@ -50,7 +62,7 @@ A #REF! error is cascading through the model. Claude traces it to a deleted cell
 
 There's a #REF! error in cell E15 on the Headcount tab. What's causing it and can you fix it?
 
-Copy prompt
+Copy prompt
 
 ### 2:33 — Choose how to fix it
 
@@ -62,7 +74,7 @@ Change one assumption and see the impact everywhere. Claude updates the model, t
 
 Update the plan to assume 15% attrition instead of 10%. Show me what changes across departments.
 
-Copy prompt
+Copy prompt
 
 ### 4:26 — Create a pivot table and chart
 
@@ -70,7 +82,7 @@ Describe the visualization you need. Claude builds a pivot table from your headc
 
 Create a pivot table showing headcount by department and level, then add a stacked bar chart to visualize it.
 
-Copy prompt
+Copy prompt
 
 ### 5:33 — Build a calculated column with business logic
 
@@ -78,7 +90,7 @@ Ask for a new column and Claude writes actual formulas—not static values. Here
 
 Add a column that calculates the fully-loaded cost per employee using the rates on the Assumptions tab.
 
-Copy prompt
+Copy prompt
 
 ## What to notice
 
@@ -110,3 +122,8 @@ Claude in Excel is available in beta on Max, Team, and Enterprise plans.
 
 * [Claude in Excel help article(opens in new tab)](https://support.claude.com/en/articles/12650343-claude-in-excel)
 * [What is the Max plan?(opens in new tab)](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+
+* [What you can do](#what-you-can-do)
+* [In this video](#in-this-video)
+* [What to notice](#what-to-notice)
+* [Get started](#get-started)

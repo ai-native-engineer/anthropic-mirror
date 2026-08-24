@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/prep-scattered-documents-for-a-compliance-audit -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Prep scattered documents for a compliance audit
+
+Turn a folder of scattered policy documents, contracts, and records into an organized, clearly named collection ready for regulatory review.
+
+15 minLegalClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-lqm2wx2c.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-k7xxgqjb.png)
 
 ## 1. Describe the task
 
@@ -16,9 +28,7 @@ I have 100+ documents for our upcoming SOC 2 audit in this folder. Right now the
 
 Our audit scope covers security, availability, and confidentiality. The audit period is January through December 2024.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -72,9 +82,7 @@ Cowork writes files directly to your folder. Instead of copying output from chat
 
 *"Create a spreadsheet in this folder mapping each SOC 2 control to the documents that support it. Include columns for control ID, description, evidence documents, and coverage status."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Pull evidence from your ticketing system
 
@@ -82,9 +90,7 @@ Use Claude in Chrome for web-based tools. If your change management or incident 
 
 *"I have Jira open with our change management tickets. Pull the last 6 months of change requests and create a summary document showing we follow our change management procedure."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Generate policy summaries for the walkthrough
 
@@ -92,9 +98,7 @@ Create a reference doc for your audit conversations. Cowork reads each policy an
 
 *"Read our policies folder and create a one-page reference doc. For each policy: what it covers, last updated date, and the 2-3 key requirements I should be able to explain."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -122,4 +126,11 @@ I have 100+ documents for our upcoming SOC 2 audit in this folder. Right now the
 
 Our audit scope covers security, availability, and confidentiality. The audit period is January through December 2024.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

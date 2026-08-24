@@ -1,10 +1,21 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/using-data-with-ai -->
 
-Lesson 6 of 9 · AI Fluency for Small BusinessesTransparent AI use
+Lesson 6 of 9 · AI Fluency for Small BusinessesTransparent AI use
+
+3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+
+[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+
+# Transparent AI use
+
+Lesson 645 min
+
+In this lessonBy the end, you’ll be able to
+
+* Articulate privacy concerns and evaluate AI tools based on their data handling policies
+* Practice data hygiene strategies for safely working with sensitive business information
 
 ## The Delegation-Diligence Loop
-
-Loading
 
 Transparent AI use · 7 min
 
@@ -27,7 +38,7 @@ DiligenceVerify, attribute, and own the final product.
 
 Decide what's right to hand off.Be thoughtful upfront: what's the right task, the right tool, and the right data to bring to AI — and what should stay with you?
 
-Hand offThe LoopValidate
+Hand offThe LoopValidate
 
 Own what comes back.Did AI get this right, and am I owning the result? Verify against what you know, be transparent about AI's role, and stand behind the output.
 
@@ -70,3 +81,43 @@ Your Delegation move — deciding what data is appropriate to bring to AI and wh
 ## What's next
 
 In the next lesson, we'll put all four dimensions of the 4D Framework together to automate a full business workflow from start to finish.
+
+[Previous lessonRefining with AI](https://academy.claude.com/courses/ai-fluency-for-small-businesses/researching-with-ai)[Next lessonTying it all together](https://academy.claude.com/courses/ai-fluency-for-small-businesses/tying-it-all-together)
+
+Lesson 6 of 9 · AI Fluency for Small BusinessesTransparent AI use
+
+Introduction and AI Fluency framework
+
+* [AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-fluency-for-small-businesses)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-small-businesses/the-4d-framework)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
+
+The Description-Discernment loop
+
+* [Refining with AI](https://academy.claude.com/courses/ai-fluency-for-small-businesses/researching-with-ai)
+
+The Delegation-Diligence loop
+
+* [Transparent AI use](https://academy.claude.com/courses/ai-fluency-for-small-businesses/using-data-with-ai)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-small-businesses/tying-it-all-together)
+* [Human in the loop](https://academy.claude.com/courses/ai-fluency-for-small-businesses/human-in-the-loop)
+
+Conclusion and badge
+
+* [Closure and looking forward](https://academy.claude.com/courses/ai-fluency-for-small-businesses/closure-and-looking-forward)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-small-businesses/badge)
+
+* [The Delegation-Diligence Loop](#the-delegation-diligence-loop)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

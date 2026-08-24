@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made -->
 
-Lesson 1 of 10 · AI Fluency for pK–12 EducatorsHow this course was made
+Lesson 1 of 10 · AI Fluency for pK–12 EducatorsHow this course was made
+
+3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+# How this course was made
+
+Lesson 11 min
 
 *This course is the result of a partnership between Anthropic and Teach For America, drawing on research with pK–12 educators about their actual needs, concerns, and aspirations for AI adoption.*
 
@@ -15,3 +23,41 @@ Teach For America is a leadership development organization for those who want to
 Teach For America played a central role in shaping this course by contributing real classroom examples, applying pedagogical expertise to ensure the material reflects how educators actually teach and learn, and piloting exercises directly with teachers to gather concrete feedback. This partnership reflects a shared commitment to expanding AI Fluency and empowering educators to use AI effectively, efficiently, ethically, and safely in their teaching practice.
 
 ![Anthropic and Teach For America collaboration](https://academy.claude.com/assets/media/d85a6ae5e69e6e7164048a5978955edc032da820acfccba803b6a55f828dcc7f.jpg)
+
+[Next lessonWelcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)
+
+Lesson 1 of 10 · AI Fluency for pK–12 EducatorsHow this course was made
+
+How this course was made
+
+* [How this course was made](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations)
+
+Using AI responsibly
+
+* [Creating high quality AI outputs](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice)
+* [Ethics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)
+* [AI's constitution, pedagogy, and you](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)
+
+Conclusion and badge
+
+* [Closure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/badge)
+
+* [About Teach For America](#about-teach-for-america)
+* [Course Development Process](#course-development-process)

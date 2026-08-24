@@ -1,5 +1,17 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-enable-claude-code-for-your-enterprise-team -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to enable Claude Code for your Enterprise team
+
+Learn how to add Claude Code seats to your Claude enterprise plan for dependable spending controls and provisioning.
+
+4 minClaude Code
+
+![](https://academy.claude.com/assets/v1/thumbnail.dark-bqj2kb9q.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bqj2kb9q.png)
+
 Managing developer tools across your organization doesn't have to mean juggling multiple platforms and unpredictable costs. With Claude Code available on your Claude for Enterprise plan, you get a single mission control center for both conversational AI and coding assistance — with the built-in spending controls you need as an admin.
 
 In this guide, we'll show you how to add Claude Code seats to your Claude enterprise plan.
@@ -62,3 +74,8 @@ Claude Code transforms how your development teams work by combining the conversa
 This integrated approach means faster prototyping, more efficient debugging, and better code quality across your organization.
 
 Plus, by managing seats centrally, you maintain control over access and costs while giving your teams the AI assistance they need to excel. As your needs evolve, you can instantly adjust seat assignments to match project demands, ensuring the right people have the right tools at the right time.
+
+* [Getting started with seat assignments](#getting-started-with-seat-assignments)
+* [Assigning seats to members](#assigning-seats-to-members)
+* [The Claude Code end-user experience](#the-claude-code-end-user-experience)
+* [One enterprise plan, endless possibilities](#one-enterprise-plan-endless-possibilities)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/contract-redlining-and-negotiation -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Contract redlining and negotiation
+
+Analyze agreements to spot terms affecting your work, with suggested redlines and negotiation points.
+
+15 minLegalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-kpyhwj19.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jva7o5v3.png)
+
 ![Contract redlining and negotiation result](https://academy.claude.com/assets/v1/contract-redlining-and-negotiation-lcs75flx.png)
 
 ## 1. Describe the task
@@ -14,9 +28,7 @@ Create a redlined version that protects us from getting locked into something we
 
 Create a new file that is an exact copy of the contract with track changes enabled. The redlines should show deletions (strikethrough red text) and insertions (underlined colored text). Use a script to create real comments or suggestions in the margins of the doc for each edit explaining the issue. Flag anything that could bite us later.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -32,9 +44,9 @@ Alternatively, paste the Google Doc link in your prompt or drag and drop the fil
 
 Google Drive
 
-[Connect](https://claude.ai/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
@@ -44,7 +56,7 @@ Vendor ContractDOC
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for Claude to spend more time on complex tasks, like conducting thorough analysis.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -81,9 +93,7 @@ Ask Claude to convert your marked-up contract into an approach for your negotiat
 
 Based on the edits, create a negotiation email that's collaborative but clear about our requirements. Prioritize the edits by what matters most, explain why we need each change, and suggest compromise language where we have flexibility.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Adapt the format for easier comparison
 
@@ -91,9 +101,7 @@ Ask Claude to create a comparison table to see all proposed changes in one view.
 
 Create a comparison table showing their original terms, our requested changes, and business impact for each item. Organize by priority so I know what to push hardest on and where we can be flexible.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -119,4 +127,11 @@ Create a redlined version that protects us from getting locked into something we
 
 Create a new file that is an exact copy of the contract with track changes enabled. The redlines should show deletions (strikethrough red text) and insertions (underlined colored text). Use a script to create real comments or suggestions in the margins of the doc for each edit explaining the issue. Flag anything that could bite us later.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

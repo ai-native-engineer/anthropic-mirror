@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-choose-between-voice-mode-and-dictation -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to choose between Claude's Voice Mode and Dictation
+
+Understand when to choose voice mode versus dictation while working with Claude.
+
+6 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-fzn854ec.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-imvtyyxr.png)
+
 **Some problems you can't just talk your way through on your own.** You keep circling the same few options. You can't read what someone actually meant. You know something's off but not where. Those are the moments to think out loud with a partner sharp enough to keep up and push back instead of just nodding along. That's voice mode.
 
 Most of the time, though, you already know what you want to say or do, and want to get it done efficiently without reaching for the keyboard. That's dictation.
@@ -17,8 +31,6 @@ In the desktop app, you press the mic, speak, and send when you're ready. On you
 Voice mode is a spoken conversation. You talk, Claude talks back, without ever needing to use the keyboard. You can interrupt Claude mid-sentence when it's heading somewhere you didn't intend. You can ask the next question the moment it occurs to you, the way you would with a person.
 
 ## At a glance
-
-Loading
 
 ## When to reach for which
 
@@ -82,3 +94,13 @@ For more on voice mode, the [help center article(opens in new tab)](https://supp
 ## Get started
 
 Next time you're about to type a long message to Claude, try using dictation to speak it instead. And next time you catch yourself wishing you could talk something through, open voice mode and think out loud. If you're unsure which one to use, think about what sort of output you want back. If it's text you can read and reuse, that's dictation. If it's a conversation, that's voice mode. Either way, Claude keeps up as you do your best thinking.
+
+* [Dictation: typing with your voice](#dictation-typing-with-your-voice)
+* [Voice mode: a spoken conversation](#voice-mode-a-spoken-conversation)
+* [At a glance](#at-a-glance)
+* [When to reach for which](#when-to-reach-for-which)
+* [Voice mode features](#voice-mode-features)
+* [Voice mode settings](#voice-mode-settings)
+* [Using them together](#using-them-together)
+* [A few things to know](#a-few-things-to-know)
+* [Get started](#get-started)

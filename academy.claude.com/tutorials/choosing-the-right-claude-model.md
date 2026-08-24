@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/choosing-the-right-claude-model -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable
+
+Learn when to use Haiku, Sonnet, Opus, or Fable to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
+
+5 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-lt9nrti0.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ky864f9i.png)
+
 Claude comes in four models: Haiku, Sonnet, Opus, and Fable. Each is built for different kinds of work, and each uses your rate limit differently. Using Opus on a task Haiku could handle costs you tokens for no gain and slows you down in the process. In this guide you'll learn how to pick the Claude model that can most efficiently accomplish your task *and* keep you more comfortably within your rate limits.
 
 Which models you have and how high your limit is both depend on your [Claude account plan(opens in new tab)](https://claude.com/pricing). Free includes Haiku and Sonnet; [Pro(opens in new tab)](https://claude.com/pricing) and [Max(opens in new tab)](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) add Opus, Fable, and more headroom.
@@ -84,9 +98,7 @@ Pick a task you already know well, like summarizing a report you've read yoursel
 
 Summarize the attached report in five bullet points, then flag the one claim in it you'd most want a second source for.
 
-
-
-Open in Claude
+Open in Claude
 
 **Compare where the answers differ, not how long they are.** You've read the report, so you can judge: if Haiku's summary covers everything you would have flagged yourself, the task is Haiku-shaped. Save Sonnet, Opus, and Fable for the work where the lighter answer misses things that matter.
 
@@ -95,3 +107,10 @@ Summarize the attached report in five bullet points, then flag the one claim in 
 Claude is always evolving, and so are the types of problems you can hand it. Each new model brings its own strengths, so the tasks worth giving Claude grow and shift with every release. When a new model comes out, try out more ambitious tasks that may have hit a ceiling in the past.
 
 Spend a few minutes running your go-to tasks across models. If you're on the free plan, [upgrading(opens in new tab)](https://claude.com/pricing) gives you access to all models and a higher rate limit. When a new model is released, you have more room to try everything.
+
+* [Meet the four models](#meet-the-four-models)
+* [Understanding rate limits](#understanding-rate-limits)
+* [When to use each model](#when-to-use-each-model)
+* [What this looks like in practice](#what-this-looks-like-in-practice)
+* [Try the same task on two models](#try-the-same-task-on-two-models)
+* [Choosing models over time](#choosing-models-over-time)

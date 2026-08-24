@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-open-targets-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the Open Targets Connector in Claude
+
+Set up and use the Open Targets integration with Claude to explore supporting data, prioritize drug targets, and assess disease associations.
+
+10 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-jq5tvky7.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-m96zer3e.png)
+
 This connector provides access to the Open Targets Platform for identifying and prioritizing therapeutic drug targets based on disease associations. This article explains how to set up and use the Open Targets integration with Claude to more quickly explore supporting data and prioritize drug targets and assess disease associations.
 
 The Open Targets integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -62,9 +76,7 @@ Technical details of the Open Targets integration can be found in [Open Targets�
 
 What are the top five targets associated with Alzheimer disease?
 
-
-
-Open in Claude
+Open in Claude
 
 * The Platform provides a ranked list of targets based on overall association scores and a breakdown of the evidence across multiple data types. From there, they can ask further questions about the targets and the evidence.
 
@@ -75,9 +87,7 @@ What are the top five targets associated with Alzheimer disease?
 
 Do you have any GWAS evidence for PSEN1? What studies are there?
 
-
-
-Open in Claude
+Open in Claude
 
 * The Platform can provide a list of studies and credible sets containing PSEN1 with variant-level information and study metadata, and links to original publications. The user can further query the information in these studies and credible sets.
 
@@ -88,8 +98,12 @@ Do you have any GWAS evidence for PSEN1? What studies are there?
 
 Are there known safety events associated with targeting PTGS2?
 
-
-
-Open in Claude
+Open in Claude
 
 * The Platform provides comprehensive safety information from multiple sources, which the user can explore in more detail, and compare information for different targets.
+
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the Open Targets integration](#who-should-use-the-open-targets-integration)
+* [Who can access the Open Targets integration](#who-can-access-the-open-targets-integration)
+* [Setting up the Open Targets integration](#setting-up-the-open-targets-integration)
+* [Example use cases](#example-use-cases)

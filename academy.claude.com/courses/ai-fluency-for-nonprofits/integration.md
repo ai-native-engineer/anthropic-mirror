@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-nonprofits/integration -->
 
-Lesson 8 of 9 · AI Fluency for nonprofitsIntegration
+Lesson 8 of 9 · AI Fluency for nonprofitsIntegration
+
+3. /[AI Fluency for nonprofits](https://academy.claude.com/courses/ai-fluency-for-nonprofits)
+
+[AI Fluency for nonprofits](https://academy.claude.com/courses/ai-fluency-for-nonprofits)
+
+# Integration
+
+Lesson 820 min
+
+In this lessonBy the end, you’ll be able to
+
+* Integrate AI into your organization in ways that strengthen human capacity and advance your mission
+* Address concerns about AI dependency and preserving human connection
+* Create an organizational AI policy that reflects your values and ensures sustainable AI use
 
 ## Integration
-
-Loading
 
 Integration · 5 min
 
@@ -98,3 +110,39 @@ Work with AI to synthesize your answers into a draft policy document:
 
 * How has your thinking about AI integration changed from the beginning of this course?
 * What's one thing you'll do differently in your work with AI based on what you've learned?
+
+[Previous lessonWorkflow augmentation](https://academy.claude.com/courses/ai-fluency-for-nonprofits/workflow-augmentation)[Next lessonNext steps](https://academy.claude.com/courses/ai-fluency-for-nonprofits/next-steps)
+
+Lesson 8 of 9 · AI Fluency for nonprofitsIntegration
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for nonprofits](https://academy.claude.com/courses/ai-fluency-for-nonprofits/welcome-to-ai-fluency-for-nonprofits)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-nonprofits/the-4d-framework)
+
+The Description-Discernment loop
+
+* [Researching with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/researching-with-ai)
+* [Writing with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/writing-with-ai)
+
+The Delegation-Diligence loop
+
+* [Understanding privacy and data](https://academy.claude.com/courses/ai-fluency-for-nonprofits/understanding-privacy-and-data)
+* [Data analysis with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/data-analysis-with-ai)
+
+Putting it all together
+
+* [Workflow augmentation](https://academy.claude.com/courses/ai-fluency-for-nonprofits/workflow-augmentation)
+* [Integration](https://academy.claude.com/courses/ai-fluency-for-nonprofits/integration)
+
+Conclusion and badge
+
+* [Next steps](https://academy.claude.com/courses/ai-fluency-for-nonprofits/next-steps)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-fluency-for-nonprofits/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-nonprofits/badge)
+
+* [Integration](#integration)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)

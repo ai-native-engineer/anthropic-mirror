@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/design-police -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Design system drift review
+
+Shipped screens and PRs flagged for design-system drift.
+
+15 minDesignClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-mliphhy1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hvy17a2s.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Design plugin ships with `/design-system` already structured to diff a screen or PR against a token file and component inventory. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 DesignAccelerate design workflows — critique, design system management, UX writing, accessibility audits, research synthesis, and dev handoff. From exploration to pixel-perfect specs.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=design)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=design)
 
 `/design-system`Audit, document, or extend your design system.
 
@@ -22,7 +32,7 @@ DesignAccelerate design workflows — critique, design system management, UX wri
 
 [Run](claude://cowork/new?q=%2Fux-copy)
 
-Show all 7 skills
+Show all 7 skills
 
 ### Connect your tools
 
@@ -36,7 +46,7 @@ GitHub
 
 Read open PRs that touch UI and post the drift report as a review comment.
 
-[Connect](https://claude.ai/desktop/directory/github)
+[Connect](https://claude.ai/desktop/directory/github)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%230ACF83'%20d='M8%2024a4%204%200%200%200%204-4v-4H8a4%204%200%200%200%200%208Z'/%3e%3cpath%20fill='%23A259FF'%20d='M4%2012a4%204%200%200%201%204-4h4v8H8a4%204%200%200%201-4-4Z'/%3e%3cpath%20fill='%23F24E1E'%20d='M4%204a4%204%200%200%201%204-4h4v8H8a4%204%200%200%201-4-4Z'/%3e%3cpath%20fill='%23FF7262'%20d='M12%200h4a4%204%200%200%201%200%208h-4V0Z'/%3e%3cpath%20fill='%231ABCFE'%20d='M20%2012a4%204%200%201%201-8%200%204%204%200%200%201%208%200Z'/%3e%3c/svg%3e)
 
@@ -44,7 +54,7 @@ Figma
 
 Use the published library as the source of truth for tokens and components.
 
-[Connect](https://claude.ai/desktop/directory/figma)
+[Connect](https://claude.ai/desktop/directory/figma)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M3.951%209.85a1.47%201.47%200%201%201-2.94%200%201.47%201.47%200%200%201%201.47-1.471h1.47V9.85Zm.735%200a1.47%201.47%200%201%201%202.94%200v3.679a1.47%201.47%200%201%201-2.94%200V9.85Z'%20fill='%23E01E5A'/%3e%3cpath%20d='M6.157%203.943a1.47%201.47%200%201%201%200-2.943%201.47%201.47%200%200%201%201.47%201.471v1.472h-1.47Zm0%20.746a1.47%201.47%200%201%201%200%202.943H2.47a1.47%201.47%200%201%201%200-2.943h3.687Z'%20fill='%2336C5F0'/%3e%3cpath%20d='M12.049%206.16a1.47%201.47%200%201%201%202.94%200%201.47%201.47%200%200%201-1.47%201.472h-1.47V6.16Zm-.736%200a1.47%201.47%200%201%201-2.94%200V2.471a1.47%201.47%200%201%201%202.94%200V6.16Z'%20fill='%232EB67D'/%3e%3cpath%20d='M9.843%2012.057a1.47%201.47%200%201%201%200%202.943%201.47%201.47%200%200%201-1.47-1.471v-1.472h1.47Zm0-.735a1.47%201.47%200%201%201%200-2.943h3.687a1.47%201.47%200%201%201%200%202.943H9.843Z'%20fill='%23ECB22E'/%3e%3c/svg%3e)
 
@@ -52,11 +62,9 @@ SlackOptional
 
 Post the daily drift summary to the design-system channel for triage.
 
-[Connect](https://claude.ai/desktop/directory/slack)
+[Connect](https://claude.ai/desktop/directory/slack)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -72,7 +80,7 @@ pr-4821-billing-panel.diffApr 27, 202614 KB
 
 tokens.jsonApr 20, 202618 KB
 
-In Cowork’s chat bar:Design-QA / Sprint-42
+In Cowork’s chat bar:Design-QA / Sprint-42
 
 ## The prompt
 
@@ -80,35 +88,33 @@ In Cowork’s chat bar:Design-QA / Sprint-42
 
 Review the shipped screens and open PRs in this folder against our design system. For each one, list every place it drifts from our tokens, components, spacing, or interaction patterns, rate the severity, and suggest the system-compliant fix. Skip anything that already matches.
 
-
-
-Design-QA / Sprint-42Open in Cowork
+Design-QA / Sprint-42Open in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Spell out what to check for.** Tokens, components, spacing, interaction: the checklist is explicit.
 
-Prompt
+Prompt
 
 **Ask for a severity on each finding.** Triage knows what to fix this sprint.
 
-Prompt
+Prompt
 
 **Say what to leave out.** The report is only the work, never the noise.
 
-Source
+Source
 
 **Put the reference files in the folder.** Tokens and inventory are read, not remembered.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -118,9 +124,7 @@ The plugin's `/design-system` is a generic starting point. Once Step 2 produces 
 
 Make what we've done in this task so far into a skill, or edit the /design-system skill with my feedback.
 
-
-
-Design-QAOpen in Cowork
+Design-QAOpen in Cowork
 
 ## Make it repeatable
 
@@ -130,9 +134,7 @@ Drift compounds quietly between sprints. Ask Cowork to publish the report as a l
 
 Publish that drift report as a live artifact for the design-system channel. Keep a running tally of high-severity items still open.
 
-
-
-Design-QA / Sprint-42Open in Cowork
+Design-QA / Sprint-42Open in Cowork
 
 ### Run it on every PR that touches UI
 
@@ -140,23 +142,19 @@ Drift is cheapest to catch before merge. Type `/schedule` in the prompt, or open
 
 **/schedule** Weekdays at 10am and 4pm, check open PRs labeled "ui" and Design-QA/Sprint-42 for new screens, run /design-system on each, and post the drift report as a comment or to #design-system.
 
-
+Design-QAOpen in Cowork
 
-Design-QAOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Twice-daily drift check
 
 At 10am and 4pm, checks open UI PRs and the QA folder, runs `/design-system`, and posts the drift report as a PR comment or to #design-system.
 
-Every **weekday at 10 am & 4 pm · checks open UI PRs and Design-QA/Sprint-42**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **weekday at 10 am & 4 pm · checks open UI PRs and Design-QA/Sprint-42**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/design-system` now carries your tokens, your component map, your severity scale, and your exception list. Share it so every squad gets the same review on every PR, and the system team stops being the bottleneck for "is this on-system."
-
-
 
 Share the skill
 
@@ -176,6 +174,13 @@ Claude Design
 
 Redraw the flagged screens with on-system components
 
-Open](https://claude.ai/design)
+Open](https://claude.ai/design)
 
-[Next: Encode the brand as a skill](https://academy.claude.com/use-cases/brand-guidelines-skill)
+[Next: Encode the brand as a skill](https://academy.claude.com/use-cases/brand-guidelines-skill)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [What changes for design QA](#what-changes-for-design-qa)

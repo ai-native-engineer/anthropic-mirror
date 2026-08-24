@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-blender-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the Blender Connector in Claude
+
+Connect Claude to Blender so it can read and work with your open scene directly.
+
+10 minClaude Cowork
+
+[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-m4ibfqqy.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-n82pdpre.png)
+
 ## What this connector provides
 
 The Blender connector gives Claude access to your open Blender scene through Blender's Python API. With it connected, you can ask Claude to read and explain a complex node or modifier setup, batch-apply changes across many objects, clean out unused data, and write Python that adds new tools to Blender's interface.
@@ -45,9 +59,7 @@ Your scene has objects, collections, and materials with default or misleading na
 
 Look at the open scene and rename the data blocks so each name matches what it contains. Flag any names that are misleading, like a collection called "rocks" that only contains pebble meshes.
 
-
-
-Open in Cowork
+Open in Cowork
 
 #### **Understand a complex setup you didn't build**
 
@@ -55,9 +67,7 @@ You've opened a .blend file from the community and want to understand how its Ge
 
 Walk through the Geometry Nodes modifier on the active object. Explain what each node group does in the order data flows through them, and write your notes as frame labels inside the node editor so the explanation is saved in the file.
 
-
-
-Open in Cowork
+Open in Cowork
 
 #### **Find what's using an object or material**
 
@@ -65,9 +75,7 @@ You want to change or delete something but aren't sure what else in the file dep
 
 List everything in this file that uses the "Glass\_Tinted" material, including objects, node groups, and Geometry Nodes setups. Tell me what would break if I removed it.
 
-
-
-Open in Cowork
+Open in Cowork
 
 #### **Find the heaviest objects in a scene**
 
@@ -75,9 +83,7 @@ Render times are long and you want to know where the polygon budget is going rel
 
 For each mesh in the scene, report its polygon count alongside how large it appears in the active camera's final render. Sort by polygon count and flag anything that's heavy but small on screen.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ![](https://academy.claude.com/assets/media/2e2c8a050fe83d42f91004bf7b460c3cf476b579d977dad095fac9940c209d41.png)
 
@@ -86,3 +92,8 @@ For each mesh in the scene, report its polygon count alongside how large it appe
 * **Does the connector work on claude.ai in the browser?** — No. The connector needs Blender running on the same machine as Claude, so it requires Claude Desktop.
 * **Does Claude edit my .blend file directly?** — Claude operates on the open scene through Blender's Python API. Changes apply to your session and are written to disk when you save in Blender.
 * **Do I need to know Python?** — No. You describe what you want and Claude writes and runs the Python. You can ask to see the code first if you want to review it or learn from it.
+
+* [What this connector provides](#what-this-connector-provides)
+* [Setting up the Blender connector](#setting-up-the-blender-connector)
+* [Example use cases](#example-use-cases)
+* [Frequently asked questions](#frequently-asked-questions)

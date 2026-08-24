@@ -1,15 +1,27 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-students -->
 
-5 lessons · 1 quizAI Fluency for students
+[Courses](https://academy.claude.com/courses)
+
+# AI Fluency for students
+
+Helps students build AI fluency skills for learning, career planning, and academic success through responsible AI collaboration. Applies the 4D framework (delegation, description, discernment, diligence) to student life.
+
+5 lessons3 hr1 quizCompletion badge
+
+[Start course](https://academy.claude.com/courses/ai-fluency-for-students/welcome-to-ai-fluency-for-students)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-students)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-j70m5k01.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-5r4pk711.png)
+
+5 lessons · 1 quizAI Fluency for students
 
 What you’ll learnBy the end of this course, you’ll be able to
 
-* Explain what AI Fluency means and why it matters for your academic and professional future
-* Apply the 4D Framework (Delegation, Description, Discernment, Diligence) to your AI interactions as a student
-* Distinguish between using AI to do work for you and using AI to genuinely learn
-* Configure an AI learning partner and living learning journal that enhance rather than replace your learning
-* Use AI for career exploration, CV/resume improvement, and interview practice while maintaining your authentic voice
-* Create a personal AI collaboration policy and maintain your role as "the human in the loop"
+* Explain what AI Fluency means and why it matters for your academic and professional future
+* Apply the 4D Framework (Delegation, Description, Discernment, Diligence) to your AI interactions as a student
+* Distinguish between using AI to do work for you and using AI to genuinely learn
+* Configure an AI learning partner and living learning journal that enhance rather than replace your learning
+* Use AI for career exploration, CV/resume improvement, and interview practice while maintaining your authentic voice
+* Create a personal AI collaboration policy and maintain your role as "the human in the loop"
 
 You've probably tried AI—maybe to help with an essay, solve a problem, or just explore what it can do. But there's a difference between using AI and being fluent with it. This course teaches students how to collaborate with AI effectively, efficiently, ethically, and safely across learning and career contexts.
 
@@ -62,3 +74,20 @@ Applying the 4D framework to learning and career planning.
 Developing personal commitments for responsible AI collaboration and maintaining agency.
 
 ![](https://academy.claude.com/assets/media/8519349a3e5d1f2be8222f8260226a316815ee66f2cdcb9bd5e32d8b925e291a.webp)![](https://academy.claude.com/assets/media/1967b21af3a038bb33eb5fe969de65bd90c021ecc6e575aedbcd3bb758f8cb12.webp)![](https://academy.claude.com/assets/media/8d868fbc40624657e82ace439e3aaf89792173eb42566d5ffbb1fb56f64133ce.webp)
+
+Introduction and AI Fluency Framework
+
+* [Welcome to AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students/welcome-to-ai-fluency-for-students)
+* [AI Fluency Framework](https://academy.claude.com/courses/ai-fluency-for-students/ai-fluency-framework)
+
+AI Fluency Framework applications for students
+
+* [AI as a learning partner](https://academy.claude.com/courses/ai-fluency-for-students/ai-as-a-learning-partner)
+* [AI in career planning](https://academy.claude.com/courses/ai-fluency-for-students/ai-in-career-planning)
+
+Conclusion & badge
+
+* [Being the human in the loop](https://academy.claude.com/courses/ai-fluency-for-students/being-the-human-in-the-loop)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-students/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-students/badge)

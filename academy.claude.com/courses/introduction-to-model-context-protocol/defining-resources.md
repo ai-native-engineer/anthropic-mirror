@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-resources -->
 
-Lesson 6 of 10 · Introduction to Model Context ProtocolDefining resources
+Lesson 6 of 10 · Introduction to Model Context ProtocolDefining resources
+
+3. /[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+# Defining resources
+
+Lesson 68 min
 
 Resources in MCP servers allow you to expose data to clients, similar to GET request handlers in a typical HTTP server. They're perfect for scenarios where you need to fetch information rather than perform actions.
 
@@ -35,7 +43,7 @@ There are two types of resources:
 
 Direct resources have static URIs that never change. They're perfect for operations that don't need parameters.
 
-python
+python
 
 ```
 @mcp.resource(
@@ -50,7 +58,7 @@ def list_docs() -> list[str]:
 
 Templated resources include parameters in their URIs. The Python SDK automatically parses these parameters and passes them as keyword arguments to your function.
 
-python
+python
 
 ```
 @mcp.resource(
@@ -79,7 +87,7 @@ The MCP Python SDK automatically serializes your return values. You don't need t
 
 You can test resources using the MCP Inspector. Start your server with:
 
-`uv run mcp dev mcp_server.py`
+`uv run mcp dev mcp_server.py`
 
 Then connect to the inspector in your browser. You'll see two sections:
 
@@ -91,3 +99,38 @@ Then connect to the inspector in your browser. You'll see two sections:
 Click on any resource to test it. For templated resources, you'll need to provide values for the parameters. The inspector shows you the exact response structure your client will receive, including the MIME type and serialized data.
 
 Resources provide a clean way to expose read-only data from your MCP server, making it easy for clients to fetch information without the complexity of tool calls.
+
+[Previous lessonImplementing a client](https://academy.claude.com/courses/introduction-to-model-context-protocol/implementing-a-client)[Next lessonAccessing resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/accessing-resources)
+
+Lesson 6 of 10 · Introduction to Model Context ProtocolDefining resources
+
+Introduction
+
+* [Introducing MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/introducing-mcp)
+* [MCP clients](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-clients)
+
+Hands-on with MCP servers
+
+* [Defining tools with MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-tools-with-mcp)
+* [The server inspector](https://academy.claude.com/courses/introduction-to-model-context-protocol/the-server-inspector)
+
+Connecting with MCP clients
+
+* [Implementing a client](https://academy.claude.com/courses/introduction-to-model-context-protocol/implementing-a-client)
+* [Defining resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-resources)
+* [Accessing resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/accessing-resources)
+* [Defining prompts](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-prompts)
+* [Prompts in the client](https://academy.claude.com/courses/introduction-to-model-context-protocol/prompts-in-the-client)
+
+Assessment and wrap Up
+
+* [Final assessment on MCPQuiz](https://academy.claude.com/courses/introduction-to-model-context-protocol/final-assessment-on-mcp)
+* [MCP review](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-review)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-model-context-protocol/badge)
+
+* [Understanding Resources Through an Example](#understanding-resources-through-an-example)
+* [How Resources Work](#how-resources-work)
+* [Types of Resources](#types-of-resources)
+* [Implementation Details](#implementation-details)
+* [Testing Your Resources](#testing-your-resources)

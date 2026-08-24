@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/closure-looking-forward -->
 
-Lesson 9 of 9 · AI Fluency for BuildersClosure & looking forward
+Lesson 9 of 9 · AI Fluency for BuildersClosure & looking forward
+
+3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+
+[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+
+# Closure & looking forward
+
+Lesson 915 min
+
+In this lessonBy the end, you’ll be able to
+
+* Find resources to continue building your AI fluency after this course
+* Share what you learned with colleagues who could benefit from the 4D Framework
+* Collect your completion badge
 
 ## Looking forward
-
-Loading
 
 Looking forward · 4 min
 
@@ -49,3 +61,43 @@ Work through it using all four competencies:
 ## What's next
 
 Next, take the short assessment to earn your completion badge.
+
+[Previous lessonStand behind what you build](https://academy.claude.com/courses/ai-fluency-for-builders/stand-behind-what-you-build)[Next lessonCourse quiz](https://academy.claude.com/courses/ai-fluency-for-builders/course-quiz)
+
+Lesson 9 of 9 · AI Fluency for BuildersClosure & looking forward
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-builders/the-4d-framework)
+
+How AI works
+
+* [AI capabilities & limitations](https://academy.claude.com/courses/ai-fluency-for-builders/ai-capabilities-and-limitations)
+
+The 4D framework for builders
+
+* [Delegation & the builder's toolkit](https://academy.claude.com/courses/ai-fluency-for-builders/delegation-the-builder-s-toolkit)
+* [Description & building great things](https://academy.claude.com/courses/ai-fluency-for-builders/description-building-great-things)
+
+Discernment for builders
+
+* [Discernment for code](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-code)
+* [Discernment for user experience](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-user-experience)
+
+Tying it all together
+
+* [Stand behind what you build](https://academy.claude.com/courses/ai-fluency-for-builders/stand-behind-what-you-build)
+
+Wrapping up
+
+* [Closure & looking forward](https://academy.claude.com/courses/ai-fluency-for-builders/closure-looking-forward)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-builders/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-builders/badge)
+
+* [Looking forward](#looking-forward)
+* [Key takeaways](#key-takeaways)
+* [Exercise](#exercise)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

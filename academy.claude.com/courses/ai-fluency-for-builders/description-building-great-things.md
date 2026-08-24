@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/description-building-great-things -->
 
-Lesson 5 of 9 · AI Fluency for BuildersDescription & building great things
+Lesson 5 of 9 · AI Fluency for BuildersDescription & building great things
+
+3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+
+[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+
+# Description & building great things
+
+Lesson 515 min
+
+In this lessonBy the end, you’ll be able to
+
+* Translate a user need to precise AI instruction using the Description Chain
+* Spot when a description failure cascades and trace it back to the link that broke
+* Express intent through tests that tell AI exactly what success looks like
 
 ## Describing what users need
-
-Loading
 
 Describing what users need · 5 min
 
@@ -57,3 +69,43 @@ Did the tests pass? Is the patient satisfied? If those answers don’t match, wh
 ## What's next
 
 In the next lesson, we move from description to discernment. You’ve built something and the code runs — now the question is whether it’s actually good.
+
+[Previous lessonDelegation & the builder's toolkit](https://academy.claude.com/courses/ai-fluency-for-builders/delegation-the-builder-s-toolkit)[Next lessonDiscernment for code](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-code)
+
+Lesson 5 of 9 · AI Fluency for BuildersDescription & building great things
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-builders/the-4d-framework)
+
+How AI works
+
+* [AI capabilities & limitations](https://academy.claude.com/courses/ai-fluency-for-builders/ai-capabilities-and-limitations)
+
+The 4D framework for builders
+
+* [Delegation & the builder's toolkit](https://academy.claude.com/courses/ai-fluency-for-builders/delegation-the-builder-s-toolkit)
+* [Description & building great things](https://academy.claude.com/courses/ai-fluency-for-builders/description-building-great-things)
+
+Discernment for builders
+
+* [Discernment for code](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-code)
+* [Discernment for user experience](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-user-experience)
+
+Tying it all together
+
+* [Stand behind what you build](https://academy.claude.com/courses/ai-fluency-for-builders/stand-behind-what-you-build)
+
+Wrapping up
+
+* [Closure & looking forward](https://academy.claude.com/courses/ai-fluency-for-builders/closure-looking-forward)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-builders/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-builders/badge)
+
+* [Describing what users need](#describing-what-users-need)
+* [Key takeaways](#key-takeaways)
+* [Exercise](#exercise)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-101/your-first-prompt -->
 
-Lesson 4 of 12 · Claude Code 101Your first prompt
+Lesson 4 of 12 · Claude Code 101Your first prompt
 
-Loading
+3. /[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+# Your first prompt
+
+Lesson 46 min
 
 Your first prompt
 
@@ -35,9 +41,7 @@ Let's walk through an example. Say you have an application that needs a dark mod
 
 My app needs a dark mode implemented across the entire app. Can you create a toggle switch on the header that allows a user to toggle between light mode and dark mode? I need you to find a good contrast color that works based on my existing light theme.
 
-
-
-Open in Claude Code
+Open in Claude Code
 
 ![Entering the dark mode prompt in Claude Code with plan mode enabled](https://academy.claude.com/assets/media/39b0125f002f95b0b05695f9426a1596afca1f307fa8458efb2d92e46661dac3.jpg)
 
@@ -46,3 +50,42 @@ Let Claude plan it out. After reviewing the plan, if it looks good, accept it an
 ## Recap
 
 When using Claude Code, try to be as descriptive as possible with your prompt. If you want to stay in the loop at every step, you can. Use Plan Mode to let Claude dig into the details of what you want to achieve before executing on any code.
+
+[Previous lessonInstalling Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)[Next lessonThe explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+
+Lesson 4 of 12 · Claude Code 101Your first prompt
+
+What is Claude Code?
+
+* [What is Claude Code?](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)
+* [How Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Your first prompt
+
+* [Installing Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)
+* [Your first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Daily workflows
+
+* [The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+* [Context management](https://academy.claude.com/courses/claude-code-101/context-management)
+* [Code review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Customizing Claude Code
+
+* [The CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
+* [Subagents](https://academy.claude.com/courses/claude-code-101/subagents)
+* [Skills](https://academy.claude.com/courses/claude-code-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-code-101/mcp)
+* [Hooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)
+
+* [Auto-Accept vs. Manual](#auto-accept-vs-manual)
+* [Plan Mode](#plan-mode)
+* [Example: Add a Dark Mode Toggle](#example-add-a-dark-mode-toggle)
+* [Recap](#recap)

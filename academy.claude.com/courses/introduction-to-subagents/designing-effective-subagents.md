@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-subagents/designing-effective-subagents -->
 
-Lesson 3 of 4 · Introduction to subagentsDesigning effective subagents
+Lesson 3 of 4 · Introduction to subagentsDesigning effective subagents
 
-Loading
+3. /[Introduction to subagents](https://academy.claude.com/courses/introduction-to-subagents)
+
+[Introduction to subagents](https://academy.claude.com/courses/introduction-to-subagents)
+
+# Designing effective subagents
+
+Lesson 310 min
 
 Designing effective subagents
 
@@ -50,9 +56,7 @@ Provide your review in a structured format:
 5. Recommendations: Suggestions for improvement, refactoring opportunities, or best practices to apply
 6. Approval Status: Clear statement of whether the code is ready to merge/deploy or requires changes
 
-
-
-Open in Claude Code
+Open in Claude Code
 
 This format gives the subagent a clear checklist to work through. Once every section is filled in, the subagent knows it can stop.
 
@@ -71,9 +75,7 @@ The way to get this information is to explicitly ask for it in the output format
 
 7. Obstacles Encountered: Report any obstacles encountered during the review process. This can be: setup issues, workarounds discovered or environment quirks. Report commands that needed a special flag or configuration. Report dependencies or imports that caused problems.
 
-
-
-Open in Claude Code
+Open in Claude Code
 
 ![The code-quality-reviewer system prompt open in an editor, highlighting the Obstacles Encountered section of the output format](https://academy.claude.com/assets/media/47a3f8e30cbe3a2e61f145839f14c0846d93952730d5253938ba9ee266ac5c0f.png)
 
@@ -97,3 +99,23 @@ Effective subagents share four characteristics:
 4. **Limited tool access** -- Only give a subagent the tools it actually needs. Read-only for research, bash for reviewers, edit/write only for agents that should change code.
 
 Each of these patterns is simple on its own, but together they turn a subagent from something that vaguely tries to help into a focused, predictable worker that finishes on time and reports back clearly.
+
+[Previous lessonCreating a subagent](https://academy.claude.com/courses/introduction-to-subagents/creating-a-subagent)[Next lessonUsing subagents effectively](https://academy.claude.com/courses/introduction-to-subagents/using-subagents-effectively)
+
+Lesson 3 of 4 · Introduction to subagentsDesigning effective subagents
+
+Lessons
+
+* [What are subagents?](https://academy.claude.com/courses/introduction-to-subagents/what-are-subagents)
+* [Creating a subagent](https://academy.claude.com/courses/introduction-to-subagents/creating-a-subagent)
+* [Designing effective subagents](https://academy.claude.com/courses/introduction-to-subagents/designing-effective-subagents)
+* [Using subagents effectively](https://academy.claude.com/courses/introduction-to-subagents/using-subagents-effectively)
+
+* [Course complete](https://academy.claude.com/courses/introduction-to-subagents/complete)
+
+* [How Subagent Config Data Gets Used](#how-subagent-config-data-gets-used)
+* [Writing Descriptions That Shape Input Prompts](#writing-descriptions-that-shape-input-prompts)
+* [Defining an Output Format](#defining-an-output-format)
+* [Reporting Obstacles](#reporting-obstacles)
+* [Limiting Tool Access](#limiting-tool-access)
+* [Putting It All Together](#putting-it-all-together)

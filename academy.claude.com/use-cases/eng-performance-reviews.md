@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/eng-performance-reviews -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Draft your reports' performance reviews
+
+A grounded review draft with linked evidence, per report.
+
+10 minEngineeringClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-llbosc4e.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jig8shre.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Engineering plugin ships with `/code-review` as a starting point, already structured to gather a report's shipped work and frame it against a career ladder. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 Engineering9 skills for postmortems, design docs, on-call handoffs, and cost reviews
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=engineering)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=engineering)
 
 `/code-review`Gather a report's shipped work and draft the review against your career framework
 
@@ -22,7 +32,7 @@ Engineering9 skills for postmortems, design docs, on-call handoffs, and cost rev
 
 [Run](claude://cowork/new?q=%2Fstandup)
 
-Show all 10 skills
+Show all 10 skills
 
 ### Connect your tools
 
@@ -36,7 +46,7 @@ GitHub
 
 Pull each report's merged PRs, reviews given, and incidents responded to over the period.
 
-[Connect](https://claude.ai/desktop/directory/github)
+[Connect](https://claude.ai/desktop/directory/github)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M3.951%209.85a1.47%201.47%200%201%201-2.94%200%201.47%201.47%200%200%201%201.47-1.471h1.47V9.85Zm.735%200a1.47%201.47%200%201%201%202.94%200v3.679a1.47%201.47%200%201%201-2.94%200V9.85Z'%20fill='%23E01E5A'/%3e%3cpath%20d='M6.157%203.943a1.47%201.47%200%201%201%200-2.943%201.47%201.47%200%200%201%201.47%201.471v1.472h-1.47Zm0%20.746a1.47%201.47%200%201%201%200%202.943H2.47a1.47%201.47%200%201%201%200-2.943h3.687Z'%20fill='%2336C5F0'/%3e%3cpath%20d='M12.049%206.16a1.47%201.47%200%201%201%202.94%200%201.47%201.47%200%200%201-1.47%201.472h-1.47V6.16Zm-.736%200a1.47%201.47%200%201%201-2.94%200V2.471a1.47%201.47%200%201%201%202.94%200V6.16Z'%20fill='%232EB67D'/%3e%3cpath%20d='M9.843%2012.057a1.47%201.47%200%201%201%200%202.943%201.47%201.47%200%200%201-1.47-1.471v-1.472h1.47Zm0-.735a1.47%201.47%200%201%201%200-2.943h3.687a1.47%201.47%200%201%201%200%202.943H9.843Z'%20fill='%23ECB22E'/%3e%3c/svg%3e)
 
@@ -44,7 +54,7 @@ Slack
 
 Surface the threads where they led, unblocked a teammate, or drove a decision.
 
-[Connect](https://claude.ai/desktop/directory/slack)
+[Connect](https://claude.ai/desktop/directory/slack)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%20100%20100'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%235E6AD2'%20d='M1.225%2061.523c-.222-.949.908-1.546%201.597-.857l36.512%2036.512c.689.689.092%201.819-.857%201.597a50.06%2050.06%200%200%201-37.252-37.252Zm-1.22-13.59a.98.98%200%200%200%20.283.724l50.055%2050.055a.98.98%200%200%200%20.724.283%2049.9%2049.9%200%200%200%208.636-1.518.976.976%200%200%200%20.462-1.647L2.17%2038.835a.976.976%200%200%200-1.647.462%2049.9%2049.9%200%200%200-1.518%208.636Zm4.194-17.443a.988.988%200%200%200%20.184%201.152l63.975%2063.975a.988.988%200%200%200%201.152.184%2050.4%2050.4%200%200%200%206.08-3.495.993.993%200%200%200%20.161-1.53L9.224%2024.249a.993.993%200%200%200-1.53.161%2050.4%2050.4%200%200%200-3.495%206.08Zm9.723-13.067a.99.99%200%200%201-.026-1.377C23.068%206.08%2036.765-.002%2051.888-.002c27.59%200%2049.957%2022.367%2049.957%2049.957%200%2015.123-6.082%2028.82-16.048%2038.013a.99.99%200%200%201-1.377-.026z'/%3e%3c/svg%3e)
 
@@ -52,11 +62,9 @@ LinearOptional
 
 List the projects and epics they shipped and the cycle outcomes they owned.
 
-[Connect](https://claude.ai/desktop/directory/linear)
+[Connect](https://claude.ai/desktop/directory/linear)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -72,7 +80,7 @@ review-template.mdJan 12, 20262 KB
 
 team-roster.mdApr 1, 20261 KB
 
-In Cowork’s chat bar:Reviews / 2026-Q1
+In Cowork’s chat bar:Reviews / 2026-Q1
 
 ## The prompt
 
@@ -80,35 +88,33 @@ In Cowork’s chat bar:Reviews / 2026-Q1
 
 I'm writing quarterly reviews for my reports. For each engineer in my team list, draft the review in our framework with evidence linked for every claim, drawing on their work this quarter and their last review's growth areas. Flag where I need to add my own judgment; do not write the rating.
 
-
-
-Reviews / 2026-Q1Open in Cowork
+Reviews / 2026-Q1Open in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Require evidence for every claim.** The draft is defensible in calibration; nothing rests on vibes.
 
-Prompt
+Prompt
 
 **Include prior context to show progress.** The review tracks progress, not just a snapshot of this quarter.
 
-Prompt
+Prompt
 
 **Keep judgment calls yours.** Saying the rating is yours to make tells Claude where its job ends. The draft gathers and organizes the evidence, then stops.
 
-Source
+Source
 
 **Give it your review framework.** Every draft maps to your levels and your competencies, not a generic ladder.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -118,11 +124,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /code-review skill with my feedback.
 
-
-
-ReviewsOpen in Cowork
-
-
+ReviewsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -134,23 +136,19 @@ The evidence packet should be ready before review season opens. Type `/schedule`
 
 **/schedule** Every Monday at 9am, if a new quarter folder exists under Reviews, run /code-review for everyone in team-roster.md and write each draft to Reviews/<quarter>/<name>.md.
 
-
+ReviewsOpen in Cowork
 
-ReviewsOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Quarterly review drafts
 
 When a new quarter folder appears, runs `/code-review` for each report against GitHub, Linear, and Slack and writes evidence-linked drafts to the cycle folder.
 
-Every **Monday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **Monday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/code-review` now carries your career framework, your evidence sources, and your tone. Share it so every manager in the org drafts against the same ladder, and calibration compares apples to apples.
-
-
 
 Share the skill
 
@@ -162,4 +160,11 @@ Each report has a review draft with evidence linked for every claim and the plac
 
 You did this for one review cycle. The same approach covers promotion packets, calibration prep, and peer-feedback summaries — each one becomes a skill your team runs the same way.
 
-[Next: Draft the incident postmortem](https://academy.claude.com/use-cases/incident-postmortem)
+[Next: Draft the incident postmortem](https://academy.claude.com/use-cases/incident-postmortem)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [What changes for review season](#what-changes-for-review-season)

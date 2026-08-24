@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/create-interactive-pdf-forms -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create interactive PDF forms
+
+Turn forms from static documents into professional, interactive forms that people fill out right in their PDF reader.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-eijch8fq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j3tjml45.png)
+
 ![Create interactive PDF forms result](https://academy.claude.com/assets/v1/create-interactive-pdf-forms-disuio7a.png)
 
 ## 1. Describe the task
@@ -19,9 +33,7 @@ Create an interactive PDF registration form with these sections:
 
 Use a professional color scheme with a branded header. The event is "2025 Innovation Summit" at San Francisco Convention Center, June 15-17. Include contact info: [events@innovationsummit.com(opens in new tab)](mailto:events@innovationsummit.com).
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -31,11 +43,7 @@ Given reference files or examples, Claude can match your style or design prefere
 
 Upload relevant brand materials, style preferences so Claude can match color, text, or layout.
 
-
-
 Event\_Branding\_GuidelinesPDF
-
-
 
 Event\_Branding\_FlyerPDF
 
@@ -43,7 +51,7 @@ Event\_Branding\_FlyerPDF
 
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) to give Claude more time to think through and produce high quality file outputs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -76,9 +84,7 @@ Specify any additional design or formatting changes you’d like Claude to make 
 
 I've uploaded our company logo and brand colors—can you update the PDF to include both? Keep the current layout but match our style guide.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Collect and organize responses
 
@@ -86,9 +92,7 @@ Upload the completed forms and ask Claude to create a spreadsheet for a quick ov
 
 Extract all the data from my completed registration forms and create an Excel spreadsheet with one row per attendee and columns for all form fields. Include a summary tab showing response distributions and totals.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Tailor for different audiences
 
@@ -96,9 +100,7 @@ Adapt the form to your needs: translate for global audiences, customize for diff
 
 Create a Spanish version of this registration form, translating all labels and dropdown options while keeping the same structure and design.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -125,4 +127,11 @@ Create an interactive PDF registration form with these sections:
 
 Use a professional color scheme with a branded header. The event is "2025 Innovation Summit" at San Francisco Convention Center, June 15-17. Include contact info: [events@innovationsummit.com(opens in new tab)](mailto:events@innovationsummit.com).
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

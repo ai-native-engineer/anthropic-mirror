@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks -->
 
-Lesson 7 of 14 · Introduction to Claude CoworkSkills: Teach Claude Cowork your way
+Lesson 7 of 14 · Introduction to Claude CoworkSkills: Teach Claude Cowork your way
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# Skills: Teach Claude Cowork your way
+
+Lesson 710 min
+
+In this lessonBy the end, you’ll be able to
+
+* Define a skill and explain how Claude uses one
+* Recognize the four building blocks a skill can include
+* Build a skill from one of your own recurring processes
 
 ## What a skill actually is
-
-Loading
 
 A skill is a reusable playbook — a folder of files and resources — that teaches Claude how to do a specific kind of work the way you'd want it done. When you start a task that matches the skill, Claude loads the playbook and follows it.
 
@@ -23,8 +35,6 @@ A skill can use any combination of these. Some skills are just a SKILL.md file w
 
 Below are three examples of skills. Click through each to get a sense for their application and makeup.
 
-Loading
-
 This is what makes skills so useful for codifying how your team works. Cowork is a coworker that can act on your behalf — and skills are how you get it to do the work the way it should be done. The instructions tell it what to do; the assets give it the raw materials; the references show it what good looks like; the scripts let it run the repeatable parts the same way every time.
 
 ## Build a skill with Claude
@@ -35,9 +45,7 @@ Start a new conversation in Cowork and say something like:
 
 I want to build a skill for [the recurring process you're tired of re-explaining]. Walk me through what you need to know.
 
-
-
-Open in Cowork
+Open in Cowork
 
 Claude will ask a few questions: what the skill should do, when it should trigger, what good output looks like, what resources it should use to inform the skill. Answer as specifically as you can — point at real examples of the work, real templates, real prior outputs. The output is a skill folder with the SKILL.md and any assets, references, and scripts the skill needs, ready to install.
 
@@ -52,3 +60,45 @@ Think of one process you repeat — a report you run, a format you always use, a
 ## What’s next
 
 Skills package your specific workflows so anyone on your team can run them and get the same quality result. Plugins bundle several skills and connectors into one installable package built around a job. That's the next lesson.
+
+[Previous lessonStanding context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)[Next lessonPlugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Lesson 7 of 14 · Introduction to Claude CoworkSkills: Teach Claude Cowork your way
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [What a skill actually is](#what-a-skill-actually-is)
+* [What’s inside a skill](#whats-inside-a-skill)
+* [Build a skill with Claude](#build-a-skill-with-claude)
+* [Lesson reflection](#lesson-reflection)
+* [What’s next](#whats-next)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/install-financial-services-plugins-for-cowork -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Install financial services plugins for Claude Cowork
+
+Add Anthropic's open-source financial services plugins to Claude Cowork for financial modeling, equity research, investment banking, private equity, and wealth management workflows.
+
+3 minClaude Cowork
+
+[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-hiukxeka.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j0tcbi0h.png)
+
 We offer a set of open-source plugins that extend Claude Cowork with specialized capabilities for financial services workflows, including financial modeling, equity research, investment banking, private equity, and wealth management.
 
 These plugins are available in a [**public GitHub repository**(opens in new tab)](https://github.com/anthropics/financial-services/tree/main?tab=readme-ov-file#claude-for-financial-services-plugins) that you can add as a marketplace in Claude Cowork.
@@ -72,3 +86,12 @@ These plugins are designed as starting points. You can customize them to match y
 ## Learn more
 
 See our blog post for more information: [**Cowork and plugins for finance**(opens in new tab)](https://claude.com/blog/cowork-plugins-finance).
+
+* [What's included](#whats-included)
+* [Add the marketplace](#add-the-marketplace)
+* [Install plugins](#install-plugins)
+* [Available Skills](#available-skills)
+* [MCP connectors](#mcp-connectors)
+* [Customize plugins for your firm](#customize-plugins-for-your-firm)
+* [Good to know](#good-to-know)
+* [Learn more](#learn-more)

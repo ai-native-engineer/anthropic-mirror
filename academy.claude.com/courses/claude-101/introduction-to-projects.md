@@ -1,10 +1,24 @@
 <!-- source: https://academy.claude.com/courses/claude-101/introduction-to-projects -->
 
-Lesson 5 of 13 · Claude 101Introduction to projects
+Lesson 5 of 13 · Claude 101Introduction to projects
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# Introduction to projects
+
+Lesson 515 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain what projects are and when to use them
+* Create a new project with a name, description, and visibility settings
+* Add documents and files to your project's knowledge base
+* Write effective project instructions to guide Claude's behavior
+* Share projects with teammates (for Claude for Work (Team and Enterprise plan) users)
 
 ## Video
-
-Loading
 
 ## Key takeaways
 
@@ -65,8 +79,6 @@ Click the "+" button to add content. You can upload various file types including
 * Background materials (research reports, meeting notes, requirements docs)
 * Examples of work you want Claude to emulate
 * Technical documentation or specifications
-
-
 
 Pro tip
 
@@ -142,3 +154,49 @@ Before moving on, consider:
 In the next lesson, we'll learn how to create mini-apps with Artifacts — actual outputs that Claude build and you can share right away.
 
 For more information on getting started with projects, visit the [Anthropic Help Center(opens in new tab)](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects).
+
+[Previous lessonHow you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)[Next lessonCreating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+
+Lesson 5 of 13 · Claude 101Introduction to projects
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [Video](#video)
+* [Key takeaways](#key-takeaways)
+* [What are Projects?](#what-are-projects)
+* [Creating your first project](#creating-your-first-project)
+* [Working within your project](#working-within-your-project)
+* [Collaboration features](#collaboration-features)
+* [Example projects to inspire you](#example-projects-to-inspire-you)
+* [Best practices for projects](#best-practices-for-projects)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

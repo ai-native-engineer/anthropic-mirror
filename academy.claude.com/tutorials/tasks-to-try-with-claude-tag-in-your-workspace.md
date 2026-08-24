@@ -1,10 +1,20 @@
 <!-- source: https://academy.claude.com/tutorials/tasks-to-try-with-claude-tag-in-your-workspace -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Tasks to try with Claude Tag in your workspace
+
+A catalog of tasks to try handing to Claude Tag once it's in your workspace, each with the prompt that starts it and what comes back.
+
+9 minClaude Tag
+
+![](https://academy.claude.com/assets/v1/thumbnail.dark-fvmviaxt.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-fvmviaxt.png)
+
 Tag [Claude(opens in new tab)](https://claude.com/blog/agent-identity-access-model) in a thread and tell it what you want. It reads what it needs (the messages and files in that channel, plus any tools your team has connected), does the task, and posts the result in the same thread. Claude tags you back, so you stay in the conversation: read what it sent, reply with a change, or hand the thread to a teammate. Tagging is how most tasks start, though once Claude is active in a channel it can also [pitch in on its own(opens in new tab)](https://claude.com/docs/claude-tag/users/when-claude-responds) when it sees a way to help.
 
 Most questions are answered in a few seconds. Bigger tasks, like drafting a doc or fixing a bug, take longer; Claude lets you know it's on it right away, often with a quick reaction, then works in the background and shows you its progress, so you're not sitting and waiting on it.
-
-
 
 New to Claude Tag? [Best practices for working with Claude Tag(opens in new tab)](https://academy.claude.com/tutorials/best-practices-using-claude-tag) covers how tagging works, what Claude can reach, and how to write tasks that come back right.
 
@@ -36,29 +46,29 @@ These work the moment Claude is in your workspace, before you connect a single t
 
 Claude reads through a thread or channels and tells you what matters, or finds the specific thing you need and shows where it came from.
 
-Catch up on a thread you missed
+Catch up on a thread you missed
 
-Keep up with channels you can't follow
+Keep up with channels you can't follow
 
-Recap the week for your team
+Recap the week for your team
 
-Find what never got a reply
+Find what never got a reply
 
 ### Turn a discussion into real work
 
 Claude turns the discussion you're having in the channel into something concrete to work from. Take it from there yourself, or keep working on it with Claude in the thread.
 
-Write up a first draft from the thread
+Write up a first draft from the thread
 
-See the trend in numbers people post
+See the trend in numbers people post
 
 ### Hand off the ongoing work
 
 You set these up once and Claude [runs them on its own(opens in new tab)](https://claude.com/docs/claude-tag/users/proactivity) until you stop it.
 
-Make sure nothing urgent gets missed
+Make sure nothing urgent gets missed
 
-Keep a pinned overview of the channel
+Keep a pinned overview of the channel
 
 ## Connect the tools you already work in
 
@@ -70,43 +80,43 @@ With both your channel's past work and your connected tools, Claude does the wor
 
 With your codebase connected, Claude reads code, writes fixes, and opens pull requests under its own account, reporting each step back into the thread where the bug came up.
 
-Fix a bug and open a pull request
+Fix a bug and open a pull request
 
-Map how the system fits together
+Map how the system fits together
 
-Build a new hire's first-week page
+Build a new hire's first-week page
 
 ### In a customer or feedback channel
 
 With your CRM and support tools connected, Claude pulls from account notes, support tickets, and feedback channels at once, and shows the messages and accounts behind every claim.
 
-Rank what customers are asking for
+Rank what customers are asking for
 
-Get briefed on an account before a call
+Get briefed on an account before a call
 
 ### In a data or metrics channel
 
 With your warehouse connected, Claude writes the query, runs it, and posts the chart with the SQL right there in the thread.
 
-Get an answer straight from the data
+Get an answer straight from the data
 
-Build a dashboard for one decision
+Build a dashboard for one decision
 
-See where users drop off
+See where users drop off
 
 ### In a docs or policy channel
 
 With your document store connected, Claude reads the current version and answers from it, quoting the section and linking to it.
 
-Answer from the current version of a doc
+Answer from the current version of a doc
 
-Prepare for a meeting
+Prepare for a meeting
 
 ### In your team's working channel
 
 With your ticket or project tracker connected, Claude reads the tracker and the channel discussion together and tells you who's blocked, on what, and for how long.
 
-List who is blocked and on what
+List who is blocked and on what
 
 ## Learn more
 
@@ -115,3 +125,8 @@ List who is blocked and on what
 * [Admin setup guide(opens in new tab)](https://claude.com/docs/claude-tag/admins/setup-overview): Connecting tools, scoping access per channel, spend controls.
 * [Security and data handling(opens in new tab)](https://claude.com/docs/claude-tag/concepts/security-and-data): How Claude's access is scoped and what stays in your workspace.
 * [Help center(opens in new tab)](https://support.claude.com): Troubleshooting and account questions.
+
+* [What to expect from Claude Tag](#what-to-expect-from-claude-tag)
+* [What works with no setup](#what-works-with-no-setup)
+* [Connect the tools you already work in](#connect-the-tools-you-already-work-in)
+* [Learn more](#learn-more)

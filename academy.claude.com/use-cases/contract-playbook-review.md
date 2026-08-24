@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/contract-playbook-review -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Contract redlining
+
+Clause-by-clause G/Y/R with redlines you can send back.
+
+15 minLegalClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-hd3p5r1z.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ci2tqnmp.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Commercial Legal plugin ships with `/review` and other commercial-contracting skills as a starting point, already structured to walk an agreement against your playbook, flag the deviations, and draft the redlines. It's one of twelve practice-area plugins for legal teams; if your admin manages plugins and it's not available yet, skip this, nothing below requires it.
 
-
-
 Commercial LegalReviews vendor agreements, NDAs, and SaaS subscriptions against your sales-side or purchasing-side playbook, tracks renewals and cancel-by deadlines before they're missed, routes escalations to the right approver, and translates reviews into summaries business stakeholders will actually read.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fclaude-for-legal&plugin=commercial-legal)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fclaude-for-legal&plugin=commercial-legal)
 
 `/review`Review a vendor agreement, NDA, or SaaS subscription against your playbook.
 
@@ -26,9 +36,7 @@ Commercial LegalReviews vendor agreements, NDAs, and SaaS subscriptions against 
 
 [Run](claude://cowork/new?q=%2Fcold-start-interview)
 
-Show all 9 skills
-
-
+Show all 9 skills
 
 First run
 
@@ -40,13 +48,11 @@ Claude Cowork is more powerful when it works directly with your systems. You con
 
 Navigate to **Customize → Connectors** in Cowork to set up.
 
-
-
 Ironclad
 
 Pull the counterparty draft and your playbook from the Ironclad workflow; the clause table and redline write to your working folder.
 
-[Connect](https://claude.ai/desktop/directory/ironclad)
+[Connect](https://claude.ai/desktop/directory/ironclad)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23F25022'%20d='M1%201h10.5v10.5H1z'/%3e%3cpath%20fill='%237FBA00'%20d='M12.5%201H23v10.5H12.5z'/%3e%3cpath%20fill='%2300A4EF'%20d='M1%2012.5h10.5V23H1z'/%3e%3cpath%20fill='%23FFB900'%20d='M12.5%2012.5H23V23H12.5z'/%3e%3c/svg%3e)
 
@@ -54,33 +60,27 @@ Microsoft 365
 
 Draft redlines as tracked changes in the Word file and save to SharePoint.
 
-[Connect](https://claude.ai/desktop/directory/microsoft-365)
-
-
+[Connect](https://claude.ai/desktop/directory/microsoft-365)
 
 iManage
 
 Read the incoming draft, prior redlines, and your precedent library from the matter workspace.
 
-[Connect](https://claude.ai/desktop/directory/imanage)
-
-
+[Connect](https://claude.ai/desktop/directory/imanage)
 
 NetDocuments
 
 Read the incoming draft and your playbook from the matter workspace; the clause table writes to your working folder.
 
-[Connect](https://claude.ai/desktop/directory/netdocuments)
+[Connect](https://claude.ai/desktop/directory/netdocuments)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 ### Set the working folder
 
 Put the incoming MSA and your contract playbook in one folder on your machine, then in Cowork click **+ Add folder** and select it. [Save it as a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) so your playbook, instructions, and memory stay attached and you don't re-upload them for the next contract — Cowork reads from the folder and writes the clause table and redlined draft back to it.
 
 Files you add stay on your machine and aren't used to train Claude — Cowork reads them locally to do the work.
-
-
 
 **Just want to try it once first?** Skip the project — click **+ Add folder** on a one-off folder and jump to the prompt below.
 
@@ -90,7 +90,7 @@ Acme-MSA-v3-counterparty.docxApr 24, 2026182 KB
 
 contract-playbook-2026.pdfJan 6, 2026412 KB
 
-In Cowork’s chat bar:Contracts / Acme-MSA
+In Cowork’s chat bar:Contracts / Acme-MSA
 
 ## The prompt
 
@@ -98,35 +98,33 @@ In Cowork’s chat bar:Contracts / Acme-MSA
 
 Review this MSA clause by clause against our contract playbook. For each clause, mark it green, yellow, or red against our standard, explain why in one or two sentences, and where it's yellow or red draft the redline and the rationale for opposing counsel.
 
-
-
-Contracts / Acme-MSAOpen in Cowork
+Contracts / Acme-MSAOpen in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Compare against your own baseline.** G/Y/R means deviation from your playbook, not a textbook.
 
-Prompt
+Prompt
 
 **Ask for the fix and the reasoning.** Paste-ready language plus rationale that holds up with counsel.
 
-Prompt
+Prompt
 
 **Save the detail for the problems.** One line for standard clauses; detail goes where the risk is.
 
-Source
+Source
 
 **Write results back to the same folder.** Review and redline write back next to the original.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -136,11 +134,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /review skill with my feedback.
 
-
-
-ContractsOpen in Cowork
-
-
+ContractsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -152,9 +146,7 @@ A review memo is stale the moment opposing counsel sends v4. Ask Cowork to publi
 
 Publish that clause table as a live artifact for the deal team. Re-run it against whatever the latest counterparty draft is in this folder, and keep a short "what changed since last turn" note at the top.
 
-
-
-Contracts / Acme-MSAOpen in Cowork
+Contracts / Acme-MSAOpen in Cowork
 
 ### Run it on every new contract
 
@@ -162,23 +154,19 @@ Paper arrives, the first-pass review should already be waiting. Type `/schedule`
 
 **/schedule** Weekdays at 9am, check Contracts/Intake for new files and run /review on each one, writing the clause table and redlined draft to a subfolder named for the counterparty.
 
-
+ContractsOpen in Cowork
 
-ContractsOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 First-pass contract review
 
 Each weekday at 9am, checks Contracts/Intake for new files, runs `/review` on each one, and writes the clause table and redlined draft to a counterparty subfolder.
 
-Every **weekday at 9 am — checks Contracts/Intake for new files**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **weekday at 9 am — checks Contracts/Intake for new files**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/review` now carries your playbook, your red-flag list, and your fallback positions. Share it so every reviewer on the team scores paper the same way, and the business sees a consistent first pass no matter who picks it up.
-
-
 
 Share the skill
 
@@ -198,6 +186,13 @@ Claude in Word
 
 Draft the redline as tracked changes
 
-Install](https://claude.com/download)
+Install](https://claude.com/download)
 
-[Next: Outside counsel management](https://academy.claude.com/use-cases/outside-counsel-review)
+[Next: Outside counsel management](https://academy.claude.com/use-cases/outside-counsel-review)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [What changes for the contracts queue](#what-changes-for-the-contracts-queue)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/pull-metrics-from-analytics-dashboards -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Pull metrics from analytics dashboards
+
+Claude in Chrome can navigate your analytics dashboards, extract the numbers you need, and compile them into a summary. No exports, no tab-switching, no manual copying.
+
+10 minProductClaude in Chrome
+
+Get Claude in ChromeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-ng2ge73r.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-d3fzwdg7.png)
+
 ![Pull metrics from analytics dashboards result](https://academy.claude.com/assets/v1/pull-metrics-from-analytics-dashboards-ot36n6cn.png)
 
 ## 1. Describe the task
@@ -24,7 +38,7 @@ Pull my weekly metrics from both my Amplitude and Mixpanel open tabs.
 
 **Output:** Format as a summary I can paste into our weekly product update.
 
-Copy prompt
+Copy prompt
 
 ## 2. Give Claude context
 
@@ -87,7 +101,7 @@ Have Claude investigate before you share the report and get more detail when som
 
 The onboarding conversion dropped from 78% last week. Can you go into Mixpanel and show me where in the flow people are dropping off? I need to understand this before the meeting.
 
-Copy prompt
+Copy prompt
 
 ### Share the output in a different channel
 
@@ -95,7 +109,7 @@ Once your summary is ready, have Claude format it and post it directly to your t
 
 This looks good. Can you turn it into a few bullet points and post it to #product-weekly in Slack? Just the highlights and anything that changed significantly.
 
-Copy prompt
+Copy prompt
 
 ### Add another data source
 
@@ -103,7 +117,7 @@ Pull in another data source without starting over. Claude can look in a new tab 
 
 Can you also pull our revenue metrics from Stripe? I need MRR, new subscriptions this week, and churn rate. Add them to the summary.
 
-Copy prompt
+Copy prompt
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -128,3 +142,10 @@ If Claude asks for permission on every dashboard page, go to Settings → Permis
 Claude in Chrome is available to all paid plan users. Install the extension, log into your analytics tools, and describe the metrics you need. Claude navigates the dashboards and compiles a summary ready to paste into your team update.
 
 [Try in Claude(opens in new tab)](https://claude.com/download)
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

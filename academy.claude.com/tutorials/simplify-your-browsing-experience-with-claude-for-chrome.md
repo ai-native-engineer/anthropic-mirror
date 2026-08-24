@@ -1,12 +1,22 @@
 <!-- source: https://academy.claude.com/tutorials/simplify-your-browsing-experience-with-claude-for-chrome -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Simplify your browsing experience with Claude in Chrome
+
+Learn how Claude in Chrome enables Claude to work alongside you in your browser with visual intelligence and contextual understanding.
+
+15 minClaude in Chrome
+
+Watch
+
+![](https://academy.claude.com/assets/v1/thumbnail.dark-b49emwd1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-b49emwd1.png)
+
 Claude can now work alongside you in your browser, in your context, on your actual work. Claude can see what you see, click on what needs clicking, and act as your collaborator, sharing the cognitive load of digital work. This guide will help you delegate the right tasks, build effective workflows, and maximize Claude's browser capabilities.
 
-Loading
-
 Claude in Chrome is available for paid plan users on the Chrome web browser.
-
-
 
 **Important:** Browser use is a feature that allows Claude to interact directly with websites on your behalf, which carries inherent risks. Please review [Using Claude for Chrome Safely(opens in new tab)](https://support.claude.com/en/articles/12902428-using-claude-for-chrome-safely) before use.
 
@@ -18,8 +28,6 @@ The Chrome extension brings Claude directly into your web workflow. Claude opera
 * **Contextual Understanding -** Claude understands what buttons on the page do. It knows that "Archive" in Gmail removes emails from the inbox, that "Share" in documents grants others access, that form fields labeled "Email" expect email addresses.
 * **Tab Group Awareness —** Claude can see and work across all tabs within the same tab group, providing larger context for its workflows. This means Claude can reference information and coordinate actions across multiple tabs.
 * **Persistent Work Across Tabs —** Claude continues working when you switch tabs. Start a research task, jump to email to handle something urgent and Claude keeps gathering information as long as Chrome is open. Turn on notifications and Claude will ping you when it needs your permission or a task is complete.
-
-
 
 **Note:** Claude maintains context within a single task but doesn't remember information across sessions.
 
@@ -76,31 +84,31 @@ Taking action:
 
 Fill out this vendor application using information from our company info document. Pause before submitting for my review
 
-/vendor-applicationCopy prompt
+/vendor-applicationCopy prompt
 
 Go through my mail inbox: archive emails from these senders [list], star anything mentioning deadlines, delete obvious spam. Tell me what you archived and what needs my attention.
 
-/inbox-cleanupCopy prompt
+/inbox-cleanupCopy prompt
 
 Research tasks:
 
 Visit [competitor website]. Check: latest blog posts, pricing page updates, careers section for new roles. Note anything new or changed. Summarize in a brief.
 
-/competitor-scanCopy prompt
+/competitor-scanCopy prompt
 
 Search [food delivery site] for [cuisine type] restaurants. Filter by rating above 4 stars, check menus for [dietary preference]. Show me top 3 options with prices.
 
-/restaurant-finderCopy prompt
+/restaurant-finderCopy prompt
 
 Communication prep:
 
 For unread emails tagged "needs response": draft replies maintaining my usual tone. Don't send, just stage them for my review. Note which ones need more context from me.
 
-/email-batch-draftCopy prompt
+/email-batch-draftCopy prompt
 
 For each person in this meeting invite: look up their professional background, note their role, identify their likely priorities, find any recent posts/articles. Create a pre-meeting brief.
 
-/stakeholder-mapCopy prompt
+/stakeholder-mapCopy prompt
 
 ## Setting yourself up for success
 
@@ -121,3 +129,9 @@ For safety, Claude cannot access financial services, adult content, or pirated c
 ## Ready to practice?
 
 Claude in your browser represents an early step in our work on AI that can handle increasingly complex workflows and work seamlessly where you do. Try our [interactive demo(opens in new tab)](https://claude.ai/chrome/installed) to build confidence before working with real tasks.
+
+* [How Claude understands your browser](#how-claude-understands-your-browser)
+* [What makes a good browser task](#what-makes-a-good-browser-task)
+* [Repeat effective workflows with shortcuts](#repeat-effective-workflows-with-shortcuts)
+* [Setting yourself up for success](#setting-yourself-up-for-success)
+* [Ready to practice?](#ready-to-practice)

@@ -1,6 +1,38 @@
 <!-- source: https://academy.claude.com/courses/claude-101/what-is-claude -->
 
-Lesson 1 of 13 · Claude 101What is Claude?
+Lesson 1 of 13 · Claude 101What is Claude?
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# What is Claude?
+
+Lesson 15 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain what Claude is and the principles that guide its design
+* Describe Claude's core capabilities and how it differs from a simple chatbot
+* Identify the different ways to access Claude (web, desktop, and mobile)
+
+Course roadmap
+
+1. 1
+
+   Meet ClaudeWhat is Claude, how do you talk to it, and how do you get great results?
+2. 2
+
+   Organizing your workHow do Projects, Artifacts, and Skills give Claude structure and reusable knowledge?
+3. 3
+
+   Expanding Claude's reachHow do Connectors, Enterprise Search, and Research bring your tools and the web into the conversation?
+4. 4
+
+   Putting it all togetherWhat does Claude look like in action across roles, and where else can you work with it?
+5. 5
+
+   Conclusion & badgeWhere do you go from here, and how do you earn your badge?
 
 Claude is more than a chatbot—it's an AI assistant designed to be your thinking partner. In this lesson you'll learn what makes Claude different from other AI tools and see how it can help with a wide variety of work tasks.
 
@@ -14,8 +46,6 @@ Claude is more than a chatbot—it's an AI assistant designed to be your thinkin
 ## Understanding Claude's capabilities
 
 Claude can help with a wide range of tasks that go far beyond simple question-and-answer interactions to assistant-like partnership that can both automate *and* augment your work.
-
-Loading
 
 Here's a few things Claude excels at:
 
@@ -46,3 +76,44 @@ What tasks in your current work might benefit from having Claude as a thinking p
 ## What's next
 
 In the next lesson, you'll learn how to navigate the Claude interface, start your first conversation, and understand the basics of how Claude responds to your messages.
+
+[Next lessonYour first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+
+Lesson 1 of 13 · Claude 101What is Claude?
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [Key takeaways](#key-takeaways)
+* [Understanding Claude's capabilities](#understanding-claudes-capabilities)
+* [Ways to access Claude](#ways-to-access-claude)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

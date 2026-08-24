@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Validate reserves and draft filing narrative with Claude for Excel
+
+Cowork reads your reserve workbook from the valuation folder and pulls prior filings and bulletins through your organization's own NAIC connector (a custom MCP server your team hosts). You take the formula flags and reserve walk into Claude for Excel to clean the workbook, then bring the narrative into Claude for Word for the filing memo.
+
+15 minFinanceClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-fl1f6avt.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-iwvq0idh.png)
+
 ![Validate reserves and draft filing narrative with Claude for Excel result](https://academy.claude.com/assets/v1/validate-reserves-and-draft-filing-narrative-with-claude-for-excel-facgxrom.png)
 
 ## 1. Describe the task
@@ -21,9 +35,7 @@ Steps:
 
 Show me the flags before I touch anything.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -39,7 +51,7 @@ Q1 reserve workbook (Personal Auto BI)
 
 Prior-year filing memo
 
-In Cowork’s chat bar:Valuation folder
+In Cowork’s chat bar:Valuation folder
 
 ## 3. What Claude creates
 
@@ -74,7 +86,7 @@ Q1 reserve review — IBNR up $9.6M, ultimate up $6.4M.
 
 Three formula fixes: Triangles!K47 (hard-coded LDF), Roll-forward!E22 (wrong column ref), BF Method!D38 (tail not flowing). Walk me through each, show me the corrected number, then re-run the reserve walk so I can see the clean ultimate.
 
-Copy prompt
+Copy prompt
 
 Once you've signed off on the workbook, open the filing memo in Claude for Word. The conversation carries from Excel, so the narrative already knows the IBNR movement and the LDF refresh — you just need it to draft the reserve adequacy section and the methodology change disclosure.
 
@@ -88,9 +100,7 @@ In Cowork, ask whether the LDFs look consistent with industry data.
 
 are my 12-24 and 24-36 link ratios in line with the industry benchmarks NAIC published last quarter for Personal Auto BI?
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Run a sensitivity on the tail
 
@@ -98,7 +108,7 @@ In Claude for Excel, once the workbook is clean.
 
 rebuild the tail sensitivity — show ultimate at tail factors of 1.010, 1.015, 1.020, 1.025, hold everything else constant
 
-Copy prompt
+Copy prompt
 
 ### Draft the methodology change disclosure
 
@@ -106,7 +116,7 @@ In Claude for Word, once the reserves are locked.
 
 draft the methodology change section for the filing — we updated the tail factor and added one accident year to the LDF selection window. keep it ASOP 36 compliant
 
-Copy prompt
+Copy prompt
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -141,4 +151,11 @@ Steps:
 
 Show me the flags before I touch anything.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

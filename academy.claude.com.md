@@ -1,5 +1,11 @@
 <!-- source: https://academy.claude.com/ -->
 
+# Welcome to Claude Academy
+
+Resources for everyone — whether you’re exploring AI, getting started with Claude, or rolling it out to your team.
+
+[Get started](https://academy.claude.com/start)[All resources](https://academy.claude.com/all)
+
 ## Learn the Claude products
 
 [![](https://academy.claude.com/assets/v1/thumbnail.light-iznp6akh.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hh3at4r1.png)
@@ -26,7 +32,7 @@ Learn to build Claude into your products with the API, Claude Console, and MCP.]
 
 ## Learn AI fundamentals with AI Fluency
 
-[More about AI Fluency](https://academy.claude.com/collections/ai-fluency)
+[More about AI Fluency](https://academy.claude.com/collections/ai-fluency)
 
 [### AI Fluency: Framework & Foundations
 

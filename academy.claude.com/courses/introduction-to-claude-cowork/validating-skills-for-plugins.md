@@ -1,6 +1,19 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins -->
 
-Lesson 12 of 14 · Introduction to Claude CoworkValidating skills for plugins
+Lesson 12 of 14 · Introduction to Claude CoworkValidating skills for plugins
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# Validating skills for plugins
+
+Lesson 128 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain what an eval is and why it matters before you share or rely on a skill
+* Run a lightweight eval through skill-creator
 
 ## Why this matters
 
@@ -40,10 +53,50 @@ And if the outputs already look great on the first pass? You're done. Evals aren
 
 Step through a mock eval review below — three prompts, each with a with-skill and a without-skill output side by side.
 
-Loading
-
 For each pair: pick the version you'd actually send, and write one line of feedback you'd give Claude. That's the whole loop.
 
 ## What’s next
 
 In the next lesson, you'll move from "this works for me" to "this works for the team" — the patterns and choices that turn personal workflows into shared infrastructure.
+
+[Previous lessonBest practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)[Next lessonShare what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+
+Lesson 12 of 14 · Introduction to Claude CoworkValidating skills for plugins
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [Why this matters](#why-this-matters)
+* [How the eval system works](#how-the-eval-system-works)
+* [Iterate on the skill](#iterate-on-the-skill)
+* [Try it now](#try-it-now)
+* [What’s next](#whats-next)

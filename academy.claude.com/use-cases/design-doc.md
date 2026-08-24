@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/design-doc -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Write the design doc or RFC
+
+A structured proposal with prior art and trade-offs filled in.
+
+10 minEngineeringClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-pbyyssck.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oj6tpm7w.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Engineering plugin ships with `/system-design` as a starting point, already structured to fill an RFC template and look up prior art across your wiki. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 EngineeringStreamline engineering workflows — standups, code review, architecture decisions, incident response, and technical documentation. Works with your existing tools or standalone.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=engineering)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=engineering)
 
 `/system-design`Design systems, services, and architectures.
 
@@ -22,7 +32,7 @@ EngineeringStreamline engineering workflows — standups, code review, architect
 
 [Run](claude://cowork/new?q=%2Farchitecture)
 
-Show all 10 skills
+Show all 10 skills
 
 ### Connect your tools
 
@@ -36,7 +46,7 @@ Confluence
 
 Look up prior RFCs and architecture pages and write the new doc straight into your engineering space. Confluence access comes through the Atlassian Rovo connector (Jira and Confluence).
 
-[Connect](https://claude.ai/desktop/directory/atlassian)
+[Connect](https://claude.ai/desktop/directory/atlassian)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23181717'%20d='M12%20.3a12%2012%200%200%200-3.8%2023.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73%201.2.09%201.84%201.24%201.84%201.24%201.07%201.83%202.81%201.3%203.49%201%20.11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93%200-1.31.47-2.38%201.24-3.22-.13-.3-.54-1.52.11-3.18%200%200%201.01-.32%203.3%201.23a11.5%2011.5%200%200%201%206%200c2.29-1.55%203.3-1.23%203.3-1.23.65%201.66.24%202.88.12%203.18.77.84%201.23%201.91%201.23%203.22%200%204.61-2.8%205.63-5.48%205.92.43.37.81%201.1.81%202.22v3.29c0%20.32.22.7.82.58A12%2012%200%200%200%2012%20.3'/%3e%3c/svg%3e)
 
@@ -44,7 +54,7 @@ GitHub
 
 Read the relevant code and past ADRs so the proposal references the system as it actually is.
 
-[Connect](https://claude.ai/desktop/directory/github)
+[Connect](https://claude.ai/desktop/directory/github)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23000'%20d='M4.46%204.44c.74.6%201.02.56%202.42.46l13.18-.79c.28%200%20.05-.28-.05-.32l-2.19-1.58c-.42-.33-.98-.7-2.05-.6L2.99%202.53c-.46.05-.56.28-.37.46l1.84%201.45Zm.8%203.1v13.87c0%20.74.37%201.02%201.21.98l14.49-.84c.84-.05.93-.56.93-1.16V6.6c0-.6-.23-.93-.74-.88l-15.14.88c-.56.05-.75.33-.75.93Zm14.3.74c.1.42%200%20.84-.42.89l-.7.14v10.24c-.6.33-1.16.51-1.63.51-.74%200-.93-.23-1.49-.93l-4.56-7.16v6.93l1.44.33s0%20.84-1.16.84l-3.21.18c-.1-.18%200-.65.33-.74l.84-.23V9.98l-1.16-.1c-.1-.42.14-1.02.79-1.07l3.44-.23%204.75%207.25V9.42l-1.21-.14c-.1-.51.28-.88.74-.93l3.21-.18Z'/%3e%3c/svg%3e)
 
@@ -52,11 +62,9 @@ NotionOptional
 
 Pull the RFC template and publish the draft into your design-review database.
 
-[Connect](https://claude.ai/desktop/directory/notion)
+[Connect](https://claude.ai/desktop/directory/notion)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -72,7 +80,7 @@ notes-streaming-migration.mdApr 24, 20265 KB
 
 current-pipeline-diagram.pngMar 11, 2026142 KB
 
-In Cowork’s chat bar:RFCs / 0087-streaming-events
+In Cowork’s chat bar:RFCs / 0087-streaming-events
 
 ## The prompt
 
@@ -80,35 +88,33 @@ In Cowork’s chat bar:RFCs / 0087-streaming-events
 
 Write a design doc for moving our event pipeline from batch to streaming. Look up prior art and architecture constraints, then draft the proposal in our RFC template: problem, goals and non-goals, two or three approaches with trade-offs, the recommendation, and open questions. I'll fill in the parts only I know.
 
-
-
-RFCs / 0087-streaming-eventsOpen in Cowork
+RFCs / 0087-streaming-eventsOpen in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Ask for prior art explicitly.** Cowork searches your wiki and past RFCs so the doc cites what's been tried before.
 
-Prompt
+Prompt
 
 **Force two or three approaches.** You get a real trade-off table, not a sales pitch for the first idea.
 
-Prompt
+Prompt
 
 **Say which parts you'll fill in.** Cowork handles structure and lookup; you spend time on the actual judgment call.
 
-Source
+Source
 
 **Give it your template to follow.** Output follows your sections and headings, so reviewers see the structure they expect.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -118,11 +124,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /system-design skill with my feedback.
 
-
-
-RFCsOpen in Cowork
-
-
+RFCsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -134,23 +136,19 @@ Design docs start as a paragraph in a Slack thread or a notes file. Type `/sched
 
 **/schedule** Weekdays at 9am, check RFCs/inbox for new one-pagers, run /system-design on each one, and write the structured draft to a numbered folder under RFCs/.
 
-
+RFCsOpen in Cowork
 
-RFCsOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 RFC inbox to draft
 
 Weekdays at 9am, picks up new one-pagers from RFCs/inbox, runs `/system-design` with prior-art lookup, and writes a structured draft to a numbered RFC folder.
 
-Every **weekday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **weekday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/system-design` now carries your template, your prior-art sources, and your reviewers' standing questions. Share it so every tech lead's RFC arrives in the same shape, and architecture review spends time on the decision instead of the formatting.
-
-
 
 Share the skill
 
@@ -162,4 +160,11 @@ You have a complete RFC draft in your template, with prior art and trade-offs fi
 
 You did this for one proposal. The same approach covers API changes, schema migrations, and architecture decisions — each one becomes a skill your team runs the same way.
 
-[Next: Build an "Ask the Company" agent](https://academy.claude.com/use-cases/ask-the-company)
+[Next: Build an "Ask the Company" agent](https://academy.claude.com/use-cases/ask-the-company)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [What changes for design review](#what-changes-for-design-review)

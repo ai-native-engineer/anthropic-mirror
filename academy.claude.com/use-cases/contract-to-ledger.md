@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/contract-to-ledger -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Contract to ledger extraction
+
+ASC 606 fields pulled from the contract, exceptions flagged before they hit the GL.
+
+10 minFinanceClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-h97eje0w.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-b4zgvlm6.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Finance plugin ships with `/journal-entry` and seven other close-week skills as a starting point, already structured to read source documents and produce a structured accounting record. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 FinanceStreamline finance and accounting workflows, from journal entries and reconciliation to financial statements and variance analysis. Speed up audit prep, month-end close, and keeping your books clean.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=finance)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=finance)
 
 `/journal-entry`Prepare journal entries with proper debits, credits, and supporting documentation for month-end close.
 
@@ -22,7 +32,7 @@ FinanceStreamline finance and accounting workflows, from journal entries and rec
 
 [Run](claude://cowork/new?q=%2Fclose-management)
 
-Show all 7 skills
+Show all 7 skills
 
 ### Connect your tools
 
@@ -30,21 +40,17 @@ Claude Cowork is more powerful when it works directly with your systems. You con
 
 Navigate to **Customize → Connectors** in Cowork to set up.
 
-
-
 Ironclad
 
 Read executed contracts straight from the CLM, including amendments and order forms.
 
-[Connect](https://claude.ai/desktop/directory/ironclad)
-
-
+[Connect](https://claude.ai/desktop/directory/ironclad)
 
 NetSuite
 
 Populate the rev-rec schedule and check what's already been booked for the customer.
 
-[Connect](https://claude.ai/desktop/directory/netsuite)
+[Connect](https://claude.ai/desktop/directory/netsuite)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%2300A1E0'%20d='M10.01%205.56a4.18%204.18%200%200%201%203.02-1.3c1.58%200%202.96.88%203.7%202.19a5.12%205.12%200%200%201%202.1-.45%205.18%205.18%200%200%201%200%2010.36c-.37%200-.73-.04-1.07-.11a3.77%203.77%200%200%201-4.94%201.55%204.3%204.3%200%200%201-7.99-.2%203.98%203.98%200%200%201-.82.09%203.97%203.97%200%200%201-1.96-7.43%204.57%204.57%200%200%201%207.96-4.7'/%3e%3c/svg%3e)
 
@@ -54,9 +60,7 @@ Cross-check deal terms against what the opportunity record says was sold.
 
 Custom connector
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -74,7 +78,7 @@ revrec-intake-template.xlsxJan 6, 202622 KB
 
 asc606-policy.mdNov 4, 202518 KB
 
-In Cowork’s chat bar:Revenue / Intake / 2026-W17
+In Cowork’s chat bar:Revenue / Intake / 2026-W17
 
 ## The prompt
 
@@ -82,35 +86,33 @@ In Cowork’s chat bar:Revenue / Intake / 2026-W17
 
 Extract the ASC 606 fields (performance obligations, standalone selling price, contract term, billing schedule, variable consideration) from every executed contract into the rev-rec intake sheet, and flag any that don't match a standard pattern for my review before booking.
 
-
-
-Revenue / Intake / 2026-W17Open in Cowork
+Revenue / Intake / 2026-W17Open in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **List the exact fields you need.** Listing the exact ASC 606 inputs means the intake sheet comes back with the columns your policy uses, not generic contract metadata.
 
-Prompt
+Prompt
 
 **Ask it to flag the exceptions.** Asking for exceptions keeps the accounting judgment with you; standard deals flow, the weird ones stop at your desk.
 
-Prompt
+Prompt
 
 **Process the whole batch at once.** Cowork works the whole batch in one pass, so the intake sheet covers the week, not one PDF at a time.
 
-Source
+Source
 
 **Put your definitions in the folder.** "Standard pattern" means whatever your asc606-policy memo says it means.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Ask for the clause reference.** Add "cite the section number for each extracted field" so the audit trail is one click from the value.
 
-Practice
+Practice
 
 **Add a filled example sheet.** Drop a filled example in the folder and Cowork matches your column order, naming, and dropdown values exactly.
 
@@ -120,11 +122,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /journal-entry skill with my feedback.
 
-
-
-Revenue / IntakeOpen in Cowork
-
-
+Revenue / IntakeOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -136,23 +134,19 @@ Signed contracts come in all week. Type `/schedule` in the prompt, or open **Sch
 
 **/schedule** Every weekday at 5pm, run the contract-to-ledger skill on any executed contract added to Revenue/Intake since the last run, append to the intake sheet, and post the exception list to #revenue-ops.
 
-
+Revenue / IntakeOpen in Cowork
 
-Revenue / IntakeOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Contract intake to rev-rec
 
 Daily at 5pm, extracts ASC 606 fields from any new executed contracts, appends to the intake sheet, and posts exceptions to #revenue-ops.
 
-Every **Weekdays at 5:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **Weekdays at 5:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized skill now carries your field list, your policy memo, and your definition of a standard deal. Share it so every revenue accountant runs the same extraction and the exception queue is one list, not five inboxes.
-
-
 
 Share the skill
 
@@ -172,6 +166,13 @@ Claude in Excel
 
 Review and adjust the intake sheet in place
 
-Install](https://claude.com/claude-for-excel)
+Install](https://claude.com/claude-for-excel)
 
-[Next: SOX controls documentation](https://academy.claude.com/use-cases/sox-controls-doc)
+[Next: SOX controls documentation](https://academy.claude.com/use-cases/sox-controls-doc)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [What changes for revenue accounting](#what-changes-for-revenue-accounting)

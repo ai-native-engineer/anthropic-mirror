@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-scholar-gateway-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the Scholar Gateway Connector in Claude
+
+Set up and use the Scholar Gateway integration by Wiley with Claude for access to over 3 million peer-reviewed scientific articles.
+
+2 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-fg6uga97.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-blbr5pek.png)
+
 The Scholar Gateway by Wiley integration provides authenticated access to the most relevant snippets of scientific research papers to utilize within Claude. This article explains how to set up and use the Scholar Gateway integration with Claude to accelerate your research workflows.
 
 The Scholar Gateway integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -55,3 +69,8 @@ Technical details of the Scholar Gateway integration can be found in [Wiley’s 
 
 * Enhanced literature review when planning experiments and research plans, to efficiently identify, summarize, and evaluate relevant literature as individual articles or in aggregation, enabling new ways of doing research and delivering reliable and cited insights in seconds.
 * Information on latest research in a certain field of medicine or pharmaceuticals.
+
+* [What this integration provides](#what-this-integration-provides)
+* [Who can access the Scholar Gateway integration](#who-can-access-the-scholar-gateway-integration)
+* [Setting up the Scholar Gateway integration](#setting-up-the-scholar-gateway-integration)
+* [Common use cases](#common-use-cases)

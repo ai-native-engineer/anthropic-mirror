@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-chronograph-for-portfolio-monitoring -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Chronograph for portfolio monitoring
+
+Set up and use Chronograph for portfolio monitoring including tracking exposures, analyzing performance metrics, and accessing comprehensive portfolio data.
+
+10 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-f25ixh7x.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-fjyf9v44.png)
+
 The Chronograph integration provides Claude with access to a portfolio monitoring platform that enables investment analysis and tracking. This article explains how to set up and use Chronograph to access portfolio data and investment insights. The Chronograph integration relies upon Claude’s ability to use remote connectors.
 
 ## What This Integration Provides
@@ -52,9 +66,7 @@ Example input prompt:
 
 Show me my portfolio’s overall performance metrics including Net IRR, Net MOIC, and total commitments across all investments.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Regular portfolio reviews, investor reporting, or board presentations.
 
@@ -66,9 +78,7 @@ Example input prompt:
 
 What are my top 10 company exposures by unrealized value? Include company details and current investment amounts.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Risk management, concentration monitoring, or rebalancing decisions.
 
@@ -80,9 +90,7 @@ Example input prompt:
 
 Search for information about [Company/Fund Name] and provide all available details including identifiers and key metrics.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Initial research on potential investments or updating information on existing holdings.
 
@@ -94,9 +102,7 @@ Example input prompt:
 
 Calculate [specific metric] across my active investments in the technology sector.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Sector-specific analysis, tracking specialized KPIs, or custom performance reporting.
 
@@ -108,9 +114,7 @@ Example input prompt:
 
 Search Chronograph’s help center for articles about [topic] or How do I [perform specific task] in Chronograph?
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Learning platform features, troubleshooting workflows, or discovering capabilities.
 
@@ -124,3 +128,9 @@ Search Chronograph’s help center for articles about [topic] or How do I [perfo
 * Search the help center for platform-specific guidance before asking general questions
 
 **Note:** Claude currently cannot access documents, custom fields, or metrics that require a Primary Metric Type label.
+
+* [What This Integration Provides](#what-this-integration-provides)
+* [How Claude Uses Chronograph Data](#how-claude-uses-chronograph-data)
+* [Setting Up Chronograph Integration](#setting-up-chronograph-integration)
+* [Common Use Cases](#common-use-cases)
+* [Tips for Using Chronograph](#tips-for-using-chronograph)

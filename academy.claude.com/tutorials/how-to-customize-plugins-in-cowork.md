@@ -1,20 +1,30 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to customize plugins in Claude Cowork
+
+Customize Anthropic's pre-built plugins with your team's tools, processes, and expertise so every skill runs from your context.
+
+6 minClaude Cowork
+
+[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-gsf1x23c.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-eb5bteog.png)
+
 In [Claude Cowork(opens in new tab)](https://support.claude.com/en/articles/13345190-get-started-with-cowork), a [plugin(opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork) packages the [skills(opens in new tab)](https://support.claude.com/en/articles/12580051-teach-claude-your-way-of-working-using-skills) and [connectors(opens in new tab)](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp) for a role into one install. Anthropic publishes [pre-built plugins(opens in new tab)](https://claude.ai/desktop/customize/plugins) for roles like Sales, Finance, Legal, and Marketing, each with skills for that role's common workflows.
 
 Out of the box, those skills are generic templates. Customizing a plugin rewrites them with your team's tools, standards, and reference material, so the same skills produce work that matches how your team does it. [Browse all plugins in Cowork →(opens in new tab)](https://claude.ai/desktop/customize/plugins)
 
 If you're new to Cowork, [`/setup-cowork`](claude://cowork/new?q=%2Fsetup-cowork) walks you through setting up your first plugin and connectors — see [Get started in Cowork in three steps(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps).
 
-
-
 Admins managing plugins for an organization, see [Manage Cowork plugins for your organization(opens in new tab)](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization).
 
 ## Start a customize session
 
 *In the sidebar, open* ***`Customize`*** *›* [***`Plugins`***(opens in new tab)](https://claude.ai/desktop/customize/plugins)*, select the plugin, and click* ***`Customize`****.*
-
-Loading
 
 Cowork opens a session with the plugin loaded. Claude looks through your connected tools — Slack, email, Drive — for signs of which systems your team uses, then asks you questions to confirm what it found and fill in what it couldn't. Once you answer, Claude rewrites the plugin's skills to reference your tools, adds the matching connectors, and packages the result for you to install.
 
@@ -116,3 +126,9 @@ The customize session ends with a packaged `.plugin` file you can pass around.
 * [**Get started in Cowork in three steps**(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps) — install your first plugin with `/setup-cowork`.
 * [**Build a plugin from scratch**(opens in new tab)](https://academy.claude.com/tutorials/how-to-build-a-plugin-from-scratch-in-cowork) — when the pre-built plugins don't cover your workflow.
 * [**Use plugins in Cowork**(opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork) — install, enable, and manage plugins.
+
+* [Start a customize session](#start-a-customize-session)
+* [Examples by role](#examples-by-role)
+* [Share with your team](#share-with-your-team)
+* [Things to note](#things-to-note)
+* [Learn more](#learn-more)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/create-new-hire-onboarding-guides -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create new hire onboarding guides
+
+Turn standard company information and a new hire's specific details into a personalized welcome guide. Claude organizes logistics, schedules, and key contacts into one clear document that helps new employees feel prepared from day one.
+
+15 minHRClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-e9dkyk9m.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bt4bz5c3.png)
+
 ![Create new hire onboarding guides result](https://academy.claude.com/assets/v1/create-new-hire-onboarding-guides-kz6n6qsj.png)
 
 ## 1. Describe the task
@@ -23,9 +37,7 @@ To find relevant information, search my Google Calendar for onboarding events, h
 
 Make it information-dense but beautifully organized—a senior designer should look at this and think "they have great taste here." Use sophisticated typography and layout, not generic HR formatting. She should be able to scan it quickly but find everything she needs.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -41,11 +53,9 @@ Upload your company handbook, office logistics documents, and any role-specific 
 
 Google Drive
 
-[Connect](https://claude.ai/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
-
-
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 Company policy handbookPDF
 
@@ -57,7 +67,7 @@ Office logisticsDOC
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can spend more time thinking through information across your tools and creating high quality file outputs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -91,9 +101,7 @@ Generate personalized versions for different recipients from a single template. 
 
 I have four people starting Monday: Alex (Engineering), Maria (Sales), Jordan (Marketing), Sam (Customer Success). Find their details and schedules across my Google Drive and Calendar. Then, create a personalized first week guide for each person—same company logistics but customized for their role, team, and what matters for their position.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Add additional features
 
@@ -101,9 +109,7 @@ Embed images, diagrams, or hyperlinks into your documents. Claude handles both t
 
 Using the files I just uploaded, add our team photo to the 'Your Team' section and the Floor 3 office map. Also include hyperlinks for helpful context and navigation (our office building address, relevant email addresses, our company website).
 
-
-
-Open in Claude
+Open in Claude
 
 ### Convert to other formats
 
@@ -111,9 +117,7 @@ Take one source document and create versions optimized for different uses—read
 
 Convert this word document into a PDF for printing, a bulleted list of urgent information and action items for email, and a powerpoint slide deck for presenting.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -148,4 +152,11 @@ To find relevant information, search my Google Calendar for onboarding events, h
 
 Make it information-dense but beautifully organized—a senior designer should look at this and think "they have great taste here." Use sophisticated typography and layout, not generic HR formatting. She should be able to scan it quickly but find everything she needs.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

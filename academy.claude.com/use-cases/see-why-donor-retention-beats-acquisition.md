@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/see-why-donor-retention-beats-acquisition -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# See why donor retention beats acquisition, in chat with Claude
+
+Claude builds a five-year donor projection with sliders for retention and acquisition. Drag either one and the curve redraws, and it becomes clear fairly quickly why a modest retention bump does more than doubling the acquisition spend.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-ggft1kqa.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-i7l537hu.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Here a development director wants to understand the retention math well enough t
 
 Everyone keeps telling me donor retention matters more than acquisition and I understand the argument but I don't really get it. Show me. Start with 100 donors and let me play with the numbers. I want to drag things and watch what happens.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -38,9 +48,7 @@ The button rebuilds the chart with a third slider for average gift size, switchi
 
 Add an average gift slider and switch the y-axis to revenue. I want to see how retention plays out in dollars, not just donor count.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to find the threshold
 
@@ -48,9 +56,7 @@ There's a retention rate where piling on more acquisition spend stops making muc
 
 At what retention rate does doubling my acquisition budget stop making a visible difference to the five-year line? Show me that curve.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to count the churn
 
@@ -58,9 +64,7 @@ The hidden cost of low retention is the sheer number of individual donors you cy
 
 Over five years at 45% retention and 30 new a year, how many total individual donors have come and gone just to keep me around the same count I started with?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -82,4 +86,11 @@ Try it on whatever fundraising math isn't landing as a spreadsheet. Tell Claude 
 
 Everyone keeps telling me donor retention matters more than acquisition and I understand the argument but I don't really get it. Show me. Start with 100 donors and let me play with the numbers. I want to drag things and watch what happens.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

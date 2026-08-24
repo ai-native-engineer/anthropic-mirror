@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-platform-101/built-in-tools -->
 
-Lesson 7 of 13 · Claude Platform 101Built-in tools
+Lesson 7 of 13 · Claude Platform 101Built-in tools
 
-Loading
+3. /[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+# Built-in tools
+
+Lesson 76 min
 
 Built-in tools
 
@@ -24,7 +30,7 @@ The main ones are:
 
 Let's check out some of the big ones in one file: two `messages.create` calls, one with web search and one with code execution.
 
-python
+python
 
 ```
 import anthropic
@@ -104,3 +110,48 @@ One reminder, though: just because something is validated on the internet doesn'
 * You get the result in the same response, with **no agent loop required**. Look for `server_tool_use` and tool result blocks alongside the regular text blocks.
 * **Client tools** like memory and bash run where your code runs, but the SDK ships the schema and a runner for you.
 * The "hosted by Anthropic" idea scales all the way up: **managed agents** apply it to the entire agent, not just one tool.
+
+[Previous lessonWhat is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)[Next lessonSkills](https://academy.claude.com/courses/claude-platform-101/skills)
+
+Lesson 7 of 13 · Claude Platform 101Built-in tools
+
+What is the Claude Platform?
+
+* [What is the Claude Platform?](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)
+* [Your first API call](https://academy.claude.com/courses/claude-platform-101/your-first-api-call)
+* [Choosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)
+
+Teaching your agent
+
+* [The agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)
+* [What is tool use?](https://academy.claude.com/courses/claude-platform-101/what-is-tool-use)
+* [What is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)
+
+Extending your agent
+
+* [Built-in tools](https://academy.claude.com/courses/claude-platform-101/built-in-tools)
+* [Skills](https://academy.claude.com/courses/claude-platform-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-platform-101/mcp)
+* [Context management](https://academy.claude.com/courses/claude-platform-101/context-management)
+
+Managed Agents
+
+* [What are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)
+* [Building your first managed agent](https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent)
+
+Building with Claude Code
+
+* [Building with Claude Code](https://academy.claude.com/courses/claude-platform-101/building-with-claude-code)
+
+Quiz
+
+* [Claude Platform 101 quizQuiz](https://academy.claude.com/courses/claude-platform-101/claude-platform-101-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-platform-101/badge)
+
+* [Server tools: declared by you, run by Anthropic](#server-tools-declared-by-you-run-by-anthropic)
+* [Two server tools in one file](#two-server-tools-in-one-file)
+* [Running it](#running-it)
+* [The other category: client tools](#the-other-category-client-tools)
+* [Why this matters in production](#why-this-matters-in-production)
+* [Recap](#recap)

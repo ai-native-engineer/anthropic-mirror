@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Visualize the mechanism behind an explanation mid-chat
+
+Claude builds an interactive visual inline as you talk through the problem — shaped to the specific question you're asking, with controls you manipulate and buttons that drill deeper. Useful when a concept has moving parts text can't show.
+
+15 minEducationClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-j5nmmtm6.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dh3ezc7v.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Here a student knows a planet speeds up near the sun but not why. Claude builds 
 
 I'm learning orbital mechanics and I understand that the planet speeds up when it's close to the sun and slows down when it's far. But I don't understand *why* that trade-off exists. Why can't it just go fast the whole time? Help me understand with a well crafted, interactive, dynamic visualization.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -38,9 +48,7 @@ The buttons at the bottom of the visual send follow-up prompts — click one and
 
 Explain angular momentum conservation in orbits — why does the planet sweep equal areas in equal times?
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to redraw it with one thing changed
 
@@ -48,9 +56,7 @@ Name a change and Claude redraws — same three panels, different input, so you 
 
 Would this same speed-distance trade-off work for a comet with a really eccentric orbit? Rebuild the same visual with that orbit instead and show me what changes.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to turn the explainer into a quiz
 
@@ -58,9 +64,7 @@ Claude builds a quiz using the same three panels — it asks what happens at dif
 
 Quiz me on what this animation shows. Ask me what happens at different points in the orbit and tell me if I've got the trade-off right.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -82,4 +86,11 @@ Try it on whatever concept isn't clicking — say where you're stuck and let Cla
 
 I'm learning orbital mechanics and I understand that the planet speeds up when it's close to the sun and slows down when it's far. But I don't understand why that trade-off exists. Why can't it just go fast the whole time? Help me understand with a well crafted, interactive, dynamic visualization.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

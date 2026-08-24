@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-tools-with-mcp -->
 
-Lesson 3 of 10 · Introduction to Model Context ProtocolDefining tools with MCP
+Lesson 3 of 10 · Introduction to Model Context ProtocolDefining tools with MCP
+
+3. /[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+# Defining tools with MCP
+
+Lesson 310 min
 
 Building an MCP server becomes much simpler when you use the official Python SDK. Instead of writing complex JSON schemas by hand, you can define tools with decorators and let the SDK handle the heavy lifting.
 
@@ -12,7 +20,7 @@ In this example, we're creating a document management server with two core tools
 
 The Python MCP SDK makes server creation straightforward. You can initialize a server with just one line:
 
-python
+python
 
 ```
 from mcp.server.fastmcp import FastMCP
@@ -22,7 +30,7 @@ mcp = FastMCP("DocumentMCP", log_level="ERROR")
 
 Your documents can be stored in a simple dictionary structure:
 
-python
+python
 
 ```
 docs = {
@@ -43,7 +51,7 @@ The SDK uses decorators to define tools. Instead of writing JSON schemas manuall
 
 The first tool reads document contents by ID. Here's the complete implementation:
 
-python
+python
 
 ```
 @mcp.tool(
@@ -65,7 +73,7 @@ The decorator specifies the tool name and description, while the function parame
 
 The second tool performs simple find-and-replace operations on documents:
 
-python
+python
 
 ```
 @mcp.tool(
@@ -94,3 +102,38 @@ This tool takes three parameters: the document ID, the text to find, and the rep
 * Tool registration happens automatically through decorators
 
 The MCP Python SDK transforms tool creation from a complex schema-writing exercise into simple Python function definitions. This approach makes it much easier to build and maintain MCP servers while ensuring Claude receives properly formatted tool specifications.
+
+[Previous lessonMCP clients](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-clients)[Next lessonThe server inspector](https://academy.claude.com/courses/introduction-to-model-context-protocol/the-server-inspector)
+
+Lesson 3 of 10 · Introduction to Model Context ProtocolDefining tools with MCP
+
+Introduction
+
+* [Introducing MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/introducing-mcp)
+* [MCP clients](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-clients)
+
+Hands-on with MCP servers
+
+* [Defining tools with MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-tools-with-mcp)
+* [The server inspector](https://academy.claude.com/courses/introduction-to-model-context-protocol/the-server-inspector)
+
+Connecting with MCP clients
+
+* [Implementing a client](https://academy.claude.com/courses/introduction-to-model-context-protocol/implementing-a-client)
+* [Defining resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-resources)
+* [Accessing resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/accessing-resources)
+* [Defining prompts](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-prompts)
+* [Prompts in the client](https://academy.claude.com/courses/introduction-to-model-context-protocol/prompts-in-the-client)
+
+Assessment and wrap Up
+
+* [Final assessment on MCPQuiz](https://academy.claude.com/courses/introduction-to-model-context-protocol/final-assessment-on-mcp)
+* [MCP review](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-review)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-model-context-protocol/badge)
+
+* [Setting Up the MCP Server](#setting-up-the-mcp-server)
+* [Tool Definition with Decorators](#tool-definition-with-decorators)
+* [Creating a Document Reader Tool](#creating-a-document-reader-tool)
+* [Building a Document Editor Tool](#building-a-document-editor-tool)
+* [Key Benefits of the SDK Approach](#key-benefits-of-the-sdk-approach)

@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/working-memory -->
 
-Lesson 8 of 13 · AI Capabilities and LimitationsWorking Memory
+Lesson 8 of 13 · AI Capabilities and LimitationsWorking Memory
+
+3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+
+[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+
+# Working Memory
+
+Lesson 825 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain the context window as a fixed-size container and what that implies for long documents, long conversations, and cross-session memory
+* Recognize the "cliff" nature of this property compared to the gradual degradation of others
+* Apply context-as-leverage strategies: front-loading important material, chunking long work, re-supplying critical context
+* Recognize memory, compaction, projects/workspaces, and larger windows as product features addressing this limitation
 
 ## How the context window affects generative AI outputs
-
-Loading
 
 Working Memory · 6 min
 
@@ -16,8 +29,6 @@ to anything outside it. That constraint is hard-edged in a way the other
 properties aren't: things work until they don't.
 
 ## The context window: AI's working memory
-
-Loading
 
 ## Key takeaways
 
@@ -55,3 +66,48 @@ Go back to your task list and add a third annotation: which tasks need standing 
 ## What's next
 
 The final property: Steerability. How much are you actually in control when you give instructions, and where does that control break down?
+
+[Previous lessonTry It Out: Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-31vzkl2dgi907)[Next lessonTry It Out: Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-q7hdjm9twcbt)
+
+Lesson 8 of 13 · AI Capabilities and LimitationsWorking Memory
+
+Getting started
+
+* [Intro to AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations/intro-to-ai-capabilities-and-limitations)
+* [What We Mean by AI](https://academy.claude.com/courses/ai-capabilities-and-limitations/what-we-mean-by-ai)
+* [How AI Gets Its Character](https://academy.claude.com/courses/ai-capabilities-and-limitations/how-ai-gets-its-character)
+
+Next Token Prediction
+
+* [Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-token-prediction)
+* [Try It Out: Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out)
+
+Knowledge
+
+* [Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/knowledge)
+* [Try It Out: Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-31vzkl2dgi907)
+
+Working Memory
+
+* [Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/working-memory)
+* [Try It Out: Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-q7hdjm9twcbt)
+
+Steerability
+
+* [Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/steerability)
+* [Try It Out: Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-y02xgkpa6wa7)
+
+Putting it all together and next steps
+
+* [When Properties Collide](https://academy.claude.com/courses/ai-capabilities-and-limitations/when-properties-collide)
+* [Next Steps](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-steps)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-capabilities-and-limitations/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-capabilities-and-limitations/badge)
+
+* [How the context window affects generative AI outputs](#how-the-context-window-affects-generative-ai-outputs)
+* [The context window: AI's working memory](#the-context-window-ais-working-memory)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

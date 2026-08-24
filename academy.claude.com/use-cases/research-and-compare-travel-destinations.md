@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/research-and-compare-travel-destinations -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Research and compare travel destinations
+
+Create a visual comparison spreadsheet from research with images, ratings, and insights to simplify your travel planning.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-og6bg7dh.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-pdhim2sv.png)
+
 ![Research and compare travel destinations result](https://academy.claude.com/assets/v1/research-and-compare-travel-destinations-ldeutsce.png)
 
 ## 1. Describe the task
@@ -16,9 +30,7 @@ Use color-coding or visual indicators to help me spot patterns quickly (like hea
 
 Make it look really polished and professional - something I'd feel confident sharing with my travel group. The layout should be clean and sophisticated - think premium travel magazine quality, not a basic spreadsheet. I want all five destinations visible at once so I can compare them easily.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -32,9 +44,9 @@ Toggle [Web Search(opens in new tab)](https://support.claude.com/en/articles/106
 
 For deeper analysis and more thoughtful design decisions, turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking).
 
-[
+[
 
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
+Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
@@ -78,9 +90,7 @@ If certain factors matter more to you—like adventure activities or family-frie
 
 The current ratings weigh all factors equally, but I care most about culture and food. Can you add a 'weighted score' column that emphasizes those dimensions? Also add a 'language barrier' rating since I don't speak these languages.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Generate a presentation
 
@@ -88,9 +98,7 @@ Claude can transform the spreadsheet data into a visual presentation for group d
 
 Create a PowerPoint presentation from this analysis—one slide per destination with key stats, images, and pros/cons. Make it visual and compelling since I'll be presenting to my family to decide together.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Create a detailed itinerary
 
@@ -98,9 +106,7 @@ Once you've chosen a destination, Claude can research and build a day-by-day iti
 
 I've decided on Lisbon! Can you create a 7-day itinerary with specific recommendations for temples to visit, neighborhoods to explore, restaurants for each meal, and day-trip options? Include approximate costs and booking information.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -128,4 +134,11 @@ Use color-coding or visual indicators to help me spot patterns quickly (like hea
 
 Make it look really polished and professional - something I'd feel confident sharing with my travel group. The layout should be clean and sophisticated - think premium travel magazine quality, not a basic spreadsheet. I want all five destinations visible at once so I can compare them easily.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

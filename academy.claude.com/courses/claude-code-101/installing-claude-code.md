@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-101/installing-claude-code -->
 
-Lesson 3 of 12 · Claude Code 101Installing Claude Code
+Lesson 3 of 12 · Claude Code 101Installing Claude Code
 
-Loading
+3. /[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+# Installing Claude Code
+
+Lesson 36 min
 
 Installing Claude Code
 
@@ -19,7 +25,7 @@ On **Windows**, there are a few options. In PowerShell, use the `Invoke-RestMeth
 
 After installation, you should be able to run the `claude` command. If not, restart your terminal. Navigate to your project directory and run:
 
-`claude`
+`claude`
 
 You'll go through some initial setup steps like choosing your color theme and signing in with your Claude account (Pro, Max, or Enterprise) or using an API key. If your organization has a Claude Enterprise account, be sure to select that option.
 
@@ -64,3 +70,44 @@ If you want to stay on the cutting edge, the **terminal** is your best bet — f
 **Claude Code on the web** is a solid option if you want to remotely work on projects through a GitHub repository.
 
 However you want to use Claude Code is up to you.
+
+[Previous lessonHow Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)[Next lessonYour first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Lesson 3 of 12 · Claude Code 101Installing Claude Code
+
+What is Claude Code?
+
+* [What is Claude Code?](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)
+* [How Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Your first prompt
+
+* [Installing Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)
+* [Your first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Daily workflows
+
+* [The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+* [Context management](https://academy.claude.com/courses/claude-code-101/context-management)
+* [Code review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Customizing Claude Code
+
+* [The CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
+* [Subagents](https://academy.claude.com/courses/claude-code-101/subagents)
+* [Skills](https://academy.claude.com/courses/claude-code-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-code-101/mcp)
+* [Hooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)
+
+* [Terminal](#terminal)
+* [Visual Studio Code](#visual-studio-code)
+* [JetBrains](#jetbrains)
+* [Desktop](#desktop)
+* [Web](#web)
+* [Which One Should I Use?](#which-one-should-i-use)

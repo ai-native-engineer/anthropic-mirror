@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/ai-capabilities-and-limitations -->
 
-Lesson 3 of 9 · AI Fluency for BuildersAI capabilities & limitations
+Lesson 3 of 9 · AI Fluency for BuildersAI capabilities & limitations
+
+3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+
+[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+
+# AI capabilities & limitations
+
+Lesson 325 min
+
+In this lessonBy the end, you’ll be able to
+
+* Define generative AI and explain how it differs from other AI types
+* Explain the three developments that made modern LLMs possible
+* Identify what current AI does well and where it reliably falls short
 
 ## What is generative AI
-
-Loading
 
 What is generative AI · 12 min
 
@@ -58,3 +70,43 @@ Which capability from the video showed up most clearly? Which limitation surface
 ## What's next
 
 Now that you’ve tested AI’s edges firsthand, in the next lesson we go deep on the first D: Delegation. You’ll frame a real problem, map it across the builder’s toolkit, and make deliberate choices about where AI plays a role — before writing a single line of code.
+
+[Previous lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-builders/the-4d-framework)[Next lessonDelegation & the builder's toolkit](https://academy.claude.com/courses/ai-fluency-for-builders/delegation-the-builder-s-toolkit)
+
+Lesson 3 of 9 · AI Fluency for BuildersAI capabilities & limitations
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-builders/the-4d-framework)
+
+How AI works
+
+* [AI capabilities & limitations](https://academy.claude.com/courses/ai-fluency-for-builders/ai-capabilities-and-limitations)
+
+The 4D framework for builders
+
+* [Delegation & the builder's toolkit](https://academy.claude.com/courses/ai-fluency-for-builders/delegation-the-builder-s-toolkit)
+* [Description & building great things](https://academy.claude.com/courses/ai-fluency-for-builders/description-building-great-things)
+
+Discernment for builders
+
+* [Discernment for code](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-code)
+* [Discernment for user experience](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-user-experience)
+
+Tying it all together
+
+* [Stand behind what you build](https://academy.claude.com/courses/ai-fluency-for-builders/stand-behind-what-you-build)
+
+Wrapping up
+
+* [Closure & looking forward](https://academy.claude.com/courses/ai-fluency-for-builders/closure-looking-forward)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-builders/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-builders/badge)
+
+* [What is generative AI](#what-is-generative-ai)
+* [Key takeaways](#key-takeaways)
+* [Exercise](#exercise)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

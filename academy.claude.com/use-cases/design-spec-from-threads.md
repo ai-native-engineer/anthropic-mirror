@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/design-spec-from-threads -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Design spec from scattered threads
+
+One review-ready spec from threads, notes, and screenshots.
+
+10 minDesignClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-g1uo6xw3.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hq8pagpq.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Design plugin ships with `/design-handoff` and other research and structuring skills as a starting point, already shaped to the section order most design reviews expect. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 DesignAccelerate design workflows — critique, design system management, UX writing, accessibility audits, research synthesis, and dev handoff. From exploration to pixel-perfect specs.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=design)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=design)
 
 `/design-handoff`Generate developer handoff specs from a design.
 
@@ -22,7 +32,7 @@ DesignAccelerate design workflows — critique, design system management, UX wri
 
 [Run](claude://cowork/new?q=%2Fresearch-synthesis)
 
-Show all 7 skills
+Show all 7 skills
 
 ### Connect your tools
 
@@ -36,7 +46,7 @@ Slack
 
 Read the project channel and DM threads where the real decisions were made.
 
-[Connect](https://claude.ai/desktop/directory/slack)
+[Connect](https://claude.ai/desktop/directory/slack)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23000'%20d='M4.46%204.44c.74.6%201.02.56%202.42.46l13.18-.79c.28%200%20.05-.28-.05-.32l-2.19-1.58c-.42-.33-.98-.7-2.05-.6L2.99%202.53c-.46.05-.56.28-.37.46l1.84%201.45Zm.8%203.1v13.87c0%20.74.37%201.02%201.21.98l14.49-.84c.84-.05.93-.56.93-1.16V6.6c0-.6-.23-.93-.74-.88l-15.14.88c-.56.05-.75.33-.75.93Zm14.3.74c.1.42%200%20.84-.42.89l-.7.14v10.24c-.6.33-1.16.51-1.63.51-.74%200-.93-.23-1.49-.93l-4.56-7.16v6.93l1.44.33s0%20.84-1.16.84l-3.21.18c-.1-.18%200-.65.33-.74l.84-.23V9.98l-1.16-.1c-.1-.42.14-1.02.79-1.07l3.44-.23%204.75%207.25V9.42l-1.21-.14c-.1-.51.28-.88.74-.93l3.21-.18Z'/%3e%3c/svg%3e)
 
@@ -44,7 +54,7 @@ Notion
 
 Pull the meeting notes and PRD draft and write the finished spec back to the project page.
 
-[Connect](https://claude.ai/desktop/directory/notion)
+[Connect](https://claude.ai/desktop/directory/notion)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%230ACF83'%20d='M8%2024a4%204%200%200%200%204-4v-4H8a4%204%200%200%200%200%208Z'/%3e%3cpath%20fill='%23A259FF'%20d='M4%2012a4%204%200%200%201%204-4h4v8H8a4%204%200%200%201-4-4Z'/%3e%3cpath%20fill='%23F24E1E'%20d='M4%204a4%204%200%200%201%204-4h4v8H8a4%204%200%200%201-4-4Z'/%3e%3cpath%20fill='%23FF7262'%20d='M12%200h4a4%204%200%200%201%200%208h-4V0Z'/%3e%3cpath%20fill='%231ABCFE'%20d='M20%2012a4%204%200%201%201-8%200%204%204%200%200%201%208%200Z'/%3e%3c/svg%3e)
 
@@ -52,11 +62,9 @@ FigmaOptional
 
 Reference the exploration frames and pull the screenshot annotations into the spec.
 
-[Connect](https://claude.ai/desktop/directory/figma)
+[Connect](https://claude.ai/desktop/directory/figma)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -72,7 +80,7 @@ kickoff-notes.docxApr 18, 202624 KB
 
 current-flow-screens.pngApr 18, 20261.1 MB
 
-In Cowork’s chat bar:Design / Checkout-Redesign
+In Cowork’s chat bar:Design / Checkout-Redesign
 
 ## The prompt
 
@@ -80,35 +88,33 @@ In Cowork’s chat bar:Design / Checkout-Redesign
 
 Assemble everything in this folder into a single design spec. Structure it as problem, goals, constraints, proposed solution, open questions, and out of scope. Quote the source for any decision already made and flag anything contradictory.
 
-
-
-Design / Checkout-RedesignOpen in Cowork
+Design / Checkout-RedesignOpen in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Name the section order.** The output matches the review template, no reshuffling.
 
-Prompt
+Prompt
 
 **Ask it to cite its sources.** Nobody re-litigates what was already settled in Slack.
 
-Prompt
+Prompt
 
 **Flag contradictions explicitly.** Conflicts surface before the review, not during it.
 
-Source
+Source
 
 **Put all the context in one place.** Threads, notes, and screenshots all carry equal weight.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -118,11 +124,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /design-handoff skill with my feedback.
 
-
-
-DesignOpen in Cowork
-
-
+DesignOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -134,9 +136,7 @@ A spec is out of date the moment someone replies in the channel. Ask Cowork to p
 
 Publish that spec as a live artifact for the squad. Keep a "decisions changed since last version" section at the top.
 
-
-
-Design / Checkout-RedesignOpen in Cowork
+Design / Checkout-RedesignOpen in Cowork
 
 ### Run it the morning before every review
 
@@ -144,23 +144,19 @@ Review is on the calendar, the spec should already reflect last night's thread. 
 
 **/schedule** Weekdays at 8am, re-read #checkout-redesign and Design/Checkout-Redesign and re-run /design-handoff, updating the spec file and listing any decisions that changed overnight.
 
-
+DesignOpen in Cowork
 
-DesignOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Spec freshness pass
 
 Each weekday at 8am, re-reads the project channel and folder, re-runs `/design-handoff`, and updates the spec with a list of decisions that changed overnight.
 
-Every **weekday at 8 am · re-reads #checkout-redesign and the project folder**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **weekday at 8 am · re-reads #checkout-redesign and the project folder**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/design-handoff` now carries your section order, your decision-log format, and your contradiction flags. Share it so every designer on the team writes specs the same way, and reviewers know exactly where to look no matter who owns the project.
-
-
 
 Share the skill
 
@@ -180,6 +176,13 @@ Claude Design
 
 Lay the spec out as an on-brand one-pager
 
-Open](https://claude.ai/design)
+Open](https://claude.ai/design)
 
-[Next: Clickable prototype from real components](https://academy.claude.com/use-cases/clickable-prototype)
+[Next: Clickable prototype from real components](https://academy.claude.com/use-cases/clickable-prototype)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [What changes for design review](#what-changes-for-design-review)

@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/courses/claude-101/working-with-skills -->
 
-Lesson 7 of 13 · Claude 101Working with skills
+Lesson 7 of 13 · Claude 101Working with skills
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# Working with skills
+
+Lesson 715 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain what Skills are and how Claude uses them
+* Identify Anthropic's built-in Skills for document creation
+* Enable and manage Skills in your settings
 
 ## What are Skills?
 
@@ -36,18 +50,16 @@ Once enabled, you'll see available Skills listed in your settings, including Ant
 
 The beauty of Skills is that you typically don't need to think about them—Claude handles skill selection automatically based on your request. Here are some examples of prompts that would invoke Skills:
 
-* “Create an Excel spreadsheet tracking monthly expenses with formulas for totals”
-* “Turn this meeting notes document into a PowerPoint presentation”
-* “Generate a PDF report summarizing this data”
-* “Build a financial model in Excel with scenario analysis”
+* “Create an Excel spreadsheet tracking monthly expenses with formulas for totals”
+* “Turn this meeting notes document into a PowerPoint presentation”
+* “Generate a PDF report summarizing this data”
+* “Build a financial model in Excel with scenario analysis”
 
 When Claude uses a Skill, you'll see it mentioned in Claude's chain of thought as it works. The output will be a downloadable file you can save to your computer or directly to Google Drive.
 
 ## File execution
 
 **Claude works with you on slides, spreadsheets, and contract redlines**
-
-Loading
 
 This same capability means that Claude can work with **your actual files** (within a contained environment) to create updated versions of your files (note: in Chat, Claude creates a new version of the document rather than editing the original in place). Upload slides, spreadsheets, contracts, (or any .xlsx, .pptx, .docx, or .pdf files) and watch as Claude creates slides, performs analyses, and adds suggested edits. When Claude is done, you can download these files or open them in Drive.
 
@@ -111,3 +123,48 @@ Before moving on, consider:
 In the next set of lessons, you'll start to expand Claude's reach with connectors. These powerful tools make information gathering seamless, and can give Claude the ability to perform actions right inside the tools where your work is happening.
 
 For more information on Skills, including how to create your own custom Skills, visit the [Anthropic Help Center(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills).
+
+[Previous lessonCreating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)[Next lessonConnecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+
+Lesson 7 of 13 · Claude 101Working with skills
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [What are Skills?](#what-are-skills)
+* [Types of Skills](#types-of-skills)
+* [Enabling Skills](#enabling-skills)
+* [Using Skills in practice](#using-skills-in-practice)
+* [File execution](#file-execution)
+* [Creating custom skills](#creating-custom-skills)
+* [Skills vs. Projects](#skills-vs-projects)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/build-analysis-from-browser-charts-and-folder-data -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Build analysis from browser charts and folder data
+
+Pull your quarterly revenue from scattered board decks, then grab GDP and inflation data from FRED. Cowork creates a comparison chart showing how your growth stacks up against the macro environment.
+
+15 minFinanceClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-l5urtpzk.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bec91nr8.png)
+
 ![Build analysis from browser charts and folder data result](https://academy.claude.com/assets/v1/build-analysis-from-browser-charts-and-folder-data-knuj60wq.png)
 
 ## 1. Describe the task
@@ -15,9 +29,7 @@ I'm preparing for our board meeting and need to show how our growth compares to 
 * Create a chart comparing our revenue growth to these economic indicators.
 * Save the chart and a summary to my desktop folder.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -72,9 +84,7 @@ Add more context in one pass. Cowork pulls additional indicators from FRED and u
 
 *"Add unemployment rate and consumer confidence to the comparison. Update the chart to show all four indicators against our revenue growth."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Extend to prior years
 
@@ -82,9 +92,7 @@ Show the longer trend. If you have older board decks, Cowork reads those too and
 
 *"I also have 2024 and 2023 board decks in the archive folder. Pull those and extend the chart to show a 3-year trend of our growth vs the economy."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Create a board-ready slide
 
@@ -92,9 +100,7 @@ Go straight to the deliverable. Cowork creates a formatted PowerPoint slide with
 
 *"Create a single PowerPoint slide with the chart, the key numbers, and three bullet points I can use as talking points. Save it to my board-prep folder."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -125,4 +131,11 @@ I'm preparing for our board meeting and need to show how our growth compares to 
 • Create a chart comparing our revenue growth to these economic indicators.
 • Save the chart and a summary to my desktop folder.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

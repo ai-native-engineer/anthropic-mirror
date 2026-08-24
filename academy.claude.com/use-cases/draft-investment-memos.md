@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/draft-investment-memos -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Draft investment memos
+
+Generate investment memos from platform data, formatted to match your firm's structure and requirements.
+
+15 minFinanceClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-gm0gz0p9.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-pbzioede.png)
 
 ## 1. Describe the task
 
@@ -16,9 +28,7 @@ I'm evaluating CloudBridge Technologies (ticker: CLDG) for a potential equity in
 
 **Create a professional investment memo in Word format:** executive summary with recommendation, business overview with segment analysis, financial performance highlighting trends, competitive positioning, valuation assessment, and key risks. Use IC-ready formatting.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -36,15 +46,15 @@ This workflow uses capabilities available to [Claude for Enterprise(opens in new
 
 Daloopa
 
-[Connect](https://claude.ai/directory/daloopa)
+[Connect](https://claude.ai/directory/daloopa)
 
 ![](data:image/svg+xml,%3csvg%20width='24'%20height='11'%20viewBox='0%200%2024%2011'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M3.55115%200.792969C5.06304%200.793105%206.9701%201.51652%206.9701%203.55469H5.4574C5.41357%203.09446%204.97109%202.17401%203.55115%202.17383C1.77581%202.17383%201.77576%203.35743%201.77576%203.55469C1.77583%203.75209%202.03857%204.67277%203.68201%204.67285C5.19434%204.67285%206.9701%205.13287%206.9701%207.30273C6.97007%208.02617%206.83743%2010.0645%203.68201%2010.0645C0.920312%2010.0643%20-0.0214425%208.0918%200.000369067%207.10547H1.64295C1.66526%207.65344%202.10464%208.74892%203.68201%208.74902C5.65388%208.74902%205.58828%207.76308%205.58826%207.30273C5.58826%206.84246%205.06332%206.05371%203.68201%206.05371C2.30072%206.05366%200.262138%205.52713%200.262088%203.55469C0.262088%201.58208%202.16996%200.792969%203.55115%200.792969ZM11.1781%200.792969C12.2301%200.793118%2013.676%201.46372%2013.6762%202.83105C13.6762%204.19842%2012.5372%205.11036%2011.9672%205.39551C12.3179%205.76815%2013.1245%206.63208%2013.5453%207.10547C13.8608%206.57946%2013.8518%205.4397%2013.808%204.93555H16.1097V6.05371H15.057C15.0043%207.15811%2014.6405%207.91617%2014.4652%208.15723L16.1097%209.86719H14.2025L13.5453%209.20898C13.2823%209.49389%2012.4404%2010.0643%2011.1781%2010.0645C9.00833%2010.0645%208.15279%208.61776%208.15271%207.30273C8.15271%206.25087%209.20472%205.28639%209.73084%204.93555C9.42394%204.69432%208.81092%203.93553%208.81092%202.83105C8.81109%201.45042%2010.1261%200.792969%2011.1781%200.792969ZM21.2377%200.924805C22.6185%200.924805%2023.9994%202.17419%2023.9994%203.68652C23.9992%205.39592%2022.7499%206.71094%2021.4349%206.71094H18.9369V9.86719H17.3588V0.924805H21.2377ZM10.5199%205.92188C10.1691%206.09741%209.46814%206.61915%209.46814%207.30273C9.46824%208.15745%2010.1919%208.88086%2011.1781%208.88086C11.967%208.88077%2012.559%208.44181%2012.7562%208.22266L10.5199%205.92188ZM18.9369%202.30566V5.26465H21.1068C21.8957%205.26455%2022.4875%204.6725%2022.4877%203.68652C22.4877%203.02903%2022.093%202.30576%2021.1068%202.30566H18.9369ZM11.1781%201.97656C10.9151%201.97656%2010.1254%202.2396%2010.1254%202.96289C10.1254%203.54151%2010.8274%204.16809%2011.1781%204.40918C11.5508%204.2337%2012.2953%203.6991%2012.2953%202.96289C12.2953%202.04264%2011.4414%201.9766%2011.1781%201.97656Z'%20fill='%23D7002B'/%3e%3c/svg%3e)
 
 S&P Global
 
-[Connect](https://claude.ai/directory/s-p-global)
+[Connect](https://claude.ai/directory/s-p-global)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context
 
@@ -52,9 +62,9 @@ In the chat settings, make sure [Web Search(opens in new tab)](https://support.c
 
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for better synthesis when combining data from multiple platforms and creating higher-quality document outputs.
 
-[
+[
 
-Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)[
+Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -96,9 +106,7 @@ Get specific platform references and data points for every claim in the memo. Cl
 
 Cite the exact source for each metric—I need to see platform name, date pulled, and which filing or transcript. Show me where the Q3 revenue number came from, which analyst report supports the margin expansion claim, and the specific competitor data points.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Expand on the valuation methodology
 
@@ -106,9 +114,7 @@ Add detailed calculations and assumptions to support your price target. Claude s
 
 Show me the DCF math step-by-step: revenue assumptions, margin projections, discount rate, terminal value. Then create a sensitivity table showing how the target price changes if growth rates or margins differ from base case by 5 percentage points.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Transform into presentation format
 
@@ -116,9 +122,7 @@ Convert your written memo into slides for your committee meeting. Claude restruc
 
 Convert this analysis into a 6-slide PowerPoint: title slide with recommendation, business model overview, competitive comparison with charts, financial performance trends, valuation summary, and investment thesis. Visualize trends with visual elements, like graphs and charts.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -150,4 +154,11 @@ Analyze this: Calculate cloud platform segment growth versus overall company gro
 
 Create a professional investment memo in Word format: executive summary with recommendation, business overview with segment analysis, financial performance highlighting trends, competitive positioning, valuation assessment, and key risks. Use IC-ready formatting.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

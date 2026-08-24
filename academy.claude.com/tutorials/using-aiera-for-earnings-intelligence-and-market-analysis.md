@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-aiera-for-earnings-intelligence-and-market-analysis -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Aiera for earnings intelligence and market analysis
+
+Set up and use Aiera for access to earnings calls, SEC filings, and expert insights for real-time market analysis.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-feg3cjc7.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bff9wrw3.png)
+
 The Aiera integration provides Claude with access to earnings calls, SEC filings, company publications, and expert insights for real-time financial intelligence. Additionally, the connector can pull information from Third Bridge events. This article explains how to set up and use Aiera to access corporate event data and analyst commentary for your market analysis.
 
 The Aiera integration relies upon Claude’s ability to use [remote connectors(opens in new tab)](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp).
@@ -55,9 +69,7 @@ Example input prompt:
 
 Pull the transcript from Netflix’s most recent earnings call and summarize: (1) revenue and subscriber growth discussed, (2) key themes from management presentation, (3) top analyst questions and concerns, and (4) any forward guidance provided.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Immediately after earnings releases to quickly digest management commentary and market reaction before research reports publish.
 
@@ -69,9 +81,7 @@ Example input prompt:
 
 What were the main questions analysts asked on the last three Microsoft earnings calls? Identify recurring themes and any new topics of concern that emerged in recent quarters.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Understanding evolving market concerns and identifying which business segments or metrics are drawing increased scrutiny.
 
@@ -83,9 +93,7 @@ Example input prompt:
 
 Search the last four Amazon earnings calls for what management said about capital expenditure plans and AWS infrastructure investments. Has their tone or guidance changed?
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Tracking specific strategic initiatives or business drivers across time to detect shifts in company priorities or investment thesis.
 
@@ -97,9 +105,7 @@ Example input prompt:
 
 Search earnings transcripts for S&P 500 companies in the last quarter for mentions of “artificial intelligence” or “AI.” Which sectors are discussing it most and what are they saying about implementation?
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Identifying emerging trends across markets and understanding which industries are most affected by macro themes.
 
@@ -111,9 +117,7 @@ Example input prompt:
 
 Show me all confirmed earnings calls for companies in the technology sector over the next two weeks. I want to prepare analysis ahead of these events.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Planning research calendar and ensuring coverage of important corporate events for portfolio holdings or coverage universe.
 
@@ -125,9 +129,7 @@ Example input prompt:
 
 Find all 8-K filings from companies in my watchlist over the past month. Focus on those related to management changes, acquisitions, or material contracts.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Monitoring portfolio holdings for material corporate developments between regular reporting periods.
 
@@ -139,9 +141,7 @@ Example input prompt:
 
 Find Third Bridge expert interviews discussing the semiconductor industry from the past month. What are experts saying about demand trends and capacity utilization?
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Supplementing quantitative company data with qualitative expert perspectives on industry dynamics.
 
@@ -156,3 +156,10 @@ Find Third Bridge expert interviews discussing the semiconductor industry from t
 * Leverage watchlist and index filters for portfolio-specific monitoring
 * Search strategically by combining keywords with date and company filters
 * Consider pagination for large result sets - start with smaller page sizes for testing
+
+* [What This Integration Provides](#what-this-integration-provides)
+* [How Claude Uses Aiera Data](#how-claude-uses-aiera-data)
+* [Setting Up Aiera Integration](#setting-up-aiera-integration)
+* [Common Use Cases](#common-use-cases)
+* [Upcoming Events Planning](#upcoming-events-planning)
+* [Tips for Using Aiera](#tips-for-using-aiera)

@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/elevate-claudes-design-using-skills -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Elevate Claude's design using skills
+
+Design a skill that automatically activates design principles into Claude’s outputs.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-f7nm7xva.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ah3ykfqz.png)
 
 ## 1. Describe the task
 
@@ -31,9 +43,7 @@ I want the skill to have reference files that Claude consults:
 
 The goal is that when I ask "create a sales dashboard" or "make a presentation deck," Claude automatically thinks like a design director who wouldn't accept generic output. The user sees only the polished result unless they specifically ask to see the design thinking process. Help me create this skill with all the necessary reference files.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -45,7 +55,7 @@ This workflow leverages Claude's [Skills(opens in new tab)](https://www.anthropi
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for deeper strategic thinking about design frameworks and quality standards.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -92,9 +102,7 @@ Use this skill to evaluate and enhance existing work. Claude can recreate the ou
 
 Let's test this skill. Create a quarterly performance dashboard. Use the design elevation process and show me both the initial functional version and the elevated result so I can see the difference.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Combine with MCP connections
 
@@ -102,9 +110,7 @@ See how your packaged expertise within Skills combines and works alongside your 
 
 I have Google Drive connected via MCP. How would this design skill work when I ask you to pull an existing presentation from my Drive and improve it? Show me how the skill and the MCP connection work together.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Expand the technique catalog
 
@@ -112,9 +118,7 @@ Deepen the skill's vocabulary in specific areas. Or, incorporate your quality st
 
 Add techniques for data visualization specifically—chart styling, dashboard layouts, and ways to make numbers more compelling visually. I also work in fintech. Add industry-leading financial design exemplars to the reference library.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -157,4 +161,11 @@ I want the skill to have reference files that Claude consults:
 
 The goal is that when I ask "create a sales dashboard" or "make a presentation deck," Claude automatically thinks like a design director who wouldn't accept generic output. The user sees only the polished result unless they specifically ask to see the design thinking process. Help me create this skill with all the necessary reference files.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

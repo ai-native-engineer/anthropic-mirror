@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/prepare-and-plan-from-your-calendar -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Prepare and plan from your calendar
+
+Claude in Chrome reads your calendar, pulls context from email threads, flags which meetings need prep, and books rooms for the ones missing them. Run it every evening and start each day knowing what's coming.
+
+10 minClaude in Chrome
+
+Get Claude in ChromeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-a8f13pls.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ms6ban8i.png)
+
 ![Prepare and plan from your calendar result](https://academy.claude.com/assets/v1/prepare-and-plan-from-your-calendar-o4y1fyqa.png)
 
 ## 1. Describe the task
@@ -19,7 +33,7 @@ Look at my calendar and help me get ready for tomorrow.
 
 Give me a quick prep summary for the day, finding what needs my attention before I show up.
 
-Copy prompt
+Copy prompt
 
 ## 2. Give Claude context
 
@@ -77,7 +91,7 @@ Claude can book rooms and add links directly to calendar events. Once you've rev
 
 Yes, book those rooms and add the Meet link. Use a room on the 6th floor if available—that's where I sit.
 
-Copy prompt
+Copy prompt
 
 ### Get deeper prep for the external meeting
 
@@ -85,7 +99,7 @@ For important calls, Claude can summarize recent correspondence with those conta
 
 For the Acme meeting, can you summarize the last few email threads I've had with them? I want to know what's been discussed recently and what they might bring up.
 
-Copy prompt
+Copy prompt
 
 ### Make this a nightly routine
 
@@ -93,7 +107,7 @@ Claude in Chrome can run tasks on a schedule. Set this to run every evening so y
 
 Can you save this as a shortcut I run every evening at 6pm? Call it "Prep tomorrow" and have it review my calendar, flag external meetings, and check for missing rooms or links.
 
-Copy prompt
+Copy prompt
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -114,3 +128,10 @@ Before clicking "send," "publish," "post," "submit," or similar action buttons, 
 Install the Claude in Chrome extension and watch Claude scan tomorrow's meetings, find what you need to know, and fix what's missing—prep done before tomorrow arrives.
 
 [Try in Claude(opens in new tab)](https://claude.com/download)
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

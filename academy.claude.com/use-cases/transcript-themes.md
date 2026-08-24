@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/transcript-themes -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Transcript theme extractor
+
+The themes across your calls, counted and quoted.
+
+10 minSalesClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-kzha9gcj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kjzr1f4d.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Sales plugin ships with `/call-summary` and other voice-of-customer skills as a starting point, already structured to read a batch of transcripts and roll them up into named themes with counts and quotes. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 Sales8 skills for account research, call prep, pipeline review, and account health
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=sales)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=sales)
 
 `/call-summary`Cluster a folder of call transcripts into themes with counts and quotes
 
@@ -22,7 +32,7 @@ Sales8 skills for account research, call prep, pipeline review, and account heal
 
 [Run](claude://cowork/new?q=%2Fpipeline-review)
 
-Show all 9 skills
+Show all 9 skills
 
 ### Connect your tools
 
@@ -42,11 +52,9 @@ Custom connector
 
 Google Drive
 
-[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
+[Connect](https://claude.ai/desktop/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -64,7 +72,7 @@ globex-2026-03-11.txtMar 11, 202651 KB
 
 themes-taxonomy.docxJan 6, 202618 KB
 
-In Cowork’s chat bar:Calls / 2026-Q1
+In Cowork’s chat bar:Calls / 2026-Q1
 
 ## The prompt
 
@@ -72,35 +80,33 @@ In Cowork’s chat bar:Calls / 2026-Q1
 
 Read every transcript in this folder and cluster what customers are saying into themes. For each theme give me the count, the best one-line quote, and which accounts said it. Write the one-page themes brief to the folder for product and marketing.
 
-
-
-Calls / 2026-Q1Open in Cowork
+Calls / 2026-Q1Open in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Ask for the evidence behind each finding.** "Count, best one-line quote, which accounts" turns each theme into evidence, so product and marketing can size it and hear it in the customer's words.
 
-Prompt
+Prompt
 
 **Name the audience.** "Share with product and marketing" tells Cowork to write a brief, not a spreadsheet, and to lead with what those teams act on rather than a raw cluster dump.
 
-Prompt
+Prompt
 
 **Set a length limit.** Asking for a one-page brief forces ranking by frequency, so the long tail of one-off mentions doesn't bury the three themes that matter.
 
-Source
+Source
 
 **Keep source and output in one folder.** Every transcript sits in the working folder, so Cowork reads the full quarter in one pass and writes the brief back next to the source files for traceability.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -110,11 +116,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /call-summary skill with my feedback.
 
-
-
-CallsOpen in Cowork
-
-
+CallsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -126,23 +128,19 @@ Themes are most useful when they land before planning, not after. Type `/schedul
 
 **/schedule** Every Monday at 9am, if a new quarter folder exists under Calls, run /call-summary on the previous quarter's folder and write the themes brief there. Include a section on what's new versus last quarter.
 
-
+CallsOpen in Cowork
 
-CallsOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Quarterly call themes
 
 Runs `/call-summary` on the previous quarter's transcript folder and writes the one-page brief, with a section on what's new versus last quarter.
 
-Every **Monday at 9:00 AM**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **Monday at 9:00 AM**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/call-summary` now carries your taxonomy, your segment splits, and your brief format. Share it so anyone on the CS or sales team can run it on their own calls, and product hears the same theme names from every region.
-
-
 
 Share the skill
 
@@ -154,16 +152,23 @@ In Cowork, open **Skills** → `/call-summary` → **Share** and pick your teamm
 
 Your processes
 
-Sales plugin
+Sales plugin
 
 Your tools
 
-Gong![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)Google Drive
+Gong![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)Google Drive
 
 Your workspace
 
-Calls
+Calls
 
 What customers are saying across your calls is organized into themes, each counted, quoted, and attributed to accounts — a one-page brief ready to share instead of assemble by hand.
 
-[Next: Account research](https://academy.claude.com/use-cases/account-research-brief)
+[Next: Account research](https://academy.claude.com/use-cases/account-research-brief)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [Going forward](#going-forward)

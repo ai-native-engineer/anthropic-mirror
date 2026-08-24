@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-icd-10-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the ICD-10 Connector in Claude
+
+Using the ICD-10 Connector in Claude
+
+5 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-g1b4yybr.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mt6v7svc.png)
+
 The ICD-10 connector gives Claude access to ICD-10-CM diagnosis codes and ICD-10-PCS procedure codes (2026 edition), enabling healthcare organizations to search, validate, and explore medical coding hierarchies required for HIPAA-compliant billing and clinical documentation. This article explains how to set up and use the ICD-10 integration with Claude to streamline medical coding and billing compliance workflows.
 
 The ICD-10 integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -62,27 +76,32 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 * Scenario: Coders and CDI specialists ensuring accurate, specific code selection for billing and documentation
 * Sample Prompts:
 
-* “Find all ICD-10 codes for Type 2 diabetes with complications. Show me the complete hierarchy”
-* “Validate code E11.65 for HIPAA billing. Is this code specific enough or is it a category header?”
-* “Search for diagnosis codes related to hypertension with chronic kidney disease”
-* “What ICD-10-PCS codes exist for laparoscopic appendectomy? Search procedures for 'appendix' and 'percutaneous endoscopic'”
+* “Find all ICD-10 codes for Type 2 diabetes with complications. Show me the complete hierarchy”
+* “Validate code E11.65 for HIPAA billing. Is this code specific enough or is it a category header?”
+* “Search for diagnosis codes related to hypertension with chronic kidney disease”
+* “What ICD-10-PCS codes exist for laparoscopic appendectomy? Search procedures for 'appendix' and 'percutaneous endoscopic'”
 
 **Billing Compliance & Claims Processing**
 
 * Scenario: Revenue cycle teams validating codes before claim submission to prevent denials
 * Sample Prompts:
 
-* “Is E11.9 valid for HIPAA transactions? What's the full description?”
-* “Search for all myocardial infarction diagnosis codes that are valid for billing”
-* “Find procedure codes for coronary artery bypass graft by searching code prefix '021'”
-* “Validate this procedure code 0DTJ4ZZ - is it valid for inpatient hospital billing?”
+* “Is E11.9 valid for HIPAA transactions? What's the full description?”
+* “Search for all myocardial infarction diagnosis codes that are valid for billing”
+* “Find procedure codes for coronary artery bypass graft by searching code prefix '021'”
+* “Validate this procedure code 0DTJ4ZZ - is it valid for inpatient hospital billing?”
 
 **Clinical Documentation Improvement & Audit**
 
 * Scenario: CDI specialists and auditors reviewing documentation specificity and code appropriateness
 * Sample Prompts:
 
-* “Show me the hierarchy of breast cancer diagnosis codes to identify if we're using the most specific code”
-* “Search for diabetes codes with retinopathy complications - which codes distinguish between severity levels?”
-* “What ICD-10 codes exist in the category E08 for diabetes due to underlying condition?”
-* “Find all gastrointestinal resection procedures by body system. Are we coding to the appropriate specificity level?”
+* “Show me the hierarchy of breast cancer diagnosis codes to identify if we're using the most specific code”
+* “Search for diabetes codes with retinopathy complications - which codes distinguish between severity levels?”
+* “What ICD-10 codes exist in the category E08 for diabetes due to underlying condition?”
+* “Find all gastrointestinal resection procedures by body system. Are we coding to the appropriate specificity level?”
+
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the ICD-10 integration](#who-should-use-the-icd-10-integration)
+* [Setting up the ICD-10 integration](#setting-up-the-icd-10-integration)
+* [Example use cases](#example-use-cases)

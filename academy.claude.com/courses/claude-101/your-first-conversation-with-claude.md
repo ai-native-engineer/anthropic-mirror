@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude -->
 
-Lesson 2 of 13 · Claude 101Your first conversation with Claude
+Lesson 2 of 13 · Claude 101Your first conversation with Claude
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# Your first conversation with Claude
+
+Lesson 215 min
+
+In this lessonBy the end, you’ll be able to
+
+* Start a new conversation with Claude and navigate the interface
+* Write effective prompts using clear, specific language
+* Upload files and images to provide Claude with additional context
+* Use follow-up messages to iterate and refine Claude's responses
 
 ## Video: Getting started with Claude.ai
-
-Loading
 
 Getting started with Claude.ai
 
@@ -64,23 +77,21 @@ Here's an example prompt that uses all three elements:
 
 I'm the marketing lead at an indie streaming startup, and we're preparing an investor pitch deck for Series A investors. Can you research the current state of the independent film streaming market and identify key trends, competitor positioning, and growth opportunities? Use current web research with citations and structure it as a professional report of up to 5 pages, with an executive summary, market analysis, competitive landscape, and growth opportunities.
 
-
-
-Open in Claude
+Open in Claude
 
 In this prompt:
 
-Prompt
+Prompt
 
 **Setting the stage.** We tell Claude this is for an investor pitch deck
 for a new indie streaming app—that's the context and objective.
 
-Prompt
+Prompt
 
 **Defining the task.** We provide the specific action (research the
 market) with relevant details (trends, competitors, opportunities).
 
-Prompt
+Prompt
 
 **Specifying rules.** We ask for current web research with citations,
 structured as a professional report—telling Claude exactly what style and
@@ -105,8 +116,6 @@ Some practical ways to use file uploads:
 
 Once uploaded, Claude will automatically attempt to parse the file's content. In the chat, the file appears as an attachment and you can then prompt Claude about it.
 
-
-
 Pro-tip
 
 If you'd like Claude to consider specific preferences in every response, go
@@ -124,8 +133,6 @@ If Claude's first response isn't quite what you wanted, you have several options
 **Provide feedback**: Tell Claude what you liked and didn't like about its response. "This is good, but the tone is too formal. Can you make it more conversational?"
 
 **Redirect or restart:** If Claude went in a different direction than you intended, simply steer it back. "Actually, I was asking about X, not Y. Let me clarify...". Worst case, restart your conversation in a new chat to fully refresh the context.
-
-
 
 Pro tip
 
@@ -148,3 +155,48 @@ Before moving on, try prompting Claude with a question or task. If you need an i
 ## What's next
 
 In the next lesson, we'll explore how to give Claude direction—adjusting its tone, format, and approach to match exactly what you need.
+
+[Previous lessonWhat is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)[Next lessonGetting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+
+Lesson 2 of 13 · Claude 101Your first conversation with Claude
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [Video: Getting started with Claude.ai](#video-getting-started-with-claudeai)
+* [Key takeaways](#key-takeaways)
+* [Starting your first conversation](#starting-your-first-conversation)
+* [Writing effective prompts](#writing-effective-prompts)
+* [Adding context](#adding-context)
+* [Iterating on Claude's responses](#iterating-on-claudes-responses)
+* [Personalizing Claude](#personalizing-claude)
+* [Put it into practice](#put-it-into-practice)
+* [What's next](#whats-next)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-moodys-for-financial-analysis -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Moody's for financial analysis
+
+Use Moody's credit ratings connector with Claude for comprehensive financial analysis including credit ratings, outlooks, and research documents.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-c7kdb20i.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cu3aeqqk.png)
+
 The Moody’s connector provides Claude with access to proprietary credit ratings, comprehensive entity intelligence, and analytical frameworks for risk assessment through the Model Context Protocol (MCP). This integration enables financial professionals to access Moody’s authoritative data directly within their AI workflows.
 
 ## What This Connector Provides
@@ -65,9 +79,7 @@ Example input prompt:
 
 Analyze the credit profile of XYZ Corporation. What’s their current rating, what factors could trigger a downgrade, and are there any recent research reports I should review?
 
-
-
-Open in Claude
+Open in Claude
 
 For this analysis, Claude might use the following workflow:
 
@@ -85,9 +97,7 @@ Example input prompt:
 
 We’re evaluating an acquisition of ABC Manufacturing. What’s their credit standing, and how does it compare to their sector peers? Include relevant research on industry trends.
 
-
-
-Open in Claude
+Open in Claude
 
 To complete this request, Claude might follow this workflow:
 
@@ -104,9 +114,7 @@ Example input prompt:
 
 Monitor my portfolio holdings for any rating changes or negative rating drivers. My holdings include: Company A, Company B, and Company C.
 
-
-
-Open in Claude
+Open in Claude
 
 For this task, Claude might use the following approach:
 
@@ -123,9 +131,7 @@ Example input prompt:
 
 We’re entering a large trade with DEF Bank. Assess their credit quality and identify any factors that could impact their creditworthiness over the next 12 months.
 
-
-
-Open in Claude
+Open in Claude
 
 For this assessment, Claude might follow these steps:
 
@@ -151,3 +157,9 @@ Claude would then provide a counterparty risk assessment including current credi
 
   + Example: “Find Moody’s research on renewable energy sector credit trends”
 * Rating scorecards provide methodology transparency: Review scorecards to understand how Moody’s weighs different factors in their rating assessment, which can inform your own credit analysis framework.
+
+* [What This Connector Provides](#what-this-connector-provides)
+* [How Claude Uses Moody’s Data](#how-claude-uses-moodys-data)
+* [Setting up the Moody’s Connector](#setting-up-the-moodys-connector)
+* [Common Use Cases](#common-use-cases)
+* [Tips for Using Moody’s](#tips-for-using-moodys)

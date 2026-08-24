@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-101/the-claude-md-file -->
 
-Lesson 8 of 12 · Claude Code 101The CLAUDE.md file
+Lesson 8 of 12 · Claude Code 101The CLAUDE.md file
 
-Loading
+3. /[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+# The CLAUDE.md file
+
+Lesson 810 min
 
 The CLAUDE.md file
 
@@ -21,7 +27,7 @@ CLAUDE.md solves this. It's a Markdown file you add to the root of your project,
 
 Here's what a typical CLAUDE.md file looks like:
 
-markdown
+markdown
 
 ```
 # Project
@@ -59,7 +65,7 @@ You can (and should) commit your CLAUDE.md to version control so your team benef
 
 **Reference project docs.** If you have documentation in your project that you want Claude to reference, use the `@` symbol with the file path:
 
-markdown
+markdown
 
 ```
 ## README.md
@@ -72,3 +78,43 @@ Please read if you need more info: @README.md
 ## Recap
 
 The difference between a frustrating Claude Code session and a productive one often comes down to context — and the CLAUDE.md file is how you provide that context. Start with your stack, your preferences, and your commands, then build from there as you go.
+
+[Previous lessonCode review](https://academy.claude.com/courses/claude-code-101/code-review)[Next lessonSubagents](https://academy.claude.com/courses/claude-code-101/subagents)
+
+Lesson 8 of 12 · Claude Code 101The CLAUDE.md file
+
+What is Claude Code?
+
+* [What is Claude Code?](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)
+* [How Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Your first prompt
+
+* [Installing Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)
+* [Your first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Daily workflows
+
+* [The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+* [Context management](https://academy.claude.com/courses/claude-code-101/context-management)
+* [Code review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Customizing Claude Code
+
+* [The CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
+* [Subagents](https://academy.claude.com/courses/claude-code-101/subagents)
+* [Skills](https://academy.claude.com/courses/claude-code-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-code-101/mcp)
+* [Hooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)
+
+* [The Problem It Solves](#the-problem-it-solves)
+* [An Example](#an-example)
+* [CLAUDE.md is for Teams](#claudemd-is-for-teams)
+* [Tips](#tips)
+* [Recap](#recap)

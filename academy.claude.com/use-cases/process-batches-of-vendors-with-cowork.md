@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/process-batches-of-vendors-with-cowork -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Process batches of vendors with Cowork
+
+Onboard several vendors in one session — with Cowork, Claude can read a folder of vendor files, adds each to your tracker, generates their contracts, and fills multiple intake forms in your browser.
+
+10 minOperationsClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-f5rr63un.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nmenq2sv.png)
+
 ![Process batches of vendors with Cowork result](https://academy.claude.com/assets/v1/process-batches-of-vendors-with-cowork-dcw2eowd.png)
 
 ## 1. Describe the task
@@ -18,9 +32,7 @@ For each new vendor:
 
 Organize all the new documents on my desktop.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -72,9 +84,7 @@ Create more contracts from your templates. NDAs, SOWs, or other vendor documents
 
 *"Also generate an NDA from our template at ~/Documents/Templates/NDA-Template.docx and save it in the same folder as the MSA."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Organize vendor files
 
@@ -82,9 +92,7 @@ Create a vendor folder with everything in one place. Move or copy all onboarding
 
 *"Create a folder called Meridian-Solutions in ~/Documents/Vendors and move the MSA there. Also save a copy of their contact details as a text file."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -114,4 +122,11 @@ For each new vendor:
 
 Organize all the new documents on my desktop.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

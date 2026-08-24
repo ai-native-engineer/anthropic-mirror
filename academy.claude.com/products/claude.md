@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/products/claude -->
 
+[Overview](https://academy.claude.com/products/claude)
+
+Browse
+
+[Use cases](https://academy.claude.com/products/claude/use-cases)[Tutorials](https://academy.claude.com/products/claude/tutorials)[Courses](https://academy.claude.com/products/claude/courses)
+
+Your org
+
+[Admin setup](https://academy.claude.com/products/claude/setup)
+
+[Help Center (opens in new tab)](https://support.claude.com)
+
+[Academy](https://academy.claude.com/)
+
 # Claude.ai
 
 Learn to think through problems, draft documents, and analyze data in conversation with Claude.
@@ -28,11 +42,11 @@ Tutorial·7 min](https://academy.claude.com/tutorials/intro-to-projects)
 
 Rolling Claude out to your org? Admin guides for identity, governance, and enablement.
 
-Admin setup](https://academy.claude.com/products/claude/setup)
+Admin setup](https://academy.claude.com/products/claude/setup)
 
 ## Try a task
 
-[View all](https://academy.claude.com/all?kind=use-case&product=chat)
+[View all](https://academy.claude.com/all?kind=use-case&product=chat)
 
 [![](https://academy.claude.com/assets/v1/thumbnail.light-jiiwmich.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kfwebxwg.png)
 
@@ -74,7 +88,7 @@ Use case·Education·15 min](https://academy.claude.com/use-cases/bring-your-whi
 
 ## Learn more
 
-[View all](https://academy.claude.com/all?kind=tutorial&product=chat)
+[View all](https://academy.claude.com/all?kind=tutorial&product=chat)
 
 * [Choosing the right Claude model: Haiku, Sonnet, Opus, or FableTutorial5 min
 
@@ -97,4 +111,4 @@ Use case·Education·15 min](https://academy.claude.com/use-cases/bring-your-whi
 
 ## Browse it all
 
-[Use cases70 use cases](https://academy.claude.com/all?kind=use-case&product=chat)[Tutorials64 tutorials](https://academy.claude.com/all?kind=tutorial&product=chat)[Courses11 courses](https://academy.claude.com/all?kind=course&product=chat)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Use cases70 use cases](https://academy.claude.com/all?kind=use-case&product=chat)[Tutorials64 tutorials](https://academy.claude.com/all?kind=tutorial&product=chat)[Courses11 courses](https://academy.claude.com/all?kind=course&product=chat)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

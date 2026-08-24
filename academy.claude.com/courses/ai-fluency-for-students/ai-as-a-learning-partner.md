@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-students/ai-as-a-learning-partner -->
 
-Lesson 3 of 5 · AI Fluency for studentsAI as a learning partner
+Lesson 3 of 5 · AI Fluency for studentsAI as a learning partner
+
+3. /[AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students)
+
+[AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students)
+
+# AI as a learning partner
+
+Lesson 345 min
+
+In this lessonBy the end, you’ll be able to
+
+* Distinguish between using AI to do work versus using AI to learn
+* Apply the 4Ds specifically to learning contexts
+* Create an AI learning partner that enhances rather than replaces learning
+* Build a living learning journal that tracks your growth over time
 
 ## AI as a learning partner
-
-Loading
 
 AI as a learning partner
 
@@ -57,13 +70,13 @@ Start a new conversation with Claude (or your preferred AI assistant), or contin
 
 **Creating your study protocols:** Develop specific approaches for different learning needs, for example:
 
-* For problem-solving: “Guide me with hints and questions, don't solve it for me”
-* For concept review: “Test my understanding with progressively harder questions”
-* For exam prep: “Quiz me and explain why wrong answers are wrong (and why correct answers are correct)”
-* For writing: “Help me develop my own arguments through questioning”
-* For reading comprehension: “Ask me to explain key concepts in my own words”
-* For general planning: “Gather information from me about my various commitments so I can effectively plan out coursework and other activities I need to complete/attend”
-* For specific assignment planning: “Help me test my understanding of this assignment brief so I am sure I understand what is expected of me”
+* For problem-solving: “Guide me with hints and questions, don't solve it for me”
+* For concept review: “Test my understanding with progressively harder questions”
+* For exam prep: “Quiz me and explain why wrong answers are wrong (and why correct answers are correct)”
+* For writing: “Help me develop my own arguments through questioning”
+* For reading comprehension: “Ask me to explain key concepts in my own words”
+* For general planning: “Gather information from me about my various commitments so I can effectively plan out coursework and other activities I need to complete/attend”
+* For specific assignment planning: “Help me test my understanding of this assignment brief so I am sure I understand what is expected of me”
 
 **Testing your learning partner:**
 
@@ -81,3 +94,30 @@ After setting up both tools, ask yourself:
 ## What's next
 
 Now that you have your AI learning partner and journal set up, the next lesson will show you how to apply these same principles to career development. You'll learn to use AI strategically for job searching, interview prep, and professional growth while maintaining your authentic voice.
+
+[Previous lessonAI Fluency Framework](https://academy.claude.com/courses/ai-fluency-for-students/ai-fluency-framework)[Next lessonAI in career planning](https://academy.claude.com/courses/ai-fluency-for-students/ai-in-career-planning)
+
+Lesson 3 of 5 · AI Fluency for studentsAI as a learning partner
+
+Introduction and AI Fluency Framework
+
+* [Welcome to AI Fluency for students](https://academy.claude.com/courses/ai-fluency-for-students/welcome-to-ai-fluency-for-students)
+* [AI Fluency Framework](https://academy.claude.com/courses/ai-fluency-for-students/ai-fluency-framework)
+
+AI Fluency Framework applications for students
+
+* [AI as a learning partner](https://academy.claude.com/courses/ai-fluency-for-students/ai-as-a-learning-partner)
+* [AI in career planning](https://academy.claude.com/courses/ai-fluency-for-students/ai-in-career-planning)
+
+Conclusion & badge
+
+* [Being the human in the loop](https://academy.claude.com/courses/ai-fluency-for-students/being-the-human-in-the-loop)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-students/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-students/badge)
+
+* [AI as a learning partner](#ai-as-a-learning-partner)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

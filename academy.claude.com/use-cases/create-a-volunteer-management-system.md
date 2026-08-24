@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/create-a-volunteer-management-system -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create a volunteer management system
+
+Create comprehensive volunteer documentation including role descriptions, onboarding processes, communication templates, and tracking tools that professionalize volunteer management and scale your program effectively.
+
+15 minOperationsClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-lz7o5gud.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ithgdle4.png)
+
 ![Create a volunteer management system result](https://academy.claude.com/assets/v1/create-a-volunteer-management-system-mny15n26.png)
 
 ## 1. Describe the task
@@ -45,9 +59,7 @@ Our volunteers range from college students to retirees. Most commit 2-4 hours pe
 
 Create professional, comprehensive documents that make our volunteer program feel organized and legitimate. Use clear formatting, maintain a warm but professional tone, and include practical guidance that both volunteers and staff can follow easily. Make these documents detailed enough to use immediately without extensive revision.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -65,15 +77,9 @@ Provide Claude with any relevant information:
 * Communication preferences and organizational culture
 * Current background check providers
 
-
-
 Foundation Organizational OverviewPDF
 
-
-
 Volunteer Program Handbook and Role DescriptionsPDF
-
-
 
 Foundation Organizational OverviewPDF
 
@@ -106,9 +112,7 @@ Add specialized volunteer positions to your program
 
 Add role descriptions for two new positions: Curriculum Developer (volunteers who create lesson plans and reading activities) and Family Engagement Coordinator (volunteers who lead parent workshops and family literacy events). Use the same detailed format as the existing roles.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Build Program Evaluation
 
@@ -116,9 +120,7 @@ Measure volunteer program effectiveness
 
 Create an evaluation system for our volunteer program including quarterly volunteer satisfaction surveys, annual program impact assessment, volunteer retention metrics tracker, and program improvement planning template. Include specific questions and analysis frameworks.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Generate Volunteer Recruitment Materials
 
@@ -126,9 +128,7 @@ Create materials to attract quality volunteers
 
 Design volunteer recruitment materials including a one-page program overview flyer, social media post templates with different angles (student impact, volunteer experience, community benefit), a volunteer interest form, and talking points for recruitment presentations. Make them compelling and specific about impact.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -186,4 +186,11 @@ Our volunteers range from college students to retirees. Most commit 2-4 hours pe
 
 Create professional, comprehensive documents that make our volunteer program feel organized and legitimate. Use clear formatting, maintain a warm but professional tone, and include practical guidance that both volunteers and staff can follow easily. Make these documents detailed enough to use immediately without extensive revision.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

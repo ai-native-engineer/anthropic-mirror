@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/plan-your-literature-review -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Plan your literature review
+
+With Claude as your research assistant, find relevant research, prioritize what to read, and organize evidence as you work through papers.
+
+15 minResearchClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-hy25hv4i.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-la1k0ul8.png)
+
 ![Research roadmap Word document Claude creates for a literature review](https://academy.claude.com/assets/v1/plan-your-literature-review-etqhk9vh.png)
 
 ## 1. Describe the task
@@ -18,9 +32,7 @@ Search PubMed for the most relevant papers from the last 5 years and create a st
 
 Organize everything into a beautifully designed Word document that serves as my research roadmap—something that feels like a premium research tool with clear visual hierarchy, color-coding by study type, and space for my notes as I work through the papers.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -30,19 +42,17 @@ Connect Claude to relevant research tools and enable the specific features that 
 
 Connect [PubMed(opens in new tab)](https://claude.ai/directory/pubmed) to allow Claude to search the full PubMed database, not just work with papers you already have.
 
-
-
 PubMed
 
-[Connect](https://claude.ai/directory/pubmed)
+[Connect](https://claude.ai/directory/pubmed)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context
 
 Turn on [**Extended Thinking**(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can spend more time evaluating research and creating high-quality outputs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -72,9 +82,7 @@ Test whether patterns you notice actually hold across your full dataset. Claude 
 
 I want to say most recent studies focus on X while older ones focused on Y. Does this hold across these papers, or are there contradictions? Help me understand why or why not, and flag any papers that contradict this pattern.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Understand contradicting sources
 
@@ -82,9 +90,7 @@ When you notice sources conflict, Claude can help investigate why and search for
 
 Paper A claims [finding] while Paper B claims the opposite. Analyze why they contradict and search for other papers that might resolve or explain this contradiction.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Search for missing coverage
 
@@ -92,9 +98,7 @@ If you spot gaps of knowledge as you read, ask Claude to search for relevant sou
 
 I'm seeing a gap in my coverage of [specific mechanism/population/intervention]. Search PubMed for papers specifically addressing this, evaluate them, and add the most relevant ones to my roadmap. Where do they fit in my reading sequence?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -128,4 +132,11 @@ Search PubMed for the most relevant papers from the last 5 years and create a st
 
 Organize everything into a beautifully designed Word document that serves as my research roadmap—something that feels like a premium research tool with clear visual hierarchy, color-coding by study type, and space for my notes as I work through the papers.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

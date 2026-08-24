@@ -1,10 +1,21 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice -->
 
-Lesson 6 of 10 · AI Fluency for pK–12 EducatorsCreating high quality AI outputs
+Lesson 6 of 10 · AI Fluency for pK–12 EducatorsCreating high quality AI outputs
+
+3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+# Creating high quality AI outputs
+
+Lesson 625 min
+
+In this lessonBy the end, you’ll be able to
+
+* Use Description skills to guide AI in creating differentiated instructional materials
+* Use Discernment skills to evaluate AI-generated materials for accuracy, reading level, and alignment to your learning objectives
 
 ## Creating high quality AI outputs in your teaching practice
-
-Loading
 
 Creating high quality AI outputs · 10 min
 
@@ -27,7 +38,7 @@ DiscernmentJudge what came back, and feed that judgment forward.
 
 Describe what good looks like.Clear, specific prompting that turns your vision into terms the model can act on.
 
-PromptInner LoopRefine
+PromptInner LoopRefine
 
 Judge what came back.Judge what comes back—quality, relevance, bias—so your next prompt is sharper.
 
@@ -75,3 +86,44 @@ Apply Description and Discernment to create a piece of differentiated instructio
 ## What's next
 
 In the next lesson, we'll put Delegation and Diligence into practice with a data-analysis scenario. This includes how to decide what AI should touch, how to protect student information, and how to validate results before you trust them.
+
+[Previous lessonAI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations)[Next lessonEthics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)
+
+Lesson 6 of 10 · AI Fluency for pK–12 EducatorsCreating high quality AI outputs
+
+How this course was made
+
+* [How this course was made](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations)
+
+Using AI responsibly
+
+* [Creating high quality AI outputs](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice)
+* [Ethics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)
+* [AI's constitution, pedagogy, and you](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)
+
+Conclusion and badge
+
+* [Closure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/badge)
+
+* [Creating high quality AI outputs in your teaching practice](#creating-high-quality-ai-outputs-in-your-teaching-practice)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

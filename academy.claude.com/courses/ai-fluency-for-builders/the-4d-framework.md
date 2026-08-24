@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/the-4d-framework -->
 
-Lesson 2 of 9 · AI Fluency for BuildersThe 4D Framework
+Lesson 2 of 9 · AI Fluency for BuildersThe 4D Framework
+
+3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+
+[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+
+# The 4D Framework
+
+Lesson 220 min
+
+In this lessonBy the end, you’ll be able to
+
+* Define all four 4D competencies and how each shapes your AI collaborations
+* Tell the inner loop from the outer loop and know when to apply each
+* Map your current work to the 4Ds and find your biggest opportunity
 
 ## The 4D Framework for AI Fluency
-
-Loading
 
 The 4D Framework for AI Fluency · 7 min
 
@@ -58,3 +70,43 @@ Look at what you got back. Which competency felt natural? Which caught you off g
 ## What's next
 
 In the next lesson, we’ll look at how generative AI works — what it can and can’t do — so you can put the 4D Framework into practice with clear-eyed expectations.
+
+[Previous lessonWelcome to AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders)[Next lessonAI capabilities & limitations](https://academy.claude.com/courses/ai-fluency-for-builders/ai-capabilities-and-limitations)
+
+Lesson 2 of 9 · AI Fluency for BuildersThe 4D Framework
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-builders/the-4d-framework)
+
+How AI works
+
+* [AI capabilities & limitations](https://academy.claude.com/courses/ai-fluency-for-builders/ai-capabilities-and-limitations)
+
+The 4D framework for builders
+
+* [Delegation & the builder's toolkit](https://academy.claude.com/courses/ai-fluency-for-builders/delegation-the-builder-s-toolkit)
+* [Description & building great things](https://academy.claude.com/courses/ai-fluency-for-builders/description-building-great-things)
+
+Discernment for builders
+
+* [Discernment for code](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-code)
+* [Discernment for user experience](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-user-experience)
+
+Tying it all together
+
+* [Stand behind what you build](https://academy.claude.com/courses/ai-fluency-for-builders/stand-behind-what-you-build)
+
+Wrapping up
+
+* [Closure & looking forward](https://academy.claude.com/courses/ai-fluency-for-builders/closure-looking-forward)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-builders/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-builders/badge)
+
+* [The 4D Framework for AI Fluency](#the-4d-framework-for-ai-fluency)
+* [Key takeaways](#key-takeaways)
+* [Exercise](#exercise)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

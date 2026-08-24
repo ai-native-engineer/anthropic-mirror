@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/navigating-the-claude-desktop-app -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Navigating the Claude desktop app: Chat, Claude Cowork, Claude Code
+
+The Claude desktop app gives you three ways to work with Claude: Chat, Claude Cowork, and Claude Code — from quick questions to complex research to building software.
+
+10 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-b9qlnr3z.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mpd67del.png)
+
 The [Claude desktop app(opens in new tab)](https://claude.com/download) gives you three ways to work with Claude: Chat, Cowork, and Code.
 
 Chat is the same Claude you know from claude.ai, plus quick entry, screenshots, dictation, and connectors that come from running natively on your computer. [Cowork(opens in new tab)](https://claude.com/product/cowork) gives Claude the reach and the room to do more. This broader scope allows it to conduct more thorough research and analysis, and produce more complex documents and deliverables. Code is for building software, from writing and testing code to deploying it.
@@ -82,8 +96,6 @@ The Code tab is rolling out to Pro, Max, Team, and Enterprise users. For session
 
 ## Comparing the three modes on Desktop
 
-Loading
-
 ## Practice choosing the mode
 
 Pull up three real tasks: the last three things you asked Claude for, or three things you want help with this week. For each one, decide which mode you would use and note what about the task drove the choice.
@@ -92,9 +104,7 @@ Then pressure-test your calls in Chat:
 
 Here are three tasks I plan to bring to the Claude desktop app: [your three tasks]. For each one, tell me whether Chat, Cowork, or Code fits best and what about the task makes it the right fit. If a choice is close, tell me what detail about the task would settle it.
 
-
-
-Open in Claude
+Open in Claude
 
 Where Claude's call differs from yours, question both before accepting either. Two checks settle most disagreements:
 
@@ -106,3 +116,10 @@ The habit worth keeping: before you type the first prompt, name what the task ne
 ## Get started
 
 * [Download Claude for Mac or Windows(opens in new tab)](https://claude.com/download)
+
+* [Chat](#chat)
+* [Cowork](#cowork)
+* [Code](#code)
+* [Comparing the three modes on Desktop](#comparing-the-three-modes-on-desktop)
+* [Practice choosing the mode](#practice-choosing-the-mode)
+* [Get started](#get-started)

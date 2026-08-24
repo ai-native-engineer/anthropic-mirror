@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/claude-for-nonprofits-partnership-guide-for-all-users -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Claude for nonprofits partnership guide for all users
+
+A self-paced guide to help nonprofit staff build confidence with Claude and discover practical applications for their role.
+
+2 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-le9jkk1r.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hzyhro7q.png)
+
 Welcome to the Claude for nonprofits community. This guide is a pathway to help you build confidence and discover practical applications for your role. Move through these milestones at your own pace.
 
 ## Getting acquainted with Claude
@@ -67,3 +81,7 @@ Welcome to the Claude for nonprofits community. This guide is a pathway to help 
 *Note: There's no single "right" way to integrate Claude into your work. Whether you're adopting quickly or taking a measured approach, Claude helps you focus more energy on the people and programs that matter most.*
 
 For support, visit the [Claude help center(opens in new tab)](https://support.claude.com/en/), reach out to your internal Claude champions, or use your organization's support channels.
+
+* [Getting acquainted with Claude](#getting-acquainted-with-claude)
+* [Getting productive with Claude](#getting-productive-with-claude)
+* [Reaching new levels with Claude](#reaching-new-levels-with-claude)

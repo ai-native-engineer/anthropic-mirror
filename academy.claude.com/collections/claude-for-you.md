@@ -1,5 +1,7 @@
 <!-- source: https://academy.claude.com/collections/claude-for-you -->
 
+[Academy](https://academy.claude.com/)
+
 # Claude for personal
 
 Make Claude part of how you think, learn, and get things done, starting from your very first conversation.
@@ -94,7 +96,7 @@ Use case·Personal·15 min](https://academy.claude.com/use-cases/create-a-custom
 
 [For students5 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-students)[For educators4 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-educators)[Teaching AI Fluency7 lessons · 1 quiz](https://academy.claude.com/courses/teaching-ai-fluency)
 
-[## Join a Claude campus program 
+[## Join a Claude campus program
 
 claude.com
 
@@ -102,4 +104,4 @@ claude.com
 
 ## More resources
 
-[Open Claude claude.ai (opens in new tab)](https://claude.ai/)[Get the Claude apps claude.com (opens in new tab)](https://claude.com/download)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Open Claude claude.ai (opens in new tab)](https://claude.ai/)[Get the Claude apps claude.com (opens in new tab)](https://claude.com/download)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

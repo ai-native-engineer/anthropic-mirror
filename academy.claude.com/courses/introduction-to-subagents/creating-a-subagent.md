@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-subagents/creating-a-subagent -->
 
-Lesson 2 of 4 · Introduction to subagentsCreating a subagent
+Lesson 2 of 4 · Introduction to subagentsCreating a subagent
 
-Loading
+3. /[Introduction to subagents](https://academy.claude.com/courses/introduction-to-subagents)
+
+[Introduction to subagents](https://academy.claude.com/courses/introduction-to-subagents)
+
+# Creating a subagent
+
+Lesson 210 min
 
 Creating a subagent
 
@@ -58,7 +64,7 @@ Finally, you pick a color. This shows up in the UI so you can quickly tell which
 
 Once creation is complete, the subagent config file is saved into your project (typically at `.claude/agents/your-agent-name.md`). Here is what a typical subagent config looks like:
 
-markdown
+markdown
 
 ```
 ---
@@ -92,7 +98,7 @@ A well-written system prompt is the difference between a useful subagent and one
 
 If you want Claude to delegate tasks to the subagent without you explicitly asking, include the word **"proactively"** in the description field. For example:
 
-yaml
+yaml
 
 ```
 description: Proactively suggest running this agent after major code changes...
@@ -107,3 +113,24 @@ After creating your subagent, test it by making some code changes and asking Cla
 ![A code editor with a FastAPI project open and Claude Code in a side panel, asked to use the code-reviewer subagent to review recent changes](https://academy.claude.com/assets/media/85a257e79af4d77a19515d552f217afbeb33ff0438cc0924a0df31dcbb35c605.png)
 
 If the subagent is not being used when you expect it to be, go back and check the description. Adding more specific examples and trigger scenarios helps Claude understand when to delegate work to your subagent.
+
+[Previous lessonWhat are subagents?](https://academy.claude.com/courses/introduction-to-subagents/what-are-subagents)[Next lessonDesigning effective subagents](https://academy.claude.com/courses/introduction-to-subagents/designing-effective-subagents)
+
+Lesson 2 of 4 · Introduction to subagentsCreating a subagent
+
+Lessons
+
+* [What are subagents?](https://academy.claude.com/courses/introduction-to-subagents/what-are-subagents)
+* [Creating a subagent](https://academy.claude.com/courses/introduction-to-subagents/creating-a-subagent)
+* [Designing effective subagents](https://academy.claude.com/courses/introduction-to-subagents/designing-effective-subagents)
+* [Using subagents effectively](https://academy.claude.com/courses/introduction-to-subagents/using-subagents-effectively)
+
+* [Course complete](https://academy.claude.com/courses/introduction-to-subagents/complete)
+
+* [Creating a Subagent](#creating-a-subagent)
+* [Customizing Tools](#customizing-tools)
+* [Choosing a Model and Color](#choosing-a-model-and-color)
+* [The Config File](#the-config-file)
+* [System Prompts](#system-prompts)
+* [Making Claude Use Your Subagent Automatically](#making-claude-use-your-subagent-automatically)
+* [Testing Your Subagent](#testing-your-subagent)

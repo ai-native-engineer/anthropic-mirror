@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-101/context-management -->
 
-Lesson 6 of 12 · Claude Code 101Context management
+Lesson 6 of 12 · Claude Code 101Context management
 
-Loading
+3. /[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+# Context management
+
+Lesson 67 min
 
 Context management
 
@@ -57,3 +63,44 @@ A general rule of thumb:
 ## Recap
 
 Managing context within Claude Code is crucial. Use `/compact` to summarize long sessions and `/clear` to start fresh. To use your context window effectively: be specific with your prompts, check what's consuming your current context, and use subagents to delegate tasks where you only need the result.
+
+[Previous lessonThe explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)[Next lessonCode review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Lesson 6 of 12 · Claude Code 101Context management
+
+What is Claude Code?
+
+* [What is Claude Code?](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)
+* [How Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Your first prompt
+
+* [Installing Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)
+* [Your first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Daily workflows
+
+* [The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+* [Context management](https://academy.claude.com/courses/claude-code-101/context-management)
+* [Code review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Customizing Claude Code
+
+* [The CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
+* [Subagents](https://academy.claude.com/courses/claude-code-101/subagents)
+* [Skills](https://academy.claude.com/courses/claude-code-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-code-101/mcp)
+* [Hooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)
+
+* [What is the Context Window?](#what-is-the-context-window)
+* [What Happens When Context Fills Up](#what-happens-when-context-fills-up)
+* [Commands](#commands)
+* [When to Use Which](#when-to-use-which)
+* [Tips for Saving Context Space](#tips-for-saving-context-space)
+* [Recap](#recap)

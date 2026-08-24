@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/understand-and-extend-an-inherited-spreadsheet -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Understand and extend an inherited spreadsheet
+
+Understand existing formulas and structure then add new data while preserving the original logic.
+
+15 minFinanceClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-io4qtxwm.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gxdqk7sy.png)
+
 ![Understand and extend an inherited spreadsheet result](https://academy.claude.com/assets/v1/understand-and-extend-an-inherited-spreadsheet-7lf1zt77.png)
 
 ## 1. Describe the task
@@ -18,9 +32,7 @@ I inherited this SaaS revenue model when Marcus left. Finance needs Q1-Q3 2026 p
 
 Add some visual elements so I can see the trends at a glance—data bars on the margins, or a column showing growth from baseline. And add comments explaining any complex formulas. Then extend the model through Q3 2026, following Marcus's patterns.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -40,7 +52,7 @@ Revenue ModelXLSX
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for Claude to develop sophisticated layouts and logic during multi-step tasks.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -95,9 +107,7 @@ When you extend or modify a model, documenting what changed makes future handoff
 
 Can you create a summary of every change made to this file? List what was added, what formulas were extended, and what assumptions I should call out as new.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Update with actuals and analyze variance
 
@@ -105,9 +115,7 @@ The quarter closed. Now you need to replace projections with actual results and 
 
 Q4 2025 closed at $8.2M revenue versus the $8.5M forecast. Update the model with actuals and break down the variance—how much came from customer count versus ARPU versus churn? I need to explain the miss to leadership.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -135,4 +143,11 @@ I inherited this SaaS revenue model when Marcus left. Finance needs Q1-Q3 2026 p
 
 Add some visual elements so I can see the trends at a glance—data bars on the margins, or a column showing growth from baseline. And add comments explaining any complex formulas. Then extend the model through Q3 2026, following Marcus's patterns.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

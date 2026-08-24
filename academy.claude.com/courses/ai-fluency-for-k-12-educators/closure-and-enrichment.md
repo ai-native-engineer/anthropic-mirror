@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment -->
 
-Lesson 10 of 10 · AI Fluency for pK–12 EducatorsClosure and enrichment
+Lesson 10 of 10 · AI Fluency for pK–12 EducatorsClosure and enrichment
+
+3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+# Closure and enrichment
+
+Lesson 1015 min
+
+In this lessonBy the end, you’ll be able to
+
+* Access resources to continue building your AI fluency
+* Share what you've learned with colleagues in your organization
+* Earn your completion badge
 
 ## Growing your AI Fluency in the classroom and beyond
-
-Loading
 
 Closure and enrichment · 3 min
 
@@ -29,8 +41,6 @@ You've used AI to support tasks already in this course. Now you'll use it to des
 
 First review projects other educators have built through Teach For America's AI educator development work below to give you some inspiration.
 
-Loading
-
 So, how do you design something to solve a problem in your educational practice?
 
 1. **Pick your problem.** If you’re stuck, finish one of these: *“I wish \_\_\_ existed.” “I spend too much time doing \_\_\_”. “I wish there was a way to \_\_\_”.* (Or just grab something already waiting for you: a unit outline, parent communication, assessment data you haven’t analyzed.)
@@ -45,3 +55,44 @@ So, how do you design something to solve a problem in your educational practice?
 ## What's next
 
 In the next lesson, you'll take a short quiz to earn your completion badge. You can share your badge with colleagues to kick off a conversation about what AI Fluency might look like in your school. If you want to go deeper, Anthropic's [AI Fluency: Framework & Foundations(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations) course provides an expanded exploration of the 4D framework.
+
+[Previous lessonTying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)[Next lessonCourse Quiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/course-quiz)
+
+Lesson 10 of 10 · AI Fluency for pK–12 EducatorsClosure and enrichment
+
+How this course was made
+
+* [How this course was made](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations)
+
+Using AI responsibly
+
+* [Creating high quality AI outputs](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice)
+* [Ethics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)
+* [AI's constitution, pedagogy, and you](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)
+
+Conclusion and badge
+
+* [Closure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/badge)
+
+* [Growing your AI Fluency in the classroom and beyond](#growing-your-ai-fluency-in-the-classroom-and-beyond)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

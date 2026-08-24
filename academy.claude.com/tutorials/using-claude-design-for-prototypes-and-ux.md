@@ -1,5 +1,17 @@
 <!-- source: https://academy.claude.com/tutorials/using-claude-design-for-prototypes-and-ux -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Claude Design for prototypes and UX
+
+Claude Design by Anthropic Labs is a powerful tool for product designers and product managers who need to move fast from concept to working prototype. This guide covers workflows specific to product work – rapid prototyping, connecting your codebase for production-aware designs, iterating on features with real components, and handing off to engineering through Claude Code.
+
+15 minClaude Design
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-k687t63t.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-btcr2j4a.png)
+
 ## Using Claude Design for prototypes and UX
 
 Claude Design by Anthropic Labs is a powerful tool for product designers and product managers who need to move fast from concept to working prototype. This guide covers workflows specific to product work – rapid prototyping, connecting your codebase for production-aware designs, iterating on features with real components, and handing off to engineering through Claude Code.
@@ -14,19 +26,19 @@ The most common product use case: you have a feature idea and need to make it ta
 
 Design a new settings page for our SaaS app with sections for account, billing, notifications, and integrations. Include a sidebar nav and make each section expandable.
 
-Copy prompt
+Copy prompt
 
 Create an onboarding flow for a new user — 5 screens that walk them through connecting their data source, configuring their first dashboard, and inviting teammates.
 
-Copy prompt
+Copy prompt
 
 Prototype a search experience with filters, faceted results, and a detail panel that slides in from the right when you click a result.
 
-Copy prompt
+Copy prompt
 
 Build an approval workflow UI where managers can review, comment on, and approve or reject submitted requests in a queue.
 
-Copy prompt
+Copy prompt
 
 #### Design reviews and stakeholder alignment
 
@@ -36,11 +48,11 @@ Before committing to a direction, you often need to get feedback from stakeholde
 
 Show me three different layouts for a user profile page — one card-based, one with a left sidebar, and one with a top tab navigation.
 
-Copy prompt
+Copy prompt
 
 Create two versions of this checkout flow — one single-page and one multi-step wizard — so I can compare them in a design review.
 
-Copy prompt
+Copy prompt
 
 #### User flow mapping
 
@@ -50,7 +62,7 @@ You can use Claude Design to prototype complete user flows, not just individual 
 
 Map out the flow for a user who wants to upgrade from a free plan to a paid plan. Start from the dashboard where they see the upgrade prompt, through the plan comparison page, payment form, confirmation, and the updated dashboard with premium features unlocked.
 
-Copy prompt
+Copy prompt
 
 #### Internal tools and admin panels
 
@@ -60,11 +72,11 @@ Product teams often need internal tools quickly — admin dashboards, content mo
 
 Design an admin panel for managing user accounts — searchable table with filters for plan type and status, with a detail drawer that shows account history and lets you modify permissions.
 
-Copy prompt
+Copy prompt
 
 Create a content moderation queue where reviewers can see flagged items, view context, and take action (approve, reject, escalate) with keyboard shortcuts.
 
-Copy prompt
+Copy prompt
 
 ## Connecting your codebase
 
@@ -133,3 +145,9 @@ Here's how a product team might use Claude Design from idea to implementation:
 8. **Engineer uses Claude Code** to implement the feature, starting from the prototype rather than from scratch
 
 **Have questions about Claude Design prototypes?** Reach out to your Design Team or try building a prototype yourself – most people find the workflow intuitive once they create their first one.
+
+* [Using Claude Design for prototypes and UX](#using-claude-design-for-prototypes-and-ux)
+* [Product design workflows](#product-design-workflows)
+* [Connecting your codebase](#connecting-your-codebase)
+* [Hand off to Claude Code](#hand-off-to-claude-code)
+* [Example: End-to-end product design workflow](#example-end-to-end-product-design-workflow)

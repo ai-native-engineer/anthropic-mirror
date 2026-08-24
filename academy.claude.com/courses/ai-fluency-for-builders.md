@@ -1,17 +1,29 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders -->
 
-9 lessons · 1 quizAI Fluency for Builders
+[Courses](https://academy.claude.com/courses)
+
+# AI Fluency for Builders
+
+This course empowers builders to develop AI fluency — increasing impact and efficiency while staying true to what it means to own the full arc from problem to shipped solution.
+
+9 lessons3 hr1 quizCompletion badge
+
+[Start course](https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-builders)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-zsffwnm9.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-i4gb2vk3.png)
+
+9 lessons · 1 quizAI Fluency for Builders
 
 What you’ll learnBy the end of this course, you’ll be able to
 
-* Define AI Fluency and the 4D Framework (Delegation, Description, Discernment, Diligence) and explain how each applies to your role as a builder
-* Identify what current AI does well and where it reliably falls short, so you can set clear-eyed expectations for builder tasks
-* Decompose a customer problem across the builder's toolkit and decide what role AI plays at each stage
-* Write acceptance tests that define done before a single line of code exists
-* Translate a user need to precise AI instruction using the Description Chain
-* Evaluate AI-generated work across five lenses: correctness, quality, fit, experience, and responsibility
-* Critique AI-generated designs using feedback specific enough to act on
-* Take full ownership of what you ship and make the call: ship it, fix it, or stop it
+* Define AI Fluency and the 4D Framework (Delegation, Description, Discernment, Diligence) and explain how each applies to your role as a builder
+* Identify what current AI does well and where it reliably falls short, so you can set clear-eyed expectations for builder tasks
+* Decompose a customer problem across the builder's toolkit and decide what role AI plays at each stage
+* Write acceptance tests that define done before a single line of code exists
+* Translate a user need to precise AI instruction using the Description Chain
+* Evaluate AI-generated work across five lenses: correctness, quality, fit, experience, and responsibility
+* Critique AI-generated designs using feedback specific enough to act on
+* Take full ownership of what you ship and make the call: ship it, fix it, or stop it
 
 At Anthropic, we believe that empowering people with AI, and ensuring that AI makes safe contributions to society, requires engaging with a wide range of human perspectives and experiences. Builders — product people, engineers, and makers — are uniquely positioned to leverage AI to amplify what they create—but only if they can approach it intentionally, with clear judgment and purpose.
 
@@ -82,3 +94,33 @@ Bring Diligence full circle by owning what you ship, from whether it should exis
 Bring all four dimensions of the 4D Framework together, gather resources to keep building your AI fluency after the course, share what you've learned with colleagues, and complete the final course quiz to earn your completion badge.
 
 ![](https://academy.claude.com/assets/media/d14d13ed22cdd6897e551ffe0b64a72360ef11b147d87b1a4a095bab23b484b5.webp)
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-builders/the-4d-framework)
+
+How AI works
+
+* [AI capabilities & limitations](https://academy.claude.com/courses/ai-fluency-for-builders/ai-capabilities-and-limitations)
+
+The 4D framework for builders
+
+* [Delegation & the builder's toolkit](https://academy.claude.com/courses/ai-fluency-for-builders/delegation-the-builder-s-toolkit)
+* [Description & building great things](https://academy.claude.com/courses/ai-fluency-for-builders/description-building-great-things)
+
+Discernment for builders
+
+* [Discernment for code](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-code)
+* [Discernment for user experience](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-user-experience)
+
+Tying it all together
+
+* [Stand behind what you build](https://academy.claude.com/courses/ai-fluency-for-builders/stand-behind-what-you-build)
+
+Wrapping up
+
+* [Closure & looking forward](https://academy.claude.com/courses/ai-fluency-for-builders/closure-looking-forward)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-builders/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-builders/badge)

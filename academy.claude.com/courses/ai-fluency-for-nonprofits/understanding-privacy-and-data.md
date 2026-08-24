@@ -1,10 +1,21 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-nonprofits/understanding-privacy-and-data -->
 
-Lesson 5 of 9 · AI Fluency for nonprofitsUnderstanding privacy and data
+Lesson 5 of 9 · AI Fluency for nonprofitsUnderstanding privacy and data
+
+3. /[AI Fluency for nonprofits](https://academy.claude.com/courses/ai-fluency-for-nonprofits)
+
+[AI Fluency for nonprofits](https://academy.claude.com/courses/ai-fluency-for-nonprofits)
+
+# Understanding privacy and data
+
+Lesson 530 min
+
+In this lessonBy the end, you’ll be able to
+
+* Articulate privacy concerns and evaluate AI tools based on their data handling policies
+* Practice data hygiene strategies for safely working with sensitive information
 
 ## Understanding privacy and data
-
-Loading
 
 Understanding privacy and data · 10 min
 
@@ -22,8 +33,6 @@ privacy protections, and how to prepare sensitive data for safe AI use.
 * **Safe AI use isn't about avoiding it—it's about using it responsibly**: Apply Problem Awareness and Platform Awareness before starting a new project. Often you can get full benefit from AI without sharing sensitive information by breaking tasks into component parts
 * **You can often remove identifying information entirely**: For pattern analysis, you likely don't need names, contact details, or other PII. Work backwards from your actual goal to determine what data is truly necessary
 * **If something goes wrong, you have options**: Delete the conversation, request data deletion through the platform's privacy process, and follow your organization's protocols
-
-
 
 A note on Claude's privacy settings
 
@@ -73,3 +82,40 @@ For your chosen scenario, identify:
 ## What's next
 
 In the next lesson, we'll put these privacy practices into action as we explore data analysis with AI—learning how to spot patterns, generate insights, and strengthen your programs while keeping sensitive information protected.
+
+[Previous lessonWriting with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/writing-with-ai)[Next lessonData analysis with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/data-analysis-with-ai)
+
+Lesson 5 of 9 · AI Fluency for nonprofitsUnderstanding privacy and data
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for nonprofits](https://academy.claude.com/courses/ai-fluency-for-nonprofits/welcome-to-ai-fluency-for-nonprofits)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-nonprofits/the-4d-framework)
+
+The Description-Discernment loop
+
+* [Researching with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/researching-with-ai)
+* [Writing with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/writing-with-ai)
+
+The Delegation-Diligence loop
+
+* [Understanding privacy and data](https://academy.claude.com/courses/ai-fluency-for-nonprofits/understanding-privacy-and-data)
+* [Data analysis with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/data-analysis-with-ai)
+
+Putting it all together
+
+* [Workflow augmentation](https://academy.claude.com/courses/ai-fluency-for-nonprofits/workflow-augmentation)
+* [Integration](https://academy.claude.com/courses/ai-fluency-for-nonprofits/integration)
+
+Conclusion and badge
+
+* [Next steps](https://academy.claude.com/courses/ai-fluency-for-nonprofits/next-steps)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-fluency-for-nonprofits/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-nonprofits/badge)
+
+* [Understanding privacy and data](#understanding-privacy-and-data)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

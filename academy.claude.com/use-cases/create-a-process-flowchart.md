@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/create-a-process-flowchart -->
 
-![Create a process flowchart result](https://academy.claude.com/assets/v1/create-a-process-flowchart-n1sqmq8d.png)[Open artifact](https://claude.ai/public/artifacts/6fd65172-ddef-499e-ad8e-7ed7d3f8d857)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Create a process flowchart
+
+Turn written procedures into visual flowcharts that make complex processes easier to follow and share.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-f5mix6nn.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nqcpfb77.png)
+
+![Create a process flowchart result](https://academy.claude.com/assets/v1/create-a-process-flowchart-n1sqmq8d.png)[Open artifact](https://claude.ai/public/artifacts/6fd65172-ddef-499e-ad8e-7ed7d3f8d857)
 
 ## 1. Describe the task
 
@@ -12,9 +26,7 @@ Can you **help me visualize this** so we can see the whole system in one view an
 
 Create a Sankey flow diagram with organic curved paths. Make it screenshot-worthy with professional, bold typography and a natural color palette. Enable interactive zoom and pan with smooth Bezier curves. Apply Tufte-level information design.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -24,15 +36,13 @@ Provide your process document so Claude can identify the structure, decision poi
 
 Upload a file of your procedure document. Click the (+) button in the chat bar to browse through your files, or alternatively, drag and drop files into the chat box area.
 
-
-
 Procedure documentPDF
 
 ### Optional context
 
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for Claude to think through more complex processes and produce higher quality outputs.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -76,9 +86,7 @@ Using connectors like [Mermaid Chart(opens in new tab)](https://claude.ai/direct
 
 Can you convert this artifact flowchart to Mermaid.js format using the Mermaid Chart connector? I'd like an editable playground link to share with my team and the raw Mermaid code so we can embed it in our docs or export to other platforms.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Add detail to specific sections
 
@@ -86,9 +94,7 @@ Claude can expand on specific parts of the diagram while keeping other sections 
 
 The implementation phase has a lot more steps than shown. Can you expand that section to include: technical discovery call, sandbox setup, data mapping session, initial configuration, testing phase, and training? Keep the other sections at their current level of detail.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Adjust the visual style
 
@@ -96,9 +102,7 @@ Claude can reorganize flow direction and apply color coding systems to separate 
 
 Can you reorganize this to flow left-to-right instead of top-to-bottom? Also use colors to distinguish different team owners—sales in blue, customer success in green, implementation in orange.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -120,4 +124,11 @@ Can you help me visualize this so we can see the whole system in one view and un
 
 Create a Sankey flow diagram with organic curved paths. Make it screenshot-worthy with professional, bold typography and a natural color palette. Enable interactive zoom and pan with smooth Bezier curves. Apply Tufte-level information design.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

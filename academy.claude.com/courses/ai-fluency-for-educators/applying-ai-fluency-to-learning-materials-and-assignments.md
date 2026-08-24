@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-educators/applying-ai-fluency-to-learning-materials-and-assignments -->
 
-Lesson 4 of 4 · AI Fluency for educatorsApplying AI Fluency to learning materials and assignments
+Lesson 4 of 4 · AI Fluency for educatorsApplying AI Fluency to learning materials and assignments
+
+3. /[AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-educators)
+
+[AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-educators)
+
+# Applying AI Fluency to learning materials and assignments
+
+Lesson 425 min
+
+In this lessonBy the end, you’ll be able to
+
+* Build teaching materials with an AI assistant applying the 4D framework
+* Leverage established context for coherent material development
+* Apply systematic quality control through Discernment
+* Build materials that work together as an integrated learning experience
 
 ## Applying AI Fluency to learning materials and assignments
-
-Loading
 
 Applying AI Fluency to learning materials and assignments · 10 min
 
@@ -151,3 +164,29 @@ You've now experienced the full cycle of AI Fluency in teaching—from establish
 Ready to deepen your expertise? If you haven't already, take our comprehensive [AI Fluency: Framework & Foundations course(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations) for extended practice with the 4Ds across all contexts. When you complete it, you'll earn a completion badge to showcase your AI fluency skills to colleagues and administrators.
 
 Finally, if you're curious about bringing AI Fluency to your students, check out our [Teaching AI Fluency course(opens in new tab)](https://academy.claude.com/courses/teaching-ai-fluency).
+
+[Previous lessonApplying AI Fluency to course design and learning outcomes](https://academy.claude.com/courses/ai-fluency-for-educators/applying-ai-fluency-to-course-design-and-learning-outcomes)[Next lessonCourse quiz](https://academy.claude.com/courses/ai-fluency-for-educators/certificate-of-completion)
+
+Lesson 4 of 4 · AI Fluency for educatorsApplying AI Fluency to learning materials and assignments
+
+Introduction and AI Fluency Framework
+
+* [Introduction to AI Fluency for Educators](https://academy.claude.com/courses/ai-fluency-for-educators/introduction-to-ai-fluency-for-educators)
+* [AI Fluency Framework review](https://academy.claude.com/courses/ai-fluency-for-educators/ai-fluency-framework-review)
+
+AI Fluency applications for educators
+
+* [Applying AI Fluency to course design and learning outcomes](https://academy.claude.com/courses/ai-fluency-for-educators/applying-ai-fluency-to-course-design-and-learning-outcomes)
+* [Applying AI Fluency to learning materials and assignments](https://academy.claude.com/courses/ai-fluency-for-educators/applying-ai-fluency-to-learning-materials-and-assignments)
+
+Conclusion & badge
+
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-educators/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-educators/badge)
+
+* [Applying AI Fluency to learning materials and assignments](#applying-ai-fluency-to-learning-materials-and-assignments)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

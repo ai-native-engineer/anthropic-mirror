@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up -->
 
-Lesson 2 of 14 · Introduction to Claude CoworkSetting up Claude Cowork
+Lesson 2 of 14 · Introduction to Claude CoworkSetting up Claude Cowork
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# Setting up Claude Cowork
+
+Lesson 220 min
+
+In this lessonBy the end, you’ll be able to
+
+* Open Cowork in the Claude Desktop app and point it at a working folder
+* Connect the apps where your work lives
+* Recognize what Claude asks before doing — and what it doesn't — so you can hand off work with confidence
 
 ## Install Cowork
 
@@ -11,8 +25,6 @@ You can run Cowork in the Claude desktop app on Mac and Windows, or in the cloud
 Click **Work in a project or folder** in the prompt bar and pick a folder on your computer. This is the single most important setup choice you'll make for each new task, because the folder is where the work lives. Claude reads every file inside (Word docs, Excel files, PDFs, PowerPoints, whatever's there) and saves finished outputs back to the same location.
 
 Choose a folder that's scoped to one project or stream of work. Claude doesn't need access to your entire documents folder, just the one that includes the files it needs for the task. See the interactive below for an example.
-
-Loading
 
 **The folder is where Cowork has read AND write access.** It can open your files, edit them, create new ones, and organize them. This is the main difference from Chat: In Chat, Claude can read what you upload but can't save anything back to your computer — in Cowork, Claude can.
 
@@ -35,15 +47,11 @@ Once a connector is on, you reference it naturally in your prompts. "Check what 
 
 Try this interactive below to see the power of connecting Claude to your work.
 
-Loading
-
 A note for tools that don't have a connector: for internal dashboards, vendor portals, or web apps behind a login, **Claude in Chrome** is the bridge. It's a browser extension that lets Claude read and interact with pages directly. We'll cover it in Module 3 — for now, just know that "no connector" doesn't mean that the data is out of reach. (Note that Claude in Chrome may not be available on some enterprise plans.)
 
 ## The permissions model
 
 When you pick a folder, you're automatically authorizing Claude to read and write in it. When it comes to the tasks inside that folder, Cowork has two permission modes. In the default — “Ask before acting” — Claude pauses for your okay before each action that touches the outside world: sending an email, posting a message, sharing a file. In “Act without asking,” it doesn't pause for those, so only switch to it for tools and tasks you trust. One thing is constant in both modes: Claude always asks before permanently deleting a file, and that prompt can't be skipped.
-
-Loading
 
 The point of all of this: you can hand Claude a substantial piece of work, knowing it won't take an action that surprises you. That's what "delegating, not just chatting" actually feels like — and it only works because the permissions model is doing real work in the background.
 
@@ -59,12 +67,53 @@ The best way to understand this is to do it. Delegate one small task before you 
 
 Take a look at everything in this folder and write me a brief on what you've learned — what's in the folder, how the documents relate to one another, any surprising insights, or other information you think would be pertinent to share.
 
-
-
-Open in Cowork
+Open in Cowork
 
 **Step 4 — Read the brief and check it against your own knowledge.** What did Claude catch that you might have missed? What did it miss or get wrong? What surprised you?
 
 ## What’s next
 
 In the next lesson, you'll learn how to recognize the work in your day-to-day that is best suited for Cowork — the patterns to look for, and how to map your own workflows to them. By the end of it you'll have a specific task picked out and ready to delegate.
+
+[Previous lessonWhat is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)[Next lessonWhat Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+
+Lesson 2 of 14 · Introduction to Claude CoworkSetting up Claude Cowork
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [Install Cowork](#install-cowork)
+* [Pointing Claude at a folder](#pointing-claude-at-a-folder)
+* [Adding connectors](#adding-connectors)
+* [The permissions model](#the-permissions-model)
+* [Try it now](#try-it-now)
+* [What’s next](#whats-next)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-clinicaltrials-gov-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the ClinicalTrials.gov Connector in Claude
+
+Set up and use the ClinicalTrials.gov integration with Claude to search the NIH/NLM registry of 500,000+ clinical trials, analyze endpoints, and support research operations.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-nnnx54tu.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ilp5ucpx.png)
+
 The ClinicalTrials.gov connector gives Claude access to the NIH/NLM registry of 500,000+ clinical studies to search trials, analyze endpoints, and support research operations. This article explains how to set up and use the ClinicalTrials.gov integration with Claude to power clinical, regulatory, and patient-supporting workflows.
 
 The ClinicalTrials.gov integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -64,27 +78,19 @@ Technical details of the ClinicalTrials.gov integration can be found in the [Cli
 
 Find recruiting Phase 3 diabetes trials with HbA1c eligibility criteria between 7-10% for our Boston research site
 
-
-
-Open in Claude
+Open in Claude
 
 What breast cancer trials are accepting BRCA-positive candidates at academic medical centers in California?
 
-
-
-Open in Claude
+Open in Claude
 
 Search for Alzheimer's trials with MMSE score requirements that match our memory clinic population
 
-
-
-Open in Claude
+Open in Claude
 
 Identify pediatric leukemia trials recruiting at major children's hospitals for our referral network
 
-
-
-Open in Claude
+Open in Claude
 
 **Competitive Intelligence & Pipeline Analysis**
 
@@ -93,27 +99,19 @@ Identify pediatric leukemia trials recruiting at major children's hospitals for 
 
 What Phase 3 oncology trials is Pfizer currently running? Show their cancer pipeline
 
-
-
-Open in Claude
+Open in Claude
 
 Find all GLP-1 agonist trials for obesity. Who are the main sponsors and what endpoints are they measuring?
 
-
-
-Open in Claude
+Open in Claude
 
 Show me Moderna's active clinical trials and their development phases
 
-
-
-Open in Claude
+Open in Claude
 
 What companies are developing drugs for Parkinson's disease? Analyze their trial endpoints
 
-
-
-Open in Claude
+Open in Claude
 
 **Systematic Protocol Design & Endpoint Benchmarking**
 
@@ -122,26 +120,23 @@ What companies are developing drugs for Parkinson's disease? Analyze their trial
 
 What are the most common primary endpoints used in Phase 3 diabetes trials?
 
-
-
-Open in Claude
+Open in Claude
 
 Analyze endpoints for completed heart failure trials - what timeframes do they use?
 
-
-
-Open in Claude
+Open in Claude
 
 Find principal investigators at academic medical centers conducting immunotherapy trials
 
-
-
-Open in Claude
+Open in Claude
 
 What eligibility criteria do Phase 2 NASH trials typically use? Show me HbA1c cutoffs
 
-
-
-Open in Claude
+Open in Claude
 
 Learn more at How to use the Clinical Trial Protocol skill with Claude
+
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the ClinicalTrials.gov integration](#who-should-use-the-clinicaltrialsgov-integration)
+* [Setting up the ClinicalTrials.gov integration](#setting-up-the-clinicaltrialsgov-integration)
+* [Example use cases](#example-use-cases)

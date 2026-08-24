@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-101/hooks -->
 
-Lesson 12 of 12 · Claude Code 101Hooks
+Lesson 12 of 12 · Claude Code 101Hooks
 
-Loading
+3. /[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+# Hooks
+
+Lesson 126 min
 
 Hooks
 
@@ -64,3 +70,44 @@ Hooks configured in `.claude/settings.json` are project-level and can be checked
 Hooks give you deterministic control over Claude Code's behavior. Use PostToolUse for auto-formatting and logging. Use PreToolUse to block dangerous operations. Configure them with `/hooks` or in `settings.json`. And check them into your repo so your team gets them too.
 
 If something needs to happen every time without fail, don't put it in a prompt. Put it in a hook.
+
+[Previous lessonMCP](https://academy.claude.com/courses/claude-code-101/mcp)[Next lessonCourse quiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+Lesson 12 of 12 · Claude Code 101Hooks
+
+What is Claude Code?
+
+* [What is Claude Code?](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)
+* [How Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Your first prompt
+
+* [Installing Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)
+* [Your first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Daily workflows
+
+* [The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+* [Context management](https://academy.claude.com/courses/claude-code-101/context-management)
+* [Code review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Customizing Claude Code
+
+* [The CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
+* [Subagents](https://academy.claude.com/courses/claude-code-101/subagents)
+* [Skills](https://academy.claude.com/courses/claude-code-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-code-101/mcp)
+* [Hooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)
+
+* [Why Use Hooks](#why-use-hooks)
+* [How They Work](#how-they-work)
+* [A Practical Example](#a-practical-example)
+* [Blocking with PreToolUse](#blocking-with-pretooluse)
+* [Sharing Hooks with Your Team](#sharing-hooks-with-your-team)
+* [Recap](#recap)

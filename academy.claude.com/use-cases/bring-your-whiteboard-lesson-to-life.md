@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/bring-your-whiteboard-lesson-to-life -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Bring your whiteboard lesson to life
+
+Work through how to teach a concept with Claude sketching alongside. The visual streams in as part of the back-and-forth — a thinking tool for your prep first, and a teaching tool if you take it further.
+
+15 minEducationClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-fjnnaiiq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mslbc9us.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Here a professor is planning supply and demand equilibrium for next week. They a
 
 I'm prepping to teach supply and demand equilibrium next week. Here's the sketch I've been using — students tend to follow the crossing but not *why* the price goes there. What's a better way to frame it? And is there a way to show them the pressure toward equilibrium, not just the intersection?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -21,8 +31,6 @@ Attach what you've been using — a sketch, a slide, a half-built example. Claud
 ### Required context
 
 A photo of the whiteboard, a slide, or a description of what you've been drawing.
-
-
 
 Sketch, slide, or descriptionJPEG
 
@@ -42,9 +50,7 @@ Describe a change to the interaction and Claude redraws — you say what's diffe
 
 Add a step before the snap button: students predict which way the price moves first, then click to check. Show their guess next to what happened.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Click a button in the visual to see the next scenario
 
@@ -52,9 +58,7 @@ The buttons below the graph send follow-up prompts — click one and Claude buil
 
 What happens when demand spikes? Show me the curves shifting and where the new equilibrium lands.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to rebuild the same format for a different concept
 
@@ -62,9 +66,7 @@ Claude rebuilds the same drag-predict-check interaction around the new concept �
 
 Redraw this for price floors and ceilings — same predict-then-snap format, but show why the gap doesn't close.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -86,4 +88,11 @@ Try it on whatever you're planning to teach — attach your sketch, say where st
 
 I'm prepping to teach supply and demand equilibrium next week. Here's the sketch I've been using — students tend to follow the crossing but not why the price goes there. What's a better way to frame it? And is there a way to show them the pressure toward equilibrium, not just the intersection?
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code -->
 
-Lesson 4 of 13 · Claude 101How you'll work with Claude on your desktop
+Lesson 4 of 13 · Claude 101How you'll work with Claude on your desktop
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# How you'll work with Claude on your desktop
+
+Lesson 410 min
+
+In this lessonBy the end, you’ll be able to
+
+* Distinguish the ways you work with Claude on the desktop — working with Claude turn by turn, handing whole tasks off for Claude to run, and building software in your codebase
+* Recognize which shape of work a task calls for before you start it
+* Find where each way of working lives in the desktop app today
 
 ## Working with Claude on your desktop
 
@@ -103,3 +117,46 @@ You won't pick a tab first — you'll notice what kind of work is in front of yo
 ## What's next
 
 In the next module, you'll learn how to organize your work and knowledge using projects.
+
+[Previous lessonGetting better results](https://academy.claude.com/courses/claude-101/getting-better-results)[Next lessonIntroduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+
+Lesson 4 of 13 · Claude 101How you'll work with Claude on your desktop
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [Working with Claude on your desktop](#working-with-claude-on-your-desktop)
+* [Working with Claude, turn by turn](#working-with-claude-turn-by-turn)
+* [Handing work off to Claude](#handing-work-off-to-claude)
+* [Building software with Claude Code](#building-software-with-claude-code)
+* [Choosing the right shape for the task](#choosing-the-right-shape-for-the-task)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/reconcile-transactions-across-your-accounts -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Reconcile transactions across your accounts
+
+Hand Cowork your bank exports and ledger files. It matches transactions across sources, flags discrepancies, and outputs an annotated reconciliation report.
+
+15 minFinanceClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-nfd6ar2t.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-noyiroch.png)
 
 ## 1. Describe the task
 
@@ -12,9 +24,7 @@ I need to reconcile my January 2024 bank statement. I've uploaded my checking ac
 
 Can you analyze the transactions, match them to the right accounts, and flag anything that doesn't line up? If there are discrepancies, I'd love journal entries to fix them.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -67,9 +77,7 @@ Get a CSV file you can import into your accounting system.
 
 *"These entries look correct. Please export them as a CSV file I can import."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Create a reconciliation summary
 
@@ -77,9 +85,7 @@ Generate a formal reconciliation report for your records or auditor.
 
 *"Create a reconciliation summary document I can save for my January records."*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Analyze adjustment patterns
 
@@ -87,9 +93,7 @@ Identify recurring issues in how transactions are recorded so you can fix the ro
 
 *"Which expense categories needed the most adjustments? Are there patterns I should address in how I record transactions?"*
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -117,4 +121,11 @@ I need to reconcile my January 2024 bank statement. I've uploaded my checking ac
 
 Can you analyze the transactions, match them to the right accounts, and flag anything that doesn't line up? If there are discrepancies, I'd love journal entries to fix them.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

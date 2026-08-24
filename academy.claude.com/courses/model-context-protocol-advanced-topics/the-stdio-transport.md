@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-stdio-transport -->
 
-Lesson 8 of 11 · Model Context Protocol: Advanced TopicsThe STDIO transport
+Lesson 8 of 11 · Model Context Protocol: Advanced TopicsThe STDIO transport
+
+3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+
+[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+
+# The STDIO transport
+
+Lesson 82 min
 
 MCP clients and servers communicate by exchanging JSON messages, but how do these messages actually get transmitted? The communication channel used is called a **transport**, and there are several ways to implement this - from HTTP requests to WebSockets to even writing JSON on a postcard (though that last one isn't recommended for production use).
 
@@ -61,3 +69,37 @@ The beauty of stdio transport is its simplicity - either party can initiate comm
 Understanding stdio transport is crucial because it represents the "ideal" case where bidirectional communication is seamless. When we move to other transports like HTTP, we'll encounter limitations where the server cannot always initiate requests to the client. The stdio transport serves as our baseline for understanding what full MCP communication looks like before we tackle the constraints of other transport methods.
 
 For development and testing, stdio transport is perfect. For production deployments where client and server need to run on different machines, you'll need to consider other transport options with their own trade-offs.
+
+[Previous lessonJSON message types](https://academy.claude.com/courses/model-context-protocol-advanced-topics/json-message-types)[Next lessonThe StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-streamablehttp-transport)
+
+Lesson 8 of 11 · Model Context Protocol: Advanced TopicsThe STDIO transport
+
+Core MCP features
+
+* [Sampling](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling)
+* [Sampling walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling-walkthrough)
+* [Log and progress notifications](https://academy.claude.com/courses/model-context-protocol-advanced-topics/log-and-progress-notifications)
+* [Notifications walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/notifications-walkthrough)
+* [Roots](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots)
+* [Roots walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots-walkthrough)
+
+Transports and communication
+
+* [JSON message types](https://academy.claude.com/courses/model-context-protocol-advanced-topics/json-message-types)
+* [The STDIO transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-stdio-transport)
+* [The StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-streamablehttp-transport)
+* [StreamableHTTP in depth](https://academy.claude.com/courses/model-context-protocol-advanced-topics/streamablehttp-in-depth)
+* [State and the StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/state-and-the-streamablehttp-transport)
+
+Assessment and next steps
+
+* [Assessment on MCP conceptsQuiz](https://academy.claude.com/courses/model-context-protocol-advanced-topics/assessment-on-mcp-concepts)
+
+* [Completion badge](https://academy.claude.com/courses/model-context-protocol-advanced-topics/badge)
+
+* [The Stdio Transport](#the-stdio-transport)
+* [Seeing Stdio in Action](#seeing-stdio-in-action)
+* [MCP Connection Sequence](#mcp-connection-sequence)
+* [Message Types and Flow](#message-types-and-flow)
+* [Four Communication Scenarios](#four-communication-scenarios)
+* [Why This Matters](#why-this-matters)

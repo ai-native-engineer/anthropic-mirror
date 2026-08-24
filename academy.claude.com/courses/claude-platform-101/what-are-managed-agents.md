@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents -->
 
-Lesson 11 of 13 · Claude Platform 101What are managed agents?
+Lesson 11 of 13 · Claude Platform 101What are managed agents?
 
-Loading
+3. /[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+# What are managed agents?
+
+Lesson 117 min
 
 What are managed agents?
 
@@ -95,3 +101,48 @@ Across these examples, managed agents gives developers the tools to deliver a fu
 * Rubrics and separate graders let you define success criteria; Claude iterates until it meets them.
 * Memory, MCP servers, custom tools, permissions policies, and multi-agent coordination round out the stateful agent experience.
 * You define what done looks like. Claude works until it gets there.
+
+[Previous lessonContext management](https://academy.claude.com/courses/claude-platform-101/context-management)[Next lessonBuilding your first managed agent](https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent)
+
+Lesson 11 of 13 · Claude Platform 101What are managed agents?
+
+What is the Claude Platform?
+
+* [What is the Claude Platform?](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)
+* [Your first API call](https://academy.claude.com/courses/claude-platform-101/your-first-api-call)
+* [Choosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)
+
+Teaching your agent
+
+* [The agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)
+* [What is tool use?](https://academy.claude.com/courses/claude-platform-101/what-is-tool-use)
+* [What is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)
+
+Extending your agent
+
+* [Built-in tools](https://academy.claude.com/courses/claude-platform-101/built-in-tools)
+* [Skills](https://academy.claude.com/courses/claude-platform-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-platform-101/mcp)
+* [Context management](https://academy.claude.com/courses/claude-platform-101/context-management)
+
+Managed Agents
+
+* [What are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)
+* [Building your first managed agent](https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent)
+
+Building with Claude Code
+
+* [Building with Claude Code](https://academy.claude.com/courses/claude-platform-101/building-with-claude-code)
+
+Quiz
+
+* [Claude Platform 101 quizQuiz](https://academy.claude.com/courses/claude-platform-101/claude-platform-101-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-platform-101/badge)
+
+* [The agent loop, hosted for you](#the-agent-loop-hosted-for-you)
+* [Example 1: A Kanban board that does the work](#example-1-a-kanban-board-that-does-the-work)
+* [Example 2: A recurring research agent with memory](#example-2-a-recurring-research-agent-with-memory)
+* [Example 3: Incident response with multiple agents](#example-3-incident-response-with-multiple-agents)
+* [The building blocks](#the-building-blocks)
+* [Recap](#recap)

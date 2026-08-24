@@ -1,12 +1,28 @@
 <!-- source: https://academy.claude.com/tutorials/using-claude-cowork-for-sales-account-research -->
 
-Loading
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Claude Cowork for sales: research any account before the first call
+
+Before a first call, Claude Cowork pulls everything you’d want to know about an account into one brief. You go into the call already knowing the account, and the recap is written for you afterward.
+
+15 minClaude Cowork
+
+Watch[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-d0zjjn2v.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hdd30gkj.png)
 
 **Watch the full workflow in the video, then follow the steps below to set it up yourself.**
 
 **In the video** — Brittney, an account executive, preps for a first call: who the customer is, what they’re building, their spend, the risks. A skill she built pulls it together in minutes; after the call, a second skill turns the transcript into the follow-up work.
 
-
+Follow along to set up
+
+1. [1Set up the account-research skillSet up once](#step-1-set-up-the-account-research-skill)
+2. [2Run the account brief before the callBefore each call](#step-2-run-the-account-brief-before-the-call)
+3. [3Run the debrief after the callAfter each call](#step-3-run-the-debrief-after-the-call)
 
 If you haven’t set up Cowork yet, start with [Get started in three steps(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps), then [Customize Cowork(opens in new tab)](https://academy.claude.com/tutorials/customize-claude-cowork) for connectors and skills.
 
@@ -28,9 +44,7 @@ With the plugin installed and your tools connected, tell Claude to tailor the sk
 
 Customize the account-research skill from the Sales plugin for my company. My accounts are [the kind of customers I sell to] — ask me about my CRM and data sources, the signals that matter for my deals, and the brief format I read fastest.
 
-
-
-AccountsOpen in Cowork
+AccountsOpen in Cowork
 
 Claude walks you through what information to pull, which connected tools to look through, and how you want the brief laid out, then rewrites the skill to match. Once the skill is built, try running it on an account you already know, compare what comes back to how you’d write it on your own, and tell Claude to fix anything it missed.
 
@@ -42,9 +56,7 @@ The skill is set up and your tools are connected. Now, the morning of a first ca
 
 /account-research [the account name]
 
-
-
-AccountsOpen in Cowork
+AccountsOpen in Cowork
 
 Claude reads from every connected source at once and writes one brief to your working folder — spend trajectory, the stakeholder map, what they’ve adopted, open deals, and the risk signals worth knowing before you’re in the room. You walk in with real context, so the first conversation is about strategy instead of getting oriented.
 
@@ -58,9 +70,7 @@ Set it up the way you set up account research in step 1: customize it to the fol
 
 /call-summary [the account name]
 
-
-
-AccountsOpen in Cowork
+AccountsOpen in Cowork
 
 From the transcript, Claude drafts three pieces:
 
@@ -93,3 +103,9 @@ Claude does the gathering. The judgment about what to do with it is yours.
 * [**AI Fluency: Framework and Foundations**(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations). Take the full AI fluency course to work towards effective, efficient, and ethical AI use.
 * [**The 4 Ds of AI Fluency**(opens in new tab)](https://academy.claude.com/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators). Learn practical skills and mental models behind building AI fluency.
 * [**Use Cowork safely**(opens in new tab)](https://support.claude.com/en/articles/13364135-use-cowork-safely). Understand access, approvals, and what Claude can see.
+
+* [Step 1: Set up the account-research skill](#step-1-set-up-the-account-research-skill)
+* [Step 2: Run the account brief before the call](#step-2-run-the-account-brief-before-the-call)
+* [Step 3: Run the debrief after the call](#step-3-run-the-debrief-after-the-call)
+* [Make it yours](#make-it-yours)
+* [Learn more](#learn-more)

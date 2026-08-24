@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/compare-products-across-sites -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Compare products across sites
+
+Claude in Chrome reads the specs from multiple product pages you have open, normalizes the data, and creates a comparison table in Google Sheets. You stop tab-switching and start deciding.
+
+15 minPersonalClaude in Chrome
+
+Get Claude in ChromeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-lufo6zn0.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cuim3wx2.png)
+
 ![Compare products across sites result](https://academy.claude.com/assets/v1/compare-products-across-sites-gbbb62e6.png)
 
 ## 1. Describe the task
@@ -12,7 +26,7 @@ I'm trying to decide between a few laptops and I have the product pages open in 
 
 I care most about: processor, RAM, storage, screen size, battery life, and weight. Let me know which one wins on each category.
 
-Copy prompt
+Copy prompt
 
 ## 2. Give Claude context
 
@@ -120,7 +134,7 @@ Expand your comparison as you find more candidates. Claude adds new products to 
 
 I just found one more laptop option. Can you add it to the doc and update the comparison?
 
-Copy prompt
+Copy prompt
 
 ### Check reviews for the top pick
 
@@ -128,7 +142,7 @@ Before deciding, see what actual buyers say. Claude can scan reviews and summari
 
 The MacBook looks like the best specs, but what are people saying about it? Can you check reviews and tell me if there are any common complaints I should know about?
 
-Copy prompt
+Copy prompt
 
 ### Find the best price
 
@@ -136,7 +150,7 @@ Once you've picked a winner, Claude can check multiple retailers to find the low
 
 I think I want the MacBook Pro. Can you check a few sites and find where it's cheapest right now?
 
-Copy prompt
+Copy prompt
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -154,4 +168,11 @@ If you research products regularly, save your workflow as a shortcut by clicking
 
 I'm trying to decide between a few laptops and I have the product pages open in different tabs. Can you look at each one, pull out the specs, and put them in a Google Doc so I can compare them side by side?
 
-Get Claude in Chrome
+Get Claude in Chrome
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

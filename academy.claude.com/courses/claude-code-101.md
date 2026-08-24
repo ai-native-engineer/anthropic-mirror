@@ -1,19 +1,31 @@
 <!-- source: https://academy.claude.com/courses/claude-code-101 -->
 
-12 lessons · 1 quizClaude Code 101
+[Courses](https://academy.claude.com/courses)
+
+# Claude Code 101
+
+An agentic coding tool that lives in your terminal. Learn what Claude Code is, how it works, and the core workflows for getting real work done with it.
+
+12 lessons1 hr1 quizCompletion badge
+
+[Start course](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fclaude-code-101)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-bfpfnf0h.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nahn65a2.png)
+
+12 lessons · 1 quizClaude Code 101
 
 What you’ll learnBy the end of this course, you’ll be able to
 
-* Explain what an AI coding agent is and how Claude Code differs from chat-based AI tools
-* Understand how the agentic loop, context window, tools, and permissions work together
-* Install and set up Claude Code in the terminal, VS Code, JetBrains, Claude Desktop, or on the web
-* Write effective prompts using manual mode, auto-accept, and Plan Mode
-* Follow the Explore → Plan → Code → Commit workflow for any feature or task
-* Manage your context window with /compact, /clear, and /context to stay productive
-* Create and maintain a CLAUDE.md file to give Claude persistent project memory
-* Build custom subagents to delegate tasks and keep your main context clean
-* Connect external tools and data sources using MCP servers
-* Write hooks for deterministic control over formatting, command blocking, and notifications
+* Explain what an AI coding agent is and how Claude Code differs from chat-based AI tools
+* Understand how the agentic loop, context window, tools, and permissions work together
+* Install and set up Claude Code in the terminal, VS Code, JetBrains, Claude Desktop, or on the web
+* Write effective prompts using manual mode, auto-accept, and Plan Mode
+* Follow the Explore → Plan → Code → Commit workflow for any feature or task
+* Manage your context window with /compact, /clear, and /context to stay productive
+* Create and maintain a CLAUDE.md file to give Claude persistent project memory
+* Build custom subagents to delegate tasks and keep your main context clean
+* Connect external tools and data sources using MCP servers
+* Write hooks for deterministic control over formatting, command blocking, and notifications
 
 AI coding agents are changing what it means to write software. Tasks that used to take an afternoon — tracing a bug across a large codebase, scaffolding a new service, reviewing a stack of pull requests — can now happen in a single focused session, with an agent that reads your code, runs your commands, and edits files alongside you. But getting real value from an agent requires more than installing it and typing a request. It requires understanding how the agent thinks, what context it has access to, and how to steer it when it heads in the wrong direction.
 
@@ -64,3 +76,33 @@ This is where Claude Code becomes part of how you ship. Learn the Explore → Pl
 Out of the box, Claude Code is general-purpose. This section shows you how to make it yours: write a CLAUDE.md file so it remembers your project's conventions, build subagents and skills for the workflows you repeat, wire in external systems through MCP servers, and add hooks for deterministic guardrails. By the end you'll have a setup tuned to the way your team actually works.
 
 ![](https://academy.claude.com/assets/media/0ae9230fa9bd43f8d0cf694b149bd8b311a893f79b94b660136310909e2bd842.webp)![](https://academy.claude.com/assets/media/2e7220adae7f1c9e2bc358e24b08fea8a5256f660ab695cd5208b24fb0504d4a.webp)![](https://academy.claude.com/assets/media/805d1fe947397190164712de4dff83d32460cb51718ec55e40ef47ed3117fbc9.webp)
+
+What is Claude Code?
+
+* [What is Claude Code?](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)
+* [How Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Your first prompt
+
+* [Installing Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)
+* [Your first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Daily workflows
+
+* [The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+* [Context management](https://academy.claude.com/courses/claude-code-101/context-management)
+* [Code review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Customizing Claude Code
+
+* [The CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
+* [Subagents](https://academy.claude.com/courses/claude-code-101/subagents)
+* [Skills](https://academy.claude.com/courses/claude-code-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-code-101/mcp)
+* [Hooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-10x-genomics-extension-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the 10x Genomics Extension in Claude
+
+Set up and use the 10x Genomics integration with Claude for single cell and spatial genomics analysis through conversational workflows.
+
+3 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-m0acjyl6.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bhoevb8d.png)
+
 The 10x Genomics integration transforms single cell and spatial analysis into a simple, conversational workflow. Biologists can easily analyze their own sequencing data, while core labs can quickly perform batch processing. This article explains how to set up and use the 10x Genomics integration with Claude to advance your analysis workflows.
 
 The 10x Genomics integration is available as a desktop extension in the Claude Desktop App ([download here(opens in new tab)](https://claude.ai/download)), and it relies upon Claude's ability to use [local connectors via a desktop extension(opens in new tab)](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop).
@@ -81,3 +95,10 @@ Sample prompts and prompting best practices can be found in the [10x Genomics MC
 * [10x Cloud Analysis support(opens in new tab)](https://www.10xgenomics.com/support/software/cloud-analysis/latest)
 * [Cell Ranger documentation(opens in new tab)](https://www.10xgenomics.com/support/software/cell-ranger/latest)
 * [10x Genomics MCP Server Documentation(opens in new tab)](https://www.10xgenomics.com/support/software/cloud-analysis/latest/tutorials/cloud-mcp-server)
+
+* [What this integration provides](#what-this-integration-provides)
+* [Who should use the 10x Genomics integration](#who-should-use-the-10x-genomics-integration)
+* [Who can access the 10x Genomics integration](#who-can-access-the-10x-genomics-integration)
+* [Setting up the 10x Genomics integration](#setting-up-the-10x-genomics-integration)
+* [Common use cases](#common-use-cases)
+* [More resources from 10x Genomics](#more-resources-from-10x-genomics)

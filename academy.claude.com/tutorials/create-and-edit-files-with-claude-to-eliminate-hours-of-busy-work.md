@@ -1,12 +1,24 @@
 <!-- source: https://academy.claude.com/tutorials/create-and-edit-files-with-claude-to-eliminate-hours-of-busy-work -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Create and edit files with Claude to eliminate hours of busy work
+
+Learn how Claude creates and edits files directly including spreadsheets, documents, presentations, and PDFs to eliminate manual work.
+
+10 minClaude.ai
+
+Watch[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-dq4h6kyz.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cs76e6dn.png)
+
 Too often knowledge workers spend entire days wrestling with spreadsheets, formatting documents, and building presentations, squeezing the interesting part — spotting opportunities and crafting the narrative — into crunched windows of time.
 
 Now Claude can create and work directly with your files, eliminating hours of manual busywork. This doesn't just save time; it brings Claude's analytical power straight into documents, spreadsheets, presentations, and PDFs.
 
 This guide will explore what’s possible with file creation, to get you started and help you go further.
-
-Loading
 
 If you're using a Team or Enterprise plan, see [Configuring network access(opens in new tab)](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_fa8fada4af) for additional information about code execution and file creation security.
 
@@ -42,25 +54,17 @@ Check out the examples below for a better sense of how you might work with Claud
 
 Claude reads complex datasets and produces multiple coordinated outputs that tell a consistent story. Watch how a single CSV with hundreds of survey responses transforms into three deliverables: a PowerPoint presentation with key findings and visualizations, a detailed PDF report with executive summary and recommendations, and an Excel workbook with organized raw data and analysis tabs. Each file maintains professional formatting and opens directly in Office or Google Workspace.
 
-Loading
-
 ### 2) Batch editing across multiple file types
 
 Claude understands context when making edits across different document formats. This demo shows intelligent find-and-replace that knows when "Acme Inc." should stay formal in legal sections while becoming "Acme" elsewhere, converts "Customer Success" to "Customer Experience" except in job titles, and updates Euro prices to USD with proper calculations while preserving historical data. Your Word docs, PDFs, Excel sheets, and PowerPoints maintain their original formatting while getting updated in one pass.
-
-Loading
 
 ### 3) Building a dynamic financial model
 
 Claude can look up real market data and build it directly into working spreadsheet models. In this demo, a property owner trying to decide between listing a short term or long term rental gets both the research and the analysis in one go. Claude finds current rental rates, occupancy trends, and local regulations online, then creates a multi-sheet model that uses these real numbers in its calculations. When you change any input, all the formulas update automatically. You get a financial tool and analysis based on what's actually happening in the market right now.
 
-Loading
-
 ### 4) Consolidate scattered inputs into spreadsheets
 
 Claude combines information from different file types into native workbooks with live formulas and formatting. In this demo, meeting notes (text file) and an existing tracker (CSV) merge into a sophisticated multi-sheet Excel file. Open the output directly in Excel and everything remains fully editable—change any value and watch dependent calculations update, add new data that automatically inherits formatting rules, or expand the analysis with your own additions.
-
-Loading
 
 ## The power of Claude, working in your files
 
@@ -72,3 +76,8 @@ Simple file manipulation is just the beginning — the real power of file creati
 * **Create interesting visualizations** — Claude can create a gif (like a visual graph of revenue growth based off your excel file) and implement it into your presentations
 * **Watermark your materials —** Claude can batch add images to a range of different file types, so you can upload your slides, and get watermarked versions back to send to your clients.
 * **Graph with matplotlib —** Try asking for something like: Plot monthly revenue for Q3 2024 using matplotlib. add a trend line and highlight the highest month.
+
+* [File creation offers a different way to work with Claude](#file-creation-offers-a-different-way-to-work-with-claude)
+* [How this saves you time](#how-this-saves-you-time)
+* [See file creation at work](#see-file-creation-at-work)
+* [The power of Claude, working in your files](#the-power-of-claude-working-in-your-files)

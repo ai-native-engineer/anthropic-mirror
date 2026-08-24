@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-platform-101/mcp -->
 
-Lesson 9 of 13 · Claude Platform 101MCP
+Lesson 9 of 13 · Claude Platform 101MCP
 
-Loading
+3. /[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+# MCP
+
+Lesson 96 min
 
 MCP
 
@@ -34,7 +40,7 @@ The cleanest way to get a feel for MCP is to point Claude at any MCP server and 
 
 Two pieces work together in the request. The `mcp_servers` key declares the connection — a type, a URL, a name to refer to it by, and optionally an auth token. Then a tool with the type `mcp_toolset` configures which tools Claude can use from that server. The default is all of them, but if you want to scope it down, this is where you do it.
 
-python
+python
 
 ```
 import os
@@ -80,7 +86,7 @@ MCP servers often expose many, many tools — and you don't always want Claude u
 
 The fix: disable everything by default, then enable only the specific tools you want. Here's that pattern with a Slack MCP server:
 
-python
+python
 
 ```
 tools=[
@@ -108,3 +114,47 @@ Now Claude can search Slack and list channels, but it can't post or delete. This
 * Scope down access by setting `default_config: {"enabled": False}` and enabling specific tools in `configs` — handy for keeping a server read-only.
 * The MCP connector is currently in beta, so include the beta header on your requests.
 * Visit **modelcontextprotocol.io** for the list of available servers and to learn more about the protocol.
+
+[Previous lessonSkills](https://academy.claude.com/courses/claude-platform-101/skills)[Next lessonContext management](https://academy.claude.com/courses/claude-platform-101/context-management)
+
+Lesson 9 of 13 · Claude Platform 101MCP
+
+What is the Claude Platform?
+
+* [What is the Claude Platform?](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)
+* [Your first API call](https://academy.claude.com/courses/claude-platform-101/your-first-api-call)
+* [Choosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)
+
+Teaching your agent
+
+* [The agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)
+* [What is tool use?](https://academy.claude.com/courses/claude-platform-101/what-is-tool-use)
+* [What is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)
+
+Extending your agent
+
+* [Built-in tools](https://academy.claude.com/courses/claude-platform-101/built-in-tools)
+* [Skills](https://academy.claude.com/courses/claude-platform-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-platform-101/mcp)
+* [Context management](https://academy.claude.com/courses/claude-platform-101/context-management)
+
+Managed Agents
+
+* [What are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)
+* [Building your first managed agent](https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent)
+
+Building with Claude Code
+
+* [Building with Claude Code](https://academy.claude.com/courses/claude-platform-101/building-with-claude-code)
+
+Quiz
+
+* [Claude Platform 101 quizQuiz](https://academy.claude.com/courses/claude-platform-101/claude-platform-101-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-platform-101/badge)
+
+* [The maintenance problem](#the-maintenance-problem)
+* [Tools vs. skills vs. MCP](#tools-vs-skills-vs-mcp)
+* [Connecting to an MCP server](#connecting-to-an-mcp-server)
+* [Filtering which tools Claude can use](#filtering-which-tools-claude-can-use)
+* [Recap](#recap)

@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-model-context-protocol/accessing-resources -->
 
-Lesson 7 of 10 · Introduction to Model Context ProtocolAccessing resources
+Lesson 7 of 10 · Introduction to Model Context ProtocolAccessing resources
+
+3. /[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+# Accessing resources
+
+Lesson 77 min
 
 Resources in MCP allow your server to expose information that can be directly included in prompts, rather than requiring tool calls to access data. This creates a more efficient way to provide context to AI models.
 
@@ -12,7 +20,7 @@ The diagram above shows how resources work: when a user types something like "Wh
 
 To enable resource access in your MCP client, you need to implement a `read_resource` function. First, add the necessary imports:
 
-python
+python
 
 ```
 import json
@@ -21,7 +29,7 @@ from pydantic import AnyUrl
 
 The core function makes a request to the MCP server and processes the response based on its MIME type:
 
-python
+python
 
 ```
 async def read_resource(self, uri: str) -> Any:
@@ -62,3 +70,37 @@ Once implemented, you can test the resource functionality through your CLI appli
 4. Send everything to the AI model without requiring additional tool calls
 
 This creates a much smoother user experience compared to having the AI model make separate tool calls to access document contents. The resource content becomes part of the initial context, allowing for immediate responses about the data.
+
+[Previous lessonDefining resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-resources)[Next lessonDefining prompts](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-prompts)
+
+Lesson 7 of 10 · Introduction to Model Context ProtocolAccessing resources
+
+Introduction
+
+* [Introducing MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/introducing-mcp)
+* [MCP clients](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-clients)
+
+Hands-on with MCP servers
+
+* [Defining tools with MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-tools-with-mcp)
+* [The server inspector](https://academy.claude.com/courses/introduction-to-model-context-protocol/the-server-inspector)
+
+Connecting with MCP clients
+
+* [Implementing a client](https://academy.claude.com/courses/introduction-to-model-context-protocol/implementing-a-client)
+* [Defining resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-resources)
+* [Accessing resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/accessing-resources)
+* [Defining prompts](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-prompts)
+* [Prompts in the client](https://academy.claude.com/courses/introduction-to-model-context-protocol/prompts-in-the-client)
+
+Assessment and wrap Up
+
+* [Final assessment on MCPQuiz](https://academy.claude.com/courses/introduction-to-model-context-protocol/final-assessment-on-mcp)
+* [MCP review](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-review)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-model-context-protocol/badge)
+
+* [Implementing Resource Reading](#implementing-resource-reading)
+* [Understanding the Response Structure](#understanding-the-response-structure)
+* [Content Type Handling](#content-type-handling)
+* [Testing Resource Access](#testing-resource-access)

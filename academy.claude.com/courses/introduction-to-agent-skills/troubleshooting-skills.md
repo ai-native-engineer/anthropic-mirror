@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-agent-skills/troubleshooting-skills -->
 
-Lesson 6 of 6 · Introduction to agent skillsTroubleshooting skills
+Lesson 6 of 6 · Introduction to agent skillsTroubleshooting skills
+
+3. /[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+# Troubleshooting skills
+
+Lesson 68 min
+
+In this lessonBy the end, you’ll be able to
+
+* Use the skills validator to catch structural issues before debugging
+* Diagnose and fix common skill triggering and loading problems
+* Resolve skill priority conflicts between enterprise, personal, project, and plugin skills
+* Debug runtime errors including missing dependencies, permissions, and path issues
 
 ## Troubleshooting skills
-
-Loading
 
 Troubleshooting skills · 4 min
 
@@ -97,3 +110,31 @@ The skill loads but fails during execution. A few common causes:
 ## Course wrap-up
 
 Congratulations on completing Introduction to Agent Skills! You've learned how to create, configure, share, and troubleshoot skills in Claude Code. As you start building skills for your own workflows, remember that the best skills come from real pain points — start with the instructions you find yourself repeating most often.
+
+[Previous lessonSharing skills](https://academy.claude.com/courses/introduction-to-agent-skills/sharing-skills)[Up nextCourse complete](https://academy.claude.com/courses/introduction-to-agent-skills/complete)
+
+Lesson 6 of 6 · Introduction to agent skillsTroubleshooting skills
+
+Lessons
+
+* [What are skills?](https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills)
+* [Creating your first skill](https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill)
+* [Configuration and multi-file skills](https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills)
+* [Skills vs. other Claude Code features](https://academy.claude.com/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features)
+* [Sharing skills](https://academy.claude.com/courses/introduction-to-agent-skills/sharing-skills)
+* [Troubleshooting skills](https://academy.claude.com/courses/introduction-to-agent-skills/troubleshooting-skills)
+
+* [Course complete](https://academy.claude.com/courses/introduction-to-agent-skills/complete)
+
+* [Troubleshooting skills](#troubleshooting-skills)
+* [Key takeaways](#key-takeaways)
+* [Use the Skills Validator](#use-the-skills-validator)
+* [Skill Doesn't Trigger](#skill-doesnt-trigger)
+* [Skill Doesn't Load](#skill-doesnt-load)
+* [Wrong Skill Gets Used](#wrong-skill-gets-used)
+* [Skill Priority Conflicts](#skill-priority-conflicts)
+* [Plugin Skills Not Appearing](#plugin-skills-not-appearing)
+* [Runtime Errors](#runtime-errors)
+* [Quick Troubleshooting Checklist](#quick-troubleshooting-checklist)
+* [Lesson reflection](#lesson-reflection)
+* [Course wrap-up](#course-wrap-up)

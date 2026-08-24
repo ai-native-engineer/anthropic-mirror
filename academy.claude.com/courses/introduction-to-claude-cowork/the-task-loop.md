@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop -->
 
-Lesson 4 of 14 · Introduction to Claude CoworkHand Claude Cowork your first task
+Lesson 4 of 14 · Introduction to Claude CoworkHand Claude Cowork your first task
+
+3. /[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+[Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork)
+
+# Hand Claude Cowork your first task
+
+Lesson 425 min
+
+In this lessonBy the end, you’ll be able to
+
+* Walk a Cowork task end-to-end: through delegation, mid-task steering, and final review
+* Respond to Cowork's clarifying questions in a way that produces better output
+* Course-correct when Claude heads in the wrong direction
 
 ## Watch one go end-to-end
-
-Loading
 
 Hand Claude Cowork your first task
 
@@ -35,8 +47,6 @@ A good Cowork prompt does three things:
 
 Build an example Cowork prompt in the interactive below.
 
-Loading
-
 If you're used to prompting a chatbot, this will feel like more upfront work — it is. The trade is that more of the back-and-forth happens upfront, before Claude starts, instead of across five rounds of "actually, can you also..."
 
 ## Answer the clarifying questions
@@ -47,15 +57,11 @@ Most are easy: Claude presents a couple of options and you click the one that fi
 
 Below are some examples of the questions you might receive from Cowork after submitting the prompt you built above.
 
-Loading
-
 ## Steer mid-task
 
 Watch Cowork's plan and progress as it works. If it's going off-track — wrong source, wrong format, wrong tone — interrupt. You can also stop the run if it's substantially off, refine the prompt, and start again with what you've learned. Most people's instinct from Chat is to wait until the response is done and then regenerate. Resist that. Cowork is built for course corrections, and the cost of a redirect is low.
 
 Steer the example task below and see how Claude responds.
-
-Loading
 
 ## Review the finished deliverable
 
@@ -78,3 +84,47 @@ Take the task you identified in Lesson 3 — or pick one now. Hand it to Cowork 
 ## What’s next
 
 You've now done it once. In Module 2, you'll start making Cowork *yours* — keeping the context that worked, the workflows you want repeated, and the expertise your team relies on, so you don't re-supply it every time you start a task.
+
+[Previous lessonWhat Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)[Next lessonGet better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+
+Lesson 4 of 14 · Introduction to Claude CoworkHand Claude Cowork your first task
+
+Meet Claude Cowork
+
+* [What is Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/what-is-cowork)
+* [Setting up Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork/getting-set-up)
+* [What Claude Cowork can do for you](https://academy.claude.com/courses/introduction-to-claude-cowork/scheduled-tasks)
+* [Hand Claude Cowork your first task](https://academy.claude.com/courses/introduction-to-claude-cowork/the-task-loop)
+
+Make Claude Cowork yours
+
+* [Get better results faster](https://academy.claude.com/courses/introduction-to-claude-cowork/research-analysis-at-scale)
+* [Standing context: Global instructions and projects](https://academy.claude.com/courses/introduction-to-claude-cowork/giving-cowork-context)
+* [Skills: Teach Claude Cowork your way](https://academy.claude.com/courses/introduction-to-claude-cowork/file-document-tasks)
+* [Plugins: Encode your team's expertise](https://academy.claude.com/courses/introduction-to-claude-cowork/plugins-cowork-as-a-specialist)
+
+Use Claude wherever you work
+
+* [Claude in Chrome](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-in-chrome)
+* [Claude for Microsoft 365](https://academy.claude.com/courses/introduction-to-claude-cowork/claude-for-microsoft-365)
+
+Sharing and safety in Claude Cowork
+
+* [Best practices for working safely](https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model)
+* [Validating skills for plugins](https://academy.claude.com/courses/introduction-to-claude-cowork/validating-skills-for-plugins)
+* [Share what you build with your team](https://academy.claude.com/courses/introduction-to-claude-cowork/share-what-you-build-with-your-team)
+* [Wrap up and next steps](https://academy.claude.com/courses/introduction-to-claude-cowork/troubleshooting-next-steps)
+
+Check your understanding
+
+* [Quiz on Claude CoworkQuiz](https://academy.claude.com/courses/introduction-to-claude-cowork/quiz-on-claude-cowork)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork/badge)
+
+* [Watch one go end-to-end](#watch-one-go-end-to-end)
+* [Delegate your first task](#delegate-your-first-task)
+* [Answer the clarifying questions](#answer-the-clarifying-questions)
+* [Steer mid-task](#steer-mid-task)
+* [Review the finished deliverable](#review-the-finished-deliverable)
+* [Try it now](#try-it-now)
+* [What’s next](#whats-next)

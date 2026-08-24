@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/turn-research-into-presentations -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Turn research into presentations
+
+Learn how to turn research into presentations that stick. Claude helps translate findings into slide outlines and speaker notes that show what's compelling, how to structure the story, and which visuals would help—giving you the framework to build your presentation.
+
+15 minEducationClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-o7v3ovgz.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dqa49rlu.png)
+
 ![Turn research into presentations result](https://academy.claude.com/assets/v1/turn-research-into-presentations-of5741pr.png)
 
 ## 1. Describe the task
@@ -20,9 +34,7 @@ Then create:
 
 **Speaker notes document** with minimalist design, box structures, muted color palette, and clean sans-serif hierarchy. Add elements like a split workspace/reference column layout and use a functional modernist aesthetic so this document is easy to use while preparing.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -40,25 +52,17 @@ Enable the [Google Drive(opens in new tab)](https://support.claude.com/en/articl
 
 Google Drive
 
-[Connect](https://claude.ai/directory/google-drive-drivemcp)
-
-
+[Connect](https://claude.ai/directory/google-drive-drivemcp)
 
 Canva
 
-[Connect](https://claude.ai/directory/canva)
+[Connect](https://claude.ai/directory/canva)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
-
-
+Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 Your completed group paperPDF
 
-
-
 Any data files if separate from the paperFILE
-
-
 
 Your completed group paperFILE
 
@@ -66,7 +70,7 @@ Your completed group paperFILE
 
 Enable [Extended Thinking(opens in new tab)](https://www.anthropic.com/news/visible-extended-thinking) to give Claude more time to think through complex tasks—analyzing your research deeply, identifying narrative threads, prioritizing findings for your audience, and structuring information clearly.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -106,9 +110,7 @@ Practice articulating your findings out loud to catch unclear explanations befor
 
 I'm going to present my main findings as I would during the actual presentation. Tell me if my explanation is clear, if I'm missing important nuances, or if I should emphasize different aspects.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Refine specific slides
 
@@ -116,9 +118,7 @@ Iterate on the first output, by requesting alternative approaches for sections t
 
 Slide 7 feels cluttered and the data visualization isn't clear. Here's what I want to communicate: [your idea]. Can you suggest three different visual approaches? I'll pick the one that fits best.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Prepare for Q&A
 
@@ -126,9 +126,7 @@ To ensure you're well-prepared for your presentation, ask Claude to help you ant
 
 Based on this presentation, what questions might professors ask? What are potential counter-arguments or opposing viewpoints I should prepare to address? I'll give you my responses and you can help me strengthen my answers.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -166,4 +164,11 @@ A Canva slide deck outline with clean visuals, data charts, and transitions—we
 
 Speaker notes document with minimalist design, box structures, muted color palette, and clean sans-serif hierarchy. Add elements like a split workspace/reference column layout and use a functional modernist aesthetic so this document is easy to use while preparing.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-lseg-for-financial-market-data-analysis -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using LSEG for financial market data analysis
+
+Set up and use LSEG's financial market data integration with Claude for real-time pricing, analytics, and valuation tools across asset classes.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-d2yk46yy.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ll4g0qiq.png)
+
 The LSEG integration provides Claude with access to LSEG’s comprehensive financial market data ecosystem, spanning across asset classes and domains. This article explains how to set up and use LSEG to retrieve real-time market data, analytics, and perform complex financial calculations. The LSEG integration relies upon Claude’s ability to use remote connectors.
 
 ## What This Integration Provides
@@ -50,9 +64,7 @@ Example input prompt:
 
 What’s the current USD/EUR spot rate, and what are the 3-month and 6-month forward rates? Calculate the implied forward points for each tenor.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Evaluating currency positions, pricing FX forwards, or analyzing currency basis.
 
@@ -64,9 +76,7 @@ Example input prompt:
 
 Show me the USD SOFR swap curve. Plot the curve and identify any unusual shapes or inflection points.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Assessing interest rate risk, pricing swaps, or understanding monetary policy expectations.
 
@@ -78,9 +88,7 @@ Example input prompt:
 
 Price the following bonds using their ISIN codes: FR0014012I5 (French government bond) and US91282CNT44 (US Treasury). Compare their yields and calculate the spread.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Portfolio construction, relative value analysis, or credit assessment across sovereign issuers.
 
@@ -92,9 +100,7 @@ Example input prompt:
 
 For AUD/USD, show me the complete forward curve using AONIA and SOFR conventions. Display the forward points and implied forward rates for standard tenors.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Structuring FX derivatives, pricing swaps, or analyzing currency carry strategies.
 
@@ -106,9 +112,7 @@ Example input prompt:
 
 Get the USD SOFR curve and EUR ESTR curve, then analyze how they’ve moved relative to each other. Are there any divergences that suggest trading opportunities?
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Identifying cross-currency basis trades or understanding global rate relationships.
 
@@ -120,9 +124,7 @@ Example input prompt:
 
 I’m looking at pricing a currency swap. Get me the current EUR/USD spot rate and the EUR ESTR and USD SOFR curves for accurate valuation.
 
-
-
-Open in Claude
+Open in Claude
 
 **When to use:** Pre-trade analysis, pricing verification, or mark-to-market calculations.
 
@@ -136,3 +138,9 @@ I’m looking at pricing a currency swap. Get me the current EUR/USD spot rate a
 * Define valuation dates when working with forward curves
 * Understand curve conventions (SOFR, ESTR, AONIA) for different currencies
 * Cross-reference data across tools to validate analysis
+
+* [What This Integration Provides](#what-this-integration-provides)
+* [How Claude Uses LSEG Data](#how-claude-uses-lseg-data)
+* [Setting Up LSEG Integration](#setting-up-lseg-integration)
+* [Common Use Cases](#common-use-cases)
+* [Tips for Using LSEG](#tips-for-using-lseg)

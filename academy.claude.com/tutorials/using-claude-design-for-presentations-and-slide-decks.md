@@ -1,5 +1,17 @@
 <!-- source: https://academy.claude.com/tutorials/using-claude-design-for-presentations-and-slide-decks -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using Claude Design for presentations and slide decks
+
+Claude Design by Anthropic Labs (claude.ai/design) lets you create polished presentations and slide decks directly through conversation. This capability has become one of the most popular use cases internally at Anthropic, enabling teams to build professional decks in minutes rather than hours.
+
+10 minClaude Design
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-bo89k5cy.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-g612q1rb.png)
+
 ## Why **use Claude Design for presentations**
 
 #### **Speed and Efficiency**
@@ -36,23 +48,23 @@ Here are some prompts that work well:
 
 Create a 10-slide deck about Q1 results with sections for revenue, product updates, and team highlights
 
-Copy prompt
+Copy prompt
 
 Build a 15-slide executive overview of our product roadmap for the board
 
-Copy prompt
+Copy prompt
 
 Generate a meeting prep deck for my customer call covering use cases, competitive positioning, and next steps
 
-Copy prompt
+Copy prompt
 
 Make a 5-slide partner proposal deck that's co-branded with our partner's logo and colors
 
-Copy prompt
+Copy prompt
 
 Create an all-hands presentation covering Q2 OKRs, hiring plans, and culture updates
 
-Copy prompt
+Copy prompt
 
 ### **Customizing your deck**
 
@@ -64,7 +76,7 @@ You can request changes to specific slides by referencing them clearly in your m
 
 On slide 3, change the headline to 'Market Opportunity' and rewrite the bullet points to focus on TAM.
 
-Copy prompt
+Copy prompt
 
 #### **Adding and Removing Slides**
 
@@ -103,3 +115,6 @@ Slides are exportable in the following ways:
 * Hand off to Claude Code
 
 **Have questions about Claude Design presentations?** Reach out to your Design Team or try building a deck yourself – most people find the workflow intuitive once they create their first one.
+
+* [Why use Claude Design for presentations](#why-use-claude-design-for-presentations)
+* [Creating a presentation](#creating-a-presentation)

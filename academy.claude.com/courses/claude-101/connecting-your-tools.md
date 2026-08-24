@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/courses/claude-101/connecting-your-tools -->
 
-Lesson 8 of 13 · Claude 101Connecting your tools
+Lesson 8 of 13 · Claude 101Connecting your tools
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# Connecting your tools
+
+Lesson 815 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain what connectors are and why they matter for your work with Claude
+* Navigate the connectors directory and set up your first connection
+* Use connected tools effectively in your conversations with Claude
 
 ## What are connectors?
 
@@ -14,8 +28,6 @@ Lesson 8 of 13 · Claude 101Connecting your tools
 ## Finding and connecting tools
 
 Below is a request Claude can already handle — everything it needs is in the words you typed. Nothing else is connected yet. **Turn on a source and watch the request grow:** each connection lets you ask for something that lives outside your message.
-
-Loading
 
 Anthropic maintains a directory of recommended connectors at claude.ai/directory. The directory is organized into two tabs:
 
@@ -59,27 +71,27 @@ Once you've connected your tools, Claude considers them when responding to your 
 
 **Project management (Asana, Linear, Jira)**
 
-* “What are my highest priority tasks due this week?”
-* “Create a new task for reviewing the Q4 budget proposal”
-* “Summarize the status of our product launch project”
+* “What are my highest priority tasks due this week?”
+* “Create a new task for reviewing the Q4 budget proposal”
+* “Summarize the status of our product launch project”
 
 **Communication (Slack, Gmail)**
 
-* “Find the email thread where we discussed the vendor contract”
-* “Draft a reply to the latest message in the #marketing channel”
-* “What did the team decide about the timeline in yesterday's discussion?”
+* “Find the email thread where we discussed the vendor contract”
+* “Draft a reply to the latest message in the #marketing channel”
+* “What did the team decide about the timeline in yesterday's discussion?”
 
 **Documentation (Notion, Google Drive, Confluence)**
 
-* “Search our documentation for our brand voice guidelines”
-* “Summarize the meeting notes from last week's product review”
-* “What does our style guide say about using contractions?”
+* “Search our documentation for our brand voice guidelines”
+* “Summarize the meeting notes from last week's product review”
+* “What does our style guide say about using contractions?”
 
 **Business tools (Stripe, PayPal, HubSpot)**
 
-* “Show me revenue trends for the past quarter”
-* “What's the status of the Acme Corp opportunity?”
-* “List recent transactions over $1,000”
+* “Show me revenue trends for the past quarter”
+* “What's the status of the Acme Corp opportunity?”
+* “List recent transactions over $1,000”
 
 ## Security and permissions
 
@@ -102,3 +114,46 @@ Before moving on, consider:
 In the next lesson, you'll learn about Enterprise Search—a specialized feature for Claude for Work users that connects Claude to your organization's knowledge sources with custom prompts optimized for your company's context.
 
 For more information on connectors and the Model Context Protocol, visit the [Anthropic Help Center(opens in new tab)](https://support.claude.com/en/articles/11176164-pre-built-web-connectors-using-remote-mcp) or explore the connector directory at claude.ai/directory.
+
+[Previous lessonWorking with skills](https://academy.claude.com/courses/claude-101/working-with-skills)[Next lessonEnterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+
+Lesson 8 of 13 · Claude 101Connecting your tools
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [What are connectors?](#what-are-connectors)
+* [Key takeaways](#key-takeaways)
+* [Finding and connecting tools](#finding-and-connecting-tools)
+* [Using connectors in your work](#using-connectors-in-your-work)
+* [Security and permissions](#security-and-permissions)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/hooks -->
 
-Lesson 5 of 9 · Claude Code in ActionHooks
+Lesson 5 of 9 · Claude Code in ActionHooks
 
-Loading
+3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+# Hooks
+
+Lesson 57 min
 
 Hooks
 
@@ -45,7 +51,7 @@ There's technically a fourth value, `defer`, but it only applies to non-interact
 
 The shape looks like this:
 
-json
+json
 
 ```
 {
@@ -91,3 +97,41 @@ One more pattern worth setting up. When Claude compacts a long conversation, it 
 ## Wrapping up
 
 Hooks turn a rule Claude usually follows into one it always follows. Reach past auto-formatting: guard tools with PreToolUse, gate the turn with Stop, and preserve state across a compact. The setup takes a little effort up front, but it pays back the first time it catches something on a run you weren't even watching.
+
+[Previous lessonPermission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)[Next lessonRoutines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)
+
+Lesson 5 of 9 · Claude Code in ActionHooks
+
+Steer the work
+
+* [Steering long sessions](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)
+
+Configure Claude
+
+* [A CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)
+* [Verification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)
+* [Permission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)
+* [Hooks](https://academy.claude.com/courses/claude-code-in-action/hooks)
+
+Automate repeat work
+
+* [Routines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)
+* [GitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)
+
+Verify and share
+
+* [Trust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)
+* [Plugins](https://academy.claude.com/courses/claude-code-in-action/plugins)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-in-action/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-in-action/badge)
+
+* [The hook events](#the-hook-events)
+* [PreToolUse: returning a decision as JSON](#pretooluse-returning-a-decision-as-json)
+* [Exit codes, for hooks that don't return JSON](#exit-codes-for-hooks-that-dont-return-json)
+* [A real guardrail: redact instead of block](#a-real-guardrail-redact-instead-of-block)
+* [Preserving state across a compact](#preserving-state-across-a-compact)
+* [Wrapping up](#wrapping-up)

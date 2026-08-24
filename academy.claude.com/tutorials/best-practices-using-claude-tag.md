@@ -1,5 +1,17 @@
 <!-- source: https://academy.claude.com/tutorials/best-practices-using-claude-tag -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Best practices for using Claude Tag
+
+How to work with Claude Tag across your org: setting up where it has context, writing a task that goes well, and moving from one-off requests to work it runs on its own.
+
+10 minClaude Tag
+
+![](https://academy.claude.com/assets/v1/thumbnail.dark-cdigm2ac.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cdigm2ac.png)
+
 Claude now works alongside your team, under its own account, in the places you already work together. [Tag Claude(opens in new tab)](http://anthropic.com/news/introducing-claude-tag) with a task and it takes it on. The work happens in the thread where everyone can see it, and Claude keeps going after you've closed your laptop, coming back to you when it's done or when a decision needs you.
 
 This guide covers how to set up your channels, write a task that goes well, and move from giving Claude Tag tasks to handing it work that runs on its own.
@@ -98,3 +110,10 @@ A few things run underneath all of the above, and they're worth knowing because 
 * [Claude Tag use cases(opens in new tab)](https://academy.claude.com/tutorials/tasks-to-try-with-claude-tag-in-your-workspace): tasks teams are running today, with example prompts.
 * [Admin setup guide(opens in new tab)](https://claude.com/docs/claude-tag/admins/setup-overview): connecting tools, scoping access per channel, spend controls.
 * [What is Claude Tag(opens in new tab)](https://support.claude.com/en/articles/15594475) in the Help Center: plan availability, billing, and who can set it up. For other account questions, see the [Help Center(opens in new tab)](https://support.claude.com) home.
+
+* [Tips while using Claude Tag in your workspace](#tips-while-using-claude-tag-in-your-workspace)
+* [Working with Claude Tag on a task](#working-with-claude-tag-on-a-task)
+* [Giving Claude Tag more responsibility over time](#giving-claude-tag-more-responsibility-over-time)
+* [What makes this possible](#what-makes-this-possible)
+* [If you already use Claude somewhere else](#if-you-already-use-claude-somewhere-else)
+* [Learn more](#learn-more)

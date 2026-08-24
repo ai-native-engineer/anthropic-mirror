@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/tutorials/use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Use artifacts to visualize and create AI apps without ever writing a line of code
+
+Artifacts are like mini-apps you can build with Claude. Learn how to use them to illustrate ideas. Then customize, and share them right from your Claude app.
+
+9 minClaude.ai
+
+Watch[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-lwbu3xiy.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-fw6jw0gx.png)
+
 When the creative juices are flowing, the last thing you want to do is interrupt your process to wrestle with technical details of bringing your vision to life. With artifacts, when you have a creative epiphany, there's no slowing down, and no waiting for tech teams to support. Just tell Claude what you want, and watch it appear right before your eyes. Artifacts keep you in the flow state and help you deliver a working app prototype in minutes.
 
 Making an artifact comes down to two moves: describe the problem you want solved, then build on Claude's responses until the app fits what you pictured. Plan to iterate from the start. The first version Claude builds is a working draft, and every follow-up request makes it more your own.
-
-Loading
 
 ## What are artifacts and when would you use them?
 
@@ -47,9 +59,7 @@ Pick one small annoyance from your week, something you explain repeatedly or tra
 
 I want a small app that helps with this problem: I track my team's weekly priorities in my head and they get lost by Wednesday. Ask me a couple of questions about who will use it and what it needs to show, then build it as an artifact.
 
-
-
-Open in Claude
+Open in Claude
 
 Answer Claude's questions, then send at least one follow-up that changes something specific, like "make each priority checkable" or "sort the list by deadline." Each follow-up builds on everything you have already told Claude, so say what to change and keep going until the app does what you need.
 
@@ -84,3 +94,9 @@ Anyone with the link can use and interact with your artifact without signing in 
 * Browse all [artifacts(opens in new tab)](https://claude.ai/artifacts) for more inspiration. Pro-tip: click “customize” to copy the artifact and make changes for yourself.
 * Learn more about artifacts in our [intro to artifacts(opens in new tab)](https://support.claude.com/en/articles/9945615-intro-to-artifacts) video.
 * Visit the [Claude support docs(opens in new tab)](https://support.claude.com/en/collections/4078531-claude) for help with any other questions.
+
+* [What are artifacts and when would you use them?](#what-are-artifacts-and-when-would-you-use-them)
+* [Creating your first artifact](#creating-your-first-artifact)
+* [Tips for improving your artifact](#tips-for-improving-your-artifact)
+* [Sharing your creations](#sharing-your-creations)
+* [More resources to get started](#more-resources-to-get-started)

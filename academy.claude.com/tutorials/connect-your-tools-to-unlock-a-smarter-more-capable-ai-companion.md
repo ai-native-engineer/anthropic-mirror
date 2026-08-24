@@ -1,8 +1,20 @@
 <!-- source: https://academy.claude.com/tutorials/connect-your-tools-to-unlock-a-smarter-more-capable-ai-companion -->
 
-Without access to your actual work, Claude is only ever as good as generic knowledge and simple text outputs — it’s helpful, but lacks detail, and requires copying and pasting, to get to a shippable final product. What if it could do more? Connectors help solve this context problem. In just a few clicks, you can give Claude access to your knowledge in connected tools and desktop files, **plus** the permission to perform actions in those sources on your behalf.
+2. /[Tutorials](https://academy.claude.com/tutorials)
 
-Loading
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Connect your tools to unlock a smarter, more capable AI companion
+
+Learn how to connect third-party tools and applications to Claude through the Connectors feature for accessing data across platforms.
+
+6 minClaude.ai
+
+Watch[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-o61zk21d.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-k41o64xt.png)
+
+Without access to your actual work, Claude is only ever as good as generic knowledge and simple text outputs — it’s helpful, but lacks detail, and requires copying and pasting, to get to a shippable final product. What if it could do more? Connectors help solve this context problem. In just a few clicks, you can give Claude access to your knowledge in connected tools and desktop files, **plus** the permission to perform actions in those sources on your behalf.
 
 ## MCP-powered capabilities, without the complex setup
 
@@ -45,12 +57,8 @@ Connectors don’t just bring context to Claude, they create a dynamic bridge ac
 
 * **Ship faster with real context** (Linear + Notion) - Ask Claude to write release notes from your latest sprint, and it pulls actual Linear tickets to generate professional documentation with real feature descriptions. Add in context like your release note template and style guide, and you’ll have a professional draft in minutes:
 
-Loading
-
 * **Turn meeting notes into action** (Apple Notes + Asana) - Transform scattered thoughts into organized project plans with one command. Claude can read your Apple Notes on desktop, and create Asana tasks with realistic deadlines — even assigning owners based on your discussion.
 * **Create professional content at scale** (Docs + Canva) - Claude can read your blog posts or product docs to quickly build professional visuals based on your written content. Just ask for a Canva design based on a resource you’ve already made:
-
-Loading
 
 ## Best practices
 
@@ -62,3 +70,9 @@ When used well, Connectors can help Claude see what you see, know what you know,
 * **Layer in context from multiple sources** — When asking Claude to create content, provide relevant background information. Share your brand style guide from Google Drive before asking for marketing copy. Include previous project notes from Asana when planning next steps. The more context you provide, the more tailored Claude's output will be.
 
 Visit [claude.ai/directory(opens in new tab)](https://claude.ai/directory) to browse available Connectors and get started.
+
+* [MCP-powered capabilities, without the complex setup](#mcp-powered-capabilities-without-the-complex-setup)
+* [Using the connectors directory](#using-the-connectors-directory)
+* [Setting up your first connection](#setting-up-your-first-connection)
+* [Connectors in action](#connectors-in-action)
+* [Best practices](#best-practices)

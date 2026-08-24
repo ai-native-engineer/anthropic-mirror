@@ -1,5 +1,7 @@
 <!-- source: https://academy.claude.com/collections/claude-for-work -->
 
+[Academy](https://academy.claude.com/)
+
 # Claude for work
 
 Resources for working with Claude in your organization. Learn the everyday tools, hand off whole tasks with Cowork, and set up your org.
@@ -138,4 +140,4 @@ Use case·Engineering·10 min](https://academy.claude.com/use-cases/ask-the-comp
 
 ## More resources
 
-[Claude for teams claude.com (opens in new tab)](https://claude.com/team)[Claude for Enterprise claude.com (opens in new tab)](https://claude.com/enterprise)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Claude for teams claude.com (opens in new tab)](https://claude.com/team)[Claude for Enterprise claude.com (opens in new tab)](https://claude.com/enterprise)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

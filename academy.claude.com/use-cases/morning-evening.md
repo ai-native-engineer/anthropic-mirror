@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/morning-evening -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Daily bookends
+
+A briefing to start the day and a wrap to close it.
+
+10 minClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-xxhorrny.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kkbwysr5.png)
 
 ## Set up
 
@@ -8,11 +20,9 @@ Loading
 
 The Productivity plugin ships with `/start` and `/update` as a starting point, already structured to read your calendar and channels and rank what matters. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-
-
 Productivity6 skills for inbox sweeps, daily rundowns, meeting prep, and decision logs
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=productivity)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=productivity)
 
 `/start`Read calendar, inbox, and channels and write a one-page start-of-day briefing
 
@@ -22,7 +32,7 @@ Productivity6 skills for inbox sweeps, daily rundowns, meeting prep, and decisio
 
 [Run](claude://cowork/new?q=%2Fupdate)
 
-Show all 4 skills
+Show all 4 skills
 
 ### Connect your tools
 
@@ -34,41 +44,39 @@ Navigate to **Customize → Connectors** in Cowork to set up.
 
 Google Calendar
 
-[Connect](https://claude.ai/desktop/directory/google-calendar-calendarmcp)
+[Connect](https://claude.ai/desktop/directory/google-calendar-calendarmcp)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M3.951%209.85a1.47%201.47%200%201%201-2.94%200%201.47%201.47%200%200%201%201.47-1.471h1.47V9.85Zm.735%200a1.47%201.47%200%201%201%202.94%200v3.679a1.47%201.47%200%201%201-2.94%200V9.85Z'%20fill='%23E01E5A'/%3e%3cpath%20d='M6.157%203.943a1.47%201.47%200%201%201%200-2.943%201.47%201.47%200%200%201%201.47%201.471v1.472h-1.47Zm0%20.746a1.47%201.47%200%201%201%200%202.943H2.47a1.47%201.47%200%201%201%200-2.943h3.687Z'%20fill='%2336C5F0'/%3e%3cpath%20d='M12.049%206.16a1.47%201.47%200%201%201%202.94%200%201.47%201.47%200%200%201-1.47%201.472h-1.47V6.16Zm-.736%200a1.47%201.47%200%201%201-2.94%200V2.471a1.47%201.47%200%201%201%202.94%200V6.16Z'%20fill='%232EB67D'/%3e%3cpath%20d='M9.843%2012.057a1.47%201.47%200%201%201%200%202.943%201.47%201.47%200%200%201-1.47-1.471v-1.472h1.47Zm0-.735a1.47%201.47%200%201%201%200-2.943h3.687a1.47%201.47%200%201%201%200%202.943H9.843Z'%20fill='%23ECB22E'/%3e%3c/svg%3e)
 
 Slack
 
-[Connect](https://claude.ai/desktop/directory/slack)
+[Connect](https://claude.ai/desktop/directory/slack)
 
 ![](data:image/svg+xml,%3csvg%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_4766_38693)'%3e%3cpath%20d='M11.9091%2034H16.3636V23.6969L10%2019.1515V32.1818C10%2033.1879%2010.8559%2034%2011.9091%2034Z'%20fill='%234285F4'/%3e%3cpath%20d='M31.6364%2034H36.0909C37.1473%2034%2038%2033.1848%2038%2032.1818V19.1515L31.6364%2023.6969'%20fill='%2334A853'/%3e%3cpath%20d='M31.6364%2015.8182V23.6969L38%2019.1515V16.7272C38%2014.4788%2035.305%2013.1969%2033.4182%2014.5454'%20fill='%23FBBC04'/%3e%3cpath%20d='M16.3636%2023.697V15.8182L24%2021.2727L31.6364%2015.8182V23.697L24%2029.1515'%20fill='%23EA4335'/%3e%3cpath%20d='M10%2016.7272V19.1515L16.3636%2023.6969V15.8182L14.5818%2014.5454C12.6918%2013.1969%2010%2014.4788%2010%2016.7272Z'%20fill='%23C5221F'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4766_38693'%3e%3crect%20width='28'%20height='20'%20fill='white'%20transform='translate(10%2014)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e)
 
 Gmail
 
-[Connect](https://claude.ai/desktop/directory/gmail-gmailmcp)
+[Connect](https://claude.ai/desktop/directory/gmail-gmailmcp)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23F25022'%20d='M1%201h10.5v10.5H1z'/%3e%3cpath%20fill='%237FBA00'%20d='M12.5%201H23v10.5H12.5z'/%3e%3cpath%20fill='%2300A4EF'%20d='M1%2012.5h10.5V23H1z'/%3e%3cpath%20fill='%23FFB900'%20d='M12.5%2012.5H23V23H12.5z'/%3e%3c/svg%3e)
 
 Microsoft 365
 
-[Connect](https://claude.ai/desktop/directory/microsoft-365)
+[Connect](https://claude.ai/desktop/directory/microsoft-365)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%20100%20100'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%235E6AD2'%20d='M1.225%2061.523c-.222-.949.908-1.546%201.597-.857l36.512%2036.512c.689.689.092%201.819-.857%201.597a50.06%2050.06%200%200%201-37.252-37.252Zm-1.22-13.59a.98.98%200%200%200%20.283.724l50.055%2050.055a.98.98%200%200%200%20.724.283%2049.9%2049.9%200%200%200%208.636-1.518.976.976%200%200%200%20.462-1.647L2.17%2038.835a.976.976%200%200%200-1.647.462%2049.9%2049.9%200%200%200-1.518%208.636Zm4.194-17.443a.988.988%200%200%200%20.184%201.152l63.975%2063.975a.988.988%200%200%200%201.152.184%2050.4%2050.4%200%200%200%206.08-3.495.993.993%200%200%200%20.161-1.53L9.224%2024.249a.993.993%200%200%200-1.53.161%2050.4%2050.4%200%200%200-3.495%206.08Zm9.723-13.067a.99.99%200%200%201-.026-1.377C23.068%206.08%2036.765-.002%2051.888-.002c27.59%200%2049.957%2022.367%2049.957%2049.957%200%2015.123-6.082%2028.82-16.048%2038.013a.99.99%200%200%201-1.377-.026z'/%3e%3c/svg%3e)
 
 Linear
 
-[Connect](https://claude.ai/desktop/directory/linear)
+[Connect](https://claude.ai/desktop/directory/linear)
 
 ![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23000'%20d='M4.46%204.44c.74.6%201.02.56%202.42.46l13.18-.79c.28%200%20.05-.28-.05-.32l-2.19-1.58c-.42-.33-.98-.7-2.05-.6L2.99%202.53c-.46.05-.56.28-.37.46l1.84%201.45Zm.8%203.1v13.87c0%20.74.37%201.02%201.21.98l14.49-.84c.84-.05.93-.56.93-1.16V6.6c0-.6-.23-.93-.74-.88l-15.14.88c-.56.05-.75.33-.75.93Zm14.3.74c.1.42%200%20.84-.42.89l-.7.14v10.24c-.6.33-1.16.51-1.63.51-.74%200-.93-.23-1.49-.93l-4.56-7.16v6.93l1.44.33s0%20.84-1.16.84l-3.21.18c-.1-.18%200-.65.33-.74l.84-.23V9.98l-1.16-.1c-.1-.42.14-1.02.79-1.07l3.44-.23%204.75%207.25V9.42l-1.21-.14c-.1-.51.28-.88.74-.93l3.21-.18Z'/%3e%3c/svg%3e)
 
 Notion
 
-[Connect](https://claude.ai/desktop/directory/notion)
+[Connect](https://claude.ai/desktop/directory/notion)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
-
-
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
@@ -84,7 +92,7 @@ Daily
 
 priorities.mdApr 20, 20261 KB
 
-In Cowork’s chat bar:Daily
+In Cowork’s chat bar:Daily
 
 ## The prompt
 
@@ -92,35 +100,33 @@ In Cowork’s chat bar:Daily
 
 Run my morning briefing. Tell me what's on fire, what's due, who's waiting on me, and the three things I should do first. Keep it under a page. Tonight I'll ask you to run /update and you'll write the wrap: what got done, what slipped, and what tomorrow opens with.
 
-
-
-DailyOpen in Cowork
+DailyOpen in Cowork
 
 ### Why this works
 
-Prompt
+Prompt
 
 **Name the sections you want.** On fire, due, waiting on me, top three: a fixed shape you can scan in thirty seconds.
 
-Prompt
+Prompt
 
 **Set a length limit.** A briefing you'll actually read, not another inbox.
 
-Prompt
+Prompt
 
 **Connect each run to the next.** The wrap feeds tomorrow's briefing, so carry-over never drops.
 
-Source
+Source
 
 **Let prior runs supply the context.** Each run reads yesterday's file, so context compounds without you re-explaining.
 
 ### Get a better draft
 
-Practice
+Practice
 
 **Add an example to match.** Drop an example you like into the folder and Cowork matches your structure and voice.
 
-Practice
+Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
@@ -130,11 +136,7 @@ A plugin skill is a starting point — customize it with your own practices and 
 
 Make what we've done in this task so far into a skill, or edit the /start skill with my feedback.
 
-
-
-DailyOpen in Cowork
-
-
+DailyOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
@@ -146,23 +148,19 @@ The briefing should be waiting when you sit down. Type `/schedule` in the prompt
 
 **/schedule** Run /start every weekday at 8:00am and /update every weekday at 6:00pm, both writing to Daily/<today>.md.
 
-
+DailyOpen in Cowork
 
-DailyOpen in Cowork
-
-Scheduled taskActive
+Scheduled taskActive
 
 Daily bookends
 
 Runs `/start` at 8am and `/update` at 6pm against Calendar, Slack, and Gmail and appends both to today's file in Daily.
 
-Every **weekday at 8:00am and 6:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
+Every **weekday at 8:00am and 6:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates
 
 Your customized `/start` and `/update` now carry your channel list, your priority rules, and your tone. Share them so anyone on your team starts and ends the day with the same one-page rhythm, and nobody's asking "what did I miss" in standup.
-
-
 
 Share the skill
 
@@ -174,4 +172,11 @@ You have a one-page briefing ready each morning and an end-of-day record of what
 
 You did this for the daily briefing. The same approach covers a weekly look-ahead, pre-meeting briefs, and project status checks — each one becomes a skill in your team's shared set.
 
-[Next: Prep call look-ahead](https://academy.claude.com/use-cases/week-ahead-prep)
+[Next: Prep call look-ahead](https://academy.claude.com/use-cases/week-ahead-prep)
+
+* [Set up](#set-up)
+* [The prompt](#the-prompt)
+* [Make Cowork work for you](#make-cowork-work-for-you)
+* [Make it repeatable](#make-it-repeatable)
+* [Share with your teammates](#share-with-your-teammates)
+* [What changes for your day](#what-changes-for-your-day)

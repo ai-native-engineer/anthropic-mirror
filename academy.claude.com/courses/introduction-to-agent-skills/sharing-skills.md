@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-agent-skills/sharing-skills -->
 
-Lesson 5 of 6 · Introduction to agent skillsSharing skills
+Lesson 5 of 6 · Introduction to agent skillsSharing skills
+
+3. /[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+# Sharing skills
+
+Lesson 515 min
+
+In this lessonBy the end, you’ll be able to
+
+* Share skills with your team by committing them to a Git repository
+* Distribute skills across projects through plugins and marketplaces
+* Deploy skills organization-wide using enterprise managed settings
+* Configure custom subagents to use specific skills
 
 ## Sharing skills
-
-Loading
 
 Sharing skills · 4 min
 
@@ -55,7 +68,7 @@ Administrators can deploy skills organization-wide through managed settings. Ent
 
 The managed settings file supports features like `strictKnownMarketplaces` to control where plugins can be installed from:
 
-json
+json
 
 ```
 "strictKnownMarketplaces": [
@@ -88,7 +101,7 @@ To create a custom subagent with skills, add an agent markdown file in `.claude/
 
 The generated agent file includes a `skills` field that lists which skills to load. Here's what the frontmatter looks like:
 
-yaml
+yaml
 
 ```
 ---
@@ -117,3 +130,27 @@ This pattern works really well when:
 ## What's next
 
 In the final lesson, you'll learn how to troubleshoot common skill issues — from skills that don't trigger, to priority conflicts, to runtime errors — with a practical checklist you can reference anytime.
+
+[Previous lessonSkills vs. other Claude Code features](https://academy.claude.com/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features)[Next lessonTroubleshooting skills](https://academy.claude.com/courses/introduction-to-agent-skills/troubleshooting-skills)
+
+Lesson 5 of 6 · Introduction to agent skillsSharing skills
+
+Lessons
+
+* [What are skills?](https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills)
+* [Creating your first skill](https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill)
+* [Configuration and multi-file skills](https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills)
+* [Skills vs. other Claude Code features](https://academy.claude.com/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features)
+* [Sharing skills](https://academy.claude.com/courses/introduction-to-agent-skills/sharing-skills)
+* [Troubleshooting skills](https://academy.claude.com/courses/introduction-to-agent-skills/troubleshooting-skills)
+
+* [Course complete](https://academy.claude.com/courses/introduction-to-agent-skills/complete)
+
+* [Sharing skills](#sharing-skills)
+* [Key takeaways](#key-takeaways)
+* [Committing Skills to Your Repository](#committing-skills-to-your-repository)
+* [Distributing Skills Through Plugins](#distributing-skills-through-plugins)
+* [Enterprise Deployment Through Managed Settings](#enterprise-deployment-through-managed-settings)
+* [Skills and Subagents](#skills-and-subagents)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

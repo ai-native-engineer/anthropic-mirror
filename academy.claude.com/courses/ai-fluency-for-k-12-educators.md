@@ -1,16 +1,28 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators -->
 
-10 lessons · 1 quizAI Fluency for pK–12 Educators
+[Courses](https://academy.claude.com/courses)
+
+# AI Fluency for pK–12 Educators
+
+Helps pK-12 educators build practical AI fluency through the 4D Framework, supporting student learning while staying true to their mission and values. Created in partnership with Teach For America.
+
+10 lessons3 hr1 quizCompletion badge
+
+[Start course](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-k-12-educators)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-imfe3sqb.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hmyzns9m.png)
+
+10 lessons · 1 quizAI Fluency for pK–12 Educators
 
 What you’ll learnBy the end of this course, you’ll be able to
 
-* Define AI Fluency and explain how the 4D Framework (Delegation, Description, Discernment, Diligence) applies to your teaching practice
-* Build a reusable context document that captures your role, students, and goals for future AI collaborations
-* Recognize the capabilities and limitations of generative AI, including hallucinations and knowledge cutoffs
-* Use the Description-Discernment loop to create and evaluate differentiated instructional materials
-* Apply the Delegation-Diligence loop to protect student data and navigate ethical gray areas in your practice
-* Draft personal ethical commitments and an AI value document grounded in your own values
-* Run a complete end-to-end 4D workflow on a real task from your own work
+* Define AI Fluency and explain how the 4D Framework (Delegation, Description, Discernment, Diligence) applies to your teaching practice
+* Build a reusable context document that captures your role, students, and goals for future AI collaborations
+* Recognize the capabilities and limitations of generative AI, including hallucinations and knowledge cutoffs
+* Use the Description-Discernment loop to create and evaluate differentiated instructional materials
+* Apply the Delegation-Diligence loop to protect student data and navigate ethical gray areas in your practice
+* Draft personal ethical commitments and an AI value document grounded in your own values
+* Run a complete end-to-end 4D workflow on a real task from your own work
 
 *This course is the result of a partnership between Anthropic and Teach For America, drawing on research with pK–12 educators about their actual needs, concerns, and aspirations for AI adoption.*
 
@@ -80,3 +92,34 @@ Apply the Description-Discernment loop to creating high quality outputs and the 
 Bring all four dimensions of the 4D Framework together and apply it to a real task from your own work—then plan your next steps and earn your completion badge.
 
 ![](https://academy.claude.com/assets/media/54f4fbb8d23d06e38e04c844be0ea5f2d94df55c1eab792ed3f343ca39b14c2f.webp)![](https://academy.claude.com/assets/media/2e733b0c726abca8ca5df742e89e077b09660fd88527a270aded4bf7accb6a9b.webp)
+
+How this course was made
+
+* [How this course was made](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations)
+
+Using AI responsibly
+
+* [Creating high quality AI outputs](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice)
+* [Ethics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)
+* [AI's constitution, pedagogy, and you](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)
+
+Conclusion and badge
+
+* [Closure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/badge)

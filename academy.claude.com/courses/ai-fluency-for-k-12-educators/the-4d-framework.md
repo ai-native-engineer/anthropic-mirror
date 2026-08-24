@@ -1,10 +1,21 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework -->
 
-Lesson 3 of 10 · AI Fluency for pK–12 EducatorsThe 4D Framework
+Lesson 3 of 10 · AI Fluency for pK–12 EducatorsThe 4D Framework
+
+3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+
+# The 4D Framework
+
+Lesson 320 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain how the AI Fluency Framework (4Ds) can be applied to your work
+* Define each of the 4Ds: Delegation, Description, Discernment, and Diligence
 
 ## Introducing the 4D Framework for AI Fluency
-
-Loading
 
 Introducing the 4D Framework for AI Fluency · 7 min
 
@@ -48,3 +59,44 @@ You'll use this document to give AI context about you throughout the course, exp
 ## What's next
 
 In the next lesson, we'll dive deeper into AI's capabilities and limits to establish a foundation for the remaining lessons.
+
+[Previous lessonWelcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)[Next lessonExplore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)
+
+Lesson 3 of 10 · AI Fluency for pK–12 EducatorsThe 4D Framework
+
+How this course was made
+
+* [How this course was made](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations)
+
+Using AI responsibly
+
+* [Creating high quality AI outputs](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice)
+* [Ethics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)
+* [AI's constitution, pedagogy, and you](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)
+
+Conclusion and badge
+
+* [Closure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/badge)
+
+* [Introducing the 4D Framework for AI Fluency](#introducing-the-4d-framework-for-ai-fluency)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

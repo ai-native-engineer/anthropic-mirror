@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-101/what-s-next -->
 
-Lesson 13 of 13 · Claude 101What's next?
+Lesson 13 of 13 · Claude 101What's next?
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# What's next?
+
+Lesson 132 min
 
 Congratulations on completing Claude 101! You've built a solid foundation for working with Claude effectively. Let's recap what you've learned and point you toward resources for continued growth.
 
@@ -60,3 +68,42 @@ Start simple. Pick one recurring task from your work this week and try it with C
 Remember: Claude is designed to be a collaborator, not a replacement. The best results come when you bring your expertise, context, and judgment to the conversation.
 
 You now have the foundation. The rest comes from doing the work.
+
+[Previous lessonOther ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)[Next lessonCourse quiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+Lesson 13 of 13 · Claude 101What's next?
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [What you've learned](#what-youve-learned)
+* [Additional resources](#additional-resources)
+* [A word of encouragement](#a-word-of-encouragement)

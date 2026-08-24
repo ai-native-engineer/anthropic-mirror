@@ -1,6 +1,21 @@
 <!-- source: https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives -->
 
-Lesson 10 of 13 · Claude 101Research for deep dives
+Lesson 10 of 13 · Claude 101Research for deep dives
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# Research for deep dives
+
+Lesson 1010 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain what Research does: systematic, multi-source investigation
+* Identify when to use Research for comprehensive information gathering
+* Understand how Research uses Thinking to plan its approach before it gathers information
+* Write effective Research prompts for complex investigations
 
 ## Researching with Claude
 
@@ -22,8 +37,6 @@ Research is particularly valuable when you need more than a quick answer. It's d
 ## When to use Research
 
 Understanding when to use Research versus other Claude capabilities helps you get the best results for your specific needs.
-
-Loading
 
 **Use Research when you need:**
 
@@ -77,8 +90,6 @@ Here's how to enable and use Research:
 3. Enter your prompt and submit
 4. Claude will work in the background, and you'll see progress indicators as it searches and analyzes
 
-
-
 Important
 
 Web search must be enabled for Research to function. If you haven't already turned on web search, you can do so from the same **+** menu.
@@ -98,9 +109,9 @@ When you have Google Workspace or other integrations connected, Research becomes
 
 For example, you might ask Claude to:
 
-* “Summarize what's been discussed about Project X across my emails and Slack, then research industry best practices for similar initiatives”
-* “Review my calendar commitments for next week and research each company I'm meeting with”
-* “Find all internal documents about our pricing strategy and compare to how competitors are positioning themselves”
+* “Summarize what's been discussed about Project X across my emails and Slack, then research industry best practices for similar initiatives”
+* “Review my calendar commitments for next week and research each company I'm meeting with”
+* “Find all internal documents about our pricing strategy and compare to how competitors are positioning themselves”
 
 When using Research with integrations, you can steer Claude by saying things like "Pull relevant context from my Google Drive" or "Include insights from my recent emails on this topic."
 
@@ -117,3 +128,47 @@ Before moving on, consider:
 In the next section we're putting it all together. You'll see how everything you've learned comes together through real-world use cases organized by role, and discover additional ways to interact with Claude beyond the web interface.
 
 For more information on Research, including video tutorials, visit the [Anthropic Help Center(opens in new tab)](https://support.claude.com/en/articles/11088861-using-research-on-claude-ai).
+
+[Previous lessonEnterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)[Next lessonClaude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+
+Lesson 10 of 13 · Claude 101Research for deep dives
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [Researching with Claude](#researching-with-claude)
+* [Key takeaways](#key-takeaways)
+* [What is Research?](#what-is-research)
+* [When to use Research](#when-to-use-research)
+* [How Research works](#how-research-works)
+* [Using Research in practice](#using-research-in-practice)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

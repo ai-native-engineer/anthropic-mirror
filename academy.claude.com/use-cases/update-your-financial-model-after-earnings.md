@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/update-your-financial-model-after-earnings -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Update your financial model after earnings
+
+Cowork pulls the release and transcript from S&P and checks them against your financial model. You take the flags into Claude for Excel to edit the cells, then open the deck in Claude for PowerPoint to build the page.
+
+15 minFinanceClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-g4zceag4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dyg71tvq.png)
 
 ## 1. Describe the task
 
@@ -21,9 +33,7 @@ Steps:
 
 Show me the flags before I touch anything.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -37,9 +47,9 @@ Attach your portfolio folder with the model. Enable the S&P Global connector. Ha
 
 S&P Global
 
-[Connect](https://claude.ai/desktop/directory/s-p-global)
+[Connect](https://claude.ai/desktop/directory/s-p-global)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 Portfolio folder
 
@@ -49,7 +59,7 @@ Prior PM deck
 
 ACME valuation model
 
-In Cowork’s chat bar:Portfolio folder
+In Cowork’s chat bar:Portfolio folder
 
 ## 3. What Claude creates
 
@@ -75,7 +85,7 @@ Q4 print: rev $2.72B (beat), GM 45.7% vs my 42.4%.
 
 Flag on Assumptions!C7 — FY28E GM at 43.0%, mgmt didn't guide past FY27. Walk me through C7, then build best/base/worst scenarios on the margin range.
 
-Copy prompt
+Copy prompt
 
 Once you've signed off on the cells, open the deck in Claude for PowerPoint. The conversation carries from Excel, so the page build already knows what changed.
 
@@ -89,9 +99,7 @@ In Cowork, ask where the actual landed against what you had.
 
 oh ok how does the actual number compare to what I had in my model?
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Check an assumption against the call
 
@@ -99,9 +107,7 @@ See if management said anything that should move a specific cell.
 
 is my FY28 gross margin too aggressive? what did they actually say about out-year margins on the call
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Build scenarios in the workbook
 
@@ -109,7 +115,7 @@ In Claude for Excel, once you've signed off on the assumptions.
 
 ok keep the 43% — build me best/base/worst around the margin range in a new Scenarios tab
 
-Copy prompt
+Copy prompt
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -144,4 +150,11 @@ Steps:
 
 Show me the flags before I touch anything.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-use-the-clinical-trial-protocol-draft-generation-sample-skill-with-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to use the Clinical Trial Protocol Draft Generation sample skill with Claude
+
+How to use the Clinical Trial Protocol Draft Generation sample skill with Claude
+
+4 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-ke4vf9q6.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-djfyeg4y.png)
+
 ## **What is the Clinical Trial Protocol Draft Generation demo skill?**
 
 The Clinical Trial Protocol Draft Generation demo skill digests initial documentation about a new medical device or investigational drug, and follows regulatory guidelines to generate an initial phase 2 or 3 trial protocol draft. It does this by:
@@ -41,6 +55,11 @@ Learn about [provisioning and managing skills for your organization(opens in new
 
 Command
 
-`/plugin marketplace add anthropics/life-sciences`
+`/plugin marketplace add anthropics/life-sciences`
 
-`/plugin install clinical-trial-protocol@life-sciences`
+`/plugin install clinical-trial-protocol@life-sciences`
+
+* [What is the Clinical Trial Protocol Draft Generation demo skill?](#what-is-the-clinical-trial-protocol-draft-generation-demo-skill)
+* [Who should use the Clinical Trial Protocol Draft Generation demo skill?](#who-should-use-the-clinical-trial-protocol-draft-generation-demo-skill)
+* [How to access the skill in Claude.ai](#how-to-access-the-skill-in-claudeai)
+* [How to access the skill in Claude Code](#how-to-access-the-skill-in-claude-code)

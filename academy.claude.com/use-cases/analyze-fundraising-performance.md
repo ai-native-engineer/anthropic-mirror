@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/analyze-fundraising-performance -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Analyze fundraising performance
+
+Analyze performance across email, events, direct mail, social media, and other channels to identify highest-return investments and optimize resource allocation for maximum fundraising impact.
+
+15 minMarketingClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-hi5bnla4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ls60okh6.png)
+
 ![Analyze fundraising performance result](https://academy.claude.com/assets/v1/analyze-fundraising-performance-9pbg139x.png)
 
 ## 1. Describe the task
@@ -31,9 +45,7 @@ I'm uploading our fundraising data from the past two years, broken down by chann
 
 **Design requirements:** Make an extreme effort on visual quality—premium formatting, sophisticated color palette (not Excel defaults), consulting-grade typography, conditional formatting, data bars, color scales, frozen panes, and filters. Every element should look intentional and polished and include professional charts/graphs showing channel comparisons and performance trends.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -45,11 +57,7 @@ If you track your fundraising data in platforms like [Microsoft 365(opens in new
 
 For most organizations, uploading exported CSV or Excel files works perfectly—just gather your revenue, cost, donor, and event data by channel and time period.
 
-
-
 fundraising\_data\_2025.mdCSV
-
-
 
 fundraising\_data\_2024.mdCSV
 
@@ -57,7 +65,7 @@ fundraising\_data\_2024.mdCSV
 
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can reason through your data patterns, identify non-obvious insights across multiple variables, and build a sophisticated analysis workbook with proper structure and formulas.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -85,9 +93,7 @@ Better understand one form of fundraising in order to make data-driven decisions
 
 I want to compare our gala events vs. community events vs. small donor gatherings more systematically. Create an analysis showing average ROI, cost structure breakdown, revenue potential, and donor retention by event type. Help me decide which event categories to expand and which to reduce. Make it visually compelling with charts.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Add an Executive Briefing Document
 
@@ -95,9 +101,7 @@ Synthesize analysis to build transparency and gain buy-in.
 
 Create a polished 2-page Word document pulling the key findings from this analysis. Focus on the three biggest opportunities for improving ROI, the dollar impact of recommended changes, and specific action items with timeline. Use sophisticated document design—think McKinsey deliverable quality with professional typography, strategic use of color, and data visualization elements. This goes directly to our board.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Build in donor lifetime value analysis
 
@@ -105,9 +109,7 @@ Understand the impact of different investment models by building out value analy
 
 Build a forecasting model for next fiscal year based on the ROI patterns you've identified. Show me projected revenue by channel if we implement your reallocation recommendations, with quarterly targets, variance tracking, and confidence intervals. Include scenario toggles so I can model different investment levels.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -150,4 +152,11 @@ Required sheets:
 
 Design requirements: Make an extreme effort on visual quality—premium formatting, sophisticated color palette (not Excel defaults), consulting-grade typography, conditional formatting, data bars, color scales, frozen panes, and filters. Every element should look intentional and polished and include professional charts/graphs showing channel comparisons and performance trends.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

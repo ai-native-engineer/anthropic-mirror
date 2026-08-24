@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/analyze-campaign-performance -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Analyze campaign performance
+
+Analyze campaign performance data to identify your best and worst performing channels, then get specific budget reallocation recommendations for next quarter.
+
+10 minMarketingClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-ejsdnt6i.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dpzhlt0i.png)
+
 ![Analyze campaign performance result](https://academy.claude.com/assets/v1/analyze-campaign-performance-eucmwfo0.png)
 
 ## 1. Describe the task
@@ -20,9 +34,7 @@ Create a dashboard and analysis report. I need to know what to do differently ne
 
 Context: Our target ROI is 300%+. Enterprise customers have 3x higher LTV than SMB. Industry benchmark is 200-250% ROI. I can shift up to 30% of budget based on performance.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -40,7 +52,7 @@ Campaign dataXLSX
 
 Use [Extended Thinking(opens in new tab)](https://www.anthropic.com/news/visible-extended-thinking) for better results completing complex tasks like analyzing data and creating high quality spreadsheets.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -76,9 +88,7 @@ Ask Claude to reformat previous analyses so all your dashboards are consistent. 
 
 I’'m attaching performance reviews from years prior. Reformat these older reports to match the new structure—keep all the original data and insights, just reorganize into the current template format.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Add visual polish
 
@@ -86,9 +96,7 @@ Request visual touches that improve the quality of your outputs.
 
 Enhance the spreadsheet by adding data visualizations ( heat maps to show patterns, charts for larger trends) and dropdown menus for easy filtering.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -120,4 +128,11 @@ Create a dashboard and analysis report. I need to know what to do differently ne
 
 Context: Our target ROI is 300%+. Enterprise customers have 3x higher LTV than SMB. Industry benchmark is 200-250% ROI. I can shift up to 30% of budget based on performance.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

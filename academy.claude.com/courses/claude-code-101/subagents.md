@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-101/subagents -->
 
-Lesson 9 of 12 · Claude Code 101Subagents
+Lesson 9 of 12 · Claude Code 101Subagents
 
-Loading
+3. /[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+[Claude Code 101](https://academy.claude.com/courses/claude-code-101)
+
+# Subagents
+
+Lesson 96 min
 
 Subagents
 
@@ -24,7 +30,7 @@ The result: you get the answer you were looking for, without the entire journey 
 
 Subagents are defined in Markdown files with YAML frontmatter. The easiest way to get started is to let Claude generate one for you. Run:
 
-`/agents`
+`/agents`
 
 Then select "Create new agent." You'll walk through steps including choosing the scope of the agent, defining its purpose, selecting the tools it has access to, and even picking a color for it.
 
@@ -42,3 +48,42 @@ Subagents can be customized further. Here are some highlights:
 Keeping your context window clean is one of the best ways to stay productive with Claude Code. With subagents, you can run an agent in the background to handle the heavy lifting and return just the answer to your main context window.
 
 **Want to go deeper?** Check out our dedicated course: [Introduction to subagents(opens in new tab)](https://academy.claude.com/courses/introduction-to-subagents)
+
+[Previous lessonThe CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)[Next lessonSkills](https://academy.claude.com/courses/claude-code-101/skills)
+
+Lesson 9 of 12 · Claude Code 101Subagents
+
+What is Claude Code?
+
+* [What is Claude Code?](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)
+* [How Claude Code works](https://academy.claude.com/courses/claude-code-101/how-claude-code-works)
+
+Your first prompt
+
+* [Installing Claude Code](https://academy.claude.com/courses/claude-code-101/installing-claude-code)
+* [Your first prompt](https://academy.claude.com/courses/claude-code-101/your-first-prompt)
+
+Daily workflows
+
+* [The explore → plan → code → commit workflow](https://academy.claude.com/courses/claude-code-101/the-explore-plan-code-commit-workflow)
+* [Context management](https://academy.claude.com/courses/claude-code-101/context-management)
+* [Code review](https://academy.claude.com/courses/claude-code-101/code-review)
+
+Customizing Claude Code
+
+* [The CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
+* [Subagents](https://academy.claude.com/courses/claude-code-101/subagents)
+* [Skills](https://academy.claude.com/courses/claude-code-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-code-101/mcp)
+* [Hooks](https://academy.claude.com/courses/claude-code-101/hooks)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-101/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)
+
+* [How It Works](#how-it-works)
+* [Creating Your Own Subagent](#creating-your-own-subagent)
+* [Further Customization](#further-customization)
+* [Recap](#recap)

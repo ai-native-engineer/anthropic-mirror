@@ -1,12 +1,14 @@
 <!-- source: https://academy.claude.com/tutorials -->
 
+[Academy](https://academy.claude.com/)
+
 # Tutorials
 
 Build your skills through written guides, and video lessons covering everything from quick tasks to complex workflows and best practices.
 
 ## Claude.ai
 
-[View all](https://academy.claude.com/all?kind=tutorial&product=chat)
+[View all](https://academy.claude.com/all?kind=tutorial&product=chat)
 
 [![](https://academy.claude.com/assets/v1/thumbnail.light-iznp6akh.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hh3at4r1.png)
 
@@ -36,7 +38,7 @@ Build your skills through written guides, and video lessons covering everything 
 
 ## Claude Cowork
 
-[View all](https://academy.claude.com/all?kind=tutorial&product=cowork)
+[View all](https://academy.claude.com/all?kind=tutorial&product=cowork)
 
 [![](https://academy.claude.com/assets/v1/thumbnail.light-it98jcz1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nkhyzydu.png)
 
@@ -66,7 +68,7 @@ Build your skills through written guides, and video lessons covering everything 
 
 ## Claude Code
 
-[View all](https://academy.claude.com/all?kind=tutorial&product=code)
+[View all](https://academy.claude.com/all?kind=tutorial&product=code)
 
 [![](https://academy.claude.com/assets/v1/thumbnail.light-lzqcyhxd.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-f2wg51kz.png)
 
@@ -104,7 +106,7 @@ Build your skills through written guides, and video lessons covering everything 
 
 ## AI Fluency
 
-[View all](https://academy.claude.com/collections/ai-fluency)
+[View all](https://academy.claude.com/collections/ai-fluency)
 
 [![](https://academy.claude.com/assets/v1/thumbnail.light-m01o4z13.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ca0nkqqm.png)
 
@@ -134,7 +136,7 @@ Build your skills through written guides, and video lessons covering everything 
 
 ## More ways to use Claude
 
-[View all](https://academy.claude.com/all?kind=tutorial)
+[View all](https://academy.claude.com/all?kind=tutorial)
 
 [![](https://academy.claude.com/assets/v1/thumbnail.dark-lzrm3kfb.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lzrm3kfb.png)
 

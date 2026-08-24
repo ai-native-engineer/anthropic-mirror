@@ -1,10 +1,21 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-nonprofits/the-4d-framework -->
 
-Lesson 2 of 9 · AI Fluency for nonprofitsThe 4D Framework
+Lesson 2 of 9 · AI Fluency for nonprofitsThe 4D Framework
+
+3. /[AI Fluency for nonprofits](https://academy.claude.com/courses/ai-fluency-for-nonprofits)
+
+[AI Fluency for nonprofits](https://academy.claude.com/courses/ai-fluency-for-nonprofits)
+
+# The 4D Framework
+
+Lesson 230 min
+
+In this lessonBy the end, you’ll be able to
+
+* Explain how the AI Fluency Framework (4Ds) can be applied to nonprofit work
+* Define each of the 4Ds—Delegation, Description, Discernment, and Diligence
 
 ## The 4D Framework
-
-Loading
 
 The 4D Framework · 6 min
 
@@ -48,3 +59,40 @@ Why? This exercise reveals which AI competencies you're already thinking about a
 ## What's next
 
 In the next lesson, we'll put Description and Discernment into practice as you learn to research and write effectively with AI—skills that apply directly to grant proposals, donor communications, and program materials.
+
+[Previous lessonWelcome to AI Fluency for nonprofits](https://academy.claude.com/courses/ai-fluency-for-nonprofits/welcome-to-ai-fluency-for-nonprofits)[Next lessonResearching with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/researching-with-ai)
+
+Lesson 2 of 9 · AI Fluency for nonprofitsThe 4D Framework
+
+Introduction and AI Fluency framework
+
+* [Welcome to AI Fluency for nonprofits](https://academy.claude.com/courses/ai-fluency-for-nonprofits/welcome-to-ai-fluency-for-nonprofits)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-nonprofits/the-4d-framework)
+
+The Description-Discernment loop
+
+* [Researching with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/researching-with-ai)
+* [Writing with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/writing-with-ai)
+
+The Delegation-Diligence loop
+
+* [Understanding privacy and data](https://academy.claude.com/courses/ai-fluency-for-nonprofits/understanding-privacy-and-data)
+* [Data analysis with AI](https://academy.claude.com/courses/ai-fluency-for-nonprofits/data-analysis-with-ai)
+
+Putting it all together
+
+* [Workflow augmentation](https://academy.claude.com/courses/ai-fluency-for-nonprofits/workflow-augmentation)
+* [Integration](https://academy.claude.com/courses/ai-fluency-for-nonprofits/integration)
+
+Conclusion and badge
+
+* [Next steps](https://academy.claude.com/courses/ai-fluency-for-nonprofits/next-steps)
+* [Course QuizQuiz](https://academy.claude.com/courses/ai-fluency-for-nonprofits/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-nonprofits/badge)
+
+* [The 4D Framework](#the-4d-framework)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

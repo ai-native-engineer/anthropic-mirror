@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs -->
 
-Lesson 8 of 9 · Claude Code in ActionTrust it: Verifying unsupervised runs
+Lesson 8 of 9 · Claude Code in ActionTrust it: Verifying unsupervised runs
 
-Loading
+3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+
+# Trust it: Verifying unsupervised runs
+
+Lesson 85 min
 
 Trust it: Verifying unsupervised runs
 
@@ -63,3 +69,40 @@ Make the check as serious as the run was unsupervised:
 * Get a cold second opinion on anything that matters.
 
 Do that, and "Claude did it while I wasn't looking" no longer takes faith.
+
+[Previous lessonGitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)[Next lessonPlugins](https://academy.claude.com/courses/claude-code-in-action/plugins)
+
+Lesson 8 of 9 · Claude Code in ActionTrust it: Verifying unsupervised runs
+
+Steer the work
+
+* [Steering long sessions](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)
+
+Configure Claude
+
+* [A CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)
+* [Verification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)
+* [Permission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)
+* [Hooks](https://academy.claude.com/courses/claude-code-in-action/hooks)
+
+Automate repeat work
+
+* [Routines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)
+* [GitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)
+
+Verify and share
+
+* [Trust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)
+* [Plugins](https://academy.claude.com/courses/claude-code-in-action/plugins)
+
+Quiz
+
+* [Course quizQuiz](https://academy.claude.com/courses/claude-code-in-action/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-code-in-action/badge)
+
+* [Keep unattended runs in auto mode](#keep-unattended-runs-in-auto-mode)
+* [Start with the diff, not the summary](#start-with-the-diff-not-the-summary)
+* [Turn tests into a gate, not a promise](#turn-tests-into-a-gate-not-a-promise)
+* [Get a cold second opinion](#get-a-cold-second-opinion)
+* [Putting it together](#putting-it-together)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-the-candid-connector-in-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using the Candid connector in Claude
+
+Connect Claude to Candid's database of 1.9M+ nonprofits and foundations for organizational research, grant discovery, and sector analysis.
+
+10 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-harph06w.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kabymbiu.png)
+
 The Candid connector gives Claude access to comprehensive nonprofit and philanthropic data, including 1.9M+ nonprofits and foundations, expert knowledge resources, and the Philanthropy Classification System taxonomy.
 
 The Candid integration relies on Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
@@ -39,9 +53,7 @@ Available to all paid Claude plan users. Basic search requires no separate Candi
 
 Find foundations in California that fund youth education programs.
 
-
-
-Open in Claude
+Open in Claude
 
 Claude searches with location and subject filters, returning matching foundations with Candid profile links, mission focus, and transparency seal details.
 
@@ -49,9 +61,7 @@ Claude searches with location and subject filters, returning matching foundation
 
 What are the latest trends in climate philanthropy?
 
-
-
-Open in Claude
+Open in Claude
 
 Claude searches Candid's knowledge base for recent articles and research, links mentioned organizations, and synthesizes findings.
 
@@ -59,9 +69,7 @@ Claude searches Candid's knowledge base for recent articles and research, links 
 
 Find nonprofits working on food access in Seattle that are highly transparent.
 
-
-
-Open in Claude
+Open in Claude
 
 Claude identifies the geographic area, relevant taxonomy terms, and filters by location, subject, and transparency seals.
 
@@ -69,9 +77,7 @@ Claude identifies the geographic area, relevant taxonomy terms, and filters by l
 
 I'm new to grant writing. What are best practices?
 
-
-
-Open in Claude
+Open in Claude
 
 Claude searches Candid's learning and help sources for expert guidance, training materials, and relevant articles.
 
@@ -130,3 +136,12 @@ Try searching by EIN, alternate names or acronyms, or broadening your search ter
 * Search queries are used only to retrieve relevant results
 
 For Candid-specific questions, email [partnerships@candid.org(opens in new tab)](mailto:partnerships@candid.org).
+
+* [What this connector provides](#what-this-connector-provides)
+* [Who can use this](#who-can-use-this)
+* [Setting up the connector](#setting-up-the-connector)
+* [Example use cases](#example-use-cases)
+* [Tips for best results](#tips-for-best-results)
+* [Understanding seals of transparency](#understanding-seals-of-transparency)
+* [Frequently asked questions](#frequently-asked-questions)
+* [Privacy and data usage](#privacy-and-data-usage)

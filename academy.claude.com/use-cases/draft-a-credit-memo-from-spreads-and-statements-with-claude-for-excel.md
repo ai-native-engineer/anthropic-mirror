@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Draft a credit memo from spreads and statements with Claude for Excel
+
+Cowork pulls the borrower's filings and spreads through the S&P Global connector and reads the underwriting workbook from your deal folder. You take the ratios and exceptions into Claude for Excel to update the model, then bring the writeup into Claude for Word for the credit memo.
+
+15 minFinanceClaude Cowork
+
+Try in CoworkCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-drgxov36.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kgukvwpv.png)
+
 ![Draft a credit memo from spreads and statements with Claude for Excel result](https://academy.claude.com/assets/v1/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel-n3ph4xl2.png)
 
 ## 1. Describe the task
@@ -21,9 +35,7 @@ Steps:
 
 Show me the exceptions before I touch anything.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## 2. Give Claude context
 
@@ -37,9 +49,9 @@ Attach the deal folder with the underwriting workbook. Enable the S&P Global con
 
 S&P Global
 
-[Connect](https://claude.ai/desktop/directory/s-p-global)
+[Connect](https://claude.ai/desktop/directory/s-p-global)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
+Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
 Deal folder
 
@@ -47,7 +59,7 @@ Acme spread workbook
 
 Credit memo template
 
-In Cowork’s chat bar:Deal folder
+In Cowork’s chat bar:Deal folder
 
 ## 3. What Claude creates
 
@@ -76,7 +88,7 @@ FY25 spread done. FCCR at 1.18x fails 1.20x — driver is the equipment lease. W
 
 Also flag Assumptions!B22 — my 8% growth is above the 4-6% the borrower guided to. Show me what base/downside looks like at their range.
 
-Copy prompt
+Copy prompt
 
 Once you've signed off on the spread, open the memo template in Claude for Word. The conversation carries from Excel, so the memo draft already knows which ratios flipped and which exceptions need committee narrative.
 
@@ -90,9 +102,7 @@ In Cowork, ask what's moved since the last credit cycle.
 
 what changed vs. the FY24 review — leverage, coverage, working capital
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Pressure-test an assumption against the call
 
@@ -100,9 +110,7 @@ See if anything in the borrower's own commentary should move a cell.
 
 is my 8% FY26 growth too rich? what did the borrower actually say about the pipeline in their Q4 narrative
 
-
-
-Open in Cowork
+Open in Cowork
 
 ### Build the downside case
 
@@ -110,7 +118,7 @@ In Claude for Excel, once you've signed off on the base.
 
 build me a downside scenario in a new tab — revenue down 10%, gross margin down 200bp, hold opex flat. show me where covenants break
 
-Copy prompt
+Copy prompt
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -145,4 +153,11 @@ Steps:
 
 Show me the exceptions before I touch anything.
 
-Try in Cowork
+Try in Cowork
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

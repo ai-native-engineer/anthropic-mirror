@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model -->
 
-Lesson 3 of 13 · Claude Platform 101Choosing the right model
+Lesson 3 of 13 · Claude Platform 101Choosing the right model
 
-Loading
+3. /[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+[Claude Platform 101](https://academy.claude.com/courses/claude-platform-101)
+
+# Choosing the right model
+
+Lesson 35 min
 
 Choosing the right model
 
@@ -14,8 +20,6 @@ picking the right one affects both **quality** and **cost**.
 ## The model tiers
 
 Anthropic currently offers four model tiers, and you choose between them with the `model` parameter in your API call.
-
-
 
 *Note that Claude Fable 5 has been generally available since June 9, 2026,
 but is not reflected in the video above. Learn more about Claude
@@ -46,7 +50,7 @@ Then work your way up the tiers:
 
 Let's see the difference between the tiers, not just talk about it. We'll send the same prompt through all three models and watch the latency and token counts:
 
-python
+python
 
 ```
 models = ["claude-haiku-4-5", "claude-sonnet-5", "claude-opus-5"]
@@ -88,3 +92,47 @@ One queue, three models, picked per task.
 * Run the eval from Haiku upward and stop at the cheapest model whose output you'd actually ship.
 * `response.usage` reports input and output tokens, which is what your bill is based on.
 * In production, route different tasks to different models inside the same endpoint instead of picking one model for everything.
+
+[Previous lessonYour first API call](https://academy.claude.com/courses/claude-platform-101/your-first-api-call)[Next lessonThe agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)
+
+Lesson 3 of 13 · Claude Platform 101Choosing the right model
+
+What is the Claude Platform?
+
+* [What is the Claude Platform?](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)
+* [Your first API call](https://academy.claude.com/courses/claude-platform-101/your-first-api-call)
+* [Choosing the right model](https://academy.claude.com/courses/claude-platform-101/choosing-the-right-model)
+
+Teaching your agent
+
+* [The agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)
+* [What is tool use?](https://academy.claude.com/courses/claude-platform-101/what-is-tool-use)
+* [What is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)
+
+Extending your agent
+
+* [Built-in tools](https://academy.claude.com/courses/claude-platform-101/built-in-tools)
+* [Skills](https://academy.claude.com/courses/claude-platform-101/skills)
+* [MCP](https://academy.claude.com/courses/claude-platform-101/mcp)
+* [Context management](https://academy.claude.com/courses/claude-platform-101/context-management)
+
+Managed Agents
+
+* [What are managed agents?](https://academy.claude.com/courses/claude-platform-101/what-are-managed-agents)
+* [Building your first managed agent](https://academy.claude.com/courses/claude-platform-101/building-your-first-managed-agent)
+
+Building with Claude Code
+
+* [Building with Claude Code](https://academy.claude.com/courses/claude-platform-101/building-with-claude-code)
+
+Quiz
+
+* [Claude Platform 101 quizQuiz](https://academy.claude.com/courses/claude-platform-101/claude-platform-101-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/claude-platform-101/badge)
+
+* [The model tiers](#the-model-tiers)
+* [Start with a simple evaluation](#start-with-a-simple-evaluation)
+* [Comparing the tiers side by side](#comparing-the-tiers-side-by-side)
+* [Routing different work to different models](#routing-different-work-to-different-models)
+* [Recap](#recap)

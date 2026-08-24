@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Claude for nonprofits partnership success guide for admins
+
+A phased implementation framework to help nonprofit admins launch, scale, and sustain Claude adoption across their organization.
+
+4 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-obam6bfm.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-l6k10vcr.png)
+
 Welcome to the Claude for nonprofits community. This guide provides everything you need to successfully launch and scale Claude at your organization.
 
 The framework below is flexible and self-paced. Move through the phases at whatever speed works for your team.
@@ -46,9 +60,7 @@ The framework below is flexible and self-paced. Move through the phases at whate
 
   Help me design a 30-day pilot plan for introducing Claude to our fundraising team. Include milestones, success metrics, and potential challenges.
 
-  
-
-  Open in Claude
+  Open in Claude
 * Send baseline surveys to track progress and use cases
 
 ## Phase 3: Acceleration (scaling and integration)
@@ -89,3 +101,8 @@ The framework below is flexible and self-paced. Move through the phases at whate
 Sustainable adoption means building internal expertise. As AI becomes embedded in role expectations rather than remaining optional, your trained champions become the peer support network that scales organizational impact.
 
 *Note: There's no "right" timeline for implementation. Whether you're moving quickly toward organization-wide adoption or taking a measured, department-specific approach, we're here to support your journey.*
+
+* [Phase 1: Foundation (technical setup and access)](#phase-1-foundation-technical-setup-and-access)
+* [Phase 2: Activation (first users and early wins)](#phase-2-activation-first-users-and-early-wins)
+* [Phase 3: Acceleration (scaling and integration)](#phase-3-acceleration-scaling-and-integration)
+* [Phase 4: Expansion (advanced use cases and impact)](#phase-4-expansion-advanced-use-cases-and-impact)

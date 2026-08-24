@@ -1,5 +1,17 @@
 <!-- source: https://academy.claude.com/tutorials/getting-good-at-claude-a-research-backed-curriculum -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Getting good at Claude: A research-backed curriculum
+
+What research shows about how people get better at working with Claude, and a curriculum model you can adapt for your organization.
+
+6 min
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-fibnfxv4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ov8b09q9.png)
+
 When we launched the [AI Fluency Index(opens in new tab)](https://www.anthropic.com/research/AI-fluency-index), we wanted to understand how people get better at working with Claude over time. The early data came from Chat, and it told a consistent story: fluency develops along two tracks that behave very differently. Some skills grow naturally with practice, and others require deliberate, repeated teaching. That finding shaped how we think about onboarding and in-product learning, and it gave organizations a starting point for building their own Claude training.
 
 Since then, we've extended the Index to Claude Code and Claude Cowork, bringing the total to over 50,000 conversations across the 11 behavioral AI fluency indicators. Fluency has a shared structure across all three surfaces, but each product has its own entry point. What "getting good at Claude" looks like depends on which Claude you're using, and if you're responsible for helping a team build fluency, that distinction matters for what you teach first.
@@ -81,3 +93,9 @@ Signature move: **clarify the goal**. Writing a brief that names what you need b
 The AI Fluency Index continues to track these patterns monthly, and we'll keep publishing what we learn as the products evolve and the dataset grows. If you're building Claude training for your organization and want to ground it in this research, the [AI Fluency framework and courseware(opens in new tab)](https://academy.claude.com/collections/ai-fluency) are freely available, and you can [sign up for the AI Fluency newsletter(opens in new tab)](https://academy.claude.com/collections/ai-fluency#newsletter) to get notified about new research on AI fluency.
 
 We're particularly interested in hearing from teams experimenting with Discernment instruction on agentic surfaces, since that's where the data suggests the biggest gap between what users do naturally and what good practice requires. If you're running something along those lines, we'd love to learn from it.
+
+* [Each product has a signature move](#each-product-has-a-signature-move)
+* [The Description spectrum develops with practice](#the-description-spectrum-develops-with-practice)
+* [The Discernment spiral has to be taught](#the-discernment-spiral-has-to-be-taught)
+* [A simple curriculum model](#a-simple-curriculum-model)
+* [Where to go from here](#where-to-go-from-here)

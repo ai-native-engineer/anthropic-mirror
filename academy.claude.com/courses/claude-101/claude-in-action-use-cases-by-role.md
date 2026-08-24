@@ -1,6 +1,19 @@
 <!-- source: https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role -->
 
-Lesson 11 of 13 · Claude 101Claude in action: use-cases by role
+Lesson 11 of 13 · Claude 101Claude in action: use-cases by role
+
+3. /[Claude 101](https://academy.claude.com/courses/claude-101)
+
+[Claude 101](https://academy.claude.com/courses/claude-101)
+
+# Claude in action: use-cases by role
+
+Lesson 112 min
+
+In this lessonBy the end, you’ll be able to
+
+* Describe 2-3 use-cases for claude.ai that you can try right away
+* Know where to go to find additional use-case inspiration
 
 No matter what you do, Claude can help streamline your work. This lesson highlights practical use cases organized by role, so you can see how Claude applies to your specific work context.
 
@@ -63,3 +76,48 @@ These examples are just the beginning. Visit the [Use Case Gallery(opens in new 
 ## What's next
 
 In our final module, you'll meet a few more ways to work with Claude — including Claude Code, Claude Tag, Claude Design, Claude for Microsoft 365, and Claude in Chrome — each tailored to where the work actually happens.
+
+[Previous lessonResearch for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)[Next lessonOther ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Lesson 11 of 13 · Claude 101Claude in action: use-cases by role
+
+Meet Claude
+
+* [What is Claude?](https://academy.claude.com/courses/claude-101/what-is-claude)
+* [Your first conversation with Claude](https://academy.claude.com/courses/claude-101/your-first-conversation-with-claude)
+* [Getting better results](https://academy.claude.com/courses/claude-101/getting-better-results)
+* [How you'll work with Claude on your desktop](https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code)
+
+Organizing your work and knowledge
+
+* [Introduction to projects](https://academy.claude.com/courses/claude-101/introduction-to-projects)
+* [Creating with artifacts](https://academy.claude.com/courses/claude-101/creating-with-artifacts)
+* [Working with skills](https://academy.claude.com/courses/claude-101/working-with-skills)
+
+Expanding Claude's reach
+
+* [Connecting your tools](https://academy.claude.com/courses/claude-101/connecting-your-tools)
+* [Enterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
+* [Research for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)
+
+Putting it all together
+
+* [Claude in action: use-cases by role](https://academy.claude.com/courses/claude-101/claude-in-action-use-cases-by-role)
+* [Other ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
+
+Conclusion & badge
+
+* [What's next?](https://academy.claude.com/courses/claude-101/what-s-next)
+* [Course quizQuiz](https://academy.claude.com/courses/claude-101/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/claude-101/badge)
+
+* [General professional use](#general-professional-use)
+* [Sales](#sales)
+* [Marketing](#marketing)
+* [Finance](#finance)
+* [HR](#hr)
+* [Legal](#legal)
+* [Research](#research)
+* [Explore more](#explore-more)
+* [What's next](#whats-next)

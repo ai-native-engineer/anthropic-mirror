@@ -1,10 +1,23 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills -->
 
-Lesson 1 of 6 · Introduction to agent skillsWhat are skills?
+Lesson 1 of 6 · Introduction to agent skillsWhat are skills?
+
+3. /[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+[Introduction to agent skills](https://academy.claude.com/courses/introduction-to-agent-skills)
+
+# What are skills?
+
+Lesson 19 min
+
+In this lessonBy the end, you’ll be able to
+
+* Define what Claude Code skills are and how they work
+* Explain where skills live (personal vs. project directories)
+* Distinguish between skills, CLAUDE.md, and slash commands
+* Identify scenarios where skills are the right customization tool
 
 ## What are skills?
-
-Loading
 
 What are skills? · 3 min
 
@@ -37,7 +50,7 @@ The description is how Claude decides whether to use the skill. When you ask Cla
 
 Here's what a skill's frontmatter looks like:
 
-yaml
+yaml
 
 ```
 ---
@@ -91,3 +104,27 @@ The rule of thumb is simple: if you find yourself explaining the same thing to C
 ## What's next
 
 In the next lesson, you'll create your first skill from scratch and learn how Claude Code discovers, matches, and loads skills behind the scenes.
+
+[Next lessonCreating your first skill](https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill)
+
+Lesson 1 of 6 · Introduction to agent skillsWhat are skills?
+
+Lessons
+
+* [What are skills?](https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills)
+* [Creating your first skill](https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill)
+* [Configuration and multi-file skills](https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills)
+* [Skills vs. other Claude Code features](https://academy.claude.com/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features)
+* [Sharing skills](https://academy.claude.com/courses/introduction-to-agent-skills/sharing-skills)
+* [Troubleshooting skills](https://academy.claude.com/courses/introduction-to-agent-skills/troubleshooting-skills)
+
+* [Course complete](https://academy.claude.com/courses/introduction-to-agent-skills/complete)
+
+* [What are skills?](#what-are-skills)
+* [Key takeaways](#key-takeaways)
+* [What Skills Are](#what-skills-are)
+* [Where Skills Live](#where-skills-live)
+* [Skills vs. CLAUDE.md vs. Slash Commands](#skills-vs-claudemd-vs-slash-commands)
+* [When to Use Skills](#when-to-use-skills)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

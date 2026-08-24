@@ -1,6 +1,18 @@
 <!-- source: https://academy.claude.com/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude -->
 
-Loading
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Apply a formula as you learn it
+
+Claude builds a blank scatter right in the conversation — you place the points, drag them, watch what happens to the fit. For when you can do the calculation but don't yet have a feel for it.
+
+15 minEducationClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-f7xyt41z.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-f02w418q.png)
 
 ## 1. Describe the task
 
@@ -10,9 +22,7 @@ Here a stats student can do the calculation but doesn't have a sense of why a si
 
 I'm learning linear regression and I can do the formula but I don't get it. Can you give me something where I can mess with the data points myself and watch what happens to the line? I want to actually feel why one weird point can throw the whole thing off. Can you help me visualize?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -38,9 +48,7 @@ Something you noticed while dragging raises a question — ask for the math behi
 
 The influence halo grew when I moved the point sideways but barely changed when I moved it up. Show me the leverage formula and where horizontal distance shows up in it.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to overlay a second thing on the same canvas
 
@@ -48,9 +56,7 @@ Ask Claude to overlay a second thing on the canvas you built — both stay visib
 
 Overlay a robust regression on the same points I made. I want to drag the outlier and watch both lines move.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Ask Claude to turn the canvas into a prediction test
 
@@ -58,9 +64,7 @@ Claude generates test scatters, you predict what happens before dragging, and it
 
 Give me a few test patterns — show me a scatter and ask me to predict what one outlier will do before I drag it.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -82,4 +86,11 @@ Try it on any formula you can do but don't yet have a feel for — regression, p
 
 I'm learning linear regression and I can do the formula but I don't get it. Can you give me something where I can mess with the data points myself and watch what happens to the line? I want to actually feel why one weird point can throw the whole thing off. Can you help me visualize?
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

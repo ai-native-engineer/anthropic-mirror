@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/clean-up-promotional-emails -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Clean up promotional emails
+
+Claude in Chrome can scan your inbox, identify promotional and marketing emails, and flag them for your review. You decide what to delete in bulk rather than clicking through one by one.
+
+15 minClaude in Chrome
+
+Get Claude in ChromeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-kwid434h.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oxk6j3m6.png)
+
 ![Clean up promotional emails result](https://academy.claude.com/assets/v1/clean-up-promotional-emails-cmtrslyu.png)
 
 ## 1. Describe the task
@@ -25,7 +39,7 @@ Find emails I likely don't need so I can review and bulk delete.
 
 **Output:** Show me the list organized by sender so I can review before deleting.
 
-Copy prompt
+Copy prompt
 
 ## 2. Give Claude context
 
@@ -85,7 +99,7 @@ Keep certain senders or categories, then confirm the deletion.
 
 Keep Morning Brew and the Figma updates. Delete everything else.
 
-Copy prompt
+Copy prompt
 
 ### Unsubscribe from unwanted messages
 
@@ -93,7 +107,7 @@ For senders that keep filling your inbox, have Claude unsubscribe instead of jus
 
 For the retailers with more than 15 emails, go through and unsubscribe me instead of just deleting. I don't want to continue receiving these messages.
 
-Copy prompt
+Copy prompt
 
 ### Flag subscription emails you may have missed
 
@@ -101,7 +115,7 @@ While scanning emails, Claude can spot receipts and payment confirmations from s
 
 While you're in there, can you find any recurring payment emails? I want to see which subscriptions I'm paying for and see if there are some I forgot to cancel.
 
-Copy prompt
+Copy prompt
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -123,4 +137,11 @@ Claude keeps scanning even when you switch to other tabs—as long as Chrome is 
 
 Find emails I likely don't need so I can review and bulk delete.
 
-Get Claude in Chrome
+Get Claude in Chrome
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

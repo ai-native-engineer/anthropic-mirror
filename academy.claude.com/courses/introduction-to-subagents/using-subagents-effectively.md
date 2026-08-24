@@ -1,8 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-subagents/using-subagents-effectively -->
 
-Lesson 4 of 4 · Introduction to subagentsUsing subagents effectively
+Lesson 4 of 4 · Introduction to subagentsUsing subagents effectively
 
-Loading
+3. /[Introduction to subagents](https://academy.claude.com/courses/introduction-to-subagents)
+
+[Introduction to subagents](https://academy.claude.com/courses/introduction-to-subagents)
+
+# Using subagents effectively
+
+Lesson 410 min
 
 Using subagents effectively
 
@@ -33,8 +39,6 @@ A research subagent can read dozens of files, trace through function calls, and 
 JWT validation happens in middleware/auth.js line 42,
 called from the Express router in route/api.js
 ```
-
-
 
 The subagent did the heavy lifting. Your main thread gets exactly what it needs to move forward.
 
@@ -86,3 +90,23 @@ Avoid subagents for:
 * "Expert" personas that don't add real capability
 * Multi-step pipelines where each step depends on the last
 * Running tests where you need full output for debugging
+
+[Previous lessonDesigning effective subagents](https://academy.claude.com/courses/introduction-to-subagents/designing-effective-subagents)[Up nextCourse complete](https://academy.claude.com/courses/introduction-to-subagents/complete)
+
+Lesson 4 of 4 · Introduction to subagentsUsing subagents effectively
+
+Lessons
+
+* [What are subagents?](https://academy.claude.com/courses/introduction-to-subagents/what-are-subagents)
+* [Creating a subagent](https://academy.claude.com/courses/introduction-to-subagents/creating-a-subagent)
+* [Designing effective subagents](https://academy.claude.com/courses/introduction-to-subagents/designing-effective-subagents)
+* [Using subagents effectively](https://academy.claude.com/courses/introduction-to-subagents/using-subagents-effectively)
+
+* [Course complete](https://academy.claude.com/courses/introduction-to-subagents/complete)
+
+* [When subagents shine](#when-subagents-shine)
+* [Research tasks](#research-tasks)
+* [Code Reviews](#code-reviews)
+* [Custom System Prompts](#custom-system-prompts)
+* [When Subagents Hurt](#when-subagents-hurt)
+* [The Decision Rule](#the-decision-rule)

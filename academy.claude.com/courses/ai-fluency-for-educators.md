@@ -1,15 +1,27 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-educators -->
 
-4 lessons · 1 quizAI Fluency for educators
+[Courses](https://academy.claude.com/courses)
+
+# AI Fluency for educators
+
+Helps faculty, instructional designers, and education leaders apply the 4D AI Fluency framework to course design, learning materials, and teaching practice.
+
+4 lessons1.5 hr1 quizCompletion badge
+
+[Start course](https://academy.claude.com/courses/ai-fluency-for-educators/introduction-to-ai-fluency-for-educators)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-educators)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-jz02ndah.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gzpg2ube.png)
+
+4 lessons · 1 quizAI Fluency for educators
 
 What you’ll learnBy the end of this course, you’ll be able to
 
-* Explain how the 4Ds of the AI Fluency Framework (Delegation, Description, Discernment, Diligence) apply to teaching practice
-* Build a reusable teaching context document that captures your pedagogical values, constraints, and student profile
-* Apply the 4Ds to identify essential course content, map the learning journey, and articulate measurable learning objectives
-* Create lecture slides, study guides, in-class exercises, and assessments through AI collaboration grounded in your established context
-* Use the Description-Discernment loop to evaluate and refine AI-generated materials against your students' needs
-* Practice Diligence by verifying accuracy, documenting AI's role, and maintaining academic integrity in AI-assisted course development
+* Explain how the 4Ds of the AI Fluency Framework (Delegation, Description, Discernment, Diligence) apply to teaching practice
+* Build a reusable teaching context document that captures your pedagogical values, constraints, and student profile
+* Apply the 4Ds to identify essential course content, map the learning journey, and articulate measurable learning objectives
+* Create lecture slides, study guides, in-class exercises, and assessments through AI collaboration grounded in your established context
+* Use the Description-Discernment loop to evaluate and refine AI-generated materials against your students' needs
+* Practice Diligence by verifying accuracy, documenting AI's role, and maintaining academic integrity in AI-assisted course development
 
 At Anthropic, we believe that empowering people with AI, and ensuring that AI makes safe contributions to society, requires engaging with a wide range of human perspectives and experiences. Responsible AI development and engagement isn't something any single discipline or viewpoint can fully address. It demands collaborative approaches that span a wide range of technical, creative, business, scientific, and educational domains. That's why we partnered with educators who bring complementary expertise to create this course on AI collaboration for educators.
 
@@ -52,3 +64,19 @@ A summary of Delegation, Description, Discernment, and Diligence applied to stud
 Applying the 4D framework to course design and learning materials.
 
 ![](https://academy.claude.com/assets/media/24eac18c37b93452f6218d47c314f400b1d9d9fb905df9d7ab5a7ffaf9ef24a3.webp)![](https://academy.claude.com/assets/media/59c69fd995e020bf589474631c9c9e46bfcc12770fb2c1f54e4055564e3bcbf6.webp)![](https://academy.claude.com/assets/media/19f4fe9750ebd2d8ecc763d546ec917e8c16c3c44d9644d243bcb1b2d0703e82.webp)
+
+Introduction and AI Fluency Framework
+
+* [Introduction to AI Fluency for Educators](https://academy.claude.com/courses/ai-fluency-for-educators/introduction-to-ai-fluency-for-educators)
+* [AI Fluency Framework review](https://academy.claude.com/courses/ai-fluency-for-educators/ai-fluency-framework-review)
+
+AI Fluency applications for educators
+
+* [Applying AI Fluency to course design and learning outcomes](https://academy.claude.com/courses/ai-fluency-for-educators/applying-ai-fluency-to-course-design-and-learning-outcomes)
+* [Applying AI Fluency to learning materials and assignments](https://academy.claude.com/courses/ai-fluency-for-educators/applying-ai-fluency-to-learning-materials-and-assignments)
+
+Conclusion & badge
+
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-educators/certificate-of-completion)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-educators/badge)

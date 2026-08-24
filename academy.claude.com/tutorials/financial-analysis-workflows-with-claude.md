@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/financial-analysis-workflows-with-claude -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Financial analysis workflows with Claude
+
+Learn complete financial analysis workflows using a three-phase approach: retrieving data, analyzing information, and creating professional deliverables.
+
+20 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.dark-frqerjry.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-frqerjry.png)
+
 This article demonstrates how to use Claude for complete financial analysis workflows, from data retrieval through final deliverables. Each workflow follows a three-phase approach: retrieving data from integrated sources, analyzing the information to generate insights, and creating professional outputs for decision-making.
 
 ## Understanding the Workflow Approach
@@ -33,17 +47,13 @@ Begin by gathering comprehensive financial data from multiple sources. Start wit
 
 Using Daloopa, retrieve Microsoft's revenue, operating margins, and free cash flow for the last 12 quarters. Also pull segment revenue breakdowns for the same period.
 
-
-
-Open in Claude
+Open in Claude
 
 This retrieval provides the core financial metrics needed to assess operational performance and cash generation. The segment data reveals which business units drive growth and profitability. After retrieving fundamental data, gather valuation perspectives:
 
 Using S&P Global data, identify Microsoft's main competitors from SEC filings and retrieve their revenue growth and operating margins for comparison. Also pull Microsoft's key business relationships including major customers and strategic partners.
 
-
-
-Open in Claude
+Open in Claude
 
 Combining data from multiple sources provides both quantitative metrics and competitive context. Daloopa supplies the raw financial data while S&P Global adds competitive positioning through peer comparisons and business relationship mapping.
 
@@ -53,9 +63,7 @@ With data retrieved, move to analysis that transforms raw numbers into insights:
 
 Analyze the trends in Microsoft's cloud segment growth versus overall company growth. Calculate the free cash flow conversion rate and compare margins to the prior year. Also compare Microsoft's revenue growth and margins against the competitors we identified to assess relative performance. Identify any notable changes in segment mix and flag any customer concentration risks from the business relationships data.
 
-
-
-Open in Claude
+Open in Claude
 
 Claude processes the retrieved data to identify patterns and calculate key ratios. The analysis reveals whether cloud services are becoming a larger portion of the business, how efficiently the company converts earnings to cash, and whether profitability is improving or declining.
 
@@ -67,9 +75,7 @@ Transform your analysis into a professional investment memo:
 
 Create a 2-page investment memo for Microsoft including: executive summary with investment recommendation, business overview with segment analysis, financial performance highlighting the trends we identified, valuation using fair value compared to current price, and key risks. Format as a Word document.
 
-
-
-Open in Claude
+Open in Claude
 
 The resulting memo synthesizes all previous analysis into a structured document.
 
@@ -87,17 +93,13 @@ Start by gathering comparable metrics across your peer group:
 
 Using S&P Global, retrieve market cap, P/E ratios, revenue growth, and EBITDA margins for these 3 SaaS companies: CRM, NOW, and DOCU for the last fiscal year.
 
-
-
-Open in Claude
+Open in Claude
 
 This establishes the baseline comparison metrics. Market cap provides size context, P/E ratios show relative valuation, revenue growth indicates momentum, and EBITDA margins reveal operational efficiency. After establishing the snapshot view, gather trend data:
 
 Also get their quarterly revenue for the last 8 quarters to analyze growth consistency.
 
-
-
-Open in Claude
+Open in Claude
 
 The quarterly data reveals whether growth is accelerating, decelerating, or remaining steady. This helps distinguish between companies with sustainable growth versus those experiencing temporary momentum.
 
@@ -107,9 +109,7 @@ Process the data to identify relative attractiveness:
 
 Rank these companies by revenue growth and margin expansion. Calculate the PEG ratio for each. Identify which companies are gaining market share based on relative growth rates. Flag any companies with declining margins.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Phase 3: Create
 
@@ -117,11 +117,7 @@ Transform the comparative analysis into a presentation:
 
 Create a PowerPoint presentation with 6 slides: title slide, market overview with sector growth, comparative metrics table ranking all the companies, growth trajectory charts showing quarterly revenue trends, valuation comparison with P/E and PEG ratios, and investment recommendation slide highlighting the most attractive opportunity.
 
-
-
-Open in Claude
-
-
+Open in Claude
 
 Note
 
@@ -139,9 +135,7 @@ Gather performance and fundamental data for all holdings:
 
 Using FactSet, retrieve the following for my technology holdings (MSFT, AAPL): total returns for 1-month, 3-month, YTD and 1-year periods, current price and 52-week high/low, latest quarterly revenue and earnings with year-over-year growth rates, forward P/E ratios and consensus analyst ratings, and any recent earnings surprises. These holdings represent 60% of my portfolio with initial investments made in Q1 2024.
 
-
-
-Open in Claude
+Open in Claude
 
 This provides data spanning performance metrics, valuation multiples, fundamental growth indicators, and forward-looking analyst sentiment.
 
@@ -151,9 +145,7 @@ Perform portfolio-level and position-level analysis:
 
 Calculate the weighted average portfolio return based on position sizes for each time period. Compare each holding's total return against the NASDAQ-100 index returns. Rank holdings by YTD performance and identify any laggards. Calculate which positions have beaten or missed earnings expectations in the last quarter. Assess relative valuation by comparing each stock's forward P/E to its 5-year average.
 
-
-
-Open in Claude
+Open in Claude
 
 This analysis provides multiple perspectives: weighted returns show overall portfolio performance across different time horizons, benchmark comparison reveals alpha generation, earnings surprise analysis indicates execution quality, and valuation assessment identifies potential rebalancing candidates.
 
@@ -163,9 +155,7 @@ Generate an interactive dashboard for the portfolio review:
 
 Create an interactive artifact showing: portfolio summary with weighted returns for each period and performance versus benchmark, individual position cards showing total return, consensus rating, forward P/E, and recent earnings surprise, a waterfall chart showing each position's contribution to total portfolio return, and a scatter plot comparing YTD returns against forward P/E ratios to identify value opportunities. Include drill-down capability for each holding to see detailed performance metrics.
 
-
-
-Open in Claude
+Open in Claude
 
 [Artifacts can be shared(opens in new tab)](https://support.claude.com/en/articles/9547008-discovering-publishing-customizing-and-sharing-artifacts#h_264285dcf3) with other members of your organization. The interactive nature allows stakeholders to explore the data without requiring multiple static reports.
 
@@ -175,3 +165,9 @@ Create an interactive artifact showing: portfolio summary with weighted returns 
 * See [Prompting Strategies for Financial Analysis(opens in new tab)](https://support.claude.com/en/articles/12220277-prompting-strategies-for-financial-analysis) for techniques to optimize your workflows.
 * Test workflows with smaller datasets before scaling to full analyses.
 * Save successful prompt sequences as templates for recurring analyses.
+
+* [Understanding the Workflow Approach](#understanding-the-workflow-approach)
+* [Workflow 1: Single Company Investment Memo](#workflow-1-single-company-investment-memo)
+* [Workflow 2: Competitive Analysis Presentation](#workflow-2-competitive-analysis-presentation)
+* [Workflow 3: Portfolio Performance Review](#workflow-3-portfolio-performance-review)
+* [Next Steps](#next-steps)

@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/how-to-build-a-plugin-from-scratch-in-cowork -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# How to build a plugin from scratch in Claude Cowork
+
+Build a Claude Cowork plugin from scratch to encode your team's workflows, institutional knowledge, and tool connections into a repeatable, shareable process.
+
+15 minClaude Cowork
+
+[Open Cowork](claude://cowork/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-iyu8ose6.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jnwlc3r7.png)
+
 A Cowork plugin is a group of files that can teach Claude how to do a specific job — encoding your methodology, your workflows, your tool connections.
 
 Anthropic publishes [pre-built plugins(opens in new tab)](https://claude.com/plugins) for common roles like [Sales(opens in new tab)](https://claude.com/plugins/sales), [Finance(opens in new tab)](https://claude.com/plugins/finance), and [Legal(opens in new tab)](https://claude.com/plugins/legal). Customizing those with your company's context can help tailor the plugin to your needs. Building from scratch is for when your team has workflows, processes, or institutional knowledge that existing plugins don't cover.
@@ -44,9 +58,7 @@ A simpler start works too — Claude will follow up with questions about your wo
 
 I need a plugin for our customer success team
 
-
-
-Open in Cowork
+Open in Cowork
 
 ## What changes with a plugin
 
@@ -56,17 +68,13 @@ With detailed instructions, Claude can handle many of these workflows. A plugin 
 
 Here's our P&L. Materiality threshold is $25K. Decompose by price, volume, and mix. Check these GL accounts against the subledger. Format the JE with debits on top.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ###### **Without a plugin:** Claude can handle it, but restating your full close methodology every session is overhead that compounds, and the output might vary depending on who's giving Claude the instructions.
 
 `/monthly-close` North America
 
-
-
-Open in Cowork
+Open in Cowork
 
 ###### **With your plugin:** Skills load your chart of accounts, materiality thresholds, close calendar, and narrative standards. Connectors pull from your data warehouse. The skill runs the full process — a new analyst runs it and gets consistent rigor.
 
@@ -74,17 +82,13 @@ Here's our P&L. Materiality threshold is $25K. Decompose by price, volume, and m
 
 Pull usage data for Meridian Health from our analytics dashboard. Check for support escalations in the last 90 days. Compare their current contract against our pricing tiers. Score the renewal risk and flag expansion opportunities.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ###### **Without a plugin:** You're directing Claude to each source, restating your scoring criteria, and specifying the output format every time.
 
 `/renewal-score` Meridian Health
 
-
-
-Open in Cowork
+Open in Cowork
 
 ###### **With your plugin:** Skills hold your scoring criteria and competitive positioning. Connectors pull from your CRM and analytics dashboard. Claude scores the account and flags expansion opportunities — consistent quality whether a senior rep or a new hire runs it.
 
@@ -92,17 +96,13 @@ Pull usage data for Meridian Health from our analytics dashboard. Check for supp
 
 Review this vendor agreement. Our standard on indemnification is capped at 2x contract value. Flag auto-renewals over 12 months. Use GREEN/YELLOW/RED.
 
-
-
-Open in Cowork
+Open in Cowork
 
 ###### **Without a plugin:** This prompt covers a few checks on one contract. A full review applies dozens of standard positions across every clause type, and you'd need to restate all of them for each new agreement.
 
 `/due-diligence`
 
-
-
-Open in Cowork
+Open in Cowork
 
 ###### **With your plugin:** Skills hold your standard positions across every clause type and your severity classifications. A connector accesses the data room. Claude reviews every document against your playbook and produces a risk-rated summary.
 
@@ -127,3 +127,11 @@ Review this vendor agreement. Our standard on indemnification is capped at 2x co
 * [Getting started with Cowork(opens in new tab)](https://support.claude.com/en/articles/13345190-getting-started-with-cowork)
 * [Using plugins in Cowork(opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork)
 * [Browse plugins(opens in new tab)](https://claude.com/plugins)
+
+* [Why build from scratch](#why-build-from-scratch)
+* [What's inside a plugin](#whats-inside-a-plugin)
+* [How to create a plugin](#how-to-create-a-plugin)
+* [What changes with a plugin](#what-changes-with-a-plugin)
+* [Refining your plugin](#refining-your-plugin)
+* [Things to know](#things-to-know)
+* [Learn more](#learn-more)

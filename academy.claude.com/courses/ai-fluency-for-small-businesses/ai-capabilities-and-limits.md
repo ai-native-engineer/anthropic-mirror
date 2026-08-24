@@ -1,10 +1,22 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits -->
 
-Lesson 3 of 9 · AI Fluency for Small BusinessesAI capabilities and limitations
+Lesson 3 of 9 · AI Fluency for Small BusinessesAI capabilities and limitations
+
+3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+
+[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+
+# AI capabilities and limitations
+
+Lesson 325 min
+
+In this lessonBy the end, you’ll be able to
+
+* Define generative AI and how it differs from other AI types
+* Recognize the key characteristics and technological foundations of generative AI
+* Identify major capabilities and limitations of current generative AI
 
 ## What is generative AI?
-
-Loading
 
 AI capabilities and limitations · 12 min
 
@@ -62,3 +74,43 @@ Which capability from the video showed up most clearly in what you saw? Which li
 ## What's next
 
 Up next is a hands-on activity exploring how language models actually generate text to bring to life what you just learned.
+
+[Previous lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-small-businesses/the-4d-framework)[Next lessonExplore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
+
+Lesson 3 of 9 · AI Fluency for Small BusinessesAI capabilities and limitations
+
+Introduction and AI Fluency framework
+
+* [AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-fluency-for-small-businesses)
+* [The 4D Framework](https://academy.claude.com/courses/ai-fluency-for-small-businesses/the-4d-framework)
+
+How AI works
+
+* [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)
+* [Explore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
+
+The Description-Discernment loop
+
+* [Refining with AI](https://academy.claude.com/courses/ai-fluency-for-small-businesses/researching-with-ai)
+
+The Delegation-Diligence loop
+
+* [Transparent AI use](https://academy.claude.com/courses/ai-fluency-for-small-businesses/using-data-with-ai)
+
+Putting it all together
+
+* [Tying it all together](https://academy.claude.com/courses/ai-fluency-for-small-businesses/tying-it-all-together)
+* [Human in the loop](https://academy.claude.com/courses/ai-fluency-for-small-businesses/human-in-the-loop)
+
+Conclusion and badge
+
+* [Closure and looking forward](https://academy.claude.com/courses/ai-fluency-for-small-businesses/closure-and-looking-forward)
+* [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses/course-quiz)
+
+* [Completion badge](https://academy.claude.com/courses/ai-fluency-for-small-businesses/badge)
+
+* [What is generative AI?](#what-is-generative-ai)
+* [Key takeaways](#key-takeaways)
+* [Exercises](#exercises)
+* [Lesson reflection](#lesson-reflection)
+* [What's next](#whats-next)

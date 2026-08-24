@@ -1,6 +1,14 @@
 <!-- source: https://academy.claude.com/courses/introduction-to-model-context-protocol/prompts-in-the-client -->
 
-Lesson 9 of 10 · Introduction to Model Context ProtocolPrompts in the client
+Lesson 9 of 10 · Introduction to Model Context ProtocolPrompts in the client
+
+3. /[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)
+
+# Prompts in the client
+
+Lesson 97 min
 
 The final step in building our MCP client is implementing prompt functionality. This allows us to list all available prompts from the server and retrieve specific prompts with variables filled in.
 
@@ -8,7 +16,7 @@ The final step in building our MCP client is implementing prompt functionality. 
 
 The `list_prompts` method is straightforward. It calls the session's list prompts function and returns the prompts:
 
-python
+python
 
 ```
 async def list_prompts(self) -> list[types.Prompt]:
@@ -20,7 +28,7 @@ async def list_prompts(self) -> list[types.Prompt]:
 
 The `get_prompt` method is more interesting because it handles variable interpolation. When you request a prompt, you provide arguments that get passed to the prompt function as keyword arguments:
 
-python
+python
 
 ```
 async def get_prompt(self, prompt_name, args: dict[str, str]):
@@ -51,3 +59,37 @@ Prompts define a set of user and assistant messages that clients can use. They s
 * The function returns formatted messages ready for the AI model
 
 This system creates reusable, parameterized prompts that maintain consistency while allowing customization through variables. It's particularly useful for complex workflows where you want to ensure the AI receives properly structured instructions every time.
+
+[Previous lessonDefining prompts](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-prompts)[Next lessonFinal assessment on MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/final-assessment-on-mcp)
+
+Lesson 9 of 10 · Introduction to Model Context ProtocolPrompts in the client
+
+Introduction
+
+* [Introducing MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/introducing-mcp)
+* [MCP clients](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-clients)
+
+Hands-on with MCP servers
+
+* [Defining tools with MCP](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-tools-with-mcp)
+* [The server inspector](https://academy.claude.com/courses/introduction-to-model-context-protocol/the-server-inspector)
+
+Connecting with MCP clients
+
+* [Implementing a client](https://academy.claude.com/courses/introduction-to-model-context-protocol/implementing-a-client)
+* [Defining resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-resources)
+* [Accessing resources](https://academy.claude.com/courses/introduction-to-model-context-protocol/accessing-resources)
+* [Defining prompts](https://academy.claude.com/courses/introduction-to-model-context-protocol/defining-prompts)
+* [Prompts in the client](https://academy.claude.com/courses/introduction-to-model-context-protocol/prompts-in-the-client)
+
+Assessment and wrap Up
+
+* [Final assessment on MCPQuiz](https://academy.claude.com/courses/introduction-to-model-context-protocol/final-assessment-on-mcp)
+* [MCP review](https://academy.claude.com/courses/introduction-to-model-context-protocol/mcp-review)
+
+* [Completion badge](https://academy.claude.com/courses/introduction-to-model-context-protocol/badge)
+
+* [Implementing List Prompts](#implementing-list-prompts)
+* [Getting Individual Prompts](#getting-individual-prompts)
+* [Testing Prompts in Action](#testing-prompts-in-action)
+* [How Prompts Work](#how-prompts-work)

@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/thoughtful-gift-giving-with-claude -->
 
-![Thoughtful gift giving with Claude result](https://academy.claude.com/assets/v1/thoughtful-gift-giving-with-claude-cl8zpvlk.png)[Open artifact](https://claude.ai/public/artifacts/e42819cc-a031-405c-baa9-b62b59e1c06f)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Thoughtful gift giving with Claude
+
+Turn last-minute gift panic into thoughtful, personalized presents. Claude can suggest items, search your notes for forgotten hints, find specific products you can buy locally, and help you coordinate the actual shopping.
+
+15 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-m34zsad8.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-k5yy2xcp.png)
+
+![Thoughtful gift giving with Claude result](https://academy.claude.com/assets/v1/thoughtful-gift-giving-with-claude-cl8zpvlk.png)[Open artifact](https://claude.ai/public/artifacts/e42819cc-a031-405c-baa9-b62b59e1c06f)
 
 ## 1. Describe the task
 
@@ -16,9 +30,7 @@ I always forget stocking stuffers until the last minute and end up panic-buying 
 
 Can you put this together in a shopping list I can reference?
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -36,11 +48,11 @@ None.
 
 **Enable Extended Thinking**: For large families or complex gift logistics, Extended Thinking helps Claude consider constraints like budget limits, avoiding duplicates, and coordinating across multiple stores.
 
-[
+[
 
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
+Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
 
-Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)[
+Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)[
 
 connectors](https://support.claude.com/en/articles)
 
@@ -70,9 +82,7 @@ You've probably captured gift ideas throughout the year without realizing it. Cl
 
 Can you search through my notes and messages from the last few months? I feel like my wife mentioned a specific skincare brand she wanted to try, and I think my son texted me about some basketball shoes. Pull out anything that looks like a gift hint.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Find specific products you can actually buy
 
@@ -80,9 +90,7 @@ Move from general ideas to specific items with prices and availability. Claude c
 
 For the loose leaf tea sampler and the rechargeable hand warmers on my wife's list, can you search the web to find specific products under $25 that have good reviews? I'd prefer options I can pick up at stores near me this week, but show me online options too in case I need to order.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Let Claude interview you about someone you're stuck on
 
@@ -90,9 +98,7 @@ If you're drawing a blank on someone, let Claude ask the questions. Sometimes th
 
 I'm completely stuck on my brother-in-law. I don't know him that well and I never know what to get him. Can you interview me about him? Ask me questions that might help surface a good gift idea.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -126,4 +132,11 @@ I always forget stocking stuffers until the last minute and end up panic-buying 
 
 Can you put this together in a shopping list I can reference?
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

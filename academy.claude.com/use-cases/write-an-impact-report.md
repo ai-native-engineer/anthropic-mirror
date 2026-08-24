@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/use-cases/write-an-impact-report -->
 
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Write an impact report
+
+Turn raw program data and participant outcomes into compelling narratives with data visualizations, stakeholder-specific insights, and authentic success stories that demonstrate real impact.
+
+15 minClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-b4w1njar.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bf5vod0m.png)
+
 ![Write an impact report result](https://academy.claude.com/assets/v1/write-an-impact-report-hthtvr2i.png)
 
 ## 1. Describe the task
@@ -21,9 +35,7 @@ I'm the Program Director at Bright Futures Learning Center, a nonprofit providin
 
 Make this board-ready and donor-worthy. Use sophisticated design that matches the quality of professional nonprofit reports—this goes to foundation program officers who see dozens of these. Include charts and visual elements that make the data immediately clear. The tone should be confident about our achievements while staying authentic and mission-focused.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -75,9 +87,7 @@ Ensure a unified voice while tailoring your output for various audiences
 
 Create a foundation-focused version emphasizing measurable outcomes and cost-effectiveness, a donor version highlighting individual stories and community impact, and a board version with strategic insights and operational metrics.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Generate presentation materials
 
@@ -85,9 +95,7 @@ Convert this report into a 10-slide PowerPoint presentation for our board meetin
 
 Convert this report into a 10-slide PowerPoint presentation for our board meeting. Lead with impact, use visuals heavily, keep text minimal. Include the key data points but focus on story and achievement.
 
-
-
-Open in Claude
+Open in Claude
 
 ### Create social media content
 
@@ -95,9 +103,7 @@ Pull out compelling statistics for shareable social content.
 
 Pull out our 5-6 most compelling statistics and create social media posts. For each metric, write a short caption that explains why it matters. Make them shareable—the kind of content that helps donors understand our impact quickly.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -136,4 +142,11 @@ For the report, I need:
 
 Make this board-ready and donor-worthy. Use sophisticated design that matches the quality of professional nonprofit reports—this goes to foundation program officers who see dozens of these. Include charts and visual elements that make the data immediately clear. The tone should be confident about our achievements while staying authentic and mission-focused.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)

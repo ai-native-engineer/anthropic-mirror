@@ -1,5 +1,19 @@
 <!-- source: https://academy.claude.com/tutorials/using-factset-for-comprehensive-financial-research -->
 
+2. /[Tutorials](https://academy.claude.com/tutorials)
+
+[Tutorials](https://academy.claude.com/tutorials)
+
+# Using FactSet for comprehensive financial research
+
+Set up and use Claude's FactSet integration for institutional-grade financial analysis including pricing, fundamentals, estimates, M&A data, and ownership.
+
+15 minClaude.ai
+
+[Open Claude](https://claude.ai/new)
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-j8s9gw6x.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nkh1grv2.png)
+
 The FactSet integration is currently in early access; contact the FactSet team for additional details.
 
 The FactSet integration provides Claude with access to institutional-grade financial data and analytics used by investment professionals worldwide. This article explains how to set up and use FactSet data for financial analysis, including global pricing data, fundamental financials, analyst estimates, M&A transactions, ownership data, and executive information.
@@ -49,9 +63,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Using FactSet, create a complete analysis of Apple (AAPL) including 5-year price performance with total returns, latest quarterly fundamentals versus prior year, consensus estimates for next fiscal year, and recent insider transaction activity. Compare key metrics to Microsoft and Google as peer benchmarks.
 
-
-
-Open in Claude
+Open in Claude
 
 This request uses multiple FactSet datasets to build a complete equity research report. Claude retrieves historical pricing to show performance trends, pulls standardized fundamentals for year-over-year comparisons, incorporates forward-looking consensus estimates, and adds governance context through insider activity. The peer comparison ensures relative valuation context using FactSet's standardized metrics.
 
@@ -63,9 +75,7 @@ This request uses multiple FactSet datasets to build a complete equity research 
 
 Retrieve all M&A deals in the software sector over the past 24 months where deal value exceeded $1 billion. Include buyer, target, deal value, and completion status. Then identify which acquirers have been most active and their typical deal sizes.
 
-
-
-Open in Claude
+Open in Claude
 
 M&A analysis through FactSet shows consolidation patterns and strategic priorities in specific sectors. Claude retrieves transaction data filtered by industry, size, and time period, then analyzes patterns to identify serial acquirers, typical valuations, and preferred deal structures.
 
@@ -77,9 +87,7 @@ M&A analysis through FactSet shows consolidation patterns and strategic prioriti
 
 For the last 8 quarters, show me Netflix's reported EPS versus consensus estimates, calculating the surprise percentage and direction. Include the stock's price reaction in the 3 days following each announcement to understand how the market responded to surprises.
 
-
-
-Open in Claude
+Open in Claude
 
 Earnings surprise analysis combines FactSet's expectations data with actual reported results and subsequent price movements. Claude can identify whether companies beat or missed expectations and calculate the magnitude of the surprise. The integration provides historical earnings performance data alongside corresponding stock price changes, enabling analysis of earnings sensitivity patterns.
 
@@ -91,9 +99,7 @@ Earnings surprise analysis combines FactSet's expectations data with actual repo
 
 Show me the top 20 institutional holders of Tesla, their current positions, and changes over the last quarter. Also pull any insider transactions over $1 million in the past 6 months, noting whether executives were buying or selling.
 
-
-
-Open in Claude
+Open in Claude
 
 Claude retrieves institutional holdings data showing position sizes and changes by investment managers, mutual funds, and other institutional investors. The integration also tracks insider transactions, documenting when executives and directors buy or sell shares in their companies. These datasets show ownership changes over time, though institutional data typically reflects quarterly filing cycles rather than current positions.
 
@@ -105,9 +111,7 @@ Claude retrieves institutional holdings data showing position sizes and changes 
 
 Map NVIDIA's key suppliers, customers, and partners from FactSet's relationship data. Identify any concentration risks where a single relationship represents significant revenue exposure. Cross-reference with recent 10-K risk disclosures.
 
-
-
-Open in Claude
+Open in Claude
 
 Supply chain analysis through FactSet can show dependencies that may not be apparent from financial statements. This analysis can highlight risks, potential supply disruptions, and customer dependencies that could impact future performance.
 
@@ -122,3 +126,9 @@ Supply chain analysis through FactSet can show dependencies that may not be appa
 * Note that some data has reporting lags—ownership is quarterly, insider transactions have filing delays
 * For complex analyses, start with a subset of companies before expanding scope
 * Be aware that relationship and ownership data reflects disclosed information and may not be complete
+
+* [What This Integration Provides](#what-this-integration-provides)
+* [How Claude Uses FactSet Data](#how-claude-uses-factset-data)
+* [Setting up the FactSet integration](#setting-up-the-factset-integration)
+* [Common Use Cases](#common-use-cases)
+* [Tips for Using FactSet](#tips-for-using-factset)

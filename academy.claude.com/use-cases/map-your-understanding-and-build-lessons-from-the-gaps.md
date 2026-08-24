@@ -1,6 +1,20 @@
 <!-- source: https://academy.claude.com/use-cases/map-your-understanding-and-build-lessons-from-the-gaps -->
 
-![Map your understanding and build lessons from the gaps result](https://academy.claude.com/assets/v1/map-your-understanding-and-build-lessons-from-the-gaps-ercok7ub.png)[Open artifact](https://claude.ai/public/artifacts/1b11b592-ebc3-49c6-b1d3-5410b25d9666)
+2. /[Use cases](https://academy.claude.com/use-cases)
+
+[Use cases](https://academy.claude.com/use-cases)
+
+# Map your understanding and build lessons from the gaps
+
+Claude Opus 4.6 traces your confusion to its source. It maps what you already understand, finds the specific misconception underneath, and builds personalized learning experiences around it.
+
+20 minPersonalClaude.ai
+
+Try in ClaudeCopy prompt
+
+![](https://academy.claude.com/assets/v1/thumbnail.light-j58ju10h.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jg0eznj5.png)
+
+![Map your understanding and build lessons from the gaps result](https://academy.claude.com/assets/v1/map-your-understanding-and-build-lessons-from-the-gaps-ercok7ub.png)[Open artifact](https://claude.ai/public/artifacts/1b11b592-ebc3-49c6-b1d3-5410b25d9666)
 
 ## 1. Describe the task
 
@@ -12,9 +26,7 @@ I keep running into “Bayesian reasoning” in things I read—essays, podcasts
 
 Help me understand this. A good explanation is one I could redo with different numbers on my own, so check my reasoning as we go and I’ll tell you what lands and what doesn’t. Then build me an interactive lesson, a workbook I can use to audit which signals in my hiring pipeline actually predict success, and a concept map connecting it to what I’ll encounter next. I’ve attached our hiring pipeline export, applications through 12-month retention, so you can work from our real numbers.
 
-
-
-Open in Claude
+Open in Claude
 
 ## 2. Give Claude context
 
@@ -29,7 +41,7 @@ The diagnostic works from conversation alone. Files come in only when you want t
 * Your screening or pipeline data: CSV or XLSX with candidate records, interview scores, hiring decisions, and outcomes, or any data where you're using a signal to screen or sort a population
 * [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) gives Opus 4.6 space to think step by step before responding. For a task like this, where Claude needs to reason carefully about your knowledge structure to find a hidden misconception, that extra reasoning depth makes the diagnostic more precise. You can see Claude's thinking process as it works through the problem.
 
-[
+[
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
@@ -79,9 +91,7 @@ The workbook gives you the baseline. Push on the signal you most want to believe
 
 *Walk me through which interview criteria actually predict success once you factor in the base rates. I especially want to know about our new case study exercise—we added it in Q3 and our hire quality seems better. Is the case study a real signal or are we seeing what we want to see?*
 
-
-
-Open in Claude
+Open in Claude
 
 ### Keep working in your spreadsheet
 
@@ -89,7 +99,7 @@ Open the workbook in Excel and continue the analysis with [Claude in Excel(opens
 
 *I downloaded the signal audit workbook. Can you add a tab that checks whether any of our interview signals are redundant—measuring the same thing as another signal we already screen for? I want to cut the ones that aren’t adding new information.*
 
-Copy prompt
+Copy prompt
 
 ### Build a longer learning sequence
 
@@ -97,9 +107,7 @@ Work through the concept map one piece at a time. Opus 4.6 carries instructions 
 
 *Now that I understand base rates, I want to build out my understanding of the related concepts on the map—signal detection theory, information gain, and the prosecutor's fallacy. Can you create a learning sequence that covers them one at a time, with a workbook exercise for each?*
 
-
-
-Open in Claude
+Open in Claude
 
 ## 5. Tricks, tips, and troubleshooting
 
@@ -123,4 +131,11 @@ I keep running into “Bayesian reasoning” in things I read—essays, podcasts
 
 Help me understand this. A good explanation is one I could redo with different numbers on my own, so check my reasoning as we go and I’ll tell you what lands and what doesn’t. Then build me an interactive lesson, a workbook I can use to audit which signals in my hiring pipeline actually predict success, and a concept map connecting it to what I’ll encounter next. I’ve attached our hiring pipeline export, applications through 12-month retention, so you can work from our real numbers.
 
-Try in Claude
+Try in Claude
+
+* [1. Describe the task](#1-describe-the-task)
+* [2. Give Claude context](#2-give-claude-context)
+* [3. What Claude creates](#3-what-claude-creates)
+* [4. Follow up prompts](#4-follow-up-prompts)
+* [5. Tricks, tips, and troubleshooting](#5-tricks-tips-and-troubleshooting)
+* [6. Ready to try for yourself?](#6-ready-to-try-for-yourself)
