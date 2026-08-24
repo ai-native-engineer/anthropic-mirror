@@ -64,8 +64,11 @@ HTML_SITEMAPS = [
 ACADEMY_DISALLOW = (
     "/api/", "/mcp", "/search-corpus.json", "/admin/", "/badges/",
     "/certificates/", "/dashboard", "/settings", "/garden", "/login",
-    "/oauth/", "/start",
+    "/oauth/", "/start", "/welcome", "/goodbye", "/fluency-check-in",
 )
+# 본문 컨테이너를 <main>으로 고정하고 그 안의 nav/header를 보존할 호스트.
+# academy는 코스 커리큘럼(레슨 목차)을 <main> 안 <nav>에, 코스 제목을 <header>에 둔다.
+MAIN_ONLY_HOSTS = {"academy.claude.com"}
 
 
 def academy_blocked(u):
@@ -201,19 +204,34 @@ def absolutize_markdown_images(text, base):
     return _MD_IMAGE.sub(replace, text)
 
 
+_PUA = re.compile(r"[\ue000-\uf8ff]")
+
+
 def html_to_md(html, base_url=""):
-    """본문 컨테이너(main/article/body 중 텍스트가 가장 많은 것)를 골라 nav/header/footer/form 제거 후 markdown."""
+    """본문 컨테이너(main/article/body 중 텍스트가 가장 많은 것)를 골라 nav/header/footer/form 제거 후 markdown.
+
+    MAIN_ONLY_HOSTS는 예외다. academy.claude.com은 코스 커리큘럼을 <main> 안 <nav>에,
+    코스 제목을 <header>에 두기 때문에 통상 제거 규칙이 제목과 레슨 목차를 통째로 지운다
+    (실측: 코스 랜딩 22개 전부 H1 소실, claude-101 레슨 링크 16개 -> 0개).
+    이 호스트는 사이트 크롬이 <main> 밖에 있으므로 컨테이너를 main으로 고정하는 것만으로 충분하다.
+    고정 없이 제거만 풀면 텍스트 최대치 후보로 <body>가 뽑혀 상단 nav와 쿠키 배너가 유입된다.
+    """
     soup = BeautifulSoup(html, "html.parser")
     for t in soup(["script", "style", "noscript", "svg"]):
         t.decompose()
-    cands = [c for c in (soup.find("main"), soup.find("article"), soup.body) if c is not None]
-    # Distill 템플릿(alignment.anthropic.com 일부)은 <body> 없이 최상위에 <d-article>을 둔다 -> 문서 전체로 fallback
-    node = max(cands, key=lambda c: len(c.get_text(strip=True))) if cands else soup
-    for t in node(["nav", "header", "footer", "form"]):
-        t.decompose()
+    main_only = urlsplit(base_url).netloc in MAIN_ONLY_HOSTS
+    node = soup.find("main") if main_only else None
+    if node is None:
+        cands = [c for c in (soup.find("main"), soup.find("article"), soup.body) if c is not None]
+        # Distill 템플릿(alignment.anthropic.com 일부)은 <body> 없이 최상위에 <d-article>을 둔다 -> 문서 전체로 fallback
+        node = max(cands, key=lambda c: len(c.get_text(strip=True))) if cands else soup
+        for t in node(["nav", "header", "footer", "form"]):
+            t.decompose()
     if base_url:
         absolutize_html(node, base_url)
     text = decode_cfemail(md(str(node), heading_style="ATX").strip())
+    # 아이콘 폰트가 쓰는 사설 사용 영역(PUA) 코드포인트는 본문에서 깨진 글자로만 남는다.
+    text = _PUA.sub("", text)
     text = "\n".join(line.rstrip() for line in text.splitlines())
     return absolutize_markdown_images(text, base_url) if base_url else text
 
@@ -523,6 +541,20 @@ def main():
             assert absolute_url(url, "/_next/image?url=https%3A%2F%2Fcdn.example%2Fx.png&w=64") == "https://cdn.example/x.png"
             assert "https://example.com/docs/x.png" in absolutize_markdown_images("![](/docs/x.png)", url)
             assert html_to_md("<main><p>x  </p></main>") == "x"
+            # academy는 <main> 안 nav(레슨 목차)와 header(제목)를 보존해야 한다.
+            academy_html = (
+                '<body><nav>사이트메뉴</nav><main><header><h1>Claude 101</h1></header>'
+                '<nav><a href="/courses/claude-101/what-is-claude">L1</a></nav></main>'
+                '<footer>푸터</footer></body>'
+            )
+            academy_md = html_to_md(academy_html, "https://academy.claude.com/courses/claude-101")
+            assert "# Claude 101" in academy_md and "L1" in academy_md, academy_md
+            assert "사이트메뉴" not in academy_md and "푸터" not in academy_md, academy_md
+            # 다른 호스트는 기존대로 nav/header가 제거된다(동작 불변).
+            other_md = html_to_md(academy_html, "https://www.anthropic.com/x")
+            assert "L1" not in other_md and "Claude 101" not in other_md, other_md
+            # 아이콘 폰트 PUA 코드포인트는 전 호스트에서 제거한다.
+            assert html_to_md("<main><p>\ue02a본문</p></main>") == "본문"
             assert redirected(url, "https://example.com/other")
             assert not redirected(url, url + "/")
             assert same_host(url, url + "/other")
