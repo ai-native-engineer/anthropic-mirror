@@ -8,8 +8,12 @@ academy-extract.py가 STATE(storage_state)의 쿠키를 읽어 추출한다.
 다른 skilljar 인스턴스(예: 파트너 포털 anthropic-partners.skilljar.com, partner-sso OAuth 로그인)는
 SKILLJAR_BASE 환경변수로 지정한다. 프로필·STATE는 도메인별로 분리돼 세션이 섞이지 않는다.
 
-실행: python3 login-academy.py   (헤드풀 브라우저가 떠야 하므로 사용자 터미널에서 직접)
-  SKILLJAR_BASE=https://anthropic-partners.skilljar.com python3 login-academy.py  (파트너 포털)
+실행: <crawl4ai python> login-academy.py   (헤드풀 브라우저가 떠야 하므로 사용자 터미널에서 직접)
+  SKILLJAR_BASE=https://anthropic-partners.skilljar.com <crawl4ai python> login-academy.py  (파트너 포털)
+
+playwright가 있는 인터프리터로 실행해야 한다. shebang을 두지 않으므로 `./login-academy.py`로는
+실행되지 않는다 -- 실행 권한만 붙은 shebang 없는 파일은 셸이 셸 스크립트로 해석해 아무 출력 없이
+끝난다. refresh.sh가 쓰는 CRAWL4AI_PYTHON과 같은 인터프리터를 쓴다.
 """
 
 import asyncio, os
