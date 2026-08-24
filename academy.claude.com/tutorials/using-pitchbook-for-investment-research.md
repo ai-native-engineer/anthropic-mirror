@@ -52,6 +52,10 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Using PitchBook data, tell me about Plaid’s funding status, including the most recent investment date, round type, and use of proceeds. Include a list of lenders, active and former investors, and relevant news coverage about previous investment rounds.
 
+
+
+Open in Claude
+
 Streamline the financial research journey from search to insight. Claude can retrieve comprehensive PitchBook data on a specific company, including an overview, financials, deal history, key personnel, and investors. When comparing multiple companies from a user- or Claude-generated list, Claude retrieves PitchBook data from each company before compiling results into a single list to spot deal opportunities.
 
 **When to use:** Researching specific companies for deal sourcing, market intelligence gathering, benchmarking, asset allocation, and business development.
@@ -60,6 +64,10 @@ Streamline the financial research journey from search to insight. Claude can ret
 
 Using PitchBook data, help me identify investment opportunities by benchmarking companies in the healthtech wearables market. Provide details on each company’s recent investment history, profitability, liquidity, and growth rates.
 
+
+
+Open in Claude
+
 Quickly compare targets to identify promising opportunities for investments, mergers and acquisitions, and partnerships. Claude performs this action using company and deal lists provided by users, or by generating company lists from the web and other sources. The LLM accesses PitchBook’s comprehensive company intelligence, including investment history, product details, financial performance, and more, to retrieve critical details for each company on the list. Users can accelerate deal flow by comparing these metrics in a convenient and readable output.
 
 **When to use:** Comparing financial and performance metrics across multiple companies to find new opportunities, accelerate market mapping, identify acquisition targets, and streamline deal sourcing workflows.
@@ -67,6 +75,10 @@ Quickly compare targets to identify promising opportunities for investments, mer
 ## Relationship Mapping
 
 Using PitchBook data, identify Instacart investors. Then, pull portfolios for each investor’s top 3 VCs to see other companies in this space, and analyze those VC companies’ investors to map the competitive landscape.
+
+
+
+Open in Claude
 
 Discover unexpected connections between companies, investors, and professionals by using Claude to transform PitchBook’s comprehensive private capital market data into market maps that demonstrate complex relationships within the industry. Claude accesses PitchBook’s proprietary data to accelerate financial research by extracting these insights and producing easy-to-read competitive clusters.
 

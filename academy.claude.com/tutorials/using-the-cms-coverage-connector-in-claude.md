@@ -70,11 +70,27 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Does Medicare cover continuous glucose monitoring for type 2 diabetes patients?
 
+
+
+Open in Claude
+
 What are the medical necessity criteria for home oxygen therapy in California?
+
+
+
+Open in Claude
 
 Find the LCD for power wheelchairs in my region and tell me what documentation is required
 
+
+
+Open in Claude
+
 Is sacral nerve stimulation covered by Medicare for urinary incontinence?
+
+
+
+Open in Claude
 
 **Billing & Coding Compliance**
 
@@ -83,11 +99,27 @@ Is sacral nerve stimulation covered by Medicare for urinary incontinence?
 
 What are the covered ICD-10 codes for diabetes self-management training?
 
+
+
+Open in Claude
+
 Find the billing article for home oxygen equipment and show me the required HCPCS codes
+
+
+
+Open in Claude
 
 What modifiers are required for billing wheelchair accessories in Texas?
 
+
+
+Open in Claude
+
 Show me the documentation requirements for billing cardiac rehabilitation services
+
+
+
+Open in Claude
 
 **Policy Monitoring & Updates**
 
@@ -96,8 +128,24 @@ Show me the documentation requirements for billing cardiac rehabilitation servic
 
 What Medicare coverage policies have changed in the last 30 days?
 
+
+
+Open in Claude
+
 Show me recent LCD updates for my Medicare contractor
+
+
+
+Open in Claude
 
 Have there been any new NCDs published for cardiovascular procedures this quarter?
 
+
+
+Open in Claude
+
 Are there any proposed LCDs for laboratory testing that I should review?
+
+
+
+Open in Claude

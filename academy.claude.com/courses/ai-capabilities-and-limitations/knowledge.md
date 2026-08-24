@@ -1,0 +1,60 @@
+<!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/knowledge -->
+
+Lesson 6 of 13 · AI Capabilities and LimitationsKnowledge
+
+## Understanding knowledge gaps in AI models
+
+Loading
+
+Knowledge · 5 min
+
+SummaryTranscript
+
+The model knows what it was exposed to during training, and only that. No
+real-time browsing by default, no lived experience, and a hard stop at the
+knowledge cutoff. The practical question isn't "does the AI know this?" but
+"how well-represented was this in what it read?"
+
+## What the model read, and when it stopped reading
+
+Loading
+
+## Key takeaways
+
+* **What generative AI knows** comes entirely from training data and is frozen at the knowledge cutoff. Without tools, it has no access to any information after that date.
+  + **Capability zone:** topics that appeared frequently, recently (within training), and consistently in training data.
+  + **Limitation zone:** rare, post-cutoff, niche, local, or contested topics.
+  + **Characteristic failures:** staleness, uneven coverage, inherited bias in what counts as "default" or "normal," and inability to attribute where knowledge came from.
+  + **Web search, retrieval (RAG/MCPs), and tool use** exist specifically to patch these gaps by giving the model access to information it was never trained on.
+* **4D connection:** Knowledge unevenness is core to Delegation. Understanding where the model is well-stocked versus thin tells you when to hand off, when to supply context yourself, and when to go elsewhere.
+
+## Exercises
+
+### The Outsider Test
+
+Why? You know the model's knowledge is broad but frozen, shaped by whatever was in its training data. Now you're going to map exactly where it's well-stocked and where it's thin in your specific domain.
+
+Return to your task list and select one task. Relative to that task, write down:
+
+* Two topics that are mainstream, well-documented, and stable. The kind of thing any informed colleague would know.
+* Two topics that are niche, local, recent, or rapidly evolving. Industry-specific jargon, regional regulations, something that changed in the last year.
+* One "default assumption" that outsiders to your field often get wrong. (Who the typical customer is. What a "standard" case looks like. Which tool people actually use vs. the one that gets press.)
+
+Now run three probes:
+
+1. **Probe 1: Coverage.** Ask about one mainstream topic and one niche topic from your list. Compare the depth and accuracy. Pay attention to whether the AI signals uncertainty differently between the two, or whether both answers come with the same confident tone.
+2. **Probe 2: Staleness.** Ask about something you know has changed recently in your field: a regulation update, a tool release, a leadership change, a revised standard. Does the AI acknowledge the cutoff? Present stale information as current? Decline to answer? Note what happens.
+3. **Probe 3: Default assumptions.** Without naming your assumption directly, ask a question that would reveal whether the AI defaults to the outsider's view. For example, if your field's "standard" customer is different from what most people assume, ask the AI to describe the typical customer. Note what it treats as normal.
+
+Go back to your task list and add a second annotation: for each task, flag whether you can lean on the model's knowledge, or whether you need to bring the knowledge yourself via context, documents, or search.
+
+**Stretch goal:** Re-run the staleness probe with web search enabled. Compare what changes. This is retrieval in action.
+
+## Lesson reflection
+
+* What's one area of your work where you now realize you need to supply context rather than assume the model has it?
+* Did the default-assumption probe surface anything that surprised you?
+
+## What's next
+
+Knowledge covers what the model absorbed during training. Working Memory covers what it's paying attention to right now: your prompt, your documents, your conversation. This property has the hardest edge of all four.

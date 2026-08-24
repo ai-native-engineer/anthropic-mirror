@@ -44,6 +44,8 @@ A simpler start works too — Claude will follow up with questions about your wo
 
 I need a plugin for our customer success team
 
+
+
 Open in Cowork
 
 ## What changes with a plugin
@@ -54,11 +56,15 @@ With detailed instructions, Claude can handle many of these workflows. A plugin 
 
 Here's our P&L. Materiality threshold is $25K. Decompose by price, volume, and mix. Check these GL accounts against the subledger. Format the JE with debits on top.
 
+
+
 Open in Cowork
 
 ###### **Without a plugin:** Claude can handle it, but restating your full close methodology every session is overhead that compounds, and the output might vary depending on who's giving Claude the instructions.
 
 `/monthly-close` North America
+
+
 
 Open in Cowork
 
@@ -68,11 +74,15 @@ Here's our P&L. Materiality threshold is $25K. Decompose by price, volume, and m
 
 Pull usage data for Meridian Health from our analytics dashboard. Check for support escalations in the last 90 days. Compare their current contract against our pricing tiers. Score the renewal risk and flag expansion opportunities.
 
+
+
 Open in Cowork
 
 ###### **Without a plugin:** You're directing Claude to each source, restating your scoring criteria, and specifying the output format every time.
 
 `/renewal-score` Meridian Health
+
+
 
 Open in Cowork
 
@@ -82,11 +92,15 @@ Pull usage data for Meridian Health from our analytics dashboard. Check for supp
 
 Review this vendor agreement. Our standard on indemnification is capped at 2x contract value. Flag auto-renewals over 12 months. Use GREEN/YELLOW/RED.
 
+
+
 Open in Cowork
 
 ###### **Without a plugin:** This prompt covers a few checks on one contract. A full review applies dozens of standard positions across every clause type, and you'd need to restate all of them for each new agreement.
 
 `/due-diligence`
+
+
 
 Open in Cowork
 

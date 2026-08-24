@@ -25,6 +25,8 @@ In this guide
 
 Help me build a Monday morning brief every week in Slack. Pull my cash position from QuickBooks, incoming settlements from PayPal, pipeline movement from HubSpot, and what's on my calendar this week. Tell me the three things that need my attention today.
 
+
+
 BusinessOpen in Cowork
 
 This prompt starts the /monday-brief skill, which gives Claude instructions for reading every connected business tool and writing a single page you can scan in a minute. After [customizing the plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin), Claude leads with what matters most for your business.
@@ -54,6 +56,8 @@ A one-page brief saved to your folder, ready every Monday morning if you put it 
 ## Run your next campaign
 
 Find my weakest revenue month from last year and plan a promo to address it. Draft the strategy, generate the campaign assets in Canva, segment my list in HubSpot, and stage the send. Show me everything before anything goes out.
+
+
 
 BusinessOpen in Cowork
 
@@ -97,6 +101,8 @@ A campaign plan, the designs, the copy, and a staged send — built across the t
 
 Close out March for me. Reconcile my QuickBooks transactions against PayPal settlements, flag anything that doesn't match, and write the P&L narrative as a document I can send straight to my accountant.
 
+
+
 BusinessOpen in Cowork
 
 This prompt starts the /close-month skill, which gives Claude instructions for reconciling your books, flagging anything that doesn't line up, and writing a close packet for your accountant. After [customizing the plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin), Claude follows your category conventions and the flags you care about.
@@ -132,6 +138,8 @@ The close packet saved to your folder, ready for your accountant to work from. C
 ## Plan payroll with confidence
 
 Get me ready for payroll on the 15th. Pull my cash position from QuickBooks, my incoming PayPal settlements, and any overdue invoices. Show me whether the next 30 days covers payroll, then draft a reminder for each overdue customer matched to how they've paid before. Show me the drafts before anything sends.
+
+
 
 BusinessOpen in Cowork
 

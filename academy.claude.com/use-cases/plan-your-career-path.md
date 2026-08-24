@@ -2,6 +2,8 @@
 
 ![Plan your career path result](https://academy.claude.com/assets/v1/plan-your-career-path-iar8vg4f.png)
 
+## 1. Describe the task
+
 Claude brings deep knowledge of job markets, industry trajectories, and skill trends that aren't obvious from job postings alone. Paired with your resume and goals, this expands your career horizons while developing the strategic thinking skills to navigate future transitions.
 
 Tell Claude about your career goals and provide your resume—it will map out a strategic path forward.
@@ -18,17 +20,25 @@ After analyzing my resume against these roles, build:
 
 **Skills Portfolio Log (Excel):** Backward-looking evidence bank showing what I've done. Log completed projects with metrics, skills inventory with proof points, quantified achievements, learning completions, and STAR stories tagged by competency. Built for mining resume bullets and cover letters.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Equip Claude with your career materials and enable the tools it needs to analyze real-time job markets and provide strategic, personalized recommendations.
+
+### Required context
 
 Toggle on the Google Drive integration to give Claude access to your resume.
 
 The [Google Drive integration(opens in new tab)](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration) grants Claude access to your resume as a working document, ensuring it's always updated with your current information, rather than uploading it as a static PDF.
 
-![](images/a3bfc5814bd6a3e2.svg)
+![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
 ResumeDOC
 
-![](images/a3bfc5814bd6a3e2.svg)
+![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
 Google Drive
 
@@ -39,6 +49,8 @@ Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 ### Optional context
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) to allow Claude extra time to reason through your career planning and produce high quality outputs. Make sure [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is enabled so Claude can search the web for current information.
+
+## 3. What Claude creates
 
 Claude will analyze your resume against your target jobs and create two planning documents: an action-oriented roadmap and a detailed skills tracking system—both professionally formatted and built for ongoing use.
 
@@ -70,11 +82,19 @@ Both documents are **dense, functional, and interconnected** - the tracker tells
 
 **View your Career Action Tracker**
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Prepare for coffee chats
 
 Come prepared with informed questions and connect your experience to what matters for that conversation. Ask Claude to help research the role context, company, and industry.
 
 I'm meeting a product manager from the streaming company next week. Research the company's product philosophy and competitive positioning, and then create a prep sheet with questions to help me understand their challenges, as well as aspects of my background that are important to highlight.
+
+
+
+Open in Claude
 
 ### Draft differentiated application materials
 
@@ -82,11 +102,21 @@ Claude can teach you how to adapt your materials for different roles and what ma
 
 Using my portfolio log, show me how to adapt my resume for PM, design, and research roles—what should I emphasize for each?
 
+
+
+Open in Claude
+
 ### Update with new goals
 
 Claude can revise your career plan when priorities shift or new opportunities emerge, maintaining the structure while adapting content to changed circumstances.
 
 I just discovered UX writing roles that combine my interests. Can you analyze this job posting and update my action plan to include this career path?
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Understand AI's role in your target career
 
@@ -105,6 +135,8 @@ Create a [Project(opens in new tab)](https://support.claude.com/en/articles/9517
 ### Research your target roles and companies
 
 Use [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) when you need quick, specific answers to ground your planning—like details on target companies, recent industry events, or potential skill-building programs. For more in-depth analysis, enable [Research(opens in new tab)](https://support.claude.com/en/articles/11088861-using-research-on-claude) in the chat settings. Rather than piecing together information yourself, Research searches across your tools and the web to deliver a thorough report with source citations.
+
+## 6. Ready to try for yourself?
 
 Work with Claude to discover how to navigate your ideal career path and create a plan tailored to your experience and goals.
 

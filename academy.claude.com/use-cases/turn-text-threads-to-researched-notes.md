@@ -2,6 +2,8 @@
 
 ![Turn text threads to researched notes result](https://academy.claude.com/assets/v1/turn-text-threads-to-researched-notes-payiriue.png)
 
+## 1. Describe the task
+
 Using [model context protocol(opens in new tab)](https://claude.com/blog/what-is-model-context-protocol) (MCP), Claude can connect to your everyday tools and apps. When you enable [connectors(opens in new tab)](https://claude.com/partners/mcp), Claude pulls context directly from Messages or Notes and saves organized information back to your apps, eliminating the need for copying, pasting, or switching between tools.
 
 Point Claude to a message thread. It'll find the relevant conversation, research solutions, and then write to your notes for structured, organized information you can access anywhere.
@@ -14,7 +16,15 @@ Research dessert options that fit those criteriasave recipe opping list to my No
 
 To ensure correct formatting in my notes, using HTML tags to create natural line breaks. Use abbreviations and concise language so the note isn't overly long.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Claude can connect to Messages to understand the full thread context, search the web for current dessert recipes that match what you're looking for, and save the organized recipe and shopping list directly to your Notes app.
+
+### Required context
 
 To access system-level connectors, download [Claude for Desktop.(opens in new tab)](https://claude.com/download)
 
@@ -48,6 +58,8 @@ Make sure [Web Search(opens in new tab)](https://support.claude.com/en/articles/
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
+## 3. What Claude creates
+
 Claude analyzes your messages for key details within conversation threads, then uses Web Search to find relevant options online. Finally, it stores organized notes in your Notes app, accessible across all your devices.
 
 Got it! I read through your messages with Sarah and picked up the important stuff—there are a couple vegetarians coming, one person needs gluten-free, and it's a casual backyard thing on Saturday afternoon.
@@ -62,11 +74,19 @@ All your ingredients are organized by where you'll find them in the store—baki
 
 Below the shopping list is the step-by-step recipe with timing notes so you know what to expect. I included tips on getting that swirl pattern right and how to test when they're done. Also added a mini-recipe for the gluten-free version using almond flour.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Send replies and set reminders
 
 Ask Claude to reply to the host with what you're bringing and to set a reminder to go shopping. Claude can both read and write to your Messages and Reminders app.
 
 Please send Sarah a message back saying I'll bring brownies for 15 people. Let her know I can make a small gluten-free batch too. Then, set a reminder for 6pm to stop at the grocery store on the way home from work.
+
+
+
+Open in Claude
 
 ### Adapt to new information
 
@@ -74,11 +94,21 @@ Have Claude intelligently adjust the output when details change.
 
 Sarah just texted that it's 25 people now. Update my Notes with 1.5x quantities for both the recipe and shopping list.
 
+
+
+Open in Claude
+
 ### Try it out in other platforms
 
 Claude can connect to a variety of your communication tools. Apply this workflow wherever you work.
 
 My team's been chatting about a workshop in Slack. Read those messages, research venue options nearby, and save a planning timeline to my Notes.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Connect to your [iOS(opens in new tab)](https://support.claude.com/en/articles/11869619-using-claude-with-ios-apps) or [Android(opens in new tab)](https://support.claude.com/en/articles/11869629-using-claude-with-android-apps) apps
 
@@ -91,6 +121,8 @@ Keep in mind the Notes app may need different structure than a normal file outpu
 ### Privacy control stays with you
 
 Each connection you enable expands what Claude can access and where it can do work, but you stay in control. Claude only reads conversations you allow it to and only saves to apps you've connected when granted permission.
+
+## 6. Ready to try for yourself?
 
 Next time you're juggling requests and scattered information, point Claude to your messages to find and organize small details, saving you time and hassle.
 

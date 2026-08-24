@@ -2,6 +2,8 @@
 
 ![Create sales reports result](https://academy.claude.com/assets/v1/create-sales-reports-tco4ryx7.png)
 
+## 1. Describe the task
+
 Claude's ability to pull live data from your CRM and synthesize it with your business context enables you to generate full reports in minutes.
 
 Connect your CRM and tell Claude what timeframe, metrics, and segments you want analyzed. Describe your audience and any specific questions the report should answer.
@@ -19,7 +21,15 @@ Show me:
 
 Create this as a professional document with clean serif fonts, information dense with tight spacing, proper text hierarchy, and embedded charts PNGs that seamlessly integrate into the layout as opposed to looking pasted in. Use proper business style. Opt out of using your default styles.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Connect your CRM using [connectors(opens in new tab)](https://claude.ai/customize/connectors) so Claude can pull current sales data directly, eliminating manual exports and ensuring the report reflects your latest metrics.
+
+### Required context
 
 In Settings > Capabilities, find and enable your [HubSpot(opens in new tab)](https://mcp.hubspot.com/anthropic) connector. Once connected, Claude can read sales data and pull metrics on demand without you exporting files or copying data manually. Add any additional context your CRM doesn't capture to help Claude conduct analysis more tailored to your business.
 
@@ -42,6 +52,8 @@ Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/arti
 [
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+
+## 3. What Claude creates
 
 Claude analyzes your sales performance data to create a document with an executive summary, data tables showing key metrics with visual indicators, segment-by-segment breakdowns, trend analysis, and actionable recommendations.
 
@@ -69,11 +81,19 @@ I pulled your Q4 data from HubSpot and created a professional sales report. Here
 
 The report is professionally designed and ready to download and edit. You can share it directly or ask me to adjust the visualizations or analysis.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Test your understanding
 
 After generating the report, ask Claude to question you on the findings. This ensures you've absorbed the analysis and understand the overall picture.
 
 Quiz me on the findings from this report like your manager. In addition to just the numbers, test me with questions about trends, what's driving them, and why it matters.
+
+
+
+Open in Claude
 
 ### Combine internal data with external intelligence
 
@@ -81,11 +101,21 @@ Enable Research and request market context for Claude to compare your data with 
 
 Pull my metrics, then research industry benchmarks for SaaS companies our size. How do we compare on win rate and sales cycle?
 
+
+
+Open in Claude
+
 ### Deep dive by segment
 
 After reading the report, zoom in on an area of particular interest to analyze specific findings and implications.
 
 Take the Enterprise segment data and create a detailed analysis document. Break down performance by rep, identify which industries or company sizes are converting best, and analyze deal characteristics for our highest-value wins. I want to understand what's making Enterprise work so we can replicate it.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Request professional formatting
 
@@ -98,6 +128,8 @@ Unlike uploaded CSV files (static snapshots), [connectors(opens in new tab)](htt
 ### Expand analysis across tools
 
 If you store market research in Google Drive or track initiatives in Asana, add those connectors so Claude can correlate additional factors with sales performance. For example: pull competitive intelligence from Drive while analyzing win rates to understand what's influencing deals, or cross-reference Asana milestones with pipeline velocity to see how product launches affect sales momentum.
+
+## 6. Ready to try for yourself?
 
 Connect your CRM, describe the information you need to display, and let Claude handle the analysis and formatting work.
 

@@ -2,6 +2,8 @@
 
 ![Evaluate a company from the science to the balance sheet result](https://academy.claude.com/assets/v1/evaluate-a-company-from-the-science-to-the-balance-sheet-56l1xsie.png)[Open artifact](https://claude.ai/public/artifacts/6b7948e9-f7fd-4c48-960a-b0b490b99b16)
 
+## 1. Describe the task
+
 Opus 4.6 reads across SEC filings, trial protocols, and patent documents simultaneously, reasoning through the dependencies between them. It catches where one document contradicts another — a risk factor in the 10-K that doesn't match revenue assumptions in the 10-Q, or an undisclosed regulatory requirement that changes the timeline.
 
 State the decision your analysis feeds, name the documents Claude will work from, and spell out the deliverables you expect back. The prompt below does all three, then adds a boundary: it anchors on the Phase III readout, lists the five filings, asks for a research memo and a downloadable model, and tells Claude to stay inside the uploaded documents rather than estimating around them.
@@ -12,7 +14,15 @@ Evaluate the science and trial design. Build a risk-adjusted pipeline valuation.
 
 Produce a research memo and a downloadable model. Tell me what I should be worried about that I haven't asked about.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Upload all five documents together: the 10-K, 10-Q, proxy, trial protocol, and patent filings. What Claude gives you back is mostly determined by what you give it to read, so spend your effort assembling the complete filing set rather than polishing the wording of the ask. The buried finding in the memo below only surfaces because the 10-K and the 10-Q are in context at the same time.
+
+### Required context
 
 
 
@@ -35,6 +45,8 @@ If your filings are already on your computer, Cowork in [Claude Desktop(opens in
 [
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+
+## 3. What Claude creates
 
 Claude produces an integrated research memo, a downloadable financial model, an interactive scenario dashboard, and a patent cliff timeline. Opus 4.6 reads across all five documents simultaneously, and one finding it surfaced on its own is the kind of detail that could change the risk assessment.
 
@@ -78,6 +90,8 @@ Adjustable inputs for all key variables. Changing any assumption recalculates pi
 
 ***Important:** Claude is a research tool, not a financial advisor. This analysis surfaces findings and structures scenarios based on the documents and assumptions you provide. All projections reflect those inputs and may not match actual outcomes. Consult a qualified financial professional before making investment decisions.*
 
+## 4. Follow up prompts
+
 The memo is a starting point, not the deliverable. Each follow-up below pushes on something the first pass produced: the evidence behind the buried regulatory finding, the downside decision tree, and the assumptions driving the valuation.
 
 ### Pull the evidence behind the buried finding
@@ -86,17 +100,31 @@ The safety-study finding is an inference Claude built from two separate disclosu
 
 *Show me the exact disclosure on page 187 of the 10-K and the R&D guidance change in the 10-Q that the safety-study finding rests on. Quote both passages, then walk through the inference step by step so I can check it against the filings.*
 
+
+
+Open in Claude
+
 ### Push the analysis further
 
 Opus 4.6 holds both the science and the financials in context at once, which means it can reason through multi-step problems where a change in one domain cascades into another.
 
 *Model what happens if Phase III misses the superiority endpoint by a narrow margin. Walk through the decision tree: does management pivot to non-inferiority? How does that cascade through the timeline, cash runway, and valuation?*
 
+
+
+Open in Claude
+
 ### Stress-test the model's assumptions
 
 The scenario ranges move with your discount rate, probability weights, and dilution assumptions. Push on the inputs you would defend differently before the model shapes your number.
 
 *Rerun the scenario summary with a higher discount rate and a lower probability of success. Which scenario boundaries move the most, and at what inputs does the mid-range case stop holding?*
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Front-load your context
 
@@ -109,6 +137,8 @@ Match your verification effort to the cost of being wrong: a variable name in th
 ### Let Claude flag what you missed
 
 Opus 4.6 works through more of the analysis before asking for direction, and it reads across documents in ways that catch what a surface read won't. An instruction like "flag anything that changes the investment thesis" often surfaces findings you didn't know to look for.
+
+## 6. Ready to try for yourself?
 
 Point the same structure at the company you're evaluating: the decision it feeds, the full filing set, the deliverables you expect. The documents change; the cross-checks don't.
 

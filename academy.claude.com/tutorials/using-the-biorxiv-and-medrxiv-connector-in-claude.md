@@ -64,11 +64,27 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Find all neuroscience preprints posted in the last 30 days related to Alzheimer's disease
 
+
+
+Open in Claude
+
 Search medRxiv for recent COVID-19 clinical trial preprints from the past week
+
+
+
+Open in Claude
 
 Show me the latest CRISPR gene editing preprints in the molecular biology category
 
+
+
+Open in Claude
+
 What are the most recent cancer immunotherapy preprints on bioRxiv?
+
+
+
+Open in Claude
 
 **Publication Tracking & Impact Analysis**
 
@@ -77,11 +93,27 @@ What are the most recent cancer immunotherapy preprints on bioRxiv?
 
 Which bioRxiv preprints have been published in Nature journals in the past 6 months?
 
+
+
+Open in Claude
+
 Track preprints that were published in high-impact journals with DOI prefix 10.1126 (Science)
+
+
+
+Open in Claude
 
 Show me recent genomics preprints that have been formally published and compare preprint vs publication dates
 
+
+
+Open in Claude
+
 Find preprints from 2024 that successfully made it into peer-reviewed journals
+
+
+
+Open in Claude
 
 **Funding Agency Research Output Monitoring**
 
@@ -90,8 +122,24 @@ Find preprints from 2024 that successfully made it into peer-reviewed journals
 
 Find all preprints funded by the NIH (ROR ID: 021nxhr62) in the past year
 
+
+
+Open in Claude
+
 What research has the European Commission (ROR: 02mhbdp94) funded that's been posted as preprints?
+
+
+
+Open in Claude
 
 Show me bioRxiv preprints funded by the Wellcome Trust and track their publication outcomes
 
+
+
+Open in Claude
+
 Analyze preprint submission trends and usage statistics for platform growth over time
+
+
+
+Open in Claude

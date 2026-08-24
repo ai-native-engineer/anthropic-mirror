@@ -52,6 +52,10 @@ Example input prompt:
 
 Show me my portfolio’s overall performance metrics including Net IRR, Net MOIC, and total commitments across all investments.
 
+
+
+Open in Claude
+
 **When to use:** Regular portfolio reviews, investor reporting, or board presentations.
 
 **Tip:** Specify time periods or commitment types for more focused analysis.
@@ -61,6 +65,10 @@ Show me my portfolio’s overall performance metrics including Net IRR, Net MOIC
 Example input prompt:
 
 What are my top 10 company exposures by unrealized value? Include company details and current investment amounts.
+
+
+
+Open in Claude
 
 **When to use:** Risk management, concentration monitoring, or rebalancing decisions.
 
@@ -72,6 +80,10 @@ Example input prompt:
 
 Search for information about [Company/Fund Name] and provide all available details including identifiers and key metrics.
 
+
+
+Open in Claude
+
 **When to use:** Initial research on potential investments or updating information on existing holdings.
 
 **Works well with:** Combining entity search with exposure tracking for comprehensive analysis.
@@ -82,6 +94,10 @@ Example input prompt:
 
 Calculate [specific metric] across my active investments in the technology sector.
 
+
+
+Open in Claude
+
 **When to use:** Sector-specific analysis, tracking specialized KPIs, or custom performance reporting.
 
 **Key benefit:** First use the calculator with query: {help: true} to see available options and required parameters.
@@ -91,6 +107,10 @@ Calculate [specific metric] across my active investments in the technology secto
 Example input prompt:
 
 Search Chronograph’s help center for articles about [topic] or How do I [perform specific task] in Chronograph?
+
+
+
+Open in Claude
 
 **When to use:** Learning platform features, troubleshooting workflows, or discovering capabilities.
 

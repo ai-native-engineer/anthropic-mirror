@@ -39,21 +39,41 @@ Get a health summary:
 
 Summarize my overall Function lab results
 
+
+
+Open in Claude
+
 Decide where to focus:
 
 Which health categories are most out of range in my labs?
+
+
+
+Open in Claude
 
 Review nutrition plans:
 
 Show me my nutrition plan.
 
+
+
+Open in Claude
+
 Get answers to health questions:
 
 How's my heart health?
 
+
+
+Open in Claude
+
 Track progress over time:
 
 How have my lab results changed since my last Function test?
+
+
+
+Open in Claude
 
 ## **How does Claude protect my data privacy and safety?**
 

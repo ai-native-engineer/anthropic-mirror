@@ -2,6 +2,8 @@
 
 ![Statistical reproducibility analysis workbook Claude creates to verify a paper's claims](https://academy.claude.com/assets/v1/verify-statistics-from-raw-data-8du7m0z5.png)
 
+## 1. Describe the task
+
 Claude's ability to parse manuscripts while simultaneously running statistical analyses on raw data helps you develop a deeper understanding of how to assess research methods and build critical reading skills you'll use throughout your career.
 
 Ask Claude to examine a paper by extracting every statistical claim and rerunning each analysis on the provided data files. This hands-on verification teaches you what to watch for and helps you understand whether the study's conclusions are supported by its data.
@@ -16,7 +18,15 @@ Then build me a detailed Excel workbook where I can see your complete verificati
 
 Make the spreadsheet well-designed and easy to navigate - professional formatting, frozen headers, filtered columns, and clear notes explaining what you found.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Provide the published manuscript and its underlying raw data so Claude can verify every statistical claim and help you understand how thoroughly the analysis supports the conclusions.
+
+### Required context
 
 Click the (+) button in the chat bar to browse through your files or, alternatively, drag and drop the manuscript and any additional data files you want to analyze into the chat box area.
 
@@ -35,6 +45,8 @@ For more thorough statistical verification and high quality outputs, enable [Ext
 [
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+
+## 3. What Claude creates
 
 Claude creates a comprehensive audit workbook documenting every statistical check, showing you exactly what to watch for and building your ability to critically evaluate research methods.
 
@@ -86,11 +98,19 @@ I've verified the statistical claims in "Effects of Chronic Sleep Deprivation on
 
 **View your statistical audit workbook**
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Go beyond numbers and check the figures
 
 Verify that visual representations match the underlying data. Claude compares graphs, charts, and tables to raw data values to catch misrepresentations or errors.
 
 Check that all bar heights, error bars, and data points in Figure 2 match the actual data values. Show me any discrepancies.
+
+
+
+Open in Claude
 
 ### Learn what to watch for next time
 
@@ -98,11 +118,21 @@ Claude can explain which red flags are worth investigating when you're reading p
 
 Based on what we found here, teach me what warning signs I should look for when reading other papers in my field. What patterns suggest I should be skeptical, even when I can't verify the raw data?
 
+
+
+Open in Claude
+
 ### Draft reviewer comments
 
 Frame statistical or methodological issues constructively so authors understand what needs fixing without getting defensive. Claude can help balance specificity with encouragement.
 
 Turn these statistical problems into helpful reviewer comments that are clear about what needs correcting but encouraging about how to fix it.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Start where you already have domain expertise
 
@@ -111,6 +141,8 @@ You'll quickly grasp the best practices for working with Claude by verifying pap
 ### Open the actual Excel file
 
 The preview in chat shows structure, but the real workbook contains working formulas, conditional formatting that highlights issues, dropdown filters for exploring results, and detailed calculation notes. Download and open the file to see how verification works and to learn techniques you can apply when checking other papers.
+
+## 6. Ready to try for yourself?
 
 Upload any paper with its supplementary data files, describe why you're examining it ("I'm considering citing this extensively" or "these results seem surprising and I want to understand them better"), and let Claude help you build the critical analysis skills that strengthen your research.
 

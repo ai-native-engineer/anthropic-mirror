@@ -2,6 +2,8 @@
 
 ![Thoughtful gift giving with Claude result](https://academy.claude.com/assets/v1/thoughtful-gift-giving-with-claude-cl8zpvlk.png)[Open artifact](https://claude.ai/public/artifacts/e42819cc-a031-405c-baa9-b62b59e1c06f)
 
+## 1. Describe the task
+
 The best gifts show you've been paying attention. Claude helps you think through gift ideas that actually fit each person, not just generic suggestions by category. From there, you can search your notes and messages for hints you've forgotten, use web search to find specific products locally, and use Claude for Chrome to buy, book pickup, and coordinate with others.
 
 I always forget stocking stuffers until the last minute and end up panic-buying junk. This year I want to fill stockings with small things people will actually use or enjoy. Help me think through good stocking stuffer ideas for my family that I can find locally this week:
@@ -14,7 +16,15 @@ I always forget stocking stuffers until the last minute and end up panic-buying 
 
 Can you put this together in a shopping list I can reference?
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 The more context you share about each person, the more specific and thoughtful Claude's suggestions become. Even small details help Claude move beyond generic category gifts to items that show you've been paying attention.
+
+### Required context
 
 None.
 
@@ -34,6 +44,8 @@ Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-w
 
 connectors](https://support.claude.com/en/articles)
 
+## 3. What Claude creates
+
 Claude generates a personalized shopping list organized by recipient, with specific product suggestions, reasoning for each choice, and a store-run strategy that minimizes trips.
 
 What a great goal. The best stocking stuffers usually hit one of three notes: they show you noticed something specific about the person, they upgrade something they already use, or they remove a small friction from their daily life.
@@ -48,11 +60,19 @@ Here's your list. A few things that made these choices land better:
 
 **One store strategy:** If you're short on time, Target + one sporting goods store gets you about 80% of this list. Add a quick pet store stop for the hamster treats and you're covered.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Search your notes and messages for forgotten hints
 
 You've probably captured gift ideas throughout the year without realizing it. Claude can search your notes and messages to find those moments when someone mentioned wanting something specific.
 
 Can you search through my notes and messages from the last few months? I feel like my wife mentioned a specific skincare brand she wanted to try, and I think my son texted me about some basketball shoes. Pull out anything that looks like a gift hint.
+
+
+
+Open in Claude
 
 ### Find specific products you can actually buy
 
@@ -60,11 +80,21 @@ Move from general ideas to specific items with prices and availability. Claude c
 
 For the loose leaf tea sampler and the rechargeable hand warmers on my wife's list, can you search the web to find specific products under $25 that have good reviews? I'd prefer options I can pick up at stores near me this week, but show me online options too in case I need to order.
 
+
+
+Open in Claude
+
 ### Let Claude interview you about someone you're stuck on
 
 If you're drawing a blank on someone, let Claude ask the questions. Sometimes the right gift surfaces when you're prompted to think about the person differently.
 
 I'm completely stuck on my brother-in-law. I don't know him that well and I never know what to get him. Can you interview me about him? Ask me questions that might help surface a good gift idea.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Share specific details, not just categories
 
@@ -81,6 +111,8 @@ Enable iMessage search first and ask Claude to look for gift hints. You might al
 ### Group your list by store before you go
 
 Once Claude generates ideas, ask it to reorganize the list by store type rather than by person. This makes it easier to see everything you need from Target in one place versus bouncing between sections of the list.
+
+## 6. Ready to try for yourself?
 
 Next time gift-giving stress hits, open Claude and describe who you're shopping for. Start with the basics, let Claude search for ideas, then execute the shopping run without the usual scramble.
 

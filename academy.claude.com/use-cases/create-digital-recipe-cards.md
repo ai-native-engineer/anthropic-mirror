@@ -2,6 +2,8 @@
 
 ![Create digital recipe cards result](https://academy.claude.com/assets/v1/create-digital-recipe-cards-bz3utxkk.png)[Open artifact](https://claude.ai/public/artifacts/9be097fc-d42e-4bd5-92bc-2d20a56eb032)
 
+## 1. Describe the task
+
 Claude can analyze and understand images—photos, screenshots, diagrams, handwritten notes—through vision capabilities. Upload your recipe content and Claude extracts text, adds helpful context about ingredients or techniques, and creates digital recipe cards to use and share.
 
 Ask Claude to create a clean, typed version of the recipe, or request a formatted card that preserves the recipe's vintage character while making it readable.
@@ -14,7 +16,15 @@ Create an **interactive recipe artifact** (for digital sharing). Include:
 * A small, elegantly integrated "Explore the Tradition" box with buttons that fetch cultural facts when clicked
 * The original handwritten recipe displayed at the end in a museum-quality frame.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Provide the recipe so Claude can read the handwriting, interpret abbreviations, and understand the recipe structure even from faded or damaged recipes.
+
+### Required context
 
 Upload a photo or file of your recipe card.
 Click the (+) button in the chat bar to browse through your files, or alternatively, drag and drop files into the chat box area. Claude supports various [upload formats(opens in new tab)](https://support.claude.com/en/articles/8241126-what-kinds-of-documents-can-i-upload-to-claude).
@@ -31,6 +41,8 @@ Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/arti
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
+## 3. What Claude creates
+
 Claude delivers a recipe artifact, complete with an interactive serving size adjuster, clear instructions, and cooking insights that honor the original while making it practical for cooking and sharing.
 
 Perfect! I've created your family recipe in two complete formats:
@@ -46,11 +58,19 @@ What you're getting:
 
 The artifact preserves the recipe's character while making it fully usable for modern cooking.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Request culinary deep-dives
 
 Turn any recipe into a cooking lesson. Claude can explain the reasoning and science behind cooking steps, turning instructions into learning opportunities that help you understand what's actually happening in the pan.
 
 Give me a more detailed walkthrough of the entire recipe. Explain the technique behind the sofrito base—why does the order of adding vegetables matter? What's happening chemically when I brown the rice first?
+
+
+
+Open in Claude
 
 ### Quickly create shopping lists
 
@@ -58,11 +78,21 @@ Create and save to-do or shopping lists directly to your Notes or Reminders apps
 
 I'm making this recipe this week. Create a shopping list with all the ingredients I need and save it to my Notes app, organized by store section. Then, add a reminder to go to the grocery store after work in my Reminders app.
 
+
+
+Open in Claude
+
 ### Create a complete recipe collection
 
 Build a family cookbook from multiple recipes, with matching structure, tone, and detail level. Claude can take documents in different formats and make them look like they belong together—applying the same design, layout, and structure across everything.
 
 I'm uploading five more family recipes. Format them to match this first one exactly—same layout, typography, color palette—so they feel like a cohesive collection. Create a table of contents page too.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Learn more about the recipe
 
@@ -81,6 +111,8 @@ When you need Claude to format multiple items the same way, you can upload them 
 ### Vary the format to suit your purpose
 
 Claude can create the same content in multiple formats depending on how you'll use it. Request an HTML artifact for digital sharing—you can publish it and send the link to others. Request a PDF when you need something to print or download.
+
+## 6. Ready to try for yourself?
 
 Work with Claude to transform handwritten family recipes into beautifully formatted versions to share, print, frame, or use for cooking.
 

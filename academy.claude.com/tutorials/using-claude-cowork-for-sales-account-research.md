@@ -28,6 +28,8 @@ With the plugin installed and your tools connected, tell Claude to tailor the sk
 
 Customize the account-research skill from the Sales plugin for my company. My accounts are [the kind of customers I sell to] — ask me about my CRM and data sources, the signals that matter for my deals, and the brief format I read fastest.
 
+
+
 AccountsOpen in Cowork
 
 Claude walks you through what information to pull, which connected tools to look through, and how you want the brief laid out, then rewrites the skill to match. Once the skill is built, try running it on an account you already know, compare what comes back to how you’d write it on your own, and tell Claude to fix anything it missed.
@@ -39,6 +41,8 @@ Before each call
 The skill is set up and your tools are connected. Now, the morning of a first call, open Cowork, type `/`, pick the `account-research` skill, and name the account:
 
 /account-research [the account name]
+
+
 
 AccountsOpen in Cowork
 
@@ -53,6 +57,8 @@ After the meeting you prepped for, come back to the same Cowork session, where y
 Set it up the way you set up account research in step 1: customize it to the follow-up you actually send — your action items, an internal message for the team, a customer follow-up. Once it’s tailored, type `/` and run it:
 
 /call-summary [the account name]
+
+
 
 AccountsOpen in Cowork
 

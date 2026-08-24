@@ -2,6 +2,8 @@
 
 ![Write an impact report result](https://academy.claude.com/assets/v1/write-an-impact-report-hthtvr2i.png)
 
+## 1. Describe the task
+
 AI can transform spreadsheets of outcomes into stories that resonate with donors, boards, and funders. By combining data analysis with narrative development, you get reports that both prove impact and inspire continued support.
 
 I'm the Program Director at Bright Futures Learning Center, a nonprofit providing after-school tutoring and enrichment programs for middle school students in underserved Seattle neighborhoods. I need to create our annual impact report that will go to our board, major donors, and foundation funders.
@@ -19,7 +21,15 @@ I'm the Program Director at Bright Futures Learning Center, a nonprofit providin
 
 Make this board-ready and donor-worthy. Use sophisticated design that matches the quality of professional nonprofit reports—this goes to foundation program officers who see dozens of these. Include charts and visual elements that make the data immediately clear. The tone should be confident about our achievements while staying authentic and mission-focused.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Provide your raw program data so Claude can analyze outcomes, identify patterns, and build compelling narratives around real results.
+
+### Required context
 
 Upload spreadsheets, databases, or documents containing your program metrics.
 
@@ -37,6 +47,8 @@ Program Outcomes and Assessment DataXLSX
 
 Participant Enrollment Demographics and AttendanceXLSX
 
+## 3. What Claude creates
+
 Claude analyzes your data to find the strongest evidence of impact, then creates a comprehensive report that tells your story through both numbers and narrative.
 
 Your **impact report** includes:
@@ -53,11 +65,19 @@ Program Overview: Clear description of what you do, who you serve, and how your 
 
 The report uses sophisticated formatting with intentional typography, a cohesive color palette, professional data visualizations, and clear information hierarchy. Every section balances comprehensive data with scannable presentation—detailed enough for board members who want depth, visual enough for donors who skim.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Add specific stakeholder versions
 
 Ensure a unified voice while tailoring your output for various audiences
 
 Create a foundation-focused version emphasizing measurable outcomes and cost-effectiveness, a donor version highlighting individual stories and community impact, and a board version with strategic insights and operational metrics.
+
+
+
+Open in Claude
 
 ### Generate presentation materials
 
@@ -65,11 +85,21 @@ Convert this report into a 10-slide PowerPoint presentation for our board meetin
 
 Convert this report into a 10-slide PowerPoint presentation for our board meeting. Lead with impact, use visuals heavily, keep text minimal. Include the key data points but focus on story and achievement.
 
+
+
+Open in Claude
+
 ### Create social media content
 
 Pull out compelling statistics for shareable social content.
 
 Pull out our 5-6 most compelling statistics and create social media posts. For each metric, write a short caption that explains why it matters. Make them shareable—the kind of content that helps donors understand our impact quickly.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Verify information before sharing with funders
 
@@ -86,6 +116,8 @@ Foundation officers care about cost-effectiveness and scalability. Board members
 ### Build incrementally for complex reports
 
 If you're creating a 40-page annual report covering multiple programs, build in stages. First: "Analyze the data and create an executive summary with key metrics." Review that. Then: "Now develop the program outcome sections with visualizations." Then: "Add the financial overview and forward-looking goals." Staged development provides checkpoints and lets you redirect before investing in full execution.
+
+## 6. Ready to try for yourself?
 
 Your program data contains powerful stories about lives changed and communities strengthened. Turn those numbers into narratives that inspire continued support and demonstrate the real value of your work.
 

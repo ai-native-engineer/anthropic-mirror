@@ -61,9 +61,21 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Find all approved kinase inhibitors that target EGFR with IC50 less than 100 nM
 
+
+
+Open in Claude
+
 What compounds have been tested against the BCL2 protein? Show me the most potent ones with their bioactivity data
 
+
+
+Open in Claude
+
 Search for GPCR agonists targeting the adenosine A2A receptor and show their mechanism of action
+
+
+
+Open in Claude
 
 **Compound Optimization & SAR Analysis**
 
@@ -72,9 +84,21 @@ Search for GPCR agonists targeting the adenosine A2A receptor and show their mec
 
 Find structural analogs of imatinib with similarity > 85% and compare their target selectivity profiles
 
+
+
+Open in Claude
+
 What are the ADMET properties for aspirin? Does it pass Lipinski's Rule of Five?
 
+
+
+Open in Claude
+
 Show me compounds similar to this SMILES structure: CC(=O)Oc1ccccc1C(=O)O, and compare their bioactivity against cyclooxygenase
+
+
+
+Open in Claude
 
 **Competitive Intelligence & Drug Repurposing**
 
@@ -83,6 +107,18 @@ Show me compounds similar to this SMILES structure: CC(=O)Oc1ccccc1C(=O)O, and c
 
 What are all the approved drugs for treating hypertension? Show their mechanisms of action
 
+
+
+Open in Claude
+
 Find the mechanism of action for pembrolizumab and identify all other compounds targeting the same protein
 
+
+
+Open in Claude
+
 Search for approved oncology drugs that also show bioactivity against inflammatory disease targets
+
+
+
+Open in Claude

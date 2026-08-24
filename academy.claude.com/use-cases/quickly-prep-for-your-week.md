@@ -2,6 +2,8 @@
 
 ![Quickly prep for your week result](https://academy.claude.com/assets/v1/quickly-prep-for-your-week-holgruap.png)
 
+## 1. Describe the task
+
 Planning your week typically means opening your calendar, scanning your inbox, maybe checking a few documents—then trying to mentally synthesize which meetings need prep, what's urgent, and how to distribute your time. Claude can read through your calendar and inbox simultaneously, identify connections you'd miss while context-switching between tools, and create a structured overview showing what needs attention and when you actually have time to handle it.
 
 To start, tell Claude which dates to analyze, where to search, and what the format for the output document.
@@ -14,19 +16,29 @@ From my Outlook inbox and summarize any weekend emails I need to handle, any thr
 
 Create an overview document of my must-dos, daily structure, preparation I still need to do, blocks of time I need for deep work, and email triage of high-priority vs can-wait.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 To help Claude analyze your week effectively, give Claude access to your workspaces. Use the [Microsoft 365 connector(opens in new tab)](https://www.anthropic.com/news/productivity-platforms) to give Claude access to your Outlook calendar, email, SharePoint documents, OneDrive files, and Teams conversations.
+
+### Required context
 
 In [Settings > Connectors(opens in new tab)](https://claude.ai/customize/connectors), you'll find the [Microsoft 365 connector(opens in new tab)](https://www.anthropic.com/news/productivity-platforms).
 
 Claude can then search across your connected tools simultaneously—identifying which meetings need prep, what's urgent in your inbox, and how your schedule and communications relate to each other.
 
-![](images/3cb5db332ced9f49.svg)
+![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23F25022'%20d='M1%201h10.5v10.5H1z'/%3e%3cpath%20fill='%237FBA00'%20d='M12.5%201H23v10.5H12.5z'/%3e%3cpath%20fill='%2300A4EF'%20d='M1%2012.5h10.5V23H1z'/%3e%3cpath%20fill='%23FFB900'%20d='M12.5%2012.5H23V23H12.5z'/%3e%3c/svg%3e)
 
 Microsoft 365
 
 [Connect](https://claude.ai/directory/microsoft-365)
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+
+## 3. What Claude creates
 
 Claude reads your sources simultaneously, analyzing what matters, and showing you how to prepare for the week ahead.
 
@@ -89,11 +101,19 @@ Thursday is your only real focus day: 4+ hours unstructured time. First substant
 
 **View your formatted document**
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Draft out urgent responses
 
 Ask Claude to write replies based on dashboard triage. Claude can identify urgent emails and draft replies based on the email thread and relevant documents. You can then easily copy these drafts to your inbox. Specify which emails to respond to and what each response should accomplish.
 
 Draft three email responses: Reply to Finance (confirm I'll send the Q3 budget variance data by end of day Tuesday, apologize for delay). Reply to Legal (confirm vendor agreement will be signed and returned by Tuesday 3 PM). Reply to IT (approve contractor access request for the staging environment, apologize for 4-day response delay).
+
+
+
+Open in Claude
 
 ### Create meeting prep materials
 
@@ -101,11 +121,21 @@ After seeing which meetings need prep, Claude can search email threads, SharePoi
 
 For my Thursday board meeting, search my emails and documents for budget discussions, Q3 performance data, and board questions sent ahead. Create a one-page brief: decisions they expect, questions raised in advance, key numbers needed, topics requiring more input.
 
+
+
+Open in Claude
+
 ### Adjust the output to your needs
 
 Claude can quickly restructure the format of your document. If you want it more compact, more detailed, or different styling, Claude adjusts to match how you actually work.
 
 Refine the output to have tighter spacing so more content fits on one page. Change the font and use Arial instead of Times New Roman. For each meeting, add who's attending and their email address.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Use your [organization's search project(opens in new tab)](https://support.claude.com/en/articles/12489464-using-enterprise-search) for company-wide information
 
@@ -122,6 +152,8 @@ Beyond creating a Word document, Claude can save your weekly plan as a spreadshe
 ### Turn this workflow into a Skill
 
 Once you've refined this workflow, create and save it as a [Skill(opens in new tab)](https://www.anthropic.com/news/skills) so Claude can automatically complete the task in any chat. Skills teach Claude how to complete a task the same way you do, searching through the right sources, including the right information and styling, and saving it in the correct format. Learn more about how to [create a custom skill using Claude.(opens in new tab)](https://support.claude.com/en/articles/12599426-how-to-create-a-skill-with-claude-through-conversation)
+
+## 6. Ready to try for yourself?
 
 Connect Claude to your Microsoft 365 workspaces and prepare for the week ahead. Claude can search your calendar, email and other tools to show what needs attention and when you have time to handle it.
 

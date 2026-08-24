@@ -2,21 +2,31 @@
 
 ![Organize files across your desktop result](https://academy.claude.com/assets/v1/organize-files-by-whats-in-them-iaux70mt.png)
 
+## 1. Describe the task
+
 Grant Claude access to your desktop. In Cowork, it sees the same chaos you do: scattered screenshots, project folders with cryptic names, downloads you never moved. It reads through everything and sorts it into a clean folder structure.
 
 Come back to a tidy desktop and a summary of what went where.
 
 Please help organize my desktop. Evaluate all of the scattered files and organize based on the contents inside of them.
 
+
+
 Open in Cowork
 
+## 2. Give Claude context
+
 Cowork is a workspace in Claude, available in the [Claude Desktop(opens in new tab)](https://claude.com/download) app and, with remote sessions (in beta), on web and mobile. Run locally, it works directly with your local files: grant it access to your desktop and it navigates and moves files the same way you would, no uploading required. In a remote session, Cowork works in the cloud instead, so the files Claude uses leave your device for processing on Anthropic's servers.
+
+### Required context
 
 To get started:
 
 * Download [Claude Desktop(opens in new tab)](https://claude.com/download) and start a Cowork session
 * Grant desktop or folder access when prompted
 * Mention anything Cowork shouldn't touch, like the folder for a project you're in the middle of
+
+## 3. What Claude creates
 
 Cowork scans your desktop, categorizes each file, and creates a folder structure. You'll see progress updates as it works and a summary of what changed.
 
@@ -44,11 +54,17 @@ Cleaned up
 
 Your desktop should now be much easier to navigate!
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Reorganize by your own logic
 
 Apply your own categories instead of the defaults. If you organize by client, by date, or by project phase, tell Cowork and it will restructure.
 
 *"Actually, split the Projects folder by language — Python projects in one folder, JavaScript in another, and everything else in misc."*
+
+
 
 Open in Cowork
 
@@ -58,6 +74,8 @@ Cowork remembers what it moved and where. If you're hunting for a file in the ne
 
 *"Where did that budget spreadsheet end up? I think it was called Q3\_budget or something like that."*
 
+
+
 Open in Cowork
 
 ### Create an ongoing system
@@ -66,7 +84,11 @@ Set up folder conventions you can maintain. One cleanup helps, but a system keep
 
 *"Set up a Downloads folder too, and show me a simple system for where new files should go so this doesn't pile up again."*
 
+
+
 Open in Cowork
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Local sessions keep your files on your computer
 
@@ -83,6 +105,8 @@ Cowork will ask before deleting anything that looks important, but if you know c
 ### Start another task while this one runs
 
 Organizing a full desktop takes a while. Open a new session from the sidebar for other work. You'll see a grey dot in the sidebar when this one needs attention.
+
+## 6. Ready to try for yourself?
 
 The next time your desktop gets cluttered, open Cowork and let it handle the sorting.
 

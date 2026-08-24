@@ -2,6 +2,8 @@
 
 ![Organize your legal workflows using Projects result](https://academy.claude.com/assets/v1/organize-your-legal-workflows-using-projects-hkym4oh1.png)[Open artifact](https://claude.ai/public/artifacts/b405e6c9-608b-448a-b2b8-8c8982e582ff)
 
+## 1. Describe the task
+
 Contract reviews at scale demand consistency, but playbooks live in shared drives and tribal knowledge stays in senior associates' heads. Projects in Claude solve this by giving you persistent context. Upload your playbook, templates, and term lists once, and Claude references them automatically in every conversation within that Project. This prompt will help you create project instructions for your team.
 
 I'm setting up a Project for NDA reviews at our firm. We handle about 30 NDAs a week and I want Claude to reference our standard terms, flag deviations, and maintain consistency in our review comments.
@@ -10,7 +12,15 @@ I've uploaded our NDA playbook, our standard mutual NDA template, and our list o
 
 Then help me craft optimized **project instructions** I can paste into the custom instructions field—instructions that tell Claude to reference the standards guide and apply our approach.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Add your documents or connect your document storage so Claude can access your playbooks, templates, and term lists directly. The more complete your reference materials, the more accurately Claude captures your firm's standards and approach.
+
+### Required context
 
 Upload core reference materials: At minimum, provide your review playbook or guidelines, a standard template showing your preferred language, and any lists of prohibited or flagged terms.
 
@@ -27,6 +37,8 @@ Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/artic
 [
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+
+## 3. What Claude creates
 
 Claude analyzes your reference materials, identifies patterns in your review approach, and produces two files: a standards guide for your Project knowledge and ready-to-paste custom instructions.
 
@@ -66,11 +78,19 @@ Ready-to-paste custom instructions that tell Claude to reference the Standards G
 
 Each review will now reference your standards automatically.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Test the setup with a real NDA in a Project
 
 Create a new Project, upload the Standards Guide to the knowledge base, and paste your custom instructions into the Project settings. Upload an NDA to see how Claude applies your standards, then refine any instructions that need adjustment.
 
 Here's an NDA we received yesterday from a potential vendor. Review it against our standards guide and flag any deviations. Format your comments the way our associates would, with risk level and recommended alternative language for each issue.
+
+
+
+Open in Claude
 
 ### Expand to other contract types
 
@@ -78,11 +98,21 @@ Once your NDA workflow is running, replicate the approach for other high-volume 
 
 We also review about 15 MSAs per month. I'm uploading our MSA playbook and template. Create a separate standards guide for MSA reviews following the same structure as the NDA guide, and give me project instructions I can use for a new MSA Review Project.
 
+
+
+Open in Claude
+
 ### Create a training resource for new associates
 
 Turn your systematized approach into onboarding material.
 
 Based on the NDA standards guide, create a training document for new associates joining the contracts team. It should explain our review philosophy, walk through the workflow, and include 3-4 annotated examples showing how we'd handle common issues. Make it something they can reference during their first few weeks.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Start with your best-documented process
 
@@ -103,6 +133,8 @@ Legal documents typically need to stay in .docx for redlining and collaboration.
 ### This pattern extends beyond legal work
 
 Marketing teams can document brand voice. Finance teams can capture reporting standards. Research teams can codify methodology. The output becomes infrastructure for consistent AI-assisted work across any domain with established practices.
+
+## 6. Ready to try for yourself?
 
 Upload your NDA playbook and get started with your first Project. Once you've calibrated the workflow, you can expand to MSAs, vendor agreements, employee contracts, and build Projects for every high-volume legal process.
 

@@ -2,6 +2,8 @@
 
 ![Grant proposal assembly line result](https://academy.claude.com/assets/v1/grant-proposal-assembly-line-l7pm65pj.png)
 
+## 1. Describe the task
+
 Claude's ability to analyze documents and identify reusable patterns, paired with your grant writing expertise, lets you transform chaotic proposal archives into systematic content libraries that scale. Instead of rewriting similar content for each funder, you assemble proven modules and customize language to match each funder's priorities—shifting your role from drafter to strategist.
 
 First, tell Claude about your core programs and upload any existing grant content. Claude will organize this into a modular library. Then, for each new grant opportunity, share the RFP and Claude will assemble a customized proposal using your library components, write fresh funder-specific sections, and create required attachments like budgets and logic models.
@@ -45,22 +47,30 @@ Create templates and tracking tools:
 
 Make this a true assembly line where I can produce proposals 60% faster by mixing and matching proven content.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Connect Google Drive to store your modular library and access past proposals. Connect Gmail to draft submission emails and funder correspondence. This creates an integrated system where all grant content lives in one organized, accessible place.
 
 Your assembly line works best when Claude can access your full grant history, pull successful language that's worked before, and organize everything systematically for future reuse.
+
+### Required context
 
 * **Enable [Google Drive integration(opens in new tab)](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration):** Enable Google Drive access so Claude can create organized folder structure for your content library, save modular components in easily accessible formats, pull from past proposals when assembling new ones, and store templates and tracking tools.
 * **Enable [Gmail integration(opens in new tab)](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors):** Connect Gmail so Claude can draft proposal submission emails with proper attachments, create funder follow-up sequences, and access funder correspondence for context.
 * **Initial materials:** Upload 2-3 successful past proposals, current program descriptions, organizational background documents, and recent outcome data or impact reports.
 * **Enable [code execution file creation(opens in new tab)](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude):** For producing Excel library and different formats.
 
-![](images/a3bfc5814bd6a3e2.svg)
+![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
 Google Drive
 
 [Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-![](images/f37dc3507c90f690.svg)'%3e%3cpath%20d='M11.9091%2034H16.3636V23.6969L10%2019.1515V32.1818C10%2033.1879%2010.8559%2034%2011.9091%2034Z'%20fill='%234285F4'/%3e%3cpath%20d='M31.6364%2034H36.0909C37.1473%2034%2038%2033.1848%2038%2032.1818V19.1515L31.6364%2023.6969'%20fill='%2334A853'/%3e%3cpath%20d='M31.6364%2015.8182V23.6969L38%2019.1515V16.7272C38%2014.4788%2035.305%2013.1969%2033.4182%2014.5454'%20fill='%23FBBC04'/%3e%3cpath%20d='M16.3636%2023.697V15.8182L24%2021.2727L31.6364%2015.8182V23.697L24%2029.1515'%20fill='%23EA4335'/%3e%3cpath%20d='M10%2016.7272V19.1515L16.3636%2023.6969V15.8182L14.5818%2014.5454C12.6918%2013.1969%2010%2014.4788%2010%2016.7272Z'%20fill='%23C5221F'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4766_38693'%3e%3crect%20width='28'%20height='20'%20fill='white'%20transform='translate(10%2014)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e)
+![](data:image/svg+xml,%3csvg%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_4766_38693)'%3e%3cpath%20d='M11.9091%2034H16.3636V23.6969L10%2019.1515V32.1818C10%2033.1879%2010.8559%2034%2011.9091%2034Z'%20fill='%234285F4'/%3e%3cpath%20d='M31.6364%2034H36.0909C37.1473%2034%2038%2033.1848%2038%2032.1818V19.1515L31.6364%2023.6969'%20fill='%2334A853'/%3e%3cpath%20d='M31.6364%2015.8182V23.6969L38%2019.1515V16.7272C38%2014.4788%2035.305%2013.1969%2033.4182%2014.5454'%20fill='%23FBBC04'/%3e%3cpath%20d='M16.3636%2023.697V15.8182L24%2021.2727L31.6364%2015.8182V23.697L24%2029.1515'%20fill='%23EA4335'/%3e%3cpath%20d='M10%2016.7272V19.1515L16.3636%2023.6969V15.8182L14.5818%2014.5454C12.6918%2013.1969%2010%2014.4788%2010%2016.7272Z'%20fill='%23C5221F'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4766_38693'%3e%3crect%20width='28'%20height='20'%20fill='white'%20transform='translate(10%2014)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e)
 
 Gmail
 
@@ -68,15 +78,15 @@ Gmail
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-![](images/a3bfc5814bd6a3e2.svg)
+![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
 Past successful proposalsDOC
 
-![](images/a3bfc5814bd6a3e2.svg)
+![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
 Program descriptionsDOC
 
-![](images/a3bfc5814bd6a3e2.svg)
+![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
 Past successful proposalsDOC
 
@@ -95,6 +105,8 @@ Consider adding additional inputs for a stronger, enhanced library:
 [
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
+
+## 3. What Claude creates
 
 Claude builds a complete grant proposal assembly line system with three integrated components that work together to dramatically reduce writing time.
 
@@ -145,11 +157,19 @@ Metro County youth face compounding barriers: 42% unemployment among 16-19 year 
 
 With Morrison Foundation support, we will scale this proven approach, engage diverse youth populations, and create a replicable model demonstrating that young people aren't just the future—they're essential partners in solving today's challenges.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Expand library with new modules
 
 Add new reusable components as programs evolve and successes accumulate.
 
 Create 3 new modules for our content library based on this quarter's outcomes: (1) COVID recovery impact statement showing how we've adapted programs, (2) DEI advancement section with new board diversity metrics, (3) Climate resilience component for environmental funders. Format them to match existing modules and save to appropriate library folders.
+
+
+
+Open in Claude
 
 ### Generate batch proposals
 
@@ -157,11 +177,21 @@ Create multiple proposals simultaneously when similar deadlines hit.
 
 Three grants are due next month. Using our content library, create customized proposals for: (1) State Education grant emphasizing academic outcomes, (2) Community Foundation grant focusing on equity, (3) Corporate foundation grant highlighting workforce preparation. Pull from the same program modules but customize framing, metrics, and language for each funder's priorities.
 
+
+
+Open in Claude
+
 ### Optimize based on success patterns
 
 Analyze wins and losses to improve your library.
 
 Review these 5 winning proposals and 3 rejections from last year. Identify which module language correlates with success, what funder feedback suggests we should emphasize more, and which sections need refreshing. Update the content library modules based on these insights and create a 'winning language' guide for future proposals.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Version control prevents content drift.
 
@@ -182,6 +212,8 @@ Before using the assembly line, gather intelligence: "Search for this funder's r
 ### Maintain freshness with quarterly updates.
 
 Reused content can become stale. Set quarterly reviews: "Flag any modules older than 6 months. Update statistics, refresh examples, and add recent outcomes. Mark updated versions with the current date." Fresh statistics and recent success stories keep proposals competitive even when using library content.
+
+## 6. Ready to try for yourself?
 
 Transform grant writing from a time-consuming scramble into an efficient assembly line. Start by building your modular library with existing content, then watch as new proposals come together in hours instead of days. Every successful grant makes your library stronger, creating a compounding advantage that grows with each application cycle.
 

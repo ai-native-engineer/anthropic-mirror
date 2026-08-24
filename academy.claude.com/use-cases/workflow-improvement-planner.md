@@ -2,6 +2,8 @@
 
 ![Workflow Improvement Assessment artifact — a multi-step form with 9 numbered sections (Workflow Identification through Additional Context), a progress bar, and fill-in fields for workflow name, owning department, and people involved](https://academy.claude.com/assets/v1/workflow-improvement-planner-gq1j3keu.png)[Open artifact](https://claude.ai/public/artifacts/77610fec-9e07-4abb-a204-46df4dbdc988)
 
+## 1. Describe the task
+
 Ask Claude to create an artifact that results in a comprehensive planning template that guides you through defining your workflow improvement opportunity.
 
 I need help defining a workflow improvement opportunity at my nonprofit. Can you create a detailed artifact that asks me questions to capture all the important context about a process we want to improve?
@@ -17,6 +19,14 @@ The artifact should help me think through:
 Make this comprehensive enough that when I complete it, it provides me with a file that I can give back to Claude with all the information needed to design a practical solution. Include clear instructions at the end for how to use the completed template with Claude.
 
 Format this as a well-designed artifact that's easy to fill out—with clear sections, fill-in-the-blank areas, and helpful prompts that make sure I don't miss important details.
+
+
+
+Open in Claude
+
+## 2. Give Claude context
+
+### Required context
 
 Upload files so Claude has real context to work with—not just a generic template.
 
@@ -36,6 +46,8 @@ volunteer-intake-formPDF
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
+## 3. What Claude creates
+
 Claude produces an artifact with fill-in-the-blank sections covering various aspects of workflow improvement planning. The template includes clear instructions for completion and detailed guidance on how to use your finished document with Claude to design solutions.
 
 I've recreated the Nonprofit Workflow Improvement Assessment tool! This is a comprehensive multi-step form that helps document workflow improvement opportunities and generates a structured prompt for Claude.
@@ -53,11 +65,19 @@ The tool includes:
 
 The final section provides a formatted request that captures all the details entered throughout the assessment, ready to be used with Claude for workflow improvement recommendations.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Get solution recommendations
 
 Find out which parts of your process Claude can improve and what features make the most sense for your situation. See what the workflow would look like in practice with examples that match your needs.
 
 I've completed the workflow improvement template. Please review my responses and help me understand: (1) How Claude can specifically address the challenges I've outlined, (2) Which Claude features would be most valuable (Extended Thinking, file creation, MCP connections), (3) A practical step-by-step workflow I can implement, (4) Any templates or examples I'll need.
+
+
+
+Open in Claude
 
 ### Create implementation materials
 
@@ -65,11 +85,21 @@ Receive example prompts you can start using right away, along with any template 
 
 Based on the workflow improvement I've defined, create the specific materials I need to implement this: example prompts I'll use, any template files I should have, specific MCP connections to set up, and a step-by-step guide I can follow.
 
+
+
+Open in Claude
+
 ### Refine for your constraints
 
 Adjust everything for your real constraints—whether that's free tools only, limited tech expertise on staff, or team members who are new to AI.
 
 The solution you suggested sounds great, but I need to adjust for our reality. We can only use free tools, we don't have technical expertise on staff, and I need this to work for someone with limited AI experience. Can you simplify this and make it more accessible?
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Be specific about frequency and volume
 
@@ -90,6 +120,8 @@ Workflow improvements aren't just about speed. Note where quality suffers ("erro
 ### Connect your data sources for deeper solutions
 
 If your workflow involves pulling data from Google Drive, coordinating via Gmail, or checking Google Calendar, enable those MCP connections before working with Claude on solutions. This lets Claude design workflows that directly access your systems rather than requiring manual file exports. Visit the MCP directory to see available connections for nonprofit tools.
+
+## 6. Ready to try for yourself?
 
 Start by getting your planning template, work through it thoughtfully to capture your workflow challenge, then bring it back to Claude to design a solution that fits your nonprofit's needs and constraints.
 

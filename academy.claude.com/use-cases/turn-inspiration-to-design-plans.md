@@ -2,6 +2,8 @@
 
 ![Turn inspiration into design plans result](https://academy.claude.com/assets/v1/turn-inspiration-to-design-plans-m7f4gwnw.png)
 
+## 1. Describe the task
+
 Claude can analyze images to identify design styles across your saved inspirations—pinning down the specific aesthetic so you can find matching pieces and communicate your vision to contractors. It can then search across price ranges to show you where to save and where it's worth investing.
 
 Ask Claude to identify the style in your saved images, explain what defines it, and find furniture you can actually buy. Request a spreadsheet organized by furniture type so you can compare costs, quality, and which pieces are worth investing in.
@@ -19,7 +21,15 @@ I'm planning a kitchen reno and I've saved images of kitchens I love, but I'm ov
 
 Use elegant formatting with premium typography (Garamond headers, Inter body) and incorporate the aesthetic's color palette into the workbook with sophisticated visual hierarchy, and gallery-level design quality.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Claude can analyze reference images to identify your design inspiration and find pieces that match your style and are worth the investment.
+
+### Required context
 
 Upload your saved design inspiration images—Pinterest boards, screenshots of interior design you love, or photos of specific elements that catch your eye.
 
@@ -39,6 +49,8 @@ Claude can [search the web(opens in new tab)](https://support.claude.com/en/arti
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
+## 3. What Claude creates
+
 Claude provides a spreadsheet that consolidates all research from your preferences, including style definitions, furniture options by type, price comparisons, and direct links, enabling you to make informed decisions and edit as needed.
 
 Done! Here's Your Kitchen Renovation Strategy
@@ -57,11 +69,19 @@ Sheet 4: Investment Strategy & ROI Financial projections with formulas
 
 **View your renovation spreadsheet**
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Conduct further research
 
 Use [Research(opens in new tab)](https://support.claude.com/en/articles/11088861-using-research-on-claude) to learn more about different products and materials before committing.
 
 Research the quartz countertop brands in my mid-range package. What do contractors say about installation issues? Are there common staining or etching complaints after a few years? Have any of these brands had quality problems or recalls? I want to know the reality before I order.
+
+
+
+Open in Claude
 
 ### Adjust the format
 
@@ -69,11 +89,21 @@ Turn your research into a clear plan to share with contractors. Claude can synth
 
 Create a contractor brief document with the style breakdown, selected materials with specs and sources, budget allocation by category, must-haves versus flexible items, and key questions about their experience with these specific materials. Make it something I can send to get accurate bids.
 
+
+
+Open in Claude
+
 ### Implement your ideas
 
 Use your spreadsheet to map out the actual installation sequence and understand each step.
 
 Walk me through the actual installation sequence for this renovation. What happens first, what can't start until something else is done, and where do contractors typically wait on each other? If my cabinet delivery is delayed by three weeks, what does that do to the timeline?
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Open the actual Excel file, not just the preview
 
@@ -86,6 +116,8 @@ When you ask Claude to "Create a spreadsheet," it might default to basic formatt
 ### Track progress in a [Project(opens in new tab)](https://support.claude.com/en/articles/9517075-what-are-projects)
 
 Keep all your decisions, quotes, and progress organized as the renovation unfolds. Projects remember your complete context—the style guide, material choices, budget decisions—so you can ask questions weeks later without re-explaining everything.
+
+## 6. Ready to try for yourself?
 
 Upload your inspiration images and Claude consolidates research into a spreadsheet where you can identify options, compare choices, and make edits.
 

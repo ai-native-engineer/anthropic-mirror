@@ -95,6 +95,10 @@ Then describe the skill to Claude in one message, with your own details in place
 
 Create a skill for my weekly team update. The format: three sections, wins, blockers, and priorities, each with at most three bullets. The tone: direct and factual, written for my manager to skim. Here's an example of an update that worked well: [paste one you were happy with].
 
+
+
+Open in Claude
+
 ### Check that your skill holds up
 
 A skill starts saving you time once you've tested it. Open a new conversation and ask for the task the way you normally would, such as "draft this week's team update from these notes". Two checks tell you whether it worked:

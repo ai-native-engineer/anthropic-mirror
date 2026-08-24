@@ -4,6 +4,8 @@
 
 Courses and tutorials from Anthropic for developers. Learn Claude Code and the Claude API, then build agents with MCP, skills, and tool use.
 
+## Start here
+
 [### Claude Code 101
 
 An agentic coding tool that lives in your terminal. Learn what Claude Code is, how it works, and the core workflows for getting real work done with it.
@@ -106,5 +108,7 @@ Tutorial·4 min](https://academy.claude.com/tutorials/what-is-claude-managed-age
   platform.claude.com
 
    (opens in new tab)](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)
+
+## More resources
 
 [Developer docs platform.claude.com (opens in new tab)](https://platform.claude.com/docs/en/home)[Claude Code docs code.claude.com (opens in new tab)](https://code.claude.com/docs/en/overview)[Claude cookbooks platform.claude.com (opens in new tab)](https://platform.claude.com/cookbook)[Claude Console platform.claude.com (opens in new tab)](https://platform.claude.com/)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

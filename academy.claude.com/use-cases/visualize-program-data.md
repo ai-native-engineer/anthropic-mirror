@@ -2,6 +2,8 @@
 
 ![Visualize program data result](https://academy.claude.com/assets/v1/visualize-program-data-j89ybsd7.png)
 
+## 1. Describe the task
+
 Bring your data to life. Claude's ability to analyze patterns in your program data, combined with professional file creation tools, lets you transform raw statistics into visual stories that move stakeholders to action. Instead of presenting numbers in static spreadsheets, you can generate sophisticated dashboards, trend analyses, and impact visualizations that communicate program satisfaction and organizational performance at a glance.
 
 The uploaded CSV contains quarterly metrics for six programs: Youth Nutrition Workshop, Adult Wellness Seminar, Senior Health Education, Community CPR Training, Mental Health First Aid, and Diabetes Prevention Program.
@@ -17,9 +19,17 @@ The board cares most about program satisfaction, completion rates, and demonstra
 
 Design these with consulting-firm quality and use colors that feel professional but warm (we're a health nonprofit, not a corporate consultancy).
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Connect your data sources and enable key features. Provide your program data so Claude can identify patterns, calculate key metrics, and create visualizations that highlight your most important outcomes. Claude will identify missing values, inconsistent formats, and outliers, then suggest fixes before visualization.
 
 Upload your program data as a XLSX or CSV file with columns for metrics you track. Include time periods (quarters, months, years), program names, and the specific measurements that matter to your stakeholders. The more complete your data, the richer Claude's analysis and visualizations.
+
+### Required context
 
 In addition to the raw data files containing the information you are looking to analyze and discuss, enable the [Google Drive integration(opens in new tab)](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration) to provide Claude with more information.
 
@@ -32,7 +42,7 @@ Enable [Extended Thinking(opens in new tab)](https://www.anthropic.com/news/visi
 
 Make sure code execution and file creation is enabled in [settings(opens in new tab)](https://claude.ai/settings/capabilities). This is essential for creating working Excel dashboards with formulas, charts, conditional formatting, and interactive elements.
 
-![](images/a3bfc5814bd6a3e2.svg)
+![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
 Google Drive
 
@@ -44,13 +54,15 @@ Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 Program Data and Metrics 2024XLSX
 
-![](images/a3bfc5814bd6a3e2.svg)
+![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='m1.846%2012.624.64%201.104c.133.233.324.415.548.548l2.284-3.953H.75c0%20.258.066.515.199.748l.897%201.553Z'%20fill='%230066DA'/%3e%3cpath%20d='M8%205.672%205.716%201.72a1.54%201.54%200%200%200-.548.548L.949%209.576a1.53%201.53%200%200%200-.199.747h4.568L8%205.672Z'%20fill='%2300AC47'/%3e%3cpath%20d='M12.966%2014.276c.225-.133.415-.315.548-.548l.266-.457%201.27-2.2a1.5%201.5%200%200%200%20.2-.748h-4.568l.972%201.91%201.312%202.043Z'%20fill='%23EA4335'/%3e%3cpath%20d='M8%205.672%2010.284%201.72a1.5%201.5%200%200%200-.748-.2H6.464a1.5%201.5%200%200%200-.748.2L8%205.672Z'%20fill='%2300832D'/%3e%3cpath%20d='M10.682%2010.323H5.318l-2.284%203.953c.224.133.482.2.747.2h8.438c.265%200%20.523-.075.747-.2l-2.284-3.953Z'%20fill='%232684FC'/%3e%3cpath%20d='m12.941%205.922-2.11-3.655a1.54%201.54%200%200%200-.547-.548L8%205.672l2.682%204.651h4.56a1.5%201.5%200%200%200-.2-.747L12.94%205.922Z'%20fill='%23FFBA00'/%3e%3c/svg%3e)
 
 Board Presentation Context and Audience NotesDOC
 
 ![](https://academy.claude.com/surfaces/excel-icon.svg)
 
 Program Data and Metrics 2024XLSX
+
+## 3. What Claude creates
 
 Claude analyzes your program data to identify trends, calculate performance metrics, and create a comprehensive visualization suite tailored to your stakeholder needs.
 
@@ -75,11 +87,19 @@ Here's what I've created for your board presentation:
 
 Key findings: Your programs achieved a 94% completion rate and 4.7/5.0 satisfaction score across 2,600+ participants. Senior Health Education and Diabetes Prevention Program lead in satisfaction (4.9/5.0). Community CPR Training shows the strongest growth trajectory with 24% enrollment increase from Q1 to Q3. Knowledge gains average 25+ points across all programs, demonstrating measurable learning impact.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Add demographic breakdowns
 
 Understand which communities you're serving most effectively.
 
 Create an additional analysis sheet showing how satisfaction and completion rates vary by participant age group and zip code. This will help us understand which communities we're serving most effectively.
+
+
+
+Open in Claude
 
 ### Focus on specific programs
 
@@ -87,11 +107,21 @@ Generate a deep-dive analysis for a specific program.
 
 Generate a deep-dive PowerPoint specifically for our Mental Health First Aid program. Show quarterly trends, participant testimonial themes, and compare our results to national certification standards.
 
+
+
+Open in Claude
+
 ### Leverage Research to Understand Benchmarks
 
 Use Research mode to find nonprofit sector benchmarks for comparison.
 
 Use Research mode to find nonprofit sector benchmarks for our key metrics. I need comparison points for: donor retention rates for organizations in our budget range ($500K-$1M annual), average gift sizes for similar mission areas, and program satisfaction scores for workforce development nonprofits. Then add these benchmarks as reference lines on our existing charts.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Open the actual files to see full design quality
 
@@ -112,6 +142,8 @@ Board members want financial health and risk indicators. Major donors seek impac
 ### Build incremental visualization capacity rather than attempting everything at once
 
 Start with a single dashboard covering your most important program or campaign. Get comfortable with regular updates. Let it become part of your quarterly routine. Once that feels effortless, expand to additional programs, more sophisticated analysis, or audience-specific reports. Organizations that try to visualize everything simultaneously often abandon the effort when it becomes overwhelming.
+
+## 6. Ready to try for yourself?
 
 Your program data already contains compelling impact stories. This visualization suite helps you surface those stories in formats that board members can understand at a glance, donors find inspiring, and funders see as evidence of your capacity. Start with the data you have today, see what patterns emerge, then build on that foundation.
 

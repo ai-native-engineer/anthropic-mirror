@@ -2,6 +2,8 @@
 
 Loading
 
+## 1. Describe the task
+
 Claude is capable of generating great visual designs when given clear instructions and examples. However, routinely achieving high-quality results often requires detailed prompting and iterative refinements, which can be time-consuming and context-heavy. With Skills, you can package that process once, then activate high quality design thinking quickly in any conversation.
 
 Tell Claude you want to create the ultimate design skill that will elevate any visual work to higher standards. Share what you want included in the skill, like certain frameworks, standards and processes Claude should adhere to when designing outputs.
@@ -29,6 +31,14 @@ I want the skill to have reference files that Claude consults:
 
 The goal is that when I ask "create a sales dashboard" or "make a presentation deck," Claude automatically thinks like a design director who wouldn't accept generic output. The user sees only the polished result unless they specifically ask to see the design thinking process. Help me create this skill with all the necessary reference files.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
+### Required context
+
 This workflow leverages Claude's [Skills(opens in new tab)](https://www.anthropic.com/news/skills) system. In [Settings > Capabilities > Skills(opens in new tab)](https://claude.ai/settings/capabilities), make sure code execution and file creation is turned on so Claude has the ability to create and use Skills.
 
 ### Optional context
@@ -38,6 +48,8 @@ Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/arti
 [
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+
+## 3. What Claude creates
 
 Claude produces a complete skill structure with a main instruction file and supporting references. The skill is immediately usable once added to your Claude Skills library. Once you refer to ‘design excellence’ in a chat, Claude will automatically apply the skill’s visual thinking to whatever you're creating.
 
@@ -70,11 +82,19 @@ Core principles for balancing impressive expertise with restraint—when to be b
 
 Want me to adjust any of the reference content or add additional techniques to the catalog?
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### See the skill in action
 
 Use this skill to evaluate and enhance existing work. Claude can recreate the output by applying the integrated techniques from the skill.
 
 Let's test this skill. Create a quarterly performance dashboard. Use the design elevation process and show me both the initial functional version and the elevated result so I can see the difference.
+
+
+
+Open in Claude
 
 ### Combine with MCP connections
 
@@ -82,11 +102,21 @@ See how your packaged expertise within Skills combines and works alongside your 
 
 I have Google Drive connected via MCP. How would this design skill work when I ask you to pull an existing presentation from my Drive and improve it? Show me how the skill and the MCP connection work together.
 
+
+
+Open in Claude
+
 ### Expand the technique catalog
 
 Deepen the skill's vocabulary in specific areas. Or, incorporate your quality standards and specific examples into the skill instructions or framework. This helps Claude understand your desired output more clearly.
 
 Add techniques for data visualization specifically—chart styling, dashboard layouts, and ways to make numbers more compelling visually. I also work in fintech. Add industry-leading financial design exemplars to the reference library.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Evolve the skill through use and refinement
 
@@ -99,6 +129,8 @@ When Claude works on a task, it first scans skill metadata (the description at t
 ### Quality standard questions push beyond defaults into intentional choices
 
 The skill forces Claude to evaluate against quality standards and benchmarks. The skill also embeds iteration as a process within the skill, rather than several rounds of prompting. This technique is used to make Claude reject generic choices and opt for more creative and unique design decisions.
+
+## 6. Ready to try for yourself?
 
 Create your design excellence skill and watch every visual output transform from functional to portfolio-worthy. Build the skill once, then activate world-class design thinking in any conversation
 

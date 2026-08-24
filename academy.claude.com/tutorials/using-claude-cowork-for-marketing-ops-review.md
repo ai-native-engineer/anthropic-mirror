@@ -31,6 +31,8 @@ To start now, open Cowork and describe the report you want to prepare — Claude
 
 Help me build a skill that prepares my [weekly metrics review]. Walk me through what to pull, where to find it, what the draft should look like, and when to pause and ask — then write it as a skill.
 
+
+
 Working folderOpen in Cowork
 
 ## Step 2: Schedule the prep run
@@ -44,6 +46,8 @@ There are two ways to create it: type `/schedule` in any task, or open `Schedule
 Here’s the prompt to set it up — replace the blanks with your own:
 
 /schedule Every [Sunday around 5pm], run the prep step of [your weekly review skill]. Read last week's review, pull the data from [your warehouse], and write a starting draft to [your working folder].
+
+
 
 Working folderOpen in Cowork
 

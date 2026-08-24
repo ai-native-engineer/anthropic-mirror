@@ -30,6 +30,8 @@ With the plugin installed and your sources connected, tell Claude to tailor `/br
 
 Customize the /brief skill from the Legal plugin for my team. Our reviews and past decisions live in [where our reviews are stored] — set up the daily memo and the topic brief around how my reviews are structured and the format I read fastest.
 
+
+
 Working folderOpen in Cowork
 
 Claude walks you through your document store and templates, then rewrites the skill to match. Run it on a question you already know the answer to, check the citations, and tell Claude to fix anything it got wrong.
@@ -46,6 +48,8 @@ Here’s the prompt to set it up — replace the blanks with your own:
 
 /schedule Every [weekday at 8am], read my [Gmail, issue tracker, and Slack] and run /brief in daily mode to write a memo: what's due today, what's new, and what's urgent.
 
+
+
 Working folderOpen in Cowork
 
 ## Step 3: Run a brief on a question
@@ -57,6 +61,8 @@ In step 2 you put `/brief` on a schedule for the daily memo. The other way to us
 It’s the same skill, so it already knows where your reviews live — your prompt only has to carry the question:
 
 /brief does [the new request] change our conclusion on [the prior review]?
+
+
 
 ReviewsOpen in Cowork
 
@@ -95,6 +101,8 @@ Once you’ve verified the answer, finish the rest of the work — the part that
 Claude asks before it sends or changes anything. You can do both in one prompt:
 
 Draft a reply to [the product manager] in [your messaging tool] — my view: [your call on the question]. Then close the ticket in [your task tracker]: post my decision and the brief's list of what the question reopens, link the source review, and mark it done.
+
+
 
 Working folderOpen in Cowork
 

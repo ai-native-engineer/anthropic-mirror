@@ -28,8 +28,18 @@ Learn to build Claude into your products with the API, Claude Console, and MCP.]
 
 [More about AI Fluency](https://academy.claude.com/collections/ai-fluency)
 
+[### AI Fluency: Framework & Foundations
+
+Learn to collaborate with AI effectively, efficiently, ethically, and safely using the 4D framework: Delegation, Description, Discernment, and Diligence.
+
 Course·14 lessons · 1 quiz·4 hr](https://academy.claude.com/courses/ai-fluency-framework-foundations)[![](https://academy.claude.com/assets/v1/thumbnail.light-m01o4z13.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ca0nkqqm.png)
 
+### The 4 Properties of AI
+
+This tutorial offers a full overview of the 4 properties of AI. It's a quick reference to help you understand the things that make AI capable in some situations and limited in others.
+
 Tutorial·7 min](https://academy.claude.com/tutorials/the-4-properties-of-ai)[### AI Capabilities and Limitations
+
+Build an accurate mental model of what large language models can and cannot do: next-token prediction, knowledge, working memory, steerability, and context limits.
 
 Course·13 lessons · 1 quiz·3.5 hr](https://academy.claude.com/courses/ai-capabilities-and-limitations)

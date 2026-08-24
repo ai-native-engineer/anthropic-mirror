@@ -56,14 +56,30 @@ Technical details of the Benchling integration can be found in [Benchling’s MC
 
 Compare the IC50 results from my last two Benchling experiments with recent PubMed articles on AAV stability.
 
+
+
+Open in Claude
+
 **Insight Summarization:**
 
 Summarize the key findings from Benchling experiments and highlight how they align with external literature trends.
+
+
+
+Open in Claude
 
 **Recommendations:**
 
 Based on our last three in vivo results in Benchling and recent FDA guidance, what should we test next?
 
+
+
+Open in Claude
+
 **Portfolio Insights:**
 
 Aggregate results from our top five Benchling programs and highlight which ones are showing the strongest early efficacy signals compared with industry benchmarks.
+
+
+
+Open in Claude

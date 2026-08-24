@@ -2,6 +2,8 @@
 
 ![Organize files in Google Drive result](https://academy.claude.com/assets/v1/organize-files-in-google-drive-mhi29x6i.png)
 
+## 1. Describe the task
+
 Years of files piling up in Google Drive—downloads you never sorted, documents people shared with you, old project folders mixed with random screenshots. The task of organizing it feels endless, so it never happens. Claude in Chrome can navigate your Drive, create a folder structure, and move files where they belong while you do something else.
 
 Tell Claude what kind of organization you want, or let it figure out a structure based on what's there. You review the results instead of doing the sorting yourself.
@@ -19,11 +21,17 @@ I need to organize my Google Drive by reviewing all files and creating a logical
 
 Copy prompt
 
+## 2. Give Claude context
+
 Claude works directly in your Google Drive through the browser—the same interface you'd use. It can see your files, create folders, and move things around without downloading or uploading anything.
+
+### Required context
 
 Log into Google Drive before starting. If you have specific folders you want to preserve or a naming convention you prefer, mention that in your prompt.
 
 If your Drive is very large, consider asking Claude to start with one section—like just your Downloads or just files from the past year. You can expand from there.
+
+## 3. What Claude creates
 
 Claude reports what it organized, what it moved, and what needs your decision before going further.
 
@@ -74,6 +82,10 @@ Sorted and in place.
 
 Want me to handle the duplicates, move the old files to Archive, or rename the unclear ones?
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Remove the duplicates
 
 Clean up redundant copies once you've confirmed which version to keep. Claude can delete in bulk or one at a time.
@@ -98,6 +110,8 @@ A lot of these files have useless names like 'Document (3)' or 'Screenshot 2023-
 
 Copy prompt
 
+## 5. Tricks, tips, and troubleshooting
+
 ### Save your organization system as a shortcut
 
 Once you've refined your folder structure preferences, save your prompt as a shortcut (type "/" and create one like /drive-organize). Include your preferred folder names and file categories so future cleanups match your system.
@@ -109,6 +123,8 @@ Turn on the schedule toggle for the ability to schedule this workflow. Claude ru
 ### Claude asks before deleting anything
 
 File deletion is a high-risk action. Even in "Act without asking" mode, Claude will pause and request approval before permanently removing files. Duplicates and old files get flagged for review—nothing disappears without your explicit confirmation.
+
+## 6. Ready to try for yourself?
 
 Claude in Chrome is available to all paid subscribers. Install the extension and open Google Drive in Chrome. Claude works with your existing login—no API keys or integrations to set up. Start with one folder to see how it organizes before tackling your whole Drive.
 

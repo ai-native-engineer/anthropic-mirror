@@ -92,6 +92,10 @@ Then pressure-test your calls in Chat:
 
 Here are three tasks I plan to bring to the Claude desktop app: [your three tasks]. For each one, tell me whether Chat, Cowork, or Code fits best and what about the task makes it the right fit. If a choice is close, tell me what detail about the task would settle it.
 
+
+
+Open in Claude
+
 Where Claude's call differs from yours, question both before accepting either. Two checks settle most disagreements:
 
 * **Count the sources.** A task that lives in one question or one document sits comfortably in Chat. A task that pulls from several files, tools, or sites and ends in a finished deliverable points to Cowork. A task that ends in working software points to Code.

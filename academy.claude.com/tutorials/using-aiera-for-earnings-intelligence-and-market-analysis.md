@@ -55,6 +55,10 @@ Example input prompt:
 
 Pull the transcript from Netflix’s most recent earnings call and summarize: (1) revenue and subscriber growth discussed, (2) key themes from management presentation, (3) top analyst questions and concerns, and (4) any forward guidance provided.
 
+
+
+Open in Claude
+
 **When to use:** Immediately after earnings releases to quickly digest management commentary and market reaction before research reports publish.
 
 **Typical timeframe:** Most valuable within 24-48 hours of earnings when transcripts are fresh and before consensus views form.
@@ -64,6 +68,10 @@ Pull the transcript from Netflix’s most recent earnings call and summarize: (1
 Example input prompt:
 
 What were the main questions analysts asked on the last three Microsoft earnings calls? Identify recurring themes and any new topics of concern that emerged in recent quarters.
+
+
+
+Open in Claude
 
 **When to use:** Understanding evolving market concerns and identifying which business segments or metrics are drawing increased scrutiny.
 
@@ -75,6 +83,10 @@ Example input prompt:
 
 Search the last four Amazon earnings calls for what management said about capital expenditure plans and AWS infrastructure investments. Has their tone or guidance changed?
 
+
+
+Open in Claude
+
 **When to use:** Tracking specific strategic initiatives or business drivers across time to detect shifts in company priorities or investment thesis.
 
 **Works well with:** 3-6 quarters of transcripts to establish patterns and identify inflection points.
@@ -84,6 +96,10 @@ Search the last four Amazon earnings calls for what management said about capita
 Example input prompt:
 
 Search earnings transcripts for S&P 500 companies in the last quarter for mentions of “artificial intelligence” or “AI.” Which sectors are discussing it most and what are they saying about implementation?
+
+
+
+Open in Claude
 
 **When to use:** Identifying emerging trends across markets and understanding which industries are most affected by macro themes.
 
@@ -95,6 +111,10 @@ Example input prompt:
 
 Show me all confirmed earnings calls for companies in the technology sector over the next two weeks. I want to prepare analysis ahead of these events.
 
+
+
+Open in Claude
+
 **When to use:** Planning research calendar and ensuring coverage of important corporate events for portfolio holdings or coverage universe.
 
 **Key benefit:** Get ahead of events rather than reacting after the fact.
@@ -105,6 +125,10 @@ Example input prompt:
 
 Find all 8-K filings from companies in my watchlist over the past month. Focus on those related to management changes, acquisitions, or material contracts.
 
+
+
+Open in Claude
+
 **When to use:** Monitoring portfolio holdings for material corporate developments between regular reporting periods.
 
 **Why it matters:** 8-Ks often contain market-moving information disclosed outside earnings cycles.
@@ -114,6 +138,10 @@ Find all 8-K filings from companies in my watchlist over the past month. Focus o
 Example input prompt:
 
 Find Third Bridge expert interviews discussing the semiconductor industry from the past month. What are experts saying about demand trends and capacity utilization?
+
+
+
+Open in Claude
 
 **When to use:** Supplementing quantitative company data with qualitative expert perspectives on industry dynamics.
 

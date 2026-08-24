@@ -47,24 +47,57 @@ Technical details of the Synapse.org integration can be found in [Synapse’s MC
 
   Find RNA-seq datasets related to Alzheimer's disease in Synapse
 
+  
+
+  Open in Claude
+
   Search Synapse for single-cell transcriptomics datasets
+
+  
+
+  Open in Claude
 
   Find genomic sequencing data for plexiform neurofibromas in the NF Data Portal
 
+  
+
+  Open in Claude
 * Authorized users can see hierarchy of folders, files, tables, datasets within projects to help organize and monitor data assets
 
   Explain the files and folders in the public AACR Project GENIE project
 
+  
+
+  Open in Claude
+
   Give me a quick overview of the data assets in the SEA-AD challenge project with agentic track (syn66496696)?
 
+  
+
+  Open in Claude
 * Get custom metadata of entities in Synapse
 
   What are the annotations and metadata for file syn4553239?
 
+  
+
+  Open in Claude
+
   Show me the custom metadata fields for dataset syn66364675
 
+  
+
+  Open in Claude
 * Get provenance information for entities in Synapse to help understand past data processing
 
   What's the processing history for file syn51543273?
 
+  
+
+  Open in Claude
+
   Show me the data lineage and upstream dependencies for the dataset syn68719289
+
+  
+
+  Open in Claude

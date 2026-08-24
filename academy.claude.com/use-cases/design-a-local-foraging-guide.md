@@ -2,6 +2,8 @@
 
 ![Design a local foraging guide result](https://academy.claude.com/assets/v1/design-a-local-foraging-guide-dh2oo11j.png)[Open artifact](https://claude.ai/public/artifacts/fb72e7a7-3e0f-4f81-859b-0e7a4667cb21)
 
+## 1. Describe the task
+
 Build a location-aware guide to wild plants in your region. Select your state on an interactive map, browse plants by category, see what's in season now, and export a printable field reference.
 
 Tell Claude the tool's purpose, the interaction flow, and your design direction. Specific functional requirements and aesthetic cues produce more polished results.
@@ -16,9 +18,17 @@ What it should do:
 
 Design: Quiet and organic. Warm cream, muted sage, soft olive. Think field journal meets editorial magazine—sophisticated but approachable. Smooth transitions, rounded corners, good type hierarchy.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Claude builds working artifacts directly in conversation. Enable Artifacts in settings so Claude can create interactive applications you can use immediately.
 
 Turn on Artifacts in your settings. This lets Claude generate apps with full interactivity—maps, state management, data visualization—that render right in the chat. No setup or deployment needed.
+
+### Required context
 
 For complex, multi-component apps, turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can plan architecture before building.
 
@@ -27,6 +37,8 @@ For complex, multi-component apps, turn on [Extended Thinking(opens in new tab)]
 [
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+
+## 3. What Claude creates
 
 Claude produces a complete, working foraging guide beginning with an interactive US map where clicking a state reveals regional plant data.
 
@@ -46,17 +58,31 @@ I've built your Wild Edibles Field Guide. Here's what you can do:
 
 View your Field Guide
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Swap in verified information
 
 The guide uses sample data to demonstrate how it works. Once you're happy with how it looks and feels, ask Claude to research real species for your region—actual harvest seasons, verified identification details, up to date safety warnings.
 
 Replace the examples in the artifact with current foraging data for my region. Research verified harvest windows, accurate identification tips, and documented look-alikes. I want to use this in the field.
 
+
+
+Open in Claude
+
 ### Identify something in the field
 
 Upload a photo and work backwards from what's in front of you.
 
 I've attached a photo of something I've found along the trail. Based on the image and my region, what could it be? What should I check in person—gill structure, spore print, smell—to confirm? Tell me what you can and can't determine from the photo alone.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Learn from what Claude builds—or reuse it directly
 
@@ -69,6 +95,8 @@ Claude holds context across many exchanges, so you can iterate extensively witho
 ### Interactive maps work best with a data source
 
 Claude doesn't have precise geographic boundaries memorized—state outlines, coastlines, county borders. Without a pointer to real cartographic data, it sometimes approximates with placeholder shapes instead of accurate maps. The prompt solves this by specifying a TopoJSON source (a standard format for map data). Claude fetches the real boundaries and renders them correctly. If your map looks off, check whether you've pointed to actual geographic data.
+
+## 6. Ready to try for yourself?
 
 Create interactive tools with custom interfaces, tailored to how you like to explore and learn. Describe and refine your ideas with Claude to make tools useful for you.
 

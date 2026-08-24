@@ -2,6 +2,8 @@
 
 ![Audit a folder of visual assets against your guidelines result](https://academy.claude.com/assets/v1/audit-a-folder-of-visual-assets-against-your-guidelines-jt2onlse.png)
 
+## 1. Describe the task
+
 With Claude Opus 4.7, any folder of images can be checked against a written set of rules — brand guidelines for marketing assets, accessibility rules for UI screenshots, a style guide for a batch of design exports.
 
 Opus 4.7 reads images at higher resolution than prior Claude models, so the small details that decide a match — a hex value, a logo version, a line of legal text — come through clearly. It can hold the rules document and the images together and check one against the other across the whole folder.
@@ -18,13 +20,21 @@ Flag:
 
 Group by violation type. For each one give me **filename, issue, guideline value, asset value, and confidence**. End with how many assets passed all checks.
 
+
+
 Open in Cowork
+
+## 2. Give Claude context
 
 In Claude Cowork, [point your project at the folder(opens in new tab)](https://support.claude.com/en/articles/13345190-get-started-with-cowork) that holds the brand-guidelines PDF, the legal sheet, and the asset exports.
 
 Make sure **Opus 4.7** is selected in the model picker. Opus 4.7 has improved vision which helps while reading small text in the guide and matching it against the same detail across hundreds of images.
 
+### Required context
+
 * A Claude Cowork project pointed at the folder holding the brand-guidelines PDF, legal sheet, and asset exports (PNG/JPEG)
+
+## 3. What Claude creates
 
 Claude reads the guide and the legal sheet, then checks every asset in the folder against them. You get a grouped violation list (filename, issue, guideline vs asset value, confidence per item), a compliant count, and a short "less certain" block for the items worth opening yourself.
 
@@ -62,11 +72,17 @@ Audited 200 PNG/JPG files against **brand-meridian-2025-q2.pdf** and **legal-req
 
 Want me to file the 10 high-confidence items as Asana tasks, or save the full report to the folder?
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Check the live pages where these assets appear
 
 The exports are one step removed from what customers see. With [Claude in Chrome(opens in new tab)](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome), Claude can open the live pages and run the same checks against what's rendering there — catching cases where the file was fixed but the page still shows the old version.
 
 For each high-confidence violation, open the live page listed in asset-urls.csv in Chrome and tell me whether the published version has the same issue or has already been corrected.
+
+
 
 Open in Cowork
 
@@ -76,6 +92,8 @@ With [Asana(opens in new tab)](https://claude.com/connectors/asana) or [Linear(o
 
 Create an Asana task in the Brand Compliance project for every high-confidence violation, assigned to the asset owner, with the filename, the guideline, and the corrected value in the description.
 
+
+
 Open in Cowork
 
 ### Save the audit as a skill and put it on a schedule
@@ -84,7 +102,11 @@ When the rules and grouping are right, save them as a [skill(opens in new tab)](
 
 Save this as a skill called brand-compliance-audit, then schedule it to run every Friday at 2pm and post the summary to #brand-ops.
 
+
+
 Open in Cowork
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Name the deliverable and the grouping in your prompt
 
@@ -97,6 +119,8 @@ The high-resolution reading is a property of the model. Claude Cowork is what gi
 ### Tell Claude which rules are mandatory and which are tolerable
 
 If legal copy is non-negotiable but a hex within a few points is acceptable, say so in the prompt or the project instructions. Opus 4.7 will weight legal violations as high priority and near-miss colors as lower, and your output will already be sorted the way you'd triage it.
+
+## 6. Ready to try for yourself?
 
 Audit at the scale and pace your team can act on: high-confidence violations go to Asana, the items worth a second look stay in the folder, and the summary lands in Slack — from one prompt in Claude Cowork.
 

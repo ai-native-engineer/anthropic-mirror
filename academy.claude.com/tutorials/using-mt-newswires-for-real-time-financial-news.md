@@ -47,6 +47,10 @@ Example input prompt:
 
 What’s the latest breaking news on Tesla (TSLA)? Focus on any news from the past 24 hours that could impact the stock price.
 
+
+
+Open in Claude
+
 **When to use:** Monitor breaking news for specific securities you’re tracking or analyzing, particularly during trading hours or around major events.
 
 **Tip:** Request news for specific time windows (past hour, past day) to focus on the most recent and relevant developments.
@@ -56,6 +60,10 @@ What’s the latest breaking news on Tesla (TSLA)? Focus on any news from the pa
 Example input prompt:
 
 Track news for my portfolio holdings: AAPL, MSFT, GOOGL, AMZN, and NVDA. Alert me to any material corporate announcements or market-moving news affecting these companies.
+
+
+
+Open in Claude
 
 **When to use:** Set up regular monitoring for portfolio positions to stay informed about developments that may impact your investments.
 
@@ -67,6 +75,10 @@ Example input prompt:
 
 What are the major news stories affecting the semiconductor industry today? Include companies like NVDA, AMD, INTC, and TSM.
 
+
+
+Open in Claude
+
 **When to use:** Research sector trends and identify common themes or developments affecting multiple companies within an industry.
 
 **Typical focus:** Major industry developments, regulatory changes, supply chain news, or competitive dynamics that impact the sector broadly.
@@ -77,6 +89,10 @@ Example input prompt:
 
 Summarize the key developments and market reaction to Apple’s earnings announcement yesterday. What were the main highlights and how did analysts respond?
 
+
+
+Open in Claude
+
 **When to use:** Quickly understand market reactions and key takeaways following earnings releases, product launches, or other corporate events.
 
 **Key benefit:** Rapidly synthesize multiple news sources to get a complete picture of how markets are interpreting major company events.
@@ -86,6 +102,10 @@ Summarize the key developments and market reaction to Apple’s earnings announc
 Example input prompt:
 
 Set up monitoring for breaking news related to Federal Reserve policy announcements, interest rate decisions, or inflation data releases.
+
+
+
+Open in Claude
 
 **When to use:** Stay informed about macroeconomic developments that could impact broader market conditions and investment strategies.
 

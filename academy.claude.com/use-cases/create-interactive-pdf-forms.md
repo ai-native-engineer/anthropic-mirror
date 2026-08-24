@@ -2,6 +2,8 @@
 
 ![Create interactive PDF forms result](https://academy.claude.com/assets/v1/create-interactive-pdf-forms-disuio7a.png)
 
+## 1. Describe the task
+
 Claude can design and build interactive forms with clickable links, drop-downs, checkboxes, and multi-page layouts for you, handling the technical details while you focus on what information you need to collect.
 
 Tell Claude what kind of form you need to create. Describe the information you want to gather, who will fill it out, and any specific fields or sections it should include.
@@ -17,7 +19,15 @@ Create an interactive PDF registration form with these sections:
 
 Use a professional color scheme with a branded header. The event is "2025 Innovation Summit" at San Francisco Convention Center, June 15-17. Include contact info: [events@innovationsummit.com(opens in new tab)](mailto:events@innovationsummit.com).
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Given reference files or examples, Claude can match your style or design preferences, making your PDF feel cohesive with the rest of your event materials.
+
+### Required context
 
 Upload relevant brand materials, style preferences so Claude can match color, text, or layout.
 
@@ -37,6 +47,8 @@ Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/artic
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
+## 3. What Claude creates
+
 Claude creates an interactive PDF with all your specified form fields and information, ready to distribute. Recipients can open it in any PDF reader to fill in their information and send it back.
 
 I'll create a professional event registration form with all the sections and fields you specified. This will be an interactive PDF that attendees can fill out digitally in any PDF reader.
@@ -54,11 +66,19 @@ The form is fully interactive. When people open this PDF, they can click into an
 
 **View the registration form**
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Personalize the design
 
 Specify any additional design or formatting changes you’d like Claude to make to enhance the form.
 
 I've uploaded our company logo and brand colors—can you update the PDF to include both? Keep the current layout but match our style guide.
+
+
+
+Open in Claude
 
 ### Collect and organize responses
 
@@ -66,11 +86,21 @@ Upload the completed forms and ask Claude to create a spreadsheet for a quick ov
 
 Extract all the data from my completed registration forms and create an Excel spreadsheet with one row per attendee and columns for all form fields. Include a summary tab showing response distributions and totals.
 
+
+
+Open in Claude
+
 ### Tailor for different audiences
 
 Adapt the form to your needs: translate for global audiences, customize for different user groups, or modify for specific events.
 
 Create a Spanish version of this registration form, translating all labels and dropdown options while keeping the same structure and design.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Convert your existing static forms
 
@@ -79,6 +109,8 @@ Upload prior forms and have Claude make batch edits to add interactive elements.
 ### Download and test before distributing
 
 The preview in chat shows visual design, but you need to download the actual PDF to test interactivity. Click fields, try dropdowns, check tab order to ensure all works correctly before sharing.
+
+## 6. Ready to try for yourself?
 
 Whether you need event registration, client intake, feedback surveys, or application forms, Claude can design professional interactive PDFs tailored to your exact requirements.
 

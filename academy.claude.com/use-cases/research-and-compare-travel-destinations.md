@@ -2,6 +2,8 @@
 
 ![Research and compare travel destinations result](https://academy.claude.com/assets/v1/research-and-compare-travel-destinations-ldeutsce.png)
 
+## 1. Describe the task
+
 With Claude, you can conduct research that would typically take hours across multiple tools—searching sites, taking notes, and organizing data—all within a single conversation. Describe the options you're comparing and get back structured spreadsheets.
 
 Tell Claude which destinations you're considering, when you're traveling, and what matters most to you. Ask for a comparison spreadsheet that covers the dimensions you care about—culture, costs, activities, food, relaxation, ideal trip length, and more.
@@ -14,7 +16,15 @@ Use color-coding or visual indicators to help me spot patterns quickly (like hea
 
 Make it look really polished and professional - something I'd feel confident sharing with my travel group. The layout should be clean and sophisticated - think premium travel magazine quality, not a basic spreadsheet. I want all five destinations visible at once so I can compare them easily.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Claude can use search online to find current travel information and generate a sophisticated spreadsheet file, with features like conditional formatting, formulas, and embedded images.
+
+### Required context
 
 ### Optional context
 
@@ -27,6 +37,8 @@ For deeper analysis and more thoughtful design decisions, turn on [Extended Thin
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
+
+## 3. What Claude creates
 
 Claude researches each destination comprehensively and produces a multi-sheet spreadsheet file with visual comparisons, detailed ratings across 10+ dimensions, cost breakdowns, and direct links to tourism resources—all correctly formatted with design elements that make your decision clear.
 
@@ -56,11 +68,19 @@ I've researched all five destinations and created a side-by-side comparison spre
 
 **View your destination comparison**
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Refine the comparison
 
 If certain factors matter more to you—like adventure activities or family-friendliness—Claude can reweight the analysis, add new dimensions you care about, or adjust the criteria to match your specific priorities.
 
 The current ratings weigh all factors equally, but I care most about culture and food. Can you add a 'weighted score' column that emphasizes those dimensions? Also add a 'language barrier' rating since I don't speak these languages.
+
+
+
+Open in Claude
 
 ### Generate a presentation
 
@@ -68,11 +88,21 @@ Claude can transform the spreadsheet data into a visual presentation for group d
 
 Create a PowerPoint presentation from this analysis—one slide per destination with key stats, images, and pros/cons. Make it visual and compelling since I'll be presenting to my family to decide together.
 
+
+
+Open in Claude
+
 ### Create a detailed itinerary
 
 Once you've chosen a destination, Claude can research and build a day-by-day itinerary.
 
 I've decided on Lisbon! Can you create a 7-day itinerary with specific recommendations for temples to visit, neighborhoods to explore, restaurants for each meal, and day-trip options? Include approximate costs and booking information.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Request advanced spreadsheet features
 
@@ -85,6 +115,8 @@ For better results the first time, include a quality check in your prompt: "Make
 ### Use Web Search for current data
 
 Travel information changes constantly—prices fluctuate, attractions update hours, conditions vary. With Web Search enabled, Claude researches current information from multiple sources rather than using older training data. This matters especially for costs, seasonal weather, recent reviews, and travel advisories.
+
+## 6. Ready to try for yourself?
 
 Claude can research and structure comparisons for any decision where you're weighing multiple options, whether that's destinations, products, investments, or job offers.
 

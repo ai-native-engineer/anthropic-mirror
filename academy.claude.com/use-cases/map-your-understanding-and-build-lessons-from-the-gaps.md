@@ -2,6 +2,8 @@
 
 ![Map your understanding and build lessons from the gaps result](https://academy.claude.com/assets/v1/map-your-understanding-and-build-lessons-from-the-gaps-ercok7ub.png)[Open artifact](https://claude.ai/public/artifacts/1b11b592-ebc3-49c6-b1d3-5410b25d9666)
 
+## 1. Describe the task
+
 Opus 4.6 maps what you already understand before trying to explain anything. It asks diagnostic questions, finds the specific point where your reasoning breaks, and builds the explanation from that gap.
 
 From a single conversation, it produces three artifacts: an interactive lesson built around your misconception, a workbook that applies the concept to your own data, and a concept map connecting forward. Describe the concept you're stuck on and what you do understand. The prompt below does three things worth copying: it pins down the exact step where understanding breaks, it says what a good explanation would let you do afterward, and it attaches the data the workbook will be built from.
@@ -10,7 +12,15 @@ I keep running into “Bayesian reasoning” in things I read—essays, podcasts
 
 Help me understand this. A good explanation is one I could redo with different numbers on my own, so check my reasoning as we go and I’ll tell you what lands and what doesn’t. Then build me an interactive lesson, a workbook I can use to audit which signals in my hiring pipeline actually predict success, and a concept map connecting it to what I’ll encounter next. I’ve attached our hiring pipeline export, applications through 12-month retention, so you can work from our real numbers.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 The diagnostic works from conversation alone. Files come in only when you want the workbook built from your own numbers.
+
+### Required context
 
 * No files needed for the diagnostic itself. If you want a personalized workbook, attach a CSV or XLSX export of your data, the way the example prompt attaches a hiring pipeline export that runs from applications through 12-month retention. Opus 4.6 scans across the full dataset and builds the analysis around your actual figures.
 
@@ -22,6 +32,8 @@ The diagnostic works from conversation alone. Files come in only when you want t
 [
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+
+## 3. What Claude creates
 
 Claude asks diagnostic questions first, probing what you know until it identifies the specific misconception. Then it rebuilds from the gap and produces all three artifacts. Opus 4.6 stays persistent through this entire sequence, and its writing keeps pace: the explanation, lesson, workbook, and concept map all maintain a consistent voice calibrated to your actual comprehension level.
 
@@ -57,6 +69,8 @@ A one-page visual connecting base rate reasoning to signal detection theory, the
 
 *[View the concept map]*
 
+## 4. Follow up prompts
+
 Each follow-up below builds on something the first conversation produced: the signal audit, the workbook, and the concept map.
 
 ### Test it against your own data
@@ -64,6 +78,10 @@ Each follow-up below builds on something the first conversation produced: the si
 The workbook gives you the baseline. Push on the signal you most want to believe. Opus 4.6 scans across large files and datasets before responding, so it handles messy real-world numbers without oversimplifying.
 
 *Walk me through which interview criteria actually predict success once you factor in the base rates. I especially want to know about our new case study exercise—we added it in Q3 and our hire quality seems better. Is the case study a real signal or are we seeing what we want to see?*
+
+
+
+Open in Claude
 
 ### Keep working in your spreadsheet
 
@@ -79,6 +97,12 @@ Work through the concept map one piece at a time. Opus 4.6 carries instructions 
 
 *Now that I understand base rates, I want to build out my understanding of the related concepts on the map—signal detection theory, information gain, and the prosecutor's fallacy. Can you create a learning sequence that covers them one at a time, with a workbook exercise for each?*
 
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
+
 ### Front-load what you know
 
 Opus 4.6 invests in understanding your knowledge structure before trying to change it. The more clearly you describe where your understanding is solid, the faster Claude can locate where it breaks. What you get out mostly reflects what you put in, so spend your effort describing your starting point rather than hunting for the perfect phrasing. “I understand basic probability but I can’t follow base rate arguments” is a sharper starting point than “I don’t understand statistics.” The gap between what clicks and what doesn’t is usually where the misconception lives.
@@ -90,6 +114,8 @@ You don’t need to repeat your requirements or add “and remember to...” rem
 ### Check the workbook against your own data
 
 Before you change a screening step based on the signal audit, pick one figure from it, like the success rate behind your strongest signal, and recount it from the raw rows in your export. If your hand count matches, you can rely on the rest of the tab. If it doesn't, tell Claude which number is off and it rebuilds the calculation and shows its work.
+
+## 6. Ready to try for yourself?
 
 Describe a concept you're stuck on and what you do understand. Claude builds the explanation from there.
 

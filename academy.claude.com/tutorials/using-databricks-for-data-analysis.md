@@ -82,6 +82,10 @@ Example input prompt:
 
 Which portfolio companies are ready for exit? Show valuation ranges and expected returns based on current market multiples.
 
+
+
+Open in Claude
+
 For this analysis, Claude might use the different UC Functions and Genie in the following steps:
 
 1. **Genie**: Identify portfolio companies held >3 years and retrieve their latest financials.
@@ -97,6 +101,10 @@ Example input prompt:
 
 We're evaluating TechCorp acquisition (SaaS, $45M revenue, $12M EBITDA).What's a fair valuation and how much debt can we support? Include previous due diligence records in your analysis.
 
+
+
+Open in Claude
+
 To complete this request, Claude might follow this workflow:
 
 1. **Genie**: Query market comparables for similar-sized companies in target's sector to establish valuation benchmarks.
@@ -111,6 +119,10 @@ Ideally, Claude would then respond with a report on the valuation range and a re
 Example input prompt:
 
 If we see a 15-25% EBITDA decline across the portfolio, which companies risk covenant breaches? What actions should we take?
+
+
+
+Open in Claude
 
 For this task, Claude might use the following resources:
 

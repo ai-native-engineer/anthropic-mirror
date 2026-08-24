@@ -2,6 +2,8 @@
 
 ![Stress-test your financial plan across scenarios result](https://academy.claude.com/assets/v1/stress-test-your-financial-plan-across-scenarios-jf5kslme.png)[Open artifact](https://claude.ai/public/artifacts/1ca44b81-2605-4516-935f-25e35b24f955)
 
+## 1. Describe the task
+
 Opus 4.6 synthesizes across your full set of financial documents before building anything. It connects variables that most calculators treat independently — tax brackets, withdrawal sequences, Social Security timing — and reasons through how they cascade over decades.
 
 Describe your situation and what you want to understand. Your financial documents, covered in the next section, provide the detail. Opus 4.6 determines the approach, runs the analysis, and produces working spreadsheets and scenario explorers. From there, you can keep working in [Claude in Excel(opens in new tab)](https://claude.com/claude-for-excel).
@@ -10,7 +12,15 @@ I’m 52, hoping to retire at 62. My partner and I have about $1.2M across a 401
 
 I’ve uploaded our tax returns, investment statements, Social Security estimates, and budget. Where does this plan break and what are the highest-leverage moves?
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 The more complete your uploads, the more connections Claude can find across your tax situation, investment accounts, and benefit estimates.
+
+### Required context
 
 Upload your financial documents: tax returns, investment account statements, Social Security benefit estimates, and a monthly expense breakdown.
 
@@ -34,6 +44,8 @@ Tax ReturnPDF
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
+## 3. What Claude creates
+
 Opus 4.6 produces a working financial model with probability distributions across a range of modeled scenarios, an interactive scenario explorer, and a clear action plan. Keep in mind, Claude produces outputs based on the documents you provide. You should review any strategies with a qualified financial professional before acting on them. Here’s the kind of analysis you’ll get:
 
 I’ve read through all your documents. Before building anything, I want to flag something: your mortgage payoff in 2031, your peak earnings window, and the Roth conversion opportunity all overlap. That’s actually a timing advantage most calculators would miss. Here’s what I found.
@@ -52,11 +64,19 @@ I’ve read through all your documents. Before building anything, I want to flag
 
 ***Important:** This analysis models scenarios based on the inputs you provided and general financial principles. It does not account for your full financial picture, tax situation, or personal circumstances the way a licensed advisor would. Review any strategies with a fee-only financial planner or CPA before making changes to your plan.*
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Stress-test a life change
 
 Opus 4.6 stays with the full complexity when you throw a wrench in the plan. Describe a scenario and it re-runs the entire analysis, tracing how one variable ripples through income, taxes, withdrawal sequences, and long-term success rate without simplifying away the interactions.
 
 What if I lose my job at 57 and can only find work at $120K? How does that change the Roth conversion window?
+
+
+
+Open in Claude
 
 ### Take the model into Excel
 
@@ -64,11 +84,21 @@ Opus 4.6 produces downloadable spreadsheets you can open in [Claude in Excel(ope
 
 I want to play with the inflation assumptions. What happens to the withdrawal sequence if we get a 5% inflation year in 2029?
 
+
+
+Open in Claude
+
 ### Ask what you’re missing
 
 Opus 4.6 reasons across finance and tax at domain-expert level and will surface things you didn’t think to ask about, like a narrow window for conversions created by a tax bracket transition or a withdrawal order that saves you money over decades. Push it further.
 
 What would a financial planner flag about this plan that I haven’t asked about?
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Start with your situation
 
@@ -85,6 +115,8 @@ If your financial documents are already on your computer, Cowork in [Claude Desk
 ### Start another task while this one runs
 
 Financial modeling runs across many variables and scenarios. Open a new session from the sidebar for other work. You'll see a grey dot in the sidebar when this one needs attention.
+
+## 6. Ready to try for yourself?
 
 Try Opus 4.6 with your financial plan and see how changing one input ripples through the entire model.
 

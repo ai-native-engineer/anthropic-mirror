@@ -49,6 +49,10 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Using the Kensho integration, create a complete profile for Microsoft (MSFT) including current market data, latest financial metrics, business segments, and key competitor data from S&P Global. Include market cap, enterprise value, trailing twelve-month revenue and margins, plus geographic revenue breakdown.
 
+
+
+Open in Claude
+
 This type of comprehensive profile combines multiple data types into a single analytical view. Claude retrieves current market metrics, pulls recent financial performance, and identifies segment breakdowns to show how the business operates across different units and geographies. The competitor identification adds context about the competitive environment.
 
 **When to use:** Initial company research or updating investment memos with current information.
@@ -58,6 +62,10 @@ This type of comprehensive profile combines multiple data types into a single an
 ### Historical Price Performance Analysis
 
 Pull five years of weekly price data for Tesla (TSLA) and calculate the volatility, maximum drawdown, and performance versus the S&P 500. Include adjusted prices to account for any stock splits and show periods of highest volatility.
+
+
+
+Open in Claude
 
 Historical price analysis using S&P Global data goes beyond simple price charts. Claude can calculate risk metrics like volatility and maximum drawdown while comparing performance to benchmarks. Using adjusted prices ensures that return calculations properly account for corporate actions, providing accurate performance measurement over multi-year periods.
 
@@ -69,6 +77,10 @@ Historical price analysis using S&P Global data goes beyond simple price charts.
 
 Retrieve Apple's last 12 quarters of income statements and calculate the trend in gross margins, operating margins, and R&D as percentage of revenue. Show both the quarterly values and the rolling four-quarter averages to smooth seasonality.
 
+
+
+Open in Claude
+
 Financial statement analysis through Kensho allows examination of margin trends and cost structure evolution over time. Claude can pull specific line items from S&P Global datasets across multiple quarters, calculate relevant ratios, and apply smoothing techniques to identify underlying trends beyond seasonal fluctuations. This granular approach reveals operational changes that might be obscured in annual reports.
 
 **When to use:** Analyzing margin trends, cost structure changes, or earnings quality.
@@ -78,6 +90,10 @@ Financial statement analysis through Kensho allows examination of margin trends 
 ### Competitor Benchmarking
 
 Identify Netflix's competitors from their SEC filings and compare key metrics including subscriber growth, content costs, average revenue per user, and free cash flow margins. Focus on direct streaming competitors they specifically mention as competitive threats.
+
+
+
+Open in Claude
 
 Competitor analysis combines Kensho's relationship mapping with financial metric comparisons. Claude first identifies competitors from various sources, then retrieves comparable metrics for each company. This approach provides both the competitive landscape view and quantitative performance comparisons, helping assess relative positioning and competitive advantages.
 
@@ -89,6 +105,10 @@ Competitor analysis combines Kensho's relationship mapping with financial metric
 
 Show Amazon's segment breakdown for the last eight quarters, including revenue and operating income by segment. Calculate the growth rates for AWS, North America retail, and International retail, and identify which segments are driving overall margin expansion.
 
+
+
+Open in Claude
+
 Segment analysis reveals the underlying drivers of consolidated performance. Claude retrieves segment-level financial data to show how different business units contribute to overall results. By tracking segment metrics over time, you can identify which divisions are accelerating or decelerating, understand margin mix shifts, and assess the quality of revenue growth.
 
 **When to use:** Understanding business mix changes and identifying growth drivers.
@@ -98,6 +118,10 @@ Segment analysis reveals the underlying drivers of consolidated performance. Cla
 ### Supply Chain Analysis
 
 Map NVIDIA's key business relationships including their primary chip manufacturers, major customers, and strategic technology partners. Focus on relationships mentioned in their latest 10-K filing to understand supply chain dependencies and customer concentration risks.
+
+
+
+Open in Claude
 
 Business relationship mapping through Kensho provides insights into operational dependencies and strategic positioning. Claude identifies suppliers, customers, and partners from regulatory filings in S&P Global datasets, revealing concentration risks and potential vulnerabilities. This network view complements financial analysis by highlighting operational factors that could impact future performance.
 

@@ -62,6 +62,10 @@ Technical details of the Open Targets integration can be found in [Open Targets�
 
 What are the top five targets associated with Alzheimer disease?
 
+
+
+Open in Claude
+
 * The Platform provides a ranked list of targets based on overall association scores and a breakdown of the evidence across multiple data types. From there, they can ask further questions about the targets and the evidence.
 
 **Statistical Geneticist Browsing Studies**
@@ -71,6 +75,10 @@ What are the top five targets associated with Alzheimer disease?
 
 Do you have any GWAS evidence for PSEN1? What studies are there?
 
+
+
+Open in Claude
+
 * The Platform can provide a list of studies and credible sets containing PSEN1 with variant-level information and study metadata, and links to original publications. The user can further query the information in these studies and credible sets.
 
 **Target Prioritisation Using Safety Data**
@@ -79,5 +87,9 @@ Do you have any GWAS evidence for PSEN1? What studies are there?
 * Example Prompt:
 
 Are there known safety events associated with targeting PTGS2?
+
+
+
+Open in Claude
 
 * The Platform provides comprehensive safety information from multiple sources, which the user can explore in more detail, and compare information for different targets.

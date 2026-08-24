@@ -46,6 +46,9 @@ The framework below is flexible and self-paced. Move through the phases at whate
 
   Help me design a 30-day pilot plan for introducing Claude to our fundraising team. Include milestones, success metrics, and potential challenges.
 
+  
+
+  Open in Claude
 * Send baseline surveys to track progress and use cases
 
 ## Phase 3: Acceleration (scaling and integration)

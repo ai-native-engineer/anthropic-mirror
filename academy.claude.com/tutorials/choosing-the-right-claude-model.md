@@ -84,6 +84,10 @@ Pick a task you already know well, like summarizing a report you've read yoursel
 
 Summarize the attached report in five bullet points, then flag the one claim in it you'd most want a second source for.
 
+
+
+Open in Claude
+
 **Compare where the answers differ, not how long they are.** You've read the report, so you can judge: if Haiku's summary covers everything you would have flagged yourself, the task is Haiku-shaped. Save Sonnet, Opus, and Fable for the work where the lighter answer misses things that matter.
 
 ## Choosing models over time

@@ -2,6 +2,8 @@
 
 ![Create custom course materials result](https://academy.claude.com/assets/v1/create-custom-course-materials-juo6vuzz.png)
 
+## 1. Describe the task
+
 Claude can process visual content and translate mathematical notation into proper LaTeX syntax, which allows you to focus on refining pedagogy rather than wrestling with typesetting commands and box formatting.
 
 Describe the kind of course materials you want Claude to create using your handwritten notes and course objectives.
@@ -13,7 +15,15 @@ I'm a math professor converting my handwritten integration notes into a professi
 
 Craft a professional-looking LaTeX document, resembling a published textbook page with colored boxes and precise equations, then convert it to PDF.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 To begin, provide context needed to create your course content.
+
+### Required context
 
 Upload photos of handwritten notes or equations or any relevant existing course materials.
 
@@ -35,6 +45,8 @@ Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/artic
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
+## 3. What Claude creates
+
 Claude generates a complete LaTeX document ready to print as a PDF with professional formatting, colored boxes, formulas and typography ready for students.
 
 I've created your professional calculus textbook chapter on Integration Techniques with the visual design you requested.
@@ -50,17 +62,31 @@ The document compiles cleanly and matches the visual quality of published calcul
 
 **View your PDF**
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Enhance visual design
 
 Add additional design elements beyond the basics—margin notes, visual hierarchies, call-out boxes. Claude applies design thinking to make content more functional and engaging.
 
 Add margin notes with key insights, a visual table of contents at the chapter start, and use different shading for 'Quick Check' boxes where students can test understanding before moving forward.
 
+
+
+Open in Claude
+
 ### Generate matching problem sets
 
 Create practice materials that complement educational content. Claude generates exercises organized by difficulty with appropriate scaffolding or solution frameworks.
 
 Create a separate homework assignment document with 15 integration by parts problems organized by difficulty. Include worked solution templates showing the u and dv selection, but leave the actual integration steps blank for students to complete.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Explicitly specify certain visual elements
 
@@ -73,6 +99,8 @@ Use specific prompting techniques to avoid default outputs. Instead of "create a
 ### Use projects for consistency across chapters
 
 If you're converting multiple chapters, create a [Project(opens in new tab)](https://support.claude.com/en/articles/9517075-what-are-projects) that maintains context across conversations. Claude remembers your visual preferences, theorem numbering scheme, color choices, and formatting standards.
+
+## 6. Ready to try for yourself?
 
 Use Claude to turn your handwritten notes and whiteboard lectures accessible to every student with professional, text-book quality materials.
 

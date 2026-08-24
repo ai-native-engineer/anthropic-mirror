@@ -4,6 +4,8 @@
 
 Resources for working with Claude in your organization. Learn the everyday tools, hand off whole tasks with Cowork, and set up your org.
 
+## Start here
+
 [![](https://academy.claude.com/assets/v1/thumbnail.light-it98jcz1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nkhyzydu.png)
 
 ### Get started in Claude Cowork in three steps
@@ -22,13 +24,21 @@ Tutorial·10 min](https://academy.claude.com/tutorials/navigating-the-claude-des
 
 Learn when to use Haiku, Sonnet, Opus, or Fable to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
+Tutorial·5 min](https://academy.claude.com/tutorials/choosing-the-right-claude-model)
+
 ## Dig deeper with courses
+
+[### Claude 101
+
+Learn to use Claude for everyday work, from your first conversation and effective prompting to projects, artifacts, skills, and connected tools.
 
 Course·13 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/claude-101)[### Introduction to Claude Cowork
 
 Delegate multi-step work to Claude in Cowork: set up workspaces, give context, run task loops, and use plugins for research, documents, and browser tasks.
 
 Course·14 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/introduction-to-claude-cowork)[### AI Fluency: Framework & Foundations
+
+Learn to collaborate with AI effectively, efficiently, ethically, and safely using the 4D framework: Delegation, Description, Discernment, and Diligence.
 
 Course·14 lessons · 1 quiz·4 hr](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
@@ -95,7 +105,9 @@ Use case·Engineering·10 min](https://academy.claude.com/use-cases/ask-the-comp
 * [Customize Claude CoworkTutorial7 min
 
   Tutorial·7 min](https://academy.claude.com/tutorials/customize-claude-cowork)
+* [Intro to ProjectsTutorial7 min
 
+  Tutorial·7 min](https://academy.claude.com/tutorials/intro-to-projects)
 * [Using Claude Design for presentations and slide decksTutorial10 min
 
   Tutorial·10 min](https://academy.claude.com/tutorials/using-claude-design-for-presentations-and-slide-decks)
@@ -123,5 +135,7 @@ Use case·Engineering·10 min](https://academy.claude.com/use-cases/ask-the-comp
 * [Scaling workflows with Claude Cowork at your organization Tutorial15 min
 
   Tutorial·15 min](https://academy.claude.com/tutorials/scaling-workflows-with-claude-cowork-at-your-organization)
+
+## More resources
 
 [Claude for teams claude.com (opens in new tab)](https://claude.com/team)[Claude for Enterprise claude.com (opens in new tab)](https://claude.com/enterprise)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

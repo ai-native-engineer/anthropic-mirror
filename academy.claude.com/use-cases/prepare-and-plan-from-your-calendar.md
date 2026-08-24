@@ -2,6 +2,8 @@
 
 ![Prepare and plan from your calendar result](https://academy.claude.com/assets/v1/prepare-and-plan-from-your-calendar-o4y1fyqa.png)
 
+## 1. Describe the task
+
 Claude for Chrome lets Claude interact directly with web pages—reading content, clicking, typing, and navigating sites on your behalf. For calendar prep, this means Claude can open your Google Calendar, check each meeting's attendee list, switch to Gmail to search for relevant threads with those people, and even book conference rooms.
 
 Point Claude at your Google Calendar and tell it what to look for. It handles the cross-referencing between calendar and email, surfaces what needs your attention, and can fix the gaps.
@@ -19,9 +21,15 @@ Give me a quick prep summary for the day, finding what needs my attention before
 
 Copy prompt
 
+## 2. Give Claude context
+
 Claude reads your calendar and email directly in Chrome. It cross-references attendees, threads, and meeting details to build context.
 
+### Required context
+
 **Required:** Open Google Calendar showing tomorrow's date and Gmail in another tab. Claude navigates between them to gather context for each meeting. Make sure you're logged into both.
+
+## 3. What Claude creates
 
 Claude reviews each meeting and gives you a prep summary organized by what needs attention.
 
@@ -59,6 +67,10 @@ You have **6 meetings**. Here's what I found:
 
 Want me to book those rooms and add the video link now?
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Fix the logistics
 
 Claude can book rooms and add links directly to calendar events. Once you've reviewed what needs fixing, approve the changes.
@@ -83,6 +95,8 @@ Can you save this as a shortcut I run every evening at 6pm? Call it "Prep tomorr
 
 Copy prompt
 
+## 5. Tricks, tips, and troubleshooting
+
 ### Save and automate your workflow as a shortcut
 
 Save the prompt as a shortcut by clicking on the shortcut icon below a successful prompt. You can also set a schedule for when you want the workflow to run next. Alternatively, manually trigger the workflow, by typing "/" and selecting the shortcut.
@@ -94,6 +108,8 @@ Claude asks for permission before visiting new sites. You can grant site-level p
 ### Permissions before taking actions
 
 Before clicking "send," "publish," "post," "submit," or similar action buttons, Claude asks for approval. This includes sending emails, posting to social media, submitting forms, or messaging others on your behalf.
+
+## 6. Ready to try for yourself?
 
 Install the Claude in Chrome extension and watch Claude scan tomorrow's meetings, find what you need to know, and fix what's missing—prep done before tomorrow arrives.
 

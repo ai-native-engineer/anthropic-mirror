@@ -47,6 +47,10 @@ Pick one small annoyance from your week, something you explain repeatedly or tra
 
 I want a small app that helps with this problem: I track my team's weekly priorities in my head and they get lost by Wednesday. Ask me a couple of questions about who will use it and what it needs to show, then build it as an artifact.
 
+
+
+Open in Claude
+
 Answer Claude's questions, then send at least one follow-up that changes something specific, like "make each priority checkable" or "sort the list by deadline." Each follow-up builds on everything you have already told Claude, so say what to change and keep going until the app does what you need.
 
 ## Tips for improving your artifact

@@ -57,9 +57,21 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Validate NPI 1043248818 and show me their credentials and specialty
 
+
+
+Open in Claude
+
 Look up the provider with NPI 1679576722 and tell me if they're actively licensed
 
+
+
+Open in Claude
+
 Check if NPI 1234567893 is valid and what type of provider it belongs to
+
+
+
+Open in Claude
 
 **Provider Discovery by Specialty and Location**
 
@@ -68,11 +80,27 @@ Check if NPI 1234567893 is valid and what type of provider it belongs to
 
 Find all cardiologists practicing in Boston, Massachusetts
 
+
+
+Open in Claude
+
 Search for nurse practitioners in ZIP code 90210
+
+
+
+Open in Claude
 
 Show me orthopedic surgeons in California with their practice addresses
 
+
+
+Open in Claude
+
 Find all general acute care hospitals in New York
+
+
+
+Open in Claude
 
 **Clinical Trial Investigator Verification**
 
@@ -81,6 +109,18 @@ Find all general acute care hospitals in New York
 
 I have a clinical trial investigator named Dr. Sarah Johnson in Minnesota. Can you find her NPI and verify her credentials?
 
+
+
+Open in Claude
+
 Verify that the principal investigator John Smith, MD is a licensed oncologist in Texas
 
+
+
+Open in Claude
+
 Find the NPI and specialty for Dr. Robert Chen who lists Mayo Clinic as his affiliation
+
+
+
+Open in Claude

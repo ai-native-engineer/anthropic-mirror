@@ -2,6 +2,8 @@
 
 ![Compare products across sites result](https://academy.claude.com/assets/v1/compare-products-across-sites-gbbb62e6.png)
 
+## 1. Describe the task
+
 You've got four browser tabs open with different laptops—or TVs, or vacuums, or whatever you're comparing. Each site shows specs differently: one says "RAM," another says "Memory," a third buries it in a collapsible section. You're switching back and forth, trying to remember which one had better battery life. Claude in Chrome can read each product page, pull the specs, normalize the labels, and build a comparison table in Google Docs.
 
 Open the product pages you want to compare. Tell Claude which specs matter to you, and it handles the rest.
@@ -12,11 +14,17 @@ I care most about: processor, RAM, storage, screen size, battery life, and weigh
 
 Copy prompt
 
+## 2. Give Claude context
+
 Claude reads directly from the product pages you have open—switching between tabs to extract the specs, then creating a spreadsheet with everything normalized into consistent columns.
+
+### Required context
 
 Tell Claude which products you're wanting to compare or open the product pages in separate browser tabs. Log into Google Docs so Claude can draft the comparison there. Claude navigates between tabs on its own—you just need everything accessible in your browser.
 
 If you're comparing several products, consider telling Claude which specs matter most upfront. Otherwise it will pull everything it finds, which can make the spreadsheet wider than you need.
+
+## 3. What Claude creates
 
 Claude analyzes and extracts information from across tabs, drafting a comparison doc that highlights which product wins each category, and gives a quick recommendation.
 
@@ -102,6 +110,10 @@ The MacBook wins the most categories (processor, RAM, battery) but costs $350–
 
 I can also pull real-world battery tests from reviews if you want—manufacturer claims are often optimistic.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Add another option
 
 Expand your comparison as you find more candidates. Claude adds new products to the existing doc without starting over.
@@ -126,6 +138,8 @@ I think I want the MacBook Pro. Can you check a few sites and find where it's ch
 
 Copy prompt
 
+## 5. Tricks, tips, and troubleshooting
+
 ### Drag tabs into Claude's tab group
 
 If you already have relevant product page tabs open, you can drag them into Claude's designated tab group. You'll see a banner highlighting the group of tabs that Claude is active in. Claude can read and work across all tabs in the group simultaneously—no tab-switching required. Before visiting new sites, Claude asks for permission. You can grant site-level permissions for websites you trust, allowing Claude to work without repeated approvals on those specific domains.
@@ -133,6 +147,8 @@ If you already have relevant product page tabs open, you can drag them into Clau
 ### Save your comparison template as a shortcut
 
 If you research products regularly, save your workflow as a shortcut by clicking on the shortcut icon below a previous prompt. Next time you're comparing options, just type "/" and select the shortcut for Claude to follow the same directions.
+
+## 6. Ready to try for yourself?
 
 [Claude in Chrome(opens in new tab)](https://claude.com/chrome) is available to all paid plan subscribers. Install the extension, describe or open a few product pages you're comparing, and ask Claude to build your spreadsheet.
 

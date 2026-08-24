@@ -2,6 +2,8 @@
 
 ![Create a volunteer management system result](https://academy.claude.com/assets/v1/create-a-volunteer-management-system-mny15n26.png)
 
+## 1. Describe the task
+
 Claude's ability to process complex information and synthesize frameworks lets you develop a volunteer management system with depth and sophistication. Instead of piecing together documents over weeks, you develop complete systems in hours.
 
 I run a nonprofit that provides tutoring and reading programs to elementary students in underserved communities. We currently have 45 volunteers but our systems are fragmented—role descriptions are outdated, onboarding is inconsistent, and we track volunteers in scattered spreadsheets.
@@ -43,7 +45,15 @@ Our volunteers range from college students to retirees. Most commit 2-4 hours pe
 
 Create professional, comprehensive documents that make our volunteer program feel organized and legitimate. Use clear formatting, maintain a warm but professional tone, and include practical guidance that both volunteers and staff can follow easily. Make these documents detailed enough to use immediately without extensive revision.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 To create volunteer infrastructure that matches your organization's specific needs and brand, provide context about your program structure and existing materials.
+
+### Required context
 
 Provide Claude with any relevant information:
 
@@ -67,6 +77,8 @@ Volunteer Program Handbook and Role DescriptionsPDF
 
 Foundation Organizational OverviewPDF
 
+## 3. What Claude creates
+
 Claude creates a complete volunteer program infrastructure with 4 core deliverables.
 
 I've created a comprehensive volunteer program infrastructure with 4 core deliverables:
@@ -84,11 +96,19 @@ The Excel workbook provides a professional database system with five interconnec
 
 Together, these documents create a professional volunteer management system that scales with your program growth.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Customize for Additional Roles
 
 Add specialized volunteer positions to your program
 
 Add role descriptions for two new positions: Curriculum Developer (volunteers who create lesson plans and reading activities) and Family Engagement Coordinator (volunteers who lead parent workshops and family literacy events). Use the same detailed format as the existing roles.
+
+
+
+Open in Claude
 
 ### Build Program Evaluation
 
@@ -96,11 +116,21 @@ Measure volunteer program effectiveness
 
 Create an evaluation system for our volunteer program including quarterly volunteer satisfaction surveys, annual program impact assessment, volunteer retention metrics tracker, and program improvement planning template. Include specific questions and analysis frameworks.
 
+
+
+Open in Claude
+
 ### Generate Volunteer Recruitment Materials
 
 Create materials to attract quality volunteers
 
 Design volunteer recruitment materials including a one-page program overview flyer, social media post templates with different angles (student impact, volunteer experience, community benefit), a volunteer interest form, and talking points for recruitment presentations. Make them compelling and specific about impact.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Maintaining consistency across documents
 
@@ -113,6 +143,8 @@ These documents are detailed enough that staff new to volunteer management can i
 ### Scaling for program growth
 
 Start with the core infrastructure for your current volunteer roles and numbers. As your program expands, ask Claude to "add materials for [new role]" or "expand the tracking system to include [new metric]." Building incrementally with Claude maintaining consistency is faster than creating everything at once or hiring consultants for each expansion phase.
+
+## 6. Ready to try for yourself?
 
 Transform your volunteer program from scattered systems to professional infrastructure. Claude creates the comprehensive, interconnected materials that make volunteer management scalable and effective.
 

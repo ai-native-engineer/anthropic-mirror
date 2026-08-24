@@ -50,6 +50,10 @@ Example input prompt:
 
 What’s the current USD/EUR spot rate, and what are the 3-month and 6-month forward rates? Calculate the implied forward points for each tenor.
 
+
+
+Open in Claude
+
 **When to use:** Evaluating currency positions, pricing FX forwards, or analyzing currency basis.
 
 **Tip:** Compare spot vs. forward rates to understand market expectations for currency movements.
@@ -59,6 +63,10 @@ What’s the current USD/EUR spot rate, and what are the 3-month and 6-month for
 Example input prompt:
 
 Show me the USD SOFR swap curve. Plot the curve and identify any unusual shapes or inflection points.
+
+
+
+Open in Claude
 
 **When to use:** Assessing interest rate risk, pricing swaps, or understanding monetary policy expectations.
 
@@ -70,6 +78,10 @@ Example input prompt:
 
 Price the following bonds using their ISIN codes: FR0014012I5 (French government bond) and US91282CNT44 (US Treasury). Compare their yields and calculate the spread.
 
+
+
+Open in Claude
+
 **When to use:** Portfolio construction, relative value analysis, or credit assessment across sovereign issuers.
 
 **Note:** Ensure proper currency conversion when comparing international bonds.
@@ -79,6 +91,10 @@ Price the following bonds using their ISIN codes: FR0014012I5 (French government
 Example input prompt:
 
 For AUD/USD, show me the complete forward curve using AONIA and SOFR conventions. Display the forward points and implied forward rates for standard tenors.
+
+
+
+Open in Claude
 
 **When to use:** Structuring FX derivatives, pricing swaps, or analyzing currency carry strategies.
 
@@ -90,6 +106,10 @@ Example input prompt:
 
 Get the USD SOFR curve and EUR ESTR curve, then analyze how they’ve moved relative to each other. Are there any divergences that suggest trading opportunities?
 
+
+
+Open in Claude
+
 **When to use:** Identifying cross-currency basis trades or understanding global rate relationships.
 
 **Key benefit:** LSEG provides consistent data across asset classes for reliable correlation analysis.
@@ -99,6 +119,10 @@ Get the USD SOFR curve and EUR ESTR curve, then analyze how they’ve moved rela
 Example input prompt:
 
 I’m looking at pricing a currency swap. Get me the current EUR/USD spot rate and the EUR ESTR and USD SOFR curves for accurate valuation.
+
+
+
+Open in Claude
 
 **When to use:** Pre-trade analysis, pricing verification, or mark-to-market calculations.
 

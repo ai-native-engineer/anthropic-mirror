@@ -152,6 +152,10 @@ Technical details of the ToolUniverse integration can be found in [ToolUniverse�
 
 Identify targets for hypercholesterolemia, prioritize one using evidence from OpenTargets and literature, then screen known drugs and close analogs, and rank candidates by predicted binding and ADMET tradeoffs. Provide intermediate evidence and a final shortlist.
 
+
+
+Open in Claude
+
 * **Workflow:** ToolUniverse-powered AI scientists:
   + Query disease-target associations using OpenTargets API
   + Retrieve protein structures from RCSB PDB
@@ -166,6 +170,10 @@ Identify targets for hypercholesterolemia, prioritize one using evidence from Op
 
 From GWAS hits for type 2 diabetes, map variants to candidate genes, summarize functional annotations and tissue expression, and return enriched pathways with supporting references and links to primary sources.
 
+
+
+Open in Claude
+
 * **Workflow:** ToolUniverse-powered AI scientists:
   + Search GWAS catalog for disease-associated genetic variants
   + Map SNPs to genes using Ensembl and NCBI databases
@@ -178,6 +186,10 @@ From GWAS hits for type 2 diabetes, map variants to candidate genes, summarize f
 * **Sample Prompt:**
 
 Search PubMed and Europe PMC for recent CRISPR off-target detection methods, extract key experimental settings and reported failure modes, and produce a structured comparison table with citations.
+
+
+
+Open in Claude
 
 * **Workflow:** ToolUniverse-powered AI scientists:
   + Multi-database literature searches (PubMed, Europe PMC, bioRxiv)
@@ -192,6 +204,10 @@ Search PubMed and Europe PMC for recent CRISPR off-target detection methods, ext
 
 Using ToolUniverse's OpenFDA and ADMET-AI tools, analyze the molecular properties of FDA-approved drugs for hypertension, predict their ADMET profiles, and identify potential side effect patterns.
 
+
+
+Open in Claude
+
 * Workflow: ToolUniverse-powered AI scientists:
   + Query FDA drug databases for approved medications
   + Calculate molecular descriptors and properties
@@ -204,6 +220,10 @@ Using ToolUniverse's OpenFDA and ADMET-AI tools, analyze the molecular propertie
 * **Sample Prompt:**
 
 Build a reusable workflow that runs multiple literature searches in parallel, consolidates results, and produces a reproducible report. Return the workflow as a composed tool with clear inputs and outputs. Using ToolUniverse's UniProt, PRIDE, and KEGG pathway tools, design a complete proteomics workflow: from protein identification using mass spectrometry data to functional analysis and pathway mapping.
+
+
+
+Open in Claude
 
 * **Workflow:** ToolUniverse-powered AI scientists:
   + Integrate multimodal proteomics databases (UniProt, PRIDE)
@@ -218,17 +238,6 @@ Build a reusable workflow that runs multiple literature searches in parallel, co
 
 * **Interactive Web Platform:** [AIScientist.Tools(opens in new tab)](https://aiscientist.tools) - Live tool discovery and execution interface for exploring 700+ scientific tools
 * **Video Demonstrations:** Available on [YouTube(opens in new tab)](https://www.youtube.com/watch?v=fManSJlSs60)
-
-<!-- yt-inline:fManSJlSs60 -->
-[![YouTube fManSJlSs60](https://img.youtube.com/vi/fManSJlSs60/hqdefault.jpg)](https://www.youtube.com/watch?v=fManSJlSs60)
-
-<details>
-<summary>자막: YouTube fManSJlSs60</summary>
-
-_(자막 없음)_
-
-</details>
-
 * **GitHub Repository:** [ToolUniverse on GitHub(opens in new tab)](https://github.com/mims-harvard/ToolUniverse) - Complete source code, documentation, and community with 797+ stars
 
 **Documentation and Tutorials**

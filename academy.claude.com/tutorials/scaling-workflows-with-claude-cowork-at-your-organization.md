@@ -231,6 +231,8 @@ Lasting adoption means Claude Cowork is already running when users sit down in t
 
   Every weekday at 8am, pull our open pipeline from the connected CRM, summarize the deals that changed stage yesterday, and post the digest to our team channel.
 
+  
+
   Open in Cowork
 
   A scheduled task runs with the same access as any other Cowork session, so whatever it produces lands in your real tools. Before rolling the habit out, check the result the way you'd check a new hire's first report: open the channel after the first run and confirm the digest is there, covers yesterday's changes, and reads the way your team expects. A task that runs on time but posts the wrong summary is one your team will quietly stop trusting. See [Scheduled tasks(opens in new tab)](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork).

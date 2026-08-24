@@ -86,9 +86,21 @@ Ask Claude to find articles on biomedical or scientific topics of interest. Exam
 
 Find recent studies about immunotherapy for melanoma
 
+
+
+Open in Claude
+
 Show me research on CRISPR gene editing from the last month
 
+
+
+Open in Claude
+
 Find literature related to a proposal or gene that I am working on
+
+
+
+Open in Claude
 
 **Get Article Details and Metadata**
 
@@ -96,11 +108,27 @@ Retrieve comprehensive information about specific articles. Example prompts:
 
 What are the most cited papers on this topic?
 
+
+
+Open in Claude
+
 Find the most recent papers on this topic and summarize new contributions to the field?
+
+
+
+Open in Claude
 
 Who were the authors for that study?
 
+
+
+Open in Claude
+
 When was that paper published?
+
+
+
+Open in Claude
 
 **Access Full-Text Articles**
 
@@ -108,9 +136,21 @@ For articles available in PubMed Central, retrieve the complete text of the arti
 
 Compare the methods of these two papers
 
+
+
+Open in Claude
+
 What were the shared conclusions across these papers, and where did they differ?
 
+
+
+Open in Claude
+
 Read these papers and help me identify the most important conclusions for my hypothesis
+
+
+
+Open in Claude
 
 
 
@@ -122,7 +162,15 @@ Discover similar research across NCBI databases. Example prompts:
 
 Find similar studies to this one
 
+
+
+Open in Claude
+
 Compare the findings of this study to others in the field
+
+
+
+Open in Claude
 
 **Match Citations to PubMed IDs**
 
@@ -130,11 +178,27 @@ Verify citations and find PubMed IDs from journal references. Example prompts:
 
 Look up this citation: Smith J, Nature 2020, vol 52, page 811
 
+
+
+Open in Claude
+
 Find the PubMed entry for this reference from my bibliography
+
+
+
+Open in Claude
 
 I have a citation from a paper, can you find it in PubMed?
 
+
+
+Open in Claude
+
 I would like to have a discussion about the paper associated with this PMID
+
+
+
+Open in Claude
 
 ## Frequently asked questions
 
@@ -156,9 +220,21 @@ The integration primarily accesses PubMed and PubMed Central. However, you can d
 
 Find genes associated with this article
 
+
+
+Open in Claude
+
 Show me protein sequences referenced in this paper
 
+
+
+Open in Claude
+
 Are there any nucleotide sequences linked to this study?
+
+
+
+Open in Claude
 
 **Are there any rate limits I should know about?**
 

@@ -2,6 +2,8 @@
 
 Loading
 
+## 1. Describe the task
+
 Work does not pause when you step away from your computer. A teammate asks for a file. A client sends a question that requires information from a document on your computer. A deadline moves up. Dispatch lets you respond using everything on your computer, from your phone.
 
 This works when your computer is awake and the Claude desktop app is running. The keep-awake toggle in [Dispatch settings(opens in new tab)](https://support.claude.com/en/articles/13947068-assign-tasks-to-claude-from-anywhere-in-cowork) prevents your computer from sleeping when you step out. Turn it on once and your computer stays reachable whether you are in a car, at a coffee shop, on a plane with wifi, or simply across the office without your laptop.
@@ -12,22 +14,30 @@ A teammate asks for a budget spreadsheet over Slack. From your phone, you tell C
 
 Jamie just asked me on Slack for the latest Q2 budget spreadsheet. Find it in my Documents/Finance folder on my computer — the file with “Q2” and “budget” in the name. Post it to Jamie in the #proj-planning Slack channel. Add a note that the tab labeled “Revised” has the current numbers.
 
+
+
 Open in Cowork
 
+## 2. Give Claude context
+
 Claude reads the file from your computer and posts it through the [Slack connector(opens in new tab)](https://claude.com/connectors/slack). No file uploads, no cloud sync — Claude reads the document in place on your machine and sends it through the connected tool.
+
+### Required context
 
 For this task, Claude needs access to your local files and one connector:
 
 * Local files — to find and read the spreadsheet in your Documents/Finance folder.
 * Slack — to post the file and your note to the #proj-planning channel.
 
-![](images/b6bf6491858dcff4.svg)
+![](data:image/svg+xml,%3csvg%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M3.951%209.85a1.47%201.47%200%201%201-2.94%200%201.47%201.47%200%200%201%201.47-1.471h1.47V9.85Zm.735%200a1.47%201.47%200%201%201%202.94%200v3.679a1.47%201.47%200%201%201-2.94%200V9.85Z'%20fill='%23E01E5A'/%3e%3cpath%20d='M6.157%203.943a1.47%201.47%200%201%201%200-2.943%201.47%201.47%200%200%201%201.47%201.471v1.472h-1.47Zm0%20.746a1.47%201.47%200%201%201%200%202.943H2.47a1.47%201.47%200%201%201%200-2.943h3.687Z'%20fill='%2336C5F0'/%3e%3cpath%20d='M12.049%206.16a1.47%201.47%200%201%201%202.94%200%201.47%201.47%200%200%201-1.47%201.472h-1.47V6.16Zm-.736%200a1.47%201.47%200%201%201-2.94%200V2.471a1.47%201.47%200%201%201%202.94%200V6.16Z'%20fill='%232EB67D'/%3e%3cpath%20d='M9.843%2012.057a1.47%201.47%200%201%201%200%202.943%201.47%201.47%200%200%201-1.47-1.471v-1.472h1.47Zm0-.735a1.47%201.47%200%201%201%200-2.943h3.687a1.47%201.47%200%201%201%200%202.943H9.843Z'%20fill='%23ECB22E'/%3e%3c/svg%3e)
 
 Slack
 
 [Connect](https://claude.ai/desktop/directory/slack)
 
 Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
+
+## 3. What Claude creates
 
 Claude locates the file, prepares the message, and — if you have Slack set to [needs-approval(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) for sending — shows you the message before posting. Here is what the exchange looks like on your phone:
 
@@ -41,11 +51,17 @@ Before I post, here is the message I will send to **#proj-planning**:
 
 Should I go ahead and post this?
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Draft a reply with approval before sending
 
 Claude can draft messages using files on your computer, then wait for your approval before sending. This keeps you in control of what goes out while Claude does the research and writing.
 
 Draft a reply to the client email about pricing. Use the proposal in my Documents folder for the numbers, but don't send until I approve.
+
+
 
 Open in Cowork
 
@@ -55,6 +71,8 @@ When you get back to your desk, continue in the same Dispatch conversation. Clau
 
 I'm back at my desk. Show me what you sent and any other requests that came in while I was out.
 
+
+
 Open in Cowork
 
 ### Use computer use to reach a desktop app
@@ -63,7 +81,11 @@ I'm back at my desk. Show me what you sent and any other requests that came in w
 
 There's a report I need from the analytics dashboard app on my computer. Open it and screenshot the Q1 summary.
 
+
+
 Open in Cowork
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Set send permissions to needs-approval
 
@@ -80,6 +102,8 @@ Claude reads documents in place on your computer. When it posts a file to Slack 
 ### Computer use is a separate toggle
 
 Computer use is off by default and must be enabled in Dispatch settings. Claude asks for your approval before controlling each new application.
+
+## 6. Ready to try for yourself?
 
 Get started with Dispatch: download the Claude desktop app and the Claude mobile app, open Claude Cowork, and tap Dispatch in the sidebar
 

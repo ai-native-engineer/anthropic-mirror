@@ -126,11 +126,19 @@ Example prompt:
 
 I'm looking for Lung Adenocarcinoma patients that might be resistant to immunotherapy. Are there cases with low immune infiltration in the TCGA cohort?
 
+
+
+Open in Claude
+
 **Visualize whole-slide images.** Build confidence in the model output by retrieving whole-slide images directly within the chat interface.
 
 Example prompt:
 
 Find the slide the most enriched in eosinophils from cohort TCGA\_BRCA and plot it.
+
+
+
+Open in Claude
 
 **Assess prognostic value of H&E based markers.** Test clinical hypotheses by performing survival analysis on your cohorts, by splitting patients based on features such as specific cell densities or spatial scores.
 
@@ -138,14 +146,26 @@ Example prompt:
 
 Is the density of plasmocytes associated with overall survival in bladder carcinoma?
 
+
+
+Open in Claude
+
 **Extract quantitative evidence for reproducibility.** Build trust in AI-generated insights by retrieving the underlying raw data for independent verification or downstream analysis.
 
 Example prompt:
 
 Export the breakdown of all cell types for patient TCGA-A2-A0YI-01Z-00-DX1.1CF2EC2D-C722-467F-8832-409B823E8D8F.svs in parquet format, so I can reproduce this analysis.
 
+
+
+Open in Claude
+
 **Understand Owkin’s Pathology Explorer capabilities and context.** Gain transparency into the model by querying its technical specifications directly. Learn about the supported cell types, the pan-cancer training dataset and more, to ensure the model is appropriate for your research question.
 
 Example prompt:
 
 Can you provide an overview of Owkin’s Pathology Explorer model and its capabilities?
+
+
+
+Open in Claude

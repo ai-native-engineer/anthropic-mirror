@@ -76,6 +76,10 @@ Example input prompt:
 
 Search our due diligence folder for documents related to TechCorp’s financials and operations. Summarize the key financial metrics and operational risks.
 
+
+
+Open in Claude
+
 For this task, Claude might:
 
 1. Search: Use advanced\_search with metadata filters to find all TechCorp-related documents in the due diligence folder
@@ -94,6 +98,10 @@ Example input prompt:
 
 What is our company’s remote work policy? Are there any recent updates to travel expense guidelines?
 
+
+
+Open in Claude
+
 For this request, Claude might:
 
 1. Knowledge Base Search: Query the HR Knowledge Base (if configured) for policy documents
@@ -111,6 +119,10 @@ Claude would respond with clear policy information, citing specific documents an
 Example input prompt:
 
 Find all project deliverables for Acme Corp from Q4 2024, and summarize the project outcomes.
+
+
+
+Open in Claude
 
 For this analysis, Claude might:
 

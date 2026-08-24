@@ -38,6 +38,8 @@ Instructions apply to every task — they're like the background rules Claude fo
 
 Package what we just did into a skill.
 
+
+
 Open in Cowork
 
 The built-in skill-creator captures the steps, templates, and source locations so the next run is one prompt. [Create your first skill in Cowork](claude://cowork/new?q=Walk%20me%20through%20creating%20my%20first%20Skill.%20Ask%20me%20about%20a%20task%20I%20repeat%20every%20week%2C%20then%20help%20me%20capture%20it.).

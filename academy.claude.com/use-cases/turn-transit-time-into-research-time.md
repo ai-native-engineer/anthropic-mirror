@@ -2,6 +2,8 @@
 
 ![One-page meeting prep summary doc Claude creates: The Case for Simplifying Onboarding, with executive summary and current-state metrics](https://academy.claude.com/assets/v1/turn-transit-time-into-research-time-ilpgqnne.png)[Open artifact](https://claude.ai/public/artifacts/21643ab5-f49d-48d3-ba03-5a75676b6c22)
 
+## 1. Describe the task
+
 Good ideas don't wait for your desk. They surface during commutes, between meetings, and on walks. But by the time you're back at your computer, you've either forgotten the thread or lost the momentum to dig in.
 
 Using Claude, you can start ideas on mobile, and finish them on desktop. Start a conversation using voice to describe what you're thinking about and what you need to know. While you're still on the move, Claude searches for relevant data, pulls in documents you reference, and synthesizes what it finds. When you reach your desk, the research is done and organized, ready to become a polished deliverable.
@@ -14,7 +16,15 @@ Can you pull in our Q1 planning doc because I need to remember where we landed o
 
 Can you please look through the doc, do some competitor research on their onboarding flows, find any good onboarding stats, and prep me for later? Thanks.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Claude saves conversations across devices, so you can start on your phone and pick up on your laptop without losing context.
+
+### Required context
 
 Enable [web search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search): Claude can research best practices, find frameworks, and gather external information while you're still in brainstorm mode. By the time you're at your desk, the research is done.
 
@@ -27,6 +37,8 @@ Enable Extended Thinking: For complex planning tasks, Extended Thinking helps Cl
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
+
+## 3. What Claude creates
 
 Claude delivers a research-backed meeting prep while you're still in transit. By the time you reach your desk, you have organized findings, relevant stats, competitor analysis, and suggested talking points ready to refine and present.
 
@@ -107,11 +119,19 @@ Clovant checklists treat everyone the same. Adaptive onboarding treats users bas
 
 Need me to dig deeper into any of these areas or put together slides?
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Continue on desktop with full context
 
 Pick up exactly where you left off. Claude remembers the context and is ready to produce polished output now that you have full editing capabilities.
 
 I'm at my desk now. That research is exactly what I needed. Can you create a one-page summary doc I can share with the team before the meeting? Include the key stats, the competitor examples, and my proposed talking points.
+
+
+
+Open in Claude
 
 ### Dig deeper on a specific finding
 
@@ -119,11 +139,21 @@ Ask Claude to expand on the most relevant piece of research. If one insight stoo
 
 The adaptive onboarding trend is interesting. Can you find more examples of companies that moved from linear checklists to contextual onboarding? I want to know what their results looked like before and after.
 
+
+
+Open in Claude
+
 ### Pressure-test the argument
 
 Strengthen your argument by understanding what the research says on the other side. Knowing the best case against your position helps you address it proactively rather than getting caught off guard.
 
 What does the research say about when longer onboarding actually works better? Are there cases where more steps improved retention? I don't want to be blindsided if someone brings up a study that contradicts my point.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Voice input doesn't need to be polished
 
@@ -140,6 +170,8 @@ Telling Claude "I have a meeting in two hours" helps it calibrate what to priori
 ### Desktop unlocks file creation
 
 Mobile is ideal for capture and research. When you need polished outputs like slide decks, documents, or spreadsheets, continue on desktop where Claude can create downloadable files.
+
+## 6. Ready to try for yourself?
 
 Next time an idea hits while you're away from your desk, open Claude on your phone and start talking. Capture the thought, let Claude research in the background, then pick up the same conversation when you're ready to build.
 

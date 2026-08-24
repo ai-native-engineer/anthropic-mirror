@@ -37,6 +37,8 @@ Explore the [use case library(opens in new tab)](https://academy.claude.com/all?
 * Grant writing and donor communications
 * Research and landscape analysis
 
+## Frequently asked questions
+
 #### Who is eligible?
 
 501(c)(3) organizations, K–12 schools, and qualifying healthcare organizations.

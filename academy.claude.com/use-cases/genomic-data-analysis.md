@@ -2,13 +2,23 @@
 
 Loading
 
+## 1. Describe the task
+
 Claude's ability to process large datasets and search scientific literature, combined with your domain expertise, lets you move from raw data to validated hypotheses in a fraction of the time it would take manually.
 
 Share your genomic data with Claude and describe what you want to explore. Claude can analyze differential expression patterns, create visualizations, and search scientific databases to contextualize your findings.
 
 My colleagues recently published the attached single-cell dataset that describes gene expression differences between adult and pediatric liver samples with a focus on the immune system. I would like to explore these samples but focus on the parenchymal cells and differences between adult and pediatric liver. Can you help me first go through the differentially expressed genes and create a heatmap and then also identify pathways or sets of genes that are enriched in each sample?
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 To help Claude analyze your genomic data effectively, you'll need to [provide your datasets(opens in new tab)](https://support.claude.com/en/articles/8241126-what-kinds-of-documents-can-i-upload-to-claude) and optionally [connect to research databases.(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)
+
+### Required context
 
 Upload CSV or TSV files containing differential expression results, normalized counts, or other quantitative genomics data. Click the (+) button in the chat bar to browse through your files, or alternatively, drag and drop files into the chat box area.
 
@@ -27,6 +37,8 @@ Enable [Extended thinking(opens in new tab)](https://www.anthropic.com/news/visi
 [
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+
+## 3. What Claude creates
 
 Claude examines your datasets, performs pathway enrichment analysis, creates visual representations of gene expression patterns, and identifies key biological processes enriched in each condition.
 
@@ -115,11 +127,21 @@ Adult liver shows moderate enrichment (4-5 log2FC) in mature metabolic functions
 * View full pathway analysis - Complete pathway details
 * View pathway summary table - Summary statistics
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Literature validation
 
 Claude can search [PubMed(opens in new tab)](https://claude.ai/directory/pubmed) to distinguish which of your findings are well-documented in literature versus novel discoveries, helping you identify the most promising avenues for further research.
 
 I'd like to focus on the extracellular matrix and its remodeling or function in the pediatric liver. I want to understand what is expected in these findings vs. what is new. Can you look at the ECM and remodeling proteins and explore the literature in PubMed to clarify citations of well-understood matrix proteins in the pediatric liver v. ECM components that do not currently have known functions in developmental or pediatric liver?
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Connect [PubMed(opens in new tab)](https://claude.ai/directory/pubmed) for real-time literature integration
 
@@ -136,6 +158,8 @@ Request "show me the code" or "explain your analytical approach" to verify Claud
 ### Continue working in your files
 
 The files Claude creates are fully editable. Download the heat maps, pathway comparisons, and summary documents to continue working in your preferred tools.
+
+## 6. Ready to try for yourself?
 
 Whether you're exploring differential expression, validating findings against literature, or designing follow-up experiments, Claude can handle the computational heavy lifting while you focus on the creative work of scientific discovery.
 

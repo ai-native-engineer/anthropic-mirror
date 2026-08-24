@@ -65,6 +65,10 @@ Example input prompt:
 
 Analyze the credit profile of XYZ Corporation. What’s their current rating, what factors could trigger a downgrade, and are there any recent research reports I should review?
 
+
+
+Open in Claude
+
 For this analysis, Claude might use the following workflow:
 
 1. **Entity Discovery:** Use findEntity to locate XYZ Corporation and retrieve its unique Moody’s entity ID.
@@ -81,6 +85,10 @@ Example input prompt:
 
 We’re evaluating an acquisition of ABC Manufacturing. What’s their credit standing, and how does it compare to their sector peers? Include relevant research on industry trends.
 
+
+
+Open in Claude
+
 To complete this request, Claude might follow this workflow:
 
 1. **Target Analysis:** Use findEntity and getEntityRatings to establish the target’s creditworthiness.
@@ -96,6 +104,10 @@ Example input prompt:
 
 Monitor my portfolio holdings for any rating changes or negative rating drivers. My holdings include: Company A, Company B, and Company C.
 
+
+
+Open in Claude
+
 For this task, Claude might use the following approach:
 
 1. **Entity Identification:** Use findEntity to locate each portfolio company in Moody’s database.
@@ -110,6 +122,10 @@ Claude might then respond with a portfolio monitoring report highlighting any ra
 Example input prompt:
 
 We’re entering a large trade with DEF Bank. Assess their credit quality and identify any factors that could impact their creditworthiness over the next 12 months.
+
+
+
+Open in Claude
 
 For this assessment, Claude might follow these steps:
 

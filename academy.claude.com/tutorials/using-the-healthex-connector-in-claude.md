@@ -43,17 +43,33 @@ The HealthEx connector helps people understand, organize, and act on their own h
 
 Show me a summary of my health records.
 
+
+
+Open in Claude
+
 **Learn about your health:**
 
 Help me understand my most recent lab results.
+
+
+
+Open in Claude
 
 **Plan your care:**
 
 What questions should I ask my doctor at my next visit?
 
+
+
+Open in Claude
+
 **Guide your daily routine:**
 
 What types of exercise would be best for me?
+
+
+
+Open in Claude
 
 ## **Setting up the HealthEx integration in Claude**
 

@@ -4,6 +4,12 @@
 
 Make Claude part of how you think, learn, and get things done, starting from your very first conversation.
 
+## Start here
+
+[### Claude 101
+
+Learn to use Claude for everyday work, from your first conversation and effective prompting to projects, artifacts, skills, and connected tools.
+
 Course·13 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/claude-101)[![](https://academy.claude.com/assets/v1/thumbnail.light-iznp6akh.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hh3at4r1.png)
 
 ### Getting started with Claude.ai
@@ -20,9 +26,19 @@ Use case·15 min](https://academy.claude.com/use-cases/explore-what-claude-can-d
 
 ## Build your AI fluency
 
+[### AI Fluency: Framework & Foundations
+
+Learn to collaborate with AI effectively, efficiently, ethically, and safely using the 4D framework: Delegation, Description, Discernment, and Diligence.
+
 Course·14 lessons · 1 quiz·4 hr](https://academy.claude.com/courses/ai-fluency-framework-foundations)[### AI Capabilities and Limitations
 
+Build an accurate mental model of what large language models can and cannot do: next-token prediction, knowledge, working memory, steerability, and context limits.
+
 Course·13 lessons · 1 quiz·3.5 hr](https://academy.claude.com/courses/ai-capabilities-and-limitations)[![](https://academy.claude.com/assets/v1/thumbnail.light-m01o4z13.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ca0nkqqm.png)
+
+### The 4 Properties of AI
+
+This tutorial offers a full overview of the 4 properties of AI. It's a quick reference to help you understand the things that make AI capable in some situations and limited in others.
 
 Tutorial·7 min](https://academy.claude.com/tutorials/the-4-properties-of-ai)
 
@@ -30,6 +46,10 @@ Tutorial·7 min](https://academy.claude.com/tutorials/the-4-properties-of-ai)
 
 * [Choosing the right Claude model: Haiku, Sonnet, Opus, or FableTutorial5 min
 
+  Tutorial·5 min](https://academy.claude.com/tutorials/choosing-the-right-claude-model)
+* [Intro to ProjectsTutorial7 min
+
+  Tutorial·7 min](https://academy.claude.com/tutorials/intro-to-projects)
 * [Using ResearchTutorial3 min
 
   Tutorial·3 min](https://academy.claude.com/tutorials/using-research)
@@ -79,5 +99,7 @@ Use case·Personal·15 min](https://academy.claude.com/use-cases/create-a-custom
 claude.com
 
  (opens in new tab)](https://claude.com/programs/campus)
+
+## More resources
 
 [Open Claude claude.ai (opens in new tab)](https://claude.ai/)[Get the Claude apps claude.com (opens in new tab)](https://claude.com/download)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

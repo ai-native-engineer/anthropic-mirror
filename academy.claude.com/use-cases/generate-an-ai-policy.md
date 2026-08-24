@@ -2,6 +2,8 @@
 
 ![Generate an AI policy result](https://academy.claude.com/assets/v1/generate-an-ai-policy-b0u0aek1.png)
 
+## 1. Describe the task
+
 Claude's ability to research regulatory requirements and nonprofit-specific considerations, combined with your knowledge of your organization's mission and values, lets you create comprehensive AI governance policies without expensive consultants.
 
 I need to develop an AI usage policy for our nonprofit that serves vulnerable populations. We're a mid-sized organization (75 staff, 200 volunteers) focused on youth mental health services. We're starting to use AI tools for administrative tasks, donor communications, and some program operations, and we need clear governance.
@@ -56,7 +58,15 @@ Ethical considerations:
 
 I need a comprehensive policy document (Word) and a simpler version for our website (md). Make these professional and board-ready with sophisticated formatting.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Provide your existing organizational policies and connect relevant tools so Claude creates governance that fits seamlessly into your current infrastructure and aligns with your values.
+
+### Required context
 
 Start by uploading any existing policies that should inform the AI governance framework - your data privacy policy, code of ethics, whistleblower policy, or donor bill of rights. These help Claude understand your organization's existing commitments and language.
 
@@ -89,6 +99,8 @@ Make sure [web search(opens in new tab)](https://support.claude.com/en/articles/
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
+## 3. What Claude creates
+
 Claude develops a complete AI governance system with two professional deliverables that work together.
 
 Done! The **Word document** provides your comprehensive policy framework with executive summary, detailed policy sections covering data privacy and ethical use, staff guidelines with clear dos and don'ts, governance structure defining roles and responsibilities, implementation timeline, and appendices with templates and forms. The document uses sophisticated formatting with a professional color palette, clear hierarchy, and consulting-grade polish suitable for board presentation.
@@ -101,11 +113,19 @@ The policy includes the following sections: Governance Framework, Data Privacy &
 
 The implementation workbook includes: use case requests, risk assessment, training tracker, vendor evaluation, compliance monitoring, and exception logs.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Develop staff training materials
 
 Provide staff with a high level understanding of the AI policy and pull out information that is most important to them.
 
 Create training slides and handouts covering: policy highlights, practical examples relevant to our work, common scenarios staff will encounter, and clear decision trees for when to use AI versus when to escalate to human judgment.
+
+
+
+Open in Claude
 
 ### Add board presentation deck
 
@@ -113,11 +133,21 @@ Create a PowerPoint presentation to introduce this policy to the board.
 
 Create a PowerPoint presentation I can use to introduce this policy to our board. Focus on: why AI governance matters for nonprofits serving vulnerable populations, key policy provisions and rationale, implementation timeline, how this protects our mission, and how we'll measure compliance.
 
+
+
+Open in Claude
+
 ### Develop donor communication strategy
 
 Draft messaging for donors explaining your approach to AI.
 
 Help me draft messaging for donors explaining our approach to AI - emphasizing data protection, ethical use, and mission alignment. Include language for annual reports, website FAQs, and responses to direct questions.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Review jurisdiction-specific legal requirements
 
@@ -138,6 +168,8 @@ The AI landscape changes rapidly. The policy includes an annual review schedule,
 ### Start with approved use cases before restrictions
 
 When presenting to staff, lead with what they can do with AI tools (donor communications, grant research, administrative tasks) before covering restrictions. This frames the policy as enabling responsible use rather than just limiting behavior. Claude can help you reorder sections if the default structure feels too restrictive.
+
+## 6. Ready to try for yourself?
 
 Create a framework that protects your mission, respects your community, and enables your team to use AI responsibly and effectively.
 

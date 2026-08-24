@@ -75,6 +75,8 @@ In **Customize → Plugins**, open **Claude for Small Business** and click **Cus
 
 Customize the "smb-complete" plugin for me based on my company.
 
+
+
 Open in Cowork
 
 Claude asks about your business — what you do, who works with you, what's hardest right now — and rewrites the plugin's defaults to match. From then on, the skills carry your context: your industry, your team size, your priorities, the way you like things done.
@@ -122,6 +124,8 @@ For a step-by-step walkthrough of four of these — payroll, the month-end close
 Take one job from your week, one where you already know roughly what the answer should look like, and describe it in the Cowork chat bar the way you'd hand it to a person:
 
 Which invoices are overdue, and which ones should I follow up on first?
+
+
 
 Open in Cowork
 

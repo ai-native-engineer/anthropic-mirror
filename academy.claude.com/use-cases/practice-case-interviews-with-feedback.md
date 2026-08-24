@@ -2,6 +2,8 @@
 
 ![Practice case interviews with feedback result](https://academy.claude.com/assets/v1/practice-case-interviews-with-feedback-jcm7a9ka.png)
 
+## 1. Describe the task
+
 Claude's ability to extract data from case materials, build financial models, and analyze your work allows you to practice cases and receive feedback. Let Claude take care of repetitive data entry and spreadsheet organization, so you can focus on the strategic thinking.
 
 Upload your practice case study and tell Claude what you're working toward, whether that's interview prep, skill development, or learning proven frameworks.
@@ -10,7 +12,15 @@ I'm practicing for consulting interviews. Set up this practice scenario for me�
 
 After I finish my analysis and write my recommendation, I'll share it for feedback. Review it like a senior partner would: check my numbers, evaluate my logic, and tell me specifically what needs improvement.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 To receive tailored practice materials, provide Claude with your case materials for context.
+
+### Required context
 
 Upload your practice study files so that Claude can analyze the case, find relevant data points, and build the tools you need to practice effectively.
 
@@ -25,6 +35,8 @@ Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/arti
 [
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+
+## 3. What Claude creates
 
 Claude builds a complete practice environment: a spreadsheet model with extracted data and analytical frameworks, plus structured guidance on what to analyze and how to approach your recommendation.
 
@@ -62,11 +74,19 @@ Work through your analysis using the Excel model—test scenarios, identify patt
 
 I'll look for: analytical rigor, logical structure, data usage, strategic insight, and practical implementability.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Compare your approach to alternative solutions
 
 Ask Claude to describe other valid approaches so you can understand new ways to solve the same case. This helps to identify gaps in your methodology and expand your analytical toolkit.
 
 What would a different but equally strong approach look like? Show me an alternative analytical path I could have taken.
+
+
+
+Open in Claude
 
 ### Dive deeper into certain frameworks
 
@@ -74,11 +94,21 @@ Learn specific analytical techniques and how to apply them effectively when bein
 
 Walk me through how to use a profitability tree for this case. What should I be calculating at each branch? Show me what insights I'm looking for at each level.
 
+
+
+Open in Claude
+
 ### Request a review on your work
 
 Get specific feedback on logical gaps, weak conclusions, or missing analysis before you finalize your recommendation.
 
 Here's my draft recommendation for the restaurant expansion case: [paste your analysis]. Is my logic sound? What assumptions am I making that I haven't tested? What would make this recommendation stronger?
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Practice different case types
 
@@ -91,6 +121,8 @@ Create a "Case Practice" [Project(opens in new tab)](https://support.claude.com/
 ### Enable Extended Thinking for detailed reviews
 
 When you want thorough feedback on a complex recommendation, turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research) before asking. You get deeper analysis of your logic and more nuanced suggestions.
+
+## 6. Ready to try for yourself?
 
 Whether you're preparing for interviews at top consulting firms or simply building your strategic problem-solving muscles, the best way to improve is to practice with feedback. Upload a case PDF and start.
 

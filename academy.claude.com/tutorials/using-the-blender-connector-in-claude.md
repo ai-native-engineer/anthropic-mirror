@@ -45,6 +45,8 @@ Your scene has objects, collections, and materials with default or misleading na
 
 Look at the open scene and rename the data blocks so each name matches what it contains. Flag any names that are misleading, like a collection called "rocks" that only contains pebble meshes.
 
+
+
 Open in Cowork
 
 #### **Understand a complex setup you didn't build**
@@ -52,6 +54,8 @@ Look at the open scene and rename the data blocks so each name matches what it c
 You've opened a .blend file from the community and want to understand how its Geometry Nodes tree works before you change anything.
 
 Walk through the Geometry Nodes modifier on the active object. Explain what each node group does in the order data flows through them, and write your notes as frame labels inside the node editor so the explanation is saved in the file.
+
+
 
 Open in Cowork
 
@@ -61,6 +65,8 @@ You want to change or delete something but aren't sure what else in the file dep
 
 List everything in this file that uses the "Glass\_Tinted" material, including objects, node groups, and Geometry Nodes setups. Tell me what would break if I removed it.
 
+
+
 Open in Cowork
 
 #### **Find the heaviest objects in a scene**
@@ -68,6 +74,8 @@ List everything in this file that uses the "Glass\_Tinted" material, including o
 Render times are long and you want to know where the polygon budget is going relative to what's visible on screen.
 
 For each mesh in the scene, report its polygon count alongside how large it appears in the active camera's final render. Sort by polygon count and flag anything that's heavy but small on screen.
+
+
 
 Open in Cowork
 

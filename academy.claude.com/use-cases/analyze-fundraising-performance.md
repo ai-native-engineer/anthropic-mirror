@@ -2,6 +2,8 @@
 
 ![Analyze fundraising performance result](https://academy.claude.com/assets/v1/analyze-fundraising-performance-9pbg139x.png)
 
+## 1. Describe the task
+
 Claude can analyze fundraising data across all your channels to identify which investments deliver the strongest returns, enabling you to allocate resources based on evidence rather than intuition.
 
 Tell Claude about your fundraising channels, provide your performance data, and describe what insights you need to inform how you maximize your time and resources.
@@ -29,6 +31,14 @@ I'm uploading our fundraising data from the past two years, broken down by chann
 
 **Design requirements:** Make an extreme effort on visual quality—premium formatting, sophisticated color palette (not Excel defaults), consulting-grade typography, conditional formatting, data bars, color scales, frozen panes, and filters. Every element should look intentional and polished and include professional charts/graphs showing channel comparisons and performance trends.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
+### Required context
+
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can reason through your data patterns, identify non-obvious insights across multiple variables, and build a sophisticated analysis workbook with proper structure and formulas.
 
 If you track your fundraising data in platforms like [Microsoft 365(opens in new tab)](https://www.claude.com/connectors/microsoft-365), Benevity, or Blackbaud, connect the relevant MCP connector to pull current performance data directly. This eliminates manual exports and ensures Claude analyzes your most up-to-date information.
@@ -51,6 +61,8 @@ Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/artic
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
+## 3. What Claude creates
+
 Claude produces a comprehensive Excel workbook with multiple interconnected sheets featuring sophisticated visual design and advanced analytical features.
 
 The workbook includes:
@@ -63,11 +75,19 @@ The workbook includes:
 
 **Event Performance:** Event-specific tracking showing individual event ROI, attendee metrics, cost per attendee, revenue per attendee, and staff hour investments for all major galas, community events, and donor gatherings. Enables comparison across event types to identify which formats deliver strongest returns.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Deeper Event Analysis
 
 Better understand one form of fundraising in order to make data-driven decisions.
 
 I want to compare our gala events vs. community events vs. small donor gatherings more systematically. Create an analysis showing average ROI, cost structure breakdown, revenue potential, and donor retention by event type. Help me decide which event categories to expand and which to reduce. Make it visually compelling with charts.
+
+
+
+Open in Claude
 
 ### Add an Executive Briefing Document
 
@@ -75,11 +95,21 @@ Synthesize analysis to build transparency and gain buy-in.
 
 Create a polished 2-page Word document pulling the key findings from this analysis. Focus on the three biggest opportunities for improving ROI, the dollar impact of recommended changes, and specific action items with timeline. Use sophisticated document design—think McKinsey deliverable quality with professional typography, strategic use of color, and data visualization elements. This goes directly to our board.
 
+
+
+Open in Claude
+
 ### Build in donor lifetime value analysis
 
 Understand the impact of different investment models by building out value analysis.
 
 Build a forecasting model for next fiscal year based on the ROI patterns you've identified. Show me projected revenue by channel if we implement your reallocation recommendations, with quarterly targets, variance tracking, and confidence intervals. Include scenario toggles so I can model different investment levels.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Design language in prompts drives visual quality
 
@@ -92,6 +122,8 @@ Claude excels at analyzing patterns and structuring analysis, but always verify 
 ### Create a skill for recurring analysis
 
 Once you refine this analysis approach, turn it into a reusable skill. Include your data structure preferences, key metrics you track, visual design requirements, and the specific insights your board needs. Then trigger this analysis quarterly or semi-annually by uploading new data—Claude applies the same sophisticated analytical framework automatically without rebuilding from scratch.
+
+## 6. Ready to try for yourself?
 
 Gather your fundraising data by channel and let Claude transform it into strategic insights with presentation-quality design. Open your analysis, review the recommendations, and start optimizing your fundraising portfolio based on evidence rather than intuition.
 

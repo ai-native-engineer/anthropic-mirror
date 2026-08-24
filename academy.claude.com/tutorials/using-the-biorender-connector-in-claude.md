@@ -58,10 +58,22 @@ Technical details of the BioRender integration can be found in [BioRender’s MC
 
 I'm working on a figure for a grant proposal about chimeric CAR T cell therapy targeting solid tumors. I need two panels: 1. T cells engineered with chimeric antigen receptors 2. CAR T cells mediate cancer cell death. Can you help me find templates that show CAR T cells receptors and CAR T cells trafficking and targeting cancer cells?
 
+
+
+Open in Claude
+
 * **Journal figures & graphical abstracts** - use the text of your paper’s key findings to get template and icon suggestions for creating publication visuals
 
 I need to create a graphical abstract about CRISPR-Cas9 gene editing in plant cells. I want to show the Cas9 protein, guide RNA, DNA double-strand break, and the DNA repair process. Can you find me templates for CRISPR mechanisms and plant cell structures?
 
+
+
+Open in Claude
+
 * **Presentations for conferences & internal lab meetings** - describe your experimental workflow or steps to get icon and template recommendations for use in internal lab teams meetings and for creating presentations and posters for use at conferences
 
 I need to explain the experimental workflow for protein crystallization during a presentation. Can you find templates showing the process, including protein expression and purification, protein crystallization, and X-ray diffraction?
+
+
+
+Open in Claude

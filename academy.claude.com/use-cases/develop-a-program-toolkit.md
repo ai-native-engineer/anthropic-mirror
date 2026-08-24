@@ -2,6 +2,8 @@
 
 ![Develop a program toolkit result](https://academy.claude.com/assets/v1/develop-a-program-toolkit-kqxssobc.png)
 
+## 1. Describe the task
+
 Claude's ability to synthesize program logic and create structured frameworks, combined with your expertise, lets you rapidly develop comprehensive program documentation that typically requires significant coordination and synthesis.
 
 I'm designing a tech workforce preparation program for young adults ages 18-26 from underserved Detroit communities. We'll serve 120 participants annually, helping them prepare for entry-level IT careers.
@@ -17,7 +19,15 @@ Create a **comprehensive program design toolkit** in Excel with: program descrip
 
 Make this consulting-grade with premium formatting, sophisticated design, and advanced Excel features. Use a professional color scheme—avoid default Excel colors.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) helps Claude develop more sophisticated program frameworks by planning structure, considering implementation challenges, and testing logic connections before building the toolkit.
+
+### Required context
 
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) in the conversation settings before starting. This gives Claude space to think through your program's theory of change, identify potential evaluation challenges, and design a comprehensive framework that anticipates real world implementation needs. The extra reasoning time produces significantly more thoughtful program logic and strategic recommendations.
 
@@ -30,6 +40,8 @@ Provide Claude with information on your Theory of Change Model or share document
 
 
 Program Logic Model and Impact FrameworkPDF
+
+## 3. What Claude creates
 
 Claude generates a multi-sheet Excel workbook that serves as your complete program planning resource. Each sheet functions as a standalone tool while connecting to create an integrated framework.
 
@@ -47,11 +59,19 @@ Sheet 5: Evaluation Framework Comprehensive measurement plan with 12 outcome ind
 
 Sheet 6: Resource Planning Detailed breakdown including staffing and operating budget.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Create implementation timeline
 
 Use this to create an implementation timeline that can be leveraged to get the program off the ground.
 
 Add a new sheet with a detailed implementation timeline. Break down the first year into phases: planning/partnership development, staff hiring and training, participant recruitment, program launch, and ongoing operations. Include key milestones, dependencies, and decision points. Use Gantt-style visual formatting.
+
+
+
+Open in Claude
 
 ### Create external facing program materials
 
@@ -62,11 +82,21 @@ Using the program design toolkit, create external-facing materials to recruit pa
 1. A one-page program overview for potential participants explaining what TechBridge offers, eligibility, benefits, and how to apply—make it visually appealing and accessible for young adults.
 2. An FAQ document addressing common questions from participants, employers, and funders about program structure, expectations, costs, and outcomes.
 
+
+
+Open in Claude
+
 ### Build data tracking system
 
 Ensure you have proper measurement in place to track progress towards outcomes.
 
 Design a participant tracking sheet that connects to the evaluation framework. Include fields for intake data, training progress, certification completion, job placement details, and retention milestones. Add dropdown menus for status tracking and automatic calculations showing progress toward outcome targets.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Open the actual Excel file to see the full sophistication
 
@@ -83,6 +113,8 @@ After reviewing the file, refine specific elements: "Make the logic model more v
 ### Use integrated approaches for consistency
 
 Most people create program planning documents separately and struggle with consistency. This integrated approach ensures your logic model aligns with your evaluation plan, your resources match your activities, and your SWOT drives strategic decisions. Everything connects. When you update one element, related sections stay coherent because they're in one framework.
+
+## 6. Ready to try for yourself?
 
 Whether you're launching a workforce reentry program, building an apprenticeship pipeline, or designing skills training for career changers, a well-structured planning toolkit transforms abstract ideas into actionable frameworks that guide implementation and demonstrate impact to funders.
 

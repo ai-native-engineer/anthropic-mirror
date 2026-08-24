@@ -2,6 +2,8 @@
 
 ![Build interactive diagram tools result](https://academy.claude.com/assets/v1/build-interactive-diagram-tools-dbg1inft.png)[Open artifact](https://claude.ai/public/artifacts/f83ae1ec-6136-4b37-a502-4405235ebb05)
 
+## 1. Describe the task
+
 Claude can build interactive tools that let you engage with material directly, whether that's anatomy, chemistry diagrams, or historical timelines. The precision of your prompt shapes the sophistication of the result.
 
 Describe the experience you want: what you're learning, how you want to interact with it, where the data comes from, and your aesthetic standards. Think of your prompt as a design brief.
@@ -16,7 +18,15 @@ Build an **interactive anatomy explorer** using @ebi-gene-expression-group/anato
 
 Add tabbed information panels, physical-feeling sound feedback, and content rich enough to actually learn from. Build to flagship quality from the start—I'll iterate until this is exceptional.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 The prompt above supplies its own context: the data source (the anatomogram package with its UBERON IDs), the interaction model (hover, click, tabbed body systems), and the design standard (premium medical reference, warm colors, serif headings). Claude builds from exactly what you pin down, so each of those choices shows up in the result.
+
+### Required context
 
 Artifacts are standalone, interactive outputs that Claude creates in a dedicated window alongside your conversation. When you ask for an interactive tool like this anatomy explorer, Claude typically builds it as an artifact automatically, rendered and ready to use.
 
@@ -27,6 +37,8 @@ For complex multi-component apps, turn on [Extended Thinking(opens in new tab)](
 [
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+
+## 3. What Claude creates
 
 Claude builds a fully functional React application with the visual design, interaction patterns, and educational content you specified, ready to use immediately in the artifact viewer.
 
@@ -54,11 +66,19 @@ Subtle audio feedback on hover and selection. Soft clicks and tones that feel ph
 
 Warm beige background, terracotta and slate accents, no harsh colors. Playfair Display for headings, Inter for body text, IBM Plex Mono for data. Generous whitespace, no visual clutter.
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Add self-testing
 
 Layer in more functionality, like an active learning mode that reinforces retention.
 
 Add a quiz mode where I'm shown a description or function and have to identify the correct structure. Track my accuracy and show which systems I struggle with.
+
+
+
+Open in Claude
 
 ### Add advanced features
 
@@ -66,11 +86,21 @@ Ask Claude to expand anatomical detail where you want more granularity.
 
 Add more body systems to the diagram. Also make the brain view more detailed.
 
+
+
+Open in Claude
+
 ### Generate companion materials from the same session
 
 Continue learning from different mediums. The app and study materials can share a source of truth.
 
 From the anatomical data in this explorer, generate a printable PDF study guide with the same structures organized by system, plus a set of Anki-compatible flashcards I can import. Keep the terminology and clinical correlations consistent with what's in the app.
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Paste errors directly into chat
 
@@ -91,6 +121,8 @@ The anatomogram package supplies the accurate illustrations, but Claude writes t
 ### Add sources to make it yours
 
 Opus 4.5's context window handles substantial material. If you have a textbook chapter, lecture notes, or syllabus you want the app to cover, paste the whole thing rather than summarizing. Claude extracts structure and prioritizes content more effectively from complete sources than from your condensed version.
+
+## 6. Ready to try for yourself?
 
 Pick something you've been meaning to understand. Claude builds the tool; you do the learning.
 

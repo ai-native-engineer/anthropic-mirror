@@ -17,6 +17,10 @@ Use this simple prompt to test that the API embedded in the artifact is working 
 
 Create a simple chatbot that uses Claude. Respond with compliments to every user input.
 
+
+
+Open in Claude
+
 What you’ll see if you try this prompt, is that Claude will create a “compliment bot” where users can input anything and receive LLM-powered compliments in return!
 
 ## Inspiration for your first AI artifact

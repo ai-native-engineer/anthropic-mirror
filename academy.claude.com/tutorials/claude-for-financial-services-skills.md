@@ -133,6 +133,10 @@ Pick a company you cover or know well and ask for a comps analysis. Name the ski
 
 Build a comps analysis for [a company you know well] with five public peers. Include valuation multiples and operating metrics for each peer, and a short write-up of the peer selection rationale. Please use the comps analysis skill.
 
+
+
+Open in Claude
+
 When the spreadsheet comes back, check it the way you would check a first draft from a new analyst. Trace two or three of the multiples back to the underlying fundamentals, and read the peer selection rationale against the set you would have chosen yourself. Expect to adjust the first pass: a peer you would swap out or an assumption you would set differently is normal, because the Skill produces the draft and the judgment stays yours. If something doesn’t tie out, point it out and ask Claude to revise.
 
 ## Best Practices

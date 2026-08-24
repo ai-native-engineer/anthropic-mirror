@@ -2,6 +2,8 @@
 
 ![Organize your business finances result](https://academy.claude.com/assets/v1/organize-your-business-finances-j0fvwk2s.png)
 
+## 1. Describe the task
+
 Claude can create spreadsheets tailored to your needs, applying the right features for your specific situation.
 
 Tell Claude about your freelance business and the metrics that matter. Provide your invoice data—even if it's incomplete or messy—and ask for a dashboard that helps you make smarter business decisions.
@@ -12,7 +14,15 @@ Can you create a cleaner version with a dashboard that shows my total income, br
 
 Make this a sophisticated financial dashboard with a "quiet luxury", editorial aesthetic—muted sage green accent, abundant whitespace, restrained typography. You may need to write a Python script using xlsxwriter to get the sparklines and advanced features working.
 
+
+
+Open in Claude
+
+## 2. Give Claude context
+
 Give Claude your business records, like invoice information, so Claude can analyze and organize your information and then add spreadsheet features that make understanding your data easy.
+
+### Required context
 
 Upload your spreadsheet or CSV file with your invoice data.
 Click the (+) in the chat bar settings to browse through your files, or alternatively, drag and drop your files into the chat box area.
@@ -28,6 +38,8 @@ Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/arti
 [
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+
+## 3. What Claude creates
 
 Claude organizes your data and adds spreadsheet features—filters, frozen headers, trend charts, and formatting—that make it functional and easy to use.
 
@@ -45,17 +57,31 @@ The quarterly breakdown lets you see client trends at a glance—Venture Design 
 
 **View your dashboard**
 
+## 4. Follow up prompts
+
+Continue the conversation with Claude to refine, expand, or explore further.
+
 ### Ask for additions and revisions
 
 After seeing the dashboard, you can request improvements, like calculations, additional tabs, new features, without starting from scratch.
 
 Can you add a column showing how many days it's been since each invoice? I want to see which pending payments are getting old.
 
+
+
+Open in Claude
+
 ### Update with new data
 
 Upload new invoice records along with your dashboard file and Claude will update it with the latest data while keeping the same formatting and features.
 
 Here's my dashboard from last month and my new December invoices. Can you add the new data and update the monthly totals?
+
+
+
+Open in Claude
+
+## 5. Tricks, tips, and troubleshooting
 
 ### Download the file to see all the features
 
@@ -68,6 +94,8 @@ Certain advanced features require Claude to use software packages, which are lik
 ### Upload data as-is
 
 Claude can work with messy data and handle inconsistent date formats, blank rows, notes in cells, and mixed formatting. If you've been tracking invoices in whatever way worked for you, upload that. Claude organizes it during the process, so focus on making sure you have all your records rather than formatting them perfectly beforehand.
+
+## 6. Ready to try for yourself?
 
 Claude can help you organize your data and create spreadsheets that fit how you work. Whether it's invoices, expenses, or project tracking, Claude can create files with features that make sense for your specific situation.
 

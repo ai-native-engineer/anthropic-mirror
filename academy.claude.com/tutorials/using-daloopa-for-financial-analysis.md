@@ -50,6 +50,10 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Using Daloopa, compare cash-on-cash returns for CAVA, SHAK, and CMG over the last 8 quarters. Include both the absolute values and quarter-over quarter growth rates to identify which company is improving operational efficiency fastest.
 
+
+
+Open in Claude
+
 **When to use:** Evaluating relative performance across peer companies for investment decisions or competitive analysis.
 
 **Tip:** Specify 3-10 companies with clear metrics for manageable output that fits well in tables or charts.
@@ -57,6 +61,10 @@ Using Daloopa, compare cash-on-cash returns for CAVA, SHAK, and CMG over the las
 ### Time Series Analysis
 
 Pull revenue and gross margin trends for MSFT from Q1 2023 to Q1 2025. Show both the quarterly values and calculate the year-over-year growth rates for each quarter.
+
+
+
+Open in Claude
 
 **When to use:** Tracking company performance over time to identify trends, seasonality, or inflection points.
 
@@ -66,6 +74,10 @@ Pull revenue and gross margin trends for MSFT from Q1 2023 to Q1 2025. Show both
 
 Show me non-GAAP gross margins for top analog semiconductor companies. Focus on AMD, NVDA, INTC, AVGO, and QCOM to understand margin profiles in the sector.
 
+
+
+Open in Claude
+
 **When to use:** Comparing operational efficiency metrics across companies in the same industry.
 
 **Note:** Focus on 2-5 specific KPIs at a time for clarity in analysis.
@@ -74,6 +86,10 @@ Show me non-GAAP gross margins for top analog semiconductor companies. Focus on 
 
 What changed most materially in Apple's latest quarter versus prior quarter? Focus on revenue, operating margin, and free cash flow changes.
 
+
+
+Open in Claude
+
 **When to use:** Understanding momentum and recent changes in company performance, particularly useful right after earnings releases.
 
 **Works well with:** Recent 2-4 reporting periods for focused analysis.
@@ -81,6 +97,10 @@ What changed most materially in Apple's latest quarter versus prior quarter? Foc
 ## Post-Earnings Analysis
 
 Microsoft just reported earnings yesterday - pull their Q4 2024 results and compare them to both the prior quarter (Q3 2024) and year-ago quarter (Q4 2023). Include revenue by segment, operating margins, and any operational metrics like Azure growth or Office 365 subscribers that are available.
+
+
+
+Open in Claude
 
 **When to use:** Immediately after a company reports earnings to quickly assess performance against multiple comparison periods.
 
@@ -91,6 +111,10 @@ Microsoft just reported earnings yesterday - pull their Q4 2024 results and comp
 ## Discovering Available Metrics
 
 I'm analyzing Spotify (SPOT) and need to understand their key business metrics beyond standard financials. Search Daloopa for all available metrics related to subscribers, ARPU, content costs, and any other operational KPIs they report for the last 8 quarters.
+
+
+
+Open in Claude
 
 **When to use:** Beginning analysis on an unfamiliar company or sector where you need to understand what unique metrics are tracked.
 
